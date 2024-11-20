@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import { Layout } from './Layout';
-import { Home } from './pages';
-import { SettingsProvider } from './context';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Layout } from "./Layout";
+import { Home } from "./pages";
+import { SettingsProvider } from "./context";
 
 function App() {
   return (
@@ -14,7 +14,6 @@ function App() {
           </Routes>
         </Layout>
       </SettingsProvider>
-
     </Router>
   );
 }

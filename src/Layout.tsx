@@ -1,29 +1,32 @@
-import React from 'react';
-import { Footer, Header, Navigator } from './components';
+import React from "react";
+import { Footer, Header, Navigator } from "./components";
 
 type LayoutProps = {
-    children: React.ReactNode;
-}
+  children: React.ReactNode;
+};
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
-    return (
-        <div style={layoutStyle}>
-            <Header />
-            <Navigator />
-            <main style={contentStyle}>{children}</main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div style={layoutStyle}>
+      <Header />
+      <Navigator />
+      <main style={contentStyle}>{children}</main>
+      <Footer />
+    </div>
+  );
 };
 
 const layoutStyle: React.CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
 };
 
 const contentStyle: React.CSSProperties = {
-    flex: 1,
-    padding: '1rem',
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  padding: "1rem",
+  boxSizing: "border-box",
 };
-
