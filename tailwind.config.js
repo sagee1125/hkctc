@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: '#242A31',
         newPrimary: '#203136',
         secondary: '#74C82F',
         reliableBlue: "#366ABC",
@@ -13,8 +14,9 @@ module.exports = {
         growthfulGreen: "#157B3E",
         innovativeGreen: "#74C82F",
         energeticOrange: "#EE9C22",
+        lightGrey: '#F2F2EF',
         // TODO temp
-        primary: '#3498db',
+
         background: '#f4f4f9',
         text: '#333333',
         highlight: '#f39c12',

@@ -86,12 +86,12 @@ export const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className="bg-newPrimary h-[360px] text-white p-8">
+      <div className="bg-primary h-[360px] text-white p-8">
         <div className="grid grid-cols-[3fr,3fr,5fr,5fr] gap-4">
           {footerData.map((col, index) => (
             <div key={index} className="flex flex-col">
               <b className="text-2xl text-bold ml-1">{col.title}</b>
-              <hr className="bg-secondary w-[77px] h-[4px] my-4 ml-1" />
+              <hr className="bg-white w-[77px] h-[4px] my-4 ml-1" />
               {col.subs.map((sub, index) => (
                 <div
                   key={index}
@@ -108,8 +108,9 @@ export const Footer: React.FC = () => {
           ))}
           <div>
             <img
-              src={process.env.PUBLIC_URL + "/assets/icons/footer_logo.svg"}
+              src={process.env.PUBLIC_URL + "/assets/images/hkctc_logo.svg"}
               alt="Footer Logo"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>
         </div>

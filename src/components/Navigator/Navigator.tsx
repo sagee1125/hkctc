@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
 
 type NavData = {
   title: string;
+  showSidebar: boolean;
   items: NavItems[];
 };
 
@@ -18,15 +19,20 @@ type SubItems = {
 };
 
 export const Navigator: React.FC = () => {
-  //   const [activeIndex, setActiveIndex] = useState<number | null>(1);
-  const activeIndex = 1;
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeSubItem, setActiveSubItem] = useState<string>('');
+  const navRef = useRef<HTMLDivElement | null>(null);
+
+
   const navData: NavData[] = [
     {
       title: "About Us",
+      showSidebar: false,
       items: [],
     },
     {
       title: "T&C Sector",
+      showSidebar: true,
       items: [
         {
           name: "Introducing the Testing and Certificate sector, and what service we can provide",
@@ -62,83 +68,39 @@ export const Navigator: React.FC = () => {
     },
     {
       title: "Support",
+      showSidebar: false,
       items: [
         {
           name: "Events",
           subItems: [
             {
-              subTitle: "T&C Manpower Development Award Scheme",
-              imgUrl: "nav_event_1.svg",
+              subTitle: "HKCTC Exhibition Programme",
+              imgUrl: "nav_event_2_1.png",
               navUrl: "",
             },
             {
-              subTitle: "Seminars and Workshops",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Funding Schemes",
+              imgUrl: "nav_event_2_2.png",
               navUrl: "",
             },
             {
-              subTitle: "Student Competitions",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Publications",
-          subItems: [
-            {
-              subTitle: "HKCTC Newsletter",
-              imgUrl: "nav_event_1.svg",
+              subTitle: "Testing and Certification Sector Job Creation Scheme (TCJS)",
+              imgUrl: "nav_event_2_3.png",
               navUrl: "",
             },
             {
-              subTitle: "Pamphlets And Booklets",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Accommodation and Land",
+              imgUrl: "nav_event_2_4.png",
               navUrl: "",
             },
             {
-              subTitle: "Comics",
-              imgUrl: "nav_event_3.svg",
+              subTitle: "Entering into the Mainland Market",
+              imgUrl: "nav_event_2_5.png",
               navUrl: "",
             },
             {
-              subTitle: "Corruption Prevention Guide for T&C Industry",
-              imgUrl: "nav_event_2.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Other Useful Information",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Reports",
-          subItems: [
-            {
-              subTitle: "HKCTC Reports",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Legislative Council Papers",
-              imgUrl: "nav_event_2.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "News and Videos",
-          subItems: [
-            {
-              subTitle: "Press Releases",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Videos",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Other Support",
+              imgUrl: "nav_event_2_6.png",
               navUrl: "",
             },
           ],
@@ -147,83 +109,64 @@ export const Navigator: React.FC = () => {
     },
     {
       title: "Career & Education",
+      showSidebar: true,
       items: [
         {
-          name: "Events",
+          name: "Careers",
           subItems: [
             {
-              subTitle: "T&C Manpower Development Award Scheme",
-              imgUrl: "nav_event_1.svg",
+              subTitle: "Career Development",
+              imgUrl: "Career_Development.png",
               navUrl: "",
             },
             {
-              subTitle: "Seminars and Workshops",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Career Opportunities",
+              imgUrl: "Career_Opportunities.png",
               navUrl: "",
             },
             {
-              subTitle: "Student Competitions",
-              imgUrl: "nav_event_3.svg",
+              subTitle: "Other Professional Schemes",
+              imgUrl: "Other_Professional_Schemes.png",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
           ],
         },
         {
-          name: "Publications",
+          name: "Education & Training",
           subItems: [
             {
-              subTitle: "HKCTC Newsletter",
-              imgUrl: "nav_event_1.svg",
+              subTitle: "Programmes and Courses",
+              imgUrl: "Programmes_and_Courses.png",
               navUrl: "",
             },
             {
-              subTitle: "Pamphlets And Booklets",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Learning and Teaching Resources",
+              imgUrl: "Learning_and_Teaching_Resources.png",
               navUrl: "",
             },
             {
-              subTitle: "Comics",
-              imgUrl: "nav_event_3.svg",
+              subTitle: "Qualifications Framework",
+              imgUrl: "Qualifications_Framework.png",
               navUrl: "",
             },
             {
-              subTitle: "Corruption Prevention Guide for T&C Industry",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
             {
-              subTitle: "Other Useful Information",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Reports",
-          subItems: [
-            {
-              subTitle: "HKCTC Reports",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Legislative Council Papers",
-              imgUrl: "nav_event_2.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "News and Videos",
-          subItems: [
-            {
-              subTitle: "Press Releases",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Videos",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
           ],
@@ -232,13 +175,14 @@ export const Navigator: React.FC = () => {
     },
     {
       title: "Events & Promotions",
+      showSidebar: true,
       items: [
         {
           name: "Events",
           subItems: [
             {
               subTitle: "T&C Manpower Development Award Scheme",
-              imgUrl: "nav_event_1.svg",
+              imgUrl: "Manpower_Development.png",
               navUrl: "",
             },
             {
@@ -249,6 +193,16 @@ export const Navigator: React.FC = () => {
             {
               subTitle: "Student Competitions",
               imgUrl: "nav_event_3.svg",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
           ],
@@ -292,8 +246,23 @@ export const Navigator: React.FC = () => {
               navUrl: "",
             },
             {
-              subTitle: "Legislative Council Papers",
-              imgUrl: "nav_event_2.svg",
+              subTitle: "Legislative Council Papers ",
+              imgUrl: "nav_event_3.svg",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
           ],
@@ -307,8 +276,23 @@ export const Navigator: React.FC = () => {
               navUrl: "",
             },
             {
+              subTitle: "Advertorials",
+              imgUrl: "nav_event_3.svg",
+              navUrl: "",
+            },
+            {
               subTitle: "Videos",
-              imgUrl: "nav_event_2.svg",
+              imgUrl: "nav_event_3.svg",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
+              navUrl: "",
+            },
+            {
+              subTitle: "",
+              imgUrl: "",
               navUrl: "",
             },
           ],
@@ -317,18 +301,35 @@ export const Navigator: React.FC = () => {
     },
     {
       title: "What's new",
+      showSidebar: false,
       items: [],
     },
   ];
 
-  const navItems = navData[activeIndex]?.items;
-  //   const isHideDropdown = activeIndex === null ? true : !navItems.length;
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setActiveIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const navItems = activeIndex ? navData[activeIndex]?.items : []; // sidebar in dropdown nav
+  const showSidebar = activeIndex ? navData[activeIndex]?.showSidebar : false;
+  const isHideDropdown = activeIndex === null ? true : !navItems.length;
 
   const sideItemRows = navItems?.length;
-
+  console.log('sideItemRows', sideItemRows)
+  console.log("navItems", navItems)
   return (
-    <nav>
-      <div style={navStyle}>
+    <nav ref={navRef}>
+      <div style={navStyle} >
         <div className="h-full flex items-center">
           <img src={process.env.PUBLIC_URL + "/assets/images/hkctc_logo.svg"} />
         </div>
@@ -340,10 +341,12 @@ export const Navigator: React.FC = () => {
               <div
                 key={index}
                 className="flex flex-row items-center gap-2 cursor-pointer h-full"
-                // onMouseEnter={() => !ifHideArrow && setActiveIndex(index)}
-                // onMouseLeave={() => setActiveIndex(null)}
+                onClick={() => {
+                  setActiveIndex(index)
+                  setActiveSubItem(navData[index]?.items?.[0]?.name ?? '')
+                }}
               >
-                <p className="font-semibold text-sm">{title}</p>
+                <p className={`text-sm ${activeIndex === index ? 'font-bold' : 'font-semibold'}`}>{title}</p>
                 <Icon
                   icon="oui:arrow-down"
                   className="mt-1"
@@ -359,11 +362,14 @@ export const Navigator: React.FC = () => {
       </div>
 
       <Transition
-        show={true}
-        enter="transition-all duration-300 ease-out"
+        show={!isHideDropdown}
+        enter="transition-all duration-500 ease-out"
         enterFrom="opacity-0 transform scale-90"
         enterTo="opacity-100 transform scale-100"
-        leave="transition-none"
+        leave="transition-all duration-200 ease-in"
+        leaveFrom="opacity-100 transform scale-100"
+        leaveTo="opacity-0 transform scale-90"
+
       >
         <div
           style={{
@@ -372,26 +378,43 @@ export const Navigator: React.FC = () => {
             zIndex: 1000,
           }}
         >
-          <div className="w-full">
+          <div className="w-full mt-4">
             {navItems.map((sideItems, index) => {
-              const { name, subItems } = sideItems;
-              const needSideBarCol: number = sideItemRows > 1 ? 1 : 0;
-              const totalCols = subItems.length + needSideBarCol;
-              console.log("totalCols", totalCols); // 5
+
+              if (activeSubItem !== sideItems.name) return <></>;
+              const { name: currentSideName, subItems } = sideItems;
+
               return (
-                <div key={index} className="flex flex-row w-full">
+                <div key={index} className="flex flex-row w-full gap-4">
+                  {/* sidebar */}
+                  {showSidebar && (
+                    <div className="w-full h-full flex flex-col flex-[6]" >
+                      {navItems.map((sideItem, index) => {
+                        const { name: sideName } = sideItem;
+                        const clicked = sideName === currentSideName;
+                        return (
+                          <div key={index}
+                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked ? 'bg-lightGrey font-bold px-4' : 'hover:bg-gray-100 px-1'
+                              }`} onClick={() => {
+                                setActiveSubItem(sideName)
+                              }}>
+                            {sideName}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
                   {subItems.map((sub, index) => {
                     const { subTitle, imgUrl } = sub;
-                    const itemWidth = `${100 / totalCols}%`;
 
                     return (
                       <div
                         key={index}
-                        className="flex flex-col gap-2"
-                        style={{ width: itemWidth }}
+                        className="flex flex-col gap-2 flex-[5]"
                       >
                         <div className="flex justify-center items-center">
                           <img
+                            className="w-full h-auto max-w-full"
                             src={
                               process.env.PUBLIC_URL +
                               "/assets/images/" +
@@ -400,7 +423,7 @@ export const Navigator: React.FC = () => {
                             alt={subTitle}
                           />
                         </div>
-                        <div className="w-full text-center text-sm">
+                        <div className="w-full text-left text-sm">
                           {subTitle}
                         </div>
                       </div>
@@ -430,14 +453,13 @@ const navStyle: React.CSSProperties = {
 const dropDownStyle: React.CSSProperties = {
   background: "#FFFFFF",
   color: "black",
-  display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "194px",
+  height: "34vh",
   width: "96%",
-  overflow: "hidden",
   borderBottom: "1px solid #E0E0E0",
-  paddingLeft: "2rem",
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
   zIndex: 10,
   borderRadius: "4px",
   boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
