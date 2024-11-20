@@ -12,7 +12,7 @@ export const VideoBox: React.FC = () => {
             <img
                 className="w-full h-auto max-w-full"
                 src={
-                    process.env.PUBLIC_URL +
+                    process.env.REACT_APP_HOST_URL +
                     "/assets/images/Video_Placeholder.png"
                 }
                 alt={'Video Placeholder'}

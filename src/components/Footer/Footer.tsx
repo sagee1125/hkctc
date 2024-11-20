@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
           ))}
           <div>
             <img
-              src={process.env.PUBLIC_URL + "/assets/images/hkctc_logo.svg"}
+              src={process.env.REACT_APP_HOST_URL + "/assets/images/hkctc_logo.svg"}
               alt="Footer Logo"
               style={{ filter: "brightness(0) invert(1)" }}
             />

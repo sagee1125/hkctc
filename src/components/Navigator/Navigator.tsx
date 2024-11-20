@@ -331,7 +331,7 @@ export const Navigator: React.FC = () => {
     <nav ref={navRef}>
       <div style={navStyle} >
         <div className="h-full flex items-center">
-          <img src={process.env.PUBLIC_URL + "/assets/images/hkctc_logo.svg"} />
+          <img src={process.env.REACT_APP_HOST_URL + "/assets/images/hkctc_logo.svg"} />
         </div>
         <div className="flex flex-row gap-8 ml-12 h-full">
           {navData.map((nav, index) => {
