@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
+import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 
 type NavData = {
   title: string;
@@ -20,9 +21,8 @@ type SubItems = {
 
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [activeSubItem, setActiveSubItem] = useState<string>('');
+  const [activeSubItem, setActiveSubItem] = useState<string>("");
   const navRef = useRef<HTMLDivElement | null>(null);
-
 
   const navData: NavData[] = [
     {
@@ -84,7 +84,8 @@ export const Navigator: React.FC = () => {
               navUrl: "",
             },
             {
-              subTitle: "Testing and Certification Sector Job Creation Scheme (TCJS)",
+              subTitle:
+                "Testing and Certification Sector Job Creation Scheme (TCJS)",
               imgUrl: "nav_event_2_3.png",
               navUrl: "",
             },
@@ -325,13 +326,13 @@ export const Navigator: React.FC = () => {
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
 
   const sideItemRows = navItems?.length;
-  console.log('sideItemRows', sideItemRows)
-  console.log("navItems", navItems)
+  console.log("sideItemRows", sideItemRows);
+  console.log("navItems", navItems);
   return (
     <nav ref={navRef}>
-      <div style={navStyle} >
+      <div style={navStyle}>
         <div className="h-full flex items-center">
-          <img src={process.env.REACT_APP_HOST_URL + "/assets/images/hkctc_logo.svg"} />
+          <Logo />
         </div>
         <div className="flex flex-row gap-8 ml-12 h-full">
           {navData.map((nav, index) => {
@@ -342,11 +343,17 @@ export const Navigator: React.FC = () => {
                 key={index}
                 className="flex flex-row items-center gap-2 cursor-pointer h-full"
                 onClick={() => {
-                  setActiveIndex(index)
-                  setActiveSubItem(navData[index]?.items?.[0]?.name ?? '')
+                  setActiveIndex(index);
+                  setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
                 }}
               >
-                <p className={`text-sm ${activeIndex === index ? 'font-bold' : 'font-semibold'}`}>{title}</p>
+                <p
+                  className={`text-sm ${
+                    activeIndex === index ? "font-bold" : "font-semibold"
+                  }`}
+                >
+                  {title}
+                </p>
                 <Icon
                   icon="oui:arrow-down"
                   className="mt-1"
@@ -369,7 +376,6 @@ export const Navigator: React.FC = () => {
         leave="transition-all duration-200 ease-in"
         leaveFrom="opacity-100 transform scale-100"
         leaveTo="opacity-0 transform scale-90"
-
       >
         <div
           style={{
@@ -380,7 +386,6 @@ export const Navigator: React.FC = () => {
         >
           <div className="w-full mt-4">
             {navItems.map((sideItems, index) => {
-
               if (activeSubItem !== sideItems.name) return <></>;
               const { name: currentSideName, subItems } = sideItems;
 
@@ -388,19 +393,25 @@ export const Navigator: React.FC = () => {
                 <div key={index} className="flex flex-row w-full gap-4">
                   {/* sidebar */}
                   {showSidebar && (
-                    <div className="w-full h-full flex flex-col flex-[6]" >
+                    <div className="w-full h-full flex flex-col flex-[6]">
                       {navItems.map((sideItem, index) => {
                         const { name: sideName } = sideItem;
                         const clicked = sideName === currentSideName;
                         return (
-                          <div key={index}
-                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked ? 'bg-lightGrey font-bold px-4' : 'hover:bg-gray-100 px-1'
-                              }`} onClick={() => {
-                                setActiveSubItem(sideName)
-                              }}>
+                          <div
+                            key={index}
+                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${
+                              clicked
+                                ? "bg-lightGrey font-bold px-4"
+                                : "hover:bg-gray-100 px-1"
+                            }`}
+                            onClick={() => {
+                              setActiveSubItem(sideName);
+                            }}
+                          >
                             {sideName}
                           </div>
-                        )
+                        );
                       })}
                     </div>
                   )}
@@ -408,10 +419,7 @@ export const Navigator: React.FC = () => {
                     const { subTitle, imgUrl } = sub;
 
                     return (
-                      <div
-                        key={index}
-                        className="flex flex-col gap-2 flex-[5]"
-                      >
+                      <div key={index} className="flex flex-col gap-2 flex-[5]">
                         <div className="flex justify-center items-center">
                           <img
                             className="w-full h-auto max-w-full"

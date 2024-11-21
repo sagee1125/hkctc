@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 
 type FooterData = {
   title: string;
@@ -106,19 +107,22 @@ export const Footer: React.FC = () => {
               ))}
             </div>
           ))}
-          <div>
-            <img
-              src={process.env.REACT_APP_HOST_URL + "/assets/images/hkctc_logo.svg"}
-              alt="Footer Logo"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
+          <div className="flex flex-col gap-6">
+            <Logo style={{ filter: "brightness(0) invert(1)" }} />
+            <div className="flex flex-row gap-2">
+              <Icon icon="mage:camera-2" className="h-8 w-8 text-white" />
+              <Icon
+                icon="fa6-brands:facebook-f"
+                className="h-7 w-7 text-white"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="bg-black h-[50px] flex px-8 items-center">
         <p className="text-white text-sm">
-          Copyright © 2024 Hong Kong Council for Testing and Certification. All
-          Rights Reserved
+          {`Copyright © 2024 Hong Kong Council for Testing and Certification. All
+          Rights Reserved`}
         </p>
       </div>
     </footer>

@@ -1,0 +1,6 @@
+/* Apply Roboto Flex as the default font globally */
+*,
+*::before,
+*::after {
+  font-family: 'Roboto Flex', sans-serif;
+}

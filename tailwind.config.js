@@ -25,7 +25,26 @@ module.exports = {
         link: '#2980b9',
         border: '#e1e1e1',
       },
+      fontFamily: {
+        'roboto-flex': ['Roboto Flex', 'sans-serif'],
+      },
+      fontSize: {
+        'heading-s': ['16px', { lineHeight: '22px' }],
+        'heading-m': ['18px', { lineHeight: '24px' }],
+        'heading-l': ['24px', { lineHeight: '32px' }],
+        'heading-l-extra': ['28px', { lineHeight: '28px' }],
+        'heading-xl': ['32px', { lineHeight: '32px' }],
+        'heading-xxl': ['40px', { lineHeight: '40px' }],
 
+        'body-s': ['14px', { lineHeight: '20px' }],
+        'italic-s': ['14px', { lineHeight: '20px' }],
+        'body-m': ['16px', { lineHeight: '22px' }],
+        'body-l': ['18px', { lineHeight: '24px' }],
+      },
+      fontWeight: {
+        'light': 300,
+        'italic': 'italic',
+      },
     },
   },
   plugins: [],
