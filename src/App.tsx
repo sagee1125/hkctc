@@ -10,7 +10,7 @@ function App() {
       <SettingsProvider>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/*" element={<Home />} />
           </Routes>
         </Layout>
       </SettingsProvider>
