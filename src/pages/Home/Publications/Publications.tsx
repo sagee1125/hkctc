@@ -242,7 +242,7 @@ export const Publications: React.FC = () => {
                   key={index}
                   className={
                     isActivated
-                      ? "text-heading-s underline underline-offset-8 decoration-3"
+                      ? "text-heading-s underline underline-offset-8 decoration-6"
                       : "text-body-m"
                   }
                   onClick={() => {
@@ -256,7 +256,7 @@ export const Publications: React.FC = () => {
           </div>
         </div>
 
-        <hr className="m-4 pb-2 " />
+        <hr className="m-3 pb-2" />
         <div className="w-full grid grid-cols-2 px-4 gap-6">
           {/* column 1 */}
           <div className="flex flex-col items-center">
@@ -313,6 +313,38 @@ export const Publications: React.FC = () => {
             })}
           </div>
         </div>
+
+        <div className="flex flex-row items-center gap-4 px-2 pt-10">
+          <Icon
+            icon="material-symbols-light:square"
+            style={{ height: "24px", width: "24px" }}
+          />
+          <p className="text-heading-l">Learning Corner</p>
+          <Icon
+            icon="teenyicons:right-outline"
+            style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
+          />
+        </div>
+        <hr className="m-3 pb-2" />
+
+        <div className="w-full grid grid-cols-2 gap-2 px-3">
+          <img
+            className="w-full h-auto"
+            src={
+              process.env.PUBLIC_URL +
+              "/assets/publications/publication_head.png"
+            }
+            alt={"Publication Head"}
+          />
+          <img
+            className="w-full h-auto"
+            src={
+              process.env.PUBLIC_URL +
+              "/assets/publications/publication_head.png"
+            }
+            alt={"Publication Head"}
+          />
+        </div>
       </div>
 
       {/* column 3 */}
@@ -324,7 +356,7 @@ export const Publications: React.FC = () => {
           return (
             <div
               key={index}
-              className={`flex flex-row items-center h-[60px]`}
+              className={`flex flex-row items-center h-[80px]`}
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
               }}
@@ -346,6 +378,52 @@ export const Publications: React.FC = () => {
             </div>
           );
         })}
+
+        <hr className="mt-2" />
+
+        <div className="text-heading-l">Enquires</div>
+        <div className="bg-[#EAEAE5] w-full p-4 flex flex-col gap-4">
+          <div className="text-body-m">
+            Contact Us to know more about Testing and Certificate.
+          </div>
+          <input
+            placeholder="Your Name"
+            className="w-full p-2 resize-none overflow-y-auto"
+            style={{
+              lineHeight: 2,
+              minHeight: "calc(2.5em * 1)",
+              maxHeight: "calc(2.5em * 1)",
+            }}
+          />
+          <input
+            placeholder="Email Address"
+            className="w-full p-2 resize-none overflow-y-auto"
+            style={{
+              lineHeight: 2,
+              minHeight: "calc(2.5em * 1)",
+              maxHeight: "calc(2.5em * 1)",
+            }}
+          />
+          <textarea
+            placeholder="Write down your message"
+            className="w-full p-2 resize-none overflow-y-auto"
+            style={{
+              lineHeight: 1.5,
+              minHeight: "calc(2.5em * 3)",
+              maxHeight: "calc(2.5em * 3)",
+            }}
+          />
+          <button
+            className="w=full text-white p-2"
+            style={{
+              lineHeight: 1.5,
+              background:
+                "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #242A31",
+            }}
+          >
+            Send now
+          </button>
+        </div>
       </div>
     </div>
   );
