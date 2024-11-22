@@ -424,7 +424,7 @@ export const Navigator: React.FC = () => {
                           <img
                             className="w-full h-auto max-w-full"
                             src={
-                              process.env.PUBLIC_URL +
+                              process.env.REACT_APP_HOST_URL +
                               "/assets/images/" +
                               imgUrl
                             }
