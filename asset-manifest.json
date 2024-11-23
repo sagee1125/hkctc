@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/hkctc/static/css/main.bf8de011.css",
-    "main.js": "/hkctc/static/js/main.45b98616.js",
+    "main.css": "/hkctc/static/css/main.d95b4ba8.css",
+    "main.js": "/hkctc/static/js/main.79c8ffed.js",
     "static/js/453.33c7c935.chunk.js": "/hkctc/static/js/453.33c7c935.chunk.js",
     "static/media/report.png": "/hkctc/static/media/report.c1b037a8975ff4195e1c.png",
     "static/media/hkctc_logo.svg": "/hkctc/static/media/hkctc_logo.e18b7c18b3ad8c9620f41ea25311e95a.svg",
     "index.html": "/hkctc/index.html",
-    "main.bf8de011.css.map": "/hkctc/static/css/main.bf8de011.css.map",
-    "main.45b98616.js.map": "/hkctc/static/js/main.45b98616.js.map",
+    "main.d95b4ba8.css.map": "/hkctc/static/css/main.d95b4ba8.css.map",
+    "main.79c8ffed.js.map": "/hkctc/static/js/main.79c8ffed.js.map",
     "453.33c7c935.chunk.js.map": "/hkctc/static/js/453.33c7c935.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf8de011.css",
-    "static/js/main.45b98616.js"
+    "static/css/main.d95b4ba8.css",
+    "static/js/main.79c8ffed.js"
   ]
 }
