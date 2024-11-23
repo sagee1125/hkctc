@@ -378,7 +378,7 @@ export const Publications: React.FC = () => {
                                             className="w-full h-auto max-w-full aspect-[16/10]"
                                             src={
                                                 process.env.PUBLIC_URL +
-                                                `/assets/publications/${imgPath}`
+                                                "/assets/publications/" + imgPath
                                             }
                                             alt={title}
                                         />
