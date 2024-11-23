@@ -16,6 +16,7 @@ module.exports = {
         energeticOrange: "#EE9C22",
         lightGrey: '#F2F2EF',
         grey: "#666666",
+        darkNavy: "#7C7F83",
         // TODO temp
 
         background: '#f4f4f9',

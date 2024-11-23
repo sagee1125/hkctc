@@ -36,12 +36,16 @@ export const VideoBox: React.FC = () => {
       video.load();
       setProgress(0);
 
-      const onCanPlayThrough = () => {
+      const onCanPlayThrough = (): void => {
         video.play();
         video.removeEventListener("canplaythrough", onCanPlayThrough);
       };
 
       video.addEventListener("canplaythrough", onCanPlayThrough);
+
+      return () => {
+        video.removeEventListener("canplaythrough", onCanPlayThrough);
+      };
     }
   }, [currentVideoIndex]);
 
@@ -95,7 +99,7 @@ export const VideoBox: React.FC = () => {
               key={index}
               ref={index === currentVideoIndex ? videoRef : null}
               src={url}
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
               autoPlay
               muted
               loop

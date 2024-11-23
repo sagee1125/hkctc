@@ -14,25 +14,25 @@ export const WhatsNew: React.FC = () => {
       title: "Trade show open for application",
       date: "28 Aug 2024",
       imagePath: "Trade_Show.png",
-      onClick: () => {},
+      onClick: () => { },
     },
     {
       title: "Mid-Autumn Festival brings family reunion and joy",
       date: "28 Aug 2024",
       imagePath: "Mid_Autumn.png",
-      onClick: () => {},
+      onClick: () => { },
     },
     {
       title: "The Testing And Certification Industry Has Always Played An...",
       date: "28 Aug 2024",
       imagePath: "Testing.png",
-      onClick: () => {},
+      onClick: () => { },
     },
     {
       title: "Belt and Road Summit Forum",
       date: "28 Aug 2024",
       imagePath: "Belt.png",
-      onClick: () => {},
+      onClick: () => { },
     },
   ];
 
@@ -59,17 +59,18 @@ export const WhatsNew: React.FC = () => {
           {whatsNewData.map((item, index) => {
             const { title, imagePath, date } = item;
             return (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center group">
                 <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden">
                   <img
-                    className="w-full h-auto transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="w-full h-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={
                       process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
                     }
                     alt={title}
                   />
                 </div>
-                <div className="text-heading-s text-left w-full mt-4">
+                <div className="text-heading-s text-left w-full mt-4 
+                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out">
                   {title}
                 </div>
                 <div className="flex flex-row w-full mt-4 gap-2">

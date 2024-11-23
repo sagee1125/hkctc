@@ -370,7 +370,7 @@ export const Publications: React.FC = () => {
                                 const { title, type, date, imgPath } = subItem;
 
                                 return (
-                                    <BannerSlide key={index} className="grid grid-cols-[2fr,3fr]"
+                                    <BannerSlide key={index} className="grid grid-cols-[2fr,3fr] cursor-pointer"
                                         animate={animate}
                                         direction={direction}
                                     >
@@ -439,11 +439,14 @@ export const Publications: React.FC = () => {
                     return (
                         <div
                             key={index}
-                            className={`flex flex-row items-center h-[80px]`}
-                            style={{
-                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
-                            }}
-                        >
+                            className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group`}>
+                            {/* Inner Background Div */}
+                            <div
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                style={{
+                                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
+                                }}
+                            />
                             {/* side border */}
                             <div
                                 className="h-full w-[10px]"
