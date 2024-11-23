@@ -21,15 +21,15 @@ export const Header: React.FC = () => {
       <header
         style={{
           ...headerStyle,
-          fontSize:
-            fontSize === "small"
-              ? "12px"
-              : fontSize === "medium"
-              ? "16px"
-              : "20px",
+          // fontSize:
+          //   fontSize === "small"
+          //     ? "12px"
+          //     : fontSize === "medium"
+          //     ? "16px"
+          //     : "20px",
         }}
       >
-        <h1 className="font-semibold pl-4">
+        <h1 className="text-highlight-xs pl-4">
           The Hong Kong Council for Testing and Certification
         </h1>
         <div className="flex flex-row gap-4 items-center pr-4">

@@ -39,7 +39,7 @@ module.exports = {
         'heading-xxl': ['40px', { lineHeight: '40px', fontWeight: 800 }],
 
 
-        'highlight-xs': ['12px', { lineHeight: '18px', fontWeight: 600 }],
+        'highlight-xs': ['12px', { lineHeight: '18px', fontWeight: 400 }],
         'highlight-s': ['14px', { lineHeight: '20px', fontWeight: 600 }],
         'highlight-m': ['16px', { lineHeight: '22px', fontWeight: 600 }],
         'highlight-l': ['18px', { lineHeight: '24px', fontWeight: 600 }],

@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 
 export const VideoBox: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
@@ -84,8 +84,8 @@ export const VideoBox: React.FC = () => {
       <div
         style={videoBoxStyle}
         className="relative overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
       >
         {/* banner */}
         <div
@@ -106,52 +106,61 @@ export const VideoBox: React.FC = () => {
               playsInline
               style={{
                 ...videoStyle,
-                transform:
-                  index === currentVideoIndex && isHovered
-                    ? "scale(1.1)" // Zoom in
-                    : "scale(1)", // Default scale
-                transition: "transform 0.3s ease-in-out",
+                // transform:
+                //   index === currentVideoIndex && isHovered
+                //     ? "scale(1.1)" // Zoom in
+                //     : "scale(1)", // Default scale
+                // transition: "transform 0.3s ease-in-out",
               }}
             />
           ))}
         </div>
 
         {/* mask */}
-        {isHovered && (
+        {
           <div
             style={overlayStyle}
-            className="absolute inset-0 flex justify-between items-end py-10 px-16"
+            className="absolute inset-0 flex justify-between items-end"
           >
-            <div className="text-white pr-[26em]">
-              <h2 className="text-heading-xl">
-                {`Welcome to the InnoCarnival 2024`}
-              </h2>
 
-              <h2 className="text-body-m py-6">
-                {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
+            <div className="flex-1" />
+            <div
+              className="flex justify-between items-end py-10 px-16"
+              style={{
+                background: "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              }}
+            >
+              <div className="text-white pr-[26em]">
+                <h2 className="text-heading-xl">
+                  {`Welcome to the InnoCarnival 2024`}
+                </h2>
+
+                <h2 className="text-body-m py-6">
+                  {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
                 November 3 at the Hong Kong Science Park with the theme of
                 "Let's Sail with Innovation and Technology".`}
-              </h2>
-              <div className="py-2">
-                <button style={buttonStyle}>SEE MORE</button>
+                </h2>
+                <div className="py-2">
+                  <button style={buttonStyle}>SEE MORE</button>
+                </div>
+              </div>
+              <div className="flex flex-row">
+                <Icon
+                  icon="icons8:left-squared"
+                  className="text-white cursor-pointer"
+                  style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
+                  onClick={() => handleSlide("prev")}
+                />
+                <Icon
+                  icon="icons8:right-squared"
+                  className="text-white cursor-pointer"
+                  style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
+                  onClick={() => handleSlide("next")}
+                />
               </div>
             </div>
-            <div className="flex flex-row">
-              <Icon
-                icon="icons8:left-squared"
-                className="text-white cursor-pointer"
-                style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
-                onClick={() => handleSlide("prev")}
-              />
-              <Icon
-                icon="icons8:right-squared"
-                className="text-white cursor-pointer"
-                style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
-                onClick={() => handleSlide("next")}
-              />
-            </div>
           </div>
-        )}
+        }
       </div>
 
       {/* progress*/}
@@ -202,7 +211,6 @@ const progressBarStyle: React.CSSProperties = {
 };
 
 const overlayStyle: React.CSSProperties = {
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
   zIndex: 10,
 };
 
