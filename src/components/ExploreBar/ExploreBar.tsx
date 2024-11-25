@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type ExploreBarData = {
   iconName: string;
@@ -8,12 +9,16 @@ type ExploreBarData = {
   onClick: () => void;
 };
 export const ExploreBar: React.FC = () => {
+  const navigate = useNavigate();
+
   const exploreBarData: ExploreBarData[] = [
     {
       title: "General Public",
       iconName: "entypo:globe",
       hoverColor: "group-hover:text-elegancePurple",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/general-public");
+      },
     },
     {
       title: "Educators & Students",
