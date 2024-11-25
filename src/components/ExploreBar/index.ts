@@ -1,1 +1,2 @@
-export * from './ExploreBar'
+export * from './ExploreBar';
+export * from './ExploreDetailBar'

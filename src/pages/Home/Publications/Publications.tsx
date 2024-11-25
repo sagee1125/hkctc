@@ -308,9 +308,9 @@ export const Publications: React.FC = () => {
             style={{
                 marginTop: "48px"
             }}
-            transition={{ duration: 0.5 }} // 动画持续时间
+            transition={{ duration: 0.5 }}
             onAnimationComplete={() => {
-                window.dispatchEvent(new Event('parentAnimationEnd')); // 通知子组件
+                window.dispatchEvent(new Event('parentAnimationEnd'));
             }}
         >
             {/* column 1,2 */}
