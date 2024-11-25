@@ -29,7 +29,14 @@ export const Header: React.FC = () => {
           //     : "20px",
         }}
       >
-        <h1 className="text-highlight-xs pl-4">
+        <h1
+          className="pl-4"
+          style={{
+            fontWeight: "300",
+            fontSize: "12px",
+            lineHeight: "18px",
+          }}
+        >
           The Hong Kong Council for Testing and Certification
         </h1>
         <div className="flex flex-row gap-4 items-center pr-4">
