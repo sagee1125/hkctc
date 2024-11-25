@@ -61,6 +61,8 @@ module.exports = {
         'light': 300,
         'italic': 'italic',
       },
+
+
     },
   },
   plugins: [],
