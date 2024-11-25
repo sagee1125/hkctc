@@ -5,7 +5,11 @@ import { Publications } from "./Publications";
 
 export const Home: React.FC = () => {
   return (
-    <div>
+    <div
+      style={{
+        paddingBottom: "48px",
+      }}
+    >
       <VideoBox />
       <WhatsNew />
       <Publications />
