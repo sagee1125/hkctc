@@ -348,9 +348,8 @@ export const Navigator: React.FC = () => {
                 }}
               >
                 <p
-                  className={`text-sm ${
-                    activeIndex === index ? "font-bold" : "font-semibold"
-                  }`}
+                  className={`text-sm ${activeIndex === index ? "font-bold" : "font-semibold"
+                    }`}
                 >
                   {title}
                 </p>
@@ -400,11 +399,10 @@ export const Navigator: React.FC = () => {
                         return (
                           <div
                             key={index}
-                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${
-                              clicked
+                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked
                                 ? "bg-lightGrey font-bold px-4"
                                 : "hover:bg-gray-100 px-1"
-                            }`}
+                              }`}
                             onClick={() => {
                               setActiveSubItem(sideName);
                             }}
@@ -453,7 +451,7 @@ const navStyle: React.CSSProperties = {
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
-  height: "80px",
+  height: "90px",
   borderBottom: "1px solid #E0E0E0",
   paddingLeft: "2rem",
 };

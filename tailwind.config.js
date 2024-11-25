@@ -10,13 +10,14 @@ module.exports = {
         newPrimary: '#203136',
         secondary: '#74C82F',
         reliableBlue: "#366ABC",
-        trustfulBlue: "#366ABC",
-        growthfulGreen: "#157B3E",
         innovativeGreen: "#74C82F",
-        energeticOrange: "#EE9C22",
         lightGrey: '#F2F2EF',
         grey: "#666666",
         darkNavy: "#7C7F83",
+        elegancePurple: '#D9B6F6',
+        trustfulBlue: '#BBC9E7',
+        growthfulGreen: '#D1E39B',
+        energeticOrange: '#F15A31',
         // TODO temp
 
         background: '#f4f4f9',
@@ -39,7 +40,7 @@ module.exports = {
         'heading-xxl': ['40px', { lineHeight: '40px', fontWeight: 800 }],
 
 
-        'highlight-xs': ['12px', { lineHeight: '18px', fontWeight: 400 }],
+        'highlight-xs': ['12px', { lineHeight: '18px', fontWeight: 600 }],
         'highlight-s': ['14px', { lineHeight: '20px', fontWeight: 600 }],
         'highlight-m': ['16px', { lineHeight: '22px', fontWeight: 600 }],
         'highlight-l': ['18px', { lineHeight: '24px', fontWeight: 600 }],
@@ -47,10 +48,15 @@ module.exports = {
 
 
         'body-s': ['14px', { lineHeight: '20px', fontWeight: 300 }],
-        'italic-s': ['14px', { lineHeight: '20px', fontStyle: "italic" }],
+        'italic-s': ['14px', { lineHeight: '20px', fontStyle: "italic", fontWeight: 300 }],
         'body-m': ['16px', { lineHeight: '22px', fontWeight: 300 }],
         'body-l': ['18px', { lineHeight: '24px', fontWeight: 300 }],
+
+        'button-sx': ['12px', { lineHeight: '18px', fontWeight: 700 }],
+        'button-s': ['14px', { lineHeight: '20px', fontWeight: 700 }],
       },
+
+
       fontWeight: {
         'light': 300,
         'italic': 'italic',

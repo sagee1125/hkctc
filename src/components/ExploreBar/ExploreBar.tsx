@@ -4,6 +4,7 @@ import React from "react";
 type ExploreBarData = {
     iconName: string;
     title: string;
+    hoverColor: string;
     onClick: () => void;
 }
 export const ExploreBar: React.FC = () => {
@@ -12,23 +13,25 @@ export const ExploreBar: React.FC = () => {
         {
             title: 'General Public',
             iconName: "entypo:globe",
+            hoverColor: "group-hover:text-elegancePurple",
             onClick: () => { },
         },
         {
             title: 'Educators & Students',
             iconName: "fa-solid:book-reader",
+            hoverColor: "group-hover:text-trustfulBlue",
             onClick: () => { },
-
-
         },
         {
             title: 'T&C Bodies & Practitioners',
             iconName: "majesticons:test-tube-filled",
+            hoverColor: "group-hover:text-growthfulGreen",
             onClick: () => { },
         },
         {
             title: 'T&C Service Users',
             iconName: "mdi:user",
+            hoverColor: "group-hover:text-energeticOrange",
             onClick: () => { },
         },
     ]
@@ -41,14 +44,16 @@ export const ExploreBar: React.FC = () => {
                 </p>
                 <div className="flex flex-row px-8 gap-8">
                     {exploreBarData.map((item, index) => {
-                        const { iconName, title, onClick } = item;
+                        const { iconName, title, hoverColor, onClick } = item;
                         return (
                             <div
                                 key={index}
-                                className="flex flex-row items-center gap-1 cursor-pointer text-sm"
+                                className="group flex flex-row items-center gap-1 cursor-pointer text-highlight-s"
                                 onClick={onClick}>
-                                <Icon icon={iconName} width={20} height={20} />
-                                <p>{title}</p>
+                                <Icon icon={iconName} width={20} height={20}
+                                    className={hoverColor}
+                                />
+                                <p className={hoverColor} >{title}</p>
                             </div>
                         )
                     })}

@@ -36,8 +36,14 @@ export const WhatsNew: React.FC = () => {
     },
   ];
 
+
+
   return (
-    <div className="w-full pt-8">
+    <div className="w-full"
+      style={{
+        marginTop: '48px'
+      }}
+    >
       <div className="flex flex-row items-center gap-4 px-4">
         <Icon
           icon="material-symbols-light:square"
@@ -49,7 +55,7 @@ export const WhatsNew: React.FC = () => {
           style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
         />
       </div>
-      <div className="px-4 py-6">
+      <div className="px-4 pt-6">
         <div
           className="grid w-full gap-4"
           style={{
