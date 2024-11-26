@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./Layout";
-import { GeneralPublic, Home } from "./pages";
+import { EducatorsStudents, GeneralPublic, Home } from "./pages";
 import { SettingsProvider } from "./context";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/general-public" element={<GeneralPublic />} />
+            <Route path="/educators-students" element={<EducatorsStudents />} />
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />
           </Routes>

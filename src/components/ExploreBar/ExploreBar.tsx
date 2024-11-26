@@ -24,7 +24,9 @@ export const ExploreBar: React.FC = () => {
       title: "Educators & Students",
       iconName: "fa-solid:book-reader",
       hoverColor: "group-hover:text-trustfulBlue",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/educators-students");
+      },
     },
     {
       title: "T&C Bodies & Practitioners",

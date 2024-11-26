@@ -1,2 +1,3 @@
-export * from './Home';
-export * from './GeneralPublic'
+export * from "./Home";
+export * from "./GeneralPublic";
+export * from "./EducatorsStudents";

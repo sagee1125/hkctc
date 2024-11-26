@@ -15,7 +15,7 @@ export const GeneralPublic: React.FC = () => {
         title="General"
         titleTheme="elegancePurple"
         description="Learn about us and explore our resources to ensure quality and safety across sectors."
-        barBackgroundImg="banner_bg.png"
+        barBackgroundImg="generalPublic/banner_bg.png"
       />
       <Breadcrumb items={breadcrumbItems} />
       <PhotoPanel />
