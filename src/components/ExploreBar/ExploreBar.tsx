@@ -17,7 +17,7 @@ export const ExploreBar: React.FC = () => {
       iconName: "entypo:globe",
       hoverColor: "group-hover:text-elegancePurple",
       onClick: () => {
-        navigate("/general-public");
+        navigate("/hkctc/general-public");
       },
     },
     {
@@ -25,14 +25,16 @@ export const ExploreBar: React.FC = () => {
       iconName: "fa-solid:book-reader",
       hoverColor: "group-hover:text-trustfulBlue",
       onClick: () => {
-        navigate("/educators-students");
+        navigate("/hkctc/educators-students");
       },
     },
     {
       title: "T&C Bodies & Practitioners",
       iconName: "majesticons:test-tube-filled",
       hoverColor: "group-hover:text-growthfulGreen",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/hkctc/industry");
+      },
     },
     {
       title: "T&C Service Users",

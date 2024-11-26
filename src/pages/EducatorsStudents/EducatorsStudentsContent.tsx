@@ -95,7 +95,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                 position: "relative",
                 height: "134px",
               }}
-            ></div>
+            />
           </div>
           <hr className="pb-[24px]" />
           <EmailBox />

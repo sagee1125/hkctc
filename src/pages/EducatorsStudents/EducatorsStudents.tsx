@@ -5,7 +5,7 @@ import { EducatorsStudentsContent } from "./EducatorsStudentsContent";
 
 export const EducatorsStudents: React.FC = () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/hkctc" },
     { label: "Educators & Students" },
   ];
 

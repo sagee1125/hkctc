@@ -5,7 +5,7 @@ import { GeneralPublicContent } from "./GeneralPublicContent";
 
 export const GeneralPublic: React.FC = () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/hkctc" },
     { label: "General Public" },
   ];
 
