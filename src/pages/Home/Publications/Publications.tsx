@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import report from "./assets/report.png";
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
+import { EmailBox } from "../../../components";
 
 type ResourcesData = {
   title: string;
@@ -486,88 +487,46 @@ export const Publications: React.FC = () => {
 
       {/* column 3 */}
       <div
-        className={`p-4 border-2 border-inherit flex flex-col gap-4 transition-transform duration-700 ${
+        className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
           isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
         <div className="text-heading-l">Resources</div>
-        {resourcesData.map((item, index) => {
-          const { number, title, icon, sideColor, bgImg } = item;
-          return (
-            <div
-              key={index}
-              className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group`}
-            >
-              {/* Inner Background Div */}
+        <div>
+          {resourcesData.map((item, index) => {
+            const { number, title, icon, sideColor, bgImg } = item;
+            return (
               <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
-                }}
-              />
-              {/* side border */}
-              <div
-                className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
-                style={{ backgroundColor: sideColor, opacity: 0.8 }}
-              />
-              <div className="flex flex-row justify-between w-full text-white pr-2">
-                <div className="px-4">{`(${number})`}</div>
-                <div className="z-20">{title}</div>
-                <Icon
-                  icon={icon}
-                  style={{ height: "24px", width: "24px" }}
-                  className="z-20"
+                key={index}
+                className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
+              >
+                {/* Inner Background Div */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
+                  }}
                 />
+                {/* side border */}
+                <div
+                  className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
+                  style={{ backgroundColor: sideColor, opacity: 0.8 }}
+                />
+                <div className="flex flex-row justify-between w-full text-white pr-2">
+                  <div className="px-4">{`(${number})`}</div>
+                  <div className="z-20">{title}</div>
+                  <Icon
+                    icon={icon}
+                    style={{ height: "24px", width: "24px" }}
+                    className="z-20"
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
-
-        <hr className="mt-2" />
-
-        <div className="text-heading-l">Enquires</div>
-        <div className="bg-[#EAEAE5] w-full p-4 flex flex-col gap-4">
-          <div className="text-body-m">
-            Contact Us to know more about Testing and Certificate.
-          </div>
-          <input
-            placeholder="Your Name"
-            className="w-full p-2 resize-none overflow-y-auto"
-            style={{
-              lineHeight: 2,
-              minHeight: "calc(2.5em * 1)",
-              maxHeight: "calc(2.5em * 1)",
-            }}
-          />
-          <input
-            placeholder="Email Address"
-            className="w-full p-2 resize-none overflow-y-auto"
-            style={{
-              lineHeight: 2,
-              minHeight: "calc(2.5em * 1)",
-              maxHeight: "calc(2.5em * 1)",
-            }}
-          />
-          <textarea
-            placeholder="Write down your message"
-            className="w-full p-2 resize-none overflow-y-auto"
-            style={{
-              lineHeight: 1.5,
-              minHeight: "calc(2.5em * 3)",
-              maxHeight: "calc(2.5em * 3)",
-            }}
-          />
-          <button
-            className="w=full text-white p-2"
-            style={{
-              lineHeight: 1.5,
-              background:
-                "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #242A31",
-            }}
-          >
-            Send now
-          </button>
+            );
+          })}
         </div>
+        <hr className="my-[24px]" />
+        <EmailBox />
       </div>
     </motion.div>
   );

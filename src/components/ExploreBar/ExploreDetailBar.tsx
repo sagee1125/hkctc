@@ -59,6 +59,6 @@ const overlayStyle: React.CSSProperties = {
   height: "100%",
   background:
     "linear-gradient(90.05deg, rgba(19, 6, 29, 0.6) 0.04%, rgba(0, 0, 0, 0.45) 45.01%, rgba(255, 255, 255, 0) 99.96%)",
-  pointerEvents: "none", // 避免遮罩阻止用户交互
-  zIndex: 1, // 保证遮罩位于内容和背景图片之间
+  pointerEvents: "none",
+  zIndex: 1,
 };

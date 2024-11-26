@@ -1,47 +1,46 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
-type WhatsNewData = {
+export type WhatsNewData = {
   title: string;
   date: string;
   imagePath: string;
   onClick: () => void;
 };
 
+export const whatsNewData: WhatsNewData[] = [
+  {
+    title: "Trade show open for application",
+    date: "28 Aug 2024",
+    imagePath: "Trade_Show.png",
+    onClick: () => {},
+  },
+  {
+    title: "Mid-Autumn Festival brings family reunion and joy",
+    date: "28 Aug 2024",
+    imagePath: "Mid_Autumn.png",
+    onClick: () => {},
+  },
+  {
+    title: "The Testing And Certification Industry Has Always Played An...",
+    date: "28 Aug 2024",
+    imagePath: "Testing.png",
+    onClick: () => {},
+  },
+  {
+    title: "Belt and Road Summit Forum",
+    date: "28 Aug 2024",
+    imagePath: "Belt.png",
+    onClick: () => {},
+  },
+];
+
 export const WhatsNew: React.FC = () => {
-  const whatsNewData: WhatsNewData[] = [
-    {
-      title: "Trade show open for application",
-      date: "28 Aug 2024",
-      imagePath: "Trade_Show.png",
-      onClick: () => { },
-    },
-    {
-      title: "Mid-Autumn Festival brings family reunion and joy",
-      date: "28 Aug 2024",
-      imagePath: "Mid_Autumn.png",
-      onClick: () => { },
-    },
-    {
-      title: "The Testing And Certification Industry Has Always Played An...",
-      date: "28 Aug 2024",
-      imagePath: "Testing.png",
-      onClick: () => { },
-    },
-    {
-      title: "Belt and Road Summit Forum",
-      date: "28 Aug 2024",
-      imagePath: "Belt.png",
-      onClick: () => { },
-    },
-  ];
-
-
-
   return (
-    <div className="w-full"
+    <div
+      className="w-full"
       style={{
-        marginTop: '48px'
+        marginTop: "48px",
       }}
     >
       <div className="flex flex-row items-center gap-4 px-4">
@@ -75,8 +74,10 @@ export const WhatsNew: React.FC = () => {
                     alt={title}
                   />
                 </div>
-                <div className="text-heading-s text-left w-full mt-4 
-                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out">
+                <div
+                  className="text-heading-s text-left w-full mt-4 
+                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
+                >
                   {title}
                 </div>
                 <div className="flex flex-row w-full mt-4 gap-2">
