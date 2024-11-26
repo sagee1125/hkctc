@@ -36,7 +36,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <button
-          className="w=full text-white p-2"
+          className="w-full text-white p-2"
           style={{
             lineHeight: 1.5,
             background:

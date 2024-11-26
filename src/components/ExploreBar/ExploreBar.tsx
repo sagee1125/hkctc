@@ -8,11 +8,15 @@ type ExploreBarData = {
   hoverColor: string;
   onClick: () => void;
 };
+const hideExploreBar = ["/hkctc/events-landing"];
+
 export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
 
+  const isReturnEmpty = hideExploreBar.includes(currentPath);
+  if (isReturnEmpty) return <></>;
   const exploreBarData: ExploreBarData[] = [
     {
       title: "General Public",

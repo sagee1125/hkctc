@@ -3,6 +3,7 @@ import "./App.css";
 import { Layout } from "./Layout";
 import {
   EducatorsStudents,
+  EventsLanding,
   GeneralPublic,
   Home,
   Industry,
@@ -24,6 +25,7 @@ function App() {
             />
             <Route path="/hkctc/industry" element={<Industry />} />
             <Route path="/hkctc/service-users" element={<ServiceUsers />} />
+            <Route path="/hkctc/events-landing" element={<EventsLanding />} />
 
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />

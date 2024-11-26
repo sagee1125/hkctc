@@ -3,309 +3,308 @@ import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 
-type NavData = {
+export type NavData = {
   title: string;
   showSidebar: boolean;
   items: NavItems[];
 };
 
-type NavItems = {
+export type NavItems = {
   name: string;
   subItems: SubItems[];
 };
-type SubItems = {
+export type SubItems = {
   subTitle: string;
   imgUrl: string;
   navUrl?: string;
 };
 
+export const navData: NavData[] = [
+  {
+    title: "About Us",
+    showSidebar: false,
+    items: [],
+  },
+  {
+    title: "T&C Sector",
+    showSidebar: true,
+    items: [
+      {
+        name: "Introducing the Testing and Certificate sector, and what service we can provide",
+        subItems: [
+          {
+            subTitle: "Profile and Role of T&C Sector",
+            imgUrl: "nav_event_1_1.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Strengths of Hong Kong's T&C Sector",
+            imgUrl: "nav_event_1_2.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Services Provided by T&C Sector",
+            imgUrl: "nav_event_1_3.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Services for Different Business Areas",
+            imgUrl: "nav_event_1_4.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Accreditation Services",
+            imgUrl: "nav_event_1_5.png",
+            navUrl: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Support",
+    showSidebar: false,
+    items: [
+      {
+        name: "Events",
+        subItems: [
+          {
+            subTitle: "HKCTC Exhibition Programme",
+            imgUrl: "nav_event_2_1.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Funding Schemes",
+            imgUrl: "nav_event_2_2.png",
+            navUrl: "",
+          },
+          {
+            subTitle:
+              "Testing and Certification Sector Job Creation Scheme (TCJS)",
+            imgUrl: "nav_event_2_3.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Accommodation and Land",
+            imgUrl: "nav_event_2_4.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Entering into the Mainland Market",
+            imgUrl: "nav_event_2_5.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Other Support",
+            imgUrl: "nav_event_2_6.png",
+            navUrl: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Career & Education",
+    showSidebar: true,
+    items: [
+      {
+        name: "Careers",
+        subItems: [
+          {
+            subTitle: "Career Development",
+            imgUrl: "Career_Development.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Career Opportunities",
+            imgUrl: "Career_Opportunities.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Other Professional Schemes",
+            imgUrl: "Other_Professional_Schemes.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+        ],
+      },
+      {
+        name: "Education & Training",
+        subItems: [
+          {
+            subTitle: "Programmes and Courses",
+            imgUrl: "Programmes_and_Courses.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Learning and Teaching Resources",
+            imgUrl: "Learning_and_Teaching_Resources.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Qualifications Framework",
+            imgUrl: "Qualifications_Framework.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Events & Promotions",
+    showSidebar: true,
+    items: [
+      {
+        name: "Events",
+        subItems: [
+          {
+            subTitle: "T&C Manpower Development Award Scheme",
+            imgUrl: "Manpower_Development.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Seminars and Workshops",
+            imgUrl: "Seminars_Workshops.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "Student Competitions",
+            imgUrl: "Student_Competitions.png",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+        ],
+      },
+      {
+        name: "Publications",
+        subItems: [
+          {
+            subTitle: "HKCTC Newsletter",
+            imgUrl: "nav_event_1.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Pamphlets And Booklets",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Comics",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Corruption Prevention Guide for T&C Industry",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Other Useful Information",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+        ],
+      },
+      {
+        name: "Reports",
+        subItems: [
+          {
+            subTitle: "HKCTC Reports",
+            imgUrl: "nav_event_1.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Legislative Council Papers ",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+        ],
+      },
+      {
+        name: "News and Videos",
+        subItems: [
+          {
+            subTitle: "Press Releases",
+            imgUrl: "nav_event_1.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Advertorials",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "Videos",
+            imgUrl: "nav_event_3.svg",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "What's new",
+    showSidebar: false,
+    items: [],
+  },
+];
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const navRef = useRef<HTMLDivElement | null>(null);
-
-  const navData: NavData[] = [
-    {
-      title: "About Us",
-      showSidebar: false,
-      items: [],
-    },
-    {
-      title: "T&C Sector",
-      showSidebar: true,
-      items: [
-        {
-          name: "Introducing the Testing and Certificate sector, and what service we can provide",
-          subItems: [
-            {
-              subTitle: "Profile and Role of T&C Sector",
-              imgUrl: "nav_event_1_1.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Strengths of Hong Kong's T&C Sector",
-              imgUrl: "nav_event_1_2.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Services Provided by T&C Sector",
-              imgUrl: "nav_event_1_3.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Services for Different Business Areas",
-              imgUrl: "nav_event_1_4.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Accreditation Services",
-              imgUrl: "nav_event_1_5.png",
-              navUrl: "",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Support",
-      showSidebar: false,
-      items: [
-        {
-          name: "Events",
-          subItems: [
-            {
-              subTitle: "HKCTC Exhibition Programme",
-              imgUrl: "nav_event_2_1.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Funding Schemes",
-              imgUrl: "nav_event_2_2.png",
-              navUrl: "",
-            },
-            {
-              subTitle:
-                "Testing and Certification Sector Job Creation Scheme (TCJS)",
-              imgUrl: "nav_event_2_3.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Accommodation and Land",
-              imgUrl: "nav_event_2_4.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Entering into the Mainland Market",
-              imgUrl: "nav_event_2_5.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Other Support",
-              imgUrl: "nav_event_2_6.png",
-              navUrl: "",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Career & Education",
-      showSidebar: true,
-      items: [
-        {
-          name: "Careers",
-          subItems: [
-            {
-              subTitle: "Career Development",
-              imgUrl: "Career_Development.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Career Opportunities",
-              imgUrl: "Career_Opportunities.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Other Professional Schemes",
-              imgUrl: "Other_Professional_Schemes.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Education & Training",
-          subItems: [
-            {
-              subTitle: "Programmes and Courses",
-              imgUrl: "Programmes_and_Courses.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Learning and Teaching Resources",
-              imgUrl: "Learning_and_Teaching_Resources.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Qualifications Framework",
-              imgUrl: "Qualifications_Framework.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Events & Promotions",
-      showSidebar: true,
-      items: [
-        {
-          name: "Events",
-          subItems: [
-            {
-              subTitle: "T&C Manpower Development Award Scheme",
-              imgUrl: "Manpower_Development.png",
-              navUrl: "",
-            },
-            {
-              subTitle: "Seminars and Workshops",
-              imgUrl: "nav_event_2.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Student Competitions",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Publications",
-          subItems: [
-            {
-              subTitle: "HKCTC Newsletter",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Pamphlets And Booklets",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Comics",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Corruption Prevention Guide for T&C Industry",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Other Useful Information",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "Reports",
-          subItems: [
-            {
-              subTitle: "HKCTC Reports",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Legislative Council Papers ",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-          ],
-        },
-        {
-          name: "News and Videos",
-          subItems: [
-            {
-              subTitle: "Press Releases",
-              imgUrl: "nav_event_1.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Advertorials",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "Videos",
-              imgUrl: "nav_event_3.svg",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-            {
-              subTitle: "",
-              imgUrl: "",
-              navUrl: "",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "What's new",
-      showSidebar: false,
-      items: [],
-    },
-  ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -331,7 +330,7 @@ export const Navigator: React.FC = () => {
   return (
     <nav ref={navRef}>
       <div style={navStyle}>
-        <div className="h-full flex items-center">
+        <div className="h-[54px] flex items-center">
           <Logo />
         </div>
         <div className="flex flex-row gap-8 ml-12 h-full">
@@ -348,8 +347,9 @@ export const Navigator: React.FC = () => {
                 }}
               >
                 <p
-                  className={`text-sm ${activeIndex === index ? "font-bold" : "font-semibold"
-                    }`}
+                  className={`text-sm ${
+                    activeIndex === index ? "font-bold" : "font-semibold"
+                  }`}
                 >
                   {title}
                 </p>
@@ -399,10 +399,11 @@ export const Navigator: React.FC = () => {
                         return (
                           <div
                             key={index}
-                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked
+                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${
+                              clicked
                                 ? "bg-lightGrey font-bold px-4"
                                 : "hover:bg-gray-100 px-1"
-                              }`}
+                            }`}
                             onClick={() => {
                               setActiveSubItem(sideName);
                             }}
@@ -422,7 +423,7 @@ export const Navigator: React.FC = () => {
                           <img
                             className="w-full h-auto max-w-full"
                             src={
-                              process.env.REACT_APP_HOST_URL +
+                              process.env.PUBLIC_URL +
                               "/assets/images/" +
                               imgUrl
                             }
