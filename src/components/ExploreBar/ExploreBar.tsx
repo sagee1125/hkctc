@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 type ExploreBarData = {
   iconName: string;
@@ -10,12 +10,17 @@ type ExploreBarData = {
 };
 export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const exploreBarData: ExploreBarData[] = [
     {
       title: "General Public",
       iconName: "entypo:globe",
-      hoverColor: "group-hover:text-elegancePurple",
+      hoverColor:
+        currentPath === "/hkctc/general-public"
+          ? "text-elegancePurple"
+          : "group-hover:text-elegancePurple",
       onClick: () => {
         navigate("/hkctc/general-public");
       },
@@ -23,7 +28,10 @@ export const ExploreBar: React.FC = () => {
     {
       title: "Educators & Students",
       iconName: "fa-solid:book-reader",
-      hoverColor: "group-hover:text-trustfulBlue",
+      hoverColor:
+        currentPath === "/hkctc/educators-students"
+          ? "text-trustfulBlue"
+          : "group-hover:text-trustfulBlue",
       onClick: () => {
         navigate("/hkctc/educators-students");
       },
@@ -31,7 +39,10 @@ export const ExploreBar: React.FC = () => {
     {
       title: "T&C Bodies & Practitioners",
       iconName: "majesticons:test-tube-filled",
-      hoverColor: "group-hover:text-growthfulGreen",
+      hoverColor:
+        currentPath === "/hkctc/industry"
+          ? "text-growthfulGreen"
+          : "group-hover:text-growthfulGreen",
       onClick: () => {
         navigate("/hkctc/industry");
       },
@@ -39,8 +50,13 @@ export const ExploreBar: React.FC = () => {
     {
       title: "T&C Service Users",
       iconName: "mdi:user",
-      hoverColor: "group-hover:text-energeticOrange",
-      onClick: () => {},
+      hoverColor:
+        currentPath === "/hkctc/service-users"
+          ? "text-energeticOrange"
+          : "group-hover:text-energeticOrange",
+      onClick: () => {
+        navigate("/hkctc/service-users");
+      },
     },
   ];
 

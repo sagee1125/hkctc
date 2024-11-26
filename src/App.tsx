@@ -1,7 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./Layout";
-import { EducatorsStudents, GeneralPublic, Home, Industry } from "./pages";
+import {
+  EducatorsStudents,
+  GeneralPublic,
+  Home,
+  Industry,
+  ServiceUsers,
+} from "./pages";
 import { SettingsProvider } from "./context";
 
 function App() {
@@ -17,6 +23,8 @@ function App() {
               element={<EducatorsStudents />}
             />
             <Route path="/hkctc/industry" element={<Industry />} />
+            <Route path="/hkctc/service-users" element={<ServiceUsers />} />
+
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />
           </Routes>
