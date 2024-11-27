@@ -186,7 +186,7 @@ export const navData: NavData[] = [
           {
             subTitle: "Seminars and Workshops",
             imgUrl: "Seminars_Workshops.png",
-            navUrl: "events-landing",
+            navUrl: "seminars-workshops",
           },
           {
             subTitle: "Student Competitions",

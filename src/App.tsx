@@ -7,6 +7,7 @@ import {
   GeneralPublic,
   Home,
   Industry,
+  SeminarsWorkshops,
   ServiceUsers,
 } from "./pages";
 import { SettingsProvider } from "./context";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/industry" element={<Industry />} />
             <Route path="/service-users" element={<ServiceUsers />} />
             <Route path="/events-landing" element={<EventsLanding />} />
+            <Route path="/seminars-workshops" element={<SeminarsWorkshops />} />
 
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />

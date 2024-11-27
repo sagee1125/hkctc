@@ -6,9 +6,9 @@ import {
   type NavItems,
   type SubItems,
 } from "../../components";
-import { EventsLandingContent } from "./EventsLandingContent";
+import { SeminarsWorkshopsContent } from "./SeminarsWorkshopsContent";
 
-export const EventsLanding: React.FC = () => {
+export const SeminarsWorkshops: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
     { label: "Events " },
@@ -24,11 +24,11 @@ export const EventsLanding: React.FC = () => {
     <div className="w-full">
       <img
         className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-        src={`${process.env.PUBLIC_URL}/assets/eventsLanding/banner_bg.png`}
+        src={`${process.env.PUBLIC_URL}/assets/seminarsWorkshops/banner_bg.png`}
         alt={"banner_bg.png"}
       />
       <Breadcrumb items={breadcrumbItems} />
-      <EventsLandingContent eventItems={eventItems} />
+      <SeminarsWorkshopsContent eventItems={eventItems} />
     </div>
   );
 };
