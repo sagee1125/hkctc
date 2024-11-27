@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
-import { useNavigate } from "react-router-dom";
 
 export type NavData = {
   title: string;
@@ -20,7 +19,6 @@ export type SubItems = {
   imgUrl: string;
   navUrl?: string;
 };
-const navigate = useNavigate();
 
 export const navData: NavData[] = [
   {
@@ -176,7 +174,7 @@ export const navData: NavData[] = [
     title: "Events & Promotions",
     showSidebar: true,
     onClick: () => {
-      navigate("/hkctc/events-landing");
+      window.location.href = "/hkctc/events-landing";
     },
     items: [
       {
