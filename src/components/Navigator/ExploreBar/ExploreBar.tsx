@@ -8,7 +8,7 @@ type ExploreBarData = {
   hoverColor: string;
   onClick: () => void;
 };
-const hideExploreBar = ["/hkctc/events-landing"];
+const hideExploreBar = ["/events-landing", "/events-landing/award-scheme"];
 
 export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();

@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import { useNavigate } from "react-router-dom";
+import { ExploreBar } from "./ExploreBar";
 
 export type NavData = {
   title: string;
@@ -331,130 +332,133 @@ export const Navigator: React.FC = () => {
   console.log("sideItemRows", sideItemRows);
   console.log("navItems", navItems);
   return (
-    <nav ref={navRef}>
-      <div style={navStyle}>
-        <div className="h-[54px] w-[141px] flex items-center">
-          <Logo />
-        </div>
-        <div className="flex flex-row gap-8 ml-12 h-full">
-          {navData.map((nav, index) => {
-            const { title, items } = nav;
-            const ifHideArrow: boolean = !items.length;
-            return (
-              <div
-                key={index}
-                className="flex flex-row items-center gap-2 cursor-pointer h-full"
-                onClick={() => {
-                  setActiveIndex(index);
-                  setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
-                }}
-              >
-                <p
-                  className={`text-sm ${
-                    activeIndex === index ? "font-bold" : "font-semibold"
-                  }`}
-                >
-                  {title}
-                </p>
-                <Icon
-                  icon="oui:arrow-down"
-                  className="mt-1"
-                  style={{
-                    strokeWidth: 3,
-                    display: ifHideArrow ? "none" : "block",
-                  }}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <Transition
-        show={!isHideDropdown}
-        enter="transition-all duration-500 ease-out"
-        enterFrom="opacity-0 transform scale-90"
-        enterTo="opacity-100 transform scale-100"
-        leave="transition-all duration-200 ease-in"
-        leaveFrom="opacity-100 transform scale-100"
-        leaveTo="opacity-0 transform scale-90"
-      >
-        <div
-          style={{
-            ...dropDownStyle,
-            position: "absolute", // on the top
-            zIndex: 1000,
-          }}
-        >
-          <div className="w-full mt-4">
-            {navItems.map((sideItems, index) => {
-              if (activeSubItem !== sideItems.name) return <></>;
-              const { name: currentSideName, subItems } = sideItems;
-
+    <>
+      <nav ref={navRef}>
+        <div style={navStyle}>
+          <div className="h-[54px] w-[141px] flex items-center">
+            <Logo />
+          </div>
+          <div className="flex flex-row gap-8 ml-12 h-full">
+            {navData.map((nav, index) => {
+              const { title, items } = nav;
+              const ifHideArrow: boolean = !items.length;
               return (
-                <div key={index} className="flex flex-row w-full gap-4">
-                  {/* sidebar */}
-                  {showSidebar && (
-                    <div className="w-full h-full flex flex-col flex-[6]">
-                      {navItems.map((sideItem, index) => {
-                        const { name: sideName } = sideItem;
-                        const clicked = sideName === currentSideName;
-                        return (
-                          <div
-                            key={index}
-                            className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${
-                              clicked
-                                ? "bg-lightGrey text-highlight-s px-4"
-                                : "hover:bg-gray-100 px-1"
-                            }`}
-                            onClick={() => {
-                              setActiveSubItem(sideName);
-                            }}
-                          >
-                            {sideName}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                  {subItems.map((sub, index) => {
-                    const { subTitle, imgUrl, navUrl } = sub;
-                    return (
-                      <div
-                        key={index}
-                        className={`flex flex-col gap-2 flex-[5] ${
-                          subTitle === "" ? "" : "cursor-pointer"
-                        }`}
-                        onClick={() => {
-                          if (navUrl) navigate(navUrl);
-                        }}
-                      >
-                        {imgUrl && (
-                          <div className="flex justify-center items-center">
-                            <img
-                              className="w-full aspect-[180/106] overflow-hidden"
-                              src={
-                                process.env.PUBLIC_URL +
-                                "/assets/images/" +
-                                imgUrl
-                              }
-                              alt={subTitle}
-                            />
-                          </div>
-                        )}
-                        <div className="w-full text-left text-body-s">
-                          {subTitle}
-                        </div>
-                      </div>
-                    );
-                  })}
+                <div
+                  key={index}
+                  className="flex flex-row items-center gap-2 cursor-pointer h-full"
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
+                  }}
+                >
+                  <p
+                    className={`text-sm ${
+                      activeIndex === index ? "font-bold" : "font-semibold"
+                    }`}
+                  >
+                    {title}
+                  </p>
+                  <Icon
+                    icon="oui:arrow-down"
+                    className="mt-1"
+                    style={{
+                      strokeWidth: 3,
+                      display: ifHideArrow ? "none" : "block",
+                    }}
+                  />
                 </div>
               );
             })}
           </div>
         </div>
-      </Transition>
-    </nav>
+
+        <Transition
+          show={!isHideDropdown}
+          enter="transition-all duration-500 ease-out"
+          enterFrom="opacity-0 transform scale-90"
+          enterTo="opacity-100 transform scale-100"
+          leave="transition-all duration-200 ease-in"
+          leaveFrom="opacity-100 transform scale-100"
+          leaveTo="opacity-0 transform scale-90"
+        >
+          <div
+            style={{
+              ...dropDownStyle,
+              position: "absolute", // on the top
+              zIndex: 1000,
+            }}
+          >
+            <div className="w-full mt-4">
+              {navItems.map((sideItems, index) => {
+                if (activeSubItem !== sideItems.name) return <></>;
+                const { name: currentSideName, subItems } = sideItems;
+
+                return (
+                  <div key={index} className="flex flex-row w-full gap-4">
+                    {/* sidebar */}
+                    {showSidebar && (
+                      <div className="w-full h-full flex flex-col flex-[6]">
+                        {navItems.map((sideItem, index) => {
+                          const { name: sideName } = sideItem;
+                          const clicked = sideName === currentSideName;
+                          return (
+                            <div
+                              key={index}
+                              className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${
+                                clicked
+                                  ? "bg-lightGrey px-4"
+                                  : "hover:bg-gray-100 px-1"
+                              }`}
+                              onClick={() => {
+                                setActiveSubItem(sideName);
+                              }}
+                            >
+                              {sideName}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                    {subItems.map((sub, index) => {
+                      const { subTitle, imgUrl, navUrl } = sub;
+                      return (
+                        <div
+                          key={index}
+                          className={`flex flex-col gap-2 flex-[5] ${
+                            subTitle === "" ? "" : "cursor-pointer"
+                          }`}
+                          onClick={() => {
+                            if (navUrl) navigate(navUrl);
+                          }}
+                        >
+                          {imgUrl && (
+                            <div className="flex justify-center items-center">
+                              <img
+                                className="w-full aspect-[180/106] overflow-hidden"
+                                src={
+                                  process.env.PUBLIC_URL +
+                                  "/assets/images/" +
+                                  imgUrl
+                                }
+                                alt={subTitle}
+                              />
+                            </div>
+                          )}
+                          <div className="w-full text-left text-body-s">
+                            {subTitle}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Transition>
+      </nav>
+      <ExploreBar />
+    </>
   );
 };
 

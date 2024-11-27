@@ -159,7 +159,7 @@ export const ServiceUsersContent: React.FC = () => {
             </div>
           </div>
         </div>
-        <p className="text-italic-s mt-[24px]">
+        <p className="text-italic-s italic mt-[24px]">
           *This full list is for the purpose of searching specific conformity
           assessment activity and will only be updated weekly. For most
           up-to-date scope of accreditation, please search by "Organisations",

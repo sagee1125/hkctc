@@ -566,7 +566,7 @@ export const Publications: React.FC = () => {
                 />
                 <div className="flex flex-row justify-between w-full text-white pr-2">
                   <div className="px-4">{`(${number})`}</div>
-                  <div className="z-20">{title}</div>
+                  <div className="z-20 text-heading-l">{title}</div>
                   <Icon
                     icon={icon}
                     style={{ height: "24px", width: "24px" }}

@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./Layout";
 import {
+  AwardScheme,
   EducatorsStudents,
   EventsLanding,
   GeneralPublic,
@@ -24,8 +25,15 @@ function App() {
             <Route path="/educators-students" element={<EducatorsStudents />} />
             <Route path="/industry" element={<Industry />} />
             <Route path="/service-users" element={<ServiceUsers />} />
+
             <Route path="/events-landing" element={<EventsLanding />} />
+            <Route
+              path="/events-landing/award-scheme"
+              element={<AwardScheme />}
+            />
+
             <Route path="/seminars-workshops" element={<SeminarsWorkshops />} />
+
             <Route
               path="/student-competitions"
               element={<StudentCompetitions />}

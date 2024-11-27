@@ -1,5 +1,5 @@
 import React from "react";
-import { ExploreBar, Footer, Header, Navigator } from "./components";
+import { Footer, Header, Navigator } from "./components";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -10,7 +10,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div style={layoutStyle}>
       <Header />
       <Navigator />
-      <ExploreBar />
       <main style={contentStyle}>{children}</main>
       <Footer />
     </div>

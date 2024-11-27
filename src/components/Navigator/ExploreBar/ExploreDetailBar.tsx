@@ -29,7 +29,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
       <div
         className="flex flex-col gap-[4px]"
         style={{
-          marginLeft: "48px",
+          marginLeft: "24px",
           zIndex: 10,
         }}
       >
@@ -46,7 +46,6 @@ const barStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   height: "168px",
-  paddingLeft: "2rem",
   position: "relative", // to include the overlay
 };
 

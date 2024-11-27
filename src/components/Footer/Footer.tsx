@@ -13,7 +13,7 @@ type FooterData = {
 export const Footer: React.FC = () => {
   const footerData: FooterData[] = [
     {
-      title: "About This Site",
+      title: "About this site",
       subs: [
         {
           label: "Important Notices",

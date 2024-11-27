@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { type SubItems } from "../../components/Navigator";
+import { useNavigate } from "react-router-dom";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -30,18 +31,24 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
   const [activeButton, setActiveButton] = useState<number>(0);
   const [questionCategoriesArray, setQuestionCategoriesArray] =
     useState<number>(0);
+  const navigate = useNavigate();
 
   const pastSchemes: Array<{
     title: string;
     imgUrl: string;
+    onClick: () => void;
   }> = [
     {
       title: "T&C Manpower Development Award Scheme 2023-2024",
       imgUrl: "2023-2024.png",
+      onClick: () => {
+        navigate("award-scheme");
+      },
     },
     {
       title: "T&C Manpower Development Award Scheme 2021-2022",
       imgUrl: "2021-2022.png",
+      onClick: () => {},
     },
   ];
 
@@ -85,7 +92,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
         </div>
       </div>
       <div>
-        <div className="flex flex-row gap-[12px] items-center">
+        <div className="flex flex-row gap-[16px] items-center">
           <div className="h-[15px] w-[15px] bg-black" />
           <p className="text-heading-l">
             Testing & Certificate Manpower Development Award Scheme
@@ -109,11 +116,12 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
         <p className="text-heading-l pb-[24px]">Past Schemes</p>
         <div>
           {pastSchemes.map((scheme, index) => {
-            const { title, imgUrl } = scheme;
+            const { title, imgUrl, onClick } = scheme;
             return (
               <div
                 key={index}
-                className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px]"
+                className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+                onClick={onClick}
               >
                 <img
                   className="w-[130px] h-full object-contain"
