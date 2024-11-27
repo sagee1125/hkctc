@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/hkctc/" />
+    <meta charset="utf-8" />
+    <title>404 Not Found</title>
+    <script>
+      // 获取当前路径
+      var pathname = window.location.pathname;
+
+      // 如果路径以 /hkctc 开头并且不包含 /index.html，则重定向到 index.html
+      if (pathname.startsWith("/hkctc") && !pathname.includes("/index.html")) {
+        // 保留原路径，重定向到 /hkctc/index.html
+        var newPath = pathname.replace("/hkctc", "/hkctc/index.html");
+        window.location.replace(newPath);
+      } else if (!pathname.startsWith("/hkctc")) {
+        // 如果路径不以 /hkctc 开头，显示 404 页面
+        document.body.innerHTML = "<h1>404 Not Found</h1>";
+      }
+    </script>
   </head>
-  <body>
-    <p>Redirecting...</p>
-  </body>
+  <body></body>
 </html>
