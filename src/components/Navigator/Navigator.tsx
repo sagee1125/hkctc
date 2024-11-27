@@ -191,7 +191,7 @@ export const navData: NavData[] = [
           {
             subTitle: "Student Competitions",
             imgUrl: "Student_Competitions.png",
-            navUrl: "events-landing",
+            navUrl: "student-competitions",
           },
           {
             subTitle: "",
