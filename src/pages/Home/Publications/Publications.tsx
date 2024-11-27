@@ -4,6 +4,7 @@ import report from "./assets/report.png";
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import { EmailBox } from "../../../components";
+import { imgBox, overlayStyle } from "../../GeneralPublic/PhotoPanel";
 
 type ResourcesData = {
   title: string;
@@ -465,23 +466,74 @@ export const Publications: React.FC = () => {
         </div>
         <hr className="m-3 pb-2" />
 
-        <div className="w-full grid grid-cols-2 gap-2 px-3">
-          <img
-            className="w-full h-auto"
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/publications/publication_head.png"
-            }
-            alt={"Publication Head"}
-          />
-          <img
-            className="w-full h-auto"
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/publications/publication_head.png"
-            }
-            alt={"Publication Head"}
-          />
+        <div className="w-full h-[390px] grid grid-cols-2 gap-[24px] px-[24px]">
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
+              minHeight: "390px",
+              ...imgBox,
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <div className="z-10">
+                <p
+                  className={"text-white z-10"}
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "700",
+                    lineHeight: "24px",
+                  }}
+                >
+                  STEM Teaching Kit
+                </p>
+                <p
+                  className={"text-white z-10"}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    lineHeight: "22px",
+                  }}
+                >
+                  for Junior Secondary Students
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
+              minHeight: "390px",
+              ...imgBox,
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <div className="z-10">
+                <p
+                  className={"text-white z-10"}
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "700",
+                    lineHeight: "24px",
+                  }}
+                >
+                  Chemical Testing Teaching Kit
+                </p>
+                <p
+                  className={"text-white z-10"}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    lineHeight: "22px",
+                  }}
+                >
+                  for Senior Secondary Curriculum
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

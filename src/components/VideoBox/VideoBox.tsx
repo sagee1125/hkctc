@@ -9,7 +9,7 @@ export const VideoBox: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const videoUrls = [
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    process.env.PUBLIC_URL + "/assets/InnoCarnivalcut.mp4",
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
@@ -84,8 +84,8 @@ export const VideoBox: React.FC = () => {
       <div
         style={videoBoxStyle}
         className="relative overflow-hidden"
-      // onMouseEnter={() => setIsHovered(true)}
-      // onMouseLeave={() => setIsHovered(false)}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
       >
         {/* banner */}
         <div
@@ -122,12 +122,12 @@ export const VideoBox: React.FC = () => {
             style={overlayStyle}
             className="absolute inset-0 flex justify-between items-end"
           >
-
             <div className="flex-1" />
             <div
               className="flex justify-between items-end py-10 px-16"
               style={{
-                background: "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                background:
+                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
               }}
             >
               <div className="text-white pr-[26em]">
@@ -197,7 +197,6 @@ const videoStyle: React.CSSProperties = {
   height: "100%",
 };
 
-
 const progressBarContainerStyle: React.CSSProperties = {
   width: "100%",
   height: "16px",
@@ -222,4 +221,3 @@ const buttonStyle: React.CSSProperties = {
   cursor: "pointer",
   border: "none",
 };
-
