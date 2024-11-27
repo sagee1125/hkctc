@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
+import { useNavigate } from "react-router-dom";
 
 export type NavData = {
   title: string;
@@ -173,9 +174,6 @@ export const navData: NavData[] = [
   {
     title: "Events & Promotions",
     showSidebar: true,
-    onClick: () => {
-      window.location.href = "/hkctc/events-landing";
-    },
     items: [
       {
         name: "Events",
@@ -183,17 +181,17 @@ export const navData: NavData[] = [
           {
             subTitle: "T&C Manpower Development Award Scheme",
             imgUrl: "Manpower_Development.png",
-            navUrl: "",
+            navUrl: "/hkctc/events-landing",
           },
           {
             subTitle: "Seminars and Workshops",
             imgUrl: "Seminars_Workshops.png",
-            navUrl: "",
+            navUrl: "/hkctc/events-landing",
           },
           {
             subTitle: "Student Competitions",
             imgUrl: "Student_Competitions.png",
-            navUrl: "",
+            navUrl: "/hkctc/events-landing",
           },
           {
             subTitle: "",
@@ -309,6 +307,7 @@ export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const navRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -325,9 +324,9 @@ export const Navigator: React.FC = () => {
   }, []);
 
   const navItems = activeIndex ? navData[activeIndex]?.items : []; // sidebar in dropdown nav
+
   const showSidebar = activeIndex ? navData[activeIndex]?.showSidebar : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
-
   const sideItemRows = navItems?.length;
   console.log("sideItemRows", sideItemRows);
   console.log("navItems", navItems);
@@ -419,10 +418,18 @@ export const Navigator: React.FC = () => {
                     </div>
                   )}
                   {subItems.map((sub, index) => {
-                    const { subTitle, imgUrl } = sub;
+                    const { subTitle, imgUrl, navUrl } = sub;
 
                     return (
-                      <div key={index} className="flex flex-col gap-2 flex-[5]">
+                      <div
+                        key={index}
+                        className={`flex flex-col gap-2 flex-[5] ${
+                          subTitle === "" ? "" : "cursor-pointer"
+                        }`}
+                        onClick={() => {
+                          if (navUrl) navigate(navUrl);
+                        }}
+                      >
                         <div className="flex justify-center items-center">
                           <img
                             className="w-full h-auto max-w-full"
