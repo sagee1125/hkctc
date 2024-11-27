@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./Layout";
 import {
@@ -18,14 +18,11 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/hkctc" element={<Home />} />
-            <Route path="/hkctc/general-public" element={<GeneralPublic />} />
-            <Route
-              path="/hkctc/educators-students"
-              element={<EducatorsStudents />}
-            />
-            <Route path="/hkctc/industry" element={<Industry />} />
-            <Route path="/hkctc/service-users" element={<ServiceUsers />} />
-            <Route path="/hkctc/events-landing" element={<EventsLanding />} />
+            <Route path="/general-public" element={<GeneralPublic />} />
+            <Route path="/educators-students" element={<EducatorsStudents />} />
+            <Route path="/industry" element={<Industry />} />
+            <Route path="/service-users" element={<ServiceUsers />} />
+            <Route path="/events-landing" element={<EventsLanding />} />
 
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />

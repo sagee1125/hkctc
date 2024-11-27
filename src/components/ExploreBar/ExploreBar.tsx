@@ -14,7 +14,7 @@ export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
-
+  console.log("currentPath", currentPath);
   const isReturnEmpty = hideExploreBar.includes(currentPath);
   if (isReturnEmpty) return <></>;
   const exploreBarData: ExploreBarData[] = [
@@ -22,44 +22,44 @@ export const ExploreBar: React.FC = () => {
       title: "General Public",
       iconName: "entypo:globe",
       hoverColor:
-        currentPath === "/hkctc/general-public"
+        currentPath === "/general-public"
           ? "text-elegancePurple"
           : "group-hover:text-elegancePurple",
       onClick: () => {
-        navigate("/hkctc/general-public");
+        navigate("general-public");
       },
     },
     {
       title: "Educators & Students",
       iconName: "fa-solid:book-reader",
       hoverColor:
-        currentPath === "/hkctc/educators-students"
+        currentPath === "/educators-students"
           ? "text-trustfulBlue"
           : "group-hover:text-trustfulBlue",
       onClick: () => {
-        navigate("/hkctc/educators-students");
+        navigate("educators-students");
       },
     },
     {
       title: "T&C Bodies & Practitioners",
       iconName: "majesticons:test-tube-filled",
       hoverColor:
-        currentPath === "/hkctc/industry"
+        currentPath === "/industry"
           ? "text-growthfulGreen"
           : "group-hover:text-growthfulGreen",
       onClick: () => {
-        navigate("/hkctc/industry");
+        navigate("industry");
       },
     },
     {
       title: "T&C Service Users",
       iconName: "mdi:user",
       hoverColor:
-        currentPath === "/hkctc/service-users"
+        currentPath === "/service-users"
           ? "text-energeticOrange"
           : "group-hover:text-energeticOrange",
       onClick: () => {
-        navigate("/hkctc/service-users");
+        navigate("service-users");
       },
     },
   ];

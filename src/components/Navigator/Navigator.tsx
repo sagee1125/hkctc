@@ -181,17 +181,17 @@ export const navData: NavData[] = [
           {
             subTitle: "T&C Manpower Development Award Scheme",
             imgUrl: "Manpower_Development.png",
-            navUrl: "/hkctc/events-landing",
+            navUrl: "events-landing",
           },
           {
             subTitle: "Seminars and Workshops",
             imgUrl: "Seminars_Workshops.png",
-            navUrl: "/hkctc/events-landing",
+            navUrl: "events-landing",
           },
           {
             subTitle: "Student Competitions",
             imgUrl: "Student_Competitions.png",
-            navUrl: "/hkctc/events-landing",
+            navUrl: "events-landing",
           },
           {
             subTitle: "",
