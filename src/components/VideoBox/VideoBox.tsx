@@ -135,12 +135,12 @@ export const VideoBox: React.FC = () => {
                   {`Welcome to the InnoCarnival 2024`}
                 </h2>
 
-                <h2 className="text-body-m py-6">
+                <p className="!text-body-m py-[24px]">
                   {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
                 November 3 at the Hong Kong Science Park with the theme of
                 "Let's Sail with Innovation and Technology".`}
-                </h2>
-                <div className="py-2">
+                </p>
+                <div className="py-2 text-highlight-m">
                   <button style={buttonStyle}>SEE MORE</button>
                 </div>
               </div>
@@ -217,7 +217,6 @@ const buttonStyle: React.CSSProperties = {
   padding: "10px 20px",
   backgroundColor: "#FFFFFF",
   color: "#000000",
-  borderRadius: "2px",
   cursor: "pointer",
   border: "none",
 };

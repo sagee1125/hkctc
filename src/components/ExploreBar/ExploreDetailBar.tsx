@@ -46,7 +46,6 @@ const barStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   height: "168px",
-  borderBottom: "1px solid #E0E0E0",
   paddingLeft: "2rem",
   position: "relative", // to include the overlay
 };

@@ -29,16 +29,9 @@ export const Header: React.FC = () => {
           //     : "20px",
         }}
       >
-        <h1
-          className="pl-4"
-          style={{
-            fontWeight: "300",
-            fontSize: "12px",
-            lineHeight: "18px",
-          }}
-        >
+        <p className="pl-4 items-center text-body-s">
           The Hong Kong Council for Testing and Certification
-        </h1>
+        </p>
         <div className="flex flex-row gap-4 items-center pr-4">
           <Icon icon="ri:search-line" className="h-6 w-6 text-[#333333]" />
           <Icon icon="mingcute:font-line" className="h-6 w-6 text-[#333333]" />
@@ -66,6 +59,7 @@ const headerStyle: React.CSSProperties = {
   color: "black",
   padding: "1rem",
   display: "flex",
+  alignItems: "center",
   justifyContent: "space-between",
   height: "56px",
   borderBottom: "1px solid #E0E0E0",

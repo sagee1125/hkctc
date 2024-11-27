@@ -67,7 +67,7 @@ export const ExploreBar: React.FC = () => {
   return (
     <nav>
       <div className="bg-primary h-[50px] flex flex-row px-[32px] items-center text-white">
-        <p className="font-bold text-md">Explore as</p>
+        <p className="text-highlight-s">Explore as</p>
         <div className="flex flex-row px-8 gap-8">
           {exploreBarData.map((item, index) => {
             const { iconName, title, hoverColor, onClick } = item;

@@ -333,7 +333,7 @@ export const Navigator: React.FC = () => {
   return (
     <nav ref={navRef}>
       <div style={navStyle}>
-        <div className="h-[54px] flex items-center">
+        <div className="h-[54px] w-[141px] flex items-center">
           <Logo />
         </div>
         <div className="flex flex-row gap-8 ml-12 h-full">
@@ -404,7 +404,7 @@ export const Navigator: React.FC = () => {
                             key={index}
                             className={`py-2 cursor-pointer transition-all duration-300 ease-in-out ${
                               clicked
-                                ? "bg-lightGrey font-bold px-4"
+                                ? "bg-lightGrey text-highlight-s px-4"
                                 : "hover:bg-gray-100 px-1"
                             }`}
                             onClick={() => {
@@ -419,7 +419,6 @@ export const Navigator: React.FC = () => {
                   )}
                   {subItems.map((sub, index) => {
                     const { subTitle, imgUrl, navUrl } = sub;
-
                     return (
                       <div
                         key={index}
@@ -430,18 +429,20 @@ export const Navigator: React.FC = () => {
                           if (navUrl) navigate(navUrl);
                         }}
                       >
-                        <div className="flex justify-center items-center">
-                          <img
-                            className="w-full h-auto max-w-full"
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/" +
-                              imgUrl
-                            }
-                            alt={subTitle}
-                          />
-                        </div>
-                        <div className="w-full text-left text-sm">
+                        {imgUrl && (
+                          <div className="flex justify-center items-center">
+                            <img
+                              className="w-full aspect-[180/106] overflow-hidden"
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/" +
+                                imgUrl
+                              }
+                              alt={subTitle}
+                            />
+                          </div>
+                        )}
+                        <div className="w-full text-left text-body-s">
                           {subTitle}
                         </div>
                       </div>
@@ -479,7 +480,6 @@ const dropDownStyle: React.CSSProperties = {
   paddingLeft: "1rem",
   paddingRight: "1rem",
   zIndex: 10,
-  borderRadius: "4px",
   boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
   marginTop: "4px",
   marginLeft: "38px",
