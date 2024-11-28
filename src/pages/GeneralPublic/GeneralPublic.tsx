@@ -1,5 +1,6 @@
 import React from "react";
-import { Breadcrumb, ExploreDetailBar } from "../../components";
+import { Breadcrumb } from "../../components";
+import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { GeneralPublicContent } from "./GeneralPublicContent";
 

@@ -1,5 +1,7 @@
 import React from "react";
-import { Breadcrumb, ExploreDetailBar } from "../../components";
+import { Breadcrumb } from "../../components";
+import { ExploreDetailBar } from "../../components/Navigator";
+
 import { IndustryContent } from "./IndustryContent";
 
 export const Industry: React.FC = () => {

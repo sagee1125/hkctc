@@ -95,6 +95,61 @@ export const AwardSchemeContent: React.FC = () => {
     },
   ];
 
+  const applicationData: Array<{
+    title: string;
+    imagePath: string;
+  }> = [
+    {
+      title: "Guidance Notes",
+      imagePath: "Guidance_Notes.png",
+    },
+    {
+      title:
+        "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
+      imagePath: "Testing.png",
+    },
+    {
+      title:
+        "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
+      imagePath: "Excellent.png",
+    },
+  ];
+
+  const publicationData: Array<{
+    title: string;
+    imagePath: string;
+    iconPath: string;
+    date?: string;
+  }> = [
+    {
+      title: "Pamphlet",
+      iconPath: "PDF.png",
+      imagePath: "Pamphlet.png",
+    },
+    {
+      title: "Media Coverage",
+      iconPath: "PDF.png",
+      imagePath: "Coverage.png",
+    },
+    {
+      title: "Award ceremony video",
+      iconPath: "VIDEO.png",
+
+      imagePath: "ceremony.png",
+    },
+    {
+      title: "Commemorative publication",
+      iconPath: "PDF.png",
+      imagePath: "Commemorative.png",
+    },
+    {
+      title: "Press Release",
+      iconPath: "PDF.png",
+      imagePath: "Release.png",
+      date: "4 December 2023",
+    },
+  ];
+
   return (
     <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
       <div className="flex flex-col">
@@ -345,6 +400,82 @@ export const AwardSchemeContent: React.FC = () => {
           })}
         </div>
         <hr className="my-[24px]" />
+        <p className="text-heading-l mb-[24px]">Application</p>
+
+        <div className="w-full">
+          {applicationData.map((item, index) => {
+            const { title, imagePath } = item;
+            return (
+              <div
+                key={index}
+                className="flex flex-row h-[90px] mt-[24px] gap-[24px] w-full"
+              >
+                <div className="flex-shrink-0 relative w-[130px] h-[90px]">
+                  <img
+                    className="border-2 border-inherit w-full h-full object-cover"
+                    src={`${process.env.PUBLIC_URL}/assets/eventsLanding/awardScheme/${imagePath}`}
+                    alt={imagePath}
+                  />
+                  {/* Icon */}
+                  <img
+                    className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF.svg`}
+                    alt="PDF Icon"
+                  />
+                </div>
+                <div className="flex-grow text-highlight-m text-black overflow-hidden text-ellipsis">
+                  {title}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="text-heading-l mt-[24px]">Publications</p>
+
+        <div className="w-full grid grid-cols-2 gap-[24px]">
+          {publicationData.map((item, index) => {
+            const { title, imagePath, date, iconPath } = item;
+            return (
+              <div
+                key={index}
+                className="flex flex-row h-[90px] mt-[24px] gap-[24px] w-full"
+              >
+                <div className="flex-shrink-0 relative w-[130px] h-[90px]">
+                  <img
+                    className="border-2 border-inherit w-full h-full object-cover"
+                    src={`${process.env.PUBLIC_URL}/assets/eventsLanding/awardScheme/${imagePath}`}
+                    alt={imagePath}
+                  />
+                  {/* Icon */}
+                  <img
+                    className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
+                    alt="PDF Icon"
+                  />
+                </div>
+                <div className="flex-grow flex-col flex text-black overflow-hidden text-ellipsis">
+                  <p className="text-highlight-m">{title}</p>
+                  {date && (
+                    <div className="flex flex-row gap-[8px] mt-[8px] items-center">
+                      <img
+                        className="w-[16px] h-[16px]"
+                        src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+                        alt={"calendar"}
+                      />
+                      <p className="text-body-s text-grey">{date}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <hr className="mt-[24px]" />
+        <div className="flex flex-row gap-[8px] my-[36px]">
+          <Icon icon="tdesign:share" className="h-[20px] w-[20px]" />
+          <p className="text-highlight-m">Share</p>
+        </div>
       </div>
     </div>
   );

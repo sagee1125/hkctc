@@ -1,5 +1,6 @@
 import React from "react";
-import { Breadcrumb, ExploreDetailBar } from "../../components";
+import { Breadcrumb } from "../../components";
+import { ExploreDetailBar } from "../../components/Navigator";
 import { ServiceUsersContent } from "./ServiceUsersContent";
 
 export const ServiceUsers: React.FC = () => {
