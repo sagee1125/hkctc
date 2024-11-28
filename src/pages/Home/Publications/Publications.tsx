@@ -309,7 +309,7 @@ export const Publications: React.FC = () => {
       ref={slideContainerRef}
       className="w-full grid grid-cols-[2fr,1fr] pr-4"
       style={{
-        marginTop: "24px",
+        marginTop: "48px",
       }}
       transition={{ duration: 0.5 }}
       onAnimationComplete={() => {
@@ -331,10 +331,10 @@ export const Publications: React.FC = () => {
               style={{ height: "24px", width: "24px" }}
             />
             <p className="text-heading-l">Publications</p>
-            <Icon
+            {/* <Icon
               icon="teenyicons:right-outline"
               style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
-            />
+            /> */}
           </div>
           <div className="pr-8 pl-4 w-1/2 justify-start" ref={containerRef}>
             <div className="flex flex-row justify-between w-full">
@@ -451,7 +451,7 @@ export const Publications: React.FC = () => {
         <div
           className="flex flex-row items-center gap-4 px-2"
           style={{
-            marginTop: "24px",
+            marginTop: "48px",
           }}
         >
           <Icon

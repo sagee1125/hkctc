@@ -21,6 +21,14 @@ export const ExploreBar: React.FC = () => {
   console.log("currentPath", currentPath);
   const isReturnEmpty = hideExploreBar.includes(currentPath);
   if (isReturnEmpty) return <></>;
+
+  const paths: string[] = [
+    "/general-public",
+    "/educators-students",
+    "/industry",
+    "/service-users",
+  ];
+  const isClicked = paths.includes(currentPath);
   const exploreBarData: ExploreBarData[] = [
     {
       title: "General Public",
@@ -28,7 +36,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/general-public"
           ? "text-elegancePurple"
-          : "group-hover:text-elegancePurple",
+          : `group-hover:text-elegancePurple ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("general-public");
       },
@@ -39,7 +49,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/educators-students"
           ? "text-trustfulBlue"
-          : "group-hover:text-trustfulBlue",
+          : `group-hover:text-trustfulBlue ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("educators-students");
       },
@@ -50,7 +62,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/industry"
           ? "text-growthfulGreen"
-          : "group-hover:text-growthfulGreen",
+          : `group-hover:text-growthfulGreen ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("industry");
       },
@@ -61,7 +75,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/service-users"
           ? "text-energeticOrange"
-          : "group-hover:text-energeticOrange",
+          : `group-hover:text-energeticOrange ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("service-users");
       },
@@ -72,7 +88,12 @@ export const ExploreBar: React.FC = () => {
     <nav>
       <div className="bg-primary h-[50px] flex flex-row px-[32px] items-center text-white">
         <p className="text-highlight-s">Explore as</p>
-        <div className="flex flex-row px-8 gap-8">
+        <img
+          className="w-[12px] h-[12px] ml-[8px] mr-[16px]"
+          src={process.env.PUBLIC_URL + "/assets/icons/arrow_right.svg"}
+          alt="arrow_right"
+        />
+        <div className="flex flex-row gap-[24px]">
           {exploreBarData.map((item, index) => {
             const { iconName, title, hoverColor, onClick } = item;
             return (
