@@ -8,6 +8,7 @@ import {
   GeneralPublic,
   Home,
   Industry,
+  ResourcesReports,
   SeminarsWorkshops,
   ServiceUsers,
   StudentCompetitions,
@@ -38,6 +39,8 @@ function App() {
               path="/student-competitions"
               element={<StudentCompetitions />}
             />
+
+            <Route path="/resources-reports" element={<ResourcesReports />} />
 
             {/* Default route to redirect all undefined paths to '/' */}
             <Route path="*" element={<Home />} />

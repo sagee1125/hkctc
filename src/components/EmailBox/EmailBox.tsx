@@ -10,7 +10,7 @@ export const EmailBox: React.FC = () => {
         </div>
         <input
           placeholder="Your Name"
-          className="w-full p-2 resize-none overflow-y-auto"
+          className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
             minHeight: "calc(2.5em * 1)",
@@ -19,7 +19,7 @@ export const EmailBox: React.FC = () => {
         />
         <input
           placeholder="Email Address"
-          className="w-full p-2 resize-none overflow-y-auto"
+          className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
             minHeight: "calc(2.5em * 1)",
@@ -28,7 +28,7 @@ export const EmailBox: React.FC = () => {
         />
         <textarea
           placeholder="Write down your message"
-          className="w-full p-2 resize-none overflow-y-auto"
+          className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,
             minHeight: "calc(2.5em * 3)",
@@ -36,7 +36,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <button
-          className="w-full text-white p-2"
+          className="w-full text-white p-[16px]"
           style={{
             lineHeight: 1.5,
             background:

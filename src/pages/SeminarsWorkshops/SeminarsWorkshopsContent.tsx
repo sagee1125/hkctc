@@ -236,23 +236,23 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
           })}
         </div>
         <div className="flex justify-center flex-row items-center py-[48px] gap-[9px]">
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] h-[48px]">
+          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
             <Icon icon="fluent:arrow-left-12-filled" />
           </button>
           <button
             style={activatedButtonStyle}
-            className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] h-[48px]"
+            className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]"
           >
             1
           </button>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] h-[48px]">
+          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
             2
           </button>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] h-[48px]">
+          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
             3
           </button>
           <span className="px-4 py-2 text-gray-600">...</span>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] h-[48px]">
+          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
             <Icon icon="fluent:arrow-right-12-filled" />
           </button>
         </div>

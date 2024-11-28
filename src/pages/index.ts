@@ -6,3 +6,4 @@ export * from "./ServiceUsers";
 export * from "./EventsLanding";
 export * from "./SeminarsWorkshops";
 export * from "./StudentCompetitions";
+export * from "./ResourcesReports";

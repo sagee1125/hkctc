@@ -311,14 +311,16 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
   );
 };
 
-const normalButtonStyle: React.CSSProperties = {
+export const normalButtonStyle: React.CSSProperties = {
   background: "white",
   color: "black",
   border: "1px solid #666666",
+  padding: "6px 12px 6px 12px",
 };
 
-const activatedButtonStyle: React.CSSProperties = {
+export const activatedButtonStyle: React.CSSProperties = {
   background: "black",
   color: "white",
   border: "1px solid white",
+  padding: "6px 12px 6px 12px",
 };
