@@ -5,6 +5,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
 } from "../EventsLanding/EventsLandingContent";
+import { ChartOne } from "./ChartOne";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -20,8 +21,8 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
 
   const buttonArray = [
-    "institutions and employees engagement",
-    "independent institutional units",
+    "Institutions and employees engagement",
+    "Independent institutional units",
     "Business income of private independent institution",
     "Business Statistics",
   ];
@@ -138,11 +139,15 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
         <hr className="my-[24px]" />
 
         <div className="w-full flex flex-col gap-[24px] mb-[24px]">
-          <img
-            className="object-fit"
-            src={process.env.PUBLIC_URL + "/assets/profileAndRole/chart1.png"}
-            alt="chart1"
-          />
+          <div
+            style={{
+              width: "100%",
+              border: "2px solid #E0E0E0",
+              boxSizing: "border-box",
+            }}
+          >
+            <ChartOne />
+          </div>
           <img
             className="object-fit"
             src={process.env.PUBLIC_URL + "/assets/profileAndRole/chart2.png"}
