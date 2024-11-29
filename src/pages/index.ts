@@ -7,3 +7,4 @@ export * from "./EventsLanding";
 export * from "./SeminarsWorkshops";
 export * from "./StudentCompetitions";
 export * from "./ResourcesReports";
+export * from "./ProfileAndRole";

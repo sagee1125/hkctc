@@ -38,7 +38,7 @@ export const navData: NavData[] = [
           {
             subTitle: "Profile and Role of T&C Sector",
             imgUrl: "nav_event_1_1.png",
-            navUrl: "",
+            navUrl: "profile-and-role",
           },
           {
             subTitle: "Strengths of Hong Kong's T&C Sector",

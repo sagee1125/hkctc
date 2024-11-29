@@ -6,6 +6,7 @@ import {
   EducatorsStudents,
   EventsLanding,
   GeneralPublic,
+  ProfileAndRole,
   Home,
   Industry,
   ResourcesReports,
@@ -32,6 +33,8 @@ function App() {
               path="/events-landing/award-scheme"
               element={<AwardScheme />}
             />
+
+            <Route path="/profile-and-role" element={<ProfileAndRole />} />
 
             <Route path="/seminars-workshops" element={<SeminarsWorkshops />} />
 
