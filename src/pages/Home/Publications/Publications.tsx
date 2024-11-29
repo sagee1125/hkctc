@@ -139,7 +139,7 @@ export const Publications: React.FC = () => {
       onClick: () => {},
     },
     {
-      title: "Courses",
+      title: "Publications",
       icon: "lsicon:report-outline",
       number: 14,
       sideColor: "#D9B6F6",
@@ -148,7 +148,7 @@ export const Publications: React.FC = () => {
     },
 
     {
-      title: "Advertorials",
+      title: "Courses",
       icon: "hugeicons:teacher",
       number: 32,
       sideColor: "#BBC9E7",
@@ -156,7 +156,7 @@ export const Publications: React.FC = () => {
       onClick: () => {},
     },
     {
-      title: "Reports",
+      title: "Advertorials",
       icon: "fluent-mdl2:publish-course",
       number: 68,
       sideColor: "#FFC786",
@@ -173,28 +173,28 @@ export const Publications: React.FC = () => {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_1.png",
+          imgPath: "Award_Ceremony.png",
           onClick: () => {},
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items.png",
+          imgPath: "Infographic_Video.png",
           onClick: () => {},
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_2.png",
+          imgPath: "Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_3.png",
+          imgPath: "Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -203,31 +203,31 @@ export const Publications: React.FC = () => {
       title: Category.Workshops,
       items: [
         {
+          title: "Award Ceremony",
+          type: "VIDEO",
+          date: "6 Aug 2024",
+          imgPath: "Award_Ceremony.png",
+          onClick: () => {},
+        },
+        {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items.png",
+          imgPath: "Infographic_Video.png",
           onClick: () => {},
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_2.png",
+          imgPath: "Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_3.png",
-          onClick: () => {},
-        },
-        {
-          title: "Award Ceremony",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "Sub_Items_1.png",
+          imgPath: "Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -236,31 +236,32 @@ export const Publications: React.FC = () => {
       title: Category.Seminars,
       items: [
         {
-          title: "Award Pamphlet",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "Sub_Items_2.png",
-          onClick: () => {},
-        },
-        {
-          title: "Commemorative publication",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "Sub_Items_3.png",
-          onClick: () => {},
-        },
-        {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items.png",
+          imgPath: "Infographic_Video.png",
+          onClick: () => {},
+        },
+
+        {
+          title: "Award Pamphlet",
+          type: "PDF",
+          date: "6 Aug 2024",
+          imgPath: "Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_1.png",
+          imgPath: "Award_Ceremony.png",
+          onClick: () => {},
+        },
+        {
+          title: "Commemorative publication",
+          type: "PDF",
+          date: "6 Aug 2024",
+          imgPath: "Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -269,31 +270,31 @@ export const Publications: React.FC = () => {
       title: Category.Competitions,
       items: [
         {
-          title: "Commemorative publication",
-          type: "PDF",
+          title: "Award Ceremony",
+          type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "publication_head.png",
+          imgPath: "Award_Ceremony.png",
           onClick: () => {},
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items.png",
+          imgPath: "Infographic_Video.png",
           onClick: () => {},
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_2.png",
+          imgPath: "Award_Pamphlet.png",
           onClick: () => {},
         },
         {
-          title: "Award Ceremony",
-          type: "VIDEO",
+          title: "Commemorative publication",
+          type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Sub_Items_1.png",
+          imgPath: "Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -307,7 +308,7 @@ export const Publications: React.FC = () => {
   return (
     <motion.div
       ref={slideContainerRef}
-      className="w-full grid grid-cols-[2fr,1fr] pr-4"
+      className="w-full grid grid-cols-[2fr,1fr]"
       style={{
         marginTop: "48px",
       }}
@@ -318,25 +319,21 @@ export const Publications: React.FC = () => {
     >
       {/* column 1,2 */}
       <div
-        className={`w-full transition-transform duration-700 ${
+        className={`w-full transition-transform duration-700 pl-[24px] ${
           isVisible
             ? "translate-x-0 opacity-100"
             : "-translate-x-full opacity-0"
         }`}
       >
         <div className="flex flex-row justify-between items-center w-full">
-          <div className="flex flex-row items-center gap-4 px-2 w-1/2">
+          <div className="flex flex-row items-center gap-[16px] w-1/2">
             <Icon
               icon="material-symbols-light:square"
               style={{ height: "24px", width: "24px" }}
             />
             <p className="text-heading-l">Publications</p>
-            {/* <Icon
-              icon="teenyicons:right-outline"
-              style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
-            /> */}
           </div>
-          <div className="pr-8 pl-4 w-1/2 justify-start" ref={containerRef}>
+          <div className="w-1/2 justify-start" ref={containerRef}>
             <div className="flex flex-row justify-between w-full">
               {publicationCategory.map((cate, index) => {
                 const { title } = cate;
@@ -383,8 +380,8 @@ export const Publications: React.FC = () => {
           </div>
         </div>
 
-        <hr className="m-3 pb-2" />
-        <div className="w-full grid grid-cols-2 px-4 gap-6">
+        <hr className="my-[24px]" />
+        <div className="w-full grid grid-cols-2 gap-[24px]">
           {/* column 1 */}
           <div className="flex flex-col items-center">
             <div className="relative flex justify-center items-center w-full">
@@ -538,47 +535,51 @@ export const Publications: React.FC = () => {
       </div>
 
       {/* column 3 */}
-      <div
-        className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
-          isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-        }`}
-      >
-        <div className="text-heading-l">Resources</div>
-        <div>
-          {resourcesData.map((item, index) => {
-            const { number, title, icon, sideColor, bgImg } = item;
-            return (
-              <div
-                key={index}
-                className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
-              >
-                {/* Inner Background Div */}
+      <div className="px-[24px]">
+        <div
+          className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
+            isVisible
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          }`}
+        >
+          <div className="text-heading-l">Resources</div>
+          <div>
+            {resourcesData.map((item, index) => {
+              const { number, title, icon, sideColor, bgImg } = item;
+              return (
                 <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
-                  }}
-                />
-                {/* side border */}
-                <div
-                  className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
-                  style={{ backgroundColor: sideColor, opacity: 0.8 }}
-                />
-                <div className="flex flex-row justify-between w-full text-white pr-2">
-                  <div className="px-4">{`(${number})`}</div>
-                  <div className="z-20 text-heading-l">{title}</div>
-                  <Icon
-                    icon={icon}
-                    style={{ height: "24px", width: "24px" }}
-                    className="z-20"
+                  key={index}
+                  className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
+                >
+                  {/* Inner Background Div */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${bgImg})`,
+                    }}
                   />
+                  {/* side border */}
+                  <div
+                    className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
+                    style={{ backgroundColor: sideColor, opacity: 0.8 }}
+                  />
+                  <div className="flex flex-row justify-between w-full text-white pr-2">
+                    <div className="px-4">{`(${number})`}</div>
+                    <div className="z-20 text-heading-l">{title}</div>
+                    <Icon
+                      icon={icon}
+                      style={{ height: "24px", width: "24px" }}
+                      className="z-20"
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <hr className="my-[24px]" />
+          <EmailBox />
         </div>
-        <hr className="my-[24px]" />
-        <EmailBox />
       </div>
     </motion.div>
   );

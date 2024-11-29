@@ -360,9 +360,7 @@ export const Navigator: React.FC = () => {
                   </p>
                   <Icon
                     icon="oui:arrow-down"
-                    className="mt-1"
                     style={{
-                      strokeWidth: 3,
                       display: ifHideArrow ? "none" : "block",
                     }}
                   />

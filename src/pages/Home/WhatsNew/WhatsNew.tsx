@@ -38,25 +38,25 @@ export const whatsNewData: WhatsNewData[] = [
 export const WhatsNew: React.FC = () => {
   return (
     <div
-      className="w-full"
+      className="w-full px-[24px]"
       style={{
         marginTop: "48px",
       }}
     >
-      <div className="flex flex-row items-center gap-4 px-4">
+      <div className="flex flex-row items-center">
         <Icon
           icon="material-symbols-light:square"
-          style={{ height: "24px", width: "24px" }}
+          style={{ height: "24px", width: "24px", marginRight: "16px" }}
         />
-        <p className="text-heading-l">What's New</p>
+        <p className="text-heading-l mr-[12px]">What's New</p>
         <Icon
           icon="teenyicons:right-outline"
           style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
         />
       </div>
-      <div className="px-4 pt-6">
+      <div className="pt-[24px]">
         <div
-          className="grid w-full gap-4"
+          className="grid w-full gap-[24px]"
           style={{
             gridTemplateColumns: `repeat(${whatsNewData.length}, minmax(0, 1fr))`,
           }}
