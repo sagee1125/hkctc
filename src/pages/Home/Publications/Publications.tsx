@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import report from "./assets/report.png";
+import newsletter from "./assets/Newsletter.png";
+import publications from "./assets/publications.png";
+import courses from "./assets/courses.png";
+import advertorials from "./assets/Advertorials.png";
+
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import { EmailBox } from "../../../components";
-import { imgBox, overlayStyle } from "../../GeneralPublic/PhotoPanel";
+import { imgBox } from "../../GeneralPublic/PhotoPanel";
 
 type ResourcesData = {
   title: string;
@@ -54,7 +59,7 @@ export const Publications: React.FC = () => {
   useEffect(() => {
     const newDirection =
       categoryValues.indexOf(activeCategory) >
-      categoryValues.indexOf(prevActiveCategory)
+        categoryValues.indexOf(prevActiveCategory)
         ? 1
         : -1;
     setDirection(newDirection);
@@ -128,23 +133,23 @@ export const Publications: React.FC = () => {
       number: 20,
       sideColor: "#D1E39B",
       bgImg: report,
-      onClick: () => {},
+      onClick: () => { },
     },
     {
       title: "Newsletter",
       icon: "qlementine-icons:newspaper-16",
       number: 26,
       sideColor: "#F15A31",
-      bgImg: report,
-      onClick: () => {},
+      bgImg: newsletter,
+      onClick: () => { },
     },
     {
       title: "Publications",
       icon: "lsicon:report-outline",
       number: 14,
       sideColor: "#D9B6F6",
-      bgImg: report,
-      onClick: () => {},
+      bgImg: publications,
+      onClick: () => { },
     },
 
     {
@@ -152,16 +157,16 @@ export const Publications: React.FC = () => {
       icon: "hugeicons:teacher",
       number: 32,
       sideColor: "#BBC9E7",
-      bgImg: report,
-      onClick: () => {},
+      bgImg: courses,
+      onClick: () => { },
     },
     {
       title: "Advertorials",
       icon: "fluent-mdl2:publish-course",
       number: 68,
       sideColor: "#FFC786",
-      bgImg: report,
-      onClick: () => {},
+      bgImg: advertorials,
+      onClick: () => { },
     },
   ];
 
@@ -174,28 +179,28 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Award_Ceremony.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Infographic_Video.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Award_Pamphlet.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Commemorative_Publication.png",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     },
@@ -207,28 +212,28 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Award_Ceremony.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Infographic_Video.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Award_Pamphlet.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Commemorative_Publication.png",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     },
@@ -240,7 +245,7 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Infographic_Video.png",
-          onClick: () => {},
+          onClick: () => { },
         },
 
         {
@@ -248,21 +253,21 @@ export const Publications: React.FC = () => {
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Award_Pamphlet.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Award_Ceremony.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Commemorative_Publication.png",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     },
@@ -274,28 +279,28 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Award_Ceremony.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "Infographic_Video.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Award_Pamphlet.png",
-          onClick: () => {},
+          onClick: () => { },
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "Commemorative_Publication.png",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     },
@@ -319,11 +324,10 @@ export const Publications: React.FC = () => {
     >
       {/* column 1,2 */}
       <div
-        className={`w-full transition-transform duration-700 pl-[24px] ${
-          isVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0"
-        }`}
+        className={`w-full transition-transform duration-700 pl-[24px] ${isVisible
+          ? "translate-x-0 opacity-100"
+          : "-translate-x-full opacity-0"
+          }`}
       >
         <div className="flex flex-row justify-between items-center w-full">
           <div className="flex flex-row items-center gap-[16px] w-1/2">
@@ -362,7 +366,7 @@ export const Publications: React.FC = () => {
             </div>
             {/* underline */}
             <motion.div
-              className="bg-black h-[3px] mt-1 absolute"
+              className="bg-black h-[3px] absolute"
               style={{
                 width: underlineProps.width,
                 left: underlineProps.left,
@@ -375,7 +379,7 @@ export const Publications: React.FC = () => {
                 width: underlineProps.width,
                 left: underlineProps.left,
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
           </div>
         </div>
@@ -446,7 +450,7 @@ export const Publications: React.FC = () => {
         </div>
 
         <div
-          className="flex flex-row items-center gap-4 px-2"
+          className="flex flex-row items-center gap-[16px]"
           style={{
             marginTop: "48px",
           }}
@@ -461,9 +465,9 @@ export const Publications: React.FC = () => {
             style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
           />
         </div>
-        <hr className="m-3 pb-2" />
+        <hr className="my-[24px]" />
 
-        <div className="w-full h-[390px] grid grid-cols-2 gap-[24px] px-[24px]">
+        <div className="w-full h-[390px] grid grid-cols-2 gap-[24px]">
           <div
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
@@ -471,7 +475,17 @@ export const Publications: React.FC = () => {
               ...imgBox,
             }}
           >
-            <div style={overlayStyle} />
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "140px",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <div className="z-10">
                 <p
@@ -501,11 +515,26 @@ export const Publications: React.FC = () => {
           <div
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
-              minHeight: "390px",
-              ...imgBox,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "0",
+              backgroundRepeat: 'no-repeat',
+              width: "100%",
+              height: "auto",
+              position: "relative",
             }}
           >
-            <div style={overlayStyle} />
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "33%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <div className="z-10">
                 <p
@@ -537,11 +566,10 @@ export const Publications: React.FC = () => {
       {/* column 3 */}
       <div className="px-[24px]">
         <div
-          className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
-            isVisible
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0"
-          }`}
+          className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${isVisible
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0"
+            }`}
         >
           <div className="text-heading-l">Resources</div>
           <div>
@@ -564,15 +592,18 @@ export const Publications: React.FC = () => {
                     className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
                     style={{ backgroundColor: sideColor, opacity: 0.8 }}
                   />
-                  <div className="flex flex-row justify-between w-full text-white pr-2">
-                    <div className="px-4">{`(${number})`}</div>
+                  <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
+                    <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div>
                     <div className="z-20 text-heading-l">{title}</div>
-                    <Icon
-                      icon={icon}
-                      style={{ height: "24px", width: "24px" }}
-                      className="z-20"
-                    />
+                    <div className="z-20 pr-[20px]">
+                      <Icon
+                        icon={icon}
+                        style={{ height: "24px", width: "24px" }}
+
+                      />
+                    </div>
                   </div>
+
                 </div>
               );
             })}

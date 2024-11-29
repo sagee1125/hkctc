@@ -338,35 +338,36 @@ export const Navigator: React.FC = () => {
           <div className="h-[54px] w-[141px] flex items-center">
             <Logo />
           </div>
-          <div className="flex flex-row gap-8 ml-12 h-full">
-            {navData.map((nav, index) => {
-              const { title, items } = nav;
-              const ifHideArrow: boolean = !items.length;
-              return (
-                <div
-                  key={index}
-                  className="flex flex-row items-center gap-2 cursor-pointer h-full"
-                  onClick={() => {
-                    setActiveIndex(index);
-                    setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
-                  }}
-                >
-                  <p
-                    className={`text-sm ${
-                      activeIndex === index ? "font-bold" : "font-semibold"
-                    }`}
-                  >
-                    {title}
-                  </p>
-                  <Icon
-                    icon="oui:arrow-down"
-                    style={{
-                      display: ifHideArrow ? "none" : "block",
+          <div className="pl-[32px]">
+            <div className="flex flex-row gap-[26px] h-full">
+              {navData.map((nav, index) => {
+                const { title, items } = nav;
+                const ifHideArrow: boolean = !items.length;
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
                     }}
-                  />
-                </div>
-              );
-            })}
+                  >
+                    <p
+                      className={`text-sm ${activeIndex === index ? "font-bold" : "font-semibold"
+                        }`}
+                    >
+                      {title}
+                    </p>
+                    <Icon
+                      icon="oui:arrow-down"
+                      style={{
+                        display: ifHideArrow ? "none" : "block",
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -402,11 +403,10 @@ export const Navigator: React.FC = () => {
                           return (
                             <div
                               key={index}
-                              className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${
-                                clicked
-                                  ? "bg-lightGrey px-4"
-                                  : "hover:bg-gray-100 px-1"
-                              }`}
+                              className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked
+                                ? "bg-lightGrey px-4"
+                                : "hover:bg-gray-100 px-1"
+                                }`}
                               onClick={() => {
                                 setActiveSubItem(sideName);
                               }}
@@ -422,9 +422,8 @@ export const Navigator: React.FC = () => {
                       return (
                         <div
                           key={index}
-                          className={`flex flex-col gap-2 flex-[5] ${
-                            subTitle === "" ? "" : "cursor-pointer"
-                          }`}
+                          className={`flex flex-col gap-2 flex-[5] ${subTitle === "" ? "" : "cursor-pointer"
+                            }`}
                           onClick={() => {
                             if (navUrl) navigate(navUrl);
                           }}
@@ -467,7 +466,6 @@ const navStyle: React.CSSProperties = {
   justifyContent: "flex-start",
   alignItems: "center",
   height: "90px",
-  borderBottom: "1px solid #E0E0E0",
   paddingLeft: "2rem",
 };
 

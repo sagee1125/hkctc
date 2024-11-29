@@ -87,16 +87,16 @@ export const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className="bg-primary h-[360px] text-white p-8">
-        <div className="grid grid-cols-[3fr,3fr,5fr,5fr] gap-4">
+      <div className="bg-primary h-[360px] text-white pt-[32px] px-[24px]">
+        <div className="grid grid-cols-[4fr,4fr,6fr,4fr] gap-[24px]">
           {footerData.map((col, index) => (
-            <div key={index} className="flex flex-col">
-              <b className="text-2xl text-bold ml-1">{col.title}</b>
-              <hr className="bg-white w-[77px] h-[4px] my-4 ml-1" />
+            <div key={index} className="flex flex-col gap-[8px]">
+              <b className="text-heading-l">{col.title}</b>
+              <hr className="bg-white w-[77px] h-[4px] my-[8px]" />
               {col.subs.map((sub, index) => (
                 <div
                   key={index}
-                  className="py-1 flex flex-row items-center text-base"
+                  className="py-1 flex flex-row gap-[8px] items-start text-body-m"
                 >
                   <Icon
                     icon="weui:arrow-outlined"
@@ -119,8 +119,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black h-[50px] flex px-8 items-center">
-        <p className="text-white text-sm">
+      <div className="bg-black h-[50px] flex px-[24px] items-center">
+        <p className="text-white text-body-s">
           {`Copyright © 2024 Hong Kong Council for Testing and Certification. All
           Rights Reserved`}
         </p>

@@ -12,6 +12,7 @@ const hideExploreBar = [
   "/events-landing",
   "/events-landing/award-scheme",
   "/resources-reports",
+  "/profile-and-role"
 ];
 
 export const ExploreBar: React.FC = () => {
@@ -36,9 +37,8 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/general-public"
           ? "text-elegancePurple"
-          : `group-hover:text-elegancePurple ${
-              isClicked ? "text-[#7C7F83]" : ""
-            }`,
+          : `group-hover:text-elegancePurple ${isClicked ? "text-[#7C7F83]" : ""
+          }`,
       onClick: () => {
         navigate("general-public");
       },
@@ -49,9 +49,8 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/educators-students"
           ? "text-trustfulBlue"
-          : `group-hover:text-trustfulBlue ${
-              isClicked ? "text-[#7C7F83]" : ""
-            }`,
+          : `group-hover:text-trustfulBlue ${isClicked ? "text-[#7C7F83]" : ""
+          }`,
       onClick: () => {
         navigate("educators-students");
       },
@@ -62,9 +61,8 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/industry"
           ? "text-growthfulGreen"
-          : `group-hover:text-growthfulGreen ${
-              isClicked ? "text-[#7C7F83]" : ""
-            }`,
+          : `group-hover:text-growthfulGreen ${isClicked ? "text-[#7C7F83]" : ""
+          }`,
       onClick: () => {
         navigate("industry");
       },
@@ -75,9 +73,8 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/service-users"
           ? "text-energeticOrange"
-          : `group-hover:text-energeticOrange ${
-              isClicked ? "text-[#7C7F83]" : ""
-            }`,
+          : `group-hover:text-energeticOrange ${isClicked ? "text-[#7C7F83]" : ""
+          }`,
       onClick: () => {
         navigate("service-users");
       },
