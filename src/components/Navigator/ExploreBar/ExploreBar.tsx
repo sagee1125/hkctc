@@ -12,7 +12,9 @@ const hideExploreBar = [
   "/events-landing",
   "/events-landing/award-scheme",
   "/resources-reports",
-  "/profile-and-role"
+  "/profile-and-role",
+  "/seminars-workshops",
+  "/student-competitions"
 ];
 
 export const ExploreBar: React.FC = () => {

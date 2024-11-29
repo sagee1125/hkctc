@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BannerPhotoBox,
   Breadcrumb,
   type NavData,
   navData,
@@ -22,11 +23,7 @@ export const EventsLanding: React.FC = () => {
 
   return (
     <div className="w-full">
-      <img
-        className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-        src={`${process.env.PUBLIC_URL}/assets/eventsLanding/banner_bg.png`}
-        alt={"banner_bg.png"}
-      />
+      <BannerPhotoBox src="eventsLanding/banner_bg.png" />
       <Breadcrumb items={breadcrumbItems} />
       <EventsLandingContent eventItems={eventItems} />
     </div>

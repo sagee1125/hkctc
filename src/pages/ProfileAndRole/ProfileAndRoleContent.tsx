@@ -32,20 +32,20 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
     imagePath: string;
     date?: string;
   }> = [
-    {
-      title: "Statistics of Testing and Certification Activities in Hong Kong",
-      imagePath: "Statistics.png",
-      date: "May 2024",
-    },
-    {
-      title: "Key Data available from 2009 - 2022",
-      imagePath: "KeyData.png",
-    },
-  ];
+      {
+        title: "Statistics of Testing and Certification Activities in Hong Kong",
+        imagePath: "Statistics.png",
+        date: "May 2024",
+      },
+      {
+        title: "Key Data available from 2009 - 2022",
+        imagePath: "KeyData.png",
+      },
+    ];
 
   return (
-    <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] pr-[24px]">
-      <div className="px-[24px]">
+    <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
+      <div className="px-[24px] min-w-[404px] w-1/3">
         <div className="border-2 border-inherit p-[24px]">
           <p className="text-heading-l">T&C Sector</p>
           <div className="w-full flex flex-col gap-[24px] py-[24px]">
@@ -57,18 +57,17 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
               return (
                 <div
                   key={index}
-                  className={`transition-all duration-300 ease-in-out ${
-                    isActivated
-                      ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
-                      : "bg-transparent border-[0px] border-transparent"
-                  }`}
+                  className={`transition-all duration-300 ease-in-out ${isActivated
+                    ? "bg-[#F2F2EF] border-[16px] border-[#F2F2EF]"
+                    : "bg-transparent border-[0px] border-transparent"
+                    }`}
                   onClick={() => {
                     setActiveEventItems(subTitle);
                   }}
                 >
-                  <div className="flex flex-row flex-start h-[106px] gap-[24px]">
+                  <div className="flex flex-row h-[106px] gap-[24px] w-full">
                     <img
-                      className="w-auto h-full object-contain"
+                      className="w-auto h-[106px] object-contain"
                       src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
                       alt={imgUrl}
                     />
@@ -82,7 +81,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex-1">
         <div className="flex flex-row gap-[12px] items-center">
           <div className="h-[15px] w-[15px] bg-black" />
           <p className="text-heading-l">Profile of the Sector</p>
