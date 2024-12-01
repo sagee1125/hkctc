@@ -430,9 +430,9 @@ export const Navigator: React.FC = () => {
                 {({ open }) => (
                   <>
                     <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-black text-body-m text-white">
-                      {selectedExploreOption}
+                      <p>{selectedExploreOption}</p>
                       <ChevronDownIcon
-                        className={`h-5 w-5 text-[#666666] transform transition-transform ${open ? "rotate-180" : "rotate-0"
+                        className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${open ? "rotate-180" : "rotate-0"
                           }`}
                         aria-hidden="true"
                       />
