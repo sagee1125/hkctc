@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { type SubItems } from "../../components/Navigator";
 import { useNavigate } from "react-router-dom";
+import { Sidebar } from "../../components";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -38,59 +39,28 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
     imgUrl: string;
     onClick: () => void;
   }> = [
-    {
-      title: "T&C Manpower Development Award Scheme 2023-2024",
-      imgUrl: "2023-2024.png",
-      onClick: () => {
-        navigate("award-scheme");
+      {
+        title: "T&C Manpower Development Award Scheme 2023-2024",
+        imgUrl: "2023-2024.png",
+        onClick: () => {
+          navigate("award-scheme");
+        },
       },
-    },
-    {
-      title: "T&C Manpower Development Award Scheme 2021-2022",
-      imgUrl: "2021-2022.png",
-      onClick: () => {},
-    },
-  ];
+      {
+        title: "T&C Manpower Development Award Scheme 2021-2022",
+        imgUrl: "2021-2022.png",
+        onClick: () => { },
+      },
+    ];
 
   return (
-    <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] pr-[24px]">
-      <div className="px-[24px]">
-        <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Events</p>
-          <div className="w-full flex flex-col gap-[24px] py-[24px]">
-            {eventItems.map((item, index) => {
-              const { subTitle, imgUrl } = item;
-              if (subTitle === "") return null;
-
-              const isActivated = activeEventItems === subTitle;
-              return (
-                <div
-                  key={index}
-                  className={`transition-all duration-300 ease-in-out ${
-                    isActivated
-                      ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
-                      : "bg-transparent border-[0px] border-transparent"
-                  }`}
-                  onClick={() => {
-                    setActiveEventItems(subTitle);
-                  }}
-                >
-                  <div className="flex flex-row flex-start h-[106px] gap-[24px]">
-                    <img
-                      className="w-auto h-full object-contain"
-                      src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                      alt={imgUrl}
-                    />
-                    <div className="text-highlight-m text-black py-[8px] pr-[16px]">
-                      {subTitle}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+    <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
+      <Sidebar
+        title={'Events'}
+        SidebarItems={eventItems}
+        activatedItems={activeEventItems}
+        setActivatedItems={setActiveEventItems}
+      />
       <div>
         <div className="flex flex-row gap-[16px] items-center">
           <div className="h-[15px] w-[15px] bg-black" />

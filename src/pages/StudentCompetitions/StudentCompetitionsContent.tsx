@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { type SubItems } from "../../components/Navigator";
+import { Sidebar } from "../../components";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -54,82 +55,51 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
     imagePath: string;
     date: string;
   }> = [
-    {
-      title: "Testing Science - Sustainability in Daily Life",
-      imagePath: "Sustainability.png",
-      date: "2023-24",
-    },
-    {
-      title: "Food Testing in Daily Life",
-      imagePath: "Food.png",
-      date: "2022-23",
-    },
-    {
-      title: "Materials Testing Science in Daily Life",
-      imagePath: "Materials.png",
-      date: "2021-22",
-    },
-    {
-      title: "Testing Science in Daily Life - Healthcare and Hygiene",
-      imagePath: "Healthcare.png",
-      date: "2020-21",
-    },
-    {
-      title: "Testing Science for Green Living",
-      imagePath: "Green.png",
-      date: "2018-19",
-    },
-    {
-      title: "Testing Science for Improving the Quality of Life",
-      imagePath: "Quality.png",
-      date: "2017-18",
-    },
-    {
-      title: "Scientific Testing in Everyday Life",
-      imagePath: "Scientific.png",
-      date: "2016-17",
-    },
-  ];
+      {
+        title: "Testing Science - Sustainability in Daily Life",
+        imagePath: "Sustainability.png",
+        date: "2023-24",
+      },
+      {
+        title: "Food Testing in Daily Life",
+        imagePath: "Food.png",
+        date: "2022-23",
+      },
+      {
+        title: "Materials Testing Science in Daily Life",
+        imagePath: "Materials.png",
+        date: "2021-22",
+      },
+      {
+        title: "Testing Science in Daily Life - Healthcare and Hygiene",
+        imagePath: "Healthcare.png",
+        date: "2020-21",
+      },
+      {
+        title: "Testing Science for Green Living",
+        imagePath: "Green.png",
+        date: "2018-19",
+      },
+      {
+        title: "Testing Science for Improving the Quality of Life",
+        imagePath: "Quality.png",
+        date: "2017-18",
+      },
+      {
+        title: "Scientific Testing in Everyday Life",
+        imagePath: "Scientific.png",
+        date: "2016-17",
+      },
+    ];
 
   return (
-    <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] pr-[24px]">
-      <div className="px-[24px]">
-        <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Events</p>
-          <div className="w-full flex flex-col gap-[24px] py-[24px]">
-            {eventItems.map((item, index) => {
-              const { subTitle, imgUrl } = item;
-              if (subTitle === "") return null;
-
-              const isActivated = activeEventItems === subTitle;
-              return (
-                <div
-                  key={index}
-                  className={`transition-all duration-300 ease-in-out ${
-                    isActivated
-                      ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
-                      : "bg-transparent border-[0px] border-transparent"
-                  }`}
-                  onClick={() => {
-                    setActiveEventItems(subTitle);
-                  }}
-                >
-                  <div className="flex flex-row flex-start h-[106px] gap-[24px]">
-                    <img
-                      className="w-auto h-full object-contain"
-                      src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                      alt={imgUrl}
-                    />
-                    <div className="text-highlight-m text-black py-[8px] pr-[16px]">
-                      {subTitle}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+    <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
+      <Sidebar
+        title={'Events'}
+        SidebarItems={eventItems}
+        activatedItems={activeEventItems}
+        setActivatedItems={setActiveEventItems}
+      />
       <div>
         <div className="flex flex-row gap-[12px] items-center">
           <div className="h-[15px] w-[15px] bg-black" />

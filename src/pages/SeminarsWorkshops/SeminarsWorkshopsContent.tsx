@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { type SubItems } from "../../components/Navigator";
+import { Sidebar } from "../../components";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -54,102 +55,71 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
     date: string;
     imagePath: string;
   }> = [
-    {
-      title:
-        "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
-      date: "11 April 2024",
-      imagePath: "Environmental.png",
-    },
-    {
-      title:
-        "Seminar on Construction Testing: Towards Digitalisation and Automation in Construction Testing",
-      date: "29 February 2024",
-      imagePath: "Construction.png",
-    },
-    {
-      title: "Metrology Symposium 2023",
-      date: "24 October 2023",
-      imagePath: "Metrology.png",
-    },
-    {
-      title:
-        "Seminar on Integrity and Professional Development in Testing and Certification Industry",
-      date: "18 September 2023",
-      imagePath: "Integrity.png",
-    },
-    {
-      title: "World Accreditation Day Forum 2023",
-      date: "16 June 2023",
-      imagePath: "Accreditation.png",
-    },
-    {
-      title:
-        "Webinar on Application of Automation and Technology in Construction Materials Testing",
-      date: "28 February 2023",
-      imagePath: "Webinar.png",
-    },
+      {
+        title:
+          "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
+        date: "11 April 2024",
+        imagePath: "Environmental.png",
+      },
+      {
+        title:
+          "Seminar on Construction Testing: Towards Digitalisation and Automation in Construction Testing",
+        date: "29 February 2024",
+        imagePath: "Construction.png",
+      },
+      {
+        title: "Metrology Symposium 2023",
+        date: "24 October 2023",
+        imagePath: "Metrology.png",
+      },
+      {
+        title:
+          "Seminar on Integrity and Professional Development in Testing and Certification Industry",
+        date: "18 September 2023",
+        imagePath: "Integrity.png",
+      },
+      {
+        title: "World Accreditation Day Forum 2023",
+        date: "16 June 2023",
+        imagePath: "Accreditation.png",
+      },
+      {
+        title:
+          "Webinar on Application of Automation and Technology in Construction Materials Testing",
+        date: "28 February 2023",
+        imagePath: "Webinar.png",
+      },
 
-    {
-      title:
-        "“Professional Integrity and Corruption Prevention in Testing and Certification” Webinar 2022",
-      date: "30 August 2022",
-      imagePath: "Professional.png",
-    },
+      {
+        title:
+          "“Professional Integrity and Corruption Prevention in Testing and Certification” Webinar 2022",
+        date: "30 August 2022",
+        imagePath: "Professional.png",
+      },
 
-    {
-      title: "Metrology Symposium 2022",
-      date: "31 Jul 2023",
-      imagePath: "Metrology_Symposium.png",
-    },
-    {
-      title:
-        "Webinar on Environmental, Social and Governance (ESG) and sustainability",
-      date: "19 July 2022",
-      imagePath: "Governance.png",
-    },
-  ];
+      {
+        title: "Metrology Symposium 2022",
+        date: "31 Jul 2023",
+        imagePath: "Metrology_Symposium.png",
+      },
+      {
+        title:
+          "Webinar on Environmental, Social and Governance (ESG) and sustainability",
+        date: "19 July 2022",
+        imagePath: "Governance.png",
+      },
+    ];
 
   return (
-    <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] pr-[24px]">
-      <div className="px-[24px]">
-        <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Events</p>
-          <div className="w-full flex flex-col gap-[24px] py-[24px]">
-            {eventItems.map((item, index) => {
-              const { subTitle, imgUrl } = item;
-              if (subTitle === "") return null;
-
-              const isActivated = activeEventItems === subTitle;
-              return (
-                <div
-                  key={index}
-                  className={`transition-all duration-300 ease-in-out ${
-                    isActivated
-                      ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
-                      : "bg-transparent border-[0px] border-transparent"
-                  }`}
-                  onClick={() => {
-                    setActiveEventItems(subTitle);
-                  }}
-                >
-                  <div className="flex flex-row flex-start h-[106px] gap-[24px]">
-                    <img
-                      className="w-auto h-full object-contain"
-                      src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                      alt={imgUrl}
-                    />
-                    <div className="text-highlight-m text-black py-[8px] pr-[16px]">
-                      {subTitle}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+    <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
+      <Sidebar
+        title={'Events'}
+        SidebarItems={eventItems}
+        activatedItems={activeEventItems}
+        setActivatedItems={setActiveEventItems}
+      />
       <div>
-        <div className="flex flex-row gap-[12px] items-center">
+        <div className="flex flex-row gap-[16px] items-center">
           <div className="h-[15px] w-[15px] bg-black" />
           <p className="text-heading-l">Seminars and Workshops</p>
         </div>
