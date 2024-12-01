@@ -13,7 +13,7 @@ export const GeneralPublic: React.FC = () => {
   return (
     <div>
       <ExploreDetailBar
-        title="General"
+        title="General Public"
         titleTheme="elegancePurple"
         description="Learn about us and explore our resources to ensure quality and safety across sectors."
         barBackgroundImg="generalPublic/banner_bg.png"

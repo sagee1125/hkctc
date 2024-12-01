@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import { Transition } from "@headlessui/react";
+import { Transition, Menu } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ExploreBar } from "./ExploreBar";
+import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export type NavData = {
   title: string;
@@ -304,11 +305,29 @@ export const navData: NavData[] = [
     items: [],
   },
 ];
+
+
+
+const hideExploreBar = [
+  "/events-landing",
+  "/events-landing/award-scheme",
+  "/resources-reports",
+  "/profile-and-role",
+  "/seminars-workshops",
+  "/student-competitions"
+];
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);  // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
+  const [selectedExploreOption, setSelectedExploreOption] = useState<string>('');
+
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const isHideExploreBar = hideExploreBar.includes(currentPath);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -332,49 +351,128 @@ export const Navigator: React.FC = () => {
   const sideItemRows = navItems?.length;
   console.log("sideItemRows", sideItemRows);
   console.log("navItems", navItems);
+
+
+
+  const exploreOption: Array<{ title: string; onClick: () => void; }> = [
+    {
+      title: "General Public",
+      onClick: () => {
+        navigate("general-public");
+      },
+    },
+    {
+      title: "Educators & Students",
+      onClick: () => {
+        navigate("educators-students");
+      },
+    },
+    {
+      title: "T&C Bodies & Practitioners",
+      onClick: () => {
+        navigate("industry");
+      },
+    },
+    {
+      title: "T&C Service Users",
+      onClick: () => {
+        navigate("service-users");
+      },
+    },
+  ];
   return (
     <>
       <nav ref={navRef}>
-        <div style={navStyle}>
-          <div className="h-[54px] w-[141px] flex items-center">
-            <Logo />
-          </div>
-          <div className="pl-[32px]">
-            <div className="flex flex-row gap-[26px] h-full">
-              {navData.map((nav, index) => {
-                const { title, items } = nav;
-                const ifHideArrow: boolean = !items.length;
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
-                    onClick={() => {
-                      setActiveIndex(index);
-                      setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
-                    }}
-                  >
-                    <p
-                      className='text-highlight-s'
-                      style={{
-                        color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
+        <div className="flex flex-row w-full justify-between items-center">
+          <div style={navStyle}>
+            <div className="h-[54px] w-[141px] flex items-center">
+              <Logo />
+            </div>
+            <div className="pl-[32px]">
+              <div className="flex flex-row gap-[26px] h-full">
+                {navData.map((nav, index) => {
+                  const { title, items } = nav;
+                  const ifHideArrow: boolean = !items.length;
+                  return (
+                    <div
+                      key={index}
+                      className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
+                      onClick={() => {
+                        setActiveIndex(index);
+                        setActiveSubItem(navData[index]?.items?.[0]?.name ?? "");
                       }}
                     >
-                      {title}
-                    </p>
-                    <Icon
-                      icon="oui:arrow-down"
-                      style={{
-                        display: ifHideArrow ? "none" : "block",
-                        color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
-                      }}
-                    />
-                  </div>
-                );
-              })}
+                      <p
+                        className='text-highlight-s'
+                        style={{
+                          color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
+                        }}
+                      >
+                        {title}
+                      </p>
+                      <Icon
+                        icon="oui:arrow-down"
+                        style={{
+                          display: ifHideArrow ? "none" : "block",
+                          color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+          {isHideExploreBar && (<div className="flex flex-row items-center gap-[8px] pr-[24px]">
+            <p className="text-highlight-s">Explore as</p>
+            <div className="min-w-[200px]">
+              <Menu as="div" className="relative inline-block text-left w-full">
+                {({ open }) => (
+                  <>
+                    <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-black text-body-m text-white">
+                      {selectedExploreOption}
+                      <ChevronDownIcon
+                        className={`h-5 w-5 text-[#666666] transform transition-transform ${open ? "rotate-180" : "rotate-0"
+                          }`}
+                        aria-hidden="true"
+                      />
+                    </Menu.Button>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        {exploreOption.map((item, index) => (
+                          <Menu.Item key={index}>
+                            {({ active }) => (
+                              <button
+                                onClick={() => { setSelectedExploreOption(item.title); item.onClick(); }}
+                                className={`block w-full text-left text-body-m px-4 py-3 text-sm ${active
+                                  ? "bg-black text-white"
+                                  : "text-gray-700"
+                                  }`}
+                              >
+                                {item.title}
+                              </button>
+                            )}
+                          </Menu.Item>
+                        ))}
+                      </Menu.Items>
+                    </Transition>
+                  </>
+                )}
+              </Menu>
+            </div>
 
+
+
+          </div>)}
+        </div>
         <Transition
           show={!isHideDropdown}
           enter="transition-all duration-500 ease-out"
@@ -478,7 +576,7 @@ export const Navigator: React.FC = () => {
           </div>
         </Transition>
       </nav>
-      <ExploreBar />
+      {!isHideExploreBar && (<ExploreBar />)}
     </>
   );
 };

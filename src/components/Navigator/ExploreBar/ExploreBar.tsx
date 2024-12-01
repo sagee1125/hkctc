@@ -8,22 +8,13 @@ type ExploreBarData = {
   hoverColor: string;
   onClick: () => void;
 };
-const hideExploreBar = [
-  "/events-landing",
-  "/events-landing/award-scheme",
-  "/resources-reports",
-  "/profile-and-role",
-  "/seminars-workshops",
-  "/student-competitions"
-];
 
 export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
   console.log("currentPath", currentPath);
-  const isReturnEmpty = hideExploreBar.includes(currentPath);
-  if (isReturnEmpty) return <></>;
+
 
   const paths: string[] = [
     "/general-public",

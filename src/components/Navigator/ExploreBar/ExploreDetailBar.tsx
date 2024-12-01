@@ -8,6 +8,9 @@ type ExploreDetailBarProps = {
   barBackgroundImg: string;
 };
 
+
+
+
 export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   title,
   titleTheme,
