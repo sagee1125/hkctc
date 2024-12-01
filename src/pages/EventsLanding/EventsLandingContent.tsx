@@ -29,7 +29,9 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
     eventItems?.[0]?.subTitle ?? ""
   );
 
-  const [activeButton, setActiveButton] = useState<number>(0);
+  const [activeTestingOneButton, setActiveTestingOneButton] = useState<number>(0);
+  const [activeTestingTwoButton, setActiveTestingTwoButton] = useState<number>(0);
+
   const [questionCategoriesArray, setQuestionCategoriesArray] =
     useState<number>(0);
   const navigate = useNavigate();
@@ -62,8 +64,8 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
         setActivatedItems={setActiveEventItems}
       />
       <div>
-        <div className="flex flex-row gap-[16px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+        <div className="flex flex-row gap-[16px] items-start">
+          <div className="h-[15px] w-[15px] bg-black mt-[8px]" />
           <p className="text-heading-l">
             Testing & Certificate Manpower Development Award Scheme
           </p>
@@ -119,19 +121,19 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
           This Award recognises accredited T&C bodies’ achievements in manpower
           and professional development of T&C practitioners.
         </p>
-        <div className="flex flex-row gap-[8px] my-[24px]">
+        <div className="flex flex-wrap gap-[8px] my-[24px]">
           {buttonArray.map((btn, index) => {
-            const isActivated = index === activeButton;
+            const isActivated = index === activeTestingOneButton;
             return (
               <button
                 key={index}
                 className="p-2 transition-all duration-800 ease-in-out"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
-                  setActiveButton(index);
+                  setActiveTestingOneButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
               </button>
             );
           })}
@@ -184,19 +186,19 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
           </li>
         </p>
 
-        <div className="flex flex-row gap-[8px] my-[24px]">
+        <div className="flex flex-wrap gap-[8px] my-[24px]">
           {buttonArray.map((btn, index) => {
-            const isActivated = index === activeButton;
+            const isActivated = index === activeTestingTwoButton;
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
+                className="transition-all duration-800 ease-in-out"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
-                  setActiveButton(index);
+                  setActiveTestingTwoButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
               </button>
             );
           })}
@@ -238,7 +240,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
         </div>
         <hr className="my-[24px]" />
         <p className="text-heading-l">Frequently Asked Questions</p>
-        <div className="flex flex-row gap-[8px] my-[24px]">
+        <div className="flex flex-wrap gap-[8px] my-[24px]">
           {questionCategories.map((btn, index) => {
             const isActivated = index === questionCategoriesArray;
             return (
@@ -250,7 +252,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
                   setQuestionCategoriesArray(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
               </button>
             );
           })}

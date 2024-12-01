@@ -119,8 +119,8 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
         setActivatedItems={setActiveEventItems}
       />
       <div>
-        <div className="flex flex-row gap-[16px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+        <div className="flex flex-row gap-[16px] items-start">
+          <div className="h-[15px] w-[15px] bg-black mt-[8px]" />
           <p className="text-heading-l">Seminars and Workshops</p>
         </div>
 
@@ -135,13 +135,13 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
+                className="p-2 transition-all duration-800 ease-in-out text-left"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTopicButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
               </button>
             );
           })}
