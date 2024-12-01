@@ -70,7 +70,7 @@ module.exports = {
       },
 
       animation: {
-        'fade-in': 'fadeIn 1s ease-in-out forwards',
+        'fade-in': 'fadeIn 2s ease-in-out forwards',
       },
       keyframes: {
         fadeIn: {

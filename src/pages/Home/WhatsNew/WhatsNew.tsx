@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export type WhatsNewData = {
   title: string;
@@ -36,6 +36,35 @@ export const whatsNewData: WhatsNewData[] = [
 ];
 
 export const WhatsNew: React.FC = () => {
+
+
+  const imageRefs = useRef<HTMLImageElement[]>([]); // 存储所有图片的 refs
+  const [visibleIndexes, setVisibleIndexes] = useState<number[]>([]); // 控制显示的图片索引
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            setVisibleIndexes((prev) => [...new Set([...prev, index])]); // 确保索引唯一
+          }
+        });
+      },
+      {
+        root: null, // 默认为视口
+        rootMargin: "-20% 0px", // 上下偏移 20%，确保只有中央区域触发
+        threshold: 0.5, // 触发条件：至少 50% 显示在视口中
+      }
+    );
+
+    imageRefs.current.forEach((img) => img && observer.observe(img)); // 观察每张图片
+
+    return () => {
+      imageRefs.current.forEach((img) => img && observer.unobserve(img)); // 取消观察
+    };
+  }, []);
+
   return (
     <div
       className="w-full px-[24px]"
@@ -63,11 +92,18 @@ export const WhatsNew: React.FC = () => {
         >
           {whatsNewData.map((item, index) => {
             const { title, imagePath, date } = item;
+            const isVisible = visibleIndexes.includes(index); // 当前图片是否已进入视口
+
             return (
               <div key={index} className="flex flex-col items-center group">
                 <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden">
                   <img
-                    className="w-full h-auto opacity-0 animate-fade-in transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    ref={(el) => (imageRefs.current[index] = el!)} // 关联图片 ref
+                    data-index={index} // 标记图片索引
+                    // className="w-full h-auto opacity-0 animate-fade-in transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    className={`w-full h-auto opacity-0 scale-100 transition-all duration-2000 ease-in-out group-hover:scale-110 ${isVisible ? "opacity-100 scale-100" : ""
+                      }`}
+
                     src={
                       process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
                     }
