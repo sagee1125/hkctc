@@ -397,7 +397,7 @@ export const Navigator: React.FC = () => {
                 const { name: currentSideName, subItems } = sideItems;
 
                 return (
-                  <div key={index} className="flex flex-row w-full gap-4">
+                  <div key={index} className="flex flex-row w-full gap-[24px]">
                     {/* sidebar */}
                     {/* customizedSidebar */}
                     {showSidebar && (
@@ -501,8 +501,7 @@ const dropDownStyle: React.CSSProperties = {
   minHeight: "202px",
   width: "96%",
   borderBottom: "1px solid #E0E0E0",
-  paddingLeft: "1rem",
-  paddingRight: "1rem",
+  padding: '16px',
   zIndex: 10,
   boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
   marginTop: "4px",

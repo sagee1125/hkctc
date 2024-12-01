@@ -566,7 +566,7 @@ export const Publications: React.FC = () => {
       {/* column 3 */}
       <div className="px-[24px]">
         <div
-          className={`p-[24px] border-2 border-inherit flex flex-col transition-transform duration-700 ${isVisible
+          className={`py-[24px] px-[30px] border-2 border-inherit flex flex-col transition-transform duration-700 ${isVisible
             ? "translate-x-0 opacity-100"
             : "translate-x-full opacity-0"
             }`}

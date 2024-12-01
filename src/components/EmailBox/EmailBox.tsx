@@ -9,7 +9,7 @@ export const EmailBox: React.FC = () => {
           Contact Us to know more about Testing and Certificate.
         </div>
         <input
-          placeholder="Your Name"
+          placeholder="Your name"
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -18,7 +18,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <input
-          placeholder="Email Address"
+          placeholder="Email address"
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
