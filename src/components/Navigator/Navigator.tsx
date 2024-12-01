@@ -37,27 +37,27 @@ export const navData: NavData[] = [
         subItems: [
           {
             subTitle: "Profile and Role of T&C Sector",
-            imgUrl: "nav_event_1_1.png",
+            imgUrl: "Profile_and_Role.png",
             navUrl: "profile-and-role",
           },
           {
             subTitle: "Strengths of Hong Kong's T&C Sector",
-            imgUrl: "nav_event_1_2.png",
+            imgUrl: "Strengths.png",
             navUrl: "",
           },
           {
             subTitle: "Services Provided by T&C Sector",
-            imgUrl: "nav_event_1_3.png",
+            imgUrl: "Services_Provided.png",
             navUrl: "",
           },
           {
             subTitle: "Services for Different Business Areas",
-            imgUrl: "nav_event_1_4.png",
+            imgUrl: "Business_Areas.png",
             navUrl: "",
           },
           {
             subTitle: "Accreditation Services",
-            imgUrl: "nav_event_1_5.png",
+            imgUrl: "Accreditation_Services.png",
             navUrl: "",
           },
         ],
@@ -211,27 +211,27 @@ export const navData: NavData[] = [
         subItems: [
           {
             subTitle: "HKCTC Newsletter",
-            imgUrl: "nav_event_1.svg",
+            imgUrl: "HKCTC_Newsletter.png",
             navUrl: "",
           },
           {
             subTitle: "Pamphlets And Booklets",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Pamphlets_And_Booklets.png",
             navUrl: "",
           },
           {
             subTitle: "Comics",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Comics.png",
             navUrl: "",
           },
           {
             subTitle: "Corruption Prevention Guide for T&C Industry",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Corruption_Prevention.png",
             navUrl: "",
           },
           {
             subTitle: "Other Useful Information",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Other_Useful.png",
             navUrl: "",
           },
         ],
@@ -241,12 +241,12 @@ export const navData: NavData[] = [
         subItems: [
           {
             subTitle: "HKCTC Reports",
-            imgUrl: "nav_event_1.svg",
+            imgUrl: "HKCTC_Reports.png",
             navUrl: "",
           },
           {
             subTitle: "Legislative Council Papers ",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Legislative_Council_Papers.png",
             navUrl: "",
           },
           {
@@ -271,17 +271,17 @@ export const navData: NavData[] = [
         subItems: [
           {
             subTitle: "Press Releases",
-            imgUrl: "nav_event_1.svg",
+            imgUrl: "Press_Releases.png",
             navUrl: "",
           },
           {
             subTitle: "Advertorials",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "Advertorials.png",
             navUrl: "",
           },
           {
             subTitle: "Videos",
-            imgUrl: "nav_event_3.svg",
+            imgUrl: "video.png",
             navUrl: "",
           },
           {
@@ -305,7 +305,7 @@ export const navData: NavData[] = [
   },
 ];
 export const Navigator: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);  // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -327,6 +327,7 @@ export const Navigator: React.FC = () => {
   const navItems = activeIndex ? navData[activeIndex]?.items : []; // sidebar in dropdown nav
 
   const showSidebar = activeIndex ? navData[activeIndex]?.showSidebar : false;
+  const customizedSidebar = activeIndex ? navData[activeIndex]?.items?.length === 1 : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
   const sideItemRows = navItems?.length;
   console.log("sideItemRows", sideItemRows);
@@ -353,8 +354,10 @@ export const Navigator: React.FC = () => {
                     }}
                   >
                     <p
-                      className={`text-sm ${activeIndex === index ? "font-bold" : "font-semibold"
-                        }`}
+                      className='text-highlight-s'
+                      style={{
+                        color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
+                      }}
                     >
                       {title}
                     </p>
@@ -362,6 +365,7 @@ export const Navigator: React.FC = () => {
                       icon="oui:arrow-down"
                       style={{
                         display: ifHideArrow ? "none" : "block",
+                        color: activeIndex === index || activeIndex === null ? 'black' : '#AAAAAA'
                       }}
                     />
                   </div>
@@ -395,27 +399,47 @@ export const Navigator: React.FC = () => {
                 return (
                   <div key={index} className="flex flex-row w-full gap-4">
                     {/* sidebar */}
+                    {/* customizedSidebar */}
                     {showSidebar && (
-                      <div className="w-full h-full flex flex-col flex-[6]">
-                        {navItems.map((sideItem, index) => {
-                          const { name: sideName } = sideItem;
-                          const clicked = sideName === currentSideName;
-                          return (
-                            <div
-                              key={index}
-                              className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked
-                                ? "bg-lightGrey px-4"
-                                : "hover:bg-gray-100 px-1"
-                                }`}
-                              onClick={() => {
-                                setActiveSubItem(sideName);
-                              }}
-                            >
-                              {sideName}
-                            </div>
-                          );
-                        })}
-                      </div>
+                      <>
+                        <div className="w-full h-full flex flex-col flex-[6]">
+
+                          {customizedSidebar === true ?
+                            (
+                              <div className="flex flex-row cursor-pointer">
+                                <div className="bg-[#EEEEEA]"
+                                  style={{
+                                    width: '16px',
+                                    marginRight: '8px'
+                                  }}
+                                />
+                                <div className="text-highlight-s">{navItems[0].name}</div>
+                              </div>
+                            )
+                            : (
+                              <>
+                                {navItems.map((sideItem, index) => {
+                                  const { name: sideName } = sideItem;
+                                  const clicked = sideName === currentSideName;
+                                  return (
+                                    <div
+                                      key={index}
+                                      className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${clicked
+                                        ? "bg-lightGrey px-4"
+                                        : "hover:bg-gray-100 px-1"
+                                        }`}
+                                      onClick={() => {
+                                        setActiveSubItem(sideName);
+                                      }}
+                                    >
+                                      {sideName}
+                                    </div>
+                                  );
+                                })}
+                              </>
+                            )}
+                        </div>
+                      </>
                     )}
                     {subItems.map((sub, index) => {
                       const { subTitle, imgUrl, navUrl } = sub;
@@ -474,7 +498,7 @@ const dropDownStyle: React.CSSProperties = {
   color: "black",
   justifyContent: "center",
   alignItems: "center",
-  height: "34vh",
+  minHeight: "202px",
   width: "96%",
   borderBottom: "1px solid #E0E0E0",
   paddingLeft: "1rem",
