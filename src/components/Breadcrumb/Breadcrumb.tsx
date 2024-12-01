@@ -13,9 +13,9 @@ type BreadcrumbProps = {
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   return (
     <nav aria-label="Breadcrumb" style={breadcrumbStyle}>
-      <ol className="flex space-x-2 text-black">
+      <ol className="flex space-x-[8px] text-black items-center">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center">
+          <li key={index} className="flex items-center flex-row gap-[8px]">
             {index === 0 ? (
               <div className="flex flex-row items-center gap-[8px]">
                 <img
@@ -49,4 +49,5 @@ const breadcrumbStyle: React.CSSProperties = {
   height: "52px",
   padding: "24px",
   borderBottom: "1px solid #E0E0E0",
+  alignItems: 'center'
 };

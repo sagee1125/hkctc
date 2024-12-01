@@ -5,6 +5,7 @@ export type WhatsNewData = {
   title: string;
   date: string;
   imagePath: string;
+  imagePathSwitch?: string;
   onClick: () => void;
 };
 
@@ -13,24 +14,28 @@ export const whatsNewData: WhatsNewData[] = [
     title: "Trade show open for application",
     date: "28 Aug 2024",
     imagePath: "Trade_Show.png",
+    imagePathSwitch: "Trade_Show_1.png",
     onClick: () => { },
   },
   {
     title: "Mid-Autumn Festival brings family reunion and joy",
     date: "28 Aug 2024",
     imagePath: "Mid_Autumn.png",
+    imagePathSwitch: "Mid_Autumn_1.png",
     onClick: () => { },
   },
   {
     title: "The Testing And Certification Industry Has Always Played An...",
     date: "28 Aug 2024",
     imagePath: "Testing.png",
+    imagePathSwitch: "Testing_1.png",
     onClick: () => { },
   },
   {
     title: "Belt and Road Summit Forum",
     date: "28 Aug 2024",
     imagePath: "Belt.png",
+    imagePathSwitch: "Belt_1.png",
     onClick: () => { },
   },
 ];
@@ -38,30 +43,45 @@ export const whatsNewData: WhatsNewData[] = [
 export const WhatsNew: React.FC = () => {
 
 
-  const imageRefs = useRef<HTMLImageElement[]>([]); // 存储所有图片的 refs
-  const [visibleIndexes, setVisibleIndexes] = useState<number[]>([]); // 控制显示的图片索引
+  const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime((prevTime) => prevTime + 1); // 每秒增加1
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        // 只要容器进入视口，设置 visibility 为 true
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setVisibleIndexes((prev) => [...new Set([...prev, index])]); // 确保索引唯一
+            setVisibleWhatsNew(true);
           }
         });
       },
       {
-        root: null, // 默认为视口
-        rootMargin: "-20% 0px", // 上下偏移 20%，确保只有中央区域触发
-        threshold: 0.5, // 触发条件：至少 50% 显示在视口中
+        threshold: 0.5, // 当容器至少有50%可见时触发
       }
     );
 
-    imageRefs.current.forEach((img) => img && observer.observe(img)); // 观察每张图片
+    // 开始观察容器
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
+    // 清理 observer
     return () => {
-      imageRefs.current.forEach((img) => img && observer.unobserve(img)); // 取消观察
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
     };
   }, []);
 
@@ -85,28 +105,37 @@ export const WhatsNew: React.FC = () => {
       </div>
       <div className="pt-[24px]">
         <div
-          className="grid w-full gap-[24px]"
+          ref={containerRef}
+
+
+
+          className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${visibleWhatsNew ? "opacity-100" : "opacity-0"}`}
           style={{
             gridTemplateColumns: `repeat(${whatsNewData.length}, minmax(0, 1fr))`,
           }}
         >
           {whatsNewData.map((item, index) => {
-            const { title, imagePath, date } = item;
-            const isVisible = visibleIndexes.includes(index); // 当前图片是否已进入视口
+            const { title, imagePath, imagePathSwitch, date } = item;
+
+            const isEven = currentTime % 2 === 0;
 
             return (
               <div key={index} className="flex flex-col items-center group">
                 <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden">
+                  {/* 上层图片 */}
                   <img
-                    ref={(el) => (imageRefs.current[index] = el!)} // 关联图片 ref
-                    data-index={index} // 标记图片索引
-                    // className="w-full h-auto opacity-0 animate-fade-in transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    className={`w-full h-auto opacity-0 scale-100 transition-all duration-2000 ease-in-out group-hover:scale-110 ${isVisible ? "opacity-100 scale-100" : ""
-                      }`}
 
-                    src={
-                      process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
-                    }
+                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${isEven ? "opacity-100" : "opacity-0"
+                      }`}
+                    src={process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath}
+                    alt={title}
+                  />
+                  {/* 下层图片 */}
+                  <img
+
+                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${isEven ? "opacity-0" : "opacity-100"
+                      }`}
+                    src={process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePathSwitch}
                     alt={title}
                   />
                 </div>
