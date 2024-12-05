@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/hkctc/static/css/main.98367040.css",
-    "main.js": "/hkctc/static/js/main.4ec60ba8.js",
+    "main.js": "/hkctc/static/js/main.2752c029.js",
     "static/js/453.33c7c935.chunk.js": "/hkctc/static/js/453.33c7c935.chunk.js",
     "static/media/courses.png": "/hkctc/static/media/courses.b4a7cdfeededb7f3176a.png",
     "static/media/report.png": "/hkctc/static/media/report.c1b037a8975ff4195e1c.png",
@@ -11,11 +11,11 @@
     "static/media/Advertorials.png": "/hkctc/static/media/Advertorials.ce3fc409e4d8d5213bdb.png",
     "index.html": "/hkctc/index.html",
     "main.98367040.css.map": "/hkctc/static/css/main.98367040.css.map",
-    "main.4ec60ba8.js.map": "/hkctc/static/js/main.4ec60ba8.js.map",
+    "main.2752c029.js.map": "/hkctc/static/js/main.2752c029.js.map",
     "453.33c7c935.chunk.js.map": "/hkctc/static/js/453.33c7c935.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98367040.css",
-    "static/js/main.4ec60ba8.js"
+    "static/js/main.2752c029.js"
   ]
 }
