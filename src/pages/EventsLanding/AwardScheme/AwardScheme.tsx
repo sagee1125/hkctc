@@ -11,11 +11,23 @@ export const AwardScheme: React.FC = () => {
 
   return (
     <div className="w-full">
-      <img
-        className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-        src={`${process.env.PUBLIC_URL}/assets/eventsLanding/awardScheme/banner_bg.png`}
-        alt={"banner_bg.png"}
-      />
+      <div className="w-full h-[460px] bg-black flex items-center justify-center">
+        <video
+          src={
+            process.env.PUBLIC_URL +
+            "/assets/eventsLanding/awardScheme/mpaward-2023-24-Compressed.mp4"
+          }
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            height: "460px", // 高度固定为460px
+            width: "auto", // 宽度根据视频比例自适应
+            objectFit: "contain", // 确保视频内容保持原比例
+          }}
+        />
+      </div>
       <Breadcrumb items={breadcrumbItems} />
       <AwardSchemeContent />
     </div>

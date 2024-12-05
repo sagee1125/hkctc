@@ -154,13 +154,21 @@ export const VideoBox: React.FC = () => {
                   <Icon
                     icon="icons8:left-squared"
                     className="text-white cursor-pointer"
-                    style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      strokeWidth: "1px",
+                    }}
                     onClick={() => handleSlide("prev")}
                   />
                   <Icon
                     icon="icons8:right-squared"
                     className="text-white cursor-pointer"
-                    style={{ width: "50px", height: "50px", strokeWidth: "1px" }}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      strokeWidth: "1px",
+                    }}
                     onClick={() => handleSlide("next")}
                   />
                 </div>
@@ -182,8 +190,6 @@ export const VideoBox: React.FC = () => {
     </div>
   );
 };
-
-
 
 const sliderStyle: React.CSSProperties = {
   display: "flex",
@@ -209,7 +215,6 @@ const progressBarStyle: React.CSSProperties = {
   background: "#D1E39B",
   transition: "width 0.1s ease-out",
 };
-
 
 const buttonStyle: React.CSSProperties = {
   padding: "10px 20px",
