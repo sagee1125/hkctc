@@ -55,65 +55,65 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
     date: string;
     imagePath: string;
   }> = [
-      {
-        title:
-          "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
-        date: "11 April 2024",
-        imagePath: "Environmental.png",
-      },
-      {
-        title:
-          "Seminar on Construction Testing: Towards Digitalisation and Automation in Construction Testing",
-        date: "29 February 2024",
-        imagePath: "Construction.png",
-      },
-      {
-        title: "Metrology Symposium 2023",
-        date: "24 October 2023",
-        imagePath: "Metrology.png",
-      },
-      {
-        title:
-          "Seminar on Integrity and Professional Development in Testing and Certification Industry",
-        date: "18 September 2023",
-        imagePath: "Integrity.png",
-      },
-      {
-        title: "World Accreditation Day Forum 2023",
-        date: "16 June 2023",
-        imagePath: "Accreditation.png",
-      },
-      {
-        title:
-          "Webinar on Application of Automation and Technology in Construction Materials Testing",
-        date: "28 February 2023",
-        imagePath: "Webinar.png",
-      },
+    {
+      title:
+        "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
+      date: "11 April 2024",
+      imagePath: "Environmental.png",
+    },
+    {
+      title:
+        "Seminar on Construction Testing: Towards Digitalisation and Automation in Construction Testing",
+      date: "29 February 2024",
+      imagePath: "Construction.png",
+    },
+    {
+      title: "Metrology Symposium 2023",
+      date: "24 October 2023",
+      imagePath: "Metrology.png",
+    },
+    {
+      title:
+        "Seminar on Integrity and Professional Development in Testing and Certification Industry",
+      date: "18 September 2023",
+      imagePath: "Integrity.png",
+    },
+    {
+      title: "World Accreditation Day Forum 2023",
+      date: "16 June 2023",
+      imagePath: "Accreditation.png",
+    },
+    {
+      title:
+        "Webinar on Application of Automation and Technology in Construction Materials Testing",
+      date: "28 February 2023",
+      imagePath: "Webinar.png",
+    },
 
-      {
-        title:
-          "“Professional Integrity and Corruption Prevention in Testing and Certification” Webinar 2022",
-        date: "30 August 2022",
-        imagePath: "Professional.png",
-      },
+    {
+      title:
+        "“Professional Integrity and Corruption Prevention in Testing and Certification” Webinar 2022",
+      date: "30 August 2022",
+      imagePath: "Professional.png",
+    },
 
-      {
-        title: "Metrology Symposium 2022",
-        date: "31 Jul 2023",
-        imagePath: "Metrology_Symposium.png",
-      },
-      {
-        title:
-          "Webinar on Environmental, Social and Governance (ESG) and sustainability",
-        date: "19 July 2022",
-        imagePath: "Governance.png",
-      },
-    ];
+    {
+      title: "Metrology Symposium 2022",
+      date: "31 Jul 2023",
+      imagePath: "Metrology_Symposium.png",
+    },
+    {
+      title:
+        "Webinar on Environmental, Social and Governance (ESG) and sustainability",
+      date: "19 July 2022",
+      imagePath: "Governance.png",
+    },
+  ];
 
   return (
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
       <Sidebar
-        title={'Events'}
+        title={"Events"}
         SidebarItems={eventItems}
         activatedItems={activeEventItems}
         setActivatedItems={setActiveEventItems}
@@ -135,7 +135,7 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out text-left"
+                className="p-0 transition-all duration-800 ease-in-out text-left"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTopicButton(index);
@@ -158,13 +158,13 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
+                className="p-0 transition-all duration-800 ease-in-out"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveYearButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
               </button>
             );
           })}

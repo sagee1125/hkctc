@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
+import "./style.css";
 
 export type WhatsNewData = {
   title: string;
@@ -15,38 +16,35 @@ export const whatsNewData: WhatsNewData[] = [
     date: "28 Aug 2024",
     imagePath: "Trade_Show.png",
     imagePathSwitch: "Trade_Show_1.png",
-    onClick: () => { },
+    onClick: () => {},
   },
   {
     title: "Mid-Autumn Festival brings family reunion and joy",
     date: "28 Aug 2024",
     imagePath: "Mid_Autumn.png",
     imagePathSwitch: "Mid_Autumn_1.png",
-    onClick: () => { },
+    onClick: () => {},
   },
   {
     title: "The Testing And Certification Industry Has Always Played An...",
     date: "28 Aug 2024",
     imagePath: "Testing.png",
     imagePathSwitch: "Testing_1.png",
-    onClick: () => { },
+    onClick: () => {},
   },
   {
     title: "Belt and Road Summit Forum",
     date: "28 Aug 2024",
     imagePath: "Belt.png",
     imagePathSwitch: "Belt_1.png",
-    onClick: () => { },
+    onClick: () => {},
   },
 ];
 
 export const WhatsNew: React.FC = () => {
-
-
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -55,7 +53,6 @@ export const WhatsNew: React.FC = () => {
 
     return () => clearInterval(intervalId);
   }, []);
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -106,10 +103,9 @@ export const WhatsNew: React.FC = () => {
       <div className="pt-[24px]">
         <div
           ref={containerRef}
-
-
-
-          className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${visibleWhatsNew ? "opacity-100" : "opacity-0"}`}
+          className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${
+            visibleWhatsNew ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             gridTemplateColumns: `repeat(${whatsNewData.length}, minmax(0, 1fr))`,
           }}
@@ -121,21 +117,27 @@ export const WhatsNew: React.FC = () => {
 
             return (
               <div key={index} className="flex flex-col items-center group">
-                <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden">
+                <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden cursor-pointer">
                   {/* 上层图片 */}
                   <img
-
-                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${isEven ? "opacity-100" : "opacity-0"
-                      }`}
-                    src={process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath}
+                    className={`absolute w-full h-auto 
+     ${isEven ? "fade-in" : "fade-out"} 
+    transition-transform duration-900 ease-in-out group-hover:scale-110`}
+                    src={
+                      process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
+                    }
                     alt={title}
                   />
                   {/* 下层图片 */}
                   <img
-
-                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${isEven ? "opacity-0" : "opacity-100"
-                      }`}
-                    src={process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePathSwitch}
+                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${
+                      isEven ? "opacity-0" : "opacity-100"
+                    }`}
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/whatsNew/" +
+                      imagePathSwitch
+                    }
                     alt={title}
                   />
                 </div>

@@ -48,7 +48,7 @@ export const GeneralPublicContent: React.FC = () => {
   ];
   return (
     <div
-      className="w-full grid grid-cols-[1fr,2fr] gap-[24px]"
+      className="w-full grid grid-cols-[1fr,2fr] gap-[24px] pb-[48px]"
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
       {/* Materials & Enquires */}
@@ -112,7 +112,7 @@ export const GeneralPublicContent: React.FC = () => {
           <EmailBox />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-[24px] pb-[48px]">
+      <div className="grid grid-cols-2 gap-[24px]">
         {[...whatsNewData, ...whatsNewData_2].map((item, index) => {
           const { title, imagePath, date } = item;
           return (

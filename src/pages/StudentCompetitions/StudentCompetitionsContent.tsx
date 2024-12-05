@@ -7,39 +7,6 @@ type BreadcrumbProps = {
   eventItems: SubItems[];
 };
 
-const topicArray = [
-  "All",
-  "CEPA & Mainland Opportunities",
-  "Chinese medicines",
-  "Construction materials",
-  "Consumer Products",
-  "Environmental protection",
-  "Food",
-  "General Support",
-  "Information & Communication Technologies",
-  "Inspection",
-
-  "Integrity &Professional Development",
-  "Jewellery",
-  "Medical",
-  "Metrology, Accreditation & Standards",
-  "Quality Management",
-];
-
-const yearArray = [
-  "All",
-  "2024",
-  "2023",
-  "2022",
-  "2021",
-  "2020",
-  "2019",
-  "2018",
-  "2017",
-  "2016",
-  "2015",
-];
-
 export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
   eventItems,
 }) => {
@@ -55,47 +22,47 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
     imagePath: string;
     date: string;
   }> = [
-      {
-        title: "Testing Science - Sustainability in Daily Life",
-        imagePath: "Sustainability.png",
-        date: "2023-24",
-      },
-      {
-        title: "Food Testing in Daily Life",
-        imagePath: "Food.png",
-        date: "2022-23",
-      },
-      {
-        title: "Materials Testing Science in Daily Life",
-        imagePath: "Materials.png",
-        date: "2021-22",
-      },
-      {
-        title: "Testing Science in Daily Life - Healthcare and Hygiene",
-        imagePath: "Healthcare.png",
-        date: "2020-21",
-      },
-      {
-        title: "Testing Science for Green Living",
-        imagePath: "Green.png",
-        date: "2018-19",
-      },
-      {
-        title: "Testing Science for Improving the Quality of Life",
-        imagePath: "Quality.png",
-        date: "2017-18",
-      },
-      {
-        title: "Scientific Testing in Everyday Life",
-        imagePath: "Scientific.png",
-        date: "2016-17",
-      },
-    ];
+    {
+      title: "Testing Science - Sustainability in Daily Life",
+      imagePath: "Sustainability.png",
+      date: "2023-24",
+    },
+    {
+      title: "Food Testing in Daily Life",
+      imagePath: "Food.png",
+      date: "2022-23",
+    },
+    {
+      title: "Materials Testing Science in Daily Life",
+      imagePath: "Materials.png",
+      date: "2021-22",
+    },
+    {
+      title: "Testing Science in Daily Life - Healthcare and Hygiene",
+      imagePath: "Healthcare.png",
+      date: "2020-21",
+    },
+    {
+      title: "Testing Science for Green Living",
+      imagePath: "Green.png",
+      date: "2018-19",
+    },
+    {
+      title: "Testing Science for Improving the Quality of Life",
+      imagePath: "Quality.png",
+      date: "2017-18",
+    },
+    {
+      title: "Scientific Testing in Everyday Life",
+      imagePath: "Scientific.png",
+      date: "2016-17",
+    },
+  ];
 
   return (
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
       <Sidebar
-        title={'Events'}
+        title={"Events"}
         SidebarItems={eventItems}
         activatedItems={activeEventItems}
         setActivatedItems={setActiveEventItems}
@@ -194,7 +161,7 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
           .
         </p>
         <hr className="mt-[24px]" />
-        <div className="flex flex-row gap-[8px] my-[32px]">
+        <div className="flex flex-row gap-[8px] my-[48px]">
           <Icon icon="tdesign:share" className="h-[20px] w-[20px]" />
           <p className="text-highlight-m">Share</p>
         </div>

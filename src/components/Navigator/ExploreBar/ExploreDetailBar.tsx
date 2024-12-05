@@ -8,9 +8,6 @@ type ExploreDetailBarProps = {
   barBackgroundImg: string;
 };
 
-
-
-
 export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   title,
   titleTheme,
@@ -41,6 +38,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
         </p>
         <p className="text-white text-light">{description}</p>
       </div>
+      <div style={bottomRightSquareStyle} />
     </div>
   );
 };
@@ -62,4 +60,14 @@ const overlayStyle: React.CSSProperties = {
     "linear-gradient(90.05deg, rgba(19, 6, 29, 0.6) 0.04%, rgba(0, 0, 0, 0.45) 45.01%, rgba(255, 255, 255, 0) 99.96%)",
   pointerEvents: "none",
   zIndex: 1,
+};
+
+const bottomRightSquareStyle: React.CSSProperties = {
+  position: "absolute",
+  bottom: "0px",
+  right: "0px",
+  width: "40px",
+  height: "40px",
+  backgroundColor: "white",
+  zIndex: 20,
 };

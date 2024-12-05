@@ -17,7 +17,7 @@ export const ResourcesReportsContent: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
   const [layoutButton, setLayoutButton] = useState<number>(0);
   const [selectedMediaType, setSelectedMediaType] = useState(mediaType[0]);
-  const [rangeValue, setRangeValue] = useState<number[]>([currentYear, 1900]);
+  const [rangeValue, setRangeValue] = useState<number[]>([currentYear, 2009]);
   const [selectedItem, setSelectedItem] = useState<string>(
     "From latest to oldest"
   );
@@ -311,7 +311,7 @@ export const ResourcesReportsContent: React.FC = () => {
             <Box sx={{ width: "100%" }}>
               <Slider
                 value={rangeValue}
-                min={1900}
+                min={2009}
                 max={currentYear}
                 onChange={handleRangeChange}
                 valueLabelDisplay="on"
