@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import { EmailBox } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
+import { useNavigate } from "react-router-dom";
 
 type ResourcesData = {
   title: string;
@@ -47,6 +48,8 @@ export const Publications: React.FC = () => {
   const [prevActiveCategory, setPrevActiveCategory] = useState<Category>(
     Category.Events
   );
+  const navigate = useNavigate();
+
   const slideContainerRef = useRef<HTMLDivElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -584,6 +587,9 @@ export const Publications: React.FC = () => {
                 <div
                   key={index}
                   className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
+                  onClick={() => {
+                    navigate("resources-reports");
+                  }}
                 >
                   {/* Inner Background Div */}
                   <div
