@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/hkctc/static/css/main.98367040.css",
-    "main.js": "/hkctc/static/js/main.2752c029.js",
+    "main.css": "/hkctc/static/css/main.d98778f3.css",
+    "main.js": "/hkctc/static/js/main.1044ae19.js",
     "static/js/453.33c7c935.chunk.js": "/hkctc/static/js/453.33c7c935.chunk.js",
+    "static/media/hkctc_logo.svg": "/hkctc/static/media/hkctc_logo.789e3eef27363ed61830a770e20deda8.svg",
     "static/media/courses.png": "/hkctc/static/media/courses.b4a7cdfeededb7f3176a.png",
     "static/media/report.png": "/hkctc/static/media/report.c1b037a8975ff4195e1c.png",
     "static/media/Newsletter.png": "/hkctc/static/media/Newsletter.8ab27b281a42ff36a2ed.png",
-    "static/media/hkctc_logo.svg": "/hkctc/static/media/hkctc_logo.e18b7c18b3ad8c9620f41ea25311e95a.svg",
     "static/media/publications.png": "/hkctc/static/media/publications.8a0675d1a914caa2a219.png",
     "static/media/Advertorials.png": "/hkctc/static/media/Advertorials.ce3fc409e4d8d5213bdb.png",
     "index.html": "/hkctc/index.html",
-    "main.98367040.css.map": "/hkctc/static/css/main.98367040.css.map",
-    "main.2752c029.js.map": "/hkctc/static/js/main.2752c029.js.map",
+    "main.d98778f3.css.map": "/hkctc/static/css/main.d98778f3.css.map",
+    "main.1044ae19.js.map": "/hkctc/static/js/main.1044ae19.js.map",
     "453.33c7c935.chunk.js.map": "/hkctc/static/js/453.33c7c935.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98367040.css",
-    "static/js/main.2752c029.js"
+    "static/css/main.d98778f3.css",
+    "static/js/main.1044ae19.js"
   ]
 }
