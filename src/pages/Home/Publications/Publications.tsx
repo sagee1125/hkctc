@@ -136,7 +136,9 @@ export const Publications: React.FC = () => {
       number: 20,
       sideColor: "#D1E39B",
       bgImg: report,
-      onClick: () => {},
+      onClick: () => {
+        navigate("resources-reports");
+      },
     },
     {
       title: "Newsletter",
@@ -582,14 +584,12 @@ export const Publications: React.FC = () => {
           <div className="text-heading-l">Resources</div>
           <div>
             {resourcesData.map((item, index) => {
-              const { number, title, icon, sideColor, bgImg } = item;
+              const { number, title, icon, sideColor, bgImg, onClick } = item;
               return (
                 <div
                   key={index}
                   className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
-                  onClick={() => {
-                    navigate("resources-reports");
-                  }}
+                  onClick={onClick}
                 >
                   {/* Inner Background Div */}
                   <div
