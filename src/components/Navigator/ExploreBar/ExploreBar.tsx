@@ -15,7 +15,6 @@ export const ExploreBar: React.FC = () => {
   const currentPath = location.pathname;
   console.log("currentPath", currentPath);
 
-
   const paths: string[] = [
     "/general-public",
     "/educators-students",
@@ -30,8 +29,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/general-public"
           ? "text-elegancePurple"
-          : `group-hover:text-elegancePurple ${isClicked ? "text-[#7C7F83]" : ""
-          }`,
+          : `group-hover:text-elegancePurple ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("general-public");
       },
@@ -42,8 +42,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/educators-students"
           ? "text-trustfulBlue"
-          : `group-hover:text-trustfulBlue ${isClicked ? "text-[#7C7F83]" : ""
-          }`,
+          : `group-hover:text-trustfulBlue ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("educators-students");
       },
@@ -54,8 +55,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/industry"
           ? "text-growthfulGreen"
-          : `group-hover:text-growthfulGreen ${isClicked ? "text-[#7C7F83]" : ""
-          }`,
+          : `group-hover:text-growthfulGreen ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("industry");
       },
@@ -66,8 +68,9 @@ export const ExploreBar: React.FC = () => {
       hoverColor:
         currentPath === "/service-users"
           ? "text-energeticOrange"
-          : `group-hover:text-energeticOrange ${isClicked ? "text-[#7C7F83]" : ""
-          }`,
+          : `group-hover:text-energeticOrange ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
       onClick: () => {
         navigate("service-users");
       },
@@ -76,7 +79,7 @@ export const ExploreBar: React.FC = () => {
 
   return (
     <nav>
-      <div className="bg-primary h-[50px] flex flex-row px-[32px] items-center text-white">
+      <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
         <p className="text-highlight-s">Explore as</p>
         <img
           className="w-[12px] h-[12px] ml-[8px] mr-[16px]"

@@ -58,7 +58,7 @@ export const IndustryContent: React.FC = () => {
     <div className="w-full grid grid-cols-[2fr,1fr] py-[48px] px-[24px] gap-[24px]">
       <div>
         <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Our Support</p>
         </div>
         <div>

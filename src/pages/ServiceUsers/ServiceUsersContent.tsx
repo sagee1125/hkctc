@@ -62,7 +62,7 @@ export const ServiceUsersContent: React.FC = () => {
     <div className="w-full grid grid-cols-[2fr,1fr] py-[48px] px-[24px] gap-[24px]">
       <div>
         <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Our Support</p>
         </div>
         <div>
@@ -101,7 +101,7 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
         <div className="flex flex-row gap-[12px] items-center pt-[48px]">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Accreditation Service</p>
         </div>
         <p className="py-[24px] text-body-m">
@@ -125,8 +125,8 @@ export const ServiceUsersContent: React.FC = () => {
                   />
                   {/* Icon */}
                   <img
-                    className="absolute bottom-0 right-0 w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF_Open.svg`}
+                    className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="PDF Icon"
                   />
                 </div>
@@ -149,8 +149,8 @@ export const ServiceUsersContent: React.FC = () => {
               />
               {/* Icon */}
               <img
-                className="absolute bottom-0 right-0 w-[32px] h-[32px]"
-                src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF.svg`}
+                className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                 alt="PDF Icon"
               />
             </div>

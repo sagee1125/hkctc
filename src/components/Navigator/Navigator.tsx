@@ -445,7 +445,7 @@ export const Navigator: React.FC = () => {
                 >
                   {({ open }) => (
                     <>
-                      <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-black text-body-m text-white">
+                      <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
                         <p>{selectedExploreOption}</p>
                         <ChevronDownIcon
                           className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${
@@ -474,7 +474,7 @@ export const Navigator: React.FC = () => {
                                   }}
                                   className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
                                     active
-                                      ? "bg-black text-white"
+                                      ? "bg-newPrimary text-white"
                                       : "text-gray-700"
                                   }`}
                                 >

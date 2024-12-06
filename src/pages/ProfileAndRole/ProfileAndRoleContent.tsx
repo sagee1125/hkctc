@@ -54,7 +54,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
       />
       <div className="flex-1">
         <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Profile of the Sector</p>
         </div>
         <div className="bg-[#EEEEEA] my-[24px]">
@@ -95,7 +95,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out whitespace-nowrap"
+                className="p-2 transition-all duration-800 ease-in-out whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTopicButton(index);
@@ -140,7 +140,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
         </p>
         <hr className="my-[24px]" />
         <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Role of the Sector</p>
         </div>
         <p className="text-body-m my-[24px]">
@@ -208,7 +208,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
                   {/* Icon */}
                   <img
                     className="absolute bottom-0 right-0 w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF_Open.svg`}
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PRESS.png`}
                     alt="PDF Icon"
                   />
                 </div>

@@ -69,7 +69,7 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
       />
       <div>
         <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Student Competitions</p>
         </div>
 
@@ -106,8 +106,8 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
                   />
                   {/* Icon */}
                   <img
-                    className="absolute bottom-0 right-0 w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF_Open.svg`}
+                    className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PRESS.png`}
                     alt="PDF Icon"
                   />
                 </div>
@@ -162,8 +162,11 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
         </p>
         <hr className="mt-[24px]" />
         <div className="flex flex-row gap-[8px] my-[48px]">
-          <Icon icon="tdesign:share" className="h-[20px] w-[20px]" />
-          <p className="text-highlight-m">Share</p>
+          <Icon
+            icon="tdesign:share"
+            className="h-[20px] w-[20px] text-newPrimary"
+          />
+          <p className="text-highlight-m text-newPrimary">Share</p>
         </div>
       </div>
     </div>

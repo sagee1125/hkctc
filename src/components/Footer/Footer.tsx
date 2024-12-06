@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className="bg-primary h-[360px] text-white pt-[32px] px-[24px]">
+      <div className="bg-newPrimary h-[360px] text-white pt-[32px] px-[24px]">
         <div className="grid grid-cols-[4fr,4fr,6fr,4fr] gap-[24px]">
           {footerData.map((col, index) => (
             <div key={index} className="flex flex-col gap-[8px]">
@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black h-[50px] flex px-[24px] items-center">
+      <div className="bg-[#333333] h-[50px] flex px-[24px] items-center">
         <p className="text-white text-body-s">
           {`Copyright © 2024 Hong Kong Council for Testing and Certification. All
           Rights Reserved`}

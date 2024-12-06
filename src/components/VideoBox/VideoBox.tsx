@@ -128,7 +128,7 @@ export const VideoBox: React.FC = () => {
             className="absolute inset-0 w-full h-full"
           >
             <div className="flex flex-col jusity-between h-full">
-              <div className="h-[50px] w-[50px] bg-[#242A31]" />
+              <div className="h-[50px] w-[50px] bg-newPrimary" />
               <div
                 className="flex justify-between items-end py-10 px-[24px] mt-auto" // Added mt-auto for bottom alignment
                 style={{

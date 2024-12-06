@@ -101,7 +101,7 @@ export const ResourcesReportsContent: React.FC = () => {
     <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
       <div>
         <div className="flex flex-row gap-[16px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">Resources</p>
         </div>
 
@@ -143,7 +143,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 <div
                   key={index}
                   className="m-auto p-[8px] h-[40px] w-[40px] cursor-pointer"
-                  style={{ background: isActivated ? "#242A31" : "white" }}
+                  style={{ background: isActivated ? "#233F55" : "white" }}
                   onClick={() => {
                     setLayoutButton(index);
                   }}
@@ -151,12 +151,12 @@ export const ResourcesReportsContent: React.FC = () => {
                   <div
                     className="h-[24px] w-[24px]"
                     style={{
-                      color: isActivated ? "white" : "#242A31",
+                      color: isActivated ? "white" : "#233F55",
                       WebkitMask: `url(${process.env.PUBLIC_URL}/assets/icons/${icon}) no-repeat center`,
                       mask: `url(${process.env.PUBLIC_URL}/assets/icons/${icon}) no-repeat center`,
                       WebkitMaskSize: "contain",
                       maskSize: "contain",
-                      backgroundColor: isActivated ? "white" : "#242A31",
+                      backgroundColor: isActivated ? "white" : "#233F55",
                     }}
                   />
                 </div>
@@ -289,7 +289,7 @@ export const ResourcesReportsContent: React.FC = () => {
                     value={type}
                     className={`group flex h-[24px] w-[24px] items-center justify-center rounded-full border transition-all ${
                       selectedMediaType === type
-                        ? "bg-black"
+                        ? "bg-newPrimary"
                         : "bg-[#D3D4D6] border-[#AAAAAA]"
                     }`}
                   >
@@ -320,7 +320,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 sx={{
                   zIndex: 10,
                   "& .MuiSlider-track": {
-                    bgcolor: "#50555A",
+                    bgcolor: "#233F55",
                     height: "6px",
                     border: "none",
                   },
@@ -396,11 +396,9 @@ export const ResourcesReportsContent: React.FC = () => {
             </div>
 
             <button
-              className="w-full text-white p-[16px] mt-[16px] mb-[22px]"
+              className="w-full text-white p-[16px] mt-[16px] mb-[22px] bg-newPrimary"
               style={{
                 lineHeight: 1.5,
-                background:
-                  "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #242A31",
               }}
             >
               Apply
@@ -417,7 +415,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   key={index}
                   className="flex flex-row justify-between w-full h-[77px] items-center px-[20px] transition-all duration-800 ease-in-out"
                   style={{
-                    backgroundColor: isActivated ? "#242A31" : "#EAEAE5",
+                    backgroundColor: isActivated ? "#233F55" : "#EAEAE5",
                     color: !isActivated ? "#242A31" : "#EAEAE5",
                   }}
                   onClick={() => {

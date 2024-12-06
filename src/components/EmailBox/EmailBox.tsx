@@ -36,11 +36,9 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <button
-          className="w-full text-white p-[16px]"
+          className="w-full text-white p-[16px] bg-newPrimary"
           style={{
             lineHeight: 1.5,
-            background:
-              "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #242A31",
           }}
         >
           Send now

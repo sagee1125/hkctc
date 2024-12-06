@@ -120,7 +120,7 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
       />
       <div>
         <div className="flex flex-row gap-[16px] items-start">
-          <div className="h-[15px] w-[15px] bg-black mt-[8px]" />
+          <div className="h-[15px] w-[15px] bg-newPrimary mt-[8px]" />
           <p className="text-heading-l">Seminars and Workshops</p>
         </div>
 
@@ -238,7 +238,7 @@ const normalButtonStyle: React.CSSProperties = {
 };
 
 const activatedButtonStyle: React.CSSProperties = {
-  background: "black",
+  background: "#233F55",
   color: "white",
   border: "1px solid white",
 };

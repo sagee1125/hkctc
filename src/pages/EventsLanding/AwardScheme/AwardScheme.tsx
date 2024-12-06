@@ -11,7 +11,7 @@ export const AwardScheme: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="w-full h-[460px] bg-black flex items-center justify-center">
+      <div className="w-full h-[460px] bg-newPrimary flex items-center justify-center">
         <video
           src={
             process.env.PUBLIC_URL +

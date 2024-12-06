@@ -29,8 +29,10 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
     eventItems?.[0]?.subTitle ?? ""
   );
 
-  const [activeTestingOneButton, setActiveTestingOneButton] = useState<number>(0);
-  const [activeTestingTwoButton, setActiveTestingTwoButton] = useState<number>(0);
+  const [activeTestingOneButton, setActiveTestingOneButton] =
+    useState<number>(0);
+  const [activeTestingTwoButton, setActiveTestingTwoButton] =
+    useState<number>(0);
 
   const [questionCategoriesArray, setQuestionCategoriesArray] =
     useState<number>(0);
@@ -41,31 +43,31 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
     imgUrl: string;
     onClick: () => void;
   }> = [
-      {
-        title: "T&C Manpower Development Award Scheme 2023-2024",
-        imgUrl: "2023-2024.png",
-        onClick: () => {
-          navigate("award-scheme");
-        },
+    {
+      title: "T&C Manpower Development Award Scheme 2023-2024",
+      imgUrl: "2023-2024.png",
+      onClick: () => {
+        navigate("award-scheme");
       },
-      {
-        title: "T&C Manpower Development Award Scheme 2021-2022",
-        imgUrl: "2021-2022.png",
-        onClick: () => { },
-      },
-    ];
+    },
+    {
+      title: "T&C Manpower Development Award Scheme 2021-2022",
+      imgUrl: "2021-2022.png",
+      onClick: () => {},
+    },
+  ];
 
   return (
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
       <Sidebar
-        title={'Events'}
+        title={"Events"}
         SidebarItems={eventItems}
         activatedItems={activeEventItems}
         setActivatedItems={setActiveEventItems}
       />
       <div>
         <div className="flex flex-row gap-[16px] items-start">
-          <div className="h-[15px] w-[15px] bg-black mt-[8px]" />
+          <div className="h-[15px] w-[15px] bg-newPrimary mt-[8px]" />
           <p className="text-heading-l">
             Testing & Certificate Manpower Development Award Scheme
           </p>
@@ -127,7 +129,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
+                className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTestingOneButton(index);
@@ -192,7 +194,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="transition-all duration-800 ease-in-out"
+                className="transition-all duration-800 ease-in-out bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTestingTwoButton(index);
@@ -246,7 +248,7 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
+                className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setQuestionCategoriesArray(index);
@@ -286,12 +288,12 @@ export const EventsLandingContent: React.FC<BreadcrumbProps> = ({
 export const normalButtonStyle: React.CSSProperties = {
   background: "white",
   color: "black",
-  border: "1px solid #666666",
+  border: "1px solid #233F55",
   padding: "6px 12px 6px 12px",
 };
 
 export const activatedButtonStyle: React.CSSProperties = {
-  background: "black",
+  background: "#233F55",
   color: "white",
   border: "1px solid white",
   padding: "6px 12px 6px 12px",

@@ -8,67 +8,67 @@ export const AwardSchemeContent: React.FC = () => {
     title: string;
     urlPath: string;
   }> = [
-      {
-        title: "ACML",
-        urlPath: "ACML.png",
-      },
-      {
-        title: "BEAM",
-        urlPath: "BEAM.png",
-      },
-      {
-        title: "DoC",
-        urlPath: "DoC.png",
-      },
-      {
-        title: "Consumer_Council",
-        urlPath: "Consumer_Council.png",
-      },
-      {
-        title: "GEMMAS",
-        urlPath: "GEMMAS.png",
-      },
-      {
-        title: "HKTIC",
-        urlPath: "HKTIC.png",
-      },
-      {
-        title: "HKAML",
-        urlPath: "HKAML.png",
-      },
-      {
-        title: "HKICA",
-        urlPath: "HKICA.png",
-      },
-      {
-        title: "HKIE",
-        urlPath: "HKIE.png",
-      },
-      {
-        title: "HKMU",
-        urlPath: "HKMU.png",
-      },
-      {
-        title: "DABCT",
-        urlPath: "DABCT.png",
-      },
-      {
-        title: "HKSQ",
-        urlPath: "HKSQ.png",
-      },
-      {
-        title: "HKTDC",
-        urlPath: "HKTDC.png",
-      },
-      {
-        title: "QF",
-        urlPath: "QF.png",
-      },
-      {
-        title: "VTC",
-        urlPath: "VTC.png",
-      },
-    ];
+    {
+      title: "ACML",
+      urlPath: "ACML.png",
+    },
+    {
+      title: "BEAM",
+      urlPath: "BEAM.png",
+    },
+    {
+      title: "DoC",
+      urlPath: "DoC.png",
+    },
+    {
+      title: "Consumer_Council",
+      urlPath: "Consumer_Council.png",
+    },
+    {
+      title: "GEMMAS",
+      urlPath: "GEMMAS.png",
+    },
+    {
+      title: "HKTIC",
+      urlPath: "HKTIC.png",
+    },
+    {
+      title: "HKAML",
+      urlPath: "HKAML.png",
+    },
+    {
+      title: "HKICA",
+      urlPath: "HKICA.png",
+    },
+    {
+      title: "HKIE",
+      urlPath: "HKIE.png",
+    },
+    {
+      title: "HKMU",
+      urlPath: "HKMU.png",
+    },
+    {
+      title: "DABCT",
+      urlPath: "DABCT.png",
+    },
+    {
+      title: "HKSQ",
+      urlPath: "HKSQ.png",
+    },
+    {
+      title: "HKTDC",
+      urlPath: "HKTDC.png",
+    },
+    {
+      title: "QF",
+      urlPath: "QF.png",
+    },
+    {
+      title: "VTC",
+      urlPath: "VTC.png",
+    },
+  ];
 
   const timeLine: Array<{ date: string; event: string }> = [
     {
@@ -101,21 +101,21 @@ export const AwardSchemeContent: React.FC = () => {
     title: string;
     imagePath: string;
   }> = [
-      {
-        title: "Guidance Notes",
-        imagePath: "Guidance_Notes.png",
-      },
-      {
-        title:
-          "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
-        imagePath: "Testing.png",
-      },
-      {
-        title:
-          "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
-        imagePath: "Excellent.png",
-      },
-    ];
+    {
+      title: "Guidance Notes",
+      imagePath: "Guidance_Notes.png",
+    },
+    {
+      title:
+        "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
+      imagePath: "Testing.png",
+    },
+    {
+      title:
+        "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
+      imagePath: "Excellent.png",
+    },
+  ];
 
   const publicationData: Array<{
     title: string;
@@ -123,100 +123,110 @@ export const AwardSchemeContent: React.FC = () => {
     iconPath: string;
     date?: string;
   }> = [
-      {
-        title: "Pamphlet",
-        iconPath: "PDF.png",
-        imagePath: "Pamphlet.png",
-      },
-      {
-        title: "Media Coverage",
-        iconPath: "PDF.png",
-        imagePath: "Coverage.png",
-      },
-      {
-        title: "Award ceremony video",
-        iconPath: "VIDEO.png",
+    {
+      title: "Pamphlet",
+      iconPath: "PDF.png",
+      imagePath: "Pamphlet.png",
+    },
+    {
+      title: "Media Coverage",
+      iconPath: "PDF.png",
+      imagePath: "Coverage.png",
+    },
+    {
+      title: "Award ceremony video",
+      iconPath: "VIDEO.png",
 
-        imagePath: "ceremony.png",
-      },
-      {
-        title: "Commemorative publication",
-        iconPath: "PDF.png",
-        imagePath: "Commemorative.png",
-      },
-      {
-        title: "Press Release",
-        iconPath: "PDF.png",
-        imagePath: "Release.png",
-        date: "4 December 2023",
-      },
-    ];
+      imagePath: "ceremony.png",
+    },
+    {
+      title: "Commemorative publication",
+      iconPath: "PDF.png",
+      imagePath: "Commemorative.png",
+    },
+    {
+      title: "Press Release",
+      iconPath: "PDF.png",
+      imagePath: "Release.png",
+      date: "4 December 2023",
+    },
+  ];
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
-
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
     {
-      id: 'introduction',
-      title: 'Introduction',
+      id: "introduction",
+      title: "Introduction",
     },
 
     {
-      id: 'supporting_organizations',
-      title: 'Supporting Organizations',
+      id: "supporting_organizations",
+      title: "Supporting Organizations",
     },
     {
-      id: 'awardees',
-      title: 'Awardees',
+      id: "awardees",
+      title: "Awardees",
     },
     {
-      id: 'award_presentation_ceremony',
-      title: 'Award Presentation Ceremony',
+      id: "award_presentation_ceremony",
+      title: "Award Presentation Ceremony",
     },
     {
-      id: 'timeline',
-      title: 'Timeline',
+      id: "timeline",
+      title: "Timeline",
     },
     {
-      id: 'application',
-      title: 'Application',
+      id: "application",
+      title: "Application",
     },
     {
-      id: 'publications',
-      title: 'Publications',
+      id: "publications",
+      title: "Publications",
     },
-
-  ]
-
+  ];
 
   return (
     <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
       <div className="flex flex-col gap-[0]">
         {directoryAnchorIds.map((anchor, index) => {
-          const isActivated = index === locateAnchor
+          const isActivated = index === locateAnchor;
           const { title, id } = anchor;
 
-          const borderStyle = isActivated ? 'border-black z-10' : 'border-[#E0E0E0]';
-          const fontStyle = isActivated ? 'text-heading-m' : 'text-heading-m text-[#AAAAAA]';
+          const borderStyle = isActivated
+            ? "border-newPrimary z-10"
+            : "border-[#E0E0E0]";
+          const fontStyle = isActivated
+            ? "text-heading-m"
+            : "text-heading-m text-[#AAAAAA]";
 
-          const marginStyle = index === 0 ? '' : '-mt-[2px]'
+          const marginStyle = index === 0 ? "" : "-mt-[2px]";
           return (
-            <div className={classNames("border-2 p-[24px] text-heading-m", borderStyle, fontStyle, marginStyle)}
+            <div
+              className={classNames(
+                "border-2 p-[24px] text-heading-m",
+                borderStyle,
+                fontStyle,
+                marginStyle
+              )}
               onClick={() => {
-                const scrollElement = document.getElementById(id)
+                const scrollElement = document.getElementById(id);
                 if (scrollElement) {
-                  setLocateAnchor(index)
-                  scrollElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                  setLocateAnchor(index);
+                  scrollElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
                 }
               }}
             >
               {title}
             </div>
-          )
+          );
         })}
       </div>
       <div className="">
         <div className="flex flex-row gap-[16px] items-center">
-          <div className="h-[15px] w-[15px] bg-black" />
+          <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">
             T&C Manpower Development Award Scheme 2023-2024s
           </p>
@@ -224,7 +234,9 @@ export const AwardSchemeContent: React.FC = () => {
         <p className="text-highlight-l text-[#666666] mt-[24px]">
           [Results announced on 4 December 2023]
         </p>
-        <p className="text-heading-l mt-[24px]" id="introduction">Introduction</p>
+        <p className="text-heading-l mt-[24px]" id="introduction">
+          Introduction
+        </p>
         <p className="text-body-m mt-[24px]">
           With a view to encouraging the testing and certification (T&C) bodies
           to invest in talent training and development, while also commending
@@ -236,7 +248,9 @@ export const AwardSchemeContent: React.FC = () => {
           feedback from the T&C sector, HKCTC organised in 2023 again the Award
           Scheme (the 2023 - 24 Award Scheme).
         </p>
-        <p className="text-heading-l my-[24px]" id="supporting_organizations">Supporting Organizations</p>
+        <p className="text-heading-l my-[24px]" id="supporting_organizations">
+          Supporting Organizations
+        </p>
         <div className="grid grid-cols-3 gap-[48px] p-[24px]">
           {supportingOrg.map((org, index) => {
             const { title, urlPath } = org;
@@ -255,7 +269,9 @@ export const AwardSchemeContent: React.FC = () => {
             );
           })}
         </div>
-        <p className="text-heading-l my-[24px]" id="awardees">Awardees</p>
+        <p className="text-heading-l my-[24px]" id="awardees">
+          Awardees
+        </p>
         <div className="border-2 border-inherit flex flex-row justify-between p-[24px]">
           <p className="text-heading-m">
             Testing and Certification Manpower Development Corporate Awardees
@@ -269,7 +285,12 @@ export const AwardSchemeContent: React.FC = () => {
           </p>
           <Icon icon="ep:arrow-down-bold" className="w-[16px] h-[16px]" />
         </div>
-        <p className="text-heading-l my-[24px]" id="award_presentation_ceremony">Award Presentation Ceremony</p>
+        <p
+          className="text-heading-l my-[24px]"
+          id="award_presentation_ceremony"
+        >
+          Award Presentation Ceremony
+        </p>
         {/* Ceremony1 */}
 
         <div className="flex items-center">
@@ -429,7 +450,9 @@ export const AwardSchemeContent: React.FC = () => {
             Development Corporate Award"
           </p>
         </div>
-        <p className="text-heading-l my-[24px]" id="timeline">Timeline</p>
+        <p className="text-heading-l my-[24px]" id="timeline">
+          Timeline
+        </p>
         <div className="w-full grid grid-cols-2 border-2 border-[#E0E0E0]">
           {/* 表头 */}
           <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
@@ -454,7 +477,9 @@ export const AwardSchemeContent: React.FC = () => {
           })}
         </div>
         <hr className="my-[24px]" />
-        <p className="text-heading-l mb-[24px]" id="application">Application</p>
+        <p className="text-heading-l mb-[24px]" id="application">
+          Application
+        </p>
 
         <div className="w-full">
           {applicationData.map((item, index) => {
@@ -473,7 +498,7 @@ export const AwardSchemeContent: React.FC = () => {
                   {/* Icon */}
                   <img
                     className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/PDF.svg`}
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="PDF Icon"
                   />
                 </div>
@@ -485,7 +510,9 @@ export const AwardSchemeContent: React.FC = () => {
           })}
         </div>
 
-        <p className="text-heading-l mt-[24px]" id="publications">Publications</p>
+        <p className="text-heading-l mt-[24px]" id="publications">
+          Publications
+        </p>
 
         <div className="w-full grid grid-cols-2 gap-[24px]">
           {publicationData.map((item, index) => {
@@ -527,8 +554,11 @@ export const AwardSchemeContent: React.FC = () => {
         </div>
         <hr className="mt-[24px]" />
         <div className="flex flex-row gap-[8px] my-[36px]">
-          <Icon icon="tdesign:share" className="h-[20px] w-[20px]" />
-          <p className="text-highlight-m">Share</p>
+          <Icon
+            icon="tdesign:share"
+            className="h-[20px] w-[20px] text-newPrimary"
+          />
+          <p className="text-highlight-m text-newPrimary">Share</p>
         </div>
       </div>
     </div>
