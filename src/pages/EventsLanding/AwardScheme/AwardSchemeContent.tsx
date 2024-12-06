@@ -228,7 +228,7 @@ export const AwardSchemeContent: React.FC = () => {
         <div className="flex flex-row gap-[16px] items-center">
           <div className="h-[15px] w-[15px] bg-newPrimary" />
           <p className="text-heading-l">
-            T&C Manpower Development Award Scheme 2023-2024s
+            T&C Manpower Development Award Scheme 2023-2024
           </p>
         </div>
         <p className="text-highlight-l text-[#666666] mt-[24px]">
