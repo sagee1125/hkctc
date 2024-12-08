@@ -2,8 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
-require_once '../utils/encryption.phps';
-require_once '../utils/prepare_mail_w_img.phps';
+
 
 // 如果是 OPTIONS 請求，直接返回 200，避免不必要的處理
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
