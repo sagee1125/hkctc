@@ -28,21 +28,9 @@ if (isset($_POST)) {
 	switch ($_POST['do']) {
 		case 'test.mail':
 			$subjectClient = '[TEST] HKCTC Client Email';
-			$bodyClient = '
-			<!DOCTYPE html>
-			<html>
-			<head>
-			    <title>[TEST] HKCTC Client Email</title>
-			    <style>
-			    	body {
-			    		font-size: 1.25em;
-			    	}
-			    </style>
-			</head>
-			<body>
-				<p>測試電郵</p>
-			</body>
-			</html>';
+			$bodyClient = '<html><body><p>測試電郵</p></body></html>';
+
+
 
 			$subjectAdmin = '[TEST] HKCTC Admin Email';
 
@@ -112,14 +100,16 @@ if (isset($_POST)) {
 	$headers = "MIME-Version: 1.0\r\n";
 	$headersToClient = $headerToClient;
 	// Change the header if have images
-	if ($client_mail_w_img) {
-		$boundary = "--" . md5(uniqid(time()));
-		$headersToClient .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+	// if ($client_mail_w_img) {
+	// 	$boundary = "--" . md5(uniqid(time()));
+	// 	$headersToClient .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
 
-		$bodyClient = prepare_mail_w_img($bodyClient, $boundary);
-	} else {
-		$headersToClient .= "Content-Type: text/html;charset=utf-8\r\n";
-	}
+	// 	$bodyClient = prepare_mail_w_img($bodyClient, $boundary);
+	// } else {
+	// 	$headersToClient .= "Content-Type: text/html;charset=utf-8\r\n";
+	// }
+	$headersToClient .= "Content-Type: text/html;charset=utf-8\r\n";
+
 	$headersToClient .= "Reply-To: $admin_mail\r\n";
 	$headersToClient .= "X-Mailer: PHP/" . phpversion();
 
@@ -128,15 +118,17 @@ if (isset($_POST)) {
 	$headers = "MIME-Version: 1.0\r\n";
 	$headersToAdmin = $headerToAdmin;
 	$headersToAdmin .= "X-Mailer: " . $admin_mail_headers['X-Mailer'] . "\r\n";
-	if ($encrypt_ad_mail) {
-		$headersToAdmin .= "Content-Disposition: attachment; filename=\"" . $admin_mail_filename . "\"\r\n";
-		$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
-		$headersToAdmin .= "Content-Transfer-Encoding: 8bit\r\n";
+	// if ($encrypt_ad_mail) {
+	// 	$headersToAdmin .= "Content-Disposition: attachment; filename=\"" . $admin_mail_filename . "\"\r\n";
+	// 	$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
+	// 	$headersToAdmin .= "Content-Transfer-Encoding: 8bit\r\n";
 
-		$bodyHead = secured_encrypt($bodyHead);
-	} else {
-		$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
-	}
+	// 	$bodyHead = secured_encrypt($bodyHead);
+	// } else {
+	// 	$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
+	// }
+	$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
+
 	$headersToAdmin .= "\n";
 
 
