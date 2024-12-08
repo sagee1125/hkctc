@@ -11,35 +11,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 date_default_timezone_set('Asia/Hong_Kong'); // 設定時區
 
-if (isset($_POST)) {
-	// 設定預設變數
+// 郵件發送函數
+function sendMail($to, $subject, $body, $from, $bcc = [], $isHtml = false)
+{
+	$headers = "From: =?utf-8?b?" . base64_encode($from) . "?= <$from>\r\n";
+	foreach ($bcc as $bccEmail) {
+		$headers .= "Bcc: =?utf-8?b?" . base64_encode($bccEmail) . "?= <$bccEmail>\r\n";
+	}
+	$headers .= $isHtml ? "Content-Type: text/html;charset=utf-8\r\n" : "Content-Type: text/plain;charset=utf-8\r\n";
+	return mail($to, "=?utf-8?b?" . base64_encode($subject) . "?=", $body, $headers);
+}
+
+if ($_POST) {
+	// 預設變數
 	$subjectClient = '[TEST] HKCTC Client Email';
 	$bodyClient = '<html><body><p>測試電郵</p></body></html>';
 	$subjectAdmin = '[TEST] HKCTC Admin Email';
 
-	// 管理員和客戶端的郵件資料
-	$adminMail = array("admin@hkctc.gov.hk", "domi.leung@polyu.edu.hk");
+	// 郵件設定
+	$adminMail = ["admin@hkctc.gov.hk", "domi.leung@polyu.edu.hk"];
 	$clientMail = $_POST['u_email'];
-	$adminBcc = array('edwardlai@tiffdesign.com.hk');
+	$adminBcc = ['edwardlai@tiffdesign.com.hk'];
 	$fromAdmin = "system@hkctc.gov.hk";
 
-	// 郵件標題和內容
-	$headersToClient = "From: =?utf-8?b?" . base64_encode($fromAdmin) . "?= <$fromAdmin>\r\n";
-	foreach (array_merge($adminBcc, array('admin@hkctc.gov.hk')) as $bcc) {
-		$headersToClient .= "Bcc: =?utf-8?b?" . base64_encode($bcc) . "?= <$bcc>\r\n";
-	}
-	$headersToClient .= "Content-Type: text/html;charset=utf-8\r\n";
-	$headersToClient .= "Reply-To: " . implode(', ', $adminMail) . "\r\n";
-
-	$headersToAdmin = "From: =?utf-8?b?" . base64_encode("hostmaster@cis.gov.hk") . "?= <hostmaster@cis.gov.hk>\r\n";
-	foreach ($adminBcc as $bcc) {
-		$headersToAdmin .= "Bcc: =?utf-8?b?" . base64_encode($bcc) . "?= <$bcc>\r\n";
-	}
-	$headersToAdmin .= "Content-Type: text/plain;charset=utf-8\r\n";
-
 	// 發送郵件
-	$sendClient = mail($clientMail, "=?utf-8?b?" . base64_encode($subjectClient) . "?=", $bodyClient, $headersToClient);
-	$sendAdmin = mail(implode(', ', $adminMail), "=?utf-8?b?" . base64_encode($subjectAdmin) . "?=", $bodyClient, $headersToAdmin);
+	$sendClient = sendMail($clientMail, $subjectClient, $bodyClient, $fromAdmin, array_merge($adminBcc, [$fromAdmin]), true);
+	$sendAdmin = sendMail(implode(', ', $adminMail), $subjectAdmin, $bodyClient, "hostmaster@cis.gov.hk", $adminBcc);
 
 	// 輸出結果
 	echo $sendClient && $sendAdmin ? "[SUCCESS] Message successfully sent!" : "[FAIL] Message delivery failed...";
