@@ -10,7 +10,7 @@
       "runtime": "vercel-php@0.7.3"
     },
     "api/*": {
-      "excludeFiles": ["node_modules", ".git", "tests"]
+      "excludeFiles": "node_modules/**|.git/**|tests/**"
     }
   }
 }
