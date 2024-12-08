@@ -7,9 +7,7 @@
 
   "functions": {
     "api/*.php": {
-      "runtime": "vercel-php@0.7.3"
-    },
-    "api/*": {
+      "runtime": "vercel-php@0.7.3",
       "excludeFiles": "node_modules/**|.git/**|tests/**"
     }
   }
