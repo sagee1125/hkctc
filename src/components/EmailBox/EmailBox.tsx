@@ -1,6 +1,44 @@
-import React from "react";
+import { CircularProgress } from "@mui/material";
+import React, { useState } from "react";
 
 export const EmailBox: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleButtonClick = async () => {
+    setLoading(true);
+
+    const formData = {
+      do: "test.mail",
+      u_name: "John Doe",
+      u_email: "johndoe@example.com",
+    };
+
+    try {
+      const response = await fetch("http://localhost:8000/api/process.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send request");
+      }
+
+      const data = await response.json();
+
+      alert(data);
+
+      console.log("Response:", data);
+    } catch (err: any) {
+      alert(err);
+      console.error("Error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="text-heading-l pb-[16px]">Enquires</div>
@@ -36,12 +74,14 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <button
-          className="w-full text-white p-[16px] bg-newPrimary"
+          className="w-full text-white p-[16px] bg-newPrimary h-[56px]"
           style={{
             lineHeight: 1.5,
           }}
+          disabled={loading}
+          onClick={handleButtonClick}
         >
-          Send now
+          {loading ? <CircularProgress size="28px" /> : "Send now"}
         </button>
       </div>
     </>
