@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/hkctc/static/css/main.7bc2cbb3.css",
-    "main.js": "/hkctc/static/js/main.eab718ea.js",
+    "main.js": "/hkctc/static/js/main.b2ba1b33.js",
     "static/js/453.33c7c935.chunk.js": "/hkctc/static/js/453.33c7c935.chunk.js",
     "static/media/hkctc_logo.svg": "/hkctc/static/media/hkctc_logo.e927fbcae85cfa51af4b70db5f6cdf75.svg",
     "static/media/courses.png": "/hkctc/static/media/courses.b4a7cdfeededb7f3176a.png",
@@ -11,11 +11,11 @@
     "static/media/Advertorials.png": "/hkctc/static/media/Advertorials.ce3fc409e4d8d5213bdb.png",
     "index.html": "/hkctc/index.html",
     "main.7bc2cbb3.css.map": "/hkctc/static/css/main.7bc2cbb3.css.map",
-    "main.eab718ea.js.map": "/hkctc/static/js/main.eab718ea.js.map",
+    "main.b2ba1b33.js.map": "/hkctc/static/js/main.b2ba1b33.js.map",
     "453.33c7c935.chunk.js.map": "/hkctc/static/js/453.33c7c935.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7bc2cbb3.css",
-    "static/js/main.eab718ea.js"
+    "static/js/main.b2ba1b33.js"
   ]
 }
