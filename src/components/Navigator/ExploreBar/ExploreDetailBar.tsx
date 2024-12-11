@@ -17,7 +17,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   const dynamicBarStyle: React.CSSProperties = {
     ...barStyle,
     backgroundImage: `url(${process.env.PUBLIC_URL}/assets/${barBackgroundImg})`, // 从 public 文件夹加载
-    backgroundSize: "100% auto",
+    backgroundSize: "cover",
     backgroundPosition: "center 30%",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
