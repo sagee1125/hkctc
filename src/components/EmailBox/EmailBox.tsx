@@ -29,8 +29,6 @@ export const EmailBox: React.FC = () => {
       const data = await response.json();
 
       alert(data);
-
-      console.log("Response:", data);
     } catch (err: any) {
       alert(err);
       console.error("Error:", err);
