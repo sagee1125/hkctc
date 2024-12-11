@@ -381,7 +381,12 @@ export const Navigator: React.FC = () => {
   ];
   return (
     <>
-      <nav ref={navRef}>
+      <nav
+        ref={navRef}
+        style={{
+          borderBottom: "1px solid #E0E0E0",
+        }}
+      >
         <div className="flex flex-row w-full justify-between items-center">
           <div style={navStyle}>
             <div className="flex items-center h-[54px] w-[141px]">
