@@ -3,11 +3,11 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   type NavData,
-  navData,
   type NavItems,
   type SubItems,
 } from "../../components";
 import { StudentCompetitionsContent } from "./StudentCompetitionsContent";
+import { navData } from "../../const/const";
 
 export const StudentCompetitions: React.FC = () => {
   const breadcrumbItems = [

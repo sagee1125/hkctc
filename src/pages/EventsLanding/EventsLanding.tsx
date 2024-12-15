@@ -3,11 +3,11 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   type NavData,
-  navData,
   type NavItems,
   type SubItems,
 } from "../../components";
 import { EventsLandingContent } from "./EventsLandingContent";
+import { navData } from "../../const/const";
 
 export const EventsLanding: React.FC = () => {
   const breadcrumbItems = [

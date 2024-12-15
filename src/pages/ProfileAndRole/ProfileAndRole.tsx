@@ -3,11 +3,11 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   type NavData,
-  navData,
   type NavItems,
   type SubItems,
 } from "../../components";
 import { ProfileAndRoleContent } from "./ProfileAndRoleContent";
+import { navData } from "../../const/const";
 
 export const ProfileAndRole: React.FC = () => {
   const breadcrumbItems = [
