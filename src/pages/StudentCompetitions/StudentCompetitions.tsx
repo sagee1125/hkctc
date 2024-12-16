@@ -1,13 +1,12 @@
 import React from "react";
+import { BannerPhotoBox, Breadcrumb } from "../../components";
+import { StudentCompetitionsContent } from "./StudentCompetitionsContent";
 import {
-  BannerPhotoBox,
-  Breadcrumb,
+  NavigationBarConfiguration,
   type NavData,
   type NavItems,
   type SubItems,
-} from "../../components";
-import { StudentCompetitionsContent } from "./StudentCompetitionsContent";
-import { navData } from "../../const/const";
+} from "../../const";
 
 export const StudentCompetitions: React.FC = () => {
   const breadcrumbItems = [
@@ -16,9 +15,9 @@ export const StudentCompetitions: React.FC = () => {
   ];
 
   const eventItems: SubItems[] =
-    navData
-      .find((nav: NavData) => nav.title === "Events & Promotions")
-      ?.items.find((subNav: NavItems) => subNav.name === "Events")?.subItems ??
+    NavigationBarConfiguration.find(
+      (nav: NavData) => nav.title === "Events & Promotions"
+    )?.items.find((subNav: NavItems) => subNav.name === "Events")?.subItems ??
     [];
 
   return (

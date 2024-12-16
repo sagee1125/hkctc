@@ -1,7 +1,7 @@
 import React from "react";
 import { EmailBox } from "../../components";
-import { type WhatsNewData, whatsNewData } from "../Home/WhatsNew";
 import { Icon } from "@iconify/react";
+import { WhatsNewConfiguration, type WhatsNewData } from "../../const";
 
 export const GeneralPublicContent: React.FC = () => {
   const materialsData: Array<{
@@ -46,6 +46,7 @@ export const GeneralPublicContent: React.FC = () => {
       onClick: () => {},
     },
   ];
+
   return (
     <div
       className="w-full grid grid-cols-[1fr,2fr] gap-[24px] pb-[48px]"
@@ -113,7 +114,7 @@ export const GeneralPublicContent: React.FC = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-[24px]">
-        {[...whatsNewData, ...whatsNewData_2].map((item, index) => {
+        {[...WhatsNewConfiguration, ...whatsNewData_2].map((item, index) => {
           const { title, imagePath, date } = item;
           return (
             <div

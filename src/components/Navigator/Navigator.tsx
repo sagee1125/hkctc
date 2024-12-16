@@ -5,19 +5,8 @@ import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ExploreBar } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { navData } from "../../const/const";
+import { NavigationBarConfiguration } from "../../const/";
 
-export type NavData = {
-  title: string;
-  showSidebar: boolean;
-  onClick?: () => void;
-  items: NavItems[];
-};
-
-export type NavItems = {
-  name: string;
-  subItems: SubItems[];
-};
 export type SubItems = {
   subTitle: string;
   imgUrl: string;
@@ -60,11 +49,15 @@ export const Navigator: React.FC = () => {
     };
   }, []);
 
-  const navItems = activeIndex ? navData[activeIndex]?.items : []; // sidebar in dropdown nav
+  const navItems = activeIndex
+    ? NavigationBarConfiguration[activeIndex]?.items
+    : []; // sidebar in dropdown nav
 
-  const showSidebar = activeIndex ? navData[activeIndex]?.showSidebar : false;
+  const showSidebar = activeIndex
+    ? NavigationBarConfiguration[activeIndex]?.showSidebar
+    : false;
   const customizedSidebar = activeIndex
-    ? navData[activeIndex]?.items?.length === 1
+    ? NavigationBarConfiguration[activeIndex]?.items?.length === 1
     : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
   const sideItemRows = navItems?.length;
@@ -117,7 +110,7 @@ export const Navigator: React.FC = () => {
             </div>
             <div className="pl-[32px]">
               <div className="flex flex-row gap-[26px] h-full">
-                {navData.map((nav, index) => {
+                {NavigationBarConfiguration.map((nav, index) => {
                   const { title, items } = nav;
                   const ifHideArrow: boolean = !items.length;
                   return (
@@ -127,7 +120,8 @@ export const Navigator: React.FC = () => {
                       onClick={() => {
                         setActiveIndex(index);
                         setActiveSubItem(
-                          navData[index]?.items?.[0]?.name ?? ""
+                          NavigationBarConfiguration[index]?.items?.[0]?.name ??
+                            ""
                         );
                       }}
                     >

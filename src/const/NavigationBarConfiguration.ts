@@ -1,6 +1,64 @@
-import { type NavData } from "../components";
+/**
+ * Navigation Bar Configuration
+ *
+ * The following NavigationBarConfiguration defines the structure for the navigation bar, including top-level titles,
+ * sidebar toggles, and nested items for each section. Each configuration is designed
+ * to display in a structured, user-friendly format.
+ *
+ * ### Key Structure:
+ * - `title`: The main title displayed on the navigation bar.
+ * - `showSidebar`: Boolean flag to determine if the sidebar should be shown when
+ *   the section is expanded.
+ * - `items`: An array of modules displayed when a section is expanded. Each module includes:
+ *   - `name`: The module's title (not directly displayed on the navigation bar).
+ *   - `subItems`: An array of 5 elements, where each element represents a submodule.
+ *       * `subTitle`: Subtitle for the submodule (can be empty if not in use).
+ *       * `imgUrl`: Path to the main image for the submodule. It **must** be located in  `public/assets/images`.
+ *       * `navUrl`: URL for redirection when the submodule is clicked. It can be empty if no redirection is needed.
+ *       * The `subItems` array **must have exactly 5 elements** (to align with UI constraints). If fewer are needed,
+ *         use empty objects as placeholders.
+ *
+ * Example `subItems`:
+ * ```json
+ * [
+ *   { subTitle: "Example 1", imgUrl: "example1.png", navUrl: "example1" },
+ *   { subTitle: "", imgUrl: "", navUrl: "" },
+ *   { subTitle: "", imgUrl: "", navUrl: "" },
+ *   { subTitle: "", imgUrl: "", navUrl: "" },
+ *   { subTitle: "", imgUrl: "", navUrl: "" }
+ * ]
+ * ```
+ *
+ * ### Guidelines for Maintenance:
+ * 1. **Adding/Removing Sections**:
+ *    - To add a new section, include a new object in the `navData` array with the required structure.
+ *    - To remove a section, simply delete the corresponding object.
+ *
+ * 2. **Validating `imgUrl` Paths**:
+ *    - Ensure all images are stored under `public/assets/images` to prevent missing images on the UI.
+ *    - Use a script or automated linter to validate that all `imgUrl` values point to existing files.
+ *
+ *
+ * By adhering to this structure and the maintenance guidelines, future updates to the navigation bar
+ * will be seamless and efficient.
+ */
+export type SubItems = {
+  subTitle: string;
+  imgUrl: string;
+  navUrl?: string;
+};
 
-export const navData: NavData[] = [
+export type NavItems = {
+  name: string;
+  subItems: SubItems[];
+};
+export type NavData = {
+  title: string;
+  showSidebar: boolean;
+  items: NavItems[];
+  onClick?: () => void;
+};
+export const NavigationBarConfiguration: NavData[] = [
   {
     title: "About Us",
     showSidebar: false,

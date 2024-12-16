@@ -1,13 +1,12 @@
 import React from "react";
+import { BannerPhotoBox, Breadcrumb } from "../../components";
+import { EventsLandingContent } from "./EventsLandingContent";
 import {
-  BannerPhotoBox,
-  Breadcrumb,
   type NavData,
   type NavItems,
   type SubItems,
-} from "../../components";
-import { EventsLandingContent } from "./EventsLandingContent";
-import { navData } from "../../const/const";
+  NavigationBarConfiguration,
+} from "../../const";
 
 export const EventsLanding: React.FC = () => {
   const breadcrumbItems = [
@@ -16,9 +15,9 @@ export const EventsLanding: React.FC = () => {
   ];
 
   const eventItems: SubItems[] =
-    navData
-      .find((nav: NavData) => nav.title === "Events & Promotions")
-      ?.items.find((subNav: NavItems) => subNav.name === "Events")?.subItems ??
+    NavigationBarConfiguration.find(
+      (nav: NavData) => nav.title === "Events & Promotions"
+    )?.items.find((subNav: NavItems) => subNav.name === "Events")?.subItems ??
     [];
 
   return (

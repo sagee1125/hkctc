@@ -1,13 +1,12 @@
 import React from "react";
+import { BannerPhotoBox, Breadcrumb } from "../../components";
+import { ProfileAndRoleContent } from "./ProfileAndRoleContent";
 import {
-  BannerPhotoBox,
-  Breadcrumb,
   type NavData,
   type NavItems,
   type SubItems,
-} from "../../components";
-import { ProfileAndRoleContent } from "./ProfileAndRoleContent";
-import { navData } from "../../const/const";
+  NavigationBarConfiguration,
+} from "../../const";
 
 export const ProfileAndRole: React.FC = () => {
   const breadcrumbItems = [
@@ -16,13 +15,13 @@ export const ProfileAndRole: React.FC = () => {
   ];
 
   const eventItems: SubItems[] =
-    navData
-      .find((nav: NavData) => nav.title === "T&C Sector")
-      ?.items.find(
-        (subNav: NavItems) =>
-          subNav.name ===
-          "Introducing the Testing and Certificate sector, and what service we can provide"
-      )?.subItems ?? [];
+    NavigationBarConfiguration.find(
+      (nav: NavData) => nav.title === "T&C Sector"
+    )?.items.find(
+      (subNav: NavItems) =>
+        subNav.name ===
+        "Introducing the Testing and Certificate sector, and what service we can provide"
+    )?.subItems ?? [];
 
   return (
     <div className="w-full">
