@@ -22,7 +22,7 @@ const hideExploreBar = [
   "/student-competitions",
 ];
 export const Navigator: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
+  const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav, hover certain nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const [selectedExploreOption, setSelectedExploreOption] =
     useState<string>("");
@@ -117,7 +117,11 @@ export const Navigator: React.FC = () => {
                     <div
                       key={index}
                       className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
-                      onClick={() => {
+                      // onMouseLeave={() => {
+                      //   setActiveIndex(null);
+                      //   setActiveSubItem("");
+                      // }}
+                      onMouseEnter={() => {
                         setActiveIndex(index);
                         setActiveSubItem(
                           NavigationBarConfiguration[index]?.items?.[0]?.name ??
@@ -223,6 +227,10 @@ export const Navigator: React.FC = () => {
               ...dropDownStyle,
               position: "absolute", // on the top
               zIndex: 1000,
+            }}
+            onMouseLeave={() => {
+              setActiveIndex(null);
+              setActiveSubItem("");
             }}
           >
             <div className="w-full">
