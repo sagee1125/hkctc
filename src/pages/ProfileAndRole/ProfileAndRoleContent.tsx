@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { type SubItems } from "../../components/Navigator";
 import {
   activatedButtonStyle,
   normalButtonStyle,
 } from "../EventsLanding/EventsLandingContent";
 import { ChartOne } from "./ChartOne";
 import { Sidebar } from "../../components";
+import { type SubItems } from "../../const";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];

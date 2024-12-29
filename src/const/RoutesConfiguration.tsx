@@ -67,6 +67,7 @@ import {
   SeminarsWorkshops,
   ServiceUsers,
   StudentCompetitions,
+  Support,
 } from "../pages";
 
 export type RouteConfig = {
@@ -85,6 +86,9 @@ export const routesConfiguration: RouteConfig[] = [
   },
   { path: "/industry", element: <Industry />, description: "" },
   { path: "/service-users", element: <ServiceUsers />, description: "" },
+
+  { path: "/support", element: <Support />, description: "" },
+
   { path: "/events-landing", element: <EventsLanding />, description: "" },
   {
     path: "/events-landing/award-scheme",

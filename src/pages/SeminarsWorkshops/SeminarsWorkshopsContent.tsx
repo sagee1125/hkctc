@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { type SubItems } from "../../components/Navigator";
 import { Sidebar } from "../../components";
+import { type SubItems } from "../../const";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];

@@ -1,5 +1,5 @@
 import React from "react";
-import { type SubItems } from "..";
+import { type SubItems } from "../../const";
 
 type SidebarProps = {
   title: string;
