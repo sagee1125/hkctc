@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ExhibitionProgramme } from "./ExhibitionProgramme";
 import { FundingSchemes } from "./FundingSchemes";
@@ -68,6 +68,11 @@ export const Support: React.FC = () => {
 
   const [activeSidebarItems, setActiveSidebarItems] =
     useState<navItemEnum>(initialParam);
+
+  useEffect(() => {
+    if (initialParam !== activeSidebarItems)
+      setActiveSidebarItems(initialParam);
+  }, [initialParam]);
 
   const handleChangeSidebar = (activatedItemEnum: string): void => {
     setActiveSidebarItems(activatedItemEnum as navItemEnum);
