@@ -3,14 +3,14 @@ import { type SubItems } from "../../const";
 
 type SidebarProps = {
   title: string;
-  SidebarItems: SubItems[];
+  sidebarItems: SubItems[];
   activatedItems: string;
   setActivatedItems: (activatedItems: string) => void;
 };
 
 export const Sidebar: React.FC<SidebarProps> = ({
   title,
-  SidebarItems,
+  sidebarItems,
   activatedItems,
   setActivatedItems,
 }) => {
@@ -20,11 +20,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <p className="text-heading-l">{title}</p>
         <div className="w-full flex flex-col gap-[24px] py-[24px]">
           <div className="w-full flex flex-col gap-[24px]">
-            {SidebarItems.map((item, index) => {
-              const { subTitle, imgUrl } = item;
+            {sidebarItems.map((item, index) => {
+              const { subTitle, imgUrl, enum: navItemEnum } = item;
               if (subTitle === "") return null;
 
-              const isActivated = activatedItems === subTitle;
+              const isActivated = activatedItems === navItemEnum;
               return (
                 <div
                   key={index}
@@ -34,7 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       : "bg-transparent border-[0px] border-transparent"
                   }`}
                   onClick={() => {
-                    setActivatedItems(subTitle);
+                    setActivatedItems(navItemEnum);
                   }}
                 >
                   <div className="flex flex-row h-[106px] gap-[24px] w-full">

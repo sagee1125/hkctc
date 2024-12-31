@@ -48,7 +48,7 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
       <Sidebar
         title={"T&C Sector"}
-        SidebarItems={eventItems}
+        sidebarItems={eventItems}
         activatedItems={activeEventItems}
         setActivatedItems={setActiveEventItems}
       />

@@ -1,32 +1,27 @@
 import React from "react";
-import { BannerPhotoBox, Breadcrumb } from "../../../components";
-import {
-  type NavData,
-  type NavItems,
-  type SubItems,
-  NavigationBarConfiguration,
-} from "../../../const";
 
 export const ExhibitionProgramme: React.FC = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "T&C Sector " },
-  ];
-
-  const eventItems: SubItems[] =
-    NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "T&C Sector"
-    )?.items.find(
-      (subNav: NavItems) =>
-        subNav.name ===
-        "Introducing the Testing and Certificate sector, and what service we can provide"
-    )?.subItems ?? [];
-
   return (
     <div className="w-full">
-      <BannerPhotoBox src="profileAndRole/banner_bg.png" />
-      <Breadcrumb items={breadcrumbItems} />
-      {/* <ProfileAndRoleContent eventItems={eventItems} /> */}
+      <div className="flex flex-row gap-[12px] items-center">
+        <div className="h-[15px] w-[15px] bg-newPrimary" />
+        <p className="text-heading-l">HKCTC Exhibition Programme</p>
+      </div>
+      <p className="mt-[24px]">
+        With a view to encouraging the testing and certification (T&C) bodies to
+        invest in talent training and development, while also commending those
+        T&C practitioners who has striven for continuous learning and
+        professional development, and/or contributed to service quality
+        improvement.
+      </p>
+      <br />
+      <p>
+        The Hong Kong Council for Testing and Certification (HKCTC) launched the
+        first “Testing and Certification Manpower Development Award Scheme” in
+        2021. Having regard to the favourable feedback from the T&C sector,
+        HKCTC organised in 2023 again the Award Scheme (the 2023 - 24 Award
+        Scheme).
+      </p>
     </div>
   );
 };

@@ -63,7 +63,7 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
       <Sidebar
         title={"Events"}
-        SidebarItems={eventItems}
+        sidebarItems={eventItems}
         activatedItems={activeEventItems}
         setActivatedItems={setActiveEventItems}
       />

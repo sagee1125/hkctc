@@ -113,7 +113,7 @@ export const ResourcesReportsContent: React.FC = () => {
             alt={"arrow_up"}
           />
         </div>
-        <div className="flex flex-row gap-[8px]">
+        <div className="flex flex-wrap gap-[8px]">
           {reportsButtons.map((btn, index) => {
             const isActivated = index === activeButton;
             return (
