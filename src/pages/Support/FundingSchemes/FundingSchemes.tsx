@@ -146,7 +146,7 @@ export const FundingSchemes: React.FC = () => {
           title={"Professional Services Advancement Support Scheme (PASS)"}
           details={
             <div>
-              <p className="text-body-m">
+              <p className="text-body-m mb-[16px]">
                 The PASS, launched by the Commerce and Economic Development
                 Bureau (CEDB), provides funding support for non-profit-making
                 projects aimed at increasing the exchanges and co-operation of
