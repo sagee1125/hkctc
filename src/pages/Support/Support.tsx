@@ -11,7 +11,7 @@ import {
   navItemEnum,
 } from "../../const";
 
-const leftComponentMap: Partial<
+const rightComponentMap: Partial<
   Record<
     navItemEnum,
     {
@@ -48,7 +48,7 @@ const leftComponentMap: Partial<
     component: <div>6</div>,
   },
 };
-const leftComponentMapKeys = Object.keys(leftComponentMap);
+const leftComponentMapKeys = Object.keys(rightComponentMap);
 export const Support: React.FC = () => {
   const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Support" }];
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ export const Support: React.FC = () => {
     <div className="w-full">
       <BannerPhotoBox
         src={
-          leftComponentMap[activeSidebarItems as navItemEnum]?.topBanner ??
+          rightComponentMap[activeSidebarItems as navItemEnum]?.topBanner ??
           "support/support_1.png"
         }
       />
@@ -96,7 +96,7 @@ export const Support: React.FC = () => {
           setActivatedItems={handleChangeSidebar}
         />
         <div className="flex-1">
-          {leftComponentMap[activeSidebarItems as navItemEnum]?.component}
+          {rightComponentMap[activeSidebarItems as navItemEnum]?.component}
         </div>
       </div>
     </div>

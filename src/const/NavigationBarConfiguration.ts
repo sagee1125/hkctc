@@ -75,7 +75,7 @@ export type NavData = {
   title: string;
   showSidebar: boolean;
   items: NavItems[];
-  onClick?: () => void;
+  navUrl?: string;
 };
 
 export const NavigationBarConfiguration: NavData[] = [
@@ -83,6 +83,7 @@ export const NavigationBarConfiguration: NavData[] = [
     title: "About Us",
     showSidebar: false,
     items: [],
+    navUrl: "about-us",
   },
   {
     title: "T&C Sector",

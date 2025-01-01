@@ -9,3 +9,4 @@ export * from "./StudentCompetitions";
 export * from "./ResourcesReports";
 export * from "./ProfileAndRole";
 export * from "./Support";
+export * from "./AboutUs";

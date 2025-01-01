@@ -68,6 +68,7 @@ import {
   ServiceUsers,
   StudentCompetitions,
   Support,
+  AboutUs,
 } from "../pages";
 
 export type RouteConfig = {
@@ -86,6 +87,7 @@ export const routesConfiguration: RouteConfig[] = [
   },
   { path: "/industry", element: <Industry />, description: "" },
   { path: "/service-users", element: <ServiceUsers />, description: "" },
+  { path: "/about-us", element: <AboutUs />, description: "" },
 
   { path: "/support", element: <Support />, description: "" },
 

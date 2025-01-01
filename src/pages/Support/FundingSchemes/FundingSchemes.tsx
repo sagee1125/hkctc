@@ -21,30 +21,28 @@ import {
   TSF,
 } from "./TIDFundingSchemes";
 
-const schemesTypeMap: Partial<Record<string, React.ReactNode>> = {
-  ["Innovation and Technology Fund (ITF)"]: <ITF />,
-  ["Professional Services Advancement Support Scheme (PASS)"]: <PASS />,
-  ["TID's Funding Schemes"]: <TID />,
-  ["Testing and Certification Sector Job Creation Scheme (TCJS)"]: <TCJS />,
+const schemesTypeMap: Record<string, React.ReactNode> = {
+  "Innovation and Technology Fund (ITF)": <ITF />,
+  "Professional Services Advancement Support Scheme (PASS)": <PASS />,
+  "TID's Funding Schemes": <TID />,
+  "Testing and Certification Sector Job Creation Scheme (TCJS)": <TCJS />,
 };
 
-const itfFundingMap: Partial<Record<string, React.ReactNode>> = {
-  ["Technology Voucher Programme (TVP)"]: <TVP />,
-  ["Enterprise Support Scheme (ESS)"]: <ESS />,
-  ["Innovation and Technology Support Programme (ITSP)"]: <ITSP />,
-  ["Partnership Research Programme (PRP)"]: <PRP />,
-  ["Research and Development Cash Rebate Scheme"]: <ResearchDevelopmentCash />,
-  ["General Support Programme (GSP)"]: <GSP />,
-  ["New Industrialisation and Technology Training Programme (NITTP)"]: (
-    <NITTP />
-  ),
+const itfFundingMap: Record<string, React.ReactNode> = {
+  "Technology Voucher Programme (TVP)": <TVP />,
+  "Enterprise Support Scheme (ESS)": <ESS />,
+  "Innovation and Technology Support Programme (ITSP)": <ITSP />,
+  "Partnership Research Programme (PRP)": <PRP />,
+  "Research and Development Cash Rebate Scheme": <ResearchDevelopmentCash />,
+  "General Support Programme (GSP)": <GSP />,
+  "New Industrialisation and Technology Training Programme (NITTP)": <NITTP />,
 };
 
-const tidMap: Partial<Record<string, React.ReactNode>> = {
-  ["BUD Fund (Enterprise Support Programme)"]: <BUD />,
-  ["Trade and Industrial Organisation Support Fund (TSF)"]: <TSF />,
-  ["SME Export Marketing Fund"]: <SMEExportMarketingFund />,
-  ["SME Loan Guarantee Scheme"]: <SMELoanGuaranteeScheme />,
+const tidMap: Record<string, React.ReactNode> = {
+  "BUD Fund (Enterprise Support Programme)": <BUD />,
+  "Trade and Industrial Organisation Support Fund (TSF)": <TSF />,
+  "SME Export Marketing Fund": <SMEExportMarketingFund />,
+  "SME Loan Guarantee Scheme": <SMELoanGuaranteeScheme />,
 };
 
 export const FundingSchemes: React.FC = () => {

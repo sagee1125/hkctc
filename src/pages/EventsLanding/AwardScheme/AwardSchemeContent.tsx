@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { title } from "process";
 import classNames from "classnames";
 
 export const AwardSchemeContent: React.FC = () => {

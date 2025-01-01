@@ -14,6 +14,8 @@ const hideExploreBar = [
   "/profile-and-role",
   "/seminars-workshops",
   "/student-competitions",
+  "/support",
+  "/about-us",
 ];
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -27,7 +29,9 @@ export const Navigator: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const isHideExploreBar = hideExploreBar.includes(currentPath);
+  const isHideExploreBar = hideExploreBar.some((path) =>
+    currentPath.startsWith(path)
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -105,7 +109,7 @@ export const Navigator: React.FC = () => {
             <div className="pl-[32px]">
               <div className="flex flex-row gap-[26px] h-full">
                 {NavigationBarConfiguration.map((nav, index) => {
-                  const { title, items } = nav;
+                  const { title, items, navUrl } = nav;
                   const ifHideArrow: boolean = !items.length;
                   return (
                     <div
@@ -117,6 +121,7 @@ export const Navigator: React.FC = () => {
                           NavigationBarConfiguration[index]?.items?.[0]?.name ??
                             ""
                         );
+                        if (navUrl) navigate(navUrl);
                       }}
                     >
                       <p
