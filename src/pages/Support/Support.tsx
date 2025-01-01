@@ -10,6 +10,7 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
+import { OtherSupport } from "./OtherSupport";
 
 const rightComponentMap: Partial<
   Record<
@@ -43,9 +44,9 @@ const rightComponentMap: Partial<
     component: <div>5</div>,
   },
   // other Support
-  [navItemEnum.other_professional_schemes]: {
+  [navItemEnum.other_support]: {
     topBanner: "support/support_6.png",
-    component: <div>6</div>,
+    component: <OtherSupport />,
   },
 };
 const leftComponentMapKeys = Object.keys(rightComponentMap);
@@ -70,8 +71,10 @@ export const Support: React.FC = () => {
     useState<navItemEnum>(initialParam);
 
   useEffect(() => {
-    if (initialParam !== activeSidebarItems)
+    if (initialParam !== activeSidebarItems) {
+      navigate(`?section=${initialParam}`);
       setActiveSidebarItems(initialParam);
+    }
   }, [initialParam]);
 
   const handleChangeSidebar = (activatedItemEnum: string): void => {
