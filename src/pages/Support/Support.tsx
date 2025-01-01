@@ -16,6 +16,7 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
+import { Relaxation } from "./AccommodationAndLand";
 
 const returnComponent = (
   navItem: navItemEnum,
@@ -30,7 +31,7 @@ const returnComponent = (
   > = {
     [navItemEnum.accommodation_and_land]: {
       "Relaxation of Waiver Application for Existing Industrial Buildings": (
-        <div>1</div>
+        <Relaxation />
       ),
       "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings": (
         <div>2</div>
