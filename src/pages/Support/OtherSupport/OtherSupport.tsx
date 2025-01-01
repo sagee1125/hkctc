@@ -59,7 +59,7 @@ export const OtherSupport: React.FC = () => {
         For more information on the services provided by Government Laboratory,
         please visit its{" "}
         <a
-          //   href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
+          href="/"
           // TODO
           target="_blank"
           rel="noopener noreferrer"
@@ -150,8 +150,23 @@ export const OtherSupport: React.FC = () => {
       {/* TODO hyperlink */}
       <p className="text-italic-s italic">
         For more details, please refer to its&nbsp;
-        <a className="text-[#00E] underline">website</a> or email to&nbsp;
-        <a className="text-[#00E] underline">info@hkecic.com.</a>
+        <a
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          website
+        </a>{" "}
+        or email to&nbsp;
+        <a
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          info@hkecic.com.
+        </a>
       </p>
     </div>
   );

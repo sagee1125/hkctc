@@ -112,12 +112,14 @@ export const SeminarsWorkshopsContent: React.FC<BreadcrumbProps> = ({
 
   return (
     <div className="w-full flex flex-row pt-[48px] gap-[24px] pr-[24px]">
-      <Sidebar
-        title={"Events"}
-        sidebarItems={eventItems}
-        activatedItems={activeEventItems}
-        setActivatedItems={setActiveEventItems}
-      />
+      <div className="px-[24px] min-w-[440px] w-1/3">
+        <Sidebar
+          title={"Events"}
+          sidebarItems={eventItems}
+          activatedItems={activeEventItems}
+          setActivatedItems={setActiveEventItems}
+        />
+      </div>
       <div>
         <div className="flex flex-row gap-[16px] items-start">
           <div className="h-[15px] w-[15px] bg-newPrimary mt-[8px]" />
