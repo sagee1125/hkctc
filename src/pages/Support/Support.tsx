@@ -16,7 +16,7 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
-import { Relaxation } from "./AccommodationAndLand";
+import { NilWaiverFee, Relaxation } from "./AccommodationAndLand";
 
 const returnComponent = (
   navItem: navItemEnum,
@@ -34,7 +34,7 @@ const returnComponent = (
         <Relaxation />
       ),
       "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings": (
-        <div>2</div>
+        <NilWaiverFee />
       ),
     },
     [navItemEnum.entering_into_the_mainland_market]: {
