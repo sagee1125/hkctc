@@ -1,28 +1,6 @@
 import * as React from "react";
 
 export const NilWaiverFee: React.FC = () => {
-  const fileList: Array<{
-    title: string;
-    date: string;
-    maskIcon: string;
-    imgUrl: string;
-  }> = [
-    {
-      title:
-        "Extending effective period of relaxation of waiver application for existing industrial buildings",
-      date: "26 January 2014",
-      maskIcon: "PRESS.png",
-      imgUrl: "extending.png",
-    },
-    {
-      title:
-        "Relaxation of Waiver Application  for Existing Industrial Buildings ",
-      date: "",
-      maskIcon: "PDF.png",
-      imgUrl: "relaxation.png",
-    },
-  ];
-
   return (
     <div className="w-full">
       <div className="flex flex-row gap-[12px] items-center mb-[24px]">

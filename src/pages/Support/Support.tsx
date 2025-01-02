@@ -17,6 +17,7 @@ import {
   navItemEnum,
 } from "../../const";
 import { NilWaiverFee, Relaxation } from "./AccommodationAndLand";
+import { GBA, OverviewIOnCEPA } from "./EnteringIntoTheMainlandMarket";
 
 const returnComponent = (
   navItem: navItemEnum,
@@ -38,12 +39,12 @@ const returnComponent = (
       ),
     },
     [navItemEnum.entering_into_the_mainland_market]: {
-      "Overview On CEPA": <div>3</div>,
+      "Overview On CEPA": <OverviewIOnCEPA />,
       "CEPA Agreements": <div>4</div>,
       "Summary of CEPA Clauses Relating to Testing and Certification": (
         <div>1</div>
       ),
-      "GBA Standard and Certification": <div>1</div>,
+      "GBA Standard and Certification": <GBA />,
     },
   };
 
@@ -81,7 +82,8 @@ const returnComponent = (
     // Entering into the Mainland Market
     [navItemEnum.entering_into_the_mainland_market]: {
       topBanner: "support/support_5.png",
-      component: <div>5</div>,
+      component:
+        directorySidebarItemsMap[navItem]?.[activatedDirectorySidebarItems],
     },
     // other Support
     [navItemEnum.other_support]: {
