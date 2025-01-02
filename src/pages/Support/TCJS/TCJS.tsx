@@ -309,6 +309,33 @@ export const TCJS: React.FC = () => {
     Object.keys(faqMap)[0]
   );
 
+  const documentsList: Array<{
+    title: string;
+    maskIcon: string;
+    imgUrl: string;
+  }> = [
+    {
+      title: "Application Guide (Updated on 20 October 2023)",
+      maskIcon: "PDF.png",
+      imgUrl: "application_guide.png",
+    },
+    {
+      title: "Authority For Payment To A Bank (Added on 20 October 2023)",
+      maskIcon: "PDF.png",
+      imgUrl: "Authority.png",
+    },
+    {
+      title: "Application Form (Supplementary Sheet)",
+      maskIcon: "PRESS.png",
+      imgUrl: "Authority.png",
+    },
+    {
+      title: "Claim Form (Updated on 20 October 2023)",
+      maskIcon: "PRESS.png",
+      imgUrl: "Authority.png",
+    },
+  ];
+
   return (
     <div className="w-full">
       <div className="flex flex-wrap gap-[12px] items-center">
@@ -381,7 +408,54 @@ export const TCJS: React.FC = () => {
           );
         })}
       </div>
-      <div className="">{faqMap[activeFAQType]}</div>
+      <div>{faqMap[activeFAQType]}</div>
+      <hr className="text-[#E0E0E0] my-[24px]" />
+      <p className="text-heading-l">Enquiries</p>
+      <div className="mt-[24px] border-2 border-[#F7F7F5] py-[24px] px-[36px]">
+        <div className="flex flex-row gap-[24px] items-center w-full">
+          <img
+            className="w-[32px] h-[32px] flex-shrink-0"
+            src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
+            alt={"alert"}
+          />
+          <p className="text-body-m flex-grow min-w-0">
+            Organisations interested in the scheme can make enquiries via email
+            to&nbsp;
+            <span className="underline text-[#00E]">tcjs@itc.gov.hk</span>
+            &nbsp;or telephone at&nbsp;
+            <span className="underline text-[#00E]">2127 4864</span>.
+          </p>
+        </div>
+      </div>
+      <hr className="text-[#E0E0E0] my-[24px]" />
+      <p className="text-heading-l">Application Documents</p>
+      <div className="w-full">
+        {documentsList.map((item, index) => {
+          const { title, maskIcon, imgUrl } = item;
+          return (
+            <div
+              key={index}
+              className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
+            >
+              <div className="relative w-[130px] h-full">
+                <img
+                  className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+                  src={`${process.env.PUBLIC_URL}/assets/support/${imgUrl}`}
+                  alt={imgUrl}
+                />
+                {/* Icon */}
+                <img
+                  className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
+                  src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
+                  alt="maskIcon"
+                />
+              </div>
+
+              <div className="text-highlight-m text-black">{title}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
