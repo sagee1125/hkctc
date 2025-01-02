@@ -1,4 +1,7 @@
-import * as React from "react";
+import React, { useState } from "react";
+import { Collapse } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import {
   activatedButtonStyle,
   normalButtonStyle,
@@ -262,17 +265,68 @@ const EnterpriseRun: React.FC = () => {
   );
 };
 
-export const OverviewIOnCEPA: React.FC = () => {
-  const faqMap: Record<string, React.ReactNode> = {
-    "Agreement on Trade in Services": <Agreement />,
-    "Hong Kong enterprise-run organizations in the Mainland designated under the China Compulsory Certification (CCC) system":
-      <EnterpriseRun />,
-  };
+const faqMap: Record<string, React.ReactNode> = {
+  "Agreement on Trade in Services": <Agreement />,
+  "Hong Kong enterprise-run organizations in the Mainland designated under the China Compulsory Certification (CCC) system":
+    <EnterpriseRun />,
+};
 
-  const [activeFAQType, setActiveFAQType] = React.useState<string>(
+export const OverviewIOnCEPA: React.FC = () => {
+  const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
   );
+  const [timelineCollapsed, setTimelineCollapsed] = useState<boolean>(true);
 
+  const timeLineData: Array<{ date: string; event: string }> = [
+    {
+      date: "Oct 2024",
+      event:
+        "Second Agreement Concerning Amendment to the Agreement on Trade in Services",
+    },
+    {
+      date: "Nov 2019",
+      event:
+        "Agreement concerning Amendment to the Agreement on Trade in Services",
+    },
+    {
+      date: "Dec 2018",
+      event: "Agreement on Trade in Goods",
+    },
+    {
+      date: "Jun 2017",
+      event: "Agreement on Economic and Technical Cooperation",
+    },
+    {
+      date: "Nov 2015",
+      event:
+        "Agreement on Trade in Services (Revised by way of Exchange of Letters in Dec 2018)",
+    },
+  ];
+
+  const timeLineDataCollapsed: Array<{ date: string; event: string }> = [
+    {
+      date: "Dec 2014",
+      event:
+        "Agreement between the Mainland and Hong Kong on Achieving Basic Liberalisation of Trade in Services in Guangdong",
+    },
+
+    {
+      date: "Aug 2013",
+      event: "Supplement X to CEPA",
+    },
+    {
+      date: "Jun 2012",
+      event: "Supplement IX to CEPA",
+    },
+    {
+      date: "Dec 2011",
+      event: "Supplement VIII to CEPA",
+    },
+    {
+      date: "May 2010",
+      event: "Supplement VII to CEPA",
+    },
+  ];
   return (
     <div className="w-full">
       <div className="flex flex-row gap-[12px] items-center">
@@ -285,6 +339,61 @@ export const OverviewIOnCEPA: React.FC = () => {
         opening up its testing and certification market to Hong Kong.
       </div>
       <p className="text-heading-l my-[24px]">CEPA Agreements Timeline</p>
+      <div>
+        <div className="w-full flex flex-col">
+          {timeLineData.map((item, index) => (
+            <div key={index} className="flex flex-row gap-[24px]">
+              <div className="relative flex flex-col items-center">
+                {/* ball */}
+                <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
+                {/* line */}
+                <div className="h-full w-[2px] bg-newPrimary absolute top-[17px]" />
+              </div>
+              <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
+                <p>{item.date}</p>
+                <p>{item.event}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <Collapse in={!timelineCollapsed} timeout="auto" unmountOnExit>
+          <div className="w-full flex flex-col">
+            {timeLineDataCollapsed.map((item, index) => (
+              <div key={index} className="flex flex-row gap-[24px]">
+                <div className="relative flex flex-col items-center">
+                  {/* ball */}
+                  <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
+                  {/* line */}
+                  <div className="h-full w-[2px] bg-newPrimary absolute top-[17px]" />
+                </div>
+                <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
+                  <p>{item.date}</p>
+                  <p>{item.event}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Collapse>
+        <div className="w-full flex justify-center text-newPrimary mt-[16px]">
+          <button
+            className="text-highlight-m"
+            onClick={() => {
+              setTimelineCollapsed(!timelineCollapsed);
+            }}
+          >
+            {timelineCollapsed ? "Show All" : "Hide"}
+            <ExpandMoreIcon
+              sx={{
+                transform: timelineCollapsed
+                  ? "rotate(180deg)"
+                  : "rotate(0deg)",
+                transition: "transform 0.3s ease",
+              }}
+            />
+          </button>
+        </div>
+      </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l">Frequently Asked Questions</p>
