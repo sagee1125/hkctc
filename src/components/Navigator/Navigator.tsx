@@ -95,6 +95,9 @@ export const Navigator: React.FC = () => {
         style={{
           borderBottom: "1px solid #E0E0E0",
         }}
+        onMouseLeave={() => {
+          setActiveIndex(null);
+        }}
       >
         <div className="flex flex-row w-full justify-between items-center">
           <div style={navStyle}>
@@ -115,12 +118,14 @@ export const Navigator: React.FC = () => {
                     <div
                       key={index}
                       className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
-                      onClick={() => {
+                      onMouseEnter={() => {
                         setActiveIndex(index);
                         setActiveSubItem(
                           NavigationBarConfiguration[index]?.items?.[0]?.name ??
                             ""
                         );
+                      }}
+                      onClick={() => {
                         if (navUrl) navigate(navUrl);
                       }}
                     >

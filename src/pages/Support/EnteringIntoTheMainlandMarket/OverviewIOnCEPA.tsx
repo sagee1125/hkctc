@@ -347,7 +347,13 @@ export const OverviewIOnCEPA: React.FC = () => {
                 {/* ball */}
                 <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
                 {/* line */}
-                <div className="h-full w-[2px] bg-newPrimary absolute top-[17px]" />
+                <div
+                  className={`${
+                    timeLineData.length - 1 === index && timelineCollapsed
+                      ? "h-[36px]"
+                      : "h-full"
+                  } w-[2px] bg-newPrimary absolute top-[17px]`}
+                />
               </div>
               <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
                 <p>{item.date}</p>
@@ -365,7 +371,13 @@ export const OverviewIOnCEPA: React.FC = () => {
                   {/* ball */}
                   <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
                   {/* line */}
-                  <div className="h-full w-[2px] bg-newPrimary absolute top-[17px]" />
+                  <div
+                    className={`${
+                      timeLineDataCollapsed.length - 1 === index
+                        ? "h-[0px]"
+                        : "h-full"
+                    } w-[2px] bg-newPrimary absolute top-[17px]`}
+                  />
                 </div>
                 <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
                   <p>{item.date}</p>
@@ -385,7 +397,7 @@ export const OverviewIOnCEPA: React.FC = () => {
             {timelineCollapsed ? "Show All" : "Hide"}
             <ExpandMoreIcon
               sx={{
-                transform: timelineCollapsed
+                transform: !timelineCollapsed
                   ? "rotate(180deg)"
                   : "rotate(0deg)",
                 transition: "transform 0.3s ease",

@@ -17,7 +17,11 @@ import {
   navItemEnum,
 } from "../../const";
 import { NilWaiverFee, Relaxation } from "./AccommodationAndLand";
-import { GBA, OverviewIOnCEPA } from "./EnteringIntoTheMainlandMarket";
+import {
+  CEPAAgreements,
+  GBA,
+  OverviewIOnCEPA,
+} from "./EnteringIntoTheMainlandMarket";
 
 const returnComponent = (
   navItem: navItemEnum,
@@ -40,7 +44,7 @@ const returnComponent = (
     },
     [navItemEnum.entering_into_the_mainland_market]: {
       "Overview On CEPA": <OverviewIOnCEPA />,
-      "CEPA Agreements": <div>4</div>,
+      "CEPA Agreements": <CEPAAgreements />,
       "Summary of CEPA Clauses Relating to Testing and Certification": (
         <div>1</div>
       ),
