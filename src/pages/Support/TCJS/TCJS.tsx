@@ -336,6 +336,12 @@ export const TCJS: React.FC = () => {
     },
   ];
 
+  const tableHeads = ["Date", "Events"];
+  const tableRows = [
+    ["24 August 2022", "Application open"],
+    ["31 July 2023", "Application close"],
+  ];
+
   return (
     <div className="w-full">
       <div className="flex flex-wrap gap-[12px] items-center">
@@ -387,7 +393,7 @@ export const TCJS: React.FC = () => {
       </div>
       <p className="text-heading-l">Application Period</p>
       <div className="mt-[24px]">
-        <SummaryTable />
+        <SummaryTable tableHeads={tableHeads} tableRows={tableRows} />
       </div>
       <hr className="text-[#E0E0E0] my-[24px]" />
       <p className="text-heading-l">Frequently Asked Questions</p>

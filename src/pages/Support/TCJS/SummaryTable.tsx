@@ -7,10 +7,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 type TableBodyProps = {
-  rows?: any[];
+  tableHeads: string[];
+  tableRows: React.ReactNode[][];
 };
 
-export const SummaryTable: React.FC<TableBodyProps> = ({ rows }) => {
+export const SummaryTable: React.FC<TableBodyProps> = ({
+  tableHeads,
+  tableRows,
+}) => {
   // const tableHeads = ["Service", "Coverage", "Duration", "Resulting Product"];
   // const tableRows = [
   //   [
@@ -33,11 +37,6 @@ export const SummaryTable: React.FC<TableBodyProps> = ({ rows }) => {
   //   ],
   // ];
 
-  const tableHeads = ["Date", "Events"];
-  const tableRows = [
-    ["24 August 2022", "Application open"],
-    ["31 July 2023", "Application close"],
-  ];
   return (
     <TableContainer
       component={"div"}
@@ -45,7 +44,12 @@ export const SummaryTable: React.FC<TableBodyProps> = ({ rows }) => {
         border: "1px solid #E0E0E0",
       }}
     >
-      <Table sx={{ minWidth: 650 }}>
+      <Table
+        sx={{
+          minWidth: 650,
+          tableLayout: "fixed",
+        }}
+      >
         <TableHead>
           <TableRow
             sx={{
@@ -56,8 +60,14 @@ export const SummaryTable: React.FC<TableBodyProps> = ({ rows }) => {
             }}
           >
             {tableHeads.map((head, index) => (
-              <TableCell align="left" key={index}>
-                <p className="text-highlight-m ">{head}</p>
+              <TableCell
+                align="left"
+                key={index}
+                sx={{
+                  width: `${100 / tableHeads.length}%`,
+                }}
+              >
+                <p className="text-highlight-m">{head}</p>
               </TableCell>
             ))}
           </TableRow>
@@ -73,7 +83,14 @@ export const SummaryTable: React.FC<TableBodyProps> = ({ rows }) => {
               }}
             >
               {row.map((cell, index) => (
-                <TableCell key={index}>
+                <TableCell
+                  key={index}
+                  sx={{
+                    width: `${100 / tableHeads.length}%`,
+                    textAlign: "left",
+                    verticalAlign: "top",
+                  }}
+                >
                   <p className="text-body-m">{cell}</p>
                 </TableCell>
               ))}

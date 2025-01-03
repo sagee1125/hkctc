@@ -21,6 +21,7 @@ import {
   CEPAAgreements,
   GBA,
   OverviewIOnCEPA,
+  SummaryOfCEPA,
 } from "./EnteringIntoTheMainlandMarket";
 
 const returnComponent = (
@@ -46,7 +47,7 @@ const returnComponent = (
       "Overview On CEPA": <OverviewIOnCEPA />,
       "CEPA Agreements": <CEPAAgreements />,
       "Summary of CEPA Clauses Relating to Testing and Certification": (
-        <div>1</div>
+        <SummaryOfCEPA />
       ),
       "GBA Standard and Certification": <GBA />,
     },

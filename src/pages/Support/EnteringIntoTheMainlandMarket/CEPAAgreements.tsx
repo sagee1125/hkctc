@@ -1,6 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Accordion } from "../../../components";
-import { useState } from "react";
 import {
   activatedButtonStyle,
   normalButtonStyle,
