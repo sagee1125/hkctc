@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SummaryTable } from "../TCJS";
 import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { SquareTitle } from "../../../components";
 
 export const SummaryOfCEPA: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -244,12 +245,7 @@ export const SummaryOfCEPA: React.FC = () => {
   ];
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">
-          Summary of CEPA Clauses Relating to Testing and Certification
-        </p>
-      </div>
+      <SquareTitle title="Summary of CEPA Clauses Relating to Testing and Certification" />
       <div className="mt-[24px]">
         <SummaryTable tableHeads={tableHeads} tableRows={sumTableRows} />
       </div>

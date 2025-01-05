@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Slider, Box } from "@mui/material";
-import { EmailBox } from "../../components";
+import { EmailBox, SquareTitle } from "../../components";
 
 const reportsButtons = ["All", "HKCTC Reports", "Legislative Council Papers"];
 const mediaType = ["PDF", "Video"];
@@ -100,10 +100,7 @@ export const ResourcesReportsContent: React.FC = () => {
   return (
     <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
       <div>
-        <div className="flex flex-row gap-[16px] items-center">
-          <div className="h-[15px] w-[15px] bg-newPrimary" />
-          <p className="text-heading-l">Resources</p>
-        </div>
+        <SquareTitle title="Resources" />
 
         <div className="flex flex-row gap-[8px] items-center mt-[28px] mb-[10px]">
           <p className="text-highlight-m">Reports</p>

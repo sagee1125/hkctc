@@ -1,12 +1,10 @@
 import * as React from "react";
+import { SquareTitle } from "../../../components";
 
 export const OtherSupport: React.FC = () => {
   return (
     <div className="w-full pb-[48px]">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">Other Support</p>
-      </div>
+      <SquareTitle title="Other Support" />
       <p className="text-heading-l my-[24px]">Information on Standards</p>
       <p className="text-body-m">
         You may purchase original standards, guides, publications or handbooks

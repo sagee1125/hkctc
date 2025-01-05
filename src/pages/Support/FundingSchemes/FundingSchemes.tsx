@@ -9,7 +9,7 @@ import {
   GSP,
   NITTP,
 } from "./InnovationAndTechnologyFund";
-import { Accordion } from "../../../components";
+import { Accordion, SquareTitle } from "../../../components";
 import {
   activatedButtonStyle,
   normalButtonStyle,
@@ -59,10 +59,8 @@ export const FundingSchemes: React.FC = () => {
   );
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">Funding Schemes</p>
-      </div>
+      <SquareTitle title="Funding Schemes" />
+
       <div className="mt-[24px]">
         <Accordion
           title={"Schemes Summary"}

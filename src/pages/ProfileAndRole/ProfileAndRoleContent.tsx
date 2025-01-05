@@ -5,7 +5,7 @@ import {
   normalButtonStyle,
 } from "../EventsLanding/EventsLandingContent";
 import { ChartOne } from "./ChartOne";
-import { Sidebar } from "../../components";
+import { Sidebar, SquareTitle } from "../../components";
 import { type SubItems } from "../../const";
 
 type BreadcrumbProps = {
@@ -55,10 +55,8 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
         />
       </div>
       <div className="flex-1">
-        <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-newPrimary" />
-          <p className="text-heading-l">Profile of the Sector</p>
-        </div>
+        <SquareTitle title="Profile of the Sector" />
+
         <div className="bg-[#EEEEEA] my-[24px]">
           <div className="px-[42px] py-[36px]">
             <p className="text-body-m">
@@ -141,10 +139,9 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
           received by the sector in 2022.
         </p>
         <hr className="my-[24px]" />
-        <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-newPrimary" />
-          <p className="text-heading-l">Role of the Sector</p>
-        </div>
+
+        <SquareTitle title="Role of the Sector" />
+
         <p className="text-body-m my-[24px]">
           In additional to its direct economic contribution, the sector also
           supports the manufacturing, export and supply chain.
