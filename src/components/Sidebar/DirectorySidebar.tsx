@@ -28,7 +28,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
         return (
           <div
             className={classNames(
-              "border-2 p-[24px] flex justify-between items-center h-[96px]",
+              "border-2 p-[24px] flex justify-between items-center h-[96px] gap-[8px] cursor-pointer",
               borderStyle,
               marginStyle
             )}

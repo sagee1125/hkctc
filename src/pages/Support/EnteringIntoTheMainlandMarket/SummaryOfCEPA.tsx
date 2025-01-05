@@ -1,15 +1,24 @@
 import React, { useState } from "react";
-import { SummaryTable } from "../TCJS";
+import { useNavigate } from "react-router-dom";
 import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { SummaryTable } from "../TCJS";
 import { SquareTitle } from "../../../components";
 
 export const SummaryOfCEPA: React.FC = () => {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState<boolean>(false);
   const tableHeads = [
     "CEPA Agreement",
     "Clauses Relating to Testing and Certification",
   ];
+  const handleNavigateToClauses = (target: string) => {
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    navigate(target);
+  };
   const sumTableRows = [
     [
       <p className="text-body-m">
@@ -17,15 +26,15 @@ export const SummaryOfCEPA: React.FC = () => {
         respectively)
       </p>,
       <>
-        <p>
-          <a
-            className="text-[#233F55] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/cepa/trade_clause.html#b"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Liberalisation of Trade in Services
-          </a>
+        <p
+          className="text-[#233F55] text-body-m underline cursor-pointer"
+          onClick={() => {
+            handleNavigateToClauses(
+              "/support/agreement_on_trade_in_services_clauses"
+            );
+          }}
+        >
+          Liberalisation of Trade in Services
         </p>
         <br />
         <p className="text-body-m">Implementation Guides on -</p>
@@ -100,7 +109,14 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Agreement on Trade in Goods</p>,
-      <p className="text-body-m underline text-[#233F55]">
+      <p
+        className="text-body-m underline text-[#233F55] cursor-pointer"
+        onClick={() => {
+          handleNavigateToClauses(
+            "/support/agreement_on_trade_in_goods_clauses"
+          );
+        }}
+      >
         Article 58, 59, 68
       </p>,
     ],
@@ -108,7 +124,14 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">
         Agreement on Economic and Technical Cooperation
       </p>,
-      <p className="text-body-m underline text-[#233F55]">
+      <p
+        className="text-body-m underline text-[#233F55] cursor-pointer"
+        onClick={() => {
+          handleNavigateToClauses(
+            "/support/agreement_on_economic&technical_cooperation_clauses"
+          );
+        }}
+      >
         Article 23(4), 23(6), 23(7), 23(8)
       </p>,
     ],

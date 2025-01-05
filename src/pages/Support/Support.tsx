@@ -24,6 +24,27 @@ import {
   SummaryOfCEPA,
 } from "./EnteringIntoTheMainlandMarket";
 
+export const directorySidebarItemsMap: Partial<
+  Record<navItemEnum, Record<string, React.ReactNode>>
+> = {
+  [navItemEnum.accommodation_and_land]: {
+    "Relaxation of Waiver Application for Existing Industrial Buildings": (
+      <Relaxation />
+    ),
+    "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings": (
+      <NilWaiverFee />
+    ),
+  },
+  [navItemEnum.entering_into_the_mainland_market]: {
+    "Overview On CEPA": <OverviewIOnCEPA />,
+    "CEPA Agreements": <CEPAAgreements />,
+    "Summary of CEPA Clauses Relating to Testing and Certification": (
+      <SummaryOfCEPA />
+    ),
+    "GBA Standard and Certification": <GBA />,
+  },
+};
+
 const returnComponent = (
   navItem: navItemEnum,
   activatedDirectorySidebarItems: string
@@ -32,27 +53,6 @@ const returnComponent = (
   directoryItems: string[];
   component: React.ReactNode | null;
 } => {
-  const directorySidebarItemsMap: Partial<
-    Record<navItemEnum, Record<string, React.ReactNode>>
-  > = {
-    [navItemEnum.accommodation_and_land]: {
-      "Relaxation of Waiver Application for Existing Industrial Buildings": (
-        <Relaxation />
-      ),
-      "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings": (
-        <NilWaiverFee />
-      ),
-    },
-    [navItemEnum.entering_into_the_mainland_market]: {
-      "Overview On CEPA": <OverviewIOnCEPA />,
-      "CEPA Agreements": <CEPAAgreements />,
-      "Summary of CEPA Clauses Relating to Testing and Certification": (
-        <SummaryOfCEPA />
-      ),
-      "GBA Standard and Certification": <GBA />,
-    },
-  };
-
   const directoryItems =
     Object.keys(directorySidebarItemsMap[navItem] ?? {}) ?? [];
 
@@ -124,6 +124,10 @@ export const Support: React.FC = () => {
   )
     ? (initialSection as navItemEnum)
     : navItemEnum.exhibition_programme;
+  const initialHash = window.location.hash;
+  const initialHashIndex = initialHash
+    ? Number(initialHash.substring(1))
+    : null; // remove `#`, get index
 
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find((nav: NavData) => nav.title === "Support")
@@ -142,33 +146,58 @@ export const Support: React.FC = () => {
 
   useEffect(() => {
     if (initialParam !== activeSidebarItems) {
-      navigate(`?section=${initialParam}`);
+      if (!initialHashIndex) navigate(`?section=${initialParam}`);
+      else {
+        navigate(`?section=${initialParam}#${initialHashIndex}`);
+        setActivatedDirectorySidebarItems(directoryItems[initialHashIndex]);
+      }
       setActiveSidebarItems(initialParam);
     }
-  }, [initialParam]);
+  }, [initialParam, initialHashIndex]);
 
   useEffect(() => {
     if (directoryItems.length !== 0) {
-      setActivatedDirectorySidebarItems(directoryItems[0]);
+      setActivatedDirectorySidebarItems(directoryItems[initialHashIndex ?? 0]);
+      window.location.hash = `${initialHashIndex ?? 0}`;
     }
   }, [activeSidebarItems]);
 
   const handleChangeSidebar = (activatedItemEnum: string): void => {
     setActiveSidebarItems(activatedItemEnum as navItemEnum);
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
     navigate(`?section=${activatedItemEnum}`);
+  };
+
+  const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
+    const hashIndex = directoryItems.findIndex(
+      (item) => item === activatedItems
+    );
+    setActivatedDirectorySidebarItems(activatedItems);
+
+    window.location.hash = `${hashIndex}`;
+
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <div className="w-full pb-[48px]">
       <BannerPhotoBox src={topBanner} />
-      <Breadcrumb items={breadcrumbItems} />
+      <div id="breadcrumb">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
           {directoryItems.length > 0 && (
             <DirectorySidebar
               directorySidebarItems={directoryItems}
               activatedItems={activatedDirectorySidebarItems}
-              setActivatedItems={setActivatedDirectorySidebarItems}
+              setActivatedItems={handleChangeDirectorySidebarItems}
             />
           )}
           <Sidebar

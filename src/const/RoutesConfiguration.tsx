@@ -69,6 +69,9 @@ import {
   StudentCompetitions,
   Support,
   AboutUs,
+  AgreementOnTradeInServicesClauses,
+  AgreementOnTradeInGoodsClauses,
+  AgreementOnEconomicTechnicalCooperationClauses,
 } from "../pages";
 
 export type RouteConfig = {
@@ -90,7 +93,22 @@ export const routesConfiguration: RouteConfig[] = [
   { path: "/about-us", element: <AboutUs />, description: "" },
 
   { path: "/support", element: <Support />, description: "" },
+  {
+    path: "/support/agreement_on_trade_in_services_clauses",
+    element: <AgreementOnTradeInServicesClauses />,
+    description: "",
+  },
 
+  {
+    path: "/support/agreement_on_trade_in_goods_clauses",
+    element: <AgreementOnTradeInGoodsClauses />,
+    description: "",
+  },
+  {
+    path: "/support/agreement_on_economic&technical_cooperation_clauses",
+    element: <AgreementOnEconomicTechnicalCooperationClauses />,
+    description: "",
+  },
   { path: "/events-landing", element: <EventsLanding />, description: "" },
   {
     path: "/events-landing/award-scheme",
