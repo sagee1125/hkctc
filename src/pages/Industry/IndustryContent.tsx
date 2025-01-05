@@ -1,5 +1,5 @@
 import React from "react";
-import { EmailBox } from "../../components";
+import { EmailBox, SquareTitle } from "../../components";
 
 type IndustryData = {
   title: string;
@@ -57,10 +57,8 @@ export const IndustryContent: React.FC = () => {
   return (
     <div className="w-full grid grid-cols-[2fr,1fr] py-[48px] px-[24px] gap-[24px]">
       <div>
-        <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-newPrimary" />
-          <p className="text-heading-l">Our Support</p>
-        </div>
+        <SquareTitle title="Our Support" />
+
         <div>
           {industryData.map((item, index) => {
             const { title, imagePath, description } = item;

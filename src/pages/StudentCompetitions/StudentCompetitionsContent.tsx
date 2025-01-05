@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { Sidebar } from "../../components";
+import { Sidebar, SquareTitle } from "../../components";
 import { type SubItems } from "../../const";
 
 type BreadcrumbProps = {
@@ -70,10 +70,7 @@ export const StudentCompetitionsContent: React.FC<BreadcrumbProps> = ({
         />
       </div>
       <div>
-        <div className="flex flex-row gap-[12px] items-center">
-          <div className="h-[15px] w-[15px] bg-newPrimary" />
-          <p className="text-heading-l">Student Competitions</p>
-        </div>
+        <SquareTitle title="Student Competitions" />
 
         <p className="text-heading-m py-[24px]">
           "Digi-Science" Video Production Competition for Hong Kong Secondary

@@ -6,7 +6,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
 } from "../../EventsLanding/EventsLandingContent";
-import { Accordion } from "../../../components";
+import { Accordion, SquareTitle } from "../../../components";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{
@@ -329,10 +329,8 @@ export const OverviewIOnCEPA: React.FC = () => {
   ];
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">Overview on CEPA</p>
-      </div>
+      <SquareTitle title="Overview on CEPA" />
+
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m mt-[24px]">
         Since the signing of Supplement VII to the Mainland and Hong Kong Closer
         Economic Partnership Arrangement (CEPA), the Mainland has been gradually

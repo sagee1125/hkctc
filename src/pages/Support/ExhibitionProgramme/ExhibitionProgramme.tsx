@@ -1,12 +1,10 @@
 import React from "react";
+import { SquareTitle } from "../../../components";
 
 export const ExhibitionProgramme: React.FC = () => {
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">HKCTC Exhibition Programme</p>
-      </div>
+      <SquareTitle title="HKCTC Exhibition Programme" />
       <p className="mt-[24px]">
         With a view to encouraging the testing and certification (T&C) bodies to
         invest in talent training and development, while also commending those

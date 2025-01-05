@@ -7,3 +7,4 @@ export * from "./EmailBox";
 export * from "./BannerPhotoBox";
 export * from "./Sidebar";
 export * from "./Accordion";
+export * from "./SquareTitle";

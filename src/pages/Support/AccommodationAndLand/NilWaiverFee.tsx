@@ -1,13 +1,13 @@
 import * as React from "react";
+import { SquareTitle } from "../../../components";
 
 export const NilWaiverFee: React.FC = () => {
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center mb-[24px]">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">
-          "Nil Waiver Fee" for Testing Labs Operating in Industrial Buildings
-        </p>
+      <div className="mb-[24px]">
+        <SquareTitle
+          title={`"Nil Waiver Fee" for Testing Labs Operating in Industrial Buildings`}
+        />
       </div>
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m ">
         The measure is effective from 1 February 2016. The details on

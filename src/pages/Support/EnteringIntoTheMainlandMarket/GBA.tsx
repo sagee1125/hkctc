@@ -3,6 +3,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
 } from "../../EventsLanding/EventsLandingContent";
+import { SquareTitle } from "../../../components";
 
 export const GBA: React.FC = () => {
   const certificationTypeMap: Record<string, React.ReactNode> = {
@@ -85,10 +86,8 @@ export const GBA: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">GBA Standard</p>
-      </div>
+      <SquareTitle title="GBA Standard" />
+
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m mt-[24px]">
         The finalised texts of “GBA Standards” and other information concerning
         the implementation have been released on the “
@@ -127,11 +126,7 @@ export const GBA: React.FC = () => {
         alt="GBA Standard"
       />
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <div className="flex flex-row gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">GBA Certification</p>
-      </div>
-
+      <SquareTitle title="GBA Certification" />
       <div>
         <div className="flex flex-wrap gap-[8px] my-[24px]">
           {Object.keys(certificationTypeMap).map((btn, index) => {

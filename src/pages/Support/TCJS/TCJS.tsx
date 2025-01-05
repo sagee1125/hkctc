@@ -4,7 +4,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
 } from "../../EventsLanding/EventsLandingContent";
-import { Accordion } from "../../../components";
+import { Accordion, SquareTitle } from "../../../components";
 
 const Aim: React.FC = () => {
   const aimQuestion: Array<{ question: string; answer: React.ReactNode }> = [
@@ -344,12 +344,7 @@ export const TCJS: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap gap-[12px] items-center">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">
-          Testing and Certification Sector Job Creation Scheme (TCJS)
-        </p>
-      </div>{" "}
+      <SquareTitle title="Testing and Certification Sector Job Creation Scheme (TCJS)" />
       <p className="text-body-m mt-[24px]">
         To relieve the unemployment situation due to the epidemic and as part of
         the anti-epidemic measures, the Anti-Epidemic Fund (AEF) 6.0 will

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { SquareTitle } from "../../../components";
 
 export const Relaxation: React.FC = () => {
   const fileList: Array<{
@@ -25,11 +26,8 @@ export const Relaxation: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-[12px] items-center mb-[24px]">
-        <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">
-          Relaxation of Waiver Application for Existing Industrial Buildings
-        </p>
+      <div className="mb-[24px]">
+        <SquareTitle title="Relaxation of Waiver Application for Existing Industrial Buildings" />
       </div>
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m ">
         The Hong Kong Government allows five specific non-industrial uses in
