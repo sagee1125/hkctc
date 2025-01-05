@@ -1,12 +1,12 @@
 import React from "react";
-import { BannerPhotoBox, Breadcrumb } from "../../components";
 import { ProfileAndRoleContent } from "./ProfileAndRoleContent";
+import { BannerPhotoBox, Breadcrumb } from "../../../components";
 import {
   type NavData,
   type NavItems,
   type SubItems,
   NavigationBarConfiguration,
-} from "../../const";
+} from "../../../const";
 
 export const ProfileAndRole: React.FC = () => {
   const breadcrumbItems = [

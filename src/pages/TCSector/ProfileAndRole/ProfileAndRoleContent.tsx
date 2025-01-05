@@ -3,10 +3,9 @@ import { Icon } from "@iconify/react";
 import {
   activatedButtonStyle,
   normalButtonStyle,
-} from "../EventsLanding/EventsLandingContent";
-import { ChartOne } from "./ChartOne";
-import { Sidebar, SquareTitle } from "../../components";
-import { type SubItems } from "../../const";
+} from "../../EventsLanding/EventsLandingContent";
+import { Sidebar, SquareTitle, AreaChart } from "../../../components";
+import { type SubItems } from "../../../const";
 
 type BreadcrumbProps = {
   eventItems: SubItems[];
@@ -20,13 +19,158 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
   );
 
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
-
-  const buttonArray = [
-    "Institutions and employees engagement",
-    "Independent institutional units",
-    "Business income of private independent institution",
-    "Business Statistics",
+  const chartsArray = [
+    {
+      label: "Institutions and employees engagement",
+      charts: [
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Number of institutions engaged in testing and certification
+              activities
+              <br />
+              from 2009 to 2022
+            </p>
+          ),
+          elementId: "institutions",
+          xAxisData: [
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+          ],
+          seriesData: [
+            500, 520, 540, 560, 590, 620, 650, 700, 750, 800, 880, 950, 980,
+            1000,
+          ],
+          seriesBackgroundColor: "#D9B6F6",
+          seriesItemColor: "#BD78FC",
+        },
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Number of employees engaged in testing and certification
+              activities
+              <br />
+              from 2009 to 2022
+            </p>
+          ),
+          elementId: "employees",
+          xAxisData: [
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+          ],
+          seriesData: [
+            16250, 16190, 16970, 16680, 17010, 17510, 17560, 18000, 18280,
+            18690, 19040, 19560, 19970, 19730,
+          ],
+          yAxisStartValue: 15000,
+          seriesBackgroundColor: "#D1E39B",
+          seriesItemColor: "rgba(20, 123, 62, 0.60)",
+        },
+      ],
+    },
+    {
+      label: "Number of Establishments",
+      charts: [
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Total Number of Establishments (Category A, B and C)
+              <br />
+            </p>
+          ),
+          elementId: "establishments",
+          xAxisData: ["2019", "2020", "2021", "2022"],
+          seriesData: [870, 905, 920, 950],
+          yAxisStartValue: 800,
+          seriesBackgroundColor: "#BBC9E7",
+          seriesItemColor: "#4673B0",
+        },
+      ],
+    },
+    {
+      label: "Number of Persons Engaged",
+      charts: [
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Total Number of Persons Engaged (Category A, B and C)
+              <br />
+            </p>
+          ),
+          elementId: "personsEngaged",
+          xAxisData: ["2019", "2020", "2021", "2022"],
+          seriesData: [19040, 19560, 19970, 19730],
+          yAxisStartValue: 19000,
+          seriesBackgroundColor: "#F47B5A",
+          seriesItemColor: "#A72D0C",
+        },
+      ],
+    },
+    {
+      label: "Business Receipts",
+      charts: [
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Business Receipts (HK$ million) of Category A Establishments
+              <br />
+            </p>
+          ),
+          elementId: "businessReceipts",
+          xAxisData: ["2019", "2020", "2021", "2022"],
+          seriesData: [14970, 14925, 20030, 24899],
+          yAxisStartValue: 14000,
+          seriesBackgroundColor: "#D9B6F6",
+          seriesItemColor: "#BD78FC",
+        },
+      ],
+    },
+    {
+      label: "Industry Value Added",
+      charts: [
+        {
+          title: (
+            <p className="text-heading-m pt-[24px] ml-[24px]">
+              Industry value added (HK$ million) of Category A Establishments
+              <br />
+            </p>
+          ),
+          elementId: "industryValueAdded",
+          xAxisData: ["2019", "2020", "2021", "2022"],
+          seriesData: [7338, 6714, 9285, 10887],
+          yAxisStartValue: 6000,
+          seriesBackgroundColor: "#D1E39B",
+          seriesItemColor: "#147B3E",
+        },
+      ],
+    },
   ];
+
+  const displayCharts = chartsArray[activeTopicButton].charts ?? [];
 
   const listOfData: Array<{
     title: string;
@@ -89,8 +233,8 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
           less than 50 persons. They accounted for 37% of the total persons
           engaged and 30% of the total business receipts in the sector.
         </p>
-        <div className="flex flex-wrap gap-[8px]">
-          {buttonArray.map((btn, index) => {
+        <div className="flex flex-wrap gap-[8px] mb-[24px]">
+          {chartsArray.map((chartInfo, index) => {
             const isActivated = index === activeTopicButton;
             return (
               <button
@@ -101,29 +245,29 @@ export const ProfileAndRoleContent: React.FC<BreadcrumbProps> = ({
                   setActiveTopicButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="px-[12px] text-highlight-xs">{chartInfo.label}</p>
               </button>
             );
           })}
         </div>
-        <hr className="my-[24px]" />
 
-        <div className="w-full flex flex-col gap-[24px] mb-[24px]">
-          <div
-            style={{
-              width: "100%",
-              border: "2px solid #E0E0E0",
-              boxSizing: "border-box",
-            }}
-          >
-            <ChartOne />
-          </div>
-          <img
-            className="object-fit"
-            src={process.env.PUBLIC_URL + "/assets/profileAndRole/chart2.png"}
-            alt="chart2"
-          />
-        </div>
+        {displayCharts.map((chart, index) => {
+          return (
+            <>
+              <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+                <div
+                  style={{
+                    width: "100%",
+                    border: "2px solid #E0E0E0",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  <AreaChart key={index} {...chart} />
+                </div>
+              </div>
+            </>
+          );
+        })}
 
         <p
           className="italic"
