@@ -19,14 +19,22 @@ const Agreement: React.FC = () => {
       answer: (
         <>
           <p>
-            According to the Implementation Guide promulgated in May 2020 on the
-            Articles relating to testing and certification in the Agreement on
-            Trade in Services revised in November 2019, any testing
-            organisations engaging in testing business for products under the
-            CCC system have to be accredited by Hong Kong Accreditation Service
-            (“HKAS”) under its Hong Kong Laboratory Accreditation Scheme
-            (“HOKLAS”) as a proof of competence in performing CCC product
-            testing.
+            According to the&nbsp;
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Implementation Guide
+            </a>
+            &nbsp;promulgated in May 2020 on the Articles relating to testing
+            and certification in the Agreement on Trade in Services revised in
+            November 2019, any testing organisations engaging in testing
+            business for products under the CCC system have to be accredited by
+            Hong Kong Accreditation Service (“HKAS”) under its Hong Kong
+            Laboratory Accreditation Scheme (“HOKLAS”) as a proof of competence
+            in performing CCC product testing.
           </p>
           <br />
           <p>
@@ -34,8 +42,15 @@ const Agreement: React.FC = () => {
             a cooperation agreement with designated Mainland certification
             bodies. Requirements on the testing organisations concerned and
             procedures of establishing cooperation with designated Mainland
-            organisations could be viewed at{" "}
-            <span className="underline text-[#00E]">HKAS’s website.</span>
+            organisations could be viewed at&nbsp;
+            <a
+              href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              HKAS’s website.
+            </a>
           </p>
         </>
       ),
@@ -53,8 +68,16 @@ const Agreement: React.FC = () => {
             another certification body. The factory inspector is neither
             required to submit a written application to CCAA nor to retake
             relevant training courses and examinations. (The system “CCAA
-            認證人員註冊與管理系統” could be accessed at its website (available
-            in Simplified Chinese only).)
+            認證人員註冊與管理系統” could be accessed at its&nbsp;
+            <a
+              href="https://service.ccaa.org.cn/#/index"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              website
+            </a>
+            &nbsp;(available in Simplified Chinese only).)
           </p>
         </>
       ),
@@ -210,8 +233,16 @@ const EnterpriseRun: React.FC = () => {
             former General Administration of Quality Supervision, Inspection and
             Quarantine, CNCA may make designated plans in accordance with the
             detailed CCC requirements and implementation needs. Such designated
-            plans would be announced on CNCA's website and WeChat official
-            account (WeChat ID: cnca_2015).
+            plans would be announced on CNCA's&nbsp;
+            <a
+              href="https://www.cnca.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              website and WeChat official
+            </a>
+            &nbsp; account (WeChat ID: cnca_2015).
           </p>
           <br />
           <p>

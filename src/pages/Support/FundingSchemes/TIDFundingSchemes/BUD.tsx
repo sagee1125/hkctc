@@ -39,12 +39,20 @@ export const BUD: React.FC = () => {
           alt={"tick"}
         />
         <p className="text-body-m flex-grow min-w-0">
-          The Government launched “Easy BUD” on 16 Jun 2023 to facilitate SMEs
-          in preparing applications and implementing projects, which include
-          undertaking testing and certification. The processing time of “Easy
-          BUD” is shortened with simplified application and streamlined vetting
-          arrangements. The funding amount per “Easy BUD” application is capped
-          at HK$100,000.
+          The Government launched “
+          <a
+            href="https://www.bud.hkpc.org/sites/default/files/download/EASY-leaflet_Chi_Eng_Final.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            Easy BUD
+          </a>
+          ” on 16 Jun 2023 to facilitate SMEs in preparing applications and
+          implementing projects, which include undertaking testing and
+          certification. The processing time of “Easy BUD” is shortened with
+          simplified application and streamlined vetting arrangements. The
+          funding amount per “Easy BUD” application is capped at HK$100,000.
         </p>
       </div>
     </div>

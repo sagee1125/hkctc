@@ -10,15 +10,10 @@ import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
 
 const specificCommitments = [
-  "To allow testing organisations in Hong Kong to cooperate with designated Mainland  organisations to undertake testing of products for the China Compulsory  Certification (CCC) System on all products that require CCC. These testing organisations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region to be  competent of performing testing of the relevant products under the CCC  System. Cooperation arrangements should comply with relevant  requirements in the Regulations on Certification and Accreditation of the People's Republic of China.",
-  "To allow certification bodies in Hong Kong to cooperate with Mainland CCC certification bodies on CCC factory inspection through assigning inspectors to carry out such inspection of factories manufacturing CCC products. These certification bodies have to be accredited by the accreditation  body of the Government of the Hong Kong Special Administrative Region to be competent of performing certification of relevant products under the CCC System.",
-  "To allow certification  bodies in Hong Kong to cooperate with Mainland CCC certification bodies to select post-certification test samples at factories manufacturing CCC products.  These certification bodies have to be accredited by the accreditation  body of the Government of the Hong Kong Special Administrative Region to be competent of performing certification of relevant products under the CCC System.",
-  "In the area of voluntary certification, to allow testing organisations in Hong Kong to cooperate with Mainland certification bodies to undertake testing of products  manufactured or processed in Hong Kong or the Mainland. These testing organisations have to be accredited by the accreditation body of the  Government of the Hong Kong Special Administrative Region to be  competent in performing testing of the relevant products.",
-  `To implement, on a pilot basis, a mutual recognition arrangement of certification and relevant  testing business among Guangdong, Hong Kong and Macao in the China  (Guangdong) Pilot Free Trade Zone, with a view to carry out "certified  once, tested once, and results accepted by three places".`,
-  "On the basis of mutual  trust and mutual benefit, to allow testing and certification  organisations in Hong Kong to cooperate with the Mainland testing and  certification organisations in respect of acceptance of testing data  (results). Specific cooperation arrangements are subject to further  discussion.",
-  "To allow contractual  service providers employed by Hong Kong service suppliers, in the mode of movement of natural persons, to provide services under this sector or sub-sector on the Mainland.",
+  "In the area of voluntary certification, to allow testing organizations in Hong Kong to cooperate with Mainland certification bodies to undertake testing of products manufactured or processed in Hong Kong or in the Mainland. These testing organizations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region (i.e. the Hong Kong Accreditation Service) to be competent in performing testing for the relevant products.",
+  `To allow testing organizations in Hong Kong to cooperate with designated Mainland organizations to undertake testing of products for the China Compulsory Certification (CCC) System. The products are under the "audio and visual apparatus" category of the CCC System, and have to be designed and prototyped in Hong Kong, as well as processed or manufactured in Guangdong Province. These testing organizations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region (i.e. the Hong Kong Accreditation Service) to be competent in performing testing for the relevant products under the CCC System.`,
 ];
-export const AgreementOnTradeInServicesClauses: React.FC = () => {
+export const GuangdongAgreementClauses: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
@@ -49,17 +44,16 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Agreement on Trade in Services - Clauses" />
+          <SquareTitle title="Guangdong Agreement - Clauses" />
           <p className="text-heading-l my-[24px]">
             Liberalisation of Trade in Services (extracted from Table 2 of Annex
-            1 of the Agreement on Trade in Services)
+            1 of the Guangdong Agreement)
           </p>
           <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
           <p className="text-body-m">1. Business Services</p>
           <p className="text-body-m">F. Other Business Services</p>
           <p className="text-body-m">
-            e. Technical testing and analysis services (CPC8676) and Product
-            testing services (CPC749)
+            e. Technical testing and analysis services (CPC8676)
           </p>
           <p className="my-[24px] text-heading-m">Specific commitments</p>
           <p className="text-italic-s italic">
@@ -79,16 +73,18 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
             ))}
           </ul>
           <p className="text-italic-s italic mt-[24px]">
-            See&nbsp;
+            An&nbsp;
             <a
               className="underline text-[#00E]"
-              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
               Implementation Guide
             </a>
-            &nbsp;promulgated in May 2020 for items 1-3
+            &nbsp;was promulgated to provide details for the implementation of
+            the two testing and certification related liberalisation measures in
+            Table 2 of Annex 1.
           </p>
           <hr className="my-[24px]" />
           <div className="flex flex-row gap-[8px] items-center">

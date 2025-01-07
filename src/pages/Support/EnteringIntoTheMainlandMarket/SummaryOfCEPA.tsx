@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { SummaryTable } from "../TCJS";
 import { SquareTitle } from "../../../components";
 
 export const SummaryOfCEPA: React.FC = () => {
-  const navigate = useNavigate();
   const [expanded, setExpanded] = useState<boolean>(false);
   const tableHeads = [
     "CEPA Agreement",
     "Clauses Relating to Testing and Certification",
   ];
-  const handleNavigateToClauses = (target: string) => {
-    const element = document.getElementById("breadcrumb");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    navigate(target);
-  };
+
   const sumTableRows = [
     [
       <p className="text-body-m">
@@ -29,8 +21,9 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            handleNavigateToClauses(
-              "/support/agreement_on_trade_in_services_clauses"
+            window.open(
+              "/support/agreement_on_trade_in_services_clauses",
+              "_blank"
             );
           }}
         >
@@ -112,9 +105,7 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
         onClick={() => {
-          handleNavigateToClauses(
-            "/support/agreement_on_trade_in_goods_clauses"
-          );
+          window.open("/support/agreement_on_trade_in_goods_clauses", "_blank");
         }}
       >
         Article 58, 59, 68
@@ -127,8 +118,9 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
         onClick={() => {
-          handleNavigateToClauses(
-            "/support/agreement_on_economic&technical_cooperation_clauses"
+          window.open(
+            "/support/agreement_on_economic&technical_cooperation_clauses",
+            "_blank"
           );
         }}
       >
@@ -144,15 +136,13 @@ export const SummaryOfCEPA: React.FC = () => {
         Liberalisation of Trade in Services in Guangdong
       </p>,
       <>
-        <p>
-          <a
-            className="text-[#233F55] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/cepa/trade_clause.html#b"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Liberalisation of Trade in Services
-          </a>
+        <p
+          className="text-[#233F55] text-body-m underline cursor-pointer"
+          onClick={() => {
+            window.open("/support/guangdong_agreement_clauses", "_blank");
+          }}
+        >
+          Liberalisation of Trade in Services
         </p>
         <br />
         <p>
@@ -194,7 +184,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <li className="text-body-m">
           <a
-            href="chrome-extension://kdpelmjpfafjppnhbloffcjpeomlnpah/https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -220,20 +210,23 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">Supplement IX to CEPA</p>,
       <>
         <p>
-          <a
-            className="text-[#233F55] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/cepa/trade_clause.html#b"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            className="text-body-m underline text-[#233F55] cursor-pointer"
+            onClick={() => {
+              // window.open(
+              //   "/support/agreement_on_trade_in_services_clauses",
+              //   "_blank"
+              // );
+            }}
           >
             Liberalisation of Trade in Services
-          </a>
+          </span>
         </p>
         <br />
         <p>
           <a
             className="text-[#00E] text-body-m underline"
-            href="chrome-extension://kdpelmjpfafjppnhbloffcjpeomlnpah/https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -244,14 +237,17 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Supplement VIII to CEPA</p>,
-      <a
-        className="text-body-m underline text-[#233F55]"
-        href="https://www.hkctc.gov.hk/en/cepa/trade_clause.html#b"
-        target="_blank"
-        rel="noopener noreferrer"
+      <span
+        className="text-body-m underline text-[#233F55] cursor-pointer"
+        onClick={() => {
+          // window.open(
+          //   "/support/agreement_on_trade_in_services_clauses",
+          //   "_blank"
+          // );
+        }}
       >
         Liberalisation of Trade in Services
-      </a>,
+      </span>,
     ],
     [
       <p className="text-body-m">Supplement VII to CEPA</p>,
