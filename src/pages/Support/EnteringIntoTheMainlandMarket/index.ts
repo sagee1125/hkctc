@@ -5,3 +5,4 @@ export * from "./SummaryOfCEPA";
 export * from "./AgreementOnTradeInServicesClauses";
 export * from "./AgreementOnTradeInGoodsClauses";
 export * from "./AgreementOnEconomicTechnicalCooperationClauses";
+export * from "./GuangdongAgreementClauses";

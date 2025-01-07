@@ -72,6 +72,7 @@ import {
   AgreementOnTradeInServicesClauses,
   AgreementOnTradeInGoodsClauses,
   AgreementOnEconomicTechnicalCooperationClauses,
+  GuangdongAgreementClauses,
 } from "../pages";
 
 export type RouteConfig = {
@@ -107,6 +108,11 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/support/agreement_on_economic&technical_cooperation_clauses",
     element: <AgreementOnEconomicTechnicalCooperationClauses />,
+    description: "",
+  },
+  {
+    path: "/support/guangdong_agreement_clauses",
+    element: <GuangdongAgreementClauses />,
     description: "",
   },
   { path: "/events-landing", element: <EventsLanding />, description: "" },
