@@ -194,7 +194,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <li className="text-body-m">
           <a
-            href="chrome-extension://kdpelmjpfafjppnhbloffcjpeomlnpah/https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -233,7 +233,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p>
           <a
             className="text-[#00E] text-body-m underline"
-            href="chrome-extension://kdpelmjpfafjppnhbloffcjpeomlnpah/https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

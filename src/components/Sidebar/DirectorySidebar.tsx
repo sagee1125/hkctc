@@ -2,12 +2,14 @@ import React from "react";
 import classNames from "classnames";
 
 type DirectorySidebarProps = {
+  disabled?: boolean;
   directorySidebarItems: string[];
   activatedItems: string;
   setActivatedItems: (activatedItems: string) => void;
 };
 
 export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
+  disabled = false,
   directorySidebarItems,
   activatedItems,
   setActivatedItems,
@@ -32,7 +34,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               borderStyle,
               marginStyle
             )}
+            style={{
+              ...(disabled ? { cursor: "not-allowed" } : {}),
+            }}
             onClick={() => {
+              if (disabled) return;
               setActivatedItems(item);
             }}
           >

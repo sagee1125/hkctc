@@ -73,8 +73,15 @@ export const NilWaiverFee: React.FC = () => {
       <br />
       <p className="text-body-m">
         For background information, please refer to the&nbsp;
-        <span className="underline">Legislative Council Brief</span>&nbsp;(pdf
-        below).
+        <a
+          href="https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Legislative Council Brief
+        </a>
+        &nbsp;(pdf below).
       </p>
       <br />
       <p className="italic text-italic-s">

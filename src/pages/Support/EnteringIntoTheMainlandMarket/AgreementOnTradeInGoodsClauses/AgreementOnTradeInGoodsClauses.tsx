@@ -14,7 +14,7 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
     { label: "Home", href: "/" },
     {
       label: "Support",
-      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}`,
+      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     { label: "Agreement on Trade in Goods - Clauses" },
   ];
@@ -23,20 +23,6 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
   const directorySidebarMap =
     directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
   const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
-  const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
-    const element = document.getElementById("breadcrumb");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-
-    const hashIndex = directoryItems.findIndex(
-      (item) => item === activatedItems
-    );
-    navigate(
-      `/support?section=${navItemEnum.entering_into_the_mainland_market}#${hashIndex}`
-    );
-  };
 
   return (
     <div className="w-full pb-[48px]">
@@ -47,9 +33,10 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
           <DirectorySidebar
+            disabled
             directorySidebarItems={directoryItems}
             activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-            setActivatedItems={handleChangeDirectorySidebarItems}
+            setActivatedItems={() => {}}
           />
         </div>
         <div className="flex-1">

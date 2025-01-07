@@ -83,7 +83,15 @@ const agreementMap: Record<string, React.ReactNode> = {
     <>
       <p className="text-body-m">
         On 21 November 2019, an Agreement (“
-        <span className="text-newPrimary underline text-highlight-s">
+        <span
+          className="text-newPrimary underline text-highlight-s cursor-pointer"
+          onClick={() => {
+            window.open(
+              "/support/agreement_on_trade_in_services_clauses",
+              "_blank"
+            );
+          }}
+        >
           Amendment Agreement
         </span>
         ”) was signed between the Mainland and HKSAR to amend the Services
@@ -109,6 +117,21 @@ const agreementMap: Record<string, React.ReactNode> = {
         selection of post-certification test samples at factories manufacturing
         CCC products in the whole Mainland.
       </li>
+      <br />
+      <p className="text-body-m">
+        The above measures came into effect on 1 June 2020. The Certification
+        and Accreditation Administration of the People’s Republic of China
+        (“CNCA”) has promulgated the&nbsp;
+        <a
+          href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Implementation Guide
+        </a>
+        &nbsp;on the revised and new liberalisation measures.
+      </p>
     </>
   ),
   "December 2018": (
@@ -123,8 +146,17 @@ const agreementMap: Record<string, React.ReactNode> = {
           CCC testing
         </span>
         &nbsp;on all products that are processed or manufactured in the Mainland
-        requiring CCC. The Implementation Guide of this measure, which came into
-        effect on 1 March 2019, has been promulgated.
+        requiring CCC. The&nbsp;
+        <a
+          href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Implementation Guide
+        </a>
+        &nbsp;of this measure, which came into effect on 1 March 2019, has been
+        promulgated.
       </p>
     </>
   ),
@@ -134,6 +166,7 @@ export const CEPAAgreements: React.FC = () => {
   const [agreementType, setAgreementType] = useState<string>(
     Object.keys(agreementMap)[0]
   );
+
   return (
     <div className="w-full">
       <SquareTitle title="CEPA Agreements" />
@@ -193,7 +226,15 @@ export const CEPAAgreements: React.FC = () => {
           title={"Agreement on Trade in Goods"}
           details={
             <div className="text-body-m">
-              <span className="!text-highlight-s underline text-newPrimary">
+              <span
+                className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                onClick={() => {
+                  window.open(
+                    "/support/agreement_on_trade_in_goods_clauses",
+                    "_blank"
+                  );
+                }}
+              >
                 The Agreement on Trade in Goods
               </span>
               &nbsp;was signed between the Mainland and HKSAR in December 2018.

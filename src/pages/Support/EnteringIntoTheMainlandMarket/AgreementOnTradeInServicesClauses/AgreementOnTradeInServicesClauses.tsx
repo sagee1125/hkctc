@@ -23,7 +23,7 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
     { label: "Home", href: "/" },
     {
       label: "Support",
-      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}`,
+      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     { label: "Agreement on Trade in Services - Clauses" },
   ];
@@ -32,20 +32,6 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
   const directorySidebarMap =
     directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
   const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
-  const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
-    const element = document.getElementById("breadcrumb");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-
-    const hashIndex = directoryItems.findIndex(
-      (item) => item === activatedItems
-    );
-    navigate(
-      `/support?section=${navItemEnum.entering_into_the_mainland_market}#${hashIndex}`
-    );
-  };
 
   return (
     <div className="w-full pb-[48px]">
@@ -56,9 +42,10 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
           <DirectorySidebar
+            disabled
             directorySidebarItems={directoryItems}
             activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-            setActivatedItems={handleChangeDirectorySidebarItems}
+            setActivatedItems={() => {}}
           />
         </div>
         <div className="flex-1">
@@ -93,7 +80,14 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
           </ul>
           <p className="text-italic-s italic mt-[24px]">
             See&nbsp;
-            <span className="underline text-[#00E]">Implementation Guide</span>
+            <a
+              className="underline text-[#00E]"
+              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Implementation Guide
+            </a>
             &nbsp;promulgated in May 2020 for items 1-3
           </p>
           <hr className="my-[24px]" />
