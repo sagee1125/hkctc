@@ -1,10 +1,28 @@
 import React, { useEffect } from "react";
 import * as echarts from "echarts";
+import type { ChartProps } from "./types";
 
-export const ChartOne: React.FC = () => {
+type AreaChartProps = ChartProps & {
+  xAxisData: string[] | number[];
+  yAxisStartValue?: number;
+  seriesData: number[];
+  seriesBackgroundColor?: string;
+  seriesItemColor?: string;
+};
+
+export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
+  const {
+    title,
+    elementId,
+    xAxisData,
+    yAxisStartValue = 0,
+    seriesData,
+    seriesBackgroundColor = "#D9B6F6",
+    seriesItemColor = "#BD78FC",
+  } = props;
   useEffect(() => {
-    const chartElement = document.getElementById("chart") as HTMLElement;
-    const chart = echarts.init(chartElement);
+    const areaChartElement = document.getElementById(elementId) as HTMLElement;
+    const areaChart = echarts.init(areaChartElement);
 
     const option: echarts.EChartsOption = {
       tooltip: {
@@ -29,22 +47,7 @@ export const ChartOne: React.FC = () => {
       xAxis: {
         type: "category",
         boundaryGap: false,
-        data: [
-          "2009",
-          "2010",
-          "2011",
-          "2012",
-          "2013",
-          "2014",
-          "2015",
-          "2016",
-          "2017",
-          "2018",
-          "2019",
-          "2020",
-          "2021",
-          "2022",
-        ],
+        data: xAxisData,
         axisLine: {
           lineStyle: {
             color: "#000", // 设置 X 轴线颜色为黑色
@@ -82,19 +85,17 @@ export const ChartOne: React.FC = () => {
             color: "#eee",
           },
         },
+        startValue: yAxisStartValue,
       },
       series: [
         {
-          data: [
-            500, 520, 540, 560, 590, 620, 650, 700, 750, 800, 880, 950, 980,
-            1000,
-          ],
+          data: seriesData,
           type: "line",
           areaStyle: {
-            color: "rgba(190, 149, 255, 0.5)", // 设置渐变色
+            color: seriesBackgroundColor, // 设置渐变色
           },
           itemStyle: {
-            color: "#BE95FF",
+            color: seriesItemColor,
           },
           symbol: "circle", // 使用圆形点
           symbolSize: 10, // 设置点的大小
@@ -105,22 +106,25 @@ export const ChartOne: React.FC = () => {
       ],
     };
 
-    chart.setOption(option);
+    areaChart.setOption(option);
 
     return () => {
-      chart.dispose();
+      areaChart.dispose();
     };
-  }, []);
+  }, [
+    seriesData,
+    xAxisData,
+    seriesBackgroundColor,
+    seriesItemColor,
+    elementId,
+    yAxisStartValue,
+  ]);
 
   return (
     <div>
-      <p className="text-heading-m pt-[24px] ml-[24px]">
-        Number of institutions engaged in testing and certification activities
-        <br />
-        from 2009 to 2022
-      </p>
+      <div>{title}</div>
       <div
-        id="chart"
+        id={elementId}
         style={{
           width: "100%",
           height: "500px",

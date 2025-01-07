@@ -8,3 +8,4 @@ export * from "./BannerPhotoBox";
 export * from "./Sidebar";
 export * from "./Accordion";
 export * from "./SquareTitle";
+export * from "./Charts";
