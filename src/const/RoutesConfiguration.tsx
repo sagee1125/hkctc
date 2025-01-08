@@ -60,7 +60,7 @@ import {
   EducatorsStudents,
   EventsLanding,
   GeneralPublic,
-  ProfileAndRole,
+  TCSector,
   Home,
   Industry,
   ResourcesReports,
@@ -69,11 +69,11 @@ import {
   StudentCompetitions,
   Support,
   AboutUs,
-  AgreementOnTradeInServicesClauses,
-  AgreementOnTradeInGoodsClauses,
-  AgreementOnEconomicTechnicalCooperationClauses,
   GuangdongAgreementClauses,
 } from "../pages";
+import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
+import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
+import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInServicesClauses/AgreementOnTradeInServicesClauses";
 
 export type RouteConfig = {
   path: string;
@@ -121,7 +121,7 @@ export const routesConfiguration: RouteConfig[] = [
     element: <AwardScheme />,
     description: "",
   },
-  { path: "/profile-and-role", element: <ProfileAndRole />, description: "" },
+  { path: "/tc-sector", element: <TCSector />, description: "" },
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,

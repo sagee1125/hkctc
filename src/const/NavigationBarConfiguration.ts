@@ -51,6 +51,12 @@ export enum navItemEnum {
   accommodation_and_land = "accommodation_and_land",
   entering_into_the_mainland_market = "entering_into_the_mainland_market",
   other_support = "other_support",
+  // t&c sector
+  profile_and_role = "profile_and_role",
+  tc_sector_strengths = "tc_sector_strengths",
+  services_provided = "services_provided",
+  different_business_areas = "different_business_areas",
+  accreditation_services = "accreditation_services",
   // Careers
   career_development = "career_development",
   career_opportunities = "career_opportunities",
@@ -93,15 +99,13 @@ export const NavigationBarConfiguration: NavData[] = [
         name: "Introducing the Testing and Certificate sector, and what service we can provide",
         subItems: [
           {
-            enum: "",
-
+            enum: navItemEnum.profile_and_role,
             subTitle: "Profile and Role of T&C Sector",
             imgUrl: "Profile_and_Role.png",
-            navUrl: "profile-and-role",
+            navUrl: "tc-sector?section=profile-and-role",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.tc_sector_strengths,
             subTitle: "Strengths of Hong Kong's T&C Sector",
             imgUrl: "Strengths.png",
             navUrl: "",
