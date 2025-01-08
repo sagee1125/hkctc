@@ -232,15 +232,15 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Supplement VII to CEPA</p>,
-      <a
-        className="text-body-m underline text-[#233F55]"
-        href="https://www.hkctc.gov.hk/en/cepa/trade_clause.html#b"
-        target="_blank"
-        rel="noopener noreferrer"
+      <p
+        className="text-[#233F55] text-body-m underline cursor-pointer"
+        onClick={() => {
+          window.open("/support/supplement_VII_to_CEPA_clauses", "_blank");
+        }}
       >
         Liberalisation of Trade in Services and Trade and Investment
         Facilitation
-      </a>,
+      </p>,
     ],
   ];
   return (

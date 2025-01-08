@@ -76,6 +76,7 @@ import {
   SupplementXtoCEPAClauses,
   SupplementIXtoCEPAClauses,
   SupplementVIIItoCEPAClauses,
+  SupplementVIItoCEPAClauses,
 } from "../pages";
 
 export type RouteConfig = {
@@ -131,6 +132,12 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/support/supplement_VIII_to_CEPA_clauses",
     element: <SupplementVIIItoCEPAClauses />,
+    description: "",
+  },
+
+  {
+    path: "/support/supplement_VII_to_CEPA_clauses",
+    element: <SupplementVIItoCEPAClauses />,
     description: "",
   },
 
