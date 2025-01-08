@@ -177,23 +177,44 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <div>
               <p className="text-body-m mt-[16px]">
-                The Agreement on Trade in Services (“The Services Agreement”)
-                was signed between the Mainland and HKSAR in November 2015. In
-                addition to introducing the new liberalisation measure of
-                implementing, on a pilot basis, a mutual recognition arrangement
-                of certification and relevant testing business among Guangdong,
-                Hong Kong and Macao in the China (Guangdong) Pilot Free Trade
-                Zone, with a view to carrying out "certified once, tested once,
-                and results accepted by three places".
+                The&nbsp;
+                <span
+                  className="text-newPrimary text-links-m underline cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/agreement_on_trade_in_services_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
+                  Agreement on Trade in Services
+                </span>
+                &nbsp;(“The Services Agreement”) was signed between the Mainland
+                and HKSAR in November 2015. In addition to introducing the new
+                liberalisation measure of implementing, on a pilot basis, a
+                mutual recognition arrangement of certification and relevant
+                testing business among Guangdong, Hong Kong and Macao in the
+                China (Guangdong) Pilot Free Trade Zone, with a view to carrying
+                out "certified once, tested once, and results accepted by three
+                places".
               </p>
               <br />
               <p className="text-body-m">
                 The Services Agreement covers and consolidates commitments
                 (relating to liberalisation of trade in services and the testing
                 and certification sector) provided in CEPA and its Supplements
-                and also the Guangdong Agreement. The Mainland has formulated an
-                Implementation Guide, which provides further details of the new
-                liberalisation measure covered in the Services Agreement.
+                and also the Guangdong Agreement. The Mainland has formulated
+                an&nbsp;
+                <a
+                  href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  Implementation Guide
+                </a>
+                , which provides further details of the new liberalisation
+                measure covered in the Services Agreement.
               </p>
               <div className="mt-[16px]">
                 <div className="flex flex-wrap gap-[8px]">
@@ -336,7 +357,15 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/supplement_X_to_CEPA_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   Supplement X to CEPA
                 </span>
                 &nbsp;was signed between the Mainland and HKSAR in August 2013.
@@ -357,15 +386,20 @@ export const CEPAAgreements: React.FC = () => {
               <br />
               <p className="text-body-m">
                 The Mainland has formulated two Implementation Guides (
-                <span className="!text-highlight-s underline text-newPrimary">
+                <a
+                  href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
                   measure on the movement of natural persons, other measures
-                </span>
+                </a>
                 ), which provide further details for the implementation of these
                 liberalisation measures. A list of Mainland certification bodies
                 and their scope of services in respect of voluntary
                 certification are available at the&nbsp;
                 <a
-                  href="#"
+                  href="https://www.cnca.gov.cn/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -385,7 +419,15 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/supplement_IX_to_CEPA_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   Supplement IX to CEPA
                 </span>
                 &nbsp;was signed between the Mainland and HKSAR in June 2012.
@@ -397,9 +439,14 @@ export const CEPAAgreements: React.FC = () => {
               <br />
               <p className="text-body-m">
                 The Mainland has formulated an&nbsp;
-                <span className="!text-highlight-s underline text-newPrimary">
+                <a
+                  href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
                   measure on the movement of natural persons, other measures
-                </span>
+                </a>
                 &nbsp;for this liberalisation measure. The Guide covers, among
                 others, the applicable food-related certification schemes and
                 the procedures for cooperation between Hong Kong testing
@@ -416,7 +463,15 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/supplement_VIII_to_CEPA_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   Supplement VIII to CEPA
                 </span>
                 &nbsp;was signed between the Mainland and HKSAR in December
@@ -424,7 +479,12 @@ export const CEPAAgreements: React.FC = () => {
                 of Supplement VII to CEPA, testing organisations in Hong Kong to
                 cooperate with designated Mainland certification bodies to
                 undertake product testing for the&nbsp;
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open("/support/CCC_testing", "_blank");
+                  }}
+                >
                   China Compulsory Certification (CCC) System
                 </span>
                 &nbsp;for all existing products processed in Hong Kong that
@@ -441,15 +501,29 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/supplement_VII_to_CEPA_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   Supplement VII to CEPA
                 </span>
                 &nbsp;was signed between the Mainland and the HKSAR in May 2010.
                 It includes liberalisation measures of the&nbsp;
-                <span className="!text-highlight-s underline text-newPrimary">
-                  China Compulsory Certification (CCC)
+                <span
+                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  onClick={() => {
+                    window.open("/support/CCC_testing", "_blank");
+                  }}
+                >
+                  China Compulsory Certification (CCC) System
                 </span>
-                &nbsp;China Compulsory Certification (CCC)&nbsp;
+                &nbsp;and arrangements to help testing organisations in Hong
+                Kong to become recognised testing organisations under&nbsp;
                 <span className="!text-highlight-s underline text-newPrimary">
                   international multilateral systems on mutual recognition
                 </span>

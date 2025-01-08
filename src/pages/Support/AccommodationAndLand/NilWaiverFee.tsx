@@ -123,16 +123,15 @@ export const NilWaiverFee: React.FC = () => {
             For enquiries on whether a testing laboratory may benefit under this
             measure, please contact the Secretariat of the Hong Kong Council for
             Testing and Certification (
-            <a
-              href="#"
+            <span
               onClick={(e) => {
                 e.preventDefault();
                 navigator.clipboard.writeText("enquiry@hkctc.gov.hk");
               }}
-              className="underline text-[#00E]"
+              className="underline text-[#00E] cursor-pointer"
             >
               enquiry@hkctc.gov.hk
-            </a>
+            </span>
             )
           </p>
         </div>

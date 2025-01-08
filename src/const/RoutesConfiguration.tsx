@@ -70,6 +70,11 @@ import {
   Support,
   AboutUs,
   GuangdongAgreementClauses,
+  SupplementXtoCEPAClauses,
+  SupplementIXtoCEPAClauses,
+  SupplementVIIItoCEPAClauses,
+  SupplementVIItoCEPAClauses,
+  CCCTesting,
 } from "../pages";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
 import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
@@ -115,6 +120,32 @@ export const routesConfiguration: RouteConfig[] = [
     element: <GuangdongAgreementClauses />,
     description: "",
   },
+  {
+    path: "/support/supplement_X_to_CEPA_clauses",
+    element: <SupplementXtoCEPAClauses />,
+    description: "",
+  },
+  {
+    path: "/support/supplement_IX_to_CEPA_clauses",
+    element: <SupplementIXtoCEPAClauses />,
+    description: "",
+  },
+  {
+    path: "/support/supplement_VIII_to_CEPA_clauses",
+    element: <SupplementVIIItoCEPAClauses />,
+    description: "",
+  },
+  {
+    path: "/support/supplement_VII_to_CEPA_clauses",
+    element: <SupplementVIItoCEPAClauses />,
+    description: "",
+  },
+  {
+    path: "/support/CCC_testing",
+    element: <CCCTesting />,
+    description: "China Compulsory Certification (CCC) Testing",
+  },
+
   { path: "/events-landing", element: <EventsLanding />, description: "" },
   {
     path: "/events-landing/award-scheme",
