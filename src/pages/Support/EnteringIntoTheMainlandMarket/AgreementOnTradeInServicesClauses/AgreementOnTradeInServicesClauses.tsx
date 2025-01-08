@@ -22,7 +22,7 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "Support",
+      label: "Support - Entering into the Mainland Market",
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     { label: "Agreement on Trade in Services - Clauses" },

@@ -77,6 +77,7 @@ import {
   SupplementIXtoCEPAClauses,
   SupplementVIIItoCEPAClauses,
   SupplementVIItoCEPAClauses,
+  CCCTesting,
 } from "../pages";
 
 export type RouteConfig = {
@@ -134,11 +135,15 @@ export const routesConfiguration: RouteConfig[] = [
     element: <SupplementVIIItoCEPAClauses />,
     description: "",
   },
-
   {
     path: "/support/supplement_VII_to_CEPA_clauses",
     element: <SupplementVIItoCEPAClauses />,
     description: "",
+  },
+  {
+    path: "/support/CCC_testing",
+    element: <CCCTesting />,
+    description: "China Compulsory Certification (CCC) Testing",
   },
 
   { path: "/events-landing", element: <EventsLanding />, description: "" },

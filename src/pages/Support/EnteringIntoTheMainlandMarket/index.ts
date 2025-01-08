@@ -10,3 +10,4 @@ export * from "./SupplementXtoCEPAClauses";
 export * from "./SupplementIXtoCEPAClauses";
 export * from "./SupplementVIIItoCEPAClauses";
 export * from "./SupplementVIItoCEPAClauses";
+export * from "./CCCTesting";

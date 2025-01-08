@@ -49,5 +49,5 @@ const breadcrumbStyle: React.CSSProperties = {
   height: "52px",
   padding: "24px",
   borderBottom: "1px solid #E0E0E0",
-  alignItems: 'center'
+  alignItems: "center",
 };
