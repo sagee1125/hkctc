@@ -221,17 +221,14 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Supplement VIII to CEPA</p>,
-      <span
-        className="text-body-m underline text-[#233F55] cursor-pointer"
+      <p
+        className="text-[#233F55] text-body-m underline cursor-pointer"
         onClick={() => {
-          // window.open(
-          //   "/support/agreement_on_trade_in_services_clauses",
-          //   "_blank"
-          // );
+          window.open("/support/supplement_VIII_to_CEPA_clauses", "_blank");
         }}
       >
         Liberalisation of Trade in Services
-      </span>,
+      </p>,
     ],
     [
       <p className="text-body-m">Supplement VII to CEPA</p>,

@@ -75,6 +75,7 @@ import {
   GuangdongAgreementClauses,
   SupplementXtoCEPAClauses,
   SupplementIXtoCEPAClauses,
+  SupplementVIIItoCEPAClauses,
 } from "../pages";
 
 export type RouteConfig = {
@@ -125,6 +126,11 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/support/supplement_IX_to_CEPA_clauses",
     element: <SupplementIXtoCEPAClauses />,
+    description: "",
+  },
+  {
+    path: "/support/supplement_VIII_to_CEPA_clauses",
+    element: <SupplementVIIItoCEPAClauses />,
     description: "",
   },
 
