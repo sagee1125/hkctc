@@ -75,6 +75,7 @@ import {
   SupplementVIIItoCEPAClauses,
   SupplementVIItoCEPAClauses,
   CCCTesting,
+  InternationalMultilateralSystems,
 } from "../pages";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
 import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
@@ -144,6 +145,11 @@ export const routesConfiguration: RouteConfig[] = [
     path: "/support/CCC_testing",
     element: <CCCTesting />,
     description: "China Compulsory Certification (CCC) Testing",
+  },
+  {
+    path: "/support/international_multilateral_systems_on_mutual_recognition",
+    element: <InternationalMultilateralSystems />,
+    description: "International Multilateral Systems on Mutual Recognition",
   },
 
   { path: "/events-landing", element: <EventsLanding />, description: "" },
