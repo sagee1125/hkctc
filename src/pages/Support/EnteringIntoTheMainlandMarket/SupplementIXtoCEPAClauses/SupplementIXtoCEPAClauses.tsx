@@ -48,14 +48,14 @@ const specificCommitments: React.ReactNode[] = [
     </a>
   </p>,
 ];
-export const SupplementXtoCEPAClauses: React.FC = () => {
+export const SupplementIXtoCEPAClauses: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
       label: "Support",
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
-    { label: "Supplement X to CEPA - Clauses" },
+    { label: "Supplement IX to CEPA - Clauses" },
   ];
 
   const directorySidebarMap =
@@ -78,62 +78,34 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Supplement X to CEPA - Clauses" />
+          <SquareTitle title="Supplement IX to CEPA - Clauses" />
           <p className="text-heading-l my-[24px]">
             Liberalisation of Trade in Services (extracted from the Annex of
-            Supplement X to CEPA)
+            Supplement IX to CEPA)
           </p>
           <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
           <p className="text-body-m">1. Business Services</p>
           <p className="text-body-m">F. Other Business Services</p>
           <p className="text-body-m">
-            e. Technical testing and analysis services (CPC8676)
+            e. Technical testing and analysis services (CPC8676) Product testing
+            services (CPC7490)
           </p>
-          <p className="mt-[24px] text-heading-m">Specific commitments</p>
-          <ul
-            style={{ listStyleType: "decimal", paddingLeft: "20px" }}
-            className="text-body-m"
-          >
-            {specificCommitments.map((commit, index) => (
-              <div key={index}>
-                <br />
-                <li>{commit}</li>
-              </div>
-            ))}
-          </ul>
-
-          <p className="text-heading-l my-[24px]">
-            Measures in Facilitating Trade and Investment (extracted from the
-            main text of Supplement X to CEPA)
-          </p>
-          <p className="text-heading-m mb-[24px]">
-            III. Trade and Investment Facilitation
-          </p>
+          <p className="my-[24px] text-heading-m">Specific commitments</p>
           <p className="text-body-m">
-            The two sides agreed to further strengthen cooperation in the areas
-            of commodity inspection and quarantine, food safety and quality and
-            standardization. Accordingly, the following is added to Article
-            5.2.4 of Annex 6 to "CEPA" - Certification, accreditation and
-            standardization Management:
-            <br />
-            <br />
-            "(1) promote Guangdong and Hong Kong mutual recognition of testing
-            and certification results in respect of third-party testing and
-            certification services;
-            <br />
-            <br />
-            (2) in accordance with specific certification requirements, promote
-            Guangdong and Hong Kong mutual recognition of testing and
-            certification results in respect of voluntary certification;
-            <br />
-            <br />
-            (3) with regard to promoting mutual recognition of testing and
-            certification results under the China Compulsory Certification (CCC)
-            System, the two sides agree to observe the relevant requirements of
-            the related national laws, rules, regulations and treaties,
-            including the Regulations on Certification and Accreditation of the
-            People's Republic of China and CEPA."
+            To expand, on a pilot basis in Guangdong Province, the scope of
+            certification services that can be undertaken by Hong Kong testing
+            organizations to cover food. (See&nbsp;
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Implementation Guide
+            </a>
+            &nbsp;for details.)
           </p>
+
           <hr className="my-[24px]" />
           <InternalBackButton
             targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}

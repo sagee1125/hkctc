@@ -7,3 +7,4 @@ export * from "./AgreementOnTradeInGoodsClauses";
 export * from "./AgreementOnEconomicTechnicalCooperationClauses";
 export * from "./GuangdongAgreementClauses";
 export * from "./SupplementXtoCEPAClauses";
+export * from "./SupplementIXtoCEPAClauses";

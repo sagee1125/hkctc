@@ -163,7 +163,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            window.open("/support/supplement_x_to_CEPA_clauses", "_blank");
+            window.open("/support/supplement_X_to_CEPA_clauses", "_blank");
           }}
         >
           Liberalisation of Trade in Services and Trade and Investment
@@ -199,12 +199,9 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">Supplement IX to CEPA</p>,
       <>
         <p
-          className="text-body-m underline text-[#233F55] cursor-pointer"
+          className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            // window.open(
-            //   "/support/agreement_on_trade_in_services_clauses",
-            //   "_blank"
-            // );
+            window.open("/support/supplement_IX_to_CEPA_clauses", "_blank");
           }}
         >
           Liberalisation of Trade in Services
