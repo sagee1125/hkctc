@@ -1,1 +1,1 @@
-export * from "./ProfileAndRole";
+export * from "./TCSector";
