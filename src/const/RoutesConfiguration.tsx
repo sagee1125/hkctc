@@ -73,6 +73,7 @@ import {
   AgreementOnTradeInGoodsClauses,
   AgreementOnEconomicTechnicalCooperationClauses,
   GuangdongAgreementClauses,
+  SupplementXtoCEPAClauses,
 } from "../pages";
 
 export type RouteConfig = {
@@ -113,6 +114,11 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/support/guangdong_agreement_clauses",
     element: <GuangdongAgreementClauses />,
+    description: "",
+  },
+  {
+    path: "/support/supplement_x_to_CEPA_clauses",
+    element: <SupplementXtoCEPAClauses />,
     description: "",
   },
   { path: "/events-landing", element: <EventsLanding />, description: "" },

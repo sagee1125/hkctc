@@ -1,12 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { directorySidebarItemsMap } from "../../Support";
 import {
   BannerPhotoBox,
   Breadcrumb,
   DirectorySidebar,
+  InternalBackButton,
   SquareTitle,
 } from "../../../../components";
-import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
 
 export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
@@ -18,7 +18,6 @@ export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
     },
     { label: "Agreement on Economic and Technical Cooperation - Clauses" },
   ];
-  const navigate = useNavigate();
 
   const directorySidebarMap =
     directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
@@ -106,28 +105,9 @@ export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
             System.
           </p>
           <hr className="my-[24px]" />
-
-          <div className="flex flex-row gap-[8px] items-center">
-            <img
-              className="w-[16px] h-[16px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/arrow_left.svg`}
-              alt={"arrow left"}
-            />
-            <p
-              className="text-highlight-l cursor-pointer"
-              onClick={() => {
-                const element = document.getElementById("breadcrumb");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-                navigate(
-                  `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`
-                );
-              }}
-            >
-              Back
-            </p>
-          </div>
+          <InternalBackButton
+            targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
+          />
         </div>
       </div>
     </div>
