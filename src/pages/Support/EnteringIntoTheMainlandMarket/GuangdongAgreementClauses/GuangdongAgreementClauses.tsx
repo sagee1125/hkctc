@@ -101,7 +101,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
                 navigate(
-                  `/support?section=${navItemEnum.entering_into_the_mainland_market}`
+                  `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`
                 );
               }}
             >

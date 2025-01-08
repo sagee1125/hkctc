@@ -43,8 +43,8 @@ module.exports = {
         'heading-l-extra': ['28px', { lineHeight: '36px', fontWeight: 800 }],
         'heading-xl': ['32px', { lineHeight: '32px', fontWeight: 700 }],
         'heading-xxl': ['40px', { lineHeight: '40px', fontWeight: 800 }],
-
-
+        
+        'links-m': ['16px', { lineHeight: '22px', fontWeight: 600 }],
 
         'highlight-xs': ['12px', { lineHeight: '18px', fontWeight: 600 }],
         'highlight-s': ['14px', { lineHeight: '20px', fontWeight: 600 }],

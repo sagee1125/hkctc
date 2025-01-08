@@ -195,7 +195,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <li className="text-body-m">
           <a
-            href="#"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -204,7 +204,6 @@ export const SummaryOfCEPA: React.FC = () => {
           </a>
         </li>
       </>,
-      ,
     ],
     [
       <p className="text-body-m">Supplement IX to CEPA</p>,
