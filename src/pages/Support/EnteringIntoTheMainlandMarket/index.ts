@@ -11,3 +11,4 @@ export * from "./SupplementIXtoCEPAClauses";
 export * from "./SupplementVIIItoCEPAClauses";
 export * from "./SupplementVIItoCEPAClauses";
 export * from "./CCCTesting";
+export * from "./InternationalMultilateralSystems";
