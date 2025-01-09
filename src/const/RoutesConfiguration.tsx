@@ -60,7 +60,6 @@ import {
   EducatorsStudents,
   EventsLanding,
   GeneralPublic,
-  TCSector,
   Home,
   Industry,
   ResourcesReports,
@@ -77,6 +76,7 @@ import {
   CCCTesting,
   InternationalMultilateralSystems,
 } from "../pages";
+import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
 import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
 import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInServicesClauses/AgreementOnTradeInServicesClauses";

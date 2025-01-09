@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ProfileAndRole } from "./ProfileAndRole";
 import { Strength } from "./Strength";
+import { ServiceProvided } from "./ServiceProvided";
 import { BannerPhotoBox, Breadcrumb, Sidebar } from "../../components";
 import {
   NavigationBarConfiguration,
@@ -37,7 +38,7 @@ const returnComponent = (
     },
     [navItemEnum.services_provided]: {
       topBanner: "tcSector/banner_bg_1.png",
-      component: <></>,
+      component: <ServiceProvided />,
     },
     [navItemEnum.different_business_areas]: {
       topBanner: "tcSector/banner_bg_1.png",
