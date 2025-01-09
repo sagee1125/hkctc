@@ -111,21 +111,19 @@ export const NavigationBarConfiguration: NavData[] = [
             navUrl: "",
           },
           {
-            enum: "",
+            enum: navItemEnum.services_provided,
             subTitle: "Services Provided by T&C Sector",
             imgUrl: "Services_Provided.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.different_business_areas,
             subTitle: "Services for Different Business Areas",
             imgUrl: "Business_Areas.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.accreditation_services,
             subTitle: "Accreditation Services",
             imgUrl: "Accreditation_Services.png",
             navUrl: "",

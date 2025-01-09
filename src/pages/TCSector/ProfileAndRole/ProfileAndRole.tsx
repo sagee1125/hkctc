@@ -202,7 +202,7 @@ export const ProfileAndRole: React.FC = () => {
             </p>
           </div>
         </div>
-        <p className="text-body-m py-[24px]">
+        <p className="text-body-m">
           The economic contribution to Hong Kong's GDP was $10.9 billion. As for
           employment, the total number of persons engaged in these private
           independent establishments was about 15 060.
@@ -273,13 +273,13 @@ export const ProfileAndRole: React.FC = () => {
         </p>
         <div className="grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full">
           <img
-            className="h-[340px] w-auto object-fit"
-            src={process.env.PUBLIC_URL + "/assets/profileAndRole/Role1.png"}
+            className="h-[340px] w-auto object-fit rounded"
+            src={process.env.PUBLIC_URL + "/assets/tcSector/Role1.png"}
             alt="Role1"
           />
           <img
-            className="h-[340px] w-auto object-contain"
-            src={process.env.PUBLIC_URL + "/assets/profileAndRole/Role2.png"}
+            className="h-[340px] w-auto object-contain rounded"
+            src={process.env.PUBLIC_URL + "/assets/tcSector/Role2.png"}
             alt="Role2"
           />
         </div>
@@ -326,7 +326,7 @@ export const ProfileAndRole: React.FC = () => {
                 <div className="relative w-[130px] h-full">
                   <img
                     className="border-2 border-inherit w-auto h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    src={`${process.env.PUBLIC_URL}/assets/profileAndRole/${imagePath}`}
+                    src={`${process.env.PUBLIC_URL}/assets/tcSector/${imagePath}`}
                     alt={imagePath}
                   />
                   {/* Icon */}
