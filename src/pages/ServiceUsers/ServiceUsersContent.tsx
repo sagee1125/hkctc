@@ -7,6 +7,25 @@ type IndustryData = {
   imagePath: string;
   onClick?: () => void;
 };
+
+export const accreditationService: Array<{
+  title: string;
+  imagePath: string;
+}> = [
+  {
+    title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
+    imagePath: "assets/serviceUsers/HOKLAS.png",
+  },
+  {
+    title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
+    imagePath: "assets/serviceUsers/HKCAS.png",
+  },
+  {
+    title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
+    imagePath: "assets/serviceUsers/HKIAS.png",
+  },
+];
+
 export const ServiceUsersContent: React.FC = () => {
   const industryData: IndustryData[] = [
     {
@@ -37,24 +56,6 @@ export const ServiceUsersContent: React.FC = () => {
     {
       title: "Reports",
       imgUrl: "Reports.png",
-    },
-  ];
-
-  const accreditationService: Array<{
-    title: string;
-    imagePath: string;
-  }> = [
-    {
-      title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
-      imagePath: "HOKLAS.png",
-    },
-    {
-      title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
-      imagePath: "HKCAS.png",
-    },
-    {
-      title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
-      imagePath: "HKIAS.png",
     },
   ];
 
@@ -117,7 +118,7 @@ export const ServiceUsersContent: React.FC = () => {
                 <div className="relative w-[130px] h-full">
                   <img
                     className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    src={`${process.env.PUBLIC_URL}/assets/serviceUsers/${imagePath}`}
+                    src={`${process.env.PUBLIC_URL}/${imagePath}`}
                     alt={imagePath}
                   />
                   {/* Icon */}
