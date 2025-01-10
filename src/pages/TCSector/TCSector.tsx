@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ProfileAndRole } from "./ProfileAndRole";
 import { Strength } from "./Strength";
 import { ServiceProvided } from "./ServiceProvided";
+import { AccreditationServices } from "./AccreditationServices";
 import { BannerPhotoBox, Breadcrumb, Sidebar } from "../../components";
 import {
   NavigationBarConfiguration,
@@ -46,7 +47,7 @@ const returnComponent = (
     },
     [navItemEnum.accreditation_services]: {
       topBanner: "tcSector/banner_bg_1.png",
-      component: <></>,
+      component: <AccreditationServices />,
     },
   };
   return {
@@ -122,7 +123,7 @@ export const TCSector: React.FC = () => {
   }, [initialParam, initialHashIndex, activeSidebarItems, navigate]);
 
   return (
-    <div>
+    <div className="mb-[48px]">
       <BannerPhotoBox src={bannerImage} />
       <Breadcrumb items={breadcrumbItems} />
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">

@@ -10,3 +10,4 @@ export * from "./Accordion";
 export * from "./SquareTitle";
 export * from "./Charts";
 export * from "./InternalBackButton";
+export * from "./FileTemplate";

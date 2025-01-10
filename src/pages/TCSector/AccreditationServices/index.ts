@@ -1,2 +1,1 @@
-export * from "./TCSector";
 export * from "./AccreditationServices";
