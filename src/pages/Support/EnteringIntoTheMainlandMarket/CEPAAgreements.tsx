@@ -142,7 +142,12 @@ const agreementMap: Record<string, React.ReactNode> = {
         Compulsory Certification (“CCC”) market to Hong Kong. The new measure
         allows Hong Kong testing organisations to cooperate with designated
         Mainland certification bodies to undertake&nbsp;
-        <span className="underline text-newPrimary text-highlight-s">
+        <span
+          className="!text-highlight-s underline text-newPrimary cursor-pointer"
+          onClick={() => {
+            window.open("/support/CCC_testing", "_blank");
+          }}
+        >
           CCC testing
         </span>
         &nbsp;on all products that are processed or manufactured in the Mainland
@@ -271,7 +276,15 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/agreement_on_economic&technical_cooperation_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   The Agreement on Economic and Technical Cooperation
                 </span>
                 &nbsp;was signed between the Mainland and HKSAR in June 2017.
@@ -305,7 +318,15 @@ export const CEPAAgreements: React.FC = () => {
           details={
             <>
               <p className="text-body-m">
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/support/guangdong_agreement_clauses",
+                      "_blank"
+                    );
+                  }}
+                >
                   The Agreement between the Mainland and Hong Kong on Achieving
                   Basic Liberalisation of Trade in Services in Guangdong
                   (Guangdong Agreement)
@@ -315,7 +336,12 @@ export const CEPAAgreements: React.FC = () => {
                 Hong Kong to cooperate with designated Mainland organisations to
                 undertake testing of products in the "audio and visual
                 apparatus" category of the&nbsp;
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span
+                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  onClick={() => {
+                    window.open("/support/CCC_testing", "_blank");
+                  }}
+                >
                   China Compulsory Certification (CCC)
                 </span>
                 &nbsp;system that are designed and prototyped in Hong Kong, as
@@ -340,9 +366,14 @@ export const CEPAAgreements: React.FC = () => {
               <br />
               <p className="text-body-m">
                 The Mainland has formulated an&nbsp;
-                <span className="!text-highlight-s text-newPrimary">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                  href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+                >
                   Implementation Guide
-                </span>
+                </a>
                 , which provides further details for the implementation of these
                 liberalisation measures.
               </p>

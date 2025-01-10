@@ -43,8 +43,21 @@ export const OtherSupport: React.FC = () => {
         standards of physical measurement traceable to the International System
         of Units for Hong Kong, promotes the international acceptance of these
         standards, and provides traceable calibration services and proficiency
-        testing services to serve the local economy. For more information on the
-        services provided by SCL, please visit its website.
+        testing services to serve the local economy.
+      </p>
+      <br />
+      <p className="text-italic-s italic">
+        For more information on the services provided by SCL, please visit
+        its&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/scl/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          website
+        </a>
+        .
       </p>
       <br />
       <p className="text-body-m">
@@ -55,10 +68,9 @@ export const OtherSupport: React.FC = () => {
       <br />
       <p className="text-italic-s italic">
         For more information on the services provided by Government Laboratory,
-        please visit its{" "}
+        please visit its&nbsp;
         <a
-          href="/"
-          // TODO
+          href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -117,9 +129,18 @@ export const OtherSupport: React.FC = () => {
           />
           <p className="text-highlight-m flex-grow min-w-0">
             To meet the needs of the testing and inspection sector, ECIC offers
-            the tailor-made Testing and Inspection Services Policy (TISP) to
-            cover credit risks for services provided to overseas clients with
-            credit periods of up to 180 days post-service completion.
+            the tailor-made&nbsp;
+            <a
+              href="https://www.hkecic.com/en/policies_services_detail.aspx?service_type=policies&service_policies_id=9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Testing and Inspection Services Policy (TISP)
+            </a>
+            &nbsp;to cover credit risks for services provided to overseas
+            clients with credit periods of up to 180 days post-service
+            completion.
           </p>
         </div>
       </div>
@@ -149,7 +170,7 @@ export const OtherSupport: React.FC = () => {
       <p className="text-italic-s italic">
         For more details, please refer to its&nbsp;
         <a
-          href="/"
+          href="https://www.hkecic.com/en/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
