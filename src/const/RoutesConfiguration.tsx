@@ -75,6 +75,7 @@ import {
   SupplementVIItoCEPAClauses,
   CCCTesting,
   InternationalMultilateralSystems,
+  WhatsNew,
   ToysChildrenProducts,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
@@ -176,6 +177,7 @@ export const routesConfiguration: RouteConfig[] = [
     element: <StudentCompetitions />,
     description: "",
   },
+  { path: "/whats-new", element: <WhatsNew />, description: "" },
   {
     path: "/resources-reports",
     element: <ResourcesReports />,

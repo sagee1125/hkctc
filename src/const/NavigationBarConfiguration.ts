@@ -422,5 +422,6 @@ export const NavigationBarConfiguration: NavData[] = [
     title: "What's new",
     showSidebar: false,
     items: [],
+    navUrl: "whats-new",
   },
 ];

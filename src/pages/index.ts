@@ -10,3 +10,4 @@ export * from "./ResourcesReports";
 export * from "./Support";
 export * from "./AboutUs";
 export * from "./TCSector";
+export * from "./WhatsNew";
