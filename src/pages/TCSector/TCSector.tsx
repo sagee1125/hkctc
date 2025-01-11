@@ -12,6 +12,7 @@ import {
   navItemEnum,
   SubItems,
 } from "../../const";
+import { ServicesDifferentBusinessAreas } from "./ServicesDifferentBusinessAreas";
 
 const returnComponent = (
   navItem: navItemEnum
@@ -30,24 +31,24 @@ const returnComponent = (
     >
   > = {
     [navItemEnum.profile_and_role]: {
-      topBanner: "tcSector/banner_bg_1.png",
+      topBanner: "tcSector/ProfileOfTheSector.png",
       component: <ProfileAndRole />,
     },
     [navItemEnum.tc_sector_strengths]: {
-      topBanner: "tcSector/banner_bg_1.png",
+      topBanner: "tcSector/Strengths.png",
       component: <Strength />,
     },
     [navItemEnum.services_provided]: {
-      topBanner: "tcSector/banner_bg_1.png",
+      topBanner: "tcSector/ServicesProvidedByTCSector.png",
       component: <ServiceProvided />,
     },
-    [navItemEnum.different_business_areas]: {
-      topBanner: "tcSector/banner_bg_1.png",
-      component: <></>,
-    },
     [navItemEnum.accreditation_services]: {
-      topBanner: "tcSector/banner_bg_1.png",
+      topBanner: "tcSector/AccreditationServices.png",
       component: <AccreditationServices />,
+    },
+    [navItemEnum.different_business_areas]: {
+      topBanner: "tcSector/DifferentBusinessAreas.png",
+      component: <ServicesDifferentBusinessAreas />,
     },
   };
   return {
@@ -125,7 +126,9 @@ export const TCSector: React.FC = () => {
   return (
     <div className="mb-[48px]">
       <BannerPhotoBox src={bannerImage} />
-      <Breadcrumb items={breadcrumbItems} />
+      <div id="breadcrumb">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="px-[24px] min-w-[440px] w-1/3">
           <Sidebar

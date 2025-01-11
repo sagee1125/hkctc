@@ -34,8 +34,7 @@ const rows = [
   },
   {
     schemeName: "Research and Development Cash Rebate Scheme",
-    schemeNameHyperLink: "https://www.itf.gov.hk/l-eng/PRP.asp",
-
+    schemeNameHyperLink: "https://www.itf.gov.hk/l-eng/crs.asp",
     objective: "Provide cash rebate for R&D investments",
     targetAudience: "Private enterprises",
     fundingAmount: "40% of R&D investments",
