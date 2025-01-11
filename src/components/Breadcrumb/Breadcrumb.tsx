@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
-type BreadcrumbItem = {
+export type BreadcrumbItem = {
   label: string;
   href?: string; // last one does not need href
 };

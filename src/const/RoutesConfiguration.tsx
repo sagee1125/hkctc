@@ -75,6 +75,7 @@ import {
   SupplementVIItoCEPAClauses,
   CCCTesting,
   InternationalMultilateralSystems,
+  ToysChildrenProducts,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -159,6 +160,12 @@ export const routesConfiguration: RouteConfig[] = [
     description: "",
   },
   { path: "/tc-sector", element: <TCSector />, description: "" },
+
+  {
+    path: "/tc-sector/toys_and_children_products",
+    element: <ToysChildrenProducts />,
+    description: `Toys and Children's Products`,
+  },
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,
