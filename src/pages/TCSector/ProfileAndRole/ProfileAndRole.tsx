@@ -202,7 +202,7 @@ export const ProfileAndRole: React.FC = () => {
             </p>
           </div>
         </div>
-        <p className="text-body-m">
+        <p className="text-body-m mb-[24px]">
           The economic contribution to Hong Kong's GDP was $10.9 billion. As for
           employment, the total number of persons engaged in these private
           independent establishments was about 15 060.
