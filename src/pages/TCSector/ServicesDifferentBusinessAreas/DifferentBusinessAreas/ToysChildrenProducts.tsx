@@ -6,6 +6,7 @@ import {
   DirectorySidebar,
   FileTemplate,
   InternalBackButton,
+  MediaTemplate,
   SquareTitle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
@@ -57,7 +58,7 @@ export const ToysChildrenProducts: React.FC = () => {
         "Examples of toy inspection services are factory inspections of the manufacturing processes and pre-shipment inspections at the factory to determine whether the batch of toy products complies with the buyer's specifications.",
     },
     {
-      title: "Certfication",
+      title: "Certification",
       content:
         "Product certification is required for toys, e.g. China Compulsory Certification (CCC) System.",
     },
@@ -88,26 +89,13 @@ export const ToysChildrenProducts: React.FC = () => {
         </div>
         <div className="flex-1">
           <SquareTitle title="Toys and Children's Products" />
-          <div className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px] my-[24px]">
-            <img
-              className="h-full w-auto object-contain"
-              src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png`}
-              alt={"file icon"}
-            />
 
-            <div className="flex flex-col justify-center items-start pr-[24px] gap-[16px]">
-              <p className="text-heading-m">
-                T&C Manpower Development Award Scheme 2023-24
-              </p>
-              <div className="flex flex-row gap-[8px] items-center">
-                <img
-                  className="w-[16px] h-[16px]"
-                  src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                  alt={"calendar"}
-                />
-                <p className="text-body-s text-grey">4 December 2023</p>
-              </div>
-            </div>
+          <div className="my-[24px]">
+            <MediaTemplate
+              title="T&C Manpower Development Award Scheme 2023-24"
+              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
+              date="4 December 2023"
+            />
           </div>
 
           <FileTemplate
@@ -132,7 +120,7 @@ export const ToysChildrenProducts: React.FC = () => {
           <p className="text-heading-l my-[24px]">
             Testing & Certification Services for Toys
           </p>
-          <div className="w-full flex flex-col gap-[8px]">
+          <div className="w-full flex flex-col gap-[24px]">
             {servicesForToys.map((item, index) => (
               <Accordion
                 key={index}

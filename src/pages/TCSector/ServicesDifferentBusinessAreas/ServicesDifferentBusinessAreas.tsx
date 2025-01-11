@@ -15,12 +15,12 @@ export const displayBusinessAreas: Array<{
   {
     title: "Textiles and Apparel",
     img: "TextilesAndApparel.png",
-    nav: "",
+    nav: "/tc-sector/textiles_and_apparel",
   },
   {
     title: "Electrical and Electronic Products",
     img: "ElectricalAndElectronic.png",
-    nav: "",
+    nav: "/tc-sector/electrical_and_electronic_products",
   },
   {
     title: "Construction Materials and Buildings",

@@ -1,18 +1,18 @@
 import React from "react";
 import { type FileTemplateProps } from "./types";
 
-export const FileTemplate: React.FC<FileTemplateProps> = ({
+export const MediaTemplate: React.FC<FileTemplateProps> = ({
   title,
   imagePath,
   iconPath = "PDF.png",
   date,
 }) => {
   return (
-    <div className="flex flex-row h-[90px] gap-[24px] w-full">
-      <div className="flex-shrink-0 relative w-[130px] h-[90px]">
+    <div className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px]">
+      <div className="flex-shrink-0 relative h-full w-auto">
         <img
           className="border-2 border-inherit w-full h-full object-cover"
-          src={`${process.env.PUBLIC_URL}/${imagePath}`}
+          src={process.env.PUBLIC_URL + imagePath}
           alt={imagePath}
         />
         {/* Icon */}
@@ -22,10 +22,11 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           alt={"file icon"}
         />
       </div>
-      <div className="flex-grow flex-col flex text-black overflow-hidden text-ellipsis">
-        <p className="text-highlight-m">{title}</p>
+
+      <div className="flex flex-col justify-center items-start pr-[24px] gap-[16px]">
+        <p className="text-heading-m">{title}</p>
         {date && (
-          <div className="flex flex-row gap-[8px] mt-[8px] items-center">
+          <div className="flex flex-row gap-[8px] items-center">
             <img
               className="w-[16px] h-[16px]"
               src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}

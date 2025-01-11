@@ -77,6 +77,8 @@ import {
   InternationalMultilateralSystems,
   WhatsNew,
   ToysChildrenProducts,
+  TextilesAndApparel,
+  ElectricalElectronicProducts,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -167,6 +169,19 @@ export const routesConfiguration: RouteConfig[] = [
     element: <ToysChildrenProducts />,
     description: `Toys and Children's Products`,
   },
+
+  {
+    path: "/tc-sector/textiles_and_apparel",
+    element: <TextilesAndApparel />,
+    description: `Textiles and Apparel`,
+  },
+
+  {
+    path: "/tc-sector/electrical_and_electronic_products",
+    element: <ElectricalElectronicProducts />,
+    description: `Electrical and Electronic Products`,
+  },
+
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,
