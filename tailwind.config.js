@@ -32,6 +32,7 @@ module.exports = {
         success: '#27ae60',
         link: '#2980b9',
         border: '#e1e1e1',
+        links:"#00E"
       },
       fontFamily: {
         'roboto-flex': ['Roboto Flex', 'sans-serif'],

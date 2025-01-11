@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ProfileAndRole } from "./ProfileAndRole";
 import { Strength } from "./Strength";
 import { ServiceProvided } from "./ServiceProvided";
-import { AccreditationServices } from "./AccreditationServices";
+import { AccreditationServices } from "./AccreditationServices/AccreditationServices";
 import { BannerPhotoBox, Breadcrumb, Sidebar } from "../../components";
 import {
   NavigationBarConfiguration,

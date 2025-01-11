@@ -2,20 +2,21 @@ import React from "react";
 
 const colorMapping: Record<LinkColor, string> = {
   ink: "#233F55",
+  darkInk: "#203136",
   default: "#00E",
 };
 
-type LinkColor = "default" | "ink";
+type LinkColor = "default" | "ink" | "darkInk";
 
 type LinkProps = {
-  linkColor: LinkColor;
+  linkColor?: LinkColor;
   children: React.ReactNode;
   innerLink?: string;
   outerLink?: string;
 };
 
 export const Link: React.FC<LinkProps> = (props: LinkProps) => {
-  const { children, outerLink, innerLink, linkColor } = props;
+  const { children, outerLink, innerLink, linkColor = "default" } = props;
 
   const handleOpenOuterLink = () => {
     if (innerLink) window.open(innerLink, "_blank");

@@ -127,8 +127,8 @@ const CertificateService: React.FC = () => {
                 >
                   ISO 50001 energy management system certification
                 </Link>
-                and ISO 45001 occupational health and safety management systems
-                certification.
+                &nbsp;and ISO 45001 occupational health and safety management
+                systems certification.
               </div>
             </div>
           }
