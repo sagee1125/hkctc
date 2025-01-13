@@ -79,6 +79,7 @@ import {
   ToysChildrenProducts,
   TextilesAndApparel,
   ElectricalElectronicProducts,
+  ConstructionMaterialsBuildings,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -181,7 +182,11 @@ export const routesConfiguration: RouteConfig[] = [
     element: <ElectricalElectronicProducts />,
     description: `Electrical and Electronic Products`,
   },
-
+  {
+    path: "/tc-sector/construction_materials_and_buildings",
+    element: <ConstructionMaterialsBuildings />,
+    description: `Construction Materials and Buildings`,
+  },
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,

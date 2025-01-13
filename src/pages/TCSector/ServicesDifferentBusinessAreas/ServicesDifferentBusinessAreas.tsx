@@ -25,7 +25,7 @@ export const displayBusinessAreas: Array<{
   {
     title: "Construction Materials and Buildings",
     img: "Construction.png",
-    nav: "",
+    nav: "/tc-sector/construction_materials_and_buildings",
   },
   {
     title: "Medical Testing",

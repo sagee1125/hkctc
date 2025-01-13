@@ -117,9 +117,12 @@ export const ToysChildrenProducts: React.FC = () => {
             good reputation. This in turn leads to increasing product sales
             which has a positive impact upon everyone's bottom-line.
           </p>
-          <p className="text-heading-l my-[24px]">
+          <hr className="my-[24px]" />
+
+          <p className="text-heading-l mb-[24px]">
             Testing & Certification Services for Toys
           </p>
+
           <div className="w-full flex flex-col gap-[24px]">
             {servicesForToys.map((item, index) => (
               <Accordion

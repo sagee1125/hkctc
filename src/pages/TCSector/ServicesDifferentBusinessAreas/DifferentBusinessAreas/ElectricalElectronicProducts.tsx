@@ -96,9 +96,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
   return (
     <div className="w-full pb-[48px]">
       <BannerPhotoBox
-        src={
-          "tcSector/servicesDifferentBusinessAreas/Textiles_Garment_banner.png"
-        }
+        src={"tcSector/servicesDifferentBusinessAreas/Electrical_banner.png"}
       />
       <div id="breadcrumb">
         <Breadcrumb
