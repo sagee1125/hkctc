@@ -11,3 +11,4 @@ export * from "./Support";
 export * from "./AboutUs";
 export * from "./TCSector";
 export * from "./WhatsNew";
+export * from "./AboutSite";

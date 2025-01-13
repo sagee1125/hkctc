@@ -81,6 +81,7 @@ import {
   ElectricalElectronicProducts,
   ConstructionMaterialsBuildings,
   MedicalTesting,
+  AboutSite,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -104,6 +105,7 @@ export const routesConfiguration: RouteConfig[] = [
   { path: "/industry", element: <Industry />, description: "" },
   { path: "/service-users", element: <ServiceUsers />, description: "" },
   { path: "/about-us", element: <AboutUs />, description: "" },
+  { path: "/about-the-site", element: <AboutSite />, description: "" },
 
   { path: "/support", element: <Support />, description: "" },
   {

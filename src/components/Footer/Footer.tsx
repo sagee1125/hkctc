@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 
 type FooterData = {
@@ -11,25 +12,26 @@ type FooterData = {
 };
 
 export const Footer: React.FC = () => {
+  const navigate = useNavigate();
   const footerData: FooterData[] = [
     {
       title: "About this site",
       subs: [
         {
           label: "Important Notices",
-          link: "",
+          link: "/about-the-site?am=Important+Notices",
         },
         {
           label: "Accessibility",
-          link: "",
+          link: "/about-the-site?am=Accessibility",
         },
         {
           label: "Privacy Policy",
-          link: "",
+          link: "/about-the-site?am=Privacy+Policy",
         },
         {
           label: "Contact Us",
-          link: "",
+          link: "/about-the-site?am=Contact+Us",
         },
       ],
     },
@@ -96,7 +98,14 @@ export const Footer: React.FC = () => {
               {col.subs.map((sub, index) => (
                 <div
                   key={index}
-                  className="py-1 flex flex-row gap-[8px] items-start text-body-m"
+                  className="py-1 flex flex-row gap-[8px] items-start text-body-m cursor-pointer"
+                  onClick={() => {
+                    navigate(sub.link);
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
                 >
                   <Icon
                     icon="weui:arrow-outlined"

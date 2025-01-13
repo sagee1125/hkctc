@@ -13,7 +13,6 @@ export const ExploreBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
-  console.log("currentPath", currentPath);
 
   const paths: string[] = [
     "/general-public",
