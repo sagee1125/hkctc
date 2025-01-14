@@ -30,7 +30,7 @@ export const displayBusinessAreas: Array<{
   {
     title: "Medical Testing",
     img: "MedicalTesting.png",
-    nav: "",
+    nav: "/tc-sector/medical_testing",
   },
   {
     title: "Chinese Medicines",
