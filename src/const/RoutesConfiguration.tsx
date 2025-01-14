@@ -80,6 +80,7 @@ import {
   TextilesAndApparel,
   ElectricalElectronicProducts,
   ConstructionMaterialsBuildings,
+  MedicalTesting,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -186,6 +187,11 @@ export const routesConfiguration: RouteConfig[] = [
     path: "/tc-sector/construction_materials_and_buildings",
     element: <ConstructionMaterialsBuildings />,
     description: `Construction Materials and Buildings`,
+  },
+  {
+    path: "/tc-sector/medical_testing",
+    element: <MedicalTesting />,
+    description: `Medical Testing`,
   },
   {
     path: "/seminars-workshops",
