@@ -35,12 +35,12 @@ export const displayBusinessAreas: Array<{
   {
     title: "Chinese Medicines",
     img: "ChineseMedicines.png",
-    nav: "",
+    nav: "/tc-sector/chinese_medicines",
   },
   {
     title: "Jewellery",
     img: "Jewellery.png",
-    nav: "",
+    nav: "/tc-sector/jewellery",
   },
   {
     title: "Food",
