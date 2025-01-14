@@ -61,7 +61,6 @@ export const Navigator: React.FC = () => {
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
   const sideItemRows = navItems?.length;
   console.log("sideItemRows", sideItemRows);
-  console.log("navItems", navItems);
 
   const exploreOption: Array<{ title: string; onClick: () => void }> = [
     {
