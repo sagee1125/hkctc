@@ -82,6 +82,8 @@ import {
   ConstructionMaterialsBuildings,
   MedicalTesting,
   AboutSite,
+  ChineseMedicines,
+  Jewellery,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -195,6 +197,17 @@ export const routesConfiguration: RouteConfig[] = [
     element: <MedicalTesting />,
     description: `Medical Testing`,
   },
+  {
+    path: "/tc-sector/chinese_medicines",
+    element: <ChineseMedicines />,
+    description: `Chinese Medicines`,
+  },
+  {
+    path: "/tc-sector/jewellery",
+    element: <Jewellery />,
+    description: `Jewellery`,
+  },
+
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,

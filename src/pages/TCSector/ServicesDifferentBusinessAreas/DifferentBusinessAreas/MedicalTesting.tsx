@@ -1,10 +1,8 @@
 import React from "react";
 import {
-  Accordion,
   BannerPhotoBox,
   Breadcrumb,
   DirectorySidebar,
-  FileTemplate,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
@@ -35,7 +33,7 @@ export const MedicalTesting: React.FC = () => {
           <DirectorySidebar
             disabled // TODO to be removed
             directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[0]} // Medical Testing
+            activatedItems={directoryItems[4]} // Medical Testing
             setActivatedItems={() => {}}
           />
         </div>
@@ -73,7 +71,7 @@ export const MedicalTesting: React.FC = () => {
             Accreditation Service of the Government provides accreditation to
             medical laboratories through the&nbsp;
             <a
-              href="/"
+              href="https://www.itc.gov.hk/en/quality/hkas/accreditation/hoklas.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

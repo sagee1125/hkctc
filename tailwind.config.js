@@ -60,7 +60,7 @@ module.exports = {
         'body-m': ['16px', { lineHeight: '22px', fontWeight: 300 }],
         'body-l': ['18px', { lineHeight: '24px', fontWeight: 300 }],
 
-        'button-sx': ['12px', { lineHeight: '18px', fontWeight: 700 }],
+        'button-xs': ['12px', { lineHeight: '18px', fontWeight: 700 }],
         'button-s': ['14px', { lineHeight: '20px', fontWeight: 700 }],
       },
 

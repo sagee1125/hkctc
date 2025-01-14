@@ -324,7 +324,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           <DirectorySidebar
             disabled // TODO to be removed
             directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[2]} // Construction Materials and Buildings
+            activatedItems={directoryItems[3]} // Construction Materials and Buildings
             setActivatedItems={() => {}}
           />
         </div>
