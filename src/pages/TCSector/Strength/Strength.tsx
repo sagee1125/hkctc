@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { TC_SECTOR_STRENGTH_TEXT } from "../lang";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
 import { SquareTitle } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 const pageText = TC_SECTOR_STRENGTH_TEXT.EN;
 export const Strength: React.FC = () => {

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
 import { SquareTitle, AreaChart } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);

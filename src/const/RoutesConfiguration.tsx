@@ -56,9 +56,7 @@
 
 import React from "react";
 import {
-  AwardScheme,
   EducatorsStudents,
-  EventsLanding,
   GeneralPublic,
   Home,
   Industry,
@@ -81,7 +79,6 @@ import {
   ElectricalElectronicProducts,
   ConstructionMaterialsBuildings,
   MedicalTesting,
-  AboutSite,
   ChineseMedicines,
   Jewellery,
 } from "../pages";
@@ -89,6 +86,9 @@ import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
 import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
 import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInServicesClauses/AgreementOnTradeInServicesClauses";
+import { AboutSite } from "../pages/AboutSite/AboutSite";
+import { EventsPromotion } from "../pages/EventsPromotion";
+import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
 
 export type RouteConfig = {
   path: string;
@@ -162,10 +162,14 @@ export const routesConfiguration: RouteConfig[] = [
     description: "International Multilateral Systems on Mutual Recognition",
   },
 
-  { path: "/events-landing", element: <EventsLanding />, description: "" },
   {
-    path: "/events-landing/award-scheme",
-    element: <AwardScheme />,
+    path: "/events-promotion",
+    element: <EventsPromotion />,
+    description: "",
+  },
+  {
+    path: "/events-promotion/award-scheme2324",
+    element: <AwardScheme23to24 />,
     description: "",
   },
   { path: "/tc-sector", element: <TCSector />, description: "" },

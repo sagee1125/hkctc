@@ -15,7 +15,7 @@ import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 import {
   activatedButtonStyle,
   normalButtonStyle,
-} from "../../../EventsLanding/EventsLandingContent";
+} from "../../../../components";
 
 const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
 

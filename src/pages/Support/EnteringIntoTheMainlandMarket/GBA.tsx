@@ -1,9 +1,6 @@
 import * as React from "react";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
 import { SquareTitle } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 export const GBA: React.FC = () => {
   const certificationTypeMap: Record<string, React.ReactNode> = {

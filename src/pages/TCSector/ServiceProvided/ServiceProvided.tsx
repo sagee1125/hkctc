@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { TC_SERVICE_PROVIDED_TEXT } from "../lang";
 import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
-import {
   Accordion,
   SquareTitle,
   SummaryTable,
   Link,
 } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 const pageText = TC_SERVICE_PROVIDED_TEXT.EN;
 

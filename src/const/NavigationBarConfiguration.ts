@@ -63,6 +63,17 @@ export enum navItemEnum {
   other_professional_schemes = "other_professional_schemes",
   // Education & Training
   education_training = "education_training",
+
+  // Events & Promotion
+  award_scheme = "award_scheme",
+  seminar_workshop = "seminar_workshop",
+  student_competition = "student_competition",
+
+  hkctc_newsletter = "hkctc_newsletter",
+  pamphlets_booklets = "pamphlets_booklets",
+  comics = "comics",
+  corruption_prevention = "corruption_prevention",
+  useful_information = "useful_information",
 }
 
 export type SubItems = {
@@ -260,39 +271,22 @@ export const NavigationBarConfiguration: NavData[] = [
         name: "Events",
         subItems: [
           {
-            enum: "",
-
+            enum: navItemEnum.award_scheme,
             subTitle: "T&C Manpower Development Award Scheme",
             imgUrl: "Manpower_Development.png",
             navUrl: "events-landing",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.seminar_workshop,
             subTitle: "Seminars and Workshops",
             imgUrl: "Seminars_Workshops.png",
             navUrl: "seminars-workshops",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.student_competition,
             subTitle: "Student Competitions",
             imgUrl: "Student_Competitions.png",
             navUrl: "student-competitions",
-          },
-          {
-            enum: "",
-
-            subTitle: "",
-            imgUrl: "",
-            navUrl: "",
-          },
-          {
-            enum: "",
-
-            subTitle: "",
-            imgUrl: "",
-            navUrl: "",
           },
         ],
       },
@@ -300,36 +294,31 @@ export const NavigationBarConfiguration: NavData[] = [
         name: "Publications",
         subItems: [
           {
-            enum: "",
-
+            enum: navItemEnum.hkctc_newsletter,
             subTitle: "HKCTC Newsletter",
             imgUrl: "HKCTC_Newsletter.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.pamphlets_booklets,
             subTitle: "Pamphlets And Booklets",
             imgUrl: "Pamphlets_And_Booklets.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.comics,
             subTitle: "Comics",
             imgUrl: "Comics.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.corruption_prevention,
             subTitle: "Corruption Prevention Guide for T&C Industry",
             imgUrl: "Corruption_Prevention.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.useful_information,
             subTitle: "Other Useful Information",
             imgUrl: "Other_Useful.png",
             navUrl: "",

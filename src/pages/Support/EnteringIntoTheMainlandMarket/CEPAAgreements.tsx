@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Accordion, SquareTitle } from "../../../components";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 const agreementMap: Record<string, React.ReactNode> = {
   "Latest development": (
