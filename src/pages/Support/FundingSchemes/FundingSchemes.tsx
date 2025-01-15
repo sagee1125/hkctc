@@ -10,10 +10,7 @@ import {
   NITTP,
 } from "./InnovationAndTechnologyFund";
 import { Accordion, SquareTitle } from "../../../components";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import {
   BUD,
   SMEExportMarketingFund,

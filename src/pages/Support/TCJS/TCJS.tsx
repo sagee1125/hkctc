@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { SummaryTable } from "./SummaryTable";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
 import { Accordion, SquareTitle } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 const Aim: React.FC = () => {
   const aimQuestion: Array<{ question: string; answer: React.ReactNode }> = [

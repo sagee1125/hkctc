@@ -9,13 +9,13 @@ import {
   MediaTemplate,
   SquareTitle,
 } from "../../../../components";
-import { navItemEnum } from "../../../../const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 import {
   activatedButtonStyle,
   normalButtonStyle,
-} from "../../../EventsLanding/EventsLandingContent";
+} from "../../../../components";
+import { navItemEnum } from "../../../../const";
+import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
+import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 
 const buttonArray = ["Common safety tests", "Common performance tests"];
 const testExamples_1: string[] = [

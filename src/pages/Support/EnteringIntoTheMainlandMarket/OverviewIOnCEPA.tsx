@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../../EventsLanding/EventsLandingContent";
 import { Accordion, SquareTitle } from "../../../components";
+import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{

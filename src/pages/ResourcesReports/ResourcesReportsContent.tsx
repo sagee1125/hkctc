@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from "react";
-import {
-  activatedButtonStyle,
-  normalButtonStyle,
-} from "../EventsLanding/EventsLandingContent";
 import { Icon } from "@iconify/react";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Slider, Box } from "@mui/material";
-import { EmailBox, SquareTitle } from "../../components";
+import {
+  normalButtonStyle,
+  EmailBox,
+  SquareTitle,
+  activatedButtonStyle,
+} from "../../components";
 
 const reportsButtons = ["All", "HKCTC Reports", "Legislative Council Papers"];
 const mediaType = ["PDF", "Video"];
