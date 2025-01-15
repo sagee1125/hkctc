@@ -45,7 +45,7 @@ export const displayBusinessAreas: Array<{
   {
     title: "Food",
     img: "Food.png",
-    nav: "",
+    nav: "/tc-sector/food",
   },
   {
     title: "Environmental Protection",
