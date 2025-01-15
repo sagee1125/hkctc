@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Accordion,
   BannerPhotoBox,
@@ -21,7 +21,6 @@ const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
 
 export const Jewellery: React.FC = () => {
   const directoryItems = displayBusinessAreas.map((area) => area.title);
-  const [activeButton, setActiveButton] = useState<number>(0);
   const acc: Array<{
     title: string;
     content: React.ReactNode;
@@ -136,9 +135,9 @@ export const Jewellery: React.FC = () => {
 
           <div className="my-[24px]">
             <MediaTemplate
-              title="T&C Manpower Development Award Scheme 2023-24"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
-              date="4 December 2023"
+              title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
+              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
+              iconPath={"VIDEO.png"}
             />
           </div>
           <p className="text-heading-l mb-[24px]">About Jewellery Testing</p>

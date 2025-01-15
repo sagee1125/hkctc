@@ -6,3 +6,5 @@ export * from "./DifferentBusinessAreas/ConstructionMaterialsBuildings";
 export * from "./DifferentBusinessAreas/MedicalTesting";
 export * from "./DifferentBusinessAreas/ChineseMedicines";
 export * from "./DifferentBusinessAreas/Jewellery";
+export * from "./DifferentBusinessAreas/EnvironmentalProtection";
+export * from "./DifferentBusinessAreas/InformationAndCommunicationsTechnologies";
