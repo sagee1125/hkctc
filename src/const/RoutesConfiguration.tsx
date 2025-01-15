@@ -81,6 +81,9 @@ import {
   MedicalTesting,
   ChineseMedicines,
   Jewellery,
+  EnvironmentalProtection,
+  InformationAndCommunicationsTechnologies,
+  Food,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -211,7 +214,21 @@ export const routesConfiguration: RouteConfig[] = [
     element: <Jewellery />,
     description: `Jewellery`,
   },
-
+  {
+    path: "/tc-sector/food",
+    element: <Food />,
+    description: `Food`,
+  },
+  {
+    path: "/tc-sector/environmental_protection",
+    element: <EnvironmentalProtection />,
+    description: `Environmental Protection`,
+  },
+  {
+    path: "/tc-sector/information_and_communications_technologies",
+    element: <InformationAndCommunicationsTechnologies />,
+    description: "Information and Communications Technologies",
+  },
   {
     path: "/seminars-workshops",
     element: <SeminarsWorkshops />,

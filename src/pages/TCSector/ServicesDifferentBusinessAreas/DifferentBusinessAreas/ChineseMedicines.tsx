@@ -247,9 +247,9 @@ export const ChineseMedicines: React.FC = () => {
 
           <div className="my-[24px]">
             <MediaTemplate
-              title="T&C Manpower Development Award Scheme 2023-24"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
-              date="4 December 2023"
+              title="Hong Kong's Testing Services for Chinese Medicines"
+              iconPath={"VIDEO.png"}
+              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
             />
           </div>
           <p className="text-heading-l mb-[24px]">
@@ -260,10 +260,8 @@ export const ChineseMedicines: React.FC = () => {
             imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
           />
 
-          <hr className="my-[24px]" />
-
-          <p className="text-heading-l mb-[24px]">
-            Testing & Certification Services for Toys
+          <p className="text-heading-l my-[24px]">
+            About Chinese Medicines Testing
           </p>
 
           <div className="w-full flex flex-col gap-[24px]">
