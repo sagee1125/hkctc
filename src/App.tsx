@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./Layout";
-import { Home } from "./pages";
 import { SettingsProvider } from "./context";
 import { routesConfiguration } from "./const/RoutesConfiguration";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
               <Route key={index} path={route.path} element={route.element} />
             ))}
             {/* Default route to redirect all undefined paths to '/' */}
-            <Route path="*" element={<Home />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Layout>
       </SettingsProvider>

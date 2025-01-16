@@ -98,7 +98,8 @@ export type RouteConfig = {
 };
 
 export const routesConfiguration: RouteConfig[] = [
-  { path: "/hkctc", element: <Home />, description: "home page" },
+  { path: "/", element: <Home />, description: "Homepage" },
+  { path: "/hkctc", element: <Home />, description: "Homepage" },
   { path: "/general-public", element: <GeneralPublic />, description: "" },
   {
     path: "/educators-students",

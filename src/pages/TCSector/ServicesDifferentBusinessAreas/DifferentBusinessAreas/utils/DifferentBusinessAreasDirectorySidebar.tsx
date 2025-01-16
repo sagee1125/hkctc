@@ -30,7 +30,7 @@ export const DifferentBusinessAreasDirectorySidebar: React.FC<
   return (
     <DirectorySidebar
       directorySidebarItems={directoryItems}
-      activatedItems={businessAreaTitle} // Food
+      activatedItems={businessAreaTitle}
       setActivatedItems={handleNavToAreas}
     />
   );
