@@ -1,6 +1,7 @@
 import React from "react";
 
 import { SquareTitle } from "../../../components";
+import { useNavigate } from "react-router-dom";
 
 export const displayBusinessAreas: Array<{
   title: string;
@@ -60,6 +61,8 @@ export const displayBusinessAreas: Array<{
 ];
 
 export const ServicesDifferentBusinessAreas: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full flex flex-row gap-[24px] pr-[24px]">
       <div className="flex-1">
@@ -72,7 +75,11 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
           {displayBusinessAreas.map((item, index) => {
             const { img, title, nav } = item;
             const onClick = (): void => {
-              window.open(nav, "_blank");
+              const element = document.getElementById("breadcrumb");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+              navigate(nav);
             };
             return (
               <div key={index} className="flex flex-col gap-[14px] w-[260px]">

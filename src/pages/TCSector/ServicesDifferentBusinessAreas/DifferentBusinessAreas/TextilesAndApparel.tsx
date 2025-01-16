@@ -1,20 +1,22 @@
 import React from "react";
 import {
+  handleReturnDifferentBusinessAreasBreadcrumb,
+  type BusinessAreaTitle,
+  DifferentBusinessAreasDirectorySidebar,
+} from "./utils";
+import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 
 export const TextilesAndApparel: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
+  const businessAreaTitle = "Textiles and Apparel" as BusinessAreaTitle;
 
   const servicesForTextile: Array<{
     title: string;
@@ -79,17 +81,14 @@ export const TextilesAndApparel: React.FC = () => {
       <div id="breadcrumb">
         <Breadcrumb
           items={handleReturnDifferentBusinessAreasBreadcrumb(
-            "Textiles and Apparel"
+            businessAreaTitle
           )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[1]} // Textiles and Apparel
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
