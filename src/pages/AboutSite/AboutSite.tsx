@@ -285,11 +285,7 @@ export const AboutSite: React.FC = () => {
     ABOUT_SIDE_MODULE.PRIVACY,
     ABOUT_SIDE_MODULE.CONTACT,
   ];
-  console.log(
-    sidebarActivated,
-    directoryItems,
-    directoryItems.includes(sidebarActivated)
-  );
+
   if (!directoryItems.includes(sidebarActivated)) {
     sidebarActivated = ABOUT_SIDE_MODULE.IMPORTANT_NOTE;
   }

@@ -90,7 +90,7 @@ import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoThe
 import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
 import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInServicesClauses/AgreementOnTradeInServicesClauses";
 import { AboutSite } from "../pages/AboutSite/AboutSite";
-import { EventsPromotion } from "../pages/EventsPromotion";
+import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
 import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
 
 export type RouteConfig = {

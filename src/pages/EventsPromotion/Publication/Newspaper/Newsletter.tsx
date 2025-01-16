@@ -57,7 +57,7 @@ export const Newsletter: React.FC = () => {
   ];
   return (
     <div>
-      <SquareTitle title="Testing & Certificate Manpower Development Award Scheme" />
+      <SquareTitle title="HKCTC Newsletter" />
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
         {resourcesReportsList.map((item, index) => {

@@ -1,2 +1,1 @@
-export * from "./AwardScheme";
 export * from "./StudentCompetition";
