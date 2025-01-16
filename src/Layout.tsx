@@ -27,6 +27,5 @@ const contentStyle: React.CSSProperties = {
   flex: 1,
   display: "flex",
   flexDirection: "column",
-  minHeight: "100vh",
   boxSizing: "border-box",
 };

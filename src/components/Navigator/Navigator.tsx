@@ -16,7 +16,9 @@ const hideExploreBar = [
   "/student-competitions",
   "/support",
   "/tc-sector",
+  "/events-promotion",
   "/about-us",
+  "/*",
 ];
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav

@@ -288,6 +288,19 @@ export const NavigationBarConfiguration: NavData[] = [
             imgUrl: "Student_Competitions.png",
             navUrl: `events-promotion?section=${navItemEnum.student_competition}`,
           },
+          // keep the following placeholder, because the length of subItems should equal 5
+          {
+            enum: "",
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
+          {
+            enum: "",
+            subTitle: "",
+            imgUrl: "",
+            navUrl: "",
+          },
         ],
       },
       {
