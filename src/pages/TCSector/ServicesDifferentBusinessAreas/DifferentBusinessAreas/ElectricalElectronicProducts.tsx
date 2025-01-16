@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import {
+  type BusinessAreaTitle,
+  DifferentBusinessAreasDirectorySidebar,
+  handleReturnDifferentBusinessAreasBreadcrumb,
+} from "./utils";
+import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
@@ -14,8 +18,6 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 
 const buttonArray = ["Common safety tests", "Common performance tests"];
 const testExamples_1: string[] = [
@@ -38,7 +40,9 @@ const testExamples_2: string[] = [
 ];
 
 export const ElectricalElectronicProducts: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
+  const businessAreaTitle =
+    "Electrical and Electronic Products" as BusinessAreaTitle;
+
   const [activeButton, setActiveButton] = useState<number>(0);
 
   const servicesForElectrical: Array<{
@@ -101,21 +105,18 @@ export const ElectricalElectronicProducts: React.FC = () => {
       <div id="breadcrumb">
         <Breadcrumb
           items={handleReturnDifferentBusinessAreasBreadcrumb(
-            "Electrical and Electronic Products"
+            businessAreaTitle
           )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[2]} // Electrical and Electronic Products
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Electrical and Electronic Products" />
+          <SquareTitle title={businessAreaTitle} />
           <div className="my-[24px]">
             <MediaTemplate
               iconPath="VIDEO.png"

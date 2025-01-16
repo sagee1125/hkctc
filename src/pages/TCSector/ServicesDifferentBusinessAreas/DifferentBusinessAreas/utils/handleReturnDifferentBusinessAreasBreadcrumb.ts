@@ -1,5 +1,5 @@
-import { type BreadcrumbItem } from "../../../../components";
-import { navItemEnum } from "../../../../const";
+import { type BreadcrumbItem } from "../../../../../components";
+import { navItemEnum } from "../../../../../const";
 
 export const handleReturnDifferentBusinessAreasBreadcrumb = (
   currentArea: string

@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+  type BusinessAreaTitle,
+  DifferentBusinessAreasDirectorySidebar,
+  handleReturnDifferentBusinessAreasBreadcrumb,
+} from "./utils";
 import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 
 export const ConstructionMaterialsBuildings: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
+  const businessAreaTitle =
+    "Construction Materials and Buildings" as BusinessAreaTitle;
 
   const productData: Array<{
     title: string;
@@ -315,21 +318,18 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       <div id="breadcrumb">
         <Breadcrumb
           items={handleReturnDifferentBusinessAreasBreadcrumb(
-            "Construction Materials and Buildings"
+            businessAreaTitle
           )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[3]} // Construction Materials and Buildings
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Construction Materials and Buildings" />
+          <SquareTitle title={businessAreaTitle} />
           <div className="my-[24px]">
             <MediaTemplate
               iconPath="VIDEO.png"

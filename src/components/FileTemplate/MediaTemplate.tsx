@@ -13,7 +13,7 @@ export const MediaTemplate: React.FC<FileTemplateProps> = ({
       <div className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px]">
         <div className="flex-shrink-0 relative h-full w-auto">
           <img
-            className="border-2 border-inherit w-full h-full object-cover"
+            className="w-full h-full object-cover"
             src={process.env.PUBLIC_URL + imagePath}
             alt={imagePath}
           />

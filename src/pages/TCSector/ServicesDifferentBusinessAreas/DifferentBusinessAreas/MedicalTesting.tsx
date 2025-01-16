@@ -1,18 +1,20 @@
 import React from "react";
 import {
+  type BusinessAreaTitle,
+  DifferentBusinessAreasDirectorySidebar,
+  handleReturnDifferentBusinessAreasBreadcrumb,
+} from "./utils";
+import {
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
 
 export const MedicalTesting: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
+  const businessAreaTitle = "Medical Testing" as BusinessAreaTitle;
 
   return (
     <div className="w-full pb-[48px]">
@@ -24,21 +26,18 @@ export const MedicalTesting: React.FC = () => {
       <div id="breadcrumb">
         <Breadcrumb
           items={handleReturnDifferentBusinessAreasBreadcrumb(
-            "Medical Testing"
+            businessAreaTitle
           )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[4]} // Medical Testing
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Medical Testing" />
+          <SquareTitle title={businessAreaTitle} />
 
           <div className="mt-[24px]">
             <MediaTemplate

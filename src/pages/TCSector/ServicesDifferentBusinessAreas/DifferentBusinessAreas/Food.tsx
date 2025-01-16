@@ -1,12 +1,14 @@
 import React from "react";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
+import {
+  type BusinessAreaTitle,
+  handleReturnDifferentBusinessAreasBreadcrumb,
+  DifferentBusinessAreasDirectorySidebar,
+} from "./utils";
 import { navItemEnum } from "../../../../const";
 import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
@@ -35,8 +37,7 @@ const tableRowsData = [
 ];
 
 export const Food: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
-
+  const businessAreaTitle = "Food" as BusinessAreaTitle;
   const data: Array<{
     title: string;
     content: React.ReactNode;
@@ -115,78 +116,72 @@ export const Food: React.FC = () => {
     {
       title: "c. Selection of Accredited Testing and Certification Services",
       content: (
-        <>
-          <p>
-            Hong Kong Accreditation Service (HKAS) offers accreditation services
-            to laboratories and certification bodies in Hong Kong. Technical
-            competence and operation of accredited organizations have been
-            rigorously assessed by HKAS and independent experts. Accreditation
-            criteria are based on internationally recognized standards. The
-            reliability of results produced by HKAS-accredited organizations can
-            be assured. Moreover, HKAS, through participation in Multilateral
-            Mutual Recognition Arrangements, enables conformity assessments
-            results issued by HKAS-accredited organizations be widely recognised
-            by accreditation bodies in other economies.
-            <br />
-            <br />
-            To indicate their accreditation status, laboratories and
-            certification bodies accredited by HKAS may issue endorsed test
-            reports/certificates that bear the HKAS accreditation symbol and the
-            registration number of the accredited laboratories. In some cases,
-            accreditation status may be claimed by including an appropriate
-            statement in the certificates.
-            <br />
-            <br />
-            List of&nbsp;
-            <span className="underline text-[#00E]">
-              laboratories accredited for performing food testing
-            </span>
-            &nbsp;and&nbsp;
-            <span className="underline text-[#00E]">
-              certification bodies accredited for carrying out food safety
-              management system certification
-            </span>
-            &nbsp;can be obtained from HKAS website.
-          </p>
-        </>
+        <p>
+          Hong Kong Accreditation Service (HKAS) offers accreditation services
+          to laboratories and certification bodies in Hong Kong. Technical
+          competence and operation of accredited organizations have been
+          rigorously assessed by HKAS and independent experts. Accreditation
+          criteria are based on internationally recognized standards. The
+          reliability of results produced by HKAS-accredited organizations can
+          be assured. Moreover, HKAS, through participation in Multilateral
+          Mutual Recognition Arrangements, enables conformity assessments
+          results issued by HKAS-accredited organizations be widely recognised
+          by accreditation bodies in other economies.
+          <br />
+          <br />
+          To indicate their accreditation status, laboratories and certification
+          bodies accredited by HKAS may issue endorsed test reports/certificates
+          that bear the HKAS accreditation symbol and the registration number of
+          the accredited laboratories. In some cases, accreditation status may
+          be claimed by including an appropriate statement in the certificates.
+          <br />
+          <br />
+          List of&nbsp;
+          <span className="underline text-[#00E]">
+            laboratories accredited for performing food testing
+          </span>
+          &nbsp;and&nbsp;
+          <span className="underline text-[#00E]">
+            certification bodies accredited for carrying out food safety
+            management system certification
+          </span>
+          &nbsp;can be obtained from HKAS website.
+        </p>
       ),
     },
-
     {
       title: "d. Food Ordinances in Hong Kong",
       content: (
-        <>
-          <p>
-            The basic food law in Hong Kong is laid down in&nbsp;
-            <span className="underline text-[#00E]">
-              Part V of the Public Health and Municipal Services Ordinance (Cap.
-              132)
-            </span>
-            &nbsp;. The main provisions cover general protection for food
-            purchasers, offences in connection with sale of unfit food and
-            adulterated food, composition and labeling of food, food hygiene,
-            seizure and destruction of unfit food. Controls in specific areas
-            are provided in subsidiary legislation under the Ordinance.
-            <br />
-            <br />
-            Another food related ordinance is&nbsp;
-            <span className="underline text-[#00E]">
-              the Food Safety Ordinance (Cap. 612)
-            </span>
-            &nbsp;which provides new food safety control measures, including a
-            registration scheme for food importers and food distributors and a
-            requirement for food traders to maintain proper records of the
-            movements of food to enhance food traceability.
-            <br />
-            <br />
-            For more details on Food Legislation / Guidelines in Hong Kong,
-            please visit the&nbsp;
-            <span className="underline text-[#00E]">
-              Centre for Food Safety website
-            </span>
-            .
-          </p>
-        </>
+        <p>
+          The basic food law in Hong Kong is laid down in&nbsp;
+          <span className="underline text-[#00E]">
+            Part V of the Public Health and Municipal Services Ordinance (Cap.
+            132)
+          </span>
+          &nbsp;. The main provisions cover general protection for food
+          purchasers, offences in connection with sale of unfit food and
+          adulterated food, composition and labeling of food, food hygiene,
+          seizure and destruction of unfit food. Controls in specific areas are
+          provided in subsidiary legislation under the Ordinance.
+          <br />
+          <br />
+          Another food related ordinance is&nbsp;
+          <span className="underline text-[#00E]">
+            the Food Safety Ordinance (Cap. 612)
+          </span>
+          &nbsp;which provides new food safety control measures, including a
+          registration scheme for food importers and food distributors and a
+          requirement for food traders to maintain proper records of the
+          movements of food to enhance food traceability.
+          <br />
+          <br />
+          For more details on Food Legislation / Guidelines in Hong Kong, please
+          visit the&nbsp;
+          <span className="underline text-[#00E]">
+            Centre for Food Safety website
+          </span>
+          .
+        </p>
       ),
     },
   ];
@@ -213,20 +208,19 @@ export const Food: React.FC = () => {
       />
       <div id="breadcrumb">
         <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb("Food")}
+          items={handleReturnDifferentBusinessAreasBreadcrumb(
+            businessAreaTitle
+          )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[7]} // Food
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Food" />
+          <SquareTitle title={businessAreaTitle} />
 
           <div
             className={`my-[24px] grid grid-cols-${photos.length} gap-[24px]`}

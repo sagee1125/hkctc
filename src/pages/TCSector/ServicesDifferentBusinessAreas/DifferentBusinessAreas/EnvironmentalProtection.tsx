@@ -1,17 +1,20 @@
 import React from "react";
-import { handleReturnDifferentBusinessAreasBreadcrumb } from "./const";
-import { displayBusinessAreas } from "../ServicesDifferentBusinessAreas";
+import {
+  type BusinessAreaTitle,
+  DifferentBusinessAreasDirectorySidebar,
+  handleReturnDifferentBusinessAreasBreadcrumb,
+} from "./utils";
 import { navItemEnum } from "../../../../const";
 import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
 } from "../../../../components";
+
 const timeLineData: string[] = [
   "Define the scope (i.e. activities, facilities, decisions, etc. covered), boundary (e.g. a process, a site, an entire organisation) and policy of an EnMS",
   "Identify applicable legal requirements and other requirements (e.g. public commitments of the organisation)",
@@ -22,7 +25,7 @@ const timeLineData: string[] = [
 ];
 
 export const EnvironmentalProtection: React.FC = () => {
-  const directoryItems = displayBusinessAreas.map((area) => area.title);
+  const businessAreaTitle = "Environmental Protection" as BusinessAreaTitle;
 
   const environmentalProtection: Array<{
     title: string;
@@ -225,21 +228,18 @@ export const EnvironmentalProtection: React.FC = () => {
       <div id="breadcrumb">
         <Breadcrumb
           items={handleReturnDifferentBusinessAreasBreadcrumb(
-            "Environmental Protection"
+            businessAreaTitle
           )}
         />
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled // TODO to be removed
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[8]} // Environmental Protection
-            setActivatedItems={() => {}}
+          <DifferentBusinessAreasDirectorySidebar
+            businessAreaTitle={businessAreaTitle}
           />
         </div>
         <div className="flex-1">
-          <SquareTitle title="Environmental Protection" />
+          <SquareTitle title={businessAreaTitle} />
 
           <div className="my-[24px]">
             <MediaTemplate
