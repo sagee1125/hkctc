@@ -3,8 +3,6 @@ export * from "./GeneralPublic";
 export * from "./EducatorsStudents";
 export * from "./Industry";
 export * from "./ServiceUsers";
-export * from "./SeminarsWorkshops";
-export * from "./StudentCompetitions";
 export * from "./ResourcesReports";
 export * from "./Support";
 export * from "./AboutUs";

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AwardScheme, StudentCompetition } from "./EventsLanding";
+import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
+import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
 import { Newsletter } from "./Publication";
 import { BannerPhotoBox, Breadcrumb, MultipleSidebars } from "../../components";
 import {
@@ -23,6 +24,10 @@ const sidebarComponent: Partial<
   [navItemEnum.award_scheme]: {
     bannerImage: "eventsLanding/banner_bg.png",
     component: <AwardScheme />,
+  },
+  [navItemEnum.seminar_workshop]: {
+    bannerImage: "eventsLanding/banner_bg_2.png",
+    component: <SeminarsWorkshops />,
   },
   [navItemEnum.student_competition]: {
     bannerImage: "eventsLanding/banner_bg_3.png",

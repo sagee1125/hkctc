@@ -61,9 +61,7 @@ import {
   Home,
   Industry,
   ResourcesReports,
-  SeminarsWorkshops,
   ServiceUsers,
-  StudentCompetitions,
   Support,
   AboutUs,
   GuangdongAgreementClauses,
@@ -228,16 +226,6 @@ export const routesConfiguration: RouteConfig[] = [
     path: "/tc-sector/information_and_communications_technologies",
     element: <InformationAndCommunicationsTechnologies />,
     description: "Information and Communications Technologies",
-  },
-  {
-    path: "/seminars-workshops",
-    element: <SeminarsWorkshops />,
-    description: "",
-  },
-  {
-    path: "/student-competitions",
-    element: <StudentCompetitions />,
-    description: "",
   },
   { path: "/whats-new", element: <WhatsNew />, description: "" },
   {
