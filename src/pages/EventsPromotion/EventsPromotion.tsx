@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { AwardScheme } from "./EventsLanding";
+import React, { useState, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AwardScheme, StudentCompetition } from "./EventsLanding";
 import { Newsletter } from "./Publication";
 import { BannerPhotoBox, Breadcrumb, MultipleSidebars } from "../../components";
 import {
@@ -10,21 +11,64 @@ import {
   navItemEnum,
 } from "../../const";
 
-const sidebarComponent: Partial<Record<navItemEnum, React.ReactNode>> = {
-  [navItemEnum.award_scheme]: <AwardScheme />,
-
-  [navItemEnum.hkctc_newsletter]: <Newsletter />,
+const sidebarComponent: Partial<
+  Record<
+    navItemEnum,
+    {
+      bannerImage: string;
+      component: React.ReactNode;
+    }
+  >
+> = {
+  [navItemEnum.award_scheme]: {
+    bannerImage: "eventsLanding/banner_bg.png",
+    component: <AwardScheme />,
+  },
+  [navItemEnum.student_competition]: {
+    bannerImage: "eventsLanding/banner_bg_3.png",
+    component: <StudentCompetition />,
+  },
+  [navItemEnum.hkctc_newsletter]: {
+    bannerImage: "eventsLanding/banner_bg.png",
+    component: <Newsletter />,
+  },
 };
 
+const sidebarKeys = [
+  // events
+  navItemEnum.award_scheme,
+  navItemEnum.seminar_workshop,
+  navItemEnum.student_competition,
+  // publications
+  navItemEnum.hkctc_newsletter,
+  navItemEnum.pamphlets_booklets,
+  navItemEnum.comics,
+  navItemEnum.corruption_prevention,
+  navItemEnum.useful_information,
+];
+
 export const EventsPromotion: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  );
+
+  const sidebarActivated = searchParams.get("section") as navItemEnum;
+  const initialParam: navItemEnum = sidebarKeys.includes(
+    sidebarActivated as navItemEnum
+  )
+    ? (sidebarActivated as navItemEnum)
+    : navItemEnum.award_scheme;
+
+  const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
+
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
     { label: "Events" },
   ];
 
-  const [activeItem, setActiveItem] = useState<navItemEnum>(
-    navItemEnum.other_support
-  );
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
       (nav: NavData) => nav.title === "Events & Promotions"
@@ -50,12 +94,19 @@ export const EventsPromotion: React.FC = () => {
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    navigate(`?section=${item}`);
   };
 
-  const component = sidebarComponent[activeItem];
+  const component = sidebarComponent[activeItem]?.component;
+  const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
+
   return (
     <div className="w-full mb-[48px]">
-      <BannerPhotoBox src="eventsLanding/banner_bg.png" />
+      <BannerPhotoBox src={bannerImage} />
       <div id="breadcrumb">
         <Breadcrumb items={breadcrumbItems} />
       </div>
