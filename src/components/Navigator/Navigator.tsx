@@ -23,8 +23,9 @@ const hideExploreBar = [
 export const Navigator: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
-  const [selectedExploreOption, setSelectedExploreOption] =
-    useState<string>("");
+  const [selectedExploreOption, setSelectedExploreOption] = useState<
+    string | null
+  >(null);
 
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -160,7 +161,7 @@ export const Navigator: React.FC = () => {
           </div>
           {isHideExploreBar && (
             <div className="flex flex-row items-center gap-[8px] pr-[24px]">
-              <p className="text-highlight-s">Explore as</p>
+              {/* <p className="text-highlight-s">Explore as</p> */}
               <div className="min-w-[200px]">
                 <Menu
                   as="div"
@@ -169,7 +170,9 @@ export const Navigator: React.FC = () => {
                   {({ open }) => (
                     <>
                       <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
-                        <p>{selectedExploreOption}</p>
+                        <p className="!text-body-s">
+                          {selectedExploreOption ?? "Explore as"}
+                        </p>
                         <ChevronDownIcon
                           className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${
                             open ? "rotate-180" : "rotate-0"
