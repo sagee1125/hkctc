@@ -1,52 +1,50 @@
 import React from "react";
-import {
-  SquareTitle,
-} from "../../../../components";
+import { SquareTitle } from "../../../../components";
 
 export const Comics: React.FC = () => {
   const publicationsInfo = [
     {
-      title: "Tested in Hong Kong Certified in Hong Kong",
+      title: "第一話 : 講個「信」字？",
       img: "p_1.png",
       tags: [],
     },
     {
-      title: "Product Certification - An Upstream Quality Control",
+      title: "第二話：我要 check 清楚",
       img: "p_2.png",
       tags: [],
     },
     {
-      title: "Testing and Inspection Services for Buildings and...",
+      title: "第三話：抗菌防臭襪",
       img: "p_3.png",
       tags: [],
     },
     {
-      title: "What you Need to Know about Medical Testing",
+      title: "第四話：生日禮物",
       img: "p_4.png",
       tags: [],
     },
     {
-      title: "Food Testing and Certification",
+      title: "第五話：壓力煲風雲",
       img: "p_5.png",
       tags: [],
     },
     {
-      title: "Chinese Medicines Testing",
+      title: "第六話：能源效益測試",
       img: "p_6.png",
       tags: [],
     },
     {
-      title: "Testing of Fei Cui and Diamond in Hong Kong",
+      title: "第七話：神奇縮水毛衣",
       img: "p_7.png",
       tags: [],
     },
     {
-      title: "Diamond Testing Services in Hong Kong",
+      title: "第八話：我很大方",
       img: "p_8.png",
       tags: [],
     },
     {
-      title: "Understanding Information Security Management...",
+      title: "第九話：明明都是碟",
       img: "p_9.png",
       tags: [],
     },
@@ -55,6 +53,11 @@ export const Comics: React.FC = () => {
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Comics" />
+      <img
+        className="w-full"
+        src={`${process.env.PUBLIC_URL}/assets/publications/comics/comic_big.png`}
+        alt="PDF Icon"
+      />
 
       <div>
         Testing and certification (T&C) play a crucial role in our daily life.

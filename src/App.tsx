@@ -3,7 +3,7 @@ import "./App.css";
 import { Layout } from "./Layout";
 import { SettingsProvider } from "./context";
 import { routesConfiguration } from "./const/RoutesConfiguration";
-import { NotFound } from "./pages/NotFound";
+import { NotFound } from "./pages/NotFound/NotFound";
 
 function App() {
   return (

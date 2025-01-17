@@ -9,7 +9,7 @@ const colorMapping: Record<LinkColor, string> = {
 type LinkColor = "default" | "ink" | "darkInk";
 
 type LinkProps = {
-  linkColor?: LinkColor;
+  linkColor?: LinkColor | string;
   children: React.ReactNode;
   innerLink?: string;
   outerLink?: string;
@@ -27,7 +27,9 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
       href={outerLink}
       target="_blank"
       rel="noreferrer"
-      className={`underline text-[${colorMapping[linkColor]}]`}
+      className={`underline text-[${
+        colorMapping[linkColor as LinkColor] ?? linkColor
+      }]`}
       onClick={handleOpenOuterLink}
     >
       {children}
