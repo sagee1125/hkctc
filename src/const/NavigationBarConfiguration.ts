@@ -74,6 +74,13 @@ export enum navItemEnum {
   comics = "comics",
   corruption_prevention = "corruption_prevention",
   useful_information = "useful_information",
+
+  hkctc_reports = "hkctc_reports",
+  council_papers = "council_papers",
+
+  press_releases = "press_releases",
+  advertorials = "advertorials",
+  videos = "videos",
 }
 
 export type SubItems = {
@@ -342,14 +349,13 @@ export const NavigationBarConfiguration: NavData[] = [
         name: "Reports",
         subItems: [
           {
-            enum: "",
+            enum: navItemEnum.hkctc_reports,
             subTitle: "HKCTC Reports",
             imgUrl: "HKCTC_Reports.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.council_papers,
             subTitle: "Legislative Council Papers ",
             imgUrl: "Legislative_Council_Papers.png",
             navUrl: "",
@@ -378,25 +384,22 @@ export const NavigationBarConfiguration: NavData[] = [
         ],
       },
       {
-        name: "News and Videos",
+        name: "News & Videos",
         subItems: [
           {
-            enum: "",
-
+            enum: navItemEnum.press_releases,
             subTitle: "Press Releases",
             imgUrl: "Press_Releases.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.advertorials,
             subTitle: "Advertorials",
             imgUrl: "Advertorials.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.videos,
             subTitle: "Videos",
             imgUrl: "video.png",
             navUrl: "",

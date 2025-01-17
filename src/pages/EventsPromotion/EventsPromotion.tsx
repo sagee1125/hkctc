@@ -2,7 +2,10 @@ import React, { useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { Newsletter, Pamphlets } from "./Publication";
+import { Newsletter } from "./Publication/Newspaper/Newsletter";
+import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
+import { PressReleases } from "./News/PressReleases/PressReleases";
+import { Comics } from "./Publication/Comics/Comics";
 import { BannerPhotoBox, Breadcrumb, MultipleSidebars } from "../../components";
 import {
   type NavData,
@@ -21,6 +24,7 @@ const sidebarComponent: Partial<
     }
   >
 > = {
+  // events
   [navItemEnum.award_scheme]: {
     bannerImage: "eventsLanding/banner_bg.png",
     component: <AwardScheme />,
@@ -33,6 +37,8 @@ const sidebarComponent: Partial<
     bannerImage: "eventsLanding/banner_bg_3.png",
     component: <StudentCompetition />,
   },
+
+  // publications
   [navItemEnum.hkctc_newsletter]: {
     bannerImage: "",
     component: <Newsletter />,
@@ -40,6 +46,16 @@ const sidebarComponent: Partial<
   [navItemEnum.pamphlets_booklets]: {
     bannerImage: "",
     component: <Pamphlets />,
+  },
+  [navItemEnum.comics]: {
+    bannerImage: "",
+    component: <Comics />,
+  },
+
+  // news
+  [navItemEnum.press_releases]: {
+    bannerImage: "",
+    component: <PressReleases />,
   },
 };
 
@@ -81,14 +97,30 @@ export const EventsPromotion: React.FC = () => {
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
       (nav: NavData) => nav.title === "Events & Promotions"
-    )?.items.find((subNav: NavItems) => subNav.name === "Events")?.subItems ??
-    [];
+    )
+      ?.items.find((subNav: NavItems) => subNav.name === "Events")
+      ?.subItems?.filter((item) => item.enum) ?? [];
 
   const publicationItem: SubItems[] =
     NavigationBarConfiguration.find(
       (nav: NavData) => nav.title === "Events & Promotions"
-    )?.items.find((subNav: NavItems) => subNav.name === "Publications")
-      ?.subItems ?? [];
+    )
+      ?.items.find((subNav: NavItems) => subNav.name === "Publications")
+      ?.subItems?.filter((item) => item.enum) ?? [];
+
+  const reports: SubItems[] =
+    NavigationBarConfiguration.find(
+      (nav: NavData) => nav.title === "Events & Promotions"
+    )
+      ?.items.find((subNav: NavItems) => subNav.name === "Reports")
+      ?.subItems?.filter((item) => item.enum) ?? [];
+
+  const NewsVideos: SubItems[] =
+    NavigationBarConfiguration.find(
+      (nav: NavData) => nav.title === "Events & Promotions"
+    )
+      ?.items.find((subNav: NavItems) => subNav.name === "News & Videos")
+      ?.subItems?.filter((item) => item.enum) ?? [];
 
   const sidebarData = [
     {
@@ -98,6 +130,14 @@ export const EventsPromotion: React.FC = () => {
     {
       title: "Publications",
       sidebarItems: publicationItem,
+    },
+    {
+      title: "Reports",
+      sidebarItems: reports,
+    },
+    {
+      title: "News & Videos",
+      sidebarItems: NewsVideos,
     },
   ];
 
