@@ -14,3 +14,4 @@ export * from "./Table";
 export * from "./Link";
 export * from "./FileTemplate";
 export * from "./Button";
+export * from "./Paginator";

@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { Newsletter } from "./Publication";
+import { Newsletter, Pamphlets } from "./Publication";
 import { BannerPhotoBox, Breadcrumb, MultipleSidebars } from "../../components";
 import {
   type NavData,
@@ -34,8 +34,12 @@ const sidebarComponent: Partial<
     component: <StudentCompetition />,
   },
   [navItemEnum.hkctc_newsletter]: {
-    bannerImage: "eventsLanding/banner_bg.png",
+    bannerImage: "",
     component: <Newsletter />,
+  },
+  [navItemEnum.pamphlets_booklets]: {
+    bannerImage: "",
+    component: <Pamphlets />,
   },
 };
 
@@ -111,7 +115,7 @@ export const EventsPromotion: React.FC = () => {
 
   return (
     <div className="w-full mb-[48px]">
-      <BannerPhotoBox src={bannerImage} />
+      {bannerImage && <BannerPhotoBox src={bannerImage} />}
       <div id="breadcrumb">
         <Breadcrumb items={breadcrumbItems} />
       </div>
