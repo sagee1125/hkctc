@@ -17,6 +17,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
       <MuiAccordion
         elevation={0}
         disableGutters
+        defaultExpanded
         sx={{
           padding: "0 !important",
           margin: "0 !important",

@@ -73,7 +73,7 @@ export const TCSector: React.FC = () => {
 
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "T&C Sector"
+      (nav: NavData) => nav.title === "About T&C Sector"
     )?.items.find(
       (subNav: NavItems) =>
         subNav.name ===

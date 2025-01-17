@@ -103,7 +103,7 @@ export const NavigationBarConfiguration: NavData[] = [
     navUrl: "about-us",
   },
   {
-    title: "T&C Sector",
+    title: "About T&C Sector",
     showSidebar: true,
     items: [
       {
