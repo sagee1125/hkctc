@@ -113,7 +113,6 @@ const leftComponentMapKeys = [
 ];
 
 export const Support: React.FC = () => {
-  const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Support" }];
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -137,6 +136,10 @@ export const Support: React.FC = () => {
     useState<navItemEnum>(initialParam);
   const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
     useState<string>("");
+
+  const activeSidebarItemsLabel =
+    eventItems.find((item) => item.enum === activeSidebarItems)?.subTitle ??
+    navItemEnum.exhibition_programme;
 
   const dramaticComponent = returnComponent(
     activeSidebarItems as navItemEnum,
@@ -184,6 +187,17 @@ export const Support: React.FC = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    {
+      label: "Support",
+      href: `/support?section=${navItemEnum.exhibition_programme}`, // default to activate the first one
+    },
+    {
+      label: activeSidebarItemsLabel,
+    },
+  ];
 
   return (
     <div className="w-full pb-[48px]">

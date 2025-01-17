@@ -66,11 +66,6 @@ const leftComponentMapKeys = [
 ];
 
 export const TCSector: React.FC = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "T&C Sector " },
-  ];
-
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
       (nav: NavData) => nav.title === "About T&C Sector"
@@ -97,6 +92,9 @@ export const TCSector: React.FC = () => {
   const [activeSidebarItems, setActiveSidebarItems] =
     useState<navItemEnum>(initialParam);
 
+  const activeSidebarItemsLabel =
+    eventItems.find((item) => item.enum === activeSidebarItems)?.subTitle ??
+    navItemEnum.profile_and_role;
   const component = returnComponent(
     activeSidebarItems as navItemEnum
   )?.component;
@@ -123,6 +121,17 @@ export const TCSector: React.FC = () => {
     }
   }, [initialParam, initialHashIndex, activeSidebarItems, navigate]);
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    {
+      label: "About T&C Sector",
+      href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
+    },
+    {
+      label: activeSidebarItemsLabel,
+    },
+  ];
+
   return (
     <div className="mb-[48px]">
       <BannerPhotoBox src={bannerImage} />
@@ -132,7 +141,7 @@ export const TCSector: React.FC = () => {
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="px-[24px] min-w-[440px] w-1/3">
           <Sidebar
-            title={"T&C Sector"}
+            title={"About T&C Sector"}
             sidebarItems={eventItems}
             activatedItems={activeSidebarItems}
             setActivatedItems={handleChangeSidebar}

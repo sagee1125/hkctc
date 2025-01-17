@@ -7,7 +7,11 @@ export const handleReturnDifferentBusinessAreasBreadcrumb = (
   const differentBusinessAreasBreadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "T&C Sector - Services for Different Business Areas",
+      label: "About T&C Sector",
+      href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
+    },
+    {
+      label: "Services for Different Business Areas",
       href: `/tc-sector?section=${navItemEnum.different_business_areas}`,
     },
     { label: currentArea },

@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export type BreadcrumbItem = {
   label: string;
@@ -11,8 +12,10 @@ type BreadcrumbProps = {
 };
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
+  const navigate = useNavigate();
+
   return (
-    <nav aria-label="Breadcrumb" style={breadcrumbStyle}>
+    <nav id="breadcrumb" aria-label="Breadcrumb" style={breadcrumbStyle}>
       <ol className="flex space-x-[8px] text-black items-center">
         {items.map((item, index) => (
           <li key={index} className="flex items-center flex-row gap-[8px]">
@@ -23,14 +26,33 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   alt="Home Icon"
                   className="w-[16px] h-[16px] text-[#A7AAAD]"
                 />
-                <a href={item.href} className="text-body-m cursor-pointer">
+                <p
+                  className="text-body-m cursor-pointer"
+                  onClick={() => {
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                    navigate(`${item.href}`); // back to homepage
+                  }}
+                >
                   {item.label}
-                </a>
+                </p>
               </div>
             ) : item.href ? (
-              <a href={item.href} className="text-body-m cursor-pointer">
+              <p
+                className="text-body-m cursor-pointer"
+                onClick={() => {
+                  const element = document.getElementById("breadcrumb");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+
+                  navigate(`${item.href}`);
+                }}
+              >
                 {item.label}
-              </a>
+              </p>
             ) : (
               <span className="text-highlight-m">{item.label}</span>
             )}
