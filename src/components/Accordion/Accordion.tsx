@@ -60,3 +60,41 @@ export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
     </div>
   );
 };
+
+export const NormalAccordion: React.FC<AccordionProps> = ({
+  title,
+  details,
+}) => {
+  return (
+    <MuiAccordion
+      id="type"
+      sx={{
+        ":before": { display: "none" },
+        boxShadow: "none",
+        ".MuiButtonBase-root": { minHeight: "0px !important" },
+        ".MuiAccordionSummary-content": {
+          margin: "0 !important",
+        },
+      }}
+      defaultExpanded
+    >
+      <AccordionSummary
+        sx={{
+          width: "auto",
+          padding: 0,
+          marginBottom: "10px",
+        }}
+        expandIcon={<ExpandMoreIcon className="text-[#000000]" />}
+      >
+        <span className="mr-[8px]">{title}</span>
+      </AccordionSummary>
+      <AccordionDetails
+        sx={{
+          padding: 0,
+        }}
+      >
+        {details}
+      </AccordionDetails>
+    </MuiAccordion>
+  );
+};

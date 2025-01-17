@@ -1,2 +1,1 @@
-export * from "./Newspaper";
 export * from "./Pamphlets";
