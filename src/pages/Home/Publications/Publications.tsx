@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 type ResourcesData = {
   title: string;
   icon: string;
-  number: number;
   sideColor: string;
   bgImg: string;
   onClick: () => void;
@@ -133,7 +132,6 @@ export const Publications: React.FC = () => {
     {
       title: "Reports",
       icon: "lsicon:report-outline",
-      number: 20,
       sideColor: "#D1E39B",
       bgImg: report,
       onClick: () => {
@@ -143,7 +141,6 @@ export const Publications: React.FC = () => {
     {
       title: "Newsletter",
       icon: "qlementine-icons:newspaper-16",
-      number: 26,
       sideColor: "#F15A31",
       bgImg: newsletter,
       onClick: () => {},
@@ -151,7 +148,6 @@ export const Publications: React.FC = () => {
     {
       title: "Publications",
       icon: "lsicon:report-outline",
-      number: 14,
       sideColor: "#D9B6F6",
       bgImg: publications,
       onClick: () => {},
@@ -160,7 +156,6 @@ export const Publications: React.FC = () => {
     {
       title: "Courses",
       icon: "hugeicons:teacher",
-      number: 32,
       sideColor: "#BBC9E7",
       bgImg: courses,
       onClick: () => {},
@@ -168,7 +163,6 @@ export const Publications: React.FC = () => {
     {
       title: "Advertorials",
       icon: "fluent-mdl2:publish-course",
-      number: 68,
       sideColor: "#FFC786",
       bgImg: advertorials,
       onClick: () => {},
@@ -472,11 +466,13 @@ export const Publications: React.FC = () => {
           />
         </div>
 
-        <div className="w-full h-[390px] grid grid-cols-2 gap-[24px] mt-[24px]">
+        <div className="w-full h-auto grid grid-cols-2 gap-[24px] mt-[24px]">
           <div
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
-              minHeight: "390px",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "420px",
               ...imgBox,
             }}
           >
@@ -584,7 +580,7 @@ export const Publications: React.FC = () => {
           <div className="text-heading-l">Resources</div>
           <div>
             {resourcesData.map((item, index) => {
-              const { number, title, icon, sideColor, bgImg, onClick } = item;
+              const { title, icon, sideColor, bgImg, onClick } = item;
               return (
                 <div
                   key={index}
@@ -604,8 +600,10 @@ export const Publications: React.FC = () => {
                     style={{ backgroundColor: sideColor, opacity: 0.8 }}
                   />
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
-                    <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div>
-                    <div className="z-20 text-heading-l">{title}</div>
+                    {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
+                    <div className="z-20 pl-[20px] text-heading-l text-center w-full">
+                      {title}
+                    </div>
                     <div className="z-20 pr-[20px]">
                       <Icon
                         icon={icon}
