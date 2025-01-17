@@ -34,7 +34,7 @@ export const SummaryTable: React.FC<TableBodyProps> = ({
               "& th": {
                 borderBottom: "none",
               },
-              bgcolor: "#EFEFEF",
+              bgcolor: "#F7F7F5",
             }}
           >
             {tableHeads.map((head, index) => (

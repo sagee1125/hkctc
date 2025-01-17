@@ -36,7 +36,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   setActivatedItems(navItemEnum);
                 }}
               >
-                <div className="flex flex-row h-[106px] gap-[24px] w-full">
+                <div className="flex flex-row h-[106px] gap-[24px] w-full cursor-pointer ">
                   <img
                     className="w-auto h-[106px] object-contain"
                     src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}

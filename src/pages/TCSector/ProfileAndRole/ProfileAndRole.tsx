@@ -270,12 +270,12 @@ export const ProfileAndRole: React.FC = () => {
         </p>
         <div className="grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full">
           <img
-            className="h-[340px] w-auto object-fit rounded"
+            className="h-[340px] w-auto object-fit"
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role1.png"}
             alt="Role1"
           />
           <img
-            className="h-[340px] w-auto object-contain rounded"
+            className="h-[340px] w-auto object-contain"
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role2.png"}
             alt="Role2"
           />
