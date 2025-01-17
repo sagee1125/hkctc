@@ -82,13 +82,18 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
               navigate(nav);
             };
             return (
-              <div key={index} className="flex flex-col gap-[14px] w-[260px]">
-                <img
-                  className="w-full h-[202px] cursor-pointer"
-                  src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/${img}`}
-                  alt={"file icon"}
-                  onClick={onClick}
-                />
+              <div
+                key={index}
+                className="flex flex-col gap-[14px] w-[260px] group"
+              >
+                <div className="w-full h-[202px] overflow-hidden cursor-pointer">
+                  <img
+                    className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/${img}`}
+                    alt={"file icon"}
+                    onClick={onClick}
+                  />
+                </div>
                 <p
                   className="text-highlight-m cursor-pointer"
                   onClick={onClick}

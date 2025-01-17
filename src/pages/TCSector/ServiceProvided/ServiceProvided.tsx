@@ -196,10 +196,10 @@ export const ServiceProvided: React.FC = () => {
   ];
 
   const servicesTableHead = [
-    "service",
-    "coverage",
-    "duration",
-    "resultProduct",
+    "Service",
+    "Coverage",
+    "Duration",
+    "Resulting Product",
   ];
 
   const servicesTableRowsData = [
