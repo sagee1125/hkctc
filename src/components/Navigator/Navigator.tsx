@@ -108,7 +108,7 @@ export const Navigator: React.FC = () => {
               <Logo
                 className="h-[54px] w-[141px] cursor-pointer"
                 onClick={() => {
-                  window.location.href = "/hkctc";
+                  navigate("/");
                 }}
               />
             </div>

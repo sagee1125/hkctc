@@ -9,9 +9,9 @@ export const VideoBox: React.FC = () => {
 
   const videoUrls = [
     process.env.PUBLIC_URL + "/assets/InnoCarnivalcut.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
   ];
 
   useEffect(() => {
@@ -146,31 +146,37 @@ export const VideoBox: React.FC = () => {
                 November 3 at the Hong Kong Science Park with the theme of
                 "Let's Sail with Innovation and Technology".`}
                   </p>
-                  <div className="py-2 text-highlight-m">
+                  {/* <div className="py-2 text-highlight-m">
                     <button style={buttonStyle}>SEE MORE</button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex flex-row">
-                  <Icon
-                    icon="icons8:left-squared"
-                    className="text-white cursor-pointer"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      strokeWidth: "1px",
-                    }}
-                    onClick={() => handleSlide("prev")}
-                  />
-                  <Icon
-                    icon="icons8:right-squared"
-                    className="text-white cursor-pointer"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      strokeWidth: "1px",
-                    }}
-                    onClick={() => handleSlide("next")}
-                  />
+                  {videoUrls.length > 1 ? (
+                    <>
+                      <Icon
+                        icon="icons8:left-squared"
+                        className="text-white cursor-pointer"
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          strokeWidth: "1px",
+                        }}
+                        onClick={() => handleSlide("prev")}
+                      />
+                      <Icon
+                        icon="icons8:right-squared"
+                        className="text-white cursor-pointer"
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          strokeWidth: "1px",
+                        }}
+                        onClick={() => handleSlide("next")}
+                      />
+                    </>
+                  ) : (
+                    <div />
+                  )}
                 </div>
               </div>
             </div>
