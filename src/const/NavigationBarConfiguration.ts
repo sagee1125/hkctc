@@ -62,8 +62,9 @@ export enum navItemEnum {
   career_opportunities = "career_opportunities",
   other_professional_schemes = "other_professional_schemes",
   // Education & Training
-  education_training = "education_training",
-
+  programmes_and_courses = "programmes_and_courses",
+  learning_teaching_resources = "learning_teaching_resources",
+  qualifications_framework = "qualifications_framework",
   // Events & Promotion
   award_scheme = "award_scheme",
   seminar_workshop = "seminar_workshop",
@@ -236,20 +237,19 @@ export const NavigationBarConfiguration: NavData[] = [
         name: "Education & Training",
         subItems: [
           {
-            enum: navItemEnum.education_training,
+            enum: navItemEnum.programmes_and_courses,
             subTitle: "Programmes and Courses",
             imgUrl: "Programmes_and_Courses.png",
             navUrl: "",
           },
           {
-            enum: "",
-
+            enum: navItemEnum.learning_teaching_resources,
             subTitle: "Learning and Teaching Resources",
             imgUrl: "Learning_and_Teaching_Resources.png",
             navUrl: "",
           },
           {
-            enum: "",
+            enum: navItemEnum.qualifications_framework,
             subTitle: "Qualifications Framework",
             imgUrl: "Qualifications_Framework.png",
             navUrl: "",

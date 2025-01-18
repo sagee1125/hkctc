@@ -1,5 +1,6 @@
 export const maxContainer: React.CSSProperties = {
   maxWidth: "1440px",
+  width: "100%",
 };
 
 export const fullContainer: React.CSSProperties = {

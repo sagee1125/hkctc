@@ -82,6 +82,7 @@ import {
   EnvironmentalProtection,
   InformationAndCommunicationsTechnologies,
   Food,
+  CareerEducation,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -164,6 +165,11 @@ export const routesConfiguration: RouteConfig[] = [
     description: "International Multilateral Systems on Mutual Recognition",
   },
 
+  {
+    path: "/career_and_education",
+    element: <CareerEducation />,
+    description: "Career & Education",
+  },
   {
     path: "/events-promotion",
     element: <EventsPromotion />,
