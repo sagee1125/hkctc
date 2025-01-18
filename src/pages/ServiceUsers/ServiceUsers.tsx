@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb } from "../../components";
+import { Breadcrumb, fullContainer, maxContainer } from "../../components";
 import { ExploreDetailBar } from "../../components/Navigator";
 import { ServiceUsersContent } from "./ServiceUsersContent";
 
@@ -10,15 +10,17 @@ export const ServiceUsers: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div style={fullContainer}>
       <ExploreDetailBar
         title="T&C Service Users"
         titleTheme="energeticOrange"
         description="Learn how we can help you with business and acknowledgements"
         barBackgroundImg="serviceUsers/banner_bg.png"
       />
-      <Breadcrumb items={breadcrumbItems} />
-      <ServiceUsersContent />
+      <div style={maxContainer}>
+        <Breadcrumb items={breadcrumbItems} />
+        <ServiceUsersContent />
+      </div>
     </div>
   );
 };

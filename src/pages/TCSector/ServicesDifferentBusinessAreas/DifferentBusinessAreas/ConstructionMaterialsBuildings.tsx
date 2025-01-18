@@ -12,6 +12,8 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -311,101 +313,105 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     },
   ];
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Construction_banner.png"}
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title={businessAreaTitle} />
-          <div className="my-[24px]">
-            <MediaTemplate
-              iconPath="VIDEO.png"
-              title="Hong Kong's Testing and Certification Services for Construction Materials and Buildings"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
             />
           </div>
-          <p className="text-heading-l mb-[24px]">
-            Product Certification for Construction Materials
-          </p>
-          <FileTemplate
-            title={"Product Certification - An Upstream Quality Control"}
-            imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
-          />
-
-          <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-            {productData.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="!text-body-m">{item.content}</div>}
+          <div className="flex-1">
+            <SquareTitle title={businessAreaTitle} />
+            <div className="my-[24px]">
+              <MediaTemplate
+                iconPath="VIDEO.png"
+                title="Hong Kong's Testing and Certification Services for Construction Materials and Buildings"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
               />
-            ))}
-          </div>
+            </div>
+            <p className="text-heading-l mb-[24px]">
+              Product Certification for Construction Materials
+            </p>
+            <FileTemplate
+              title={"Product Certification - An Upstream Quality Control"}
+              imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
+            />
 
-          <hr className="my-[24px]" />
-          <p className="text-heading-l my-[24px]">
-            Testing and Inspection Services for Buildings and Construction
-            Materials
-          </p>
-          <p className="text-body-m">
-            Details of the laboratories providing the public with accredited
-            electrical and electronic product (EEP) testing services are
-            available at&nbsp;
-            <a
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              HKAS's website
-            </a>
-            .
-          </p>
-          <hr className="my-[24px]" />
+            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+              {productData.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="!text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
 
-          <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-            {testingData.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={
-                  <div>
-                    <div className="!text-body-m">{item.descriptionTitle}</div>
-                    <div className="!text-body-m">
-                      {[...item.description].map((desc, index) => (
-                        <div key={index}>
-                          <li>{desc}</li>
-                        </div>
-                      ))}
+            <hr className="my-[24px]" />
+            <p className="text-heading-l my-[24px]">
+              Testing and Inspection Services for Buildings and Construction
+              Materials
+            </p>
+            <p className="text-body-m">
+              Details of the laboratories providing the public with accredited
+              electrical and electronic product (EEP) testing services are
+              available at&nbsp;
+              <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                HKAS's website
+              </a>
+              .
+            </p>
+            <hr className="my-[24px]" />
+
+            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+              {testingData.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={
+                    <div>
+                      <div className="!text-body-m">
+                        {item.descriptionTitle}
+                      </div>
+                      <div className="!text-body-m">
+                        {[...item.description].map((desc, index) => (
+                          <div key={index}>
+                            <li>{desc}</li>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
+                        <p className="text-heading-m">{item.contentTitle}</p>
+                        <p className="text-body-m mt-[16px]">{item.content}</p>
+                      </div>
                     </div>
+                  }
+                />
+              ))}
+            </div>
+            <hr className="my-[24px]" />
 
-                    <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
-                      <p className="text-heading-m">{item.contentTitle}</p>
-                      <p className="text-body-m mt-[16px]">{item.content}</p>
-                    </div>
-                  </div>
-                }
-              />
-            ))}
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
           </div>
-          <hr className="my-[24px]" />
-
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
         </div>
       </div>
     </div>

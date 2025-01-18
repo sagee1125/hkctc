@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb } from "../../components";
+import { Breadcrumb, fullContainer, maxContainer } from "../../components";
 import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { EducatorsStudentsContent } from "./EducatorsStudentsContent";
@@ -11,16 +11,18 @@ export const EducatorsStudents: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div style={fullContainer}>
       <ExploreDetailBar
         title="Educators & Students"
         titleTheme="trustfulBlue"
         description="Know more about certificate & testing in education, and how to become part of us"
         barBackgroundImg="educatorsStudents/banner_bg.png"
       />
-      <Breadcrumb items={breadcrumbItems} />
-      <PhotoPanel />
-      <EducatorsStudentsContent />
+      <div style={maxContainer}>
+        <Breadcrumb items={breadcrumbItems} />
+        <PhotoPanel />
+        <EducatorsStudentsContent />
+      </div>
     </div>
   );
 };

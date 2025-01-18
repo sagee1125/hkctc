@@ -1,5 +1,10 @@
 import React from "react";
-import { SquareTitle, Link } from "../../components";
+import {
+  SquareTitle,
+  Link,
+  fullContainer,
+  maxContainer,
+} from "../../components";
 
 export const WhatsNew: React.FC = () => {
   const whatsNewList = [
@@ -76,63 +81,68 @@ export const WhatsNew: React.FC = () => {
   ];
 
   return (
-    <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px] mb-[48px]">
-      <div className="w-full flex flex-col gap-[24px]">
-        <SquareTitle title={"What’s New"} />
-        {whatsNewList.map((item, index) => {
-          const { img, title, date } = item;
-          return (
-            <div key={index} className="flex flex-row items-center w-full">
-              <div className="w-full">
-                <div className="text-heading-m mb-[16px]">
-                  <Link linkColor="darkInk">{title}</Link>
-                </div>
-                <div className="flex flex-row items-center">
-                  <img
-                    className="w-[16px] h-[16px]"
-                    src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                    alt={"calendar"}
-                  />
-                  <span className="text-grey ml-[8px]">{date}</span>
-                </div>
-              </div>
-              <img
-                className="border-2 border-inherit w-[278px] h-full object-cover"
-                src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/${img}`}
-                alt={img}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div>
-        <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
-          <p className="text-heading-l">Newsletter</p>
-          {newsletterList.map((item, index) => {
-            const { title, date } = item;
-            return (
-              <div className="flex flex-row gap-[24px]" key={index}>
-                <img
-                  className="border-2 border-inherit w-[160px] h-full object-cover"
-                  src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/Reports.png`}
-                  alt={"Report.png"}
-                />
-                <div className="flex flex-col">
-                  <div className="text-highlight-m">{title}</div>
-                  <div className="flex flex-row items-center">
-                    <img
-                      className="w-[16px] h-[16px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                      alt={"calendar"}
-                    />
-                    <span className="text-grey ml-[8px]">{date}</span>
+    <div style={fullContainer}>
+      <div style={maxContainer}>
+        {" "}
+        <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
+          <div className="w-full flex flex-col gap-[24px]">
+            <SquareTitle title={"What’s New"} />
+            {whatsNewList.map((item, index) => {
+              const { img, title, date } = item;
+              return (
+                <div key={index} className="flex flex-row items-center w-full">
+                  <div className="w-full">
+                    <div className="text-heading-m mb-[16px]">
+                      <Link linkColor="darkInk">{title}</Link>
+                    </div>
+                    <div className="flex flex-row items-center">
+                      <img
+                        className="w-[16px] h-[16px]"
+                        src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+                        alt={"calendar"}
+                      />
+                      <span className="text-grey ml-[8px]">{date}</span>
+                    </div>
                   </div>
+                  <img
+                    className="border-2 border-inherit w-[278px] h-full object-cover"
+                    src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/${img}`}
+                    alt={img}
+                  />
                 </div>
+              );
+            })}
+          </div>
+          <div>
+            <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
+              <p className="text-heading-l">Newsletter</p>
+              {newsletterList.map((item, index) => {
+                const { title, date } = item;
+                return (
+                  <div className="flex flex-row gap-[24px]" key={index}>
+                    <img
+                      className="border-2 border-inherit w-[160px] h-full object-cover"
+                      src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/Reports.png`}
+                      alt={"Report.png"}
+                    />
+                    <div className="flex flex-col">
+                      <div className="text-highlight-m">{title}</div>
+                      <div className="flex flex-row items-center">
+                        <img
+                          className="w-[16px] h-[16px]"
+                          src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+                          alt={"calendar"}
+                        />
+                        <span className="text-grey ml-[8px]">{date}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="text-links underline text-right w-full cursor-pointer">
+                See more
               </div>
-            );
-          })}
-          <div className="text-links underline text-right w-full cursor-pointer">
-            See more
+            </div>
           </div>
         </div>
       </div>

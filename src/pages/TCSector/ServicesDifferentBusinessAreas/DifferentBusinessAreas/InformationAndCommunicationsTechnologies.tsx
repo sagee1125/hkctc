@@ -12,6 +12,8 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 
 const timeLineData: Array<{
@@ -192,50 +194,52 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={
           "tcSector/servicesDifferentBusinessAreas/InformationAndCommunicationsTechnologiesBanner.png"
         }
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title={businessAreaTitle} />
-
-          <div className="my-[24px]">
-            <MediaTemplate
-              title="Understanding Information Security Management System (ISMS) Certification"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
             />
           </div>
+          <div className="flex-1">
+            <SquareTitle title={businessAreaTitle} />
 
-          <div className="w-full flex flex-col gap-[24px] mb-[24px]">
-            {data.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="text-body-m">{item.content}</div>}
+            <div className="my-[24px]">
+              <MediaTemplate
+                title="Understanding Information Security Management System (ISMS) Certification"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
               />
-            ))}
+            </div>
+
+            <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+              {data.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
+
+            <hr className="my-[24px]" />
+
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
           </div>
-
-          <hr className="my-[24px]" />
-
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
         </div>
       </div>
     </div>

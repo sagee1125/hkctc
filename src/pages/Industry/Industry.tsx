@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb } from "../../components";
+import { Breadcrumb, fullContainer, maxContainer } from "../../components";
 import { ExploreDetailBar } from "../../components/Navigator";
 
 import { IndustryContent } from "./IndustryContent";
@@ -11,15 +11,17 @@ export const Industry: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div style={fullContainer}>
       <ExploreDetailBar
         title="T&C Bodies & Practitioners"
         titleTheme="growthfulGreen"
         description="Learn how we can help you with business and acknowledgements"
         barBackgroundImg="industry/banner_bg.png"
       />
-      <Breadcrumb items={breadcrumbItems} />
-      <IndustryContent />
+      <div style={maxContainer}>
+        <Breadcrumb items={breadcrumbItems} />
+        <IndustryContent />
+      </div>
     </div>
   );
 };

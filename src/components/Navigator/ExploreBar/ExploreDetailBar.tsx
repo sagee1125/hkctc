@@ -21,6 +21,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
     backgroundPosition: "center 30%",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
+    width: "100%",
   };
 
   return (

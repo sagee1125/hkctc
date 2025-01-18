@@ -4,7 +4,13 @@ import { ProfileAndRole } from "./ProfileAndRole";
 import { Strength } from "./Strength";
 import { ServiceProvided } from "./ServiceProvided";
 import { AccreditationServices } from "./AccreditationServices/AccreditationServices";
-import { BannerPhotoBox, Breadcrumb, Sidebar } from "../../components";
+import {
+  BannerPhotoBox,
+  Breadcrumb,
+  Sidebar,
+  fullContainer,
+  maxContainer,
+} from "../../components";
 import {
   NavigationBarConfiguration,
   NavData,
@@ -133,21 +139,23 @@ export const TCSector: React.FC = () => {
   ];
 
   return (
-    <div className="mb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox src={bannerImage} />
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="px-[24px] min-w-[440px] w-1/3">
-          <Sidebar
-            title={"About T&C Sector"}
-            sidebarItems={eventItems}
-            activatedItems={activeSidebarItems}
-            setActivatedItems={handleChangeSidebar}
-          />
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">{component}</div>
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="px-[24px] min-w-[440px] w-1/3">
+            <Sidebar
+              title={"About T&C Sector"}
+              sidebarItems={eventItems}
+              activatedItems={activeSidebarItems}
+              setActivatedItems={handleChangeSidebar}
+            />
+          </div>
+          <div className="flex-1">{component}</div>
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ import {
   DirectorySidebar,
   InternalBackButton,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
@@ -28,68 +30,70 @@ export const GuangdongAgreementClauses: React.FC = () => {
   const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-            setActivatedItems={() => {}}
-          />
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">
-          <SquareTitle title="Guangdong Agreement - Clauses" />
-          <p className="text-heading-l my-[24px]">
-            Liberalisation of Trade in Services (extracted from Table 2 of Annex
-            1 of the Guangdong Agreement)
-          </p>
-          <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
-          <p className="text-body-m">1. Business Services</p>
-          <p className="text-body-m">F. Other Business Services</p>
-          <p className="text-body-m">
-            e. Technical testing and analysis services (CPC8676)
-          </p>
-          <p className="my-[24px] text-heading-m">Specific commitments</p>
-          <p className="text-italic-s italic">
-            Effective from 1 June 2020; The amendments made in Oct 2024 on item
-            2 and item 3 are marked in tracking mode, and will come into effect
-            on 1 March 2025
-          </p>
-          <ul
-            style={{ listStyleType: "decimal", paddingLeft: "20px" }}
-            className="text-body-m"
-          >
-            {specificCommitments.map((commit, index) => (
-              <div key={index}>
-                <br />
-                <li>{commit}</li>
-              </div>
-            ))}
-          </ul>
-          <p className="text-italic-s italic mt-[24px]">
-            An&nbsp;
-            <a
-              className="underline text-[#00E]"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DirectorySidebar
+              disabled
+              directorySidebarItems={directoryItems}
+              activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
+              setActivatedItems={() => {}}
+            />
+          </div>
+          <div className="flex-1">
+            <SquareTitle title="Guangdong Agreement - Clauses" />
+            <p className="text-heading-l my-[24px]">
+              Liberalisation of Trade in Services (extracted from Table 2 of
+              Annex 1 of the Guangdong Agreement)
+            </p>
+            <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
+            <p className="text-body-m">1. Business Services</p>
+            <p className="text-body-m">F. Other Business Services</p>
+            <p className="text-body-m">
+              e. Technical testing and analysis services (CPC8676)
+            </p>
+            <p className="my-[24px] text-heading-m">Specific commitments</p>
+            <p className="text-italic-s italic">
+              Effective from 1 June 2020; The amendments made in Oct 2024 on
+              item 2 and item 3 are marked in tracking mode, and will come into
+              effect on 1 March 2025
+            </p>
+            <ul
+              style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+              className="text-body-m"
             >
-              Implementation Guide
-            </a>
-            &nbsp;was promulgated to provide details for the implementation of
-            the two testing and certification related liberalisation measures in
-            Table 2 of Annex 1.
-          </p>
-          <hr className="my-[24px]" />
+              {specificCommitments.map((commit, index) => (
+                <div key={index}>
+                  <br />
+                  <li>{commit}</li>
+                </div>
+              ))}
+            </ul>
+            <p className="text-italic-s italic mt-[24px]">
+              An&nbsp;
+              <a
+                className="underline text-[#00E]"
+                href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Implementation Guide
+              </a>
+              &nbsp;was promulgated to provide details for the implementation of
+              the two testing and certification related liberalisation measures
+              in Table 2 of Annex 1.
+            </p>
+            <hr className="my-[24px]" />
 
-          <InternalBackButton
-            targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
-          />
+            <InternalBackButton
+              targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
+            />
+          </div>
         </div>
       </div>
     </div>

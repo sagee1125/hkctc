@@ -5,6 +5,8 @@ import {
   DirectorySidebar,
   InternalBackButton,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
@@ -63,81 +65,84 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
   const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-            setActivatedItems={() => {}}
-          />
+      <div style={maxContainer}>
+        {" "}
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">
-          <SquareTitle title="Supplement X to CEPA - Clauses" />
-          <p className="text-heading-l my-[24px]">
-            Liberalisation of Trade in Services (extracted from the Annex of
-            Supplement X to CEPA)
-          </p>
-          <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
-          <p className="text-body-m">1. Business Services</p>
-          <p className="text-body-m">F. Other Business Services</p>
-          <p className="text-body-m">
-            e. Technical testing and analysis services (CPC8676)
-          </p>
-          <p className="mt-[24px] text-heading-m">Specific commitments</p>
-          <ul
-            style={{ listStyleType: "decimal", paddingLeft: "20px" }}
-            className="text-body-m"
-          >
-            {specificCommitments.map((commit, index) => (
-              <div key={index}>
-                <br />
-                <li>{commit}</li>
-              </div>
-            ))}
-          </ul>
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DirectorySidebar
+              disabled
+              directorySidebarItems={directoryItems}
+              activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
+              setActivatedItems={() => {}}
+            />
+          </div>
+          <div className="flex-1">
+            <SquareTitle title="Supplement X to CEPA - Clauses" />
+            <p className="text-heading-l my-[24px]">
+              Liberalisation of Trade in Services (extracted from the Annex of
+              Supplement X to CEPA)
+            </p>
+            <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
+            <p className="text-body-m">1. Business Services</p>
+            <p className="text-body-m">F. Other Business Services</p>
+            <p className="text-body-m">
+              e. Technical testing and analysis services (CPC8676)
+            </p>
+            <p className="mt-[24px] text-heading-m">Specific commitments</p>
+            <ul
+              style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+              className="text-body-m"
+            >
+              {specificCommitments.map((commit, index) => (
+                <div key={index}>
+                  <br />
+                  <li>{commit}</li>
+                </div>
+              ))}
+            </ul>
 
-          <p className="text-heading-l my-[24px]">
-            Measures in Facilitating Trade and Investment (extracted from the
-            main text of Supplement X to CEPA)
-          </p>
-          <p className="text-heading-m mb-[24px]">
-            III. Trade and Investment Facilitation
-          </p>
-          <p className="text-body-m">
-            The two sides agreed to further strengthen cooperation in the areas
-            of commodity inspection and quarantine, food safety and quality and
-            standardization. Accordingly, the following is added to Article
-            5.2.4 of Annex 6 to "CEPA" - Certification, accreditation and
-            standardization Management:
-            <br />
-            <br />
-            "(1) promote Guangdong and Hong Kong mutual recognition of testing
-            and certification results in respect of third-party testing and
-            certification services;
-            <br />
-            <br />
-            (2) in accordance with specific certification requirements, promote
-            Guangdong and Hong Kong mutual recognition of testing and
-            certification results in respect of voluntary certification;
-            <br />
-            <br />
-            (3) with regard to promoting mutual recognition of testing and
-            certification results under the China Compulsory Certification (CCC)
-            System, the two sides agree to observe the relevant requirements of
-            the related national laws, rules, regulations and treaties,
-            including the Regulations on Certification and Accreditation of the
-            People's Republic of China and CEPA."
-          </p>
-          <hr className="my-[24px]" />
-          <InternalBackButton
-            targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
-          />
+            <p className="text-heading-l my-[24px]">
+              Measures in Facilitating Trade and Investment (extracted from the
+              main text of Supplement X to CEPA)
+            </p>
+            <p className="text-heading-m mb-[24px]">
+              III. Trade and Investment Facilitation
+            </p>
+            <p className="text-body-m">
+              The two sides agreed to further strengthen cooperation in the
+              areas of commodity inspection and quarantine, food safety and
+              quality and standardization. Accordingly, the following is added
+              to Article 5.2.4 of Annex 6 to "CEPA" - Certification,
+              accreditation and standardization Management:
+              <br />
+              <br />
+              "(1) promote Guangdong and Hong Kong mutual recognition of testing
+              and certification results in respect of third-party testing and
+              certification services;
+              <br />
+              <br />
+              (2) in accordance with specific certification requirements,
+              promote Guangdong and Hong Kong mutual recognition of testing and
+              certification results in respect of voluntary certification;
+              <br />
+              <br />
+              (3) with regard to promoting mutual recognition of testing and
+              certification results under the China Compulsory Certification
+              (CCC) System, the two sides agree to observe the relevant
+              requirements of the related national laws, rules, regulations and
+              treaties, including the Regulations on Certification and
+              Accreditation of the People's Republic of China and CEPA."
+            </p>
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
+            />
+          </div>
         </div>
       </div>
     </div>

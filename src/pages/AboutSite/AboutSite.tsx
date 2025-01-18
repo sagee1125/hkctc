@@ -6,6 +6,8 @@ import {
   Breadcrumb,
   SquareTitle,
   Link,
+  fullContainer,
+  maxContainer,
 } from "../../components";
 
 const ImportantNote: React.FC = () => {
@@ -315,22 +317,24 @@ export const AboutSite: React.FC = () => {
   }, [activeItem, location.pathname, navigate, searchParams]);
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          {directoryItems.length > 0 && (
-            <DirectorySidebar
-              directorySidebarItems={directoryItems}
-              activatedItems={activeItem}
-              setActivatedItems={handleChangeDirectorySidebarItems}
-            />
-          )}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">{componentMapping[activeItem]}</div>
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            {directoryItems.length > 0 && (
+              <DirectorySidebar
+                directorySidebarItems={directoryItems}
+                activatedItems={activeItem}
+                setActivatedItems={handleChangeDirectorySidebarItems}
+              />
+            )}
+          </div>
+          <div className="flex-1">{componentMapping[activeItem]}</div>
+        </div>
       </div>
     </div>
   );
