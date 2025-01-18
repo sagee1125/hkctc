@@ -1,18 +1,16 @@
 import React from "react";
-import { VideoBox } from "../../components";
+import { VideoBox, maxContainer, fullContainer } from "../../components";
 import { WhatsNew } from "./WhatsNew";
 import { Publications } from "./Publications";
 
 export const Home: React.FC = () => {
   return (
-    <div
-      style={{
-        paddingBottom: "48px",
-      }}
-    >
+    <div style={fullContainer}>
       <VideoBox />
-      <WhatsNew />
-      <Publications />
+      <div style={maxContainer}>
+        <WhatsNew />
+        <Publications />
+      </div>
     </div>
   );
 };

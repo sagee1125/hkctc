@@ -12,6 +12,8 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -72,115 +74,117 @@ export const TextilesAndApparel: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={
           "tcSector/servicesDifferentBusinessAreas/Textiles_Garment_banner.png"
         }
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title="Textiles and Apparel" />
-
-          <div className="my-[24px]">
-            <MediaTemplate
-              iconPath="VIDEO.png"
-              title="Hong Kong's Testing and Certification Services for Textiles and Garment"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/Textiles_Garment.png"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
             />
           </div>
+          <div className="flex-1">
+            <SquareTitle title="Textiles and Apparel" />
 
-          <FileTemplate
-            title={"Textile and Apparel"}
-            imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
-          />
-          <p className="text-heading-l my-[24px]">
-            Benefits of Textile and Apparel Testing & Certification
-          </p>
-          <p className="text-body-m">
-            Not only Hong Kong's traditional trade partners but also the new
-            emerging market have imposed&nbsp;
-            <span className="text-highlight-m text-newPrimary">
-              more stringent regulations and requirements
-            </span>
-            &nbsp;over imported textile and apparel. At the same time, consumers
-            also have an increasing expectation on product quality and concern
-            about&nbsp;
-            <span className="text-highlight-m text-newPrimary">
-              impact on the environment
-            </span>
-            .
-            <br />
-            <br />
-            Testing and certification can help assure textile and apparel's
-            compliance with relevant regulatory requirements of importing
-            countries, as well as those specific quality and performance
-            requirements by their clients. Examples on quality aspects of fabric
-            include breathability, high-stretch, anti-bacterial, UV protection,
-            wrinkle-free and water resistant properties, etc.
-            <br />
-            <br />
-            Testing and certification can enhance consumers' confidence over the
-            safety and quality of textile and apparel. Manufacturers, traders
-            and retailers alike can also reduce their financial risks arising
-            from rejects, recalls and complaints, and build up their brand
-            reputation resulting in increased sales.
-          </p>
-          <hr className="my-[24px]" />
-
-          <p className="text-heading-l">
-            Testing & Certification Services for Toys
-          </p>
-          <p className="text-body-m my-[24px]">
-            Hong Kong's testing and certification sector provides valuable
-            support on various stages of the supply chain. Apart from testing,
-            certification and inspection services, the sector also provides
-            advisory services in relation to international/national regulatory
-            requirements, as well as standards on raw materials and finished
-            products.
-          </p>
-          <div className="w-full flex flex-col gap-[24px]">
-            {servicesForTextile.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="text-body-m">{item.content}</div>}
+            <div className="my-[24px]">
+              <MediaTemplate
+                iconPath="VIDEO.png"
+                title="Hong Kong's Testing and Certification Services for Textiles and Garment"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/Textiles_Garment.png"
               />
-            ))}
+            </div>
+
+            <FileTemplate
+              title={"Textile and Apparel"}
+              imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
+            />
+            <p className="text-heading-l my-[24px]">
+              Benefits of Textile and Apparel Testing & Certification
+            </p>
+            <p className="text-body-m">
+              Not only Hong Kong's traditional trade partners but also the new
+              emerging market have imposed&nbsp;
+              <span className="text-highlight-m text-newPrimary">
+                more stringent regulations and requirements
+              </span>
+              &nbsp;over imported textile and apparel. At the same time,
+              consumers also have an increasing expectation on product quality
+              and concern about&nbsp;
+              <span className="text-highlight-m text-newPrimary">
+                impact on the environment
+              </span>
+              .
+              <br />
+              <br />
+              Testing and certification can help assure textile and apparel's
+              compliance with relevant regulatory requirements of importing
+              countries, as well as those specific quality and performance
+              requirements by their clients. Examples on quality aspects of
+              fabric include breathability, high-stretch, anti-bacterial, UV
+              protection, wrinkle-free and water resistant properties, etc.
+              <br />
+              <br />
+              Testing and certification can enhance consumers' confidence over
+              the safety and quality of textile and apparel. Manufacturers,
+              traders and retailers alike can also reduce their financial risks
+              arising from rejects, recalls and complaints, and build up their
+              brand reputation resulting in increased sales.
+            </p>
+            <hr className="my-[24px]" />
+
+            <p className="text-heading-l">
+              Testing & Certification Services for Toys
+            </p>
+            <p className="text-body-m my-[24px]">
+              Hong Kong's testing and certification sector provides valuable
+              support on various stages of the supply chain. Apart from testing,
+              certification and inspection services, the sector also provides
+              advisory services in relation to international/national regulatory
+              requirements, as well as standards on raw materials and finished
+              products.
+            </p>
+            <div className="w-full flex flex-col gap-[24px]">
+              {servicesForTextile.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
+            <p className="text-heading-l my-[24px]">
+              Organisations Accredited by HKAS Providing Testing Services on
+              Textile and Apparel
+            </p>
+            <p className="text-body-m">
+              The lists of laboratories accredited by HKAS on the provision of
+              testing services for textile and apparel are available at&nbsp;
+              <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                HKAS's website
+              </a>
+              .
+            </p>
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
           </div>
-          <p className="text-heading-l my-[24px]">
-            Organisations Accredited by HKAS Providing Testing Services on
-            Textile and Apparel
-          </p>
-          <p className="text-body-m">
-            The lists of laboratories accredited by HKAS on the provision of
-            testing services for textile and apparel are available at&nbsp;
-            <a
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              HKAS's website
-            </a>
-            .
-          </p>
-          <hr className="my-[24px]" />
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
         </div>
       </div>
     </div>

@@ -15,6 +15,8 @@ import {
   SquareTitle,
   activatedButtonStyle,
   normalButtonStyle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -221,61 +223,63 @@ export const ChineseMedicines: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={
           "tcSector/servicesDifferentBusinessAreas/chinese_medicines_banner.png"
         }
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title={businessAreaTitle} />
-
-          <div className="my-[24px]">
-            <MediaTemplate
-              title="Hong Kong's Testing Services for Chinese Medicines"
-              iconPath={"VIDEO.png"}
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
             />
           </div>
-          <p className="text-heading-l mb-[24px]">
-            About Chinese Medicines Testing
-          </p>
-          <FileTemplate
-            title={"Chinese Medicines Testing"}
-            imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
-          />
+          <div className="flex-1">
+            <SquareTitle title={businessAreaTitle} />
 
-          <p className="text-heading-l my-[24px]">
-            About Chinese Medicines Testing
-          </p>
-
-          <div className="w-full flex flex-col gap-[24px]">
-            {servicesForToys.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="text-body-m">{item.content}</div>}
+            <div className="my-[24px]">
+              <MediaTemplate
+                title="Hong Kong's Testing Services for Chinese Medicines"
+                iconPath={"VIDEO.png"}
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
               />
-            ))}
-          </div>
+            </div>
+            <p className="text-heading-l mb-[24px]">
+              About Chinese Medicines Testing
+            </p>
+            <FileTemplate
+              title={"Chinese Medicines Testing"}
+              imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
+            />
 
-          <hr className="my-[24px]" />
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
+            <p className="text-heading-l my-[24px]">
+              About Chinese Medicines Testing
+            </p>
+
+            <div className="w-full flex flex-col gap-[24px]">
+              {servicesForToys.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
+
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ import {
   Breadcrumb,
   DirectorySidebar,
   Sidebar,
+  fullContainer,
+  maxContainer,
 } from "../../components";
 import {
   type NavData,
@@ -200,28 +202,30 @@ export const Support: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          {directoryItems.length > 0 && (
-            <DirectorySidebar
-              directorySidebarItems={directoryItems}
-              activatedItems={activatedDirectorySidebarItems}
-              setActivatedItems={handleChangeDirectorySidebarItems}
-            />
-          )}
-          <Sidebar
-            title={"Support"}
-            sidebarItems={eventItems}
-            activatedItems={activeSidebarItems}
-            setActivatedItems={handleChangeSidebar}
-          />
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">{component}</div>
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            {directoryItems.length > 0 && (
+              <DirectorySidebar
+                directorySidebarItems={directoryItems}
+                activatedItems={activatedDirectorySidebarItems}
+                setActivatedItems={handleChangeDirectorySidebarItems}
+              />
+            )}
+            <Sidebar
+              title={"Support"}
+              sidebarItems={eventItems}
+              activatedItems={activeSidebarItems}
+              setActivatedItems={handleChangeSidebar}
+            />
+          </div>
+          <div className="flex-1">{component}</div>
+        </div>
       </div>
     </div>
   );

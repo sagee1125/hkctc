@@ -12,6 +12,8 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -109,58 +111,60 @@ export const Jewellery: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Jewellery_banner.png"}
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title={businessAreaTitle} />
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
+            />
+          </div>
+          <div className="flex-1">
+            <SquareTitle title={businessAreaTitle} />
 
-          <div className="my-[24px]">
-            <MediaTemplate
-              title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
-              iconPath={"VIDEO.png"}
-            />
-          </div>
-          <p className="text-heading-l mb-[24px]">About Jewellery Testing</p>
-          <div className="grid grid-cols-2 w-full gap-[24px] mb-[24px]">
-            <FileTemplate
-              title={"Testing of Fei Cui and Diamond in Hong Kong"}
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
-            />
-            <FileTemplate
-              title={"Diamond Testing Services in Hong Kong"}
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
-            />
-          </div>
-          <div className="w-full flex flex-col gap-[24px]">
-            {acc.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="text-body-m">{item.content}</div>}
+            <div className="my-[24px]">
+              <MediaTemplate
+                title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
+                iconPath={"VIDEO.png"}
               />
-            ))}
-          </div>
+            </div>
+            <p className="text-heading-l mb-[24px]">About Jewellery Testing</p>
+            <div className="grid grid-cols-2 w-full gap-[24px] mb-[24px]">
+              <FileTemplate
+                title={"Testing of Fei Cui and Diamond in Hong Kong"}
+                imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
+              />
+              <FileTemplate
+                title={"Diamond Testing Services in Hong Kong"}
+                imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
+              />
+            </div>
+            <div className="w-full flex flex-col gap-[24px]">
+              {acc.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
 
-          <hr className="my-[24px]" />
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,13 @@ import { Newsletter } from "./Publication/Newspaper/Newsletter";
 import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
 import { PressReleases } from "./News/PressReleases/PressReleases";
 import { Comics } from "./Publication/Comics/Comics";
-import { BannerPhotoBox, Breadcrumb, MultipleSidebars } from "../../components";
+import {
+  BannerPhotoBox,
+  Breadcrumb,
+  MultipleSidebars,
+  fullContainer,
+  maxContainer,
+} from "../../components";
 import {
   type NavData,
   type NavItems,
@@ -154,20 +160,22 @@ export const EventsPromotion: React.FC = () => {
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
 
   return (
-    <div className="w-full mb-[48px]">
+    <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
-      <div id="breadcrumb">
-        <Breadcrumb items={breadcrumbItems} />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="px-[24px] min-w-[440px] w-1/3">
-          <MultipleSidebars
-            sidebars={sidebarData}
-            activatedItems={activeItem}
-            setActivatedItems={handleChangeSidebar}
-          />
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
-        <div className="flex-1">{component}</div>
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="px-[24px] min-w-[440px] w-1/3">
+            <MultipleSidebars
+              sidebars={sidebarData}
+              activatedItems={activeItem}
+              setActivatedItems={handleChangeSidebar}
+            />
+          </div>
+          <div className="flex-1">{component}</div>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,8 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  fullContainer,
+  maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -67,92 +69,95 @@ export const ToysChildrenProducts: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-[48px]">
+    <div style={fullContainer}>
       <BannerPhotoBox
         src={
           "tcSector/servicesDifferentBusinessAreas/ToysAndChildren_banner.png"
         }
       />
-      <div id="breadcrumb">
-        <Breadcrumb
-          items={handleReturnDifferentBusinessAreasBreadcrumb(
-            businessAreaTitle
-          )}
-        />
-      </div>
-      <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-        <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DifferentBusinessAreasDirectorySidebar
-            businessAreaTitle={businessAreaTitle}
+      <div style={maxContainer}>
+        <div id="breadcrumb">
+          <Breadcrumb
+            items={handleReturnDifferentBusinessAreasBreadcrumb(
+              businessAreaTitle
+            )}
           />
         </div>
-        <div className="flex-1">
-          <SquareTitle title={businessAreaTitle} />
-
-          <div className="my-[24px]">
-            <MediaTemplate
-              title="T&C Manpower Development Award Scheme 2023-24"
-              imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
-              date="4 December 2023"
+        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+            <DifferentBusinessAreasDirectorySidebar
+              businessAreaTitle={businessAreaTitle}
             />
           </div>
+          <div className="flex-1">
+            <SquareTitle title={businessAreaTitle} />
 
-          <FileTemplate
-            title={"Toys"}
-            imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
-          />
-          <p className="text-heading-l my-[24px]">
-            Benefits of Toy Testing & Certification
-          </p>
-          <p className="text-body-m">
-            When it comes to toys, safety is of paramount concern. The toy
-            industry uses a lot of third-party testing and certification
-            services to assure compliance with international safety standards.
-            <br />
-            <br />
-            Testing and certification help assure the quality of toys, minimise
-            the chance of recalls, returns and complaints — reducing financial
-            risks to suppliers, traders and retailers — and help to establish a
-            good reputation. This in turn leads to increasing product sales
-            which has a positive impact upon everyone's bottom-line.
-          </p>
-          <hr className="my-[24px]" />
-
-          <p className="text-heading-l mb-[24px]">
-            Testing & Certification Services for Toys
-          </p>
-
-          <div className="w-full flex flex-col gap-[24px]">
-            {servicesForToys.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                details={<div className="text-body-m">{item.content}</div>}
+            <div className="my-[24px]">
+              <MediaTemplate
+                title="T&C Manpower Development Award Scheme 2023-24"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
+                date="4 December 2023"
               />
-            ))}
+            </div>
+
+            <FileTemplate
+              title={"Toys"}
+              imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
+            />
+            <p className="text-heading-l my-[24px]">
+              Benefits of Toy Testing & Certification
+            </p>
+            <p className="text-body-m">
+              When it comes to toys, safety is of paramount concern. The toy
+              industry uses a lot of third-party testing and certification
+              services to assure compliance with international safety standards.
+              <br />
+              <br />
+              Testing and certification help assure the quality of toys,
+              minimise the chance of recalls, returns and complaints — reducing
+              financial risks to suppliers, traders and retailers — and help to
+              establish a good reputation. This in turn leads to increasing
+              product sales which has a positive impact upon everyone's
+              bottom-line.
+            </p>
+            <hr className="my-[24px]" />
+
+            <p className="text-heading-l mb-[24px]">
+              Testing & Certification Services for Toys
+            </p>
+
+            <div className="w-full flex flex-col gap-[24px]">
+              {servicesForToys.map((item, index) => (
+                <Accordion
+                  key={index}
+                  title={item.title}
+                  details={<div className="text-body-m">{item.content}</div>}
+                />
+              ))}
+            </div>
+            <p className="text-heading-l my-[24px]">
+              Laboratories Accredited by HKAS Providing Testing Services on Toy
+              and Children's Products
+            </p>
+            <p className="text-body-m">
+              Details of the laboratories providing the public with accredited
+              electrical and electronic product (EEP) testing services are
+              available at&nbsp;
+              <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                HKAS's website
+              </a>
+              .
+            </p>
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+            />
           </div>
-          <p className="text-heading-l my-[24px]">
-            Laboratories Accredited by HKAS Providing Testing Services on Toy
-            and Children's Products
-          </p>
-          <p className="text-body-m">
-            Details of the laboratories providing the public with accredited
-            electrical and electronic product (EEP) testing services are
-            available at&nbsp;
-            <a
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              HKAS's website
-            </a>
-            .
-          </p>
-          <hr className="my-[24px]" />
-          <InternalBackButton
-            targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-          />
         </div>
       </div>
     </div>
