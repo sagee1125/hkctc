@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
+import { fullContainer } from "../Container";
 
 export const VideoBox: React.FC = () => {
   const [progress, setProgress] = useState(0);
@@ -79,7 +80,7 @@ export const VideoBox: React.FC = () => {
   };
 
   return (
-    <div>
+    <div style={fullContainer}>
       <div
         style={{
           width: "100%",
