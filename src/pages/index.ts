@@ -10,3 +10,4 @@ export * from "./TCSector";
 export * from "./WhatsNew";
 export * from "./AboutSite";
 export * from "./EventsPromotion";
+export * from "./CareerEducation";

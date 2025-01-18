@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
-import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { Newsletter } from "./Publication/Newspaper/Newsletter";
-import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
-import { PressReleases } from "./News/PressReleases/PressReleases";
-import { Comics } from "./Publication/Comics/Comics";
+
 import {
   BannerPhotoBox,
   Breadcrumb,
@@ -30,38 +25,32 @@ const sidebarComponent: Partial<
     }
   >
 > = {
-  // events
-  [navItemEnum.award_scheme]: {
-    bannerImage: "eventsLanding/banner_bg.png",
-    component: <AwardScheme />,
+  // career
+  [navItemEnum.career_development]: {
+    bannerImage: "careerEducation/career_development.png",
+    component: <>1</>,
   },
-  [navItemEnum.seminar_workshop]: {
-    bannerImage: "eventsLanding/banner_bg_2.png",
-    component: <SeminarsWorkshops />,
+  [navItemEnum.career_opportunities]: {
+    bannerImage: "careerEducation/career_opportunities.png",
+    component: <>2</>,
   },
-  [navItemEnum.student_competition]: {
-    bannerImage: "eventsLanding/banner_bg_3.png",
-    component: <StudentCompetition />,
-  },
-
-  // publications
-  [navItemEnum.hkctc_newsletter]: {
-    bannerImage: "",
-    component: <Newsletter />,
-  },
-  [navItemEnum.pamphlets_booklets]: {
-    bannerImage: "",
-    component: <Pamphlets />,
-  },
-  [navItemEnum.comics]: {
-    bannerImage: "",
-    component: <Comics />,
+  [navItemEnum.other_professional_schemes]: {
+    bannerImage: "careerEducation/other_professional_schemes.png",
+    component: <>3</>,
   },
 
-  // news
-  [navItemEnum.press_releases]: {
-    bannerImage: "",
-    component: <PressReleases />,
+  // education
+  [navItemEnum.programmes_and_courses]: {
+    bannerImage: "careerEducation/programmes_and_courses.png",
+    component: <>4</>,
+  },
+  [navItemEnum.learning_teaching_resources]: {
+    bannerImage: "careerEducation/learning_teaching_resources.png",
+    component: <>5</>,
+  },
+  [navItemEnum.qualifications_framework]: {
+    bannerImage: "careerEducation/qualifications_framework.png",
+    component: <>6</>,
   },
 };
 
@@ -78,7 +67,7 @@ const sidebarKeys = [
   navItemEnum.useful_information,
 ];
 
-export const EventsPromotion: React.FC = () => {
+export const CareerEducation: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -89,7 +78,7 @@ export const EventsPromotion: React.FC = () => {
     initialSection as navItemEnum
   )
     ? (initialSection as navItemEnum)
-    : navItemEnum.award_scheme;
+    : navItemEnum.career_development;
 
   const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
 
@@ -101,50 +90,28 @@ export const EventsPromotion: React.FC = () => {
     }
   }, [initialParam, navigate]);
 
-  const eventItems: SubItems[] =
+  const careersItems: SubItems[] =
     NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "Events & Promotions"
+      (nav: NavData) => nav.title === "Career & Education"
     )
-      ?.items.find((subNav: NavItems) => subNav.name === "Events")
+      ?.items.find((subNav: NavItems) => subNav.name === "Careers")
       ?.subItems?.filter((item) => item.enum) ?? [];
 
-  const publicationItem: SubItems[] =
+  const educationItem: SubItems[] =
     NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "Events & Promotions"
+      (nav: NavData) => nav.title === "Career & Education"
     )
-      ?.items.find((subNav: NavItems) => subNav.name === "Publications")
-      ?.subItems?.filter((item) => item.enum) ?? [];
-
-  const reports: SubItems[] =
-    NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "Events & Promotions"
-    )
-      ?.items.find((subNav: NavItems) => subNav.name === "Reports")
-      ?.subItems?.filter((item) => item.enum) ?? [];
-
-  const NewsVideos: SubItems[] =
-    NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "Events & Promotions"
-    )
-      ?.items.find((subNav: NavItems) => subNav.name === "News & Videos")
+      ?.items.find((subNav: NavItems) => subNav.name === "Education & Training")
       ?.subItems?.filter((item) => item.enum) ?? [];
 
   const sidebarData = [
     {
-      title: "Events",
-      sidebarItems: eventItems,
+      title: "Careers",
+      sidebarItems: careersItems,
     },
     {
-      title: "Publications",
-      sidebarItems: publicationItem,
-    },
-    {
-      title: "Reports",
-      sidebarItems: reports,
-    },
-    {
-      title: "News & Videos",
-      sidebarItems: NewsVideos,
+      title: "Education & Training",
+      sidebarItems: educationItem,
     },
   ];
 
@@ -168,8 +135,8 @@ export const EventsPromotion: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "Events",
-      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
+      label: "Career & Education",
+      href: `/career_and_education?section=${navItemEnum.career_development}`,
     },
     {
       label: activeSidebarItemsLabel ?? "",
