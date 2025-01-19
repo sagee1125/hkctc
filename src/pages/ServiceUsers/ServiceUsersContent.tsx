@@ -15,7 +15,7 @@ export const accreditationService: Array<{
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
-    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    imagePath: "assets/serviceUsers/HOKLAS_1.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
   },
   {
@@ -25,7 +25,7 @@ export const accreditationService: Array<{
   },
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
-    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    imagePath: "assets/serviceUsers/HOKLAS_3.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkias.html",
   },
 ];
@@ -58,7 +58,7 @@ export const ServiceUsersContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "Reports",
+      title: "HKCTC Reports",
       imgUrl: "Reports.png",
     },
   ];
@@ -128,8 +128,10 @@ export const ServiceUsersContent: React.FC = () => {
                     alt="PDF Icon"
                   />
                 </div>
-                <span>
-                  <Link outerLink={link}>{title}</Link>
+                <span className="!text-highlight-m">
+                  <Link outerLink={link} linkColor="ink" underline={false}>
+                    {title}
+                  </Link>
                 </span>
               </div>
             );

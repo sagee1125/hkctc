@@ -15,7 +15,7 @@ export const ServiceUsers: React.FC = () => {
         title="T&C Service Users"
         titleTheme="energeticOrange"
         description="Learn how we can help you with business and acknowledgements"
-        barBackgroundImg="serviceUsers/banner_bg.png"
+        barBackgroundImg="serviceUsers/Service_Users_banner_bg.png"
       />
       <div style={maxContainer}>
         <Breadcrumb items={breadcrumbItems} />

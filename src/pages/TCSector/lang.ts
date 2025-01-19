@@ -1,3 +1,5 @@
+import styles from "./styles.module.css";
+
 export const TC_SECTOR_STRENGTH_TEXT = {
   EN: {
     TITLE: "Strengths of Hong Kong's T&C Sector",
@@ -41,7 +43,15 @@ export const TC_SECTOR_STRENGTH_TEXT = {
 
       SYSTEM_INTERNATIONAL_TITLE:
         "(iii) System being widely recognised internationally",
-      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification sector.For details, please visit HKAS's website. `,
+      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification sector.For details, please visit <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="text-decoration: underline; color: #00E;"
+              >
+                HKAS's website
+              </a>
+              .`,
 
       QUICK_RESPONSE_TITLE: "(iv) Quick response to new market demand",
       QUICK_RESPONSE_CONTENT: `HKAS is generally capable of providing new services within a comparatively short period of time, thus can support the local testing and certification sector in responding quickly to new market demands. `,

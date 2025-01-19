@@ -31,18 +31,22 @@ export const AccreditationServices: React.FC = () => {
 
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, imagePath } = item;
+            const { title, imagePath, link } = item;
             return (
               <div
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <FileTemplate title={title} imagePath={imagePath} />
+                <FileTemplate
+                  title={title}
+                  imagePath={imagePath}
+                  titleHyperlink={link}
+                />
               </div>
             );
           })}
         </div>
-        <p className="text-italic-s italic my-[24px]">
+        <p className="text-italic-s italic mt-[24px]">
           For details, please visit&nbsp;
           <a
             href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
@@ -54,6 +58,8 @@ export const AccreditationServices: React.FC = () => {
           </a>
           .
         </p>
+        <hr className="my-[24px] text-[#E0E0E0]" />
+
         <p className="text-heading-l">Accredited Establishments</p>
         <p className="text-body-m my-[24px]">
           Accredited laboratories, inspection bodies and certification bodies
