@@ -339,7 +339,7 @@ export const Publications: React.FC = () => {
               icon="material-symbols-light:square"
               style={{ height: "24px", width: "24px" }}
             />
-            <p className="text-heading-l">Publications</p>
+            <p className="text-heading-l">What do you know about T&C</p>
           </div>
           <div className="w-1/2 justify-start" ref={containerRef}>
             <div className="flex flex-row justify-between w-full">

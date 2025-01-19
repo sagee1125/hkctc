@@ -14,7 +14,7 @@ export const ServiceUsers: React.FC = () => {
       <ExploreDetailBar
         title="T&C Service Users"
         titleTheme="energeticOrange"
-        description="Learn how we can help you with business and acknowledgements"
+        description="Learn how testing and certification services support businesses and build trust."
         barBackgroundImg="serviceUsers/Service_Users_banner_bg.png"
       />
       <div style={maxContainer}>

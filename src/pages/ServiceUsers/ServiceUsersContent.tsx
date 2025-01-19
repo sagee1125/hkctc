@@ -35,13 +35,13 @@ export const ServiceUsersContent: React.FC = () => {
     {
       title: "Services Provided by T&C Sector",
       description:
-        "In general, the testing and certification (T&C) sector provides three types of services – Testing, Inspection and Certification.",
+        "In general, the testing and certification (T&C) sector provides three types of services - Testing, Inspection and Certification.",
       imagePath: "serviceUsers/Services_Provided_TC.png",
     },
     {
       title: "Services for Business Areas",
       description:
-        "In general, the testing and certification (T&C) sector provides three types of services – Testing, Inspection and Certification.",
+        "The testing and certification sector offers services covering a wide range of areas...",
       imagePath: "serviceUsers/service_1.png",
     },
     {
@@ -124,12 +124,12 @@ export const ServiceUsersContent: React.FC = () => {
                   {/* Icon */}
                   <img
                     className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                    alt="PDF Icon"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PRESS.png`}
+                    alt="Share"
                   />
                 </div>
                 <span className="!text-highlight-m">
-                  <Link outerLink={link} linkColor="ink" underline={false}>
+                  <Link outerLink={link} linkColor="black">
                     {title}
                   </Link>
                 </span>

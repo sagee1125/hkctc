@@ -4,9 +4,10 @@ const colorMapping: Record<LinkColor, string> = {
   ink: "#233F55",
   darkInk: "#203136",
   default: "#00E",
+  black: "#000",
 };
 
-type LinkColor = "default" | "ink" | "darkInk";
+type LinkColor = "default" | "ink" | "darkInk" | "black";
 
 type LinkProps = {
   linkColor?: LinkColor | string;
