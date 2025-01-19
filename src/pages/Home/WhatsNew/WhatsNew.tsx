@@ -7,13 +7,18 @@ export const WhatsNew: React.FC = () => {
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
+
+  const changingEffectOn = false;
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime((prevTime) => prevTime + 1); // 每秒增加1
-    }, 2000);
+    if (changingEffectOn) {
+      const intervalId = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime + 1); // 每秒增加1
+      }, 2000);
 
-    return () => clearInterval(intervalId);
+      return () => clearInterval(intervalId);
+    }
   }, []);
 
   useEffect(() => {
@@ -64,10 +69,10 @@ export const WhatsNew: React.FC = () => {
             visibleWhatsNew ? "opacity-100" : "opacity-0"
           }`}
           style={{
-            gridTemplateColumns: `repeat(${WhatsNewConfiguration.length}, minmax(0, 1fr))`,
+            gridTemplateColumns: `repeat(${firstFourWhatsNew.length}, minmax(0, 1fr))`,
           }}
         >
-          {WhatsNewConfiguration.map((item, index) => {
+          {firstFourWhatsNew.map((item, index) => {
             const { title, imagePath, imagePathSwitch, date } = item;
 
             const isEven = currentTime % 2 === 0;

@@ -5,45 +5,9 @@ import {
   fullContainer,
   maxContainer,
 } from "../../components";
+import { WhatsNewConfiguration } from "../../const";
 
 export const WhatsNew: React.FC = () => {
-  const whatsNewList = [
-    {
-      title:
-        "Further liberalisation measures for testing and certification under CEPA",
-      date: "9 Oct 2024",
-      img: "whatsnew_1.png",
-    },
-    {
-      title:
-        "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
-      date: "6 Aug 2024",
-      img: "whatsnew_2.png",
-    },
-    {
-      title: 'The eleventh "HKCTC Newsletter" has been issued',
-      date: "29 May 2024",
-      img: "whatsnew_3.png",
-    },
-    {
-      title:
-        "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
-      date: "16 Apr 2024",
-      img: "whatsnew_4.png",
-    },
-    {
-      title:
-        "Recruit雜誌封面故事：檢測認證　衣食住行　專業把關 (Chinese version only)",
-      date: "15 Mar 2024",
-      img: "whatsnew_5.png",
-    },
-    {
-      title: "“The BUD Fund - Easy BUD” has been launched",
-      date: "16 Jun 2023",
-      img: "whatsnew_6.png",
-    },
-  ];
-
   const newsletterList = [
     {
       title: "No.12",
@@ -87,8 +51,8 @@ export const WhatsNew: React.FC = () => {
         <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
           <div className="w-full flex flex-col gap-[24px]">
             <SquareTitle title={"What’s New"} />
-            {whatsNewList.map((item, index) => {
-              const { img, title, date } = item;
+            {WhatsNewConfiguration.map((item, index) => {
+              const { imagePath, title, date } = item;
               return (
                 <div key={index} className="flex flex-row items-center w-full">
                   <div className="w-full">
@@ -106,8 +70,8 @@ export const WhatsNew: React.FC = () => {
                   </div>
                   <img
                     className="border-2 border-inherit w-[278px] h-full object-cover"
-                    src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/${img}`}
-                    alt={img}
+                    src={`${process.env.PUBLIC_URL}/assets/whatsNew/${imagePath}`}
+                    alt={imagePath}
                   />
                 </div>
               );
@@ -122,7 +86,7 @@ export const WhatsNew: React.FC = () => {
                   <div className="flex flex-row gap-[24px]" key={index}>
                     <img
                       className="border-2 border-inherit w-[160px] h-full object-cover"
-                      src={`${process.env.PUBLIC_URL}/assets/whatsNewSection/Reports.png`}
+                      src={`${process.env.PUBLIC_URL}/assets/whatsNew/Reports.png`}
                       alt={"Report.png"}
                     />
                     <div className="flex flex-col">
