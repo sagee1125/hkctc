@@ -45,12 +45,7 @@ export const WhatsNew: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className="w-full px-[24px]"
-      style={{
-        marginTop: "48px",
-      }}
-    >
+    <div className="w-full px-[24px]">
       <div className="flex flex-row items-center">
         <Icon
           icon="material-symbols-light:square"

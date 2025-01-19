@@ -17,11 +17,13 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           alt={imagePath}
         />
         {/* Icon */}
-        <img
-          className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-          src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
-          alt={"file icon"}
-        />
+        {iconPath && (
+          <img
+            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+            src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
+            alt={"file icon"}
+          />
+        )}
       </div>
       <div className="flex-grow flex-col flex overflow-hidden text-ellipsis">
         {titleHyperlink ? (

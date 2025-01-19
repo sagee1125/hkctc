@@ -49,29 +49,29 @@ export const ExploreBar: React.FC = () => {
       },
     },
     {
-      title: "T&C Bodies & Practitioners",
-      iconName: "majesticons:test-tube-filled",
+      title: "T&C Service Users",
+      iconName: "mdi:user",
       hoverColor:
-        currentPath === "/industry"
+        currentPath === "/service-users"
           ? "text-growthfulGreen"
           : `group-hover:text-growthfulGreen ${
               isClicked ? "text-[#7C7F83]" : ""
             }`,
       onClick: () => {
-        navigate("industry");
+        navigate("service-users");
       },
     },
     {
-      title: "T&C Service Users",
-      iconName: "mdi:user",
+      title: "T&C Bodies & Practitioners",
+      iconName: "majesticons:test-tube-filled",
       hoverColor:
-        currentPath === "/service-users"
+        currentPath === "/industry"
           ? "text-energeticOrange"
           : `group-hover:text-energeticOrange ${
               isClicked ? "text-[#7C7F83]" : ""
             }`,
       onClick: () => {
-        navigate("service-users");
+        navigate("industry");
       },
     },
   ];
