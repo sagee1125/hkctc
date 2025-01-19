@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
@@ -13,11 +13,17 @@ import {
   fullContainer,
   List,
   maxContainer,
+  normalPagingButtonStyle,
+  activatedPagingButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
+import { Icon } from "@iconify/react";
 
 export const MedicalTesting: React.FC = () => {
   const businessAreaTitle = "Medical Testing" as BusinessAreaTitle;
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 9;
+
   const listData = [
     "AceCGT Diagnostic Limited",
     "Bright Growth Medical Laboratory Limited",
@@ -45,6 +51,15 @@ export const MedicalTesting: React.FC = () => {
       </p>
     </div>
   ));
+
+  // Calculate the indices for the current page
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  // Slice the data array based on the current page
+  const currentPageData = listRowRender.slice(startIndex, endIndex); // TODO
+
+  // Maximum number of pages (0-based index)
+  const maxPage = Math.ceil(listRowRender.length / itemsPerPage) - 1;
 
   return (
     <div style={fullContainer}>
@@ -173,6 +188,47 @@ export const MedicalTesting: React.FC = () => {
               </a>
               .
             </p>
+            <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 0}
+                style={{
+                  ...normalPagingButtonStyle,
+                  cursor: currentPage === 0 ? "not-allowed" : "pointer",
+                  color: currentPage === 0 ? "#AAAAAA" : "black",
+                }}
+              >
+                <Icon icon="mingcute:arrow-left-fill" width="24" height="24" />
+              </button>
+
+              {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
+                <button
+                  key={pageIndex}
+                  onClick={() => setCurrentPage(pageIndex)}
+                  style={
+                    currentPage === pageIndex
+                      ? activatedPagingButtonStyle
+                      : normalPagingButtonStyle
+                  }
+                >
+                  {pageIndex + 1}
+                </button>
+              ))}
+
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === maxPage}
+                style={{
+                  ...normalPagingButtonStyle,
+                  cursor: currentPage === maxPage ? "not-allowed" : "pointer",
+                  color: currentPage === maxPage ? "#AAAAAA" : "black",
+                }}
+              >
+                <Icon icon="mingcute:arrow-right-fill" width="24" height="24" />
+              </button>
+            </div>
             <div className="my-[24px]">
               <List
                 title={
@@ -187,7 +243,7 @@ export const MedicalTesting: React.FC = () => {
                     </p>
                   </div>
                 }
-                rowData={listRowRender}
+                rowData={currentPageData}
               />
             </div>
             <hr className="my-[24px]" />
