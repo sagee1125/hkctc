@@ -158,14 +158,21 @@ export const Support: React.FC = () => {
       }
       setActiveSidebarItems(initialParam);
     }
-  }, [initialParam, initialHashIndex]);
+  }, [
+    activeSidebarItems,
+    initialHash,
+    initialHashIndex,
+    directoryItems,
+    initialParam,
+    navigate,
+  ]);
 
   useEffect(() => {
     if (directoryItems.length !== 0) {
       setActivatedDirectorySidebarItems(directoryItems[initialHashIndex ?? 0]);
       window.location.hash = `${initialHashIndex ?? 0}`;
     }
-  }, [activeSidebarItems]);
+  }, [activeSidebarItems, initialHash, initialHashIndex, directoryItems]);
 
   const handleChangeSidebar = (activatedItemEnum: string): void => {
     setActiveSidebarItems(activatedItemEnum as navItemEnum);

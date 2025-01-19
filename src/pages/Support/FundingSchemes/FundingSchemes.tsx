@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ITF, PASS, TID, TCJS } from "./SchemesSummary";
 import {
-  TVP,
+  // TVP,
   ESS,
   ITSP,
   PRP,
@@ -9,7 +9,7 @@ import {
   GSP,
   NITTP,
 } from "./InnovationAndTechnologyFund";
-import { Accordion, SquareTitle } from "../../../components";
+import { Accordion, SquareTitle, Link } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import {
   BUD,
@@ -26,7 +26,7 @@ const schemesTypeMap: Record<string, React.ReactNode> = {
 };
 
 const itfFundingMap: Record<string, React.ReactNode> = {
-  "Technology Voucher Programme (TVP)": <TVP />,
+  // "Technology Voucher Programme (TVP)": <TVP />,
   "Enterprise Support Scheme (ESS)": <ESS />,
   "Innovation and Technology Support Programme (ITSP)": <ITSP />,
   "Partnership Research Programme (PRP)": <PRP />,
@@ -140,13 +140,15 @@ export const FundingSchemes: React.FC = () => {
           details={
             <div>
               <p className="text-body-m mb-[16px]">
-                The PASS, launched by the Commerce and Economic Development
-                Bureau (CEDB), provides funding support for non-profit-making
-                projects aimed at increasing the exchanges and co-operation of
-                Hong Kong's professional services with their counterparts in
-                external markets, promoting relevant publicity activities, and
-                enhancing the standards and external competitiveness of
-                professional services in Hong Kong.
+                The{" "}
+                <Link outerLink="https://www.pass.gov.hk/index.html">PASS</Link>
+                , launched by the Commerce and Economic Development Bureau
+                (CEDB), provides funding support for non-profit-making projects
+                aimed at increasing the exchanges and co-operation of Hong
+                Kong's professional services with their counterparts in external
+                markets, promoting relevant publicity activities, and enhancing
+                the standards and external competitiveness of professional
+                services in Hong Kong.
               </p>
 
               <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
@@ -230,7 +232,7 @@ export const FundingSchemes: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px] mb-[48px]">
+      <div className="mt-[24px]">
         <Accordion
           title={"Testing and Certification Sector Job Creation Scheme (TCJS)"}
           details={

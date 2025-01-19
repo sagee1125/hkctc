@@ -1,9 +1,18 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const BUD: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">BUD Fund (Enterprise Support Programme)</p>
+      <div className="text-heading-m ">
+        <Link
+          outerLink="https://www.bud.hkpc.org/index.php/en"
+          linkColor="#000"
+        >
+          BUD Fund (Enterprise Support Programme)
+        </Link>
+      </div>
+
       <p className="text-body-m mt-[16px]">
         The Fund aims to provide funding support to local enterprises and
         non-profit-distributing organisations to assist them in exploring and
@@ -44,7 +53,7 @@ export const BUD: React.FC = () => {
             href="https://www.bud.hkpc.org/sites/default/files/download/EASY-leaflet_Chi_Eng_Final.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline text-[#00E]"
+            className="underline text-[#00E] underline-offset-[2px]"
           >
             Easy BUD
           </a>

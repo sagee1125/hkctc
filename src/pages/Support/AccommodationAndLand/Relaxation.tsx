@@ -29,14 +29,6 @@ export const Relaxation: React.FC = () => {
       <div className="mb-[24px]">
         <SquareTitle title="Relaxation of Waiver Application for Existing Industrial Buildings" />
       </div>
-      <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m ">
-        The Hong Kong Government allows five specific non-industrial uses in
-        existing industrial buildings (e.g., testing labs, R&D centers) without
-        temporary waivers or fees from Feb 1, 2019, to Jan 31, 2025. Eligible
-        uses must align with statutory plans and not attract public visitors.
-        For details, contact the Lands Department or visit the Town Planning
-        Board's website.
-      </div>
       <p className="mt-[24px]">
         According to the revitalisation scheme for industrial buildings (“IBs”),
         one of the measures is to relax the waiver application policy to permit
@@ -55,7 +47,7 @@ export const Relaxation: React.FC = () => {
         restrictions for the specific premises.
       </p>
       <br />
-      <p className="italic text-italic-s">
+      <p className="text-body-m">
         Note 1: It refers to uses permitted under the land use zoning of the
         sites concerned on the relevant Outline Zoning Plans as “Column 1” uses.
       </p>
@@ -168,7 +160,7 @@ export const Relaxation: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l">Enquiries</p>
-      <div className="mt-[24px] border-2 border-[#F7F7F5] py-[24px] px-[36px]">
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
             className="w-[32px] h-[32px] flex-shrink-0"

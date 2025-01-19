@@ -1,9 +1,18 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const SMEExportMarketingFund: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">SME Export Marketing Fund</p>
+      <div className="text-heading-m ">
+        <Link
+          outerLink="https://www.smefund.tid.gov.hk/english/emf/emf_objective.html"
+          linkColor="#000"
+        >
+          SME Export Marketing Fund
+        </Link>
+      </div>
+
       <p className="text-body-m mt-[16px] mb-[24px]">
         This scheme aims to help SMEs expand their markets outside Hong Kong
         through participation in export promotion activities like exhibitions,
@@ -34,7 +43,14 @@ export const SMEExportMarketingFund: React.FC = () => {
 export const SMELoanGuaranteeScheme: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">SME Export Marketing Fund</p>
+      <div className="text-heading-m ">
+        <Link
+          // TODO: need to update the outer link
+          linkColor="#000"
+        >
+          SME Loan Guarantee Scheme
+        </Link>
+      </div>
       <p className="text-body-m mt-[16px] mb-[24px]">
         This scheme aims to help SMEs secure loans from the participating
         lending institutions (PLIs) for business installations and equipment and
