@@ -84,8 +84,9 @@ export const CCCTesting: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                HKAS's website.
+                HKAS's website
               </a>
+              .
             </p>
             <Accordion
               title={"List of existing products requiring CCC"}

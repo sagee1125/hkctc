@@ -194,12 +194,13 @@ export const Food: React.FC = () => {
       img: "food_1",
     },
     {
-      title: "HKCTC Report 2023-24",
+      title: "Food",
       img: "food_2",
     },
     {
       title: "Hong Kong's Testing and Certification for Food",
       img: "food_3",
+      icon: "VIDEO.png",
     },
   ];
 

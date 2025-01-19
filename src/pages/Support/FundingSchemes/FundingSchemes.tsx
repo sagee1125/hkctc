@@ -26,7 +26,7 @@ const schemesTypeMap: Record<string, React.ReactNode> = {
 };
 
 const itfFundingMap: Record<string, React.ReactNode> = {
-  // "Technology Voucher Programme (TVP)": <TVP />,
+  // "Technology Voucher Programme (TVP)": <TVP />,  // hide for tmp 2025/01/19
   "Enterprise Support Scheme (ESS)": <ESS />,
   "Innovation and Technology Support Programme (ITSP)": <ITSP />,
   "Partnership Research Programme (PRP)": <PRP />,

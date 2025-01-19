@@ -3,7 +3,14 @@ import * as React from "react";
 export const TVP: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">Technology Voucher Programme (TVP)</p>
+      <a
+        className="text-heading-m underline"
+        href="/" // TODO
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Technology Voucher Programme (TVP)
+      </a>
       <p className="text-body-m my-[16px]">
         To subsidise non-listed local enterprises/organisations in using
         technological services and solutions to improve productivity, or upgrade

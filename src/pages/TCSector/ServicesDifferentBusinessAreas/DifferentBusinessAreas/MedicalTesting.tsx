@@ -152,7 +152,7 @@ export const MedicalTesting: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-links"
               >
-                HKAS website
+                HKAS's website
               </a>
               .
             </div>
@@ -169,7 +169,7 @@ export const MedicalTesting: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-links"
               >
-                HKAS website
+                HKAS's website
               </a>
               .
             </p>

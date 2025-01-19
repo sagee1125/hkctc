@@ -25,7 +25,7 @@ const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
 export const ChineseMedicines: React.FC = () => {
   const businessAreaTitle = "Chinese Medicines" as BusinessAreaTitle;
   const [activeButton, setActiveButton] = useState<number>(0);
-  const servicesForToys: Array<{
+  const servicesForChineseMedicine: Array<{
     title: string;
     content: React.ReactNode;
   }> = [
@@ -47,27 +47,27 @@ export const ChineseMedicines: React.FC = () => {
             benefits to:
             <br />
             <br />
-            <span className="text-highlight-m">1. Users:</span>&nbsp;It can help
-            users to identify genuine products, reduces the chance of buying
-            fake, misprocessed (such as bleached), adulterated or contaminated
-            products.
+            1.&nbsp;<span className="text-highlight-m">Users:</span>&nbsp;It can
+            help users to identify genuine products, reduces the chance of
+            buying fake, misprocessed (such as bleached), adulterated or
+            contaminated products.
             <br />
             <br />
-            <span className="text-highlight-m">
-              2. Manufacturers and Traders:
-            </span>
+            2.&nbsp;
+            <span className="text-highlight-m">Manufacturers and Traders:</span>
             &nbsp;It can help enhance customer confidence and satisfaction,
             increase sales, and reduce the risk of costly recalls and lawsuits.
             <br />
             <br />
+            3.&nbsp;
             <span className="text-highlight-m">
-              3. Chinese Medicine Practitioners:
+              Chinese Medicine Practitioners:
             </span>
             &nbsp;It can ensure that prescriptions are filled with genuine and
             quality medicinal herbs.
             <br />
             <br />
-            <span className="text-highlight-m">4. Hong Kong:</span>
+            4.&nbsp;<span className="text-highlight-m">Hong Kong:</span>
             &nbsp;It can promote the further development of the testing and
             certification sector and reinforce the position and strategic
             advantage of Hong Kong as a testing and certification hub of Chinese
@@ -145,19 +145,25 @@ export const ChineseMedicines: React.FC = () => {
           {activeButton === 0 ? (
             <>
               <p className="text-highlight-m">Safety testing:</p>
+              <br />
               <p className="text-body-m">
                 1. Heavy metals and toxic elements
                 <br />
+                <br />
                 2. Pesticide residues
+                <br />
                 <br />
                 3. Microbiological examinations
               </p>
               <br />
               <p className="text-highlight-m">Quality and other testing:</p>
+              <br />
               <p className="text-body-m">
                 1. Analysis to product specifications
                 <br />
+                <br />
                 2. Stability
+                <br />
                 <br />
                 3. Other tests according to the Pharmacopeia of People's
                 Republic of China, e.g. water, weight variation, filling
@@ -167,21 +173,26 @@ export const ChineseMedicines: React.FC = () => {
           ) : (
             <>
               <p className="text-highlight-m">Authentication:</p>
+              <br />
               <p className="text-body-m">
                 1. Authentication by visual examination, microscopic
                 identification and chromatographic fingerprinting
               </p>
               <br />
               <p className="text-highlight-m">Safety testing:</p>
+              <br />
               <p className="text-body-m">
                 1. Heavy metals and toxic elements
                 <br />
+                <br />
                 2. Pesticide residues
+                <br />
                 <br />
                 3. Aflatoxins
               </p>
               <br />
               <p className="text-highlight-m">Quality and other testing:</p>
+              <br />
               <p className="text-body-m">
                 1. Testing according to the&nbsp;
                 <a
@@ -253,20 +264,14 @@ export const ChineseMedicines: React.FC = () => {
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
               />
             </div>
-            <p className="text-heading-l mb-[24px]">
-              About Chinese Medicines Testing
-            </p>
+
             <FileTemplate
               title={"Chinese Medicines Testing"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
             />
 
-            <p className="text-heading-l my-[24px]">
-              About Chinese Medicines Testing
-            </p>
-
-            <div className="w-full flex flex-col gap-[24px]">
-              {servicesForToys.map((item, index) => (
+            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+              {servicesForChineseMedicine.map((item, index) => (
                 <Accordion
                   key={index}
                   title={item.title}

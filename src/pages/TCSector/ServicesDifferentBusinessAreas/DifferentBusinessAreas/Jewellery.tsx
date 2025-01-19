@@ -139,7 +139,6 @@ export const Jewellery: React.FC = () => {
                 iconPath={"VIDEO.png"}
               />
             </div>
-            <p className="text-heading-l mb-[24px]">About Jewellery Testing</p>
             <div className="grid grid-cols-2 w-full gap-[24px] mb-[24px]">
               <FileTemplate
                 title={"Testing of Fei Cui and Diamond in Hong Kong"}
