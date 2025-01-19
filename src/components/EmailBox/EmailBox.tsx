@@ -38,7 +38,7 @@ export const EmailBox: React.FC = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="text-heading-l pb-[16px]">Enquires</div>
       <div className="bg-[#EAEAE5] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
         <div className="text-body-m">
@@ -82,6 +82,6 @@ export const EmailBox: React.FC = () => {
           {loading ? <CircularProgress size="28px" /> : "Send now"}
         </button>
       </div>
-    </>
+    </div>
   );
 };

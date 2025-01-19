@@ -7,34 +7,7 @@ export const PhotoPanel: React.FC = () => {
         <div
           className="col-span-2"
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/strengths.png)`,
-            ...imgBox,
-          }}
-        >
-          <div style={overlayStyle} />
-          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-            <p className={"text-heading-l-extra text-white z-10"}>
-              Strengths of Hong Kong's T&C Sector
-            </p>
-          </div>
-        </div>
-        <div
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/career_development.png)`,
-            ...imgBox,
-          }}
-        >
-          <div style={overlayStyle} />
-          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-            <p className={"text-heading-l-extra text-white z-10"}>
-              Career Development
-            </p>
-          </div>
-        </div>
-
-        <div
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/about.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
             ...imgBox,
           }}
         >
@@ -42,6 +15,33 @@ export const PhotoPanel: React.FC = () => {
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
               About HKCTC
+            </p>
+          </div>
+        </div>
+        <div
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
+            ...imgBox,
+          }}
+        >
+          <div style={overlayStyle} />
+          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+            <p className={"text-heading-l-extra text-white z-10"}>
+              Profile & Role of T&C Sector
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
+            ...imgBox,
+          }}
+        >
+          <div style={overlayStyle} />
+          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+            <p className={"text-heading-l-extra text-white z-10"}>
+              Strengths of Hong Kong's T&C Sector
             </p>
           </div>
         </div>

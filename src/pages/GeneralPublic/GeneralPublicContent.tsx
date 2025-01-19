@@ -1,7 +1,6 @@
 import React from "react";
-import { EmailBox } from "../../components";
-import { Icon } from "@iconify/react";
-import { WhatsNewConfiguration, type WhatsNewData } from "../../const";
+import { EmailBox, SquareTitle, Link } from "../../components";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export const GeneralPublicContent: React.FC = () => {
   const materialsData: Array<{
@@ -10,40 +9,60 @@ export const GeneralPublicContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "Reports",
-      imgUrl: "materials_report.png",
+      title: "HKCTC Reports",
+      imgUrl: "material_1",
     },
     {
-      title: "Newsletter",
-      imgUrl: "materials_newsletter.png",
+      title: "HKCTC Newsletter",
+      imgUrl: "material_2",
     },
     {
       title: "Pamphlets and Booklets",
-      imgUrl: "materials_pamphlets.png",
-    },
-    {
-      title: "Comics",
-      imgUrl: "materials_comics.png",
+      imgUrl: "material_3",
     },
     {
       title: "Advertorials",
-      imgUrl: "materials_advertorial.png",
+      imgUrl: "material_4",
     },
   ];
 
-  const whatsNewData_2: WhatsNewData[] = [
+  // Updated at 19/01/2025
+  const whatsNew = [
     {
       title:
-        "Further liberalization measures related to Testing and Certification under CEPA",
-      date: "28 Aug 2024",
-      imagePath: "Further_Liberalization.png",
-      onClick: () => {},
+        "Further liberalisation measures for testing and certification under CEPA",
+      date: "9 Oct 2024",
+      imagePath: "whatsnew_1.png",
     },
     {
-      title: "Hong Kong International Biotechnology Forum and Exhibition",
-      date: "20 Aug 2024",
-      imagePath: "Forum.png",
-      onClick: () => {},
+      title:
+        "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
+      date: "6 Aug 2024",
+      imagePath: "material_1.png",
+    },
+
+    {
+      title: 'The eleventh "HKCTC Newsletter" has been issued',
+      date: "29 May 2024",
+      imagePath: "material_2.png",
+    },
+    {
+      title:
+        "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
+      date: "16 Apr 2024",
+      imagePath: "whatsnew_2.png",
+    },
+
+    {
+      title:
+        "Recruit雜誌封面故事：檢測認證　衣食住行　專業把關 (Chinese version only)",
+      date: "15 Mar 2024",
+      imagePath: "whatsnew_3.png",
+    },
+    {
+      title: "“The BUD Fund - Easy BUD” has been launched",
+      date: "16 Jun 2023",
+      imagePath: "whatsnew_4.png",
     },
   ];
 
@@ -55,20 +74,21 @@ export const GeneralPublicContent: React.FC = () => {
       {/* Materials & Enquires */}
 
       <div className="flex flex-col">
-        <div className="border-2 border-inherit p-[24px]">
+        <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
           <p className="text-heading-l">Materials</p>
-          <div>
+          <div className="flex flex-col gap-[24px]">
             {materialsData.map((mat, index) => {
               const { title, imgUrl } = mat;
               return (
                 <div
                   key={index}
-                  className="flex flex-row items-start mt-[24px] gap-[24px]"
+                  className="flex flex-row items-start gap-[24px]"
                 >
                   <img
                     className="w-[130px] h-auto"
                     src={
-                      process.env.PUBLIC_URL + `/assets/generalPublic/${imgUrl}`
+                      process.env.PUBLIC_URL +
+                      `/assets/generalPublic/${imgUrl}.png`
                     }
                     alt={title}
                   />
@@ -77,10 +97,10 @@ export const GeneralPublicContent: React.FC = () => {
               );
             })}
           </div>
-          <div className="py-[24px]">
+          <div>
             <div
               style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/seminars_workshops.png)`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",
                 backgroundSize: "100% auto",
                 backgroundRepeat: "no-repeat",
@@ -109,40 +129,65 @@ export const GeneralPublicContent: React.FC = () => {
               </div>
             </div>
           </div>
-          <hr className="pb-[24px]" />
+          <div>
+            <div
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/comics_1.png)`,
+                display: "flex",
+                backgroundSize: "100% auto",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center top",
+                position: "relative",
+                height: "134px",
+              }}
+            />
+          </div>
+          <hr />
           <EmailBox />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-[24px]">
-        {[...WhatsNewConfiguration, ...whatsNewData_2].map((item, index) => {
-          const { title, imagePath, date } = item;
-          return (
-            <div
-              key={index}
-              className="flex flex-col justify-start group border-2 border-inherit h-[460px]"
-            >
-              <div className="relative flex justify-start items-center w-full overflow-hidden">
+      <div className="flex flex-col gap-[24px]">
+        <span className="flex flex-row items-center">
+          <SquareTitle title="What’s New" />
+          <ArrowForwardIosIcon
+            sx={{
+              marginLeft: "8px",
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        </span>
+        <>
+          {whatsNew.map((w, i) => {
+            return (
+              <div className="flex flex-row items-center">
+                <div className="flex flex-col w-full mr-[16px] gap-[16px]">
+                  <div className="text-heading-m">
+                    <Link linkColor="#203136">{w.title}</Link>
+                  </div>
+                  <div className="flex flex-row items-center gap-[8px]">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
+                      }
+                      alt="date"
+                    />
+                    {w.date}
+                  </div>
+                </div>
+
                 <img
-                  className="w-full h-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
-                  src={process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath}
-                  alt={title}
+                  className="w-[278px] h-auto"
+                  src={
+                    process.env.PUBLIC_URL +
+                    `/assets/generalPublic/${w.imagePath}`
+                  }
+                  alt={w.title}
                 />
               </div>
-              <div className="h-[168px] flex flex-col justify-between py-[24px]">
-                <div
-                  className="text-heading-m text-center w-full px-[24px]
-                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
-                >
-                  {title}
-                </div>
-                <div className="flex flex-row w-full gap-2 justify-center">
-                  <Icon icon="material-symbols:date-range-rounded" />
-                  <h2 className="text-body-m text-grey">{date}</h2>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </>
       </div>
     </div>
   );
