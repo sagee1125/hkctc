@@ -97,6 +97,7 @@ export const ToysChildrenProducts: React.FC = () => {
             <div className="my-[24px]">
               <MediaTemplate
                 title="Hong Kong's Testing and Certification Services for Toys and Children's Products"
+                iconPath="VIDEO.png"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ToysAndChildren_Video.png"
               />
             </div>

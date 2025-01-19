@@ -6,7 +6,7 @@ import { IndustryContent } from "./IndustryContent";
 
 export const Industry: React.FC = () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
+    { label: "Home", href: "/" },
     { label: "T&C Bodies & Practitioners" },
   ];
 
@@ -15,7 +15,7 @@ export const Industry: React.FC = () => {
       <ExploreDetailBar
         title="T&C Bodies & Practitioners"
         titleTheme="growthfulGreen"
-        description="Learn how we can help you with business and acknowledgements"
+        description="Discover resources and support to help testing and certification professionals thrive."
         barBackgroundImg="industry/banner_bg_2.png"
       />
       <div style={maxContainer}>

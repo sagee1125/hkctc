@@ -47,19 +47,19 @@ export const ChineseMedicines: React.FC = () => {
             benefits to:
             <br />
             <br />
-            1.&nbsp;<span className="text-highlight-m">Users:</span>&nbsp;It can
-            help users to identify genuine products, reduces the chance of
-            buying fake, misprocessed (such as bleached), adulterated or
-            contaminated products.
+            1.&nbsp;&nbsp;<span className="text-highlight-m">Users:</span>
+            &nbsp;It can help users to identify genuine products, reduces the
+            chance of buying fake, misprocessed (such as bleached), adulterated
+            or contaminated products.
             <br />
             <br />
-            2.&nbsp;
+            2.&nbsp;&nbsp;
             <span className="text-highlight-m">Manufacturers and Traders:</span>
             &nbsp;It can help enhance customer confidence and satisfaction,
             increase sales, and reduce the risk of costly recalls and lawsuits.
             <br />
             <br />
-            3.&nbsp;
+            3.&nbsp;&nbsp;
             <span className="text-highlight-m">
               Chinese Medicine Practitioners:
             </span>
@@ -67,7 +67,7 @@ export const ChineseMedicines: React.FC = () => {
             quality medicinal herbs.
             <br />
             <br />
-            4.&nbsp;<span className="text-highlight-m">Hong Kong:</span>
+            4.&nbsp;&nbsp;<span className="text-highlight-m">Hong Kong:</span>
             &nbsp;It can promote the further development of the testing and
             certification sector and reinforce the position and strategic
             advantage of Hong Kong as a testing and certification hub of Chinese

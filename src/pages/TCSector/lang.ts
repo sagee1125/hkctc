@@ -49,9 +49,7 @@ export const TC_SECTOR_STRENGTH_TEXT = {
                 rel="noopener noreferrer"
                 style="text-decoration: underline; color: #00E;"
               >
-                HKAS's website
-              </a>
-              .`,
+                HKAS's website</a>.`,
 
       QUICK_RESPONSE_TITLE: "(iv) Quick response to new market demand",
       QUICK_RESPONSE_CONTENT: `HKAS is generally capable of providing new services within a comparatively short period of time, thus can support the local testing and certification sector in responding quickly to new market demands. `,
