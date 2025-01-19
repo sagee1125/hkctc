@@ -32,7 +32,7 @@ export type WhatsNewData = {
   date: string;
   imagePath: string;
   imagePathSwitch?: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const WhatsNewConfiguration: WhatsNewData[] = [
@@ -63,5 +63,40 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     imagePath: "Belt.png",
     imagePathSwitch: "Belt_1.png",
     onClick: () => {},
+  },
+
+  {
+    title:
+      "Further liberalisation measures for testing and certification under CEPA",
+    date: "9 Oct 2024",
+    imagePath: "whatsnew_1.png",
+  },
+  {
+    title:
+      "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
+    date: "6 Aug 2024",
+    imagePath: "whatsnew_2.png",
+  },
+  {
+    title: 'The eleventh "HKCTC Newsletter" has been issued',
+    date: "29 May 2024",
+    imagePath: "whatsnew_3.png",
+  },
+  {
+    title:
+      "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
+    date: "16 Apr 2024",
+    imagePath: "whatsnew_4.png",
+  },
+  {
+    title:
+      "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
+    date: "15 Mar 2024",
+    imagePath: "whatsnew_5.png",
+  },
+  {
+    title: "“The BUD Fund - Easy BUD” has been launched",
+    date: "16 Jun 2023",
+    imagePath: "whatsnew_6.png",
   },
 ];
