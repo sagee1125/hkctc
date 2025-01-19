@@ -54,18 +54,9 @@ const sidebarComponent: Partial<
   },
 };
 
-const sidebarKeys = [
-  // events
-  navItemEnum.award_scheme,
-  navItemEnum.seminar_workshop,
-  navItemEnum.student_competition,
-  // publications
-  navItemEnum.hkctc_newsletter,
-  navItemEnum.pamphlets_booklets,
-  navItemEnum.comics,
-  navItemEnum.corruption_prevention,
-  navItemEnum.useful_information,
-];
+const sidebarKeys = Object.keys(
+  sidebarComponent
+) as (keyof typeof sidebarComponent)[];
 
 export const CareerEducation: React.FC = () => {
   const location = useLocation();

@@ -137,7 +137,7 @@ export const ChineseMedicines: React.FC = () => {
                     setActiveButton(index);
                   }}
                 >
-                  <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+                  {btn}
                 </button>
               );
             })}

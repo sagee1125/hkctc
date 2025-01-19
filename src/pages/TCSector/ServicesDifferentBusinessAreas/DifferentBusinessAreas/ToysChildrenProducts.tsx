@@ -30,29 +30,31 @@ export const ToysChildrenProducts: React.FC = () => {
         <>
           <p>Common testing for toys includes:</p>
           <br />
-          <li>
-            Testing for the bio-availability of toxic elements such as lead
-            (Pb), mercury (Hg), cadmium (Cd) and the amount of hazardous
-            chemicals such as phthalates
-          </li>
-          <li>Electrical testing, such as electrical strength test</li>
-          <li>
-            Testing for electromagnetic compatibility, such as radiated
-            disturbance, electrostatic discharge
-          </li>
-          <li>Micro-biological examination</li>
-          <li>Flammability testing</li>
-          <li>
-            Mechanical testing such as load stresses like torsion, traction and
-            compression
-          </li>
-          <li>
-            Physical testing such as presence of sharp points or hard edges
-          </li>
-          <li>
-            Performance testing such as durability and resistance to wear and
-            tear
-          </li>
+          <div className="flex flex-col gap-[12px]">
+            <li>
+              Testing for the bio-availability of toxic elements such as lead
+              (Pb), mercury (Hg), cadmium (Cd) and the amount of hazardous
+              chemicals such as phthalates
+            </li>
+            <li>Electrical testing, such as electrical strength test</li>
+            <li>
+              Testing for electromagnetic compatibility, such as radiated
+              disturbance, electrostatic discharge
+            </li>
+            <li>Micro-biological examination</li>
+            <li>Flammability testing</li>
+            <li>
+              Mechanical testing such as load stresses like torsion, traction
+              and compression
+            </li>
+            <li>
+              Physical testing such as presence of sharp points or hard edges
+            </li>
+            <li>
+              Performance testing such as durability and resistance to wear and
+              tear
+            </li>
+          </div>
         </>
       ),
     },
@@ -94,9 +96,8 @@ export const ToysChildrenProducts: React.FC = () => {
 
             <div className="my-[24px]">
               <MediaTemplate
-                title="T&C Manpower Development Award Scheme 2023-24"
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ManpowerDevelopmentAward.png"
-                date="4 December 2023"
+                title="Hong Kong's Testing and Certification Services for Toys and Children's Products"
+                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ToysAndChildren_Video.png"
               />
             </div>
 
@@ -135,7 +136,9 @@ export const ToysChildrenProducts: React.FC = () => {
                 />
               ))}
             </div>
-            <p className="text-heading-l my-[24px]">
+            <hr className="my-[24px]" />
+
+            <p className="text-heading-l mb-[24px]">
               Laboratories Accredited by HKAS Providing Testing Services on Toy
               and Children's Products
             </p>
