@@ -3,6 +3,7 @@ import { type FileTemplateProps } from "./types";
 
 export const FileTemplate: React.FC<FileTemplateProps> = ({
   title,
+  titleHyperlink,
   imagePath,
   iconPath = "PDF.png",
   date,
@@ -22,8 +23,24 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           alt={"file icon"}
         />
       </div>
-      <div className="flex-grow flex-col flex text-black overflow-hidden text-ellipsis">
-        <p className="text-highlight-m">{title}</p>
+      <div className="flex-grow flex-col flex overflow-hidden text-ellipsis">
+        {titleHyperlink ? (
+          <a
+            href={titleHyperlink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+            style={{
+              fontSize: "16px",
+              fontWeight: "600 !important",
+            }}
+          >
+            {title}
+          </a>
+        ) : (
+          <p className="text-highlight-m">{title}</p>
+        )}
+
         {date && (
           <div className="flex flex-row gap-[8px] mt-[8px] items-center">
             <img
