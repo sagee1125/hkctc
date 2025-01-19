@@ -16,7 +16,7 @@ export const Industry: React.FC = () => {
         title="T&C Bodies & Practitioners"
         titleTheme="growthfulGreen"
         description="Learn how we can help you with business and acknowledgements"
-        barBackgroundImg="industry/banner_bg.png"
+        barBackgroundImg="industry/banner_bg_2.png"
       />
       <div style={maxContainer}>
         <Breadcrumb items={breadcrumbItems} />

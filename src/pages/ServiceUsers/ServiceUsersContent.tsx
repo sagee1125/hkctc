@@ -1,5 +1,5 @@
 import React from "react";
-import { EmailBox, SquareTitle } from "../../components";
+import { EmailBox, SquareTitle, Link } from "../../components";
 
 type IndustryData = {
   title: string;
@@ -11,18 +11,22 @@ type IndustryData = {
 export const accreditationService: Array<{
   title: string;
   imagePath: string;
+  link: string;
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
-    imagePath: "assets/serviceUsers/HOKLAS.png",
+    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
   },
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
-    imagePath: "assets/serviceUsers/HKCAS.png",
+    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html",
   },
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
-    imagePath: "assets/serviceUsers/HKIAS.png",
+    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkias.html",
   },
 ];
 
@@ -32,19 +36,19 @@ export const ServiceUsersContent: React.FC = () => {
       title: "Services Provided by T&C Sector",
       description:
         "In general, the testing and certification (T&C) sector provides three types of services – Testing, Inspection and Certification.",
-      imagePath: "Services_Provided_TC.png",
+      imagePath: "serviceUsers/Services_Provided_TC.png",
     },
     {
       title: "Services for Business Areas",
       description:
         "In general, the testing and certification (T&C) sector provides three types of services – Testing, Inspection and Certification.",
-      imagePath: "Services_for_Business_Areas.png",
+      imagePath: "serviceUsers/service_1.png",
     },
     {
       title: "HKCTC Exhibition Programme",
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
-      imagePath: "Exhibition_Programme.png",
+      imagePath: "industry/support_1.png",
     },
   ];
 
@@ -75,11 +79,7 @@ export const ServiceUsersContent: React.FC = () => {
                 <div className="overflow-hidden">
                   <img
                     className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/serviceUsers/" +
-                      imagePath
-                    }
+                    src={process.env.PUBLIC_URL + "/assets/" + imagePath}
                     alt={title}
                   />
                 </div>
@@ -92,7 +92,7 @@ export const ServiceUsersContent: React.FC = () => {
                   </div>
                   <div className="text-body0m">{description}</div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    Continue Read
+                    Continue to Read
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export const ServiceUsersContent: React.FC = () => {
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, imagePath } = item;
+            const { title, imagePath, link } = item;
             return (
               <div
                 key={index}
@@ -128,7 +128,9 @@ export const ServiceUsersContent: React.FC = () => {
                     alt="PDF Icon"
                   />
                 </div>
-                <div className="text-highlight-m text-black">{title}</div>
+                <span>
+                  <Link outerLink={link}>{title}</Link>
+                </span>
               </div>
             );
           })}

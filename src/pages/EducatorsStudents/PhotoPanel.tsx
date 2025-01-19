@@ -5,7 +5,7 @@ export const PhotoPanel: React.FC = () => {
     <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
       <div
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Learning.png)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
           minHeight: "537px",
           ...imgBox,
         }}
@@ -21,7 +21,7 @@ export const PhotoPanel: React.FC = () => {
         <div
           className="col-span-2"
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Student_Competitions.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
             ...imgBox,
           }}
         >
@@ -34,7 +34,7 @@ export const PhotoPanel: React.FC = () => {
         </div>
         <div
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Qualifications_Framework.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
             ...imgBox,
           }}
         >
@@ -48,7 +48,7 @@ export const PhotoPanel: React.FC = () => {
 
         <div
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Programmes_Courses.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
             ...imgBox,
           }}
         >

@@ -13,25 +13,25 @@ export const IndustryContent: React.FC = () => {
       title: "Accommodation and Land",
       description:
         "The Hong Kong Government allows five specific non-industrial uses in existing industrial buildings (e.g., testing labs, R&D centers) without...",
-      imagePath: "Accommodation_Land.png",
+      imagePath: "industry/Accommodation_Land.png",
     },
     {
       title: "Funding Schemes",
       description:
         "In general, the testing and certification (T&C) sector provides variety types of funds - Testing, Inspection and Certification.",
-      imagePath: "Funding_Schemes.png",
+      imagePath: "generalPublic/whatsnew_4.png",
     },
     {
       title: "Entering into the Mainland market",
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
-      imagePath: "Entering.png",
+      imagePath: "industry/Entering.png",
     },
     {
       title: "HKCTC Exhibition Programme",
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
-      imagePath: "Exhibition.png",
+      imagePath: "industry/support_1.png",
     },
   ];
 
@@ -42,15 +42,15 @@ export const IndustryContent: React.FC = () => {
   }> = [
     {
       title: "Corruption Prevention Guide for T&C Industry",
-      imgUrl: "Corruption.png",
+      imgUrl: "industry/Corruption.png",
     },
     {
-      title: "Newsletter",
-      imgUrl: "Newsletter.png",
+      title: "HKCTC Newsletter",
+      imgUrl: "generalPublic/material_2.png",
     },
     {
-      title: "Reports",
-      imgUrl: "Reports.png",
+      title: "HKCTC Reports",
+      imgUrl: "generalPublic/material_1.png",
     },
   ];
 
@@ -70,9 +70,7 @@ export const IndustryContent: React.FC = () => {
                 <div className="overflow-hidden">
                   <img
                     className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    src={
-                      process.env.PUBLIC_URL + "/assets/industry/" + imagePath
-                    }
+                    src={process.env.PUBLIC_URL + "/assets/" + imagePath}
                     alt={title}
                   />
                 </div>
@@ -85,7 +83,7 @@ export const IndustryContent: React.FC = () => {
                   </div>
                   <div className="text-body0m">{description}</div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    Continue Read
+                    Continue to Read
                   </div>
                 </div>
               </div>
@@ -108,7 +106,7 @@ export const IndustryContent: React.FC = () => {
                 >
                   <img
                     className="w-[130px] h-auto"
-                    src={process.env.PUBLIC_URL + `/assets/industry/${imgUrl}`}
+                    src={process.env.PUBLIC_URL + `/assets/${imgUrl}`}
                     alt={title}
                   />
                   <p className="text-highlight-l">{title}</p>
@@ -133,7 +131,7 @@ export const IndustryContent: React.FC = () => {
           <div className="pt-[24px] pb-[32px]">
             <div
               style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/seminars_workshops.png)`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",
                 backgroundSize: "100% auto",
                 backgroundRepeat: "no-repeat",
