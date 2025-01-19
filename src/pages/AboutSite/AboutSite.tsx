@@ -16,7 +16,7 @@ const ImportantNote: React.FC = () => {
       <div className="flex-1">
         <SquareTitle title="Important Notices" />
       </div>
-      <div className="bg-[#EEEEEA]">
+      <div className="bg-[#F7F7F5]">
         <div className="px-[42px] py-[36px]">
           <p className="text-body-m">
             This web site is produced and maintained by the Hong Kong Council
@@ -187,7 +187,7 @@ const Privacy: React.FC = () => {
         </li>
       </ul>
 
-      <div>
+      <div className="italic">
         For enquiry, please contact us at <Link>enquiry@hkctc.gov.hk</Link>.
       </div>
     </div>
