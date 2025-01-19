@@ -57,7 +57,7 @@ export const FundingSchemesTable: React.FC<TableBodyProps> = ({ rows }) => {
             >
               <TableCell>
                 <a
-                  className="text-body-s underline text-[#2F2F2F]"
+                  className="text-body-s underline text-[#000]"
                   href={row.schemeNameHyperLink}
                   target="_blank"
                   rel="noopener noreferrer"

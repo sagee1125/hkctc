@@ -1,11 +1,15 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const ITSP: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">
-        Innovation and Technology Support Programme (ITSP)
-      </p>
+      <div className="text-heading-m ">
+        <Link outerLink="https://www.itf.gov.hk/l-eng/ITSP.asp" linkColor="#000">
+          Innovation and Technology Support Programme (ITSP)
+        </Link>
+      </div>
+
       <p className="text-body-m my-[16px]">
         ITSP supports R&D projects undertaken mainly by designated public
         research institutes and R&D Centres. It focuses on supporting two types

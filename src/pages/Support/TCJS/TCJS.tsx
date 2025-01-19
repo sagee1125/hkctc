@@ -409,7 +409,7 @@ export const TCJS: React.FC = () => {
       <div>{faqMap[activeFAQType]}</div>
       <hr className="text-[#E0E0E0] my-[24px]" />
       <p className="text-heading-l">Enquiries</p>
-      <div className="mt-[24px] border-2 border-[#F7F7F5] py-[24px] px-[36px]">
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
             className="w-[32px] h-[32px] flex-shrink-0"
@@ -420,7 +420,8 @@ export const TCJS: React.FC = () => {
             Organisations interested in the scheme can make enquiries via email
             to&nbsp;
             <span className="underline text-[#00E]">tcjs@itc.gov.hk</span>
-            &nbsp;or telephone at&nbsp;
+            &nbsp;or
+            <br /> telephone at&nbsp;
             <span className="underline text-[#00E]">2127 4864</span>.
           </p>
         </div>

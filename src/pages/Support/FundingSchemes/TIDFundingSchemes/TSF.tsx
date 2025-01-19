@@ -1,11 +1,18 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const TSF: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">
-        Trade and Industrial Organisation Support Fund (TSF)
-      </p>
+      <div className="text-heading-m ">
+        <Link
+          outerLink="https://www.smefund.tid.gov.hk/english/tsf/tsf_objective.html"
+          linkColor="#000"
+        >
+          Trade and Industrial Organisation Support Fund (TSF)
+        </Link>
+      </div>
+
       <p className="text-body-m mt-[16px] mb-[24px]">
         The scheme provides financial support to non-profit-distributing
         organisations to implement projects which aim at enhancing the

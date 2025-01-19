@@ -1,7 +1,299 @@
 import * as React from "react";
-import { SquareTitle } from "../../../components";
+import {
+  Accordion,
+  SquareTitle,
+  normalButtonStyle,
+  activatedButtonStyle,
+  Link,
+} from "../../../components";
 
 export const NilWaiverFee: React.FC = () => {
+  const [activeButton, setActiveButton] = React.useState(0);
+  const questionButtons = [
+    "Eligibility",
+    "Lease & Planning Matters",
+    "Application & Approval",
+    "Others",
+  ];
+
+  const eligibilityQues = [
+    {
+      question:
+        "What kinds of laboratories may benefit from the 'Nil Waiver Fee' for Testing Laboratories Operating in Industrial Buildings (hereunder referred to as 'the measure')?",
+      answer: (
+        <>
+          <p>
+            Testing and calibration laboratories (hereunder referred to as
+            "testing laboratories") may benefit from the measure. Applicants for
+            a waiver of the user condition under the land lease will be required
+            to make a self-declaration and provide evidence (e.g. accreditation
+            status, operation record, expert opinions) to demonstrate that the
+            proposed change of use of the premises is primarily for testing
+            laboratory and ancillary purposes. Upon receiving an application,
+            ITC will advise LandsD whether or not the use as stated in an
+            application is a testing laboratory use eligible under this policy
+            measure.
+          </p>
+          <p>
+            Laboratories providing clinical testing which requires humans or
+            animals to undergo checking at the Industrial Premises are not
+            covered by the measure because the frequent patronage by a large
+            number of individual clients will expose individuals to higher fire
+            risks posed by other units which are still being used for industrial
+            activities or storage of dangerous and inflammable goods, and
+            because such use is usually not permitted in industrial buildings
+            according to the Notes of Outline Zoning Plans. Medical and
+            veterinary laboratories that do not require humans or animals to
+            undergo checking at the Industrial Premises are eligible to apply.
+          </p>
+        </>
+      ),
+    },
+    {
+      question:
+        "How would I know if my laboratory is a testing laboratory that may benefit under the measure?",
+      answer: (
+        <span>
+          You may approach the Secretariat of the Hong Kong Council for Testing
+          and Certification (<Link>enquiry@hkctc.gov.hk</Link>) for a
+          discussion. In general, testing laboratories with accredited
+          activities would be covered.
+        </span>
+      ),
+    },
+    {
+      question:
+        "What types of industrial buildings are covered by the measure?",
+      answer: (
+        <>
+          <p>
+            The measure is applicable to a building lawfully erected on a lot
+            which, under the lease conditions, shall not be used for any purpose
+            other than for industrial and / or godown purposes.
+          </p>
+          <p>
+            However, the measure does not apply to special factories such as
+            those located in storage premises in container terminals and flatted
+            factories built by the Hong Kong Housing Authority, or lots for
+            special industries such as cargo handling uses, ship building and
+            repairing, oil storage and refining and production of associated
+            chemical by-product, manufacture of polystyrene plastics,
+            manufacture and storage of chlorine, hydrogen and textile chemicals,
+            etc. An "industrial / office" building is not covered by the
+            measure.
+          </p>
+        </>
+      ),
+    },
+    {
+      question: "Would a calibration laboratory benefit under the measure?",
+      answer: (
+        <>
+          Yes, calibration laboratories are, in general, covered under the
+          measure. Applicants will be required to make a self-declaration and
+          provide evidence (e.g. accreditation status, operation record, expert
+          opinions) to demonstrate that the proposed use of the premises is for
+          calibration laboratory and ancillary purposes. Government encourages
+          testing laboratories to obtain accreditation from the Hong Kong
+          Accreditation Service.
+        </>
+      ),
+    },
+    {
+      question:
+        "Can a medical laboratory apply for a waiver at nil waiver fee?",
+      answer: (
+        <>
+          Laboratories providing clinical testing which requires humans or
+          animals to undergo checking at the Industrial Premises are not covered
+          by the measure because the frequent patronage by a large number of
+          individual clients will expose individuals to higher fire risks posed
+          by other units which are still being used for industrial activities or
+          storage of dangerous and inflammable goods, and because such use is
+          usually not permitted in industrial buildings according to the Notes
+          of Outline Zoning Plans. Medical and veterinary laboratories that do
+          not require humans or animals to undergo checking at the Industrial
+          Premises are covered in general.
+        </>
+      ),
+    },
+    {
+      question:
+        "Can a certification body apply for a waiver at nil waiver fee?",
+      answer: (
+        <>
+          Premises used solely by a certification body without any testing or
+          calibration activity are not covered under the measure. If the
+          premises concerned are for certification as well as testing and / or
+          calibration laboratory use, then ITC may consider that on a
+          case-by-case basis.
+        </>
+      ),
+    },
+    {
+      question:
+        "We are planning to set up a new testing laboratory in Hong Kong and we have never operated in the territory. Would we benefit from the measure?",
+      answer: (
+        <>
+          Yes, but you will have to locate premises for your proposed testing
+          laboratory first, check restrictions under the land lease and land use
+          zoning on the statutory plan if the subject industrial premises are
+          covered under the measure. If the owner of the premises would like to
+          apply for a waiver under the measure to allow use as a testing
+          laboratory, he/she, or his/her authorised representative can apply to
+          LandsD. Please also refer to reply to QI.1 above.
+        </>
+      ),
+    },
+    {
+      question:
+        "None of the existing tenants in an industrial building is a testing laboratory. Can the landlord apply for the nil fee waiver?",
+      answer: (
+        <>
+          Yes, the landlord can apply for a waiver of the user condition under
+          the measure if the use is permitted under the current land use zoning
+          of the site on the statutory plan, or is subject to a valid planning
+          permission granted by the Town Planning Board, or is considered as an
+          existing use under the provisions of the statutory plan.
+        </>
+      ),
+    },
+    {
+      question:
+        "Is accreditation by the Hong Kong Accreditation Service a requirement for application under the measure?",
+      answer: (
+        <>
+          Accreditation status can be considered as evidence to demonstrate that
+          the proposed change of use is primarily for testing laboratory and
+          ancillary purposes. Nonetheless, whether your laboratory would like to
+          apply for a waiver, Government encourages that you obtain
+          accreditation from the Hong Kong Accreditation Service.
+        </>
+      ),
+    },
+  ];
+
+  const panningQues = [
+    {
+      question:
+        "How would I know whether testing laboratories are allowed to operate in an industrial building under lease?",
+      answer: (
+        <>
+          Government leases, under which all private properties in Hong Kong are
+          held, usually contain lease restrictions including the uses to which
+          the land or buildings may be put. Copy of the Government lease can be
+          obtained from the Land Registry. Lot owners may seek professional
+          advice on lease matters.
+        </>
+      ),
+    },
+    {
+      question:
+        "How can I find out the land use zoning within which my industrial building falls?",
+      answer: (
+        <span>
+          Please refer to the list of Outline Zoning Plans at &nbsp;
+          <Link outerLink="https://www.tpb.gov.hk/en/list_of_plans/list_of_plans.html">
+            www.info.gov.hk/tpb/en/list_of_plans/list_of_plans.html
+          </Link>
+          . Details of the Outline Zoning Plans can be browsed at the Statutory
+          Planning Portal ( &nbsp;
+          <Link outerLink="https://www.ozp.tpb.gov.hk/">
+            www.ozp.tpb.gov.hk&nbsp;
+          </Link>
+          ).
+        </span>
+      ),
+    },
+    {
+      question:
+        "How do I know whether the operation of testing laboratory is permitted under the land use zoning where the concerned industrial building is situated?",
+      answer: (
+        <>
+          Potential applicants can contact / visit the Planning Enquiry Counters
+          or the respective District Planning Office of the Planning Department
+          for enquiry on planning matters.
+        </>
+      ),
+    },
+    {
+      question:
+        "Do I need to apply to Town Planning Board for planning permission before application for nil fee waiver?",
+      answer: (
+        <>
+          If the testing laboratory use of the premises concerned is permitted
+          under the current land use zoning, or is subject to a valid planning
+          permission granted by the TPB, or is considered as an existing use
+          under the provisions of the statutory plan, then there is no need to
+          apply for planning permission. Otherwise, you have to seek planning
+          permission from the TPB before application for nil fee waiver.
+        </>
+      ),
+    },
+  ];
+
+  const approvalQues = [
+    {
+      question:
+        "If an industrial building is under multiple ownership, do I need the consent of all building owners to apply for the waiver?",
+      answer: (
+        <>
+          An owner of any unit of an industrial building may apply to change the
+          use of their premises into a testing laboratory. There is no need for
+          all owners of the same building to submit a joint application.
+          However, applicants are reminded to note any restrictions or
+          obligations under the Deed of Mutual Covenant of the lot, if any.
+        </>
+      ),
+    },
+    {
+      question:
+        "Is an administrative fee payable for applying for the nil fee waiver?",
+      answer: (
+        <>
+          The owner shall be required to pay an administrative fee upon demand
+          by LandsD after submission of an application.
+        </>
+      ),
+    },
+    {
+      question:
+        "After the nil fee waiver to accommodate testing laboratory use has been granted, can I switch back to the original use without terminating the waiver?",
+      answer: (
+        <>
+          Yes. Under the measure, the owner can use the premises for either
+          testing laboratory or the original uses under lease (or both) anytime
+          during the lifetime of the existing building or until expiry or
+          termination of the current land lease, whichever is the earlier.
+          Testing laboratory use is allowed in addition to original uses under
+          lease. If the property owner wishes to revert to the original uses,
+          there would be no need to terminate the waiver. The waiver would
+          remain valid throughout the term of the waiver, and there is no need
+          to apply for another waiver if the premises concerned are to be used
+          as testing laboratories again in future during the term of the waiver.
+        </>
+      ),
+    },
+  ];
+
+  const otherQues = [
+    {
+      question:
+        "Can an industrial building being wholly-converted into other uses pursuant to the revitalisation of industrial buildings policy accommodate testing laboratories?",
+      answer: (
+        <>
+          The permitted uses of an existing industrial building that has been
+          converted into other uses pursuant to the revitalisation of industrial
+          buildings policy are specified in the special waiver issued. We
+          understand that there are cases where testing laboratory use is among
+          the permissible uses of the revitalised buildings.
+        </>
+      ),
+    },
+  ];
+
+  const renderedInfo = [eligibilityQues, panningQues, approvalQues, otherQues];
+
   return (
     <div className="w-full">
       <div className="mb-[24px]">
@@ -71,20 +363,47 @@ export const NilWaiverFee: React.FC = () => {
         laboratory use.
       </li>
       <br />
-      <p className="text-body-m">
-        For background information, please refer to the&nbsp;
-        <a
-          href="https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          Legislative Council Brief
-        </a>
-        &nbsp;(pdf below).
+      <p className="text-body-m mb-[24px]">
+        For background information, please refer to the Legislative Council
+        Brief.
       </p>
+
+      <div className="flex flex-row gap-[24px]">
+        <div
+          className="flex-shrink-0 relative w-[130px] h-[90px] cursor-pointer"
+          onClick={() => {
+            window.open(
+              "https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
+            );
+          }}
+        >
+          <img
+            className="w-auto h-[89px] flex-shrink-0"
+            src={`${process.env.PUBLIC_URL}/assets/support/brief_pdf.png`}
+            alt={"pdf"}
+          />
+          {/* Icon */}
+          <img
+            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+            src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+            alt={"file icon"}
+          />
+        </div>
+        <div>
+          <span
+            className="text-heading-m cursor-pointer"
+            onClick={() => {
+              window.open(
+                "https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
+              );
+            }}
+          >
+            Legislative Council Brief
+          </span>
+        </div>
+      </div>
       <br />
-      <p className="italic text-italic-s">
+      <p className="text-body-m">
         Note 1: An industrial building refers to a building lawfully erected on
         a lot which, under the lease conditions, shall not be used for any
         purpose other than for industrial and/or godown purposes. Industrial
@@ -112,7 +431,7 @@ export const NilWaiverFee: React.FC = () => {
       <hr className="my-[24px] text-[#E0E0E0]" />
 
       <p className="text-heading-l">Enquiries</p>
-      <div className="mt-[24px] border-2 border-[#F7F7F5] py-[24px] px-[36px]">
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
             className="w-[32px] h-[32px] flex-shrink-0"
@@ -154,6 +473,47 @@ export const NilWaiverFee: React.FC = () => {
               https://www.landsd.gov.hk/en/about-us/contact-us.html
             </a>
           </p>
+        </div>
+      </div>
+      <hr className="my-[24px] text-[#E0E0E0]" />
+      <div className="flex flex-col gap-[24px]">
+        <p className="text-heading-m">Frequently Asked Questions</p>
+        <p className="text-body-m">
+          Below are some questions and answers for general reference only and
+          these would not prejudice LandsD in exercising its authority and
+          powers according to the Government land lease and the relevant
+          Practice Note (No. 1/ 2016). If you have any doubts about the land
+          lease conditions or land use zoning, you are encouraged to seek
+          professional advice.
+        </p>
+        <div className="flex flex-row gap-[8px]">
+          {questionButtons.map((b, i) => {
+            const isActivated = activeButton === i;
+            return (
+              <button
+                key={i}
+                style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                onClick={() => {
+                  setActiveButton(i);
+                }}
+              >
+                {b}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="flex flex-col gap-[24px]">
+          {renderedInfo[activeButton].map((com, i) => {
+            return (
+              <Accordion
+                title={`${i + 1}. ${com.question}`}
+                details={
+                  <div className="flex flex-col gap-[24px]">{com.answer}</div>
+                }
+              />
+            );
+          })}
         </div>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />

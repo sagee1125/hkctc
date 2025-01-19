@@ -27,7 +27,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
       href={outerLink}
       target="_blank"
       rel="noreferrer"
-      className={`underline text-[${
+      className={`underline underline-offset-4 text-[${
         colorMapping[linkColor as LinkColor] ?? linkColor
       }]`}
       onClick={handleOpenOuterLink}

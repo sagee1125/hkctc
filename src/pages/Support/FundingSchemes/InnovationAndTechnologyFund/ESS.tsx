@@ -1,9 +1,14 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const ESS: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">Enterprise Support Scheme (ESS)</p>
+      <div className="text-heading-m ">
+        <Link outerLink="https://www.itf.gov.hk/l-eng/ESS.asp" linkColor="#000">
+          Enterprise Support Scheme (ESS)
+        </Link>
+      </div>
       <p className="text-body-m my-[16px]">
         To subsidise non-listed local enterprises/organisations in using
         technological services and solutions to improve productivity, or upgrade

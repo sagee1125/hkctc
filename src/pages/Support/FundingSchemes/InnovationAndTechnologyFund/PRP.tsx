@@ -1,9 +1,18 @@
 import * as React from "react";
+import { Link } from "../../../../components";
 
 export const PRP: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-      <p className="text-heading-m">Partnership Research Programme (PRP)</p>
+      <div className="text-heading-m ">
+        <Link
+          outerLink="https://www.itf.gov.hk/l-eng/PRP.asp"
+          linkColor="#000"
+        >
+          Partnership Research Programme (PRP)
+        </Link>
+      </div>
+
       <p className="text-body-m my-[16px]">
         The Programme supports R&D projects undertaken by private companies in
         collaboration with local universities and public research institutions.
