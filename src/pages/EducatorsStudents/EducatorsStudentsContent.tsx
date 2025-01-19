@@ -49,7 +49,7 @@ export const EducatorsStudentsContent: React.FC = () => {
     {
       title: "About HKCTC",
       description:
-        "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services...",
+        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on...",
       imagePath: "career_2.png",
     },
   ];

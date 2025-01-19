@@ -36,8 +36,8 @@ export const ProfileAndRole: React.FC = () => {
             "2022",
           ],
           seriesData: [
-            500, 520, 540, 560, 590, 620, 650, 700, 750, 800, 880, 950, 980,
-            1000,
+            690, 705, 700, 705, 715, 715, 740, 770, 820, 830, 870, 905, 925,
+            950,
           ],
           seriesBackgroundColor: "#D9B6F6",
           seriesItemColor: "#BD78FC",
@@ -247,7 +247,7 @@ export const ProfileAndRole: React.FC = () => {
           );
         })}
 
-        <p
+        {/* <p
           className="italic"
           style={{
             fontSize: "14px",
@@ -259,7 +259,7 @@ export const ProfileAndRole: React.FC = () => {
           testing and certification activities from 2009 to 2022 #The figure
           includes the amount of subsidy in relation to anti-epidemic measures
           received by the sector in 2022.
-        </p>
+        </p> */}
         <hr className="my-[24px]" />
 
         <SquareTitle title="Role of the Sector" />

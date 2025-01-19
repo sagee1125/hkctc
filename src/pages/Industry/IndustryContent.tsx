@@ -12,19 +12,19 @@ export const IndustryContent: React.FC = () => {
     {
       title: "Accommodation and Land",
       description:
-        "The Hong Kong Government allows five specific non-industrial uses in existing industrial buildings (e.g., testing labs, R&D centers) without...",
+        "According to the revitalisation scheme for industrial buildings (“IBs”), one of the measures is to relax the waiver application policy to permit uses for a ...",
       imagePath: "industry/Accommodation_Land.png",
     },
     {
       title: "Funding Schemes",
       description:
-        "In general, the testing and certification (T&C) sector provides variety types of funds - Testing, Inspection and Certification.",
+        "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
       imagePath: "generalPublic/whatsnew_4.png",
     },
     {
       title: "Entering into the Mainland market",
       description:
-        "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
+        "Since the signing of Supplement VII to the Mainland and Hong Kong Closer Economic Partnership Arrangement (CEPA), the Mainland has been...",
       imagePath: "industry/Entering.png",
     },
     {
