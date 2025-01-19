@@ -32,7 +32,7 @@ export const EducatorsStudentsContent: React.FC = () => {
       title: "Strengths of Hong Kong's T&C Sector",
       description:
         "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      imagePath: "Strengths.png",
+      imagePath: "tc_1.png",
     },
     {
       title: "Services Provided by T&C Sector",
@@ -44,13 +44,13 @@ export const EducatorsStudentsContent: React.FC = () => {
       title: "Career Development",
       description:
         "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services...",
-      imagePath: "Career_Development.png",
+      imagePath: "career_1.png",
     },
     {
       title: "About HKCTC",
       description:
         "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services...",
-      imagePath: "About_HKCTC.png",
+      imagePath: "career_2.png",
     },
   ];
   return (
@@ -140,7 +140,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   {description}
                 </div>
                 <div className="text-highlight-m text-[#A7AAAD] text-center">
-                  Continue Read
+                  Continue to Read
                 </div>
               </div>
             </div>

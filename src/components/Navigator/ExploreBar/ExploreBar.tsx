@@ -49,19 +49,6 @@ export const ExploreBar: React.FC = () => {
       },
     },
     {
-      title: "T&C Service Users",
-      iconName: "mdi:user",
-      hoverColor:
-        currentPath === "/service-users"
-          ? "text-energeticOrange"
-          : `group-hover:text-energeticOrange ${
-              isClicked ? "text-[#7C7F83]" : ""
-            }`,
-      onClick: () => {
-        navigate("service-users");
-      },
-    },
-    {
       title: "T&C Bodies & Practitioners",
       iconName: "majesticons:test-tube-filled",
       hoverColor:
@@ -72,6 +59,19 @@ export const ExploreBar: React.FC = () => {
             }`,
       onClick: () => {
         navigate("industry");
+      },
+    },
+    {
+      title: "T&C Service Users",
+      iconName: "mdi:user",
+      hoverColor:
+        currentPath === "/service-users"
+          ? "text-energeticOrange"
+          : `group-hover:text-energeticOrange ${
+              isClicked ? "text-[#7C7F83]" : ""
+            }`,
+      onClick: () => {
+        navigate("service-users");
       },
     },
   ];

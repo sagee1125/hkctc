@@ -82,7 +82,6 @@ import {
   EnvironmentalProtection,
   InformationAndCommunicationsTechnologies,
   Food,
-  CareerEducation,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
@@ -91,6 +90,7 @@ import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringInto
 import { AboutSite } from "../pages/AboutSite/AboutSite";
 import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
 import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
+import { CareerEducation } from "../pages/CareerEducation/CareerEducation";
 
 export type RouteConfig = {
   path: string;
