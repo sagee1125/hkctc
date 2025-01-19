@@ -181,7 +181,7 @@ export const CEPAAgreements: React.FC = () => {
               <p className="text-body-m mt-[16px]">
                 The&nbsp;
                 <span
-                  className="text-newPrimary text-links-m underline cursor-pointer"
+                  className="text-newPrimary text-linked-m underline cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/agreement_on_trade_in_services_clauses",

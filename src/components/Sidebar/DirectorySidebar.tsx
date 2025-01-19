@@ -41,6 +41,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               if (disabled) return;
               setActivatedItems(item);
             }}
+            key={index}
           >
             <p className={classNames(fontStyle)}>{item}</p>
 

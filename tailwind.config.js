@@ -44,7 +44,8 @@ module.exports = {
         "heading-xl": ["32px", { lineHeight: "32px", fontWeight: 700 }],
         "heading-xxl": ["40px", { lineHeight: "40px", fontWeight: 800 }],
 
-        "links-m": ["16px", { lineHeight: "22px", fontWeight: 600 }],
+        "linked-m": ["16px", { lineHeight: "22px", fontWeight: 600 }],
+        "linked-s": ["14px", { lineHeight: "20px", fontWeight: 300 }],
 
         "highlight-xs": ["12px", { lineHeight: "18px", fontWeight: 600 }],
         "highlight-s": ["14px", { lineHeight: "20px", fontWeight: 600 }],
