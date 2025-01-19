@@ -11,12 +11,40 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
+  List,
   maxContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
 export const MedicalTesting: React.FC = () => {
   const businessAreaTitle = "Medical Testing" as BusinessAreaTitle;
+  const listData = [
+    "AceCGT Diagnostic Limited",
+    "Bright Growth Medical Laboratory Limited",
+    "Canossa Hospital (Caritas) Management Company Limited - Clinical Laboratory",
+    "CareLink Bioscience Limited",
+    "Chan & Hou Medical Laboratories Ltd.",
+    "China Inspection Medical Laboratories Limited",
+    "Codex Genetics Limited",
+    "CUHK Medical Centre - Department of Pathology",
+    "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Chemical Pathology and Haematology Division*#",
+    "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Histopathology and Cytology Division*#	",
+  ];
+
+  const listRowRender: React.ReactNode[] = listData.map((item, index) => (
+    <div
+      key={index}
+      className="grid grid-cols-[1fr,8fr,2fr] gap-[10px] !text-body-m h-[70px]"
+    >
+      <p className="flex items-center justify-center px-[10px] h-full text-center">
+        {(index + 1).toString().padStart(2, "0")}
+      </p>
+      <p className="flex items-center justify-start px-[10px] h-full">{item}</p>
+      <p className="flex items-center justify-center px-[10px] h-full underline text-links text-center">
+        01
+      </p>
+    </div>
+  ));
 
   return (
     <div style={fullContainer}>
@@ -44,9 +72,8 @@ export const MedicalTesting: React.FC = () => {
 
             <div className="mt-[24px]">
               <MediaTemplate
-                title="T&C Manpower Development Award Scheme 2023-24"
+                title="What you Need to Know about Medical Testing"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/medicalTestingEvent.png"
-                date="4 December 2023"
               />
             </div>
             <p className="text-heading-l my-[24px]">
@@ -82,9 +109,6 @@ export const MedicalTesting: React.FC = () => {
               </a>
               . It is a voluntary scheme open to participation from any medical
               laboratories.
-              <br />
-              <br />
-              ParaParagraph B
             </p>
             <hr className="my-[24px]" />
 
@@ -94,7 +118,7 @@ export const MedicalTesting: React.FC = () => {
 
             <img
               className="w-full h-auto"
-              src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/Accredited-Medical-Testing-Service-1.png`}
+              src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/Accredited-Medical-Testing-Service-2.png`}
               alt="Accredited Medical Testing Service"
             />
             <p className="text-body-m mt-[24px]">
@@ -112,8 +136,6 @@ export const MedicalTesting: React.FC = () => {
               review to ensure its conforming to the professional technical
               standards. Quality of test results provided by accredited medical
               laboratories is thus assured.
-              <br /> <br />
-              ParaParagraph B
             </p>
             <hr className="my-[24px] text-[#E0E0E0]" />
             <p className="text-heading-l">
@@ -123,7 +145,16 @@ export const MedicalTesting: React.FC = () => {
               Please note that accreditation is test-specific. When choosing
               medical laboratories, please check their respective scope of
               accreditation from the above “List of Medical Laboratories
-              Accredited under HOKLAS”, or from the HKAS website.
+              Accredited under HOKLAS”, or from the&nbsp;
+              <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-links"
+              >
+                HKAS website
+              </a>
+              .
             </div>
             <p className="text-body-m">
               (As at 11 Nov 2024)
@@ -131,11 +162,34 @@ export const MedicalTesting: React.FC = () => {
               <br />
               Remarks: Accreditation is test-specific. Please check the scope of
               accreditation of medical laboratories by clicking the respective
-              HOKLAS Registration No. in the table below, or visit the HKAS
-              website.
+              HOKLAS Registration No. in the table below, or visit the&nbsp;
+              <a
+                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-links"
+              >
+                HKAS website
+              </a>
+              .
             </p>
-
-            <p className="text-orange-600"> TODO</p>
+            <div className="my-[24px]">
+              <List
+                title={
+                  <div className="grid grid-cols-[1fr,8fr,2fr] !text-highlight-m h-[70px]">
+                    <div />
+                    <p className="flex items-center justify-start px-[10px] h-full">
+                      Name of Accredited Medical Laboratory (in alphabetical
+                      order)
+                    </p>
+                    <p className="flex items-center justify-center text-center px-[10px] h-full w-full">
+                      HOKLAS Registration No.
+                    </p>
+                  </div>
+                }
+                rowData={listRowRender}
+              />
+            </div>
             <hr className="my-[24px]" />
             <InternalBackButton
               targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

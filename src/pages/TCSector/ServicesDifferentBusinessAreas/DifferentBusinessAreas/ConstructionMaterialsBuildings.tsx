@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
@@ -12,14 +12,226 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  activatedPagingButtonStyle,
   fullContainer,
   maxContainer,
+  normalPagingButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
+import { Icon } from "@iconify/react";
 
+type HyperlinkData = {
+  label: string;
+  link: string;
+};
+enum CertificationBodies {
+  Castco,
+  Fugro,
+  HongKongQuality,
+  SGS,
+  Takwin,
+  MINSEN,
+}
+const certificationBodiesMap: Record<CertificationBodies, HyperlinkData> = {
+  [CertificationBodies.Castco]: {
+    label: "Castco Certification Services Ltd.",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB009.pdf",
+  },
+  [CertificationBodies.Fugro]: {
+    label: "Fugro Certification Services Ltd.",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB009.pdf",
+  },
+  [CertificationBodies.HongKongQuality]: {
+    label: "Hong Kong Quality Assurance Agency",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB001.pdf",
+  },
+  [CertificationBodies.SGS]: {
+    label: "SGS Hong Kong Ltd.",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB003.pdf",
+  },
+  [CertificationBodies.Takwin]: {
+    label: "Takwin (Hong Kong) Ltd.",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB020.pdf",
+  },
+  [CertificationBodies.MINSEN]: {
+    label: "MINSEN Certification (Asia) Ltd.",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB012.pdf",
+  },
+};
+
+const schemeOwnerCol: HyperlinkData[] = [
+  {
+    label: "Hong Kong Quality Assurance Agency",
+    link: "https://www.hkqaa.org/en/home?catid=1",
+  },
+  ...Array(4).fill({
+    label: "Hong Kong Institute of Steel Construction",
+    link: "https://www.hkisc.org/",
+  }),
+  ...Array(6).fill({
+    label: "Hong Kong Concrete Institute",
+    link: "https://www.hongkongci.org/",
+  }),
+  ...Array(3).fill({
+    label: "Castco Certification Services Ltd.",
+    link: "https://en.castcocert.com/productcert",
+  }),
+  ...Array(2).fill({
+    label: "Hong Kong Institution of Plumbing and Drainage Ltd.",
+    link: "https://www.hkipd.com.hk/index.php?lang=en",
+  }),
+  {
+    label:
+      "Hong Kong Association for Testing, Inspection and Certification Ltd.",
+    link: "https://www.hktic.org/zh_HK/pccs_pp",
+  },
+];
+
+const handleGenerateA = (hyperlinkData: HyperlinkData): React.ReactNode => {
+  return (
+    <li>
+      <a
+        href={hyperlinkData.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline text-[#2F2F2F]"
+      >
+        {hyperlinkData.label}
+      </a>
+    </li>
+  );
+};
 export const ConstructionMaterialsBuildings: React.FC = () => {
   const businessAreaTitle =
     "Construction Materials and Buildings" as BusinessAreaTitle;
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 9;
+
+  // Calculate the indices for the current page
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  // Slice the data array based on the current page
+  const currentPageData = schemeOwnerCol.slice(startIndex, endIndex);
+
+  // Maximum number of pages (0-based index)
+  const maxPage = Math.ceil(schemeOwnerCol.length / itemsPerPage) - 1;
+  const schemeOwnerColArray: React.ReactNode[] = schemeOwnerCol.map(
+    (item, index) => (
+      <a
+        href={item.link}
+        key={index}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline text-[#2F2F2F]"
+      >
+        {item.label}
+      </a>
+    )
+  );
+  const tableRowsData: Array<React.ReactNode[]> = [
+    [
+      "Concrete",
+      "Fire Doors and Partition Walls",
+      "Heat-soaked Tempered Glass",
+      "Aluminum Window",
+      "Frictional Hinges for Aluminum Window",
+      "Tile Adhesives",
+      "Cement Products",
+      "Ceramic Tiles",
+      "Repair Mortars",
+      "Mesh Reinforcement",
+      "Aggregates for Concrete",
+      "Standard Sands",
+      "Replacement Sands",
+      "Mechanical Couplers",
+      "Drainage uPVC Pipe and Fitting",
+      "Close-coupled Water Closet Suites",
+      "Paint",
+    ],
+    [
+      "Quality Scheme for the Production and Supply of Concrete	",
+      "Product Conformity Certification Scheme for Passive Fire Protection Products",
+      "Product Conformity Certification Scheme for Heat Soaked Tempered Glass",
+      "Product Conformity Certification Scheme for Aluminum Window",
+      "Product Conformity Certification Scheme for Frictional Hinges",
+      "Product Conformity Certification Scheme for Tile Adhesives",
+      "Product Conformity Certification Scheme for Cement Products",
+      "Product Conformity Certification Scheme for Ceramic Tiles",
+      "Product Conformity Certification Scheme for Repair Mortar",
+      "Product Conformity Certification Scheme for Mesh Reinforcement",
+      "Product Conformity Certification Scheme - Aggregates for Concrete",
+      "Quality Scheme for Standard Sand",
+      "Quality Scheme for Replacement Sand",
+      "Product Conformity Certification Scheme for Mechanical Couplers",
+      "Product Conformity Certification Scheme for uPVC Pipe and Fittings for Foul Water Drainage Above Ground",
+      "Product Conformity Certification Scheme for Close-coupled Water Closet Suites",
+      "Product Conformity Certification Scheme for Paint Products",
+    ],
+    schemeOwnerColArray,
+    [
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        {handleGenerateA(
+          certificationBodiesMap[CertificationBodies.HongKongQuality]
+        )}
+      </>,
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.SGS])}
+      </>,
+      "Accredited certification body not yet available",
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Takwin])}
+      </>,
+      handleGenerateA(certificationBodiesMap[CertificationBodies.Takwin]),
+
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        {handleGenerateA(
+          certificationBodiesMap[CertificationBodies.HongKongQuality]
+        )}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.MINSEN])}
+      </>,
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.MINSEN])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.SGS])}
+      </>,
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+      </>,
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.MINSEN])}
+      </>,
+      <>
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+        {handleGenerateA(certificationBodiesMap[CertificationBodies.MINSEN])}
+      </>,
+      handleGenerateA(
+        certificationBodiesMap[CertificationBodies.HongKongQuality]
+      ),
+
+      ...Array(3).fill(
+        handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])
+      ),
+      handleGenerateA(certificationBodiesMap[CertificationBodies.MINSEN]),
+      ...Array(2).fill(
+        <>
+          {handleGenerateA(certificationBodiesMap[CertificationBodies.Castco])}
+          {handleGenerateA(certificationBodiesMap[CertificationBodies.Fugro])}
+        </>
+      ),
+    ],
+  ];
 
   const productData: Array<{
     title: string;
@@ -81,7 +293,90 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             The following product certification schemes are available in Hong
             Kong (as at 30 September 2022):
           </p>
-          <p className="text-red-700 mt-[24px]">TODO</p>
+          <div>
+            {/* Pagination Controls */}
+            <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 0}
+                style={{
+                  ...normalPagingButtonStyle,
+                  cursor: currentPage === 0 ? "not-allowed" : "pointer",
+                  color: currentPage === 0 ? "#AAAAAA" : "black",
+                }}
+              >
+                <Icon icon="mingcute:arrow-left-fill" width="24" height="24" />
+              </button>
+
+              {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
+                <button
+                  key={pageIndex}
+                  onClick={() => setCurrentPage(pageIndex)}
+                  style={
+                    currentPage === pageIndex
+                      ? activatedPagingButtonStyle
+                      : normalPagingButtonStyle
+                  }
+                >
+                  {pageIndex + 1}
+                </button>
+              ))}
+
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === maxPage}
+                style={{
+                  ...normalPagingButtonStyle,
+                  cursor: currentPage === maxPage ? "not-allowed" : "pointer",
+                  color: currentPage === maxPage ? "#AAAAAA" : "black",
+                }}
+              >
+                <Icon icon="mingcute:arrow-right-fill" width="24" height="24" />
+              </button>
+            </div>
+            <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E]">
+              {[
+                "Product",
+                "Name of Scheme",
+                "Scheme Owner",
+                "Certification Bodies Accredited by Hong Kong Accreditation Service",
+              ].map((head, index) => (
+                <p key={index}>{head}</p>
+              ))}
+            </div>
+            <div
+              className="!text-[#2F2F2F]"
+              style={{
+                borderTop: "2px solid #2F2F2F",
+              }}
+            >
+              {/* Map over the sliced data */}
+              {currentPageData.map((_, index) => (
+                <div
+                  key={startIndex + index} // Key should be unique and based on the actual index in the full array
+                  className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px]"
+                  style={{
+                    borderBottom: "1px dashed #C8CFD6",
+                  }}
+                >
+                  <p className="text-body-s">
+                    {tableRowsData[0][startIndex + index]}
+                  </p>
+                  <p className="text-body-s">
+                    {tableRowsData[1][startIndex + index]}
+                  </p>
+                  <div className="text-linked-s">
+                    {tableRowsData[2][startIndex + index]}
+                  </div>
+                  <div className="text-linked-s">
+                    {tableRowsData[3][startIndex + index]}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </>
       ),
     },
@@ -96,7 +391,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           table in (c) above. Information on these suppliers is available
           at&nbsp;
           <a
-            className="underline"
+            className="underline text-links"
             href="https://www.housingauthority.gov.hk/en/business-partnerships/resources/construction-product-certification/index.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -105,7 +400,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           </a>
           &nbsp;(OR&nbsp;
           <a
-            className="underline"
+            className="underline text-links"
             href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -132,7 +427,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               href="https://www.archsd.gov.hk/media/consultants-contractors/product-conformity-certification-schemes/pccs_leaflet_posting%20to%20internet.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline text-links"
             >
               flyer
             </a>
@@ -156,11 +451,11 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               href="https://www.hkgbc.org.hk/eng/beam-plus/introduction/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline text-links"
             >
-              BEAM
+              BEAM Plus
             </a>
-            &nbsp;Plus assessment is the Hong Kong's leading initiative to offer
+            &nbsp;assessment is the Hong Kong's leading initiative to offer
             independent assessments of building sustainability performance.
             Recognised and certified by the Hong Kong Green Building Council,
             BEAM Plus offers a comprehensive set of performance criteria for a
@@ -183,7 +478,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               href="https://www.hkgbc.org.hk/eng/beam-plus/beam-plus-new-buildings/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline text-links"
             >
               webpage
             </a>
@@ -232,7 +527,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
   }> = [
     {
       title: "a. Laboratory and on-site testing services",
-      descriptionTitle: "The services below are available in Hong Kong :",
+      descriptionTitle: "The services below are available in Hong Kong:",
       description: [
         "Physical testing of construction materials",
         "Foundation and geotechnical testing",
@@ -312,6 +607,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       ),
     },
   ];
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
@@ -389,7 +685,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                       <div className="!text-body-m">
                         {item.descriptionTitle}
                       </div>
-                      <div className="!text-body-m">
+                      <div className="!text-body-m flex flex-col gap-[12px]">
                         {[...item.description].map((desc, index) => (
                           <div key={index}>
                             <li>{desc}</li>
