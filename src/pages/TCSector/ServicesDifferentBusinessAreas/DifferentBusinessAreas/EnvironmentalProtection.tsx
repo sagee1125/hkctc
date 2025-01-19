@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
@@ -13,8 +13,10 @@ import {
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
+  activatedButtonStyle,
   fullContainer,
   maxContainer,
+  normalButtonStyle,
 } from "../../../../components";
 
 const timeLineData: string[] = [
@@ -26,8 +28,70 @@ const timeLineData: string[] = [
   "Monitor, review, maintain and improve the EnMS continuously",
 ];
 
+const bSectionMap: Record<number, string> = {
+  0: "ISO 14064-1 details the principles and requirements for designing, developing, managing and reporting an organisation-level GHG inventory. A GHG inventory refers to an organisation's physical units and processes that release and remove GHG into/from the atmosphere, and its GHG emissions and removals.",
+  1: `ISO 14064-2 focuses on projects that aim to reduce GHG emissions and/or increase GHG removals ("GHG projects"). The standard includes principles and requirements for determining project baseline scenarios and for monitoring, quantifying and reporting project performance relative to the baseline scenarios.`,
+  2: "ISO/TS 14067 specifies principles, requirements and guidelines for the quantification and communication of the carbon footprint of a product (CFP). CFP refers to the sum of GHG emissions and removals involved in the life cycle of a product.",
+};
+
+const cSectionMap: Record<
+  number,
+  { component: React.ReactNode; imgUrl: string }
+> = {
+  0: {
+    component: (
+      <p>
+        For an organisation, "GHG verification" is to confirm a GHG inventory
+        quantified and reported by that organisation.
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_1.png",
+  },
+  1: {
+    component: (
+      <p>
+        <span className="!text-highlight-m">For a GHG project</span>, "GHG
+        validation" is to evaluate the GHG project plan before implementing that
+        project. "GHG verification" is to confirm the reported GHG emission
+        reductions and/or GHG removal enhancements that occur as a result of the
+        project.
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_2.png",
+  },
+
+  2: {
+    component: (
+      <p>
+        <span className="!text-highlight-m">
+          For the carbon footprint of a product (CFP)
+        </span>
+        , "CFP verification" is to confirm the CFP study report.
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_3.png",
+  },
+};
+
+const bSectionButtonArray = [
+  "Organisational Level: ISO 14064-1",
+  "Project Level: ISO 14064-2",
+  "Product Carbon Footprint: ISO/TS 14067",
+];
+
+const cSectionButtonArray = [
+  "organisation",
+  "GHG project",
+  "the carbon footprint of a product (CFP)",
+];
+
 export const EnvironmentalProtection: React.FC = () => {
   const businessAreaTitle = "Environmental Protection" as BusinessAreaTitle;
+  const [activeBSectionButton, setActiveBSectionButton] = useState<number>(0);
+  const [activeCSectionButton, setActiveCSectionButton] = useState<number>(0);
 
   const environmentalProtection: Array<{
     title: string;
@@ -35,26 +99,136 @@ export const EnvironmentalProtection: React.FC = () => {
   }> = [
     {
       title: "a. What is Greenhouse Gas (GHG)?",
-      content: "",
+      content: (
+        <p>
+          GHG refers to the gaseous constituents of the atmosphere, both natural
+          and anthropogenic, that absorb and emit infra-red radiation. To tackle
+          climate change, many places around the world are implementing various
+          initiatives to limit GHG concentrations in the atmosphere. These
+          initiatives rely on the&nbsp;
+          <span className="!text-highlight-m">
+            quantification, monitoring, reporting, validation and verification
+            of GHG emissions and/or removals
+          </span>
+          .
+        </p>
+      ),
     },
     {
       title:
         "b. International Standards/Technical Specification on GHG Quantification",
-      content: "",
+      content: (
+        <>
+          <div className="flex flex-wrap gap-[8px] mb-[16px]">
+            {bSectionButtonArray.map((btn, index) => {
+              const isActivated = index === activeBSectionButton;
+              return (
+                <button
+                  key={index}
+                  className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveBSectionButton(index);
+                  }}
+                >
+                  {btn}
+                </button>
+              );
+            })}
+          </div>
+          <div>{bSectionMap[activeBSectionButton]}</div>
+        </>
+      ),
     },
     {
       title: "c. What is GHG Validation & Verification?",
-      content: "",
+      content: (
+        <>
+          <div className="flex flex-wrap gap-[8px] mb-[16px]">
+            {cSectionButtonArray.map((btn, index) => {
+              const isActivated = index === activeCSectionButton;
+              return (
+                <button
+                  key={index}
+                  className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveCSectionButton(index);
+                  }}
+                >
+                  {btn}
+                </button>
+              );
+            })}
+          </div>
+          <div>{cSectionMap[activeCSectionButton].component}</div>
+          <div className="overflow-hidden w-[500px] mt-[16px]">
+            <img
+              className="w-full h-auto object-contain"
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/tcSector/servicesDifferentBusinessAreas/" +
+                cSectionMap[activeCSectionButton].imgUrl
+              }
+              alt={cSectionMap[activeCSectionButton].imgUrl}
+            />
+          </div>
+        </>
+      ),
     },
 
     {
       title: "d. Why adopt GHG Validation and Verification?",
-      content: "",
+      content: (
+        <>
+          <p>GHG Validation and Verification can:</p>
+          <br />
+          <div className="flex flex-col gap-[12px]">
+            <li>
+              enhance the consistency, credibility and transparency of your GHG
+              quantification, monitoring and reporting
+            </li>
+            <li>
+              help develop and implement your organisation's GHG management
+              plans or GHG projects
+            </li>
+            <li>
+              facilitate your tracking of the performance and progress in the
+              reduction of GHG emissions and increase in GHG removals
+            </li>
+          </div>
+        </>
+      ),
     },
     {
       title:
         "e. Validation/verification bodies accredited by HKAS for GHG Validation & Verification",
-      content: "",
+      content: (
+        <>
+          <p>
+            The Hong Kong Accreditation Service (HKAS) offers accreditation
+            service for GHG validation and verification for
+            validation/verification bodies' voluntary application. Accredited
+            validation/verification bodies' technical competence is rigorously
+            assessed by HKAS, so that the reliability of their results can be
+            assured.
+          </p>
+          <br />
+          <p>
+            For the list of HKAS-accredited validation/verification bodies,
+            please visit&nbsp;
+            <a
+              href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              HKAS's website
+            </a>
+            .
+          </p>
+        </>
+      ),
     },
   ];
 

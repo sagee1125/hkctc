@@ -81,9 +81,12 @@ export const Publications: React.FC = () => {
       );
 
       if (activeTitleIndex !== -1 && titleRefs.current[activeTitleIndex]) {
-        const { width, left } =
-          titleRefs.current[activeTitleIndex]!.getBoundingClientRect();
-        setUnderlineProps({ width, left });
+        const activeElement = titleRefs.current[activeTitleIndex];
+        if (activeElement) {
+          const width = activeElement.offsetWidth;
+          const left = activeElement.offsetLeft;
+          setUnderlineProps({ width, left });
+        }
       }
     };
 
@@ -345,7 +348,6 @@ export const Publications: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    ref={(el) => (titleRefs.current[index] = el)}
                     className="cursor-pointer flex flex-col items-center"
                     onClick={() => {
                       setActiveCategory(title);
@@ -357,6 +359,7 @@ export const Publications: React.FC = () => {
                           ? "text-heading-s"
                           : "text-body-m"
                       }
+                      ref={(el) => (titleRefs.current[index] = el)}
                     >
                       {title}
                     </p>
