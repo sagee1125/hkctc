@@ -72,12 +72,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
                     setActiveButton(index);
                   }}
                 >
-                  <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+                  {btn}
                 </button>
               );
             })}
           </div>
-          <div className="mt-[16px]">
+          <div className="mt-[16px] flex flex-col gap-[12px]">
             {(activeButton === 0 ? testExamples_1 : testExamples_2).map(
               (item, index) => (
                 <li key={index}>{item}</li>

@@ -121,7 +121,7 @@ export const SeminarsWorkshops: React.FC = () => {
                 setActiveTopicButton(index);
               }}
             >
-              <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+              {btn}
             </button>
           );
         })}
@@ -144,7 +144,7 @@ export const SeminarsWorkshops: React.FC = () => {
                 setActiveYearButton(index);
               }}
             >
-              <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+              {btn}
             </button>
           );
         })}

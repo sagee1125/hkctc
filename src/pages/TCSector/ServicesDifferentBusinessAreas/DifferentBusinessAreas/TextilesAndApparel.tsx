@@ -30,34 +30,35 @@ export const TextilesAndApparel: React.FC = () => {
         <>
           <p>Examples of tests to meet regulatory requirements:</p>
           <br />
-
-          <li>
-            Physical tests, such as fibre analysis on composition, colour
-            fastness tests, assessments on shrinkage and appearance in
-            conjunction with labelling, flammability tests on general clothing,
-            nightwear and vinyl film
-          </li>
-          <li>
-            Chemical tests, such as azo dyes, cadmium, nickel release, lead and
-            phthalates, etc.
-          </li>
-
+          <div className="flex flex-col gap-[12px]">
+            <li>
+              Physical tests, such as fibre analysis on composition, colour
+              fastness tests, assessments on shrinkage and appearance in
+              conjunction with labelling, flammability tests on general
+              clothing, nightwear and vinyl film
+            </li>
+            <li>
+              Chemical tests, such as azo dyes, cadmium, nickel release, lead
+              and phthalates, etc.
+            </li>
+          </div>
           <br />
           <p>Examples of tests to fulfill quality performance requirements:</p>
           <br />
-
-          <li>
-            Physical tests, such as strength tests on tensile, tearing and
-            bursting strengths, colour fastness tests to washing, water,
-            rubbing, light and perspiration, construction tests on yarn count,
-            performance tests on pilling, abrasion and snagging resistance,
-            functional tests on air permeability, water resistance and UV
-            protection
-          </li>
-          <li>
-            Chemical tests such as pH value, extractable heavy metals,
-            chlorinated organic careers, etc.
-          </li>
+          <div className="flex flex-col gap-[12px]">
+            <li>
+              Physical tests, such as strength tests on tensile, tearing and
+              bursting strengths, colour fastness tests to washing, water,
+              rubbing, light and perspiration, construction tests on yarn count,
+              performance tests on pilling, abrasion and snagging resistance,
+              functional tests on air permeability, water resistance and UV
+              protection
+            </li>
+            <li>
+              Chemical tests such as pH value, extractable heavy metals,
+              chlorinated organic careers, etc.
+            </li>
+          </div>
         </>
       ),
     },
@@ -163,7 +164,9 @@ export const TextilesAndApparel: React.FC = () => {
                 />
               ))}
             </div>
-            <p className="text-heading-l my-[24px]">
+            <hr className="my-[24px]" />
+
+            <p className="text-heading-l mt-[24px]">
               Organisations Accredited by HKAS Providing Testing Services on
               Textile and Apparel
             </p>

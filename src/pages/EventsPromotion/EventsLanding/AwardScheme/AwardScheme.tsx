@@ -123,7 +123,7 @@ export const AwardScheme: React.FC = () => {
                 setActiveTestingOneButton(index);
               }}
             >
-              <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+              {btn}
             </button>
           );
         })}
@@ -185,7 +185,7 @@ export const AwardScheme: React.FC = () => {
                 setActiveTestingTwoButton(index);
               }}
             >
-              <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+              {btn}
             </button>
           );
         })}
@@ -243,7 +243,7 @@ export const AwardScheme: React.FC = () => {
                 setQuestionCategoriesArray(index);
               }}
             >
-              <p className="px-[12px] py-[6px] text-highlight-xs">{btn}</p>
+              {btn}
             </button>
           );
         })}
