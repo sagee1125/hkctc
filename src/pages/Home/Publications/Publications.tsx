@@ -8,7 +8,7 @@ import advertorials from "./assets/Advertorials.png";
 
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
-import { EmailBox } from "../../../components";
+import { EmailBox, FileTemplate } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { useNavigate } from "react-router-dom";
 
@@ -29,13 +29,15 @@ type PublicationItems = {
   title: string;
   type: "VIDEO" | "PDF";
   date: string;
+  header?: string;
+
   imgPath: string;
   onClick: () => void;
 };
 enum Category {
   Events = "Events",
-  Workshops = "Workshops",
-  Seminars = "Seminars",
+  Publications = "Publications",
+  CEPA = "CEPA",
   Competitions = "Competitions",
 }
 const categoryValues = Object.values(Category);
@@ -177,76 +179,75 @@ export const Publications: React.FC = () => {
       title: Category.Events,
       items: [
         {
+          header: "T&C Manpower Development Award Scheme",
+          title:
+            "Testing and Certification Manpower Development Award Scheme 2023-24",
+          type: "VIDEO",
+          date: "4 Dec 2023",
+          imgPath: "images/Manpower_Development.png",
+          onClick: () => {},
+        },
+        {
+          header: "Seminars and Workshops",
+
+          title:
+            "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
+          type: "VIDEO",
+          date: "11 Apr 2024",
+          imgPath: "images/Seminars.png",
+          onClick: () => {},
+        },
+        {
+          header: "Student Competitions",
+          title: "Testing Science - Sustainability in Daily Life",
+          type: "PDF",
+          date: "2023-24",
+          imgPath: "images/StudentCompetitions.png",
+          onClick: () => {},
+        },
+      ],
+    },
+    {
+      title: Category.Publications,
+      items: [
+        {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Award_Ceremony.png",
+          imgPath: "publications/Award_Ceremony.png",
           onClick: () => {},
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Infographic_Video.png",
+          imgPath: "publications/Infographic_Video.png",
           onClick: () => {},
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Award_Pamphlet.png",
+          imgPath: "publications/Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Commemorative_Publication.png",
+          imgPath: "publications/Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
     },
     {
-      title: Category.Workshops,
-      items: [
-        {
-          title: "Award Ceremony",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "Award_Ceremony.png",
-          onClick: () => {},
-        },
-        {
-          title: "Infographic video",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "Infographic_Video.png",
-          onClick: () => {},
-        },
-        {
-          title: "Award Pamphlet",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "Award_Pamphlet.png",
-          onClick: () => {},
-        },
-        {
-          title: "Commemorative publication",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "Commemorative_Publication.png",
-          onClick: () => {},
-        },
-      ],
-    },
-    {
-      title: Category.Seminars,
+      title: Category.CEPA,
       items: [
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Infographic_Video.png",
+          imgPath: "publications/Infographic_Video.png",
           onClick: () => {},
         },
 
@@ -254,21 +255,21 @@ export const Publications: React.FC = () => {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Award_Pamphlet.png",
+          imgPath: "publications/Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Award_Ceremony.png",
+          imgPath: "publications/Award_Ceremony.png",
           onClick: () => {},
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Commemorative_Publication.png",
+          imgPath: "publications/Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -280,28 +281,28 @@ export const Publications: React.FC = () => {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Award_Ceremony.png",
+          imgPath: "publications/Award_Ceremony.png",
           onClick: () => {},
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
-          imgPath: "Infographic_Video.png",
+          imgPath: "publications/Infographic_Video.png",
           onClick: () => {},
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Award_Pamphlet.png",
+          imgPath: "publications/Award_Pamphlet.png",
           onClick: () => {},
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
-          imgPath: "Commemorative_Publication.png",
+          imgPath: "publications/Commemorative_Publication.png",
           onClick: () => {},
         },
       ],
@@ -393,15 +394,12 @@ export const Publications: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="relative flex justify-center items-center w-full">
               <img
-                className="w-full h-auto"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/publications/publication_head.png"
-                }
-                alt={"Publication Head"}
+                className="w-full h-full object-contain cursor-not-allowed"
+                src={process.env.PUBLIC_URL + "/assets/publications/Quiz.png"}
+                alt={"Quiz"}
               />
             </div>
-            <div className="text-heading-m text-left w-full mt-4">
+            {/* <div className="text-heading-m text-left w-full mt-4">
               T&C Manpower Development Award Scheme 2023-24
             </div>
             <div className="text-body-m pt-4 ">
@@ -409,26 +407,41 @@ export const Publications: React.FC = () => {
               bodies to invest in talent training and development, while also
               commending those T&C practitioners who has striven for
               continuous...
-            </div>
-            <div className="flex flex-row w-full mt-4 gap-2">
+            </div> */}
+            {/* <div className="flex flex-row w-full mt-4 gap-2">
               <Icon icon="material-symbols:date-range-rounded" />
               <h2 className="text-body-m text-grey">{"6 Aug 2024"}</h2>
-            </div>
+            </div> */}
           </div>
           {/* column 2 */}
           <div>
-            <Container className="flex flex-col gap-4">
+            <Container className="flex flex-col gap-[32px]">
               {showCurrentPubliationItem.map((subItem, index) => {
-                const { title, type, date, imgPath } = subItem;
+                const { title, date, imgPath, header } = subItem;
 
                 return (
                   <BannerSlide
                     key={index}
-                    className="grid grid-cols-[2fr,3fr] cursor-pointer"
+                    className="flex flex-col cursor-pointer"
                     animate={animate}
                     direction={direction}
                   >
-                    <img
+                    <p
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: 700,
+                        lineHeight: "32px",
+                      }}
+                    >
+                      {header}
+                    </p>
+                    <FileTemplate
+                      title={title}
+                      imagePath={"assets/" + imgPath}
+                      date={date}
+                      iconPath={null}
+                    />
+                    {/* <img
                       className="w-full h-auto max-w-full aspect-[16/10]"
                       src={
                         process.env.PUBLIC_URL +
@@ -444,7 +457,7 @@ export const Publications: React.FC = () => {
                         <Icon icon="material-symbols:date-range-rounded" />
                         {date}
                       </div>
-                    </div>
+                    </div> */}
                   </BannerSlide>
                 );
               })}

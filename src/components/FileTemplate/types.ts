@@ -3,6 +3,6 @@ export type FileTemplateProps = {
   imagePath: string;
   direction?: "horizontal" | "vertical";
   titleHyperlink?: string;
-  iconPath?: string;
+  iconPath?: string | null;
   date?: string;
 };
