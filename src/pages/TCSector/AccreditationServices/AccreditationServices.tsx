@@ -41,6 +41,7 @@ export const AccreditationServices: React.FC = () => {
                   title={title}
                   imagePath={imagePath}
                   titleHyperlink={link}
+                  iconPath={"PRESS.png"}
                 />
               </div>
             );
@@ -72,6 +73,9 @@ export const AccreditationServices: React.FC = () => {
         <FileTemplate
           title={"Directory of Accredited Organisations (Full List)"}
           imagePath={"assets/serviceUsers/Full_List.png"}
+          titleHyperlink={
+            "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"
+          }
         />
         <p className="text-italic-s mt-[24px] italic">
           *This full list is for the purpose of searching specific conformity

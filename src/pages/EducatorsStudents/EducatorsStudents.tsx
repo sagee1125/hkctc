@@ -15,7 +15,7 @@ export const EducatorsStudents: React.FC = () => {
       <ExploreDetailBar
         title="Educators & Students"
         titleTheme="trustfulBlue"
-        description="Know more about certificate & testing in education, and how to become part of us"
+        description="Know more about certificate & testing in education, and how to become part of us."
         barBackgroundImg="educatorsStudents/banner_bg.png"
       />
       <div style={maxContainer}>

@@ -53,8 +53,8 @@ export const ExploreBar: React.FC = () => {
       iconName: "mdi:user",
       hoverColor:
         currentPath === "/service-users"
-          ? "text-growthfulGreen"
-          : `group-hover:text-growthfulGreen ${
+          ? "text-energeticOrange"
+          : `group-hover:text-energeticOrange ${
               isClicked ? "text-[#7C7F83]" : ""
             }`,
       onClick: () => {
@@ -66,8 +66,8 @@ export const ExploreBar: React.FC = () => {
       iconName: "majesticons:test-tube-filled",
       hoverColor:
         currentPath === "/industry"
-          ? "text-energeticOrange"
-          : `group-hover:text-energeticOrange ${
+          ? "text-growthfulGreen"
+          : `group-hover:text-growthfulGreen ${
               isClicked ? "text-[#7C7F83]" : ""
             }`,
       onClick: () => {

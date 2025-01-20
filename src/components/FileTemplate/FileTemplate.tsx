@@ -31,11 +31,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
             href={titleHyperlink}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline text-[#00E]"
-            style={{
-              fontSize: "16px",
-              fontWeight: "600 !important",
-            }}
+            className="text-highlight-m cursor-pointer"
           >
             {title}
           </a>
