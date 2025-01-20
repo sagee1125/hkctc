@@ -25,16 +25,267 @@ export const MedicalTesting: React.FC = () => {
   const itemsPerPage = 9;
 
   const listData = [
-    "AceCGT Diagnostic Limited",
-    "Bright Growth Medical Laboratory Limited",
-    "Canossa Hospital (Caritas) Management Company Limited - Clinical Laboratory",
-    "CareLink Bioscience Limited",
-    "Chan & Hou Medical Laboratories Ltd.",
-    "China Inspection Medical Laboratories Limited",
-    "Codex Genetics Limited",
-    "CUHK Medical Centre - Department of Pathology",
-    "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Chemical Pathology and Haematology Division*#",
-    "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Histopathology and Cytology Division*#	",
+    // 1
+    {
+      name: "Bright Growth Medical Laboratory Limited",
+      regNo: "870S",
+    },
+    {
+      name: "Canossa Hospital (Caritas) Management Company Limited - Clinical Laboratory",
+      regNo: "835S",
+    },
+    {
+      name: "CareLink Bioscience Limited",
+      regNo: "835S",
+    },
+
+    // 4
+    {
+      name: "Chan & Hou Medical Laboratories Ltd.",
+      regNo: "834S",
+    },
+    {
+      name: "China Inspection Medical Laboratories Limited",
+      regNo: "851S",
+    },
+    {
+      name: "Codex Genetics Limited",
+      regNo: "869S",
+    },
+    // 7
+    {
+      name: "CUHK Medical Centre - Department of Pathology",
+      regNo: "858S",
+    },
+    // 8
+    {
+      name: "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Chemical Pathology and Haematology Division*#",
+      regNo: "813P",
+    },
+    // 9
+    {
+      name: "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Histopathology and Cytology Division*#",
+      regNo: "803P",
+    },
+    // 10
+    {
+      name: "Department of Health - Centre for Health Protection, Public Health Laboratory Services Branch, Microbiology Division*#",
+      regNo: "801P",
+    },
+    // 11
+    {
+      name: "Diagnostix Medical Centre Ltd.",
+      regNo: "806S",
+    },
+    // 12
+    {
+      name: "Diagnostix Pathology Laboratories Ltd.",
+      regNo: "802P",
+    },
+    // 13
+    {
+      name: "Evangel Hospital - Laboratory",
+      regNo: "863S",
+    },
+    // 14
+    {
+      name: "FZ Public Health Laboratory Company Limited	",
+      regNo: "855S",
+    },
+    // 15
+    {
+      name: "GenieBiome (Diagnostic) Co. Ltd. - G-NiiB Molecular & MicroBiome Laboratory",
+      regNo: "872S",
+    },
+    // 16
+    {
+      name: "GHK Hospital Limited - Gleneagles Hospital Hong Kong, Department of Clinical Laboratory",
+      regNo: "842S",
+    },
+    // 17
+    {
+      name: "HKSH Medical Group Limited - Department of Pathology",
+      regNo: "852P",
+    },
+    // 18
+    {
+      name: "Hong Kong Baptist Hospital - Pathology Department",
+      regNo: "844P",
+    },
+    {
+      name: "Hong Kong Health Check and Medical Diagnostic Centre Limited - Hong Kong Health Check Medical Laboratory",
+      regNo: "845S",
+    },
+
+    // 20
+    {
+      name: "Hong Kong Molecular Pathology Diagnostic Centre Limited",
+      regNo: "838S",
+    },
+    // 21
+    {
+      name: "Hong Kong Precision Pathology Laboratory Limited",
+      regNo: "865S",
+    },
+    // 22
+    {
+      name: "Hospital Authority - Alice Ho Miu Ling Nethersole Hospital, Department of Pathology",
+      regNo: "808P",
+    },
+    {
+      name: "Hospital Authority - Caritas Medical Centre, Department of Clinical Pathology",
+      regNo: "830P",
+    },
+    {
+      name: "Hospital Authority - Hong Kong Children's Hospital, Department of Pathology",
+      regNo: "871P",
+    },
+    // 25
+    {
+      name: "Hospital Authority - Hong Kong East Cluster, Department of Clinical Pathology",
+      regNo: "821P",
+    },
+    {
+      name: "Hospital Authority - Hong Kong Red Cross Blood Transfusion Service*",
+      regNo: "816P",
+    },
+    {
+      name: "Hospital Authority - Kwong Wah Hospital, Department of Pathology",
+      regNo: "833P",
+    },
+    // 28
+    {
+      name: "Hospital Authority - North District Hospital, Department of Pathology",
+      regNo: "810P",
+    },
+    {
+      name: "Hospital Authority - Princess Margaret Hospital, Department of Pathology",
+      regNo: "826P",
+    },
+    // 30
+    {
+      name: "Hospital Authority - Queen Elizabeth Hospital, Department of Pathology",
+      regNo: "867P",
+    },
+    {
+      name: "Hospital Authority - Tsan Yuk Hospital, Prenatal Diagnostic Laboratory",
+      regNo: "832S",
+    },
+    {
+      name: "Hospital Authority - Tseung Kwan O Hospital, Department of Pathology",
+      regNo: "815P",
+    },
+    // 33
+    {
+      name: "Hospital Authority - Tuen Mun Hospital, Department of Clinical Pathology",
+      regNo: "837P",
+    },
+    {
+      name: "Hospital Authority - United Christian Hospital, Department of Pathology",
+      regNo: "817P",
+    },
+    // 35
+    {
+      name: "Hospital Authority - Yan Chai Hospital, Department of Pathology",
+      regNo: "829P",
+    },
+    {
+      name: "In Touch, Limited - Histopathology Laboratory",
+      regNo: "868P",
+    },
+    // 37
+    {
+      name: "iPath Laboratory Limited",
+      regNo: "840P",
+    },
+    // 38
+    {
+      name: "KingMed Diagnostics (Hong Kong) Limited",
+      regNo: "822S",
+    },
+    // 39
+    {
+      name: "Lee's Pharm Genomics Lab Limited",
+      regNo: "860S",
+    },
+    // 40
+    {
+      name: "Medtimes Molecular Laboratory Limited",
+      regNo: "856S",
+    },
+    {
+      name: "New Life Laboratory Testing Limited",
+      regNo: "866S",
+    },
+    {
+      name: "Onco Medical Laboratory Ltd.",
+      regNo: "823S",
+    },
+    // 43
+    {
+      name: "Pangenia Lifesciences Limited",
+      regNo: "862S",
+    },
+    // 44
+    {
+      name: "PathLab Medical Laboratories Limited",
+      regNo: "805S",
+    },
+    // 45
+    {
+      name: "Precious Blood Hospital (Caritas) - Clinical Pathology Laboratory",
+      regNo: "849S",
+    },
+    // 46
+    {
+      name: "Prenetics Limited",
+      regNo: "827S",
+    },
+    // 47
+    {
+      name: "Quality Healthcare Medical Services Limited - Alpha Medical Diagnostic Centre",
+      regNo: "819S",
+    },
+    // 48
+    {
+      name: "Seventh-Day Adventist Corporation (HK) Limited - Clinical Laboratories, Adventist Health",
+      regNo: "825S",
+    },
+    // 49
+    {
+      name: "St. Paul’s Hospital - Pathology Department",
+      regNo: "846P",
+    },
+    // 50
+    {
+      name: "St. Teresa's Hospital - Clinical Laboratory",
+      regNo: "861S",
+    },
+    // 51
+    {
+      name: "St. Teresa's Hospital - Histopathology Laboratory",
+      regNo: "811P",
+    },
+    // 52
+    {
+      name: "The Chinese University of Hong Kong - Department of Obstetrics and Gynaecology, Obstetrics Screening Laboratory",
+      regNo: "841S",
+    },
+    // 53
+    {
+      name: "The Hong Kong Polytechnic University - Molecular Diagnostic Laboratory",
+      regNo: "854S",
+    },
+    // 54
+    {
+      name: "UCN Diagnostic Services - Pathology Laboratory",
+      regNo: "843S",
+    },
+    // 55
+    {
+      name: "Xcelom Limited - Xcelom Microbiology Laboratory",
+      regNo: "850S",
+    },
   ];
 
   const listRowRender: React.ReactNode[] = listData.map((item, index) => (
@@ -45,10 +296,17 @@ export const MedicalTesting: React.FC = () => {
       <p className="flex items-center justify-center px-[10px] h-full text-center">
         {(index + 1).toString().padStart(2, "0")}
       </p>
-      <p className="flex items-center justify-start px-[10px] h-full">{item}</p>
-      <p className="flex items-center justify-center px-[10px] h-full underline text-links text-center">
-        01
+      <p className="flex items-center justify-start px-[10px] h-full">
+        {item.name}
       </p>
+      <a
+        className="flex items-center justify-center px-[10px] h-full underline text-links text-center"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={`https://www.itc.gov.hk/en/quality/hkas/doc/scopes/${item.regNo}.pdf`}
+      >
+        {item.regNo}
+      </a>
     </div>
   ));
 
