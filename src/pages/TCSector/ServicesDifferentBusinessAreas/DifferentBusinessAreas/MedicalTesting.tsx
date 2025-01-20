@@ -504,6 +504,20 @@ export const MedicalTesting: React.FC = () => {
                 rowData={currentPageData}
               />
             </div>
+            <div
+              style={{
+                fontSize: "16px",
+                fontStyle: "normal",
+                fontWeight: "300",
+                lineHeight: "22px",
+              }}
+            >
+              *&nbsp;denotes a medical laboratory which normally does not offer
+              testing service to the public.
+              <br />
+              #&nbsp;denotes a medical laboratory which is under the specified
+              departments of the Government.
+            </div>
             <hr className="my-[24px]" />
             <InternalBackButton
               targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
