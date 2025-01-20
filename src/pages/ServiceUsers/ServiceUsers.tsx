@@ -5,7 +5,7 @@ import { ServiceUsersContent } from "./ServiceUsersContent";
 
 export const ServiceUsers: React.FC = () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
+    { label: "Home", href: "/" },
     { label: "T&C Service Users" },
   ];
 
