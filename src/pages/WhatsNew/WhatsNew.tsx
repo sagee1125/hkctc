@@ -34,14 +34,6 @@ export const WhatsNew: React.FC = () => {
       title: "No.7",
       date: "6 Aug 2024",
     },
-    {
-      title: "No.6",
-      date: "11 April 2024",
-    },
-    {
-      title: "No.5",
-      date: "11 April 2024",
-    },
   ];
 
   return (

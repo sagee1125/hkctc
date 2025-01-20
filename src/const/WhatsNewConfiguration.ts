@@ -37,56 +37,31 @@ export type WhatsNewData = {
 
 export const WhatsNewConfiguration: WhatsNewData[] = [
   {
-    title: "Trade show open for application",
-    date: "28 Aug 2024",
-    imagePath: "Trade_Show.png",
-    imagePathSwitch: "Trade_Show_1.png",
-    onClick: () => {},
-  },
-  {
-    title: "Mid-Autumn Festival brings family reunion and joy",
-    date: "28 Aug 2024",
-    imagePath: "Mid_Autumn.png",
-    imagePathSwitch: "Mid_Autumn_1.png",
-    onClick: () => {},
-  },
-  {
-    title: "The Testing And Certification Industry Has Always Played An...",
-    date: "28 Aug 2024",
-    imagePath: "Testing.png",
-    imagePathSwitch: "Testing_1.png",
-    onClick: () => {},
-  },
-  {
-    title: "Belt and Road Summit Forum",
-    date: "28 Aug 2024",
-    imagePath: "Belt.png",
-    imagePathSwitch: "Belt_1.png",
-    onClick: () => {},
-  },
-
-  {
     title:
       "Further liberalisation measures for testing and certification under CEPA",
     date: "9 Oct 2024",
     imagePath: "whatsnew_1.png",
+    imagePathSwitch: "Trade_Show_1.png",
   },
   {
     title:
       "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
     date: "6 Aug 2024",
     imagePath: "whatsnew_2.png",
+    imagePathSwitch: "Mid_Autumn_1.png",
   },
   {
     title: 'The eleventh "HKCTC Newsletter" has been issued',
     date: "29 May 2024",
     imagePath: "whatsnew_3.png",
+    imagePathSwitch: "Testing_1.png",
   },
   {
     title:
       "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
     date: "16 Apr 2024",
     imagePath: "whatsnew_4.png",
+    imagePathSwitch: "Belt_1.png",
   },
   {
     title:
