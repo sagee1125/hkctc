@@ -84,9 +84,9 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
             return (
               <div
                 key={index}
-                className="flex flex-col gap-[14px] w-[260px] group"
+                className="flex flex-col gap-[14px] w-[270px] group"
               >
-                <div className="w-full h-[202px] overflow-hidden cursor-pointer">
+                <div className="w-full aspect-[260/202] overflow-hidden cursor-pointer">
                   <img
                     className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/${img}`}
