@@ -15,6 +15,8 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
+import { CareerDevelopment } from "./CareerDevelopment";
+import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
 
 const sidebarComponent: Partial<
   Record<
@@ -28,7 +30,7 @@ const sidebarComponent: Partial<
   // career
   [navItemEnum.career_development]: {
     bannerImage: "careerEducation/career_development.png",
-    component: <>1</>,
+    component: <CareerDevelopment />,
   },
   [navItemEnum.career_opportunities]: {
     bannerImage: "careerEducation/career_opportunities.png",
@@ -36,7 +38,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.other_professional_schemes]: {
     bannerImage: "careerEducation/other_professional_schemes.png",
-    component: <>3</>,
+    component: <OtherProfessionalSchemes />,
   },
 
   // education
