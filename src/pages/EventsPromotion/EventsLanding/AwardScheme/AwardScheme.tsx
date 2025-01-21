@@ -58,7 +58,7 @@ export const AwardScheme: React.FC = () => {
     <div className="w-full mb-[48px] flex flex-col gap-[24px]">
       <SquareTitle title="Testing & Certificate Manpower Development Award Scheme" />
 
-      <p className="text-body-m mt-[24px]">
+      <p className="text-body-m">
         With a view to encouraging the testing and certification (T&C) bodies to
         invest in talent training and development, while also commending those
         T&C practitioners who has striven for continuous learning and
@@ -74,14 +74,14 @@ export const AwardScheme: React.FC = () => {
       </p>
 
       <hr />
-      <p className="text-heading-l pb-[24px]">Past Schemes</p>
-      <div>
+      <p className="text-heading-l">Past Schemes</p>
+      <div className="flex flex-col gap-[24px]">
         {pastSchemes.map((scheme, index) => {
           const { title, imgUrl, onClick } = scheme;
           return (
             <div
               key={index}
-              className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+              className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
               onClick={onClick}
             >
               <img
@@ -103,7 +103,7 @@ export const AwardScheme: React.FC = () => {
 
       <hr />
 
-      <p className="text-heading-l pb-[24px]">
+      <p className="text-heading-l">
         I. Testing and Certification Manpower Development Corporate Award
       </p>
       <p className="text-body-m">
@@ -111,7 +111,7 @@ export const AwardScheme: React.FC = () => {
         and professional development of T&C practitioners.
       </p>
 
-      <div className="flex flex-wrap gap-[8px] my-[24px]">
+      <div className="flex flex-wrap gap-[8px]">
         {buttonArray.map((btn, index) => {
           const isActivated = index === activeTestingOneButton;
           return (
@@ -154,7 +154,7 @@ export const AwardScheme: React.FC = () => {
           </p>
         </div>
       </div>
-      <p className="text-heading-l py-[24px]">
+      <p className="text-heading-l">
         II. Excellent Testing and Certification Professional Award
       </p>
       <p className="text-body-m">
@@ -173,7 +173,7 @@ export const AwardScheme: React.FC = () => {
         </li>
       </p>
 
-      <div className="flex flex-wrap gap-[8px] my-[24px]">
+      <div className="flex flex-wrap gap-[8px]">
         {buttonArray.map((btn, index) => {
           const isActivated = index === activeTestingTwoButton;
           return (
@@ -231,7 +231,7 @@ export const AwardScheme: React.FC = () => {
       <hr />
 
       <p className="text-heading-l">Frequently Asked Questions</p>
-      <div className="flex flex-wrap gap-[8px] my-[24px]">
+      <div className="flex flex-wrap gap-[8px]">
         {questionCategories.map((btn, index) => {
           const isActivated = index === questionCategoriesArray;
           return (

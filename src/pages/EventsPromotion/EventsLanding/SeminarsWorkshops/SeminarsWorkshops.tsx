@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import {
+  activatedButtonStyle,
+  normalButtonStyle,
+} from "../../../../components";
 
 const topicArray = [
   "All",
@@ -99,23 +103,23 @@ export const SeminarsWorkshops: React.FC = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-[24px] pr-[24px]">
+    <div className="w-full flex flex-col pr-[24px]">
       <div className="flex flex-row gap-[16px] items-start">
         <div className="h-[15px] w-[15px] bg-newPrimary mt-[8px]" />
         <p className="text-heading-l">Seminars and Workshops</p>
       </div>
-      <div className="flex flex-row pb-[10px] pt-[24px] gap-[8px]">
+      <div className="flex flex-row items-center pb-[10px] pt-[24px] gap-[8px]">
         <p className="text-highlight-m">Topics</p>
         <Icon icon="icon-park-outline:up" className="h-[12px] w-[12px]" />
       </div>
 
-      <div className="w-full flex flex-wrap gap-[8px] mb-[24px]">
+      <div className="flex flex-wrap gap-[8px]">
         {topicArray.map((btn, index) => {
           const isActivated = index === activeTopicButton;
           return (
             <button
               key={index}
-              className="p-0 transition-all duration-800 ease-in-out text-left"
+              className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveTopicButton(index);
@@ -127,12 +131,12 @@ export const SeminarsWorkshops: React.FC = () => {
         })}
       </div>
 
-      <div className="flex flex-row pb-[10px] gap-[8px]">
+      <div className="flex flex-row items-center pb-[10px] pt-[24px] gap-[8px]">
         <p className="text-highlight-m">Years</p>
         <Icon icon="icon-park-outline:up" className="h-[12px] w-[12px]" />
       </div>
 
-      <div className="w-full flex flex-wrap gap-[8px] mb-[24px]">
+      <div className="w-full flex flex-wrap gap-[8px]">
         {yearArray.map((btn, index) => {
           const isActivated = index === activeYearButton;
           return (
@@ -208,16 +212,4 @@ export const SeminarsWorkshops: React.FC = () => {
       </div>
     </div>
   );
-};
-
-const normalButtonStyle: React.CSSProperties = {
-  background: "white",
-  color: "black",
-  border: "1px solid #666666",
-};
-
-const activatedButtonStyle: React.CSSProperties = {
-  background: "#233F55",
-  color: "white",
-  border: "1px solid white",
 };
