@@ -23,12 +23,12 @@ export const CareerOpportunities: React.FC = () => {
 
         <div className="w-full grid grid-cols-2 gap-[8px] mb-[24px]">
           <img
-            className="border-2 border-inherit w-full h-auto object-cover"
+            className="w-full h-auto object-cover"
             src={`${process.env.PUBLIC_URL}/assets/careerEducation/laboratoryvisits_01.png`}
             alt={"laboratory visits 1"}
           />
           <img
-            className="border-2 border-inherit w-full h-full object-cover"
+            className="w-full h-full object-cover"
             src={`${process.env.PUBLIC_URL}/assets/careerEducation/laboratoryvisits_02.png`}
             alt={"laboratory visits 2"}
           />

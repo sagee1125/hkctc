@@ -12,7 +12,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
     <div className="flex flex-row h-[90px] gap-[24px] w-full">
       <div className="flex-shrink-0 relative w-[130px] h-[90px]">
         <img
-          className="border-2 border-inherit w-full h-full object-cover"
+          className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
           src={`${process.env.PUBLIC_URL}/${imagePath}`}
           alt={imagePath}
         />
