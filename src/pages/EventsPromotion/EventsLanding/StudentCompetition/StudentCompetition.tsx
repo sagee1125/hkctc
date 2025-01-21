@@ -9,7 +9,7 @@ export const StudentCompetition: React.FC = () => {
     imgUrl: string;
   }> = [
     {
-      title: "Testing Science – Sustainability in Daily Life",
+      title: "Testing Science - Sustainability in Daily Life",
       date: "2023-24",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_1.png",

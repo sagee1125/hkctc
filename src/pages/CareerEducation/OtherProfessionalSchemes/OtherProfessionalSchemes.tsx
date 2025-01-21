@@ -1,12 +1,7 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 import { SquareTitle } from "../../../components";
-import { useNavigate } from "react-router-dom";
-import { navItemEnum } from "../../../const";
 
 export const OtherProfessionalSchemes: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="w-full flex flex-row gap-[24px] pr-[24px]">
       <div className="flex-1">

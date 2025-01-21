@@ -17,6 +17,7 @@ import {
 } from "../../const";
 import { CareerDevelopment } from "./CareerDevelopment";
 import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
+import { CareerOpportunities } from "./CareerOpportunities";
 
 const sidebarComponent: Partial<
   Record<
@@ -34,7 +35,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.career_opportunities]: {
     bannerImage: "careerEducation/career_opportunities.png",
-    component: <>2</>,
+    component: <CareerOpportunities />,
   },
   [navItemEnum.other_professional_schemes]: {
     bannerImage: "careerEducation/other_professional_schemes.png",
