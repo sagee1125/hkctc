@@ -5,6 +5,7 @@ import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCo
 import { Newsletter } from "./Publication/Newspaper/Newsletter";
 import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
 import { PressReleases } from "./News/PressReleases/PressReleases";
+import { HKCTCReports } from "./Reports";
 import { Comics } from "./Publication/Comics/Comics";
 import {
   BannerPhotoBox,
@@ -56,6 +57,12 @@ const sidebarComponent: Partial<
   [navItemEnum.comics]: {
     bannerImage: "",
     component: <Comics />,
+  },
+
+  //reports
+  [navItemEnum.hkctc_reports]: {
+    bannerImage: "",
+    component: <HKCTCReports />,
   },
 
   // news
