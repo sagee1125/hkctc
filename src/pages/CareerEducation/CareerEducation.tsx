@@ -18,6 +18,7 @@ import {
 import { CareerDevelopment } from "./CareerDevelopment";
 import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
 import { CareerOpportunities } from "./CareerOpportunities";
+import { ProgrammesCourses } from "./ProgrammesCourses";
 
 const sidebarComponent: Partial<
   Record<
@@ -45,7 +46,7 @@ const sidebarComponent: Partial<
   // education
   [navItemEnum.programmes_and_courses]: {
     bannerImage: "careerEducation/programmes_and_courses.png",
-    component: <>4</>,
+    component: <ProgrammesCourses />,
   },
   [navItemEnum.learning_teaching_resources]: {
     bannerImage: "careerEducation/learning_teaching_resources.png",
