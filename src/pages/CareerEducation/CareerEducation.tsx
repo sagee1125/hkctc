@@ -19,6 +19,7 @@ import { CareerDevelopment } from "./CareerDevelopment";
 import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
 import { CareerOpportunities } from "./CareerOpportunities";
 import { ProgrammesCourses } from "./ProgrammesCourses";
+import { QualificationsFramework } from "./QualificationsFramework";
 
 const sidebarComponent: Partial<
   Record<
@@ -54,7 +55,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.qualifications_framework]: {
     bannerImage: "careerEducation/qualifications_framework.png",
-    component: <>6</>,
+    component: <QualificationsFramework />,
   },
 };
 
