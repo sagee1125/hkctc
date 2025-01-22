@@ -20,6 +20,7 @@ import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
 import { CareerOpportunities } from "./CareerOpportunities";
 import { ProgrammesCourses } from "./ProgrammesCourses";
 import { QualificationsFramework } from "./QualificationsFramework";
+import { LearningTeachingResources } from "./LearningTeachingResources";
 
 const sidebarComponent: Partial<
   Record<
@@ -51,7 +52,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.learning_teaching_resources]: {
     bannerImage: "careerEducation/learning_teaching_resources.png",
-    component: <>5</>,
+    component: <LearningTeachingResources />,
   },
   [navItemEnum.qualifications_framework]: {
     bannerImage: "careerEducation/qualifications_framework.png",
