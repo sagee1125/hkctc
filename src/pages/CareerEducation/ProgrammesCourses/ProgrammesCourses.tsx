@@ -213,7 +213,7 @@ export const ProgrammesCourses: React.FC = () => {
           insight of the industry. Details of the courses and seminars may be
           obtained at VTC/IVE's relevant&nbsp;
           <a
-            href="/" // TBC
+            href="http://va.vtc.edu.hk/tcert/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -232,7 +232,7 @@ export const ProgrammesCourses: React.FC = () => {
           of their workers. Details of HKPC's training activities are accessible
           on HKPC's&nbsp;
           <a
-            href="/" // TBC
+            href="https://www.hkpcacademy.org/en/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
