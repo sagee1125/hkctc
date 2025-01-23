@@ -68,6 +68,7 @@ export const CareerOpportunities: React.FC = () => {
             title={"Events Application Form"}
             imagePath={"assets/careerEducation/EventsApplicationForm.png"}
             iconPath={"PDF.png"}
+            pdfHyperlink={"/en/doc/CareerTalk_or_Lab_visit_ReplyForm.pdf"}
           />
         </div>
 

@@ -5,4 +5,5 @@ export type FileTemplateProps = {
   titleHyperlink?: string;
   iconPath?: string | null;
   date?: string;
+  pdfHyperlink?: string;
 };
