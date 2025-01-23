@@ -11,16 +11,30 @@ export const QualificationsFramework: React.FC = () => {
         <p className="text-body-m mt-[24px]">
           The&nbsp;
           <span style={{ fontWeight: 700 }}>Qualifications Framework</span>
-          <span className="underline text-[#00E]">(QF)</span>&nbsp; was launched
-          in 2008 to provide a platform to encourage and facilitate lifelong
-          learning, with a view to enhancing the capability and competitiveness
-          of the workforce in Hong Kong. It is a seven-level hierarchy of
-          qualifications covering the academic, vocational and professional as
-          well as continuing education sectors. Qualifications recognised under
-          the QF are quality assured and level-rated in accordance with
-          objective and well-defined standards. The list of such qualifications
-          and courses can be found in the&nbsp;
-          <span className="underline text-[#00E]">Qualifications Register</span>
+          <a
+            href="https://www.hkqf.gov.hk/en/home/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            (QF)
+          </a>
+          &nbsp; was launched in 2008 to provide a platform to encourage and
+          facilitate lifelong learning, with a view to enhancing the capability
+          and competitiveness of the workforce in Hong Kong. It is a seven-level
+          hierarchy of qualifications covering the academic, vocational and
+          professional as well as continuing education sectors. Qualifications
+          recognised under the QF are quality assured and level-rated in
+          accordance with objective and well-defined standards. The list of such
+          qualifications and courses can be found in the&nbsp;
+          <a
+            href="http://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            Qualifications Register
+          </a>
           .
         </p>
 
@@ -39,7 +53,7 @@ export const QualificationsFramework: React.FC = () => {
           required of practitioners to perform various job functions
           effectively. More details can be found in its relevant&nbsp;
           <a
-            href="/"
+            href="https://www.hkqf.gov.hk/tic/en/scs/introduction/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -62,7 +76,7 @@ export const QualificationsFramework: React.FC = () => {
           network with industry partners in and outside Hong Kong. Details of
           the scheme can be found at its&nbsp;
           <a
-            href="https://www.hktic.org/zh_HK/PersonnelCertification"
+            href="https://www.hkqf.gov.hk/tic/en/award_scheme/introduction/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -101,7 +115,7 @@ export const QualificationsFramework: React.FC = () => {
           Certification Industry. For details of the RPL mechanism and
           application method, please visit its&nbsp;
           <a
-            href="/" // TODO
+            href="http://rpl.ouhk.edu.hk/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
