@@ -19,6 +19,7 @@ const hideExploreBar = [
   "/events-promotion",
   "/about-us",
   "/about-the-site",
+  "/career_and_education",
   "/*",
 ];
 export const Navigator: React.FC = () => {

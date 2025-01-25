@@ -27,22 +27,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
             return (
               <div
                 key={index}
-                className={`transition-all duration-300 ease-in-out ${
+                className={`transition-all duration-200 ease-in-out ${
                   isActivated
-                    ? "bg-[#F2F2EF] border-[16px] border-[#F2F2EF]"
+                    ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
                     : "bg-transparent border-[0px] border-transparent"
                 }`}
                 onClick={() => {
                   setActivatedItems(navItemEnum);
                 }}
               >
-                <div className="flex flex-row h-[106px] gap-[24px] w-full cursor-pointer ">
-                  <img
-                    className="w-auto h-[106px] object-contain"
-                    src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                    alt={imgUrl}
-                  />
-                  <div className="text-highlight-m text-black py-[8px] pr-[16px]">
+                <div className="flex flex-row gap-[24px] w-full cursor-pointer ">
+                  <div className="w-[130px] h-[90px] overflow-hidden">
+                    <img
+                      className="min-w-[130px] min-h-[90px] object-cover object-center"
+                      src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
+                      alt={imgUrl}
+                    />
+                  </div>
+                  <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">
                     {subTitle}
                   </div>
                 </div>
@@ -81,24 +83,26 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 return (
                   <div
                     key={i}
-                    className={`transition-all duration-300 ease-in-out ${
+                    className={`transition-all duration-200 ease-in-out ${
                       isActivated
-                        ? "bg-[#F2F2EF] border-[16px] border-[#F2F2EF]"
+                        ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
                         : "bg-transparent border-[0px] border-transparent"
                     }`}
                     onClick={() => {
                       setActivatedItems(navItemEnum);
                     }}
                   >
-                    <div className="flex flex-row h-[106px] gap-[24px] w-full">
-                      <img
-                        className="w-auto h-[106px] object-contain"
-                        src={
-                          process.env.PUBLIC_URL + "/assets/images/" + imgUrl
-                        }
-                        alt={imgUrl}
-                      />
-                      <div className="text-highlight-m text-black py-[8px] pr-[16px]">
+                    <div className="flex flex-row gap-[24px] w-full">
+                      <div className="w-[130px] h-[90px] overflow-hidden">
+                        <img
+                          className="w-full h-full object-cover"
+                          src={
+                            process.env.PUBLIC_URL + "/assets/images/" + imgUrl
+                          }
+                          alt={imgUrl}
+                        />
+                      </div>
+                      <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">
                         {subTitle}
                       </div>
                     </div>
