@@ -3,6 +3,7 @@ import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
+import { CEPAAgreements_ids } from "./CEPAAgreements";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{
@@ -304,54 +305,73 @@ export const OverviewIOnCEPA: React.FC = () => {
   );
   const [timelineCollapsed, setTimelineCollapsed] = useState<boolean>(true);
 
-  const timeLineData: Array<{ date: string; event: string }> = [
+  const timeLineData: Array<{
+    date: string;
+    event: string;
+    scroll_id: CEPAAgreements_ids;
+  }> = [
     {
       date: "Oct 2024",
       event:
         "Second Agreement Concerning Amendment to the Agreement on Trade in Services",
+      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
     },
     {
       date: "Nov 2019",
       event:
         "Agreement concerning Amendment to the Agreement on Trade in Services",
+      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
     },
     {
       date: "Dec 2018",
       event: "Agreement on Trade in Goods",
+      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_goods,
     },
     {
       date: "Jun 2017",
       event: "Agreement on Economic and Technical Cooperation",
+      scroll_id:
+        CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation,
     },
     {
       date: "Nov 2015",
       event:
         "Agreement on Trade in Services (Revised by way of Exchange of Letters in Dec 2018)",
+      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
     },
   ];
 
-  const timeLineDataCollapsed: Array<{ date: string; event: string }> = [
+  const timeLineDataCollapsed: Array<{
+    date: string;
+    event: string;
+    scroll_id: CEPAAgreements_ids;
+  }> = [
     {
       date: "Dec 2014",
       event:
         "Agreement between the Mainland and Hong Kong on Achieving Basic Liberalisation of Trade in Services in Guangdong",
+      scroll_id: CEPAAgreements_ids.mainland_and_hong_kong_agreement,
     },
 
     {
       date: "Aug 2013",
       event: "Supplement X to CEPA",
+      scroll_id: CEPAAgreements_ids.supplement_X_to_CEPA,
     },
     {
       date: "Jun 2012",
       event: "Supplement IX to CEPA",
+      scroll_id: CEPAAgreements_ids.supplement_IX_to_CEPA,
     },
     {
       date: "Dec 2011",
       event: "Supplement VIII to CEPA",
+      scroll_id: CEPAAgreements_ids.supplement_VIII_to_CEPA,
     },
     {
       date: "May 2010",
       event: "Supplement VII to CEPA",
+      scroll_id: CEPAAgreements_ids.supplement_VII_to_CEPA,
     },
   ];
   return (

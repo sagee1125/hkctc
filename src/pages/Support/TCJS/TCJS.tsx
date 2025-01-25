@@ -71,7 +71,9 @@ const Applications: React.FC = () => {
           <br />
           <p>
             Email:&nbsp;
-            <span className="underline text-[#00E]">tcjs@itc.gov.hk</span>
+            <a href="mailto:tcjs@itc.gov.hk" className="underline text-[#00E]">
+              tcjs@itc.gov.hk
+            </a>
           </p>
           <p>
             Address: Secretariat, Hong Kong Council for Testing and
@@ -419,7 +421,9 @@ export const TCJS: React.FC = () => {
           <p className="text-body-m flex-grow min-w-0">
             Organisations interested in the scheme can make enquiries via email
             to&nbsp;
-            <span className="underline text-[#00E]">tcjs@itc.gov.hk</span>
+            <a href="mailto:tcjs@itc.gov.hk" className="underline text-[#00E]">
+              tcjs@itc.gov.hk
+            </a>
             &nbsp;or
             <br /> telephone at&nbsp;
             <span className="underline text-[#00E]">2127 4864</span>.

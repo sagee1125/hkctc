@@ -14,13 +14,13 @@ const agreementMap: Record<string, React.ReactNode> = {
       <br />
       <li className="text-body-m">
         On the geographical coverage of&nbsp;
-        <span className="text-newPrimary !text-highlight-s">
+        <span className="text-newPrimary !text-highlight-m">
           CCC factory inspection
         </span>
         &nbsp;that can be undertaken by qualified certification bodies in Hong
         Kong in collaboration with designated Mainland organisations: To expand
         from manufacturers located in the whole Mainland&nbsp;
-        <span className="text-newPrimary !text-highlight-s">
+        <span className="text-newPrimary !text-highlight-m">
           to manufacturers in any place (including places outside Mainland
           China)
         </span>
@@ -29,14 +29,14 @@ const agreementMap: Record<string, React.ReactNode> = {
       <br />
       <li className="text-body-m">
         On the geographical coverage of&nbsp;
-        <span className="text-newPrimary !text-highlight-s">
+        <span className="text-newPrimary !text-highlight-m">
           selection of CCC post-certification test samples
         </span>
         &nbsp;that can be undertaken by qualified certification bodies in Hong
         Kong in collaboration with designated Mainland organisations: To&nbsp;
         <span className="text-newPrimary text-body-m">expand</span>&nbsp;from
         manufacturers located in the whole Mainland&nbsp;
-        <span className="text-newPrimary !text-highlight-s">
+        <span className="text-newPrimary !text-highlight-m">
           to manufacturers in any place (including places outside Mainland
           China)
         </span>
@@ -55,9 +55,13 @@ const agreementMap: Record<string, React.ReactNode> = {
       <p className="text-body-m">
         On 4 November 2020, the State Administration for Market Regulation
         published&nbsp;
-        <span className="underline text-[#00E]">an announcement</span>
+        <span className="underline text-[#00E] text-[16px]">
+          an announcement
+        </span>
         &nbsp;relating to the implementation of the&nbsp;
-        <span className="underline text-[#00E]">State Council’s notice</span>
+        <span className="underline text-[#00E] text-[16px]">
+          State Council’s notice
+        </span>
         &nbsp;on the cancellation of licensing work for designation of
         inspection bodies related to CCC. The announcement clearly stated that
         since 13 September 2020, the State Administration for Market Regulation
@@ -81,7 +85,7 @@ const agreementMap: Record<string, React.ReactNode> = {
       <p className="text-body-m">
         On 21 November 2019, an Agreement (“
         <span
-          className="text-newPrimary underline text-highlight-s cursor-pointer"
+          className="text-newPrimary underline !text-highlight-m cursor-pointer"
           onClick={() => {
             window.open(
               "/support/agreement_on_trade_in_services_clauses",
@@ -123,7 +127,7 @@ const agreementMap: Record<string, React.ReactNode> = {
           href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline text-[#00E]"
+          className="underline text-[#00E] text-[16px]"
         >
           Implementation Guide
         </a>
@@ -140,7 +144,7 @@ const agreementMap: Record<string, React.ReactNode> = {
         allows Hong Kong testing organisations to cooperate with designated
         Mainland certification bodies to undertake&nbsp;
         <span
-          className="!text-highlight-s underline text-newPrimary cursor-pointer"
+          className="!text-highlight-m underline text-newPrimary cursor-pointer"
           onClick={() => {
             window.open("/support/CCC_testing", "_blank");
           }}
@@ -164,6 +168,16 @@ const agreementMap: Record<string, React.ReactNode> = {
   ),
 };
 
+export enum CEPAAgreements_ids {
+  agreement_on_trade_in_services = "agreement_on_trade_in_services",
+  agreement_on_trade_in_goods = "agreement_on_trade_in_goods",
+  agreement_on_economic_and_technical_cooperation = "agreement_on_economic_and_technical_cooperation",
+  mainland_and_hong_kong_agreement = "mainland_and_hong_kong_agreement",
+  supplement_X_to_CEPA = "supplement_X_to_CEPA",
+  supplement_IX_to_CEPA = "supplement_IX_to_CEPA",
+  supplement_VIII_to_CEPA = "supplement_VIII_to_CEPA",
+  supplement_VII_to_CEPA = "supplement_VII_to_CEPA",
+}
 export const CEPAAgreements: React.FC = () => {
   const [agreementType, setAgreementType] = useState<string>(
     Object.keys(agreementMap)[0]
@@ -173,7 +187,10 @@ export const CEPAAgreements: React.FC = () => {
     <div className="w-full">
       <SquareTitle title="CEPA Agreements" />
 
-      <div className="mt-[24px]">
+      <div
+        className="mt-[24px]"
+        id={CEPAAgreements_ids.agreement_on_trade_in_services}
+      >
         <Accordion
           title={"Agreement on Trade in Services"}
           details={
@@ -181,7 +198,7 @@ export const CEPAAgreements: React.FC = () => {
               <p className="text-body-m mt-[16px]">
                 The&nbsp;
                 <span
-                  className="text-newPrimary text-linked-m underline cursor-pointer"
+                  className="text-newPrimary text-linked-m underline cursor-pointer !text-[16px]"
                   onClick={() => {
                     window.open(
                       "/support/agreement_on_trade_in_services_clauses",
@@ -244,13 +261,16 @@ export const CEPAAgreements: React.FC = () => {
           }
         />
       </div>
-      <div className="mt-[24px]">
+      <div
+        className="mt-[24px]"
+        id={CEPAAgreements_ids.agreement_on_trade_in_goods}
+      >
         <Accordion
           title={"Agreement on Trade in Goods"}
           details={
             <div className="text-body-m">
               <span
-                className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                className="!text-highlight-m underline text-newPrimary cursor-pointer"
                 onClick={() => {
                   window.open(
                     "/support/agreement_on_trade_in_goods_clauses",
@@ -267,14 +287,17 @@ export const CEPAAgreements: React.FC = () => {
           }
         />
       </div>
-      <div className="mt-[24px]">
+      <div
+        className="mt-[24px]"
+        id={CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation}
+      >
         <Accordion
           title={"Agreement on Economic and Technical Cooperation"}
           details={
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/agreement_on_economic&technical_cooperation_clauses",
@@ -307,7 +330,10 @@ export const CEPAAgreements: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div
+        className="mt-[24px]"
+        id={CEPAAgreements_ids.mainland_and_hong_kong_agreement}
+      >
         <Accordion
           title={
             "Agreement between the Mainland and Hong Kong on Achieving Basic Liberalisation of Trade in Services in Guangdong"
@@ -316,7 +342,7 @@ export const CEPAAgreements: React.FC = () => {
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/guangdong_agreement_clauses",
@@ -334,7 +360,7 @@ export const CEPAAgreements: React.FC = () => {
                 undertake testing of products in the "audio and visual
                 apparatus" category of the&nbsp;
                 <span
-                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
                     window.open("/support/CCC_testing", "_blank");
                   }}
@@ -379,14 +405,14 @@ export const CEPAAgreements: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_X_to_CEPA}>
         <Accordion
           title={"Supplement X to CEPA"}
           details={
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/supplement_X_to_CEPA_clauses",
@@ -441,14 +467,14 @@ export const CEPAAgreements: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_IX_to_CEPA}>
         <Accordion
           title={"Supplement IX to CEPA"}
           details={
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/supplement_IX_to_CEPA_clauses",
@@ -485,14 +511,17 @@ export const CEPAAgreements: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div
+        className="mt-[24px]"
+        id={CEPAAgreements_ids.supplement_VIII_to_CEPA}
+      >
         <Accordion
           title={"Supplement VIII to CEPA"}
           details={
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/supplement_VIII_to_CEPA_clauses",
@@ -508,7 +537,7 @@ export const CEPAAgreements: React.FC = () => {
                 cooperate with designated Mainland certification bodies to
                 undertake product testing for the&nbsp;
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open("/support/CCC_testing", "_blank");
                   }}
@@ -523,14 +552,14 @@ export const CEPAAgreements: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_VII_to_CEPA}>
         <Accordion
           title={"Supplement VII to CEPA"}
           details={
             <>
               <p className="text-body-m">
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open(
                       "/support/supplement_VII_to_CEPA_clauses",
@@ -543,7 +572,7 @@ export const CEPAAgreements: React.FC = () => {
                 &nbsp;was signed between the Mainland and the HKSAR in May 2010.
                 It includes liberalisation measures of the&nbsp;
                 <span
-                  className="!text-newPrimary underline !text-highlight-s cursor-pointer"
+                  className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     window.open("/support/CCC_testing", "_blank");
                   }}
@@ -552,7 +581,7 @@ export const CEPAAgreements: React.FC = () => {
                 </span>
                 &nbsp;and arrangements to help testing organisations in Hong
                 Kong to become recognised testing organisations under&nbsp;
-                <span className="!text-highlight-s underline text-newPrimary">
+                <span className="!text-highlight-m underline text-newPrimary">
                   international multilateral systems on mutual recognition
                 </span>
                 &nbsp;of testing and certification that are open to national

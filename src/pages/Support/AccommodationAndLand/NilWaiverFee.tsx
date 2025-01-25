@@ -418,15 +418,7 @@ export const NilWaiverFee: React.FC = () => {
       <br />
       <p className="text-body-m">
         To learn more about the measure, please see&nbsp;
-        <a
-          href="https://www.hkctc.gov.hk/en/support/land/nil_waiver_fee_faq.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          FAQs
-        </a>
-        .
+        <span className="text-newPrimary">FAQs</span>&nbsp;below .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
@@ -477,7 +469,7 @@ export const NilWaiverFee: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <div className="flex flex-col gap-[24px]">
-        <p className="text-heading-m">Frequently Asked Questions</p>
+        <p className="text-heading-l">Frequently Asked Questions</p>
         <p className="text-body-m">
           Below are some questions and answers for general reference only and
           these would not prejudice LandsD in exercising its authority and

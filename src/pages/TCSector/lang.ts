@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 export const TC_SECTOR_STRENGTH_TEXT = {
   EN: {
     TITLE: "Strengths of Hong Kong's T&C Sector",
