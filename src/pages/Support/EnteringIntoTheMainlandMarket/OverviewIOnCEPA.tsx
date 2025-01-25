@@ -167,16 +167,26 @@ const EnterpriseRun: React.FC = () => {
             <p>Contact person: Mr. QIU Lei</p>
             <p>Phone number: +86-10-82262779</p>
             <p>
-              Email address:{" "}
-              <span className="underline text-[#00E]">qiul@cnca.gov.cn</span>
+              Email address:&nbsp;
+              <a
+                href="mailto:qiul@cnca.gov.cn"
+                className="underline text-[#00E]"
+              >
+                qiul@cnca.gov.cn
+              </a>
             </p>
             <br />
             <p>Non- Electrical and Electronic Products</p>
             <p>Contact person: Mr. GUAN Jun-wen</p>
             <p>Phone number: +86-10-82262674</p>
             <p>
-              Email address:{" "}
-              <span className="underline text-[#00E]">guanjw@cnca.gov.cn</span>
+              Email address:&nbsp;
+              <a
+                href="mailto:guanjw@cnca.gov.cn"
+                className="underline text-[#00E]"
+              >
+                guanjw@cnca.gov.cn
+              </a>
             </p>
           </p>
         </>
@@ -264,16 +274,23 @@ const EnterpriseRun: React.FC = () => {
           <p>Contact person: Mr. QIU Lei</p>
           <p>Phone number: +86-10-82262779</p>
           <p>
-            Email address:{" "}
-            <span className="underline text-[#00E]">qiul@cnca.gov.cn</span>
+            Email address:&nbsp;
+            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+              qiul@cnca.gov.cn
+            </a>
           </p>
           <br />
           <p>Non- Electrical and Electronic Products</p>
           <p>Contact person: Mr. GUAN Jun-wen</p>
           <p>Phone number: +86-10-82262674</p>
           <p>
-            Email address:{" "}
-            <span className="underline text-[#00E]">guanjw@cnca.gov.cn</span>
+            Email address::&nbsp;
+            <a
+              href="mailto:guanjw@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
+              guanjw@cnca.gov.cn
+            </a>
           </p>
         </>
       ),

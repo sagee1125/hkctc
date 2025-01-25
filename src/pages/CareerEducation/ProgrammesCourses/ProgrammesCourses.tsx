@@ -132,11 +132,18 @@ export const ProgrammesCourses: React.FC = () => {
           from the sub-degree to postgraduate levels.
           <br />
           <br />
-          Launched in the 2015/16 academic year, the Study Subsidy Scheme for
-          Designated Professions/Sectors (SSSDP) is to subsidise students to
-          pursue designated full-time locally accredited self-financing
-          undergraduate programmes in selected disciplines, including testing
-          and certification.
+          Launched in the 2015/16 academic year, the&nbsp;
+          <a
+            href="https://www.cspe.edu.hk/en/sssdp/participating-institutions.html#year=2020/21"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            Study Subsidy Scheme for Designated Professions/Sectors (SSSDP)
+          </a>
+          &nbsp;is to subsidise students to pursue designated full-time locally
+          accredited self-financing undergraduate programmes in selected
+          disciplines, including testing and certification.
           <br />
           <br />A number of organisations also offer training courses and
           workshops from time to time for testing and certification

@@ -44,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       alt={imgUrl}
                     />
                   </div>
-                  <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">
+                  <div className="text-highlight-m text-black w-[252px]">
                     {subTitle}
                   </div>
                 </div>

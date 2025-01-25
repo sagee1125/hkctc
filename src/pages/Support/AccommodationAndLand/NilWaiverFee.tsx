@@ -55,8 +55,14 @@ export const NilWaiverFee: React.FC = () => {
       answer: (
         <span>
           You may approach the Secretariat of the Hong Kong Council for Testing
-          and Certification (<Link>enquiry@hkctc.gov.hk</Link>) for a
-          discussion. In general, testing laboratories with accredited
+          and Certification (
+          <a
+            href="mailto:enquiry@hkctc.gov.hk"
+            className="underline text-[#00E]"
+          >
+            enquiry@hkctc.gov.hk
+          </a>
+          ) for a discussion. In general, testing laboratories with accredited
           activities would be covered.
         </span>
       ),
@@ -197,9 +203,9 @@ export const NilWaiverFee: React.FC = () => {
             www.info.gov.hk/tpb/en/list_of_plans/list_of_plans.html
           </Link>
           . Details of the Outline Zoning Plans can be browsed at the Statutory
-          Planning Portal ( &nbsp;
+          Planning Portal&nbsp;(
           <Link outerLink="https://www.ozp.tpb.gov.hk/">
-            www.ozp.tpb.gov.hk&nbsp;
+            www.ozp.tpb.gov.hk
           </Link>
           ).
         </span>
@@ -434,15 +440,12 @@ export const NilWaiverFee: React.FC = () => {
             For enquiries on whether a testing laboratory may benefit under this
             measure, please contact the Secretariat of the Hong Kong Council for
             Testing and Certification (
-            <span
-              onClick={(e) => {
-                e.preventDefault();
-                navigator.clipboard.writeText("enquiry@hkctc.gov.hk");
-              }}
-              className="underline text-[#00E] cursor-pointer"
+            <a
+              href="mailto:enquiry@hkctc.gov.hk"
+              className="underline text-[#00E]"
             >
               enquiry@hkctc.gov.hk
-            </span>
+            </a>
             )
           </p>
         </div>
