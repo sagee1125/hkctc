@@ -80,6 +80,7 @@ export const CareerOpportunities: React.FC = () => {
           understand more about the testing and certification sector and its
           career opportunities.
           <br />
+          <br />
           Since 2011, HKCTC has coordinated internship opportunities from
           accredited testing, inspection and certification bodies in Hong Kong
           and forwarded them to local universities and VTC.

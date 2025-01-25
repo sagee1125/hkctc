@@ -26,11 +26,8 @@ export const OtherProfessionalSchemes: React.FC = () => {
           environmental or structural engineering disciplines with two subjects
           in construction engineering materials), as well as possessing
           sufficient relevant working experience, may apply for the HKIE
-          membership under its Materials Division.
-        </p>
-        <br />
-        <p className="text-body-m italic">
-          Details may be obtained at&nbsp;
+          membership under its Materials Division. Details may be obtained
+          at&nbsp;
           <a
             href="https://www.hkie.org.hk/en/"
             target="_blank"
@@ -58,11 +55,8 @@ export const OtherProfessionalSchemes: React.FC = () => {
           Testing; Construction Materials Testing; Electrical Products Testing;
           Microbiological Testing; Textiles and Garments Testing; Toys and
           Hardlines Testing; Food Testing; Environmental Testing; Quality
-          Assurance as well as Calibration.
-        </p>
-        <br />
-        <p className="text-body-m italic">
-          Full details may be obtained at its relevant&nbsp;
+          Assurance as well as Calibration. Full details may be obtained at its
+          relevant&nbsp;
           <a
             href="https://www.hktic.org/zh_HK/PersonnelCertification"
             target="_blank"
@@ -85,11 +79,8 @@ export const OtherProfessionalSchemes: React.FC = () => {
           (CNAS). Under relevant agreements, Hong Kong Certified QMS Auditors
           can apply to China Certification and Accreditation Association (CCAA)
           and International Personnel Certification Association (IPC) to
-          register as Auditors.
-        </p>
-        <br />
-        <p className="text-body-m italic">
-          Details on the scheme can be obtained at its&nbsp;
+          register as Auditors. Details on the scheme can be obtained at
+          its&nbsp;
           <a
             href="http://www.hkica.org/"
             target="_blank"

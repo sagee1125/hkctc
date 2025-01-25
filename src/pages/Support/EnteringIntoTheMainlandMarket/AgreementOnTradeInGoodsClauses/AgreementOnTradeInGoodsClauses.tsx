@@ -58,7 +58,7 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
             </p>
             <hr className="my-[24px]" />
 
-            <p className="my-[24px] text-heading-m">
+            <p className="my-[24px] text-heading-l">
               Article 59 - Technical Cooperation
             </p>
             <p className="text-body-m">
@@ -73,7 +73,7 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
               of the two sides
             </p>
             <hr className="my-[24px]" />
-            <p className="mb-[24px] text-heading-m">
+            <p className="mb-[24px] text-heading-l">
               Article 68 - Trade Facilitation Measures in the Guangdong-Hong
               Kong-Macao Greater Bay Area
             </p>

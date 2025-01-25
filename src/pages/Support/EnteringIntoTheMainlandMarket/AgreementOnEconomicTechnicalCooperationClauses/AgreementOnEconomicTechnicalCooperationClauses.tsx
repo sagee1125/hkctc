@@ -66,26 +66,7 @@ export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
               Electrotechnical Equipment and Components (IECEE) as a National
               Certification Body (NCB) of China.
             </p>
-            <br />
-            <p className="text-body-m">
-              (v) To promote the mutual recognition of inspection and quarantine
-              results on low risk goods, except for plants and animals and
-              products from plants and animals, food and medicines, between the
-              two sides.
-            </p>
-            <br />
-            <p className="text-body-m">
-              (vi) To explore the expansion of the scope of acceptance of third
-              party inspection, testing and certification results with respect
-              to commodities and institutions, and provide expedited customs
-              clearance treatment.
-            </p>
-            <br />
-            <p className="text-italic-s italic">
-              Note: The nine Pearl River Delta municipalities refer to
-              Guangzhou, Shenzhen, Zhuhai, Foshan, Huizhou, Dongguan, Zhongshan,
-              Jiangmen and Zhaoqing in Guangdong Province.
-            </p>
+
             <hr className="my-[24px]" />
 
             <p className="text-heading-l">Article 23(8)</p>

@@ -95,8 +95,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
                 </div>
               ))}
             </ul>
+            <hr className="my-[24px]" />
 
-            <p className="text-heading-l my-[24px]">
+            <p className="text-heading-l mb-[24px]">
               Measures in Facilitating Trade and Investment (extracted from the
               main text of Supplement X to CEPA)
             </p>
