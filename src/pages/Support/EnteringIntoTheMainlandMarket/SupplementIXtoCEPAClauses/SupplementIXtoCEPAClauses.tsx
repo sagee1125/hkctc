@@ -2,12 +2,11 @@ import React from "react";
 import {
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   SquareTitle,
 } from "../../../../components";
-import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
+import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
 
 export const SupplementIXtoCEPAClauses: React.FC = () => {
   const breadcrumbItems = [
@@ -19,10 +18,6 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
     { label: "Supplement IX to CEPA - Clauses" },
   ];
 
-  const directorySidebarMap =
-    directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
-  const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
   return (
     <div className="w-full pb-[48px]">
       <BannerPhotoBox src={"support/support_5.png"} />
@@ -31,12 +26,7 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
       </div>
       <div className="w-full flex flex-row pt-[48px] pr-[24px]">
         <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-          <DirectorySidebar
-            disabled
-            directorySidebarItems={directoryItems}
-            activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-            setActivatedItems={() => {}}
-          />
+          <ClausesDirectorySidebar />
         </div>
         <div className="flex-1">
           <SquareTitle title="Supplement IX to CEPA - Clauses" />

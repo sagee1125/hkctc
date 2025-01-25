@@ -1,35 +1,15 @@
 import React from "react";
+import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
 import {
-  Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   SquareTitle,
   fullContainer,
   maxContainer,
 } from "../../../../components";
-import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
 
-const list: string[] = [
-  "Electric cables and wiring",
-  "Electrical switches, protective devices and connection devices",
-  "Low voltage electrical equipment",
-  "Small power motors",
-  "Electric tools",
-  "Electric welding machines",
-  "Household and similar electrical appliances",
-  "Electronic product and safety accessory",
-  "Lighting apparatus",
-  "Motor vehicles and safety accessories",
-  "Agricultural machinery",
-  "Fire service equipment",
-  "Construction materials",
-  "Children’s products",
-  "Explosion-proof electrical products",
-  "Household gas appliances",
-];
 export const InternationalMultilateralSystems: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -40,10 +20,6 @@ export const InternationalMultilateralSystems: React.FC = () => {
     { label: "International Multilateral Systems on Mutual Recognition" },
   ];
 
-  const directorySidebarMap =
-    directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
-  const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
@@ -53,12 +29,7 @@ export const InternationalMultilateralSystems: React.FC = () => {
         </div>
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DirectorySidebar
-              disabled
-              directorySidebarItems={directoryItems}
-              activatedItems={""} // set empty
-              setActivatedItems={() => {}}
-            />
+            <ClausesDirectorySidebar />
           </div>
           <div className="flex-1">
             <SquareTitle title="International Multilateral Systems on Mutual Recognition" />

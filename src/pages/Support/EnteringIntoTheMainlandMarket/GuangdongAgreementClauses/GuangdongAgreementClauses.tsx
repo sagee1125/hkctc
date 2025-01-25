@@ -2,14 +2,13 @@ import React from "react";
 import {
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   SquareTitle,
   fullContainer,
   maxContainer,
 } from "../../../../components";
-import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
+import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
 
 const specificCommitments = [
   "In the area of voluntary certification, to allow testing organizations in Hong Kong to cooperate with Mainland certification bodies to undertake testing of products manufactured or processed in Hong Kong or in the Mainland. These testing organizations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region (i.e. the Hong Kong Accreditation Service) to be competent in performing testing for the relevant products.",
@@ -25,10 +24,6 @@ export const GuangdongAgreementClauses: React.FC = () => {
     { label: "Guangdong Agreement - Clauses" },
   ];
 
-  const directorySidebarMap =
-    directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
-  const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
@@ -38,12 +33,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
         </div>
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DirectorySidebar
-              disabled
-              directorySidebarItems={directoryItems}
-              activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-              setActivatedItems={() => {}}
-            />
+            <ClausesDirectorySidebar />
           </div>
           <div className="flex-1">
             <SquareTitle title="Guangdong Agreement - Clauses" />

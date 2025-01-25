@@ -1,14 +1,13 @@
 import React from "react";
+import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
 import {
   BannerPhotoBox,
   Breadcrumb,
-  DirectorySidebar,
   InternalBackButton,
   SquareTitle,
   fullContainer,
   maxContainer,
 } from "../../../../components";
-import { directorySidebarItemsMap } from "../../Support";
 import { navItemEnum } from "../../../../const";
 
 export const AgreementOnTradeInGoodsClauses: React.FC = () => {
@@ -21,10 +20,6 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
     { label: "Agreement on Trade in Goods - Clauses" },
   ];
 
-  const directorySidebarMap =
-    directorySidebarItemsMap[navItemEnum.entering_into_the_mainland_market];
-  const directoryItems = Object.keys(directorySidebarMap ?? {}) ?? [];
-
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
@@ -34,12 +29,7 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
         </div>
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DirectorySidebar
-              disabled
-              directorySidebarItems={directoryItems}
-              activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
-              setActivatedItems={() => {}}
-            />
+            <ClausesDirectorySidebar />
           </div>
           <div className="flex-1">
             <SquareTitle title="Agreement on Trade in Goods - Clauses" />
