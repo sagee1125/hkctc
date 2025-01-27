@@ -55,13 +55,23 @@ const agreementMap: Record<string, React.ReactNode> = {
       <p className="text-body-m">
         On 4 November 2020, the State Administration for Market Regulation
         published&nbsp;
-        <span className="underline text-[#00E] text-[16px]">
+        <a
+          className="underline text-[#00E] !text-body-s"
+          href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           an announcement
-        </span>
+        </a>
         &nbsp;relating to the implementation of the&nbsp;
-        <span className="underline text-[#00E] text-[16px]">
+        <a
+          className="underline text-[#00E] !text-body-s"
+          href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           State Council’s notice
-        </span>
+        </a>
         &nbsp;on the cancellation of licensing work for designation of
         inspection bodies related to CCC. The announcement clearly stated that
         since 13 September 2020, the State Administration for Market Regulation
@@ -85,7 +95,7 @@ const agreementMap: Record<string, React.ReactNode> = {
       <p className="text-body-m">
         On 21 November 2019, an Agreement (“
         <span
-          className="text-newPrimary underline !text-highlight-m cursor-pointer"
+          className="text-newPrimary underline !text-highlight-s cursor-pointer"
           onClick={() => {
             window.open(
               "/support/agreement_on_trade_in_services_clauses",
@@ -144,7 +154,7 @@ const agreementMap: Record<string, React.ReactNode> = {
         allows Hong Kong testing organisations to cooperate with designated
         Mainland certification bodies to undertake&nbsp;
         <span
-          className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          className="!text-highlight-s underline text-newPrimary cursor-pointer"
           onClick={() => {
             window.open("/support/CCC_testing", "_blank");
           }}
@@ -198,7 +208,7 @@ export const CEPAAgreements: React.FC = () => {
               <p className="text-body-m mt-[16px]">
                 The&nbsp;
                 <span
-                  className="text-newPrimary text-linked-m underline cursor-pointer !text-[16px]"
+                  className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
                   onClick={() => {
                     window.open(
                       "/support/agreement_on_trade_in_services_clauses",
