@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { SquareTitle } from "../../../components";
+import { FileTemplateTitleCenter, SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { navItemEnum } from "../../../const";
 
@@ -9,6 +9,7 @@ type RelatedLinks = {
   imgUrl: string;
   nav: string;
 };
+
 export const CareerDevelopment: React.FC = () => {
   const navigate = useNavigate();
 
@@ -46,6 +47,78 @@ export const CareerDevelopment: React.FC = () => {
       title: "Qualifications Framework",
       imgUrl: "Qualifications_Framework.png",
       nav: `/career_and_education?section=${navItemEnum.qualifications_framework}`,
+    },
+  ];
+
+  const resourcesData: Array<{
+    title: string;
+    imgUrl: string;
+    link: string;
+    iconPath: string;
+  }> = [
+    {
+      title: "Testing and Certification Create Your Future",
+      imgUrl: "TestingPdf.png",
+      iconPath: "PDF.png",
+      link: "https://www.hkctc.gov.hk/en/doc/brochure_e.pdf",
+    },
+    {
+      title: "認識檢測和認證業 (Chinese Version Only)",
+      imgUrl: "TestingPdf_Chinese.png",
+      iconPath: "PDF.png",
+      link: "https://www.hkctc.gov.hk/tc/doc/brochure_b.pdf",
+    },
+    {
+      title: "檢測認證青雲路 (Chinese Version Only)",
+      imgUrl: "QYL.png",
+      iconPath: "PDF.png",
+      link: "https://www.hkctc.gov.hk/tc/doc/brochure_c.pdf",
+    },
+    {
+      title: "檢測認證工作透視 (Chinese Version Only)",
+      imgUrl: "toushi.png",
+      iconPath: "PDF.png",
+      link: "https://www.hkctc.gov.hk/tc/doc/brochure_d.pdf",
+    },
+    {
+      title: "Career Development in Testing and Certification Sector",
+      imgUrl: "defaultCover.png",
+      iconPath: "PDF.png",
+      link: "https://www.hkctc.gov.hk/en/doc/pamphlet_a.pdf",
+    },
+    {
+      title: "Testing and Certification Create Your Future",
+      imgUrl: "defaultCover.png",
+      iconPath: "VIDEO.png",
+      link: "https://www.youtube.com/embed/GDuq9I9J9IU",
+    },
+    {
+      title: "Young Testing and Certification Practitioners Talks",
+      imgUrl: "defaultCover.png",
+      iconPath: "VIDEO.png",
+      link: "https://www.youtube.com/embed/_baqA4hraQc",
+    },
+
+    {
+      title:
+        "Know More About T&C (1): Electronic Product Testing & Food Management System Certification",
+      imgUrl: "defaultCover.png",
+      iconPath: "VIDEO.png",
+      link: "https://www.youtube.com/embed/ly4dgf0K6Gc",
+    },
+    {
+      title:
+        "Know More About T&C (2): Textile Testing & Construction Materials Product Certification",
+      imgUrl: "defaultCover.png",
+      iconPath: "VIDEO.png",
+      link: "https://www.youtube.com/embed/2P9Vbmh4Wok",
+    },
+    {
+      title:
+        "Know More About T&C (3): Building / Construction Testing and Indoor Air Quality Inspection",
+      imgUrl: "defaultCover.png",
+      iconPath: "VIDEO.png",
+      link: "https://www.youtube.com/embed/lph2_v1FTwU",
     },
   ];
 
@@ -190,6 +263,32 @@ export const CareerDevelopment: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        <hr className="my-[24px] text-[#E0E0E0]" />
+
+        <p className="text-heading-l">Resources</p>
+        <div className="mt-[24px]">
+          <div className="grid grid-cols-2 gap-[24px]">
+            {resourcesData.map((item, index) => {
+              const { title, imgUrl, link, iconPath } = item;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
+                  onClick={() => {
+                    window.open(link, "_blank");
+                  }}
+                >
+                  <FileTemplateTitleCenter
+                    title={title}
+                    imagePath={"assets/careerEducation/" + imgUrl}
+                    iconPath={iconPath}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

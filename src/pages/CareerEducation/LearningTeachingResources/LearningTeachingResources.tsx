@@ -1,7 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import { SquareTitle } from "../../../components";
+import { url } from "inspector";
 
 export const LearningTeachingResources: React.FC = () => {
+  const [playVideoOneIndex, setPlayVideoOneIndex] = useState<number>(0);
+  const [playVideoTwoIndex, setPlayVideoTwoIndex] = useState<number>(0);
+  const downloadDataOne = [
+    {
+      title: "Download Teacher's Guide",
+      link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Teachers_Guide_Eng.pdf",
+    },
+    {
+      title: "Download Student Laboratory Manual",
+      link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Student_Manual_Eng.pdf",
+    },
+  ];
+  const downloadDataTwo = [
+    {
+      title: "Download Teachers' Guide",
+      link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Teachers_Guide_Eng.pdf",
+    },
+    {
+      title: "Download Student Laboratory Manual",
+      link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Student_Manual_Eng.pdf",
+    },
+  ];
+
+  const downloadDataThree = [
+    {
+      title: "Chinese Version Only",
+      link: "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
+    },
+    {
+      title: "Text Version",
+      link: "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf",
+    },
+  ];
+  const videoDataOne = [
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_1_Eng.mp4",
+      thumbnail: "video1",
+      title: "Analysis of Colorants in Food and Personal-Care Products",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_2_Eng.mp4",
+      thumbnail: "video2",
+      title: "Screening Test for Plastic Type of Plastic Products",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_3_Eng.mp4",
+      thumbnail: "video3",
+      title: "Analysis of Bacteria in Environmental Samples",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_4_Eng.mp4",
+      thumbnail: "video4",
+      title: "Wine-Making and Analysis of Alcohol in Beverage",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_5_Eng.mp4",
+      thumbnail: "video5",
+      title: "Slime-Making and Analysis of Borax in Slime",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_6_Eng.mp4",
+      thumbnail: "video6",
+      title: "Solar Cell Fabrication and Testing on its Electrical Properties",
+    },
+  ];
+
+  const videoDataTwo = [
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_1_Eng.mp4",
+      thumbnail: "video11",
+      title: "Analysis of Colorants in Food and Personal-Care Products",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_2_Eng.mp4",
+      thumbnail: "video12",
+      title: "Screening Test for Plastic Type of Plastic Products",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_3_Eng.mp4",
+      thumbnail: "video13",
+      title: "Analysis of Bacteria in Environmental Samples",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_4_Eng.mp4",
+      thumbnail: "video14",
+      title: "Wine-Making and Analysis of Alcohol in Beverage",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_5_Eng.mp4",
+      thumbnail: "video15",
+      title: "Slime-Making and Analysis of Borax in Slime",
+    },
+    {
+      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_6_Eng.mp4",
+      thumbnail: "video16",
+      title: "Solar Cell Fabrication and Testing on its Electrical Properties",
+    },
+  ];
   return (
     <div className="w-full flex flex-row gap-[24px] pr-[24px]">
       <div className="flex-1">
@@ -34,7 +133,170 @@ export const LearningTeachingResources: React.FC = () => {
           Schools are welcome to make use of the kit in class or
           extra-curricular activities.
         </p>
+        <div className="grid grid-cols-3 gap-[24px] py-[24px]">
+          {downloadDataOne.map((down, index) => (
+            <div
+              key={index}
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+            >
+              <img
+                className="w-[64px] h-[64px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                alt={"file icon"}
+              />
+              <p className="text-highlight-l">{down.title}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-heading-l">Experiment Introduction Video</p>
+        <p className="text-highlight-s mt-[24px] mb-[12px]">
+          Analysis of Colorants in Food and Personal-Care Products
+        </p>
+        <img
+          className="w-full h-auto"
+          alt="Analysis of Colorants"
+          src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
+        />
+        {/* <video
+          key={playVideoIndex}
+          src={videoData[playVideoIndex].url}
+          className="w-full h-full object-cover cursor-pointer"
+          autoPlay
+          loop
+          playsInline
+          onClick={() => {
+            window.open(videoData[playVideoIndex].url, "_blank");
+          }}
+        /> */}
+        <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
+          {videoDataOne.map((video, index) => (
+            <div
+              key={index}
+              className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
+                playVideoOneIndex === index
+                  ? "bg-newPrimary text-white"
+                  : "bg-whiteGrey text-black"
+              }`}
+              onClick={() => {
+                setPlayVideoOneIndex(index);
+                window.open(video.url, "_blank");
+              }}
+            >
+              <div className="w-[37px] text-center p-[10px]">{`0${
+                index + 1
+              }`}</div>
+              <img
+                className="w-[130px] h-full"
+                alt={video.thumbnail}
+                src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
+              />
+              <div className="flex flex-grow p-[10px]">{video.title}</div>
+            </div>
+          ))}
+        </div>
         <hr className="my-[24px] text-[#E0E0E0]" />
+        <p className="text-heading-l">
+          Teaching Kit on Chemical Testing for Senior Secondary Curriculum
+        </p>
+        <p className="text-body-m mt-[24px]">
+          The Innovation and Technology Commission and HKCTC have commissioned
+          Hong Kong Baptist University to develop a teaching kit for use by
+          senior secondary Chemistry teachers. The kit consists of a total of
+          six experiments, which introduces the basic chemical testing concepts.
+          Through providing students with more practical opportunities, the kit
+          aims to apprise students of the importance of testing and how it can
+          help ensure the safety and quality of products commonly used in our
+          daily life. Schools are welcome to make use of the kit in class or
+          extra-curriculum activities.
+        </p>
+
+        <div className="grid grid-cols-3 gap-[24px] py-[24px]">
+          {downloadDataTwo.map((down, index) => (
+            <div
+              key={index}
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+            >
+              <img
+                className="w-[64px] h-[64px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                alt={"file icon"}
+              />
+              <p className="text-highlight-l">{down.title}</p>
+            </div>
+          ))}
+        </div>
+        <img
+          className="w-full h-auto"
+          alt="Teaching Kit"
+          src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
+        />
+
+        <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
+          {videoDataTwo.map((video, index) => (
+            <div
+              key={index}
+              className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
+                playVideoTwoIndex === index
+                  ? "bg-newPrimary text-white"
+                  : "bg-whiteGrey text-black"
+              }`}
+              onClick={() => {
+                setPlayVideoTwoIndex(index);
+                window.open(video.url, "_blank");
+              }}
+            >
+              <div className="w-[37px] text-center p-[10px]">{`0${
+                index + 1
+              }`}</div>
+              <img
+                className="w-[130px] h-full"
+                alt={video.thumbnail}
+                src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
+              />
+              <div className="flex flex-grow p-[10px]">{video.title}</div>
+            </div>
+          ))}
+        </div>
+
+        <hr className="my-[24px] text-[#E0E0E0]" />
+
+        <p className="text-heading-l">
+          Passing Through the Maze: Learning Testing and Certification in Daily
+          Life
+        </p>
+        <p className="text-body-m my-[24px]">
+          Passing Through the Maze : Learning Testing and Certification in Daily
+          Life is a Chinese comic book that tells the adventure of two young
+          challengers, Samantha and Joe, who try to prove themselves by getting
+          out of a maze unscathed. Through asking tough questions on testing and
+          certification, the maze is not as harmless as it first appears...
+        </p>
+
+        <img
+          className="w-full h-auto"
+          alt="Maze"
+          src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
+        />
+
+        <div className="grid grid-cols-3 gap-[24px] py-[24px]">
+          {downloadDataThree.map((down, index) => (
+            <div
+              key={index}
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+            >
+              <img
+                className="w-[64px] h-[64px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                alt={"file icon"}
+              />
+              <p className="text-highlight-l">{down.title}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-body-m">
+          If you want to come along and find out how fast you can beat the maze,
+          click on the picture of the comic book.
+        </p>
       </div>
     </div>
   );
