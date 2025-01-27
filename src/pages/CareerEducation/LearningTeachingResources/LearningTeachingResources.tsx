@@ -165,7 +165,6 @@ export const LearningTeachingResources: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
         /> */}
         <video
-          key={playVideoOneIndex}
           src={videoDataOne[playVideoOneIndex].url}
           className="w-full h-auto object-cover cursor-pointer"
           autoPlay
@@ -243,7 +242,6 @@ export const LearningTeachingResources: React.FC = () => {
         /> */}
 
         <video
-          key={playVideoTwoIndex}
           src={videoDataTwo[playVideoTwoIndex].url}
           className="w-full h-auto object-cover cursor-pointer"
           autoPlay
