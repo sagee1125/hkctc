@@ -450,7 +450,7 @@ export const CEPAAgreements: React.FC = () => {
                   href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline text-[#00E]"
+                  className="underline text-[#00E] text-[16px]"
                 >
                   measure on the movement of natural persons, other measures
                 </a>
@@ -462,7 +462,7 @@ export const CEPAAgreements: React.FC = () => {
                   href="https://www.cnca.gov.cn/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline text-[#00E]"
+                  className="underline text-[#00E] text-[16px]"
                 >
                   website of CNCA
                 </a>
@@ -578,7 +578,14 @@ export const CEPAAgreements: React.FC = () => {
                 </span>
                 &nbsp;and arrangements to help testing organisations in Hong
                 Kong to become recognised testing organisations under&nbsp;
-                <span className="!text-highlight-m underline text-newPrimary">
+                <span
+                  className="!text-highlight-m underline text-newPrimary cursor-pointer"
+                  onClick={() => {
+                    navigate(
+                      "/support/international_multilateral_systems_on_mutual_recognition"
+                    );
+                  }}
+                >
                   international multilateral systems on mutual recognition
                 </span>
                 &nbsp;of testing and certification that are open to national

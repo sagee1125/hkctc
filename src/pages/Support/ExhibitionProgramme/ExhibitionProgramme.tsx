@@ -5,13 +5,12 @@ export const ExhibitionProgramme: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle title="HKCTC Exhibition Programme" />
-      <p className="mt-[24px]">
+      <p className="mt-[24px] text-body-m">
         HKCTC sets up booths at major trade shows in Hong Kong, Mainland and
         overseas to promote Hong Kong's testing and certification (T&C) services
         to worldwide buyers and traders across the world.
-      </p>
-      <br />
-      <p>
+        <br />
+        <br />
         HKCTC invites accredited T&C organisations every year to make use of the
         HKCTC booth at selected trade shows to reach out to potential users all
         over the world. HKCTC will bear the booth rental, design and production

@@ -17,7 +17,7 @@ export const Relaxation: React.FC = () => {
     },
     {
       title:
-        "Relaxation of Waiver Application  for Existing Industrial Buildings ",
+        "Relaxation of Waiver Application  for Existing Industrial Buildings",
       date: "",
       maskIcon: "PDF.png",
       imgUrl: "relaxation.png",
@@ -29,7 +29,7 @@ export const Relaxation: React.FC = () => {
       <div className="mb-[24px]">
         <SquareTitle title="Relaxation of Waiver Application for Existing Industrial Buildings" />
       </div>
-      <p className="mt-[24px]">
+      <p className="mt-[24px] text-body-m">
         According to the revitalisation scheme for industrial buildings (“IBs”),
         one of the measures is to relax the waiver application policy to permit
         uses for a number of sectors in existing IBs. Testing laboratories may
