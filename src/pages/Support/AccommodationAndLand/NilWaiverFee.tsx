@@ -504,7 +504,9 @@ export const NilWaiverFee: React.FC = () => {
               <Accordion
                 title={`${i + 1}. ${com.question}`}
                 details={
-                  <div className="flex flex-col gap-[24px]">{com.answer}</div>
+                  <div className="flex flex-col gap-[24px] !text-body-m">
+                    {com.answer}
+                  </div>
                 }
               />
             );

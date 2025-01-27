@@ -184,7 +184,7 @@ export const ProgrammesCourses: React.FC = () => {
           {degreeMap[activeButton].map((item, index) => (
             <React.Fragment key={index}>
               <div className="py-[16px] px-[10px] border-r-[1px] border-b-[1px] border-[#E0E0E0]">
-                <p>{item.institution}</p>
+                <p className="!text-body-m">{item.institution}</p>
               </div>
               <div className="py-[16px] px-[10px] border-b-[1px] border-[#E0E0E0] flex flex-col gap-[30px]">
                 {item.programmes.map((prog, index) => (

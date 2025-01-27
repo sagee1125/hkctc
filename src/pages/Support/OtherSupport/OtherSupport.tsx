@@ -9,12 +9,8 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m">
         You may purchase original standards, guides, publications or handbooks
         issued by different standard publishers through Innovation and
-        Technology Commission (ITC).
-      </p>
-      <br />
-      <p className="text-italic-s italic">
-        For more information on the standard-related services provided by ITC,
-        please visit its{" "}
+        Technology Commission (ITC). For more information on the
+        standard-related services provided by ITC, please visit its&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
           target="_blank"
@@ -43,12 +39,8 @@ export const OtherSupport: React.FC = () => {
         standards of physical measurement traceable to the International System
         of Units for Hong Kong, promotes the international acceptance of these
         standards, and provides traceable calibration services and proficiency
-        testing services to serve the local economy.
-      </p>
-      <br />
-      <p className="text-italic-s italic">
-        For more information on the services provided by SCL, please visit
-        its&nbsp;
+        testing services to serve the local economy. For more information on the
+        services provided by SCL, please visit its&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/scl/index.html"
           target="_blank"
@@ -63,12 +55,9 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m">
         Government Laboratory provides chemical metrology support to the
         community through providing proficiency testing service, developing
-        standard methods and producing reference material.
-      </p>
-      <br />
-      <p className="text-italic-s italic">
-        For more information on the services provided by Government Laboratory,
-        please visit its&nbsp;
+        standard methods and producing reference material. For more information
+        on the services provided by Government Laboratory, please visit
+        its&nbsp;
         <a
           href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
@@ -80,18 +69,16 @@ export const OtherSupport: React.FC = () => {
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">
-        SME Support and Consultation Centre by the Trade and Industry Department
+      <p className="text-heading-l mb-[24px]">
+        Support and Consultation Centre for SMEs run by the Trade and Industry
+        Department
       </p>
-      <p className="text-body-m mt-[24px]">
+
+      <p className="text-body-m">
         The Support and Consultation Centre for SMEs (SUCCESS) provides free and
         practical business information and consultation services for SMEs
-        including business start-ups.
-      </p>
-      <br />
-      <p className="text-italic-s italic">
-        For details of the location, information and services provided by
-        SUCCESS, please visit its{" "}
+        including business start-ups. For details of the location, information
+        and services provided by SUCCESS, please visit its&nbsp;
         <a
           href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
           target="_blank"
@@ -139,8 +126,11 @@ export const OtherSupport: React.FC = () => {
               Testing and Inspection Services Policy (TISP)
             </a>
             &nbsp;to cover credit risks for services provided to overseas
-            clients with credit periods of up to 180 days post-service
-            completion.
+            clients with credit periods of&nbsp;
+            <span className="text-newPrimary">
+              up to 180 days post-service completion
+            </span>
+            .
           </p>
         </div>
       </div>
@@ -155,7 +145,11 @@ export const OtherSupport: React.FC = () => {
           <p className="text-highlight-m flex-grow min-w-0">
             TISP covers losses from commercial risks (insolvency, payment
             default) and country risks (currency blockage, payment delays, war,
-            riots, or natural disasters), with an indemnity ratio of up to 90%.
+            riots, or natural disasters), with&nbsp;
+            <span className="text-newPrimary">
+              an indemnity ratio of up to 90%
+            </span>
+            .
           </p>
         </div>
       </div>
@@ -167,7 +161,7 @@ export const OtherSupport: React.FC = () => {
         Hong Kong's testing and certification sector overseas.
       </p>
       {/* TODO hyperlink */}
-      <p className="text-italic-s italic">
+      <p className="text-body-m">
         For more details, please refer to its&nbsp;
         <a
           href="https://www.hkecic.com/en/"
@@ -176,10 +170,10 @@ export const OtherSupport: React.FC = () => {
           className="text-[#00E] underline"
         >
           website
-        </a>{" "}
-        or email to&nbsp;
+        </a>
+        &nbsp; or email to&nbsp;
         <a
-          href="/"
+          href="mailto:info@hkecic.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"

@@ -3,6 +3,7 @@ import { Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { SummaryTable } from "../TCJS";
 import { SquareTitle } from "../../../components";
+import { useNavigate } from "react-router-dom";
 
 export const SummaryOfCEPA: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -10,6 +11,7 @@ export const SummaryOfCEPA: React.FC = () => {
     "CEPA Agreement",
     "Clauses Relating to Testing and Certification",
   ];
+  const navigate = useNavigate();
 
   const sumTableRows = [
     [
@@ -21,10 +23,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            window.open(
-              "/support/agreement_on_trade_in_services_clauses",
-              "_blank"
-            );
+            navigate("/support/agreement_on_trade_in_services_clauses");
           }}
         >
           Liberalisation of Trade in Services
@@ -105,7 +104,7 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
         onClick={() => {
-          window.open("/support/agreement_on_trade_in_goods_clauses", "_blank");
+          navigate("/support/agreement_on_trade_in_goods_clauses");
         }}
       >
         Article 58, 59, 68
@@ -118,9 +117,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
         onClick={() => {
-          window.open(
-            "/support/agreement_on_economic&technical_cooperation_clauses",
-            "_blank"
+          navigate(
+            "/support/agreement_on_economic&technical_cooperation_clauses"
           );
         }}
       >
@@ -139,7 +137,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            window.open("/support/guangdong_agreement_clauses", "_blank");
+            navigate("/support/guangdong_agreement_clauses");
           }}
         >
           Liberalisation of Trade in Services
@@ -163,7 +161,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            window.open("/support/supplement_X_to_CEPA_clauses", "_blank");
+            navigate("/support/supplement_X_to_CEPA_clauses");
           }}
         >
           Liberalisation of Trade in Services and Trade and Investment
@@ -201,7 +199,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
           onClick={() => {
-            window.open("/support/supplement_IX_to_CEPA_clauses", "_blank");
+            navigate("/support/supplement_IX_to_CEPA_clauses");
           }}
         >
           Liberalisation of Trade in Services
@@ -224,7 +222,7 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
         onClick={() => {
-          window.open("/support/supplement_VIII_to_CEPA_clauses", "_blank");
+          navigate("/support/supplement_VIII_to_CEPA_clauses");
         }}
       >
         Liberalisation of Trade in Services
@@ -235,7 +233,7 @@ export const SummaryOfCEPA: React.FC = () => {
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
         onClick={() => {
-          window.open("/support/supplement_VII_to_CEPA_clauses", "_blank");
+          navigate("/support/supplement_VII_to_CEPA_clauses");
         }}
       >
         Liberalisation of Trade in Services and Trade and Investment

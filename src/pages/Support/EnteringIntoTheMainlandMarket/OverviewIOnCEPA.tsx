@@ -327,7 +327,7 @@ export const OverviewIOnCEPA: React.FC = () => {
 
   const timeLineData: Array<{
     date: string;
-    event: string;
+    event: React.ReactNode;
     scroll_id: CEPAAgreements_ids;
   }> = [
     {
@@ -338,18 +338,32 @@ export const OverviewIOnCEPA: React.FC = () => {
     },
     {
       date: "Nov 2019",
-      event:
-        "Agreement concerning Amendment to the Agreement on Trade in Services",
+      event: (
+        <>
+          Agreement concerning Amendment to the&nbsp;
+          <span className="underline text-newPrimary">
+            Agreement on Trade in Services
+          </span>
+        </>
+      ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
     },
     {
       date: "Dec 2018",
-      event: "Agreement on Trade in Goods",
+      event: (
+        <span className="underline text-newPrimary">
+          Agreement on Trade in Goods
+        </span>
+      ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_goods,
     },
     {
       date: "Jun 2017",
-      event: "Agreement on Economic and Technical Cooperation",
+      event: (
+        <span className="underline text-newPrimary">
+          Agreement on Economic and Technical Cooperation
+        </span>
+      ),
       scroll_id:
         CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation,
     },
@@ -421,9 +435,11 @@ export const OverviewIOnCEPA: React.FC = () => {
                 />
               </div>
               <div
-                className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
+                className={`text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
               p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
-              mb-[16px] w-full cursor-pointer"
+              mb-[16px] w-full cursor-pointer ${
+                index === 0 ? "bg-newPrimary text-white" : ""
+              }`}
                 onClick={() => {
                   navigate(
                     `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
@@ -431,7 +447,7 @@ export const OverviewIOnCEPA: React.FC = () => {
                 }}
               >
                 <p>{item.date}</p>
-                <p>{item.event}</p>
+                <div>{item.event}</div>
               </div>
             </div>
           ))}
@@ -464,7 +480,7 @@ export const OverviewIOnCEPA: React.FC = () => {
                   }}
                 >
                   <p>{item.date}</p>
-                  <p>{item.event}</p>
+                  <p className="underline text-newPrimary">{item.event}</p>
                 </div>
               </div>
             ))}
