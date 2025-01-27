@@ -152,7 +152,7 @@ export const ProgrammesCourses: React.FC = () => {
         <hr className="my-[24px] text-[#E0E0E0]" />
 
         <p className="text-heading-l">
-          List of Tertiary Programmes Dedicated to Testing and Certification{" "}
+          List of Tertiary Programmes Dedicated to Testing and Certification
         </p>
 
         <div className="flex flex-row gap-[8px] my-[24px]">

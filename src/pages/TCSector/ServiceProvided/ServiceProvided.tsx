@@ -103,7 +103,7 @@ const CertificateService: React.FC = () => {
         <Accordion
           title="(i) Management system certification, e.g. certification of an organisation's quality management system to ISO 9001"
           details={
-            <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[24px] !text-body-m">
               <div>
                 There are various international standards for management system
                 certification. Organisations seek certification to prove that
@@ -117,13 +117,18 @@ const CertificateService: React.FC = () => {
                 against this standard is the most popular management system
                 certification in Hong Kong. There is high demand for other types
                 of certification, e.g. ISO 14001 environmental management system
-                certification,
-                <Link
-                  linkColor="ink"
-                  innerLink="/support/agreement_on_trade_in_goods_clauses"
+                certification,&nbsp;
+                <span
+                  className="!text-highlight-s underline text-newPrimary cursor-pointer"
+                  onClick={() => {
+                    window.open(
+                      "/tc-sector/environmental_protection",
+                      "_blank"
+                    );
+                  }}
                 >
                   ISO 50001 energy management system certification
-                </Link>
+                </span>
                 &nbsp;and ISO 45001 occupational health and safety management
                 systems certification.
               </div>
@@ -236,13 +241,12 @@ export const ServiceProvided: React.FC = () => {
           return (
             <button
               key={index}
-              className="p-2 transition-all duration-800 ease-in-out whitespace-nowrap bg-newPrimary"
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveButton(index);
               }}
             >
-              <p className="px-[12px] text-highlight-xs">{service.label}</p>
+              <p className="text-highlight-xs">{service.label}</p>
             </button>
           );
         })}
