@@ -166,7 +166,7 @@ export const CEPAAgreements: React.FC = () => {
           allows Hong Kong testing organisations to cooperate with designated
           Mainland certification bodies to undertake&nbsp;
           <span
-            className="!text-highlight-s underline text-newPrimary cursor-pointer"
+            className="!text-highlight-m underline text-newPrimary cursor-pointer"
             onClick={() => {
               navigate("/support/CCC_testing");
             }}

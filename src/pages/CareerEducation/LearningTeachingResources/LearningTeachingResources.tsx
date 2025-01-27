@@ -71,34 +71,38 @@ export const LearningTeachingResources: React.FC = () => {
 
   const videoDataTwo = [
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_1_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp01.mp4",
       thumbnail: "video11",
-      title: "Analysis of Colorants in Food and Personal-Care Products",
+      title: "Determination of NO2 in Air: Air Pollutant Analysis",
     },
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_2_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp02.mp4",
       thumbnail: "video12",
-      title: "Screening Test for Plastic Type of Plastic Products",
+      title: "Analysis of Copper in Wastewater",
     },
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_3_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp03.mp4",
       thumbnail: "video13",
-      title: "Analysis of Bacteria in Environmental Samples",
+      title:
+        "Determination of SO2 in Dried Food Using Optimized Monier-Williams Method",
     },
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_4_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp04.mp4",
       thumbnail: "video14",
-      title: "Wine-Making and Analysis of Alcohol in Beverage",
+      title:
+        "Is the Dairy Product Safe? Gold Nanoparticles as a Visual Detection Tool of Melamine",
     },
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_5_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp05.mp4",
       thumbnail: "video15",
-      title: "Slime-Making and Analysis of Borax in Slime",
+      title:
+        "Differentiation of Chinese Herb Danshen from Other Similar Herbs Using Facile Test-Tube Scale Chemical Test Method",
     },
     {
-      url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_6_Eng.mp4",
+      url: "https://www.hkctc.gov.hk/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp06.mp4",
       thumbnail: "video16",
-      title: "Solar Cell Fabrication and Testing on its Electrical Properties",
+      title:
+        "Determination of Vitamin C in Commercial Sample and Fresh Fruit Juice by Iodometric Titration",
     },
   ];
   return (
@@ -151,26 +155,27 @@ export const LearningTeachingResources: React.FC = () => {
             </div>
           ))}
         </div>
-        <p className="text-heading-l">Experiment Introduction Video</p>
-        <p className="text-highlight-s mt-[24px] mb-[12px]">
-          Analysis of Colorants in Food and Personal-Care Products
+        <p className="text-heading-l mb-[24px]">
+          Experiment Introduction Video
         </p>
-        <img
+
+        {/* <img
           className="w-full h-auto"
           alt="Analysis of Colorants"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
-        />
-        {/* <video
-          key={playVideoIndex}
-          src={videoData[playVideoIndex].url}
-          className="w-full h-full object-cover cursor-pointer"
+        /> */}
+        <video
+          key={playVideoOneIndex}
+          src={videoDataOne[playVideoOneIndex].url}
+          className="w-full h-auto object-cover cursor-pointer"
           autoPlay
           loop
+          muted
           playsInline
-          onClick={() => {
-            window.open(videoData[playVideoIndex].url, "_blank");
-          }}
-        /> */}
+          // onClick={() => {
+          //   window.open(videoDataOne[playVideoOneIndex].url, "_blank");
+          // }}
+        />
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
           {videoDataOne.map((video, index) => (
             <div
@@ -182,7 +187,7 @@ export const LearningTeachingResources: React.FC = () => {
               }`}
               onClick={() => {
                 setPlayVideoOneIndex(index);
-                window.open(video.url, "_blank");
+                // window.open(video.url, "_blank");
               }}
             >
               <div className="w-[37px] text-center p-[10px]">{`0${
@@ -231,10 +236,23 @@ export const LearningTeachingResources: React.FC = () => {
             </div>
           ))}
         </div>
-        <img
+        {/* <img
           className="w-full h-auto"
           alt="Teaching Kit"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
+        /> */}
+
+        <video
+          key={playVideoTwoIndex}
+          src={videoDataTwo[playVideoTwoIndex].url}
+          className="w-full h-auto object-cover cursor-pointer"
+          autoPlay
+          loop
+          muted
+          playsInline
+          // onClick={() => {
+          //   window.open(videoDataOne[playVideoOneIndex].url, "_blank");
+          // }}
         />
 
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
@@ -248,7 +266,7 @@ export const LearningTeachingResources: React.FC = () => {
               }`}
               onClick={() => {
                 setPlayVideoTwoIndex(index);
-                window.open(video.url, "_blank");
+                // window.open(video.url, "_blank");
               }}
             >
               <div className="w-[37px] text-center p-[10px]">{`0${
