@@ -137,7 +137,10 @@ export const LearningTeachingResources: React.FC = () => {
           {downloadDataOne.map((down, index) => (
             <div
               key={index}
-              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+              onClick={() => {
+                window.open(down.link, "_blank");
+              }}
             >
               <img
                 className="w-[64px] h-[64px]"
@@ -214,7 +217,10 @@ export const LearningTeachingResources: React.FC = () => {
           {downloadDataTwo.map((down, index) => (
             <div
               key={index}
-              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+              onClick={() => {
+                window.open(down.link, "_blank");
+              }}
             >
               <img
                 className="w-[64px] h-[64px]"
@@ -282,7 +288,10 @@ export const LearningTeachingResources: React.FC = () => {
           {downloadDataThree.map((down, index) => (
             <div
               key={index}
-              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px]"
+              className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+              onClick={() => {
+                window.open(down.link, "_blank");
+              }}
             >
               <img
                 className="w-[64px] h-[64px]"
