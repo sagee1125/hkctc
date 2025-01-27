@@ -21,6 +21,7 @@ module.exports = {
         trustfulBlue: "#BBC9E7",
         growthfulGreen: "#D1E39B",
         energeticOrange: "#F15A31",
+        whiteGrey: "#F7F7F5",
         // TODO temp
 
         background: "#f4f4f9",
