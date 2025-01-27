@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
@@ -192,6 +192,15 @@ export const CEPAAgreements: React.FC = () => {
   const [agreementType, setAgreementType] = useState<string>(
     Object.keys(agreementMap)[0]
   );
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
 
   return (
     <div className="w-full">

@@ -4,6 +4,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { CEPAAgreements_ids } from "./CEPAAgreements";
+import { navItemEnum } from "../../../const";
+import { useNavigate } from "react-router-dom";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{
@@ -321,6 +323,7 @@ export const OverviewIOnCEPA: React.FC = () => {
     Object.keys(faqMap)[0]
   );
   const [timelineCollapsed, setTimelineCollapsed] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   const timeLineData: Array<{
     date: string;
@@ -417,7 +420,16 @@ export const OverviewIOnCEPA: React.FC = () => {
                   } w-[2px] bg-newPrimary absolute top-[17px]`}
                 />
               </div>
-              <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
+              <div
+                className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
+              p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
+              mb-[16px] w-full cursor-pointer"
+                onClick={() => {
+                  navigate(
+                    `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
+                  );
+                }}
+              >
                 <p>{item.date}</p>
                 <p>{item.event}</p>
               </div>
@@ -441,7 +453,16 @@ export const OverviewIOnCEPA: React.FC = () => {
                     } w-[2px] bg-newPrimary absolute top-[17px]`}
                   />
                 </div>
-                <div className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center mb-[16px] w-full">
+                <div
+                  className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
+              p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
+              mb-[16px] w-full cursor-pointer"
+                  onClick={() => {
+                    navigate(
+                      `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
+                    );
+                  }}
+                >
                   <p>{item.date}</p>
                   <p>{item.event}</p>
                 </div>
