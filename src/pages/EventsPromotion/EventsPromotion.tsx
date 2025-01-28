@@ -6,6 +6,8 @@ import { Newsletter } from "./Publication/Newspaper/Newsletter";
 import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
 import { PressReleases } from "./News/PressReleases/PressReleases";
 import { Comics } from "./Publication/Comics/Comics";
+import { HKCTCReports } from "./Reports/HKCTCReports";
+import { LegislativeCouncil } from "./Reports/LegislativeCouncil";
 import {
   BannerPhotoBox,
   Breadcrumb,
@@ -58,6 +60,16 @@ const sidebarComponent: Partial<
     component: <Comics />,
   },
 
+  // reports
+  [navItemEnum.hkctc_reports]: {
+    bannerImage: "",
+    component: <HKCTCReports />,
+  },
+  [navItemEnum.council_papers]: {
+    bannerImage: "",
+    component: <LegislativeCouncil />,
+  },
+
   // news
   [navItemEnum.press_releases]: {
     bannerImage: "",
@@ -90,7 +102,7 @@ export const EventsPromotion: React.FC = () => {
 
       setActiveItem(initialParam);
     }
-  }, [initialParam, navigate]);
+  }, [initialParam, activeItem, navigate]);
 
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
