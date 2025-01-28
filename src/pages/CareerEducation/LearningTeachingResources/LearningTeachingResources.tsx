@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { SquareTitle } from "../../../components";
-import { url } from "inspector";
+import { SquareTitle, VideoPlayer } from "../../../components";
 
 export const LearningTeachingResources: React.FC = () => {
   const [playVideoOneIndex, setPlayVideoOneIndex] = useState<number>(0);
@@ -158,23 +157,12 @@ export const LearningTeachingResources: React.FC = () => {
         <p className="text-heading-l mb-[24px]">
           Experiment Introduction Video
         </p>
-
         {/* <img
           className="w-full h-auto"
           alt="Analysis of Colorants"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
         /> */}
-        <video
-          src={videoDataOne[playVideoOneIndex].url}
-          className="w-full h-auto object-cover cursor-pointer"
-          autoPlay
-          loop
-          muted
-          playsInline
-          // onClick={() => {
-          //   window.open(videoDataOne[playVideoOneIndex].url, "_blank");
-          // }}
-        />
+        <VideoPlayer videoLink={videoDataOne[playVideoOneIndex].url} />
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
           {videoDataOne.map((video, index) => (
             <div
@@ -240,18 +228,7 @@ export const LearningTeachingResources: React.FC = () => {
           alt="Teaching Kit"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
         /> */}
-
-        <video
-          src={videoDataTwo[playVideoTwoIndex].url}
-          className="w-full h-auto object-cover cursor-pointer"
-          autoPlay
-          loop
-          muted
-          playsInline
-          // onClick={() => {
-          //   window.open(videoDataOne[playVideoOneIndex].url, "_blank");
-          // }}
-        />
+        <VideoPlayer videoLink={videoDataTwo[playVideoTwoIndex].url} />
 
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
           {videoDataTwo.map((video, index) => (
