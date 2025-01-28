@@ -162,7 +162,9 @@ export const LearningTeachingResources: React.FC = () => {
           alt="Analysis of Colorants"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
         /> */}
-        <VideoPlayer videoLink={videoDataOne[playVideoOneIndex].url} />
+        <div key={videoDataOne[playVideoOneIndex].thumbnail}>
+          <VideoPlayer videoLink={videoDataOne[playVideoOneIndex].url} />
+        </div>
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
           {videoDataOne.map((video, index) => (
             <div
@@ -228,7 +230,9 @@ export const LearningTeachingResources: React.FC = () => {
           alt="Teaching Kit"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
         /> */}
-        <VideoPlayer videoLink={videoDataTwo[playVideoTwoIndex].url} />
+        <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
+          <VideoPlayer videoLink={videoDataTwo[playVideoTwoIndex].url} />
+        </div>
 
         <div className="grid grid-cols-2 gap-[22px] mt-[24px]">
           {videoDataTwo.map((video, index) => (
