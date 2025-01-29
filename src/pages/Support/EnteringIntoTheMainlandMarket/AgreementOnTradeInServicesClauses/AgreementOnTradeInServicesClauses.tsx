@@ -1,13 +1,5 @@
 import React from "react";
-import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
-import {
-  BannerPhotoBox,
-  Breadcrumb,
-  InternalBackButton,
-  SquareTitle,
-  fullContainer,
-  maxContainer,
-} from "../../../../components";
+import { InternalBackButton, SquareTitle } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
 const specificCommitments = [
@@ -19,76 +11,55 @@ const specificCommitments = [
   "On the basis of mutual  trust and mutual benefit, to allow testing and certification  organisations in Hong Kong to cooperate with the Mainland testing and  certification organisations in respect of acceptance of testing data  (results). Specific cooperation arrangements are subject to further  discussion.",
   "To allow contractual  service providers employed by Hong Kong service suppliers, in the mode of movement of natural persons, to provide services under this sector or sub-sector on the Mainland.",
 ];
-export const AgreementOnTradeInServicesClauses: React.FC = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    {
-      label: "Support - Entering into the Mainland Market",
-      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
-    },
-    { label: "Agreement on Trade in Services - Clauses" },
-  ];
 
+export const AgreementOnTradeInServicesClauses: React.FC = () => {
   return (
-    <div style={fullContainer}>
-      <BannerPhotoBox src={"support/support_5.png"} />
-      <div style={maxContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <ClausesDirectorySidebar />
+    <div>
+      <SquareTitle title="Agreement on Trade in Services - Clauses" />
+      <p className="text-heading-l my-[24px]">
+        Liberalisation of Trade in Services (extracted from Table 2 of Annex 1
+        of the Agreement on Trade in Services)
+      </p>
+      <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
+      <p className="text-body-m">1. Business Services</p>
+      <p className="text-body-m">F. Other Business Services</p>
+      <p className="text-body-m">
+        e. Technical testing and analysis services (CPC8676) and Product testing
+        services (CPC749)
+      </p>
+      <p className="my-[24px] text-heading-m">Specific commitments</p>
+      <p className="text-italic-s italic">
+        Effective from 1 June 2020; The amendments made in Oct 2024 on item 2
+        and item 3 are marked in tracking mode, and will come into effect on 1
+        March 2025
+      </p>
+      <ul
+        style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+        className="text-body-m"
+      >
+        {specificCommitments.map((commit, index) => (
+          <div key={index}>
+            <br />
+            <li>{commit}</li>
           </div>
-          <div className="flex-1">
-            <SquareTitle title="Agreement on Trade in Services - Clauses" />
-            <p className="text-heading-l my-[24px]">
-              Liberalisation of Trade in Services (extracted from Table 2 of
-              Annex 1 of the Agreement on Trade in Services)
-            </p>
-            <p className="text-heading-m mb-[24px]">Sectors or sub-sectors</p>
-            <p className="text-body-m">1. Business Services</p>
-            <p className="text-body-m">F. Other Business Services</p>
-            <p className="text-body-m">
-              e. Technical testing and analysis services (CPC8676) and Product
-              testing services (CPC749)
-            </p>
-            <p className="my-[24px] text-heading-m">Specific commitments</p>
-            <p className="text-italic-s italic">
-              Effective from 1 June 2020; The amendments made in Oct 2024 on
-              item 2 and item 3 are marked in tracking mode, and will come into
-              effect on 1 March 2025
-            </p>
-            <ul
-              style={{ listStyleType: "decimal", paddingLeft: "20px" }}
-              className="text-body-m"
-            >
-              {specificCommitments.map((commit, index) => (
-                <div key={index}>
-                  <br />
-                  <li>{commit}</li>
-                </div>
-              ))}
-            </ul>
-            <p className="text-italic-s italic mt-[24px]">
-              See&nbsp;
-              <a
-                className="underline text-[#00E]"
-                href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Implementation Guide
-              </a>
-              &nbsp;promulgated in May 2020 for items 1-3
-            </p>
-            <hr className="my-[24px]" />
-            <InternalBackButton
-              targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
-            />
-          </div>
-        </div>
-      </div>
+        ))}
+      </ul>
+      <p className="text-italic-s italic mt-[24px]">
+        See&nbsp;
+        <a
+          className="underline text-[#00E]"
+          href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Implementation Guide
+        </a>
+        &nbsp;promulgated in May 2020 for items 1-3
+      </p>
+      <hr className="my-[24px]" />
+      <InternalBackButton
+        targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
+      />
     </div>
   );
 };

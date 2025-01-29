@@ -91,6 +91,7 @@ import { AboutSite } from "../pages/AboutSite/AboutSite";
 import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
 import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
 import { CareerEducation } from "../pages/CareerEducation/CareerEducation";
+import { AgreementClause } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementClause";
 
 export type RouteConfig = {
   path: string;
@@ -114,44 +115,8 @@ export const routesConfiguration: RouteConfig[] = [
 
   { path: "/support", element: <Support />, description: "" },
   {
-    path: "/support/agreement_on_trade_in_services_clauses",
-    element: <AgreementOnTradeInServicesClauses />,
-    description: "",
-  },
-
-  {
-    path: "/support/agreement_on_trade_in_goods_clauses",
-    element: <AgreementOnTradeInGoodsClauses />,
-    description: "",
-  },
-  {
-    path: "/support/agreement_on_economic&technical_cooperation_clauses",
-    element: <AgreementOnEconomicTechnicalCooperationClauses />,
-    description: "",
-  },
-  {
-    path: "/support/guangdong_agreement_clauses",
-    element: <GuangdongAgreementClauses />,
-    description: "",
-  },
-  {
-    path: "/support/supplement_X_to_CEPA_clauses",
-    element: <SupplementXtoCEPAClauses />,
-    description: "",
-  },
-  {
-    path: "/support/supplement_IX_to_CEPA_clauses",
-    element: <SupplementIXtoCEPAClauses />,
-    description: "",
-  },
-  {
-    path: "/support/supplement_VIII_to_CEPA_clauses",
-    element: <SupplementVIIItoCEPAClauses />,
-    description: "",
-  },
-  {
-    path: "/support/supplement_VII_to_CEPA_clauses",
-    element: <SupplementVIItoCEPAClauses />,
+    path: "/support/agreement-clause",
+    element: <AgreementClause />,
     description: "",
   },
   {
