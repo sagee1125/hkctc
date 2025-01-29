@@ -12,3 +12,4 @@ export * from "./SupplementVIIItoCEPAClauses";
 export * from "./SupplementVIItoCEPAClauses";
 export * from "./CCCTesting";
 export * from "./InternationalMultilateralSystems";
+export * from "./AgreementClause";
