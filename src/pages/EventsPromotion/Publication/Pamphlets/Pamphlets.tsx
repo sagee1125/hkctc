@@ -4,60 +4,22 @@ import {
   NormalAccordion,
   normalButtonStyle,
   activatedButtonStyle,
+  MediaDialog,
 } from "../../../../components";
+import { pamphletsList, bookletsList } from "../../../../const";
 
 export const Pamphlets: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
   const filterButtons = ["All", "Pamphlets", "Booklets"];
+  const filterList: Record<string, any[]> = {
+    All: [...pamphletsList, ...bookletsList],
+    Pamphlets: pamphletsList,
+    Booklets: bookletsList,
+  };
 
-  const publicationsInfo = [
-    {
-      title: "Tested in Hong Kong Certified in Hong Kong",
-      img: "p_1.png",
-      tags: [],
-    },
-    {
-      title: "Product Certification - An Upstream Quality Control",
-      img: "p_2.png",
-      tags: [],
-    },
-    {
-      title: "Testing and Inspection Services for Buildings and...",
-      img: "p_3.png",
-      tags: [],
-    },
-    {
-      title: "What you Need to Know about Medical Testing",
-      img: "p_4.png",
-      tags: [],
-    },
-    {
-      title: "Food Testing and Certification",
-      img: "p_5.png",
-      tags: [],
-    },
-    {
-      title: "Chinese Medicines Testing",
-      img: "p_6.png",
-      tags: [],
-    },
-    {
-      title: "Testing of Fei Cui and Diamond in Hong Kong",
-      img: "p_7.png",
-      tags: [],
-    },
-    {
-      title: "Diamond Testing Services in Hong Kong",
-      img: "p_8.png",
-      tags: [],
-    },
-    {
-      title: "Understanding Information Security Management...",
-      img: "p_9.png",
-      tags: [],
-    },
-  ];
-
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const currentReport = filterList[filterButtons[activeButton]][activeReport];
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Pamphlets And Booklets" />
@@ -89,14 +51,20 @@ export const Pamphlets: React.FC = () => {
       </div>
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {publicationsInfo.map((item, index) => {
+        {filterList[filterButtons[activeButton]].map((item, index) => {
           const { img, title } = item;
           return (
             <div
               key={index}
               className="w-full h-[282px] flex flex-col gap-[14px]"
             >
-              <div className="flex-shrink-0 relative w-full h-[190px]">
+              <div
+                className="flex-shrink-0 relative w-full h-[190px] cursor-pointer"
+                onClick={() => {
+                  setActiveReport(index);
+                  setIsPreviewOpen(true);
+                }}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-cover"
                   src={`${process.env.PUBLIC_URL}/assets/publications/pamphlets/${img}`}
@@ -116,6 +84,14 @@ export const Pamphlets: React.FC = () => {
           );
         })}
       </div>
+      {isPreviewOpen && (
+        <MediaDialog
+          mediaType={currentReport.mediaType}
+          setIsPreviewOpen={setIsPreviewOpen}
+          title={currentReport.title}
+          link={currentReport.link}
+        />
+      )}
     </div>
   );
 };

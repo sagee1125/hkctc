@@ -64,11 +64,6 @@ import {
   ServiceUsers,
   Support,
   AboutUs,
-  GuangdongAgreementClauses,
-  SupplementXtoCEPAClauses,
-  SupplementIXtoCEPAClauses,
-  SupplementVIIItoCEPAClauses,
-  SupplementVIItoCEPAClauses,
   CCCTesting,
   InternationalMultilateralSystems,
   WhatsNew,
@@ -84,9 +79,6 @@ import {
   Food,
 } from "../pages";
 import { TCSector } from "../pages/TCSector/TCSector";
-import { AgreementOnTradeInGoodsClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInGoodsClauses/AgreementOnTradeInGoodsClauses";
-import { AgreementOnEconomicTechnicalCooperationClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnEconomicTechnicalCooperationClauses/AgreementOnEconomicTechnicalCooperationClauses";
-import { AgreementOnTradeInServicesClauses } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementOnTradeInServicesClauses/AgreementOnTradeInServicesClauses";
 import { AboutSite } from "../pages/AboutSite/AboutSite";
 import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
 import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";

@@ -15,12 +15,12 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
-import { CareerDevelopment } from "./CareerDevelopment";
-import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes";
-import { CareerOpportunities } from "./CareerOpportunities";
-import { ProgrammesCourses } from "./ProgrammesCourses";
-import { QualificationsFramework } from "./QualificationsFramework";
-import { LearningTeachingResources } from "./LearningTeachingResources";
+import { CareerDevelopment } from "./CareerDevelopment/CareerDevelopment";
+import { OtherProfessionalSchemes } from "./OtherProfessionalSchemes/OtherProfessionalSchemes";
+import { CareerOpportunities } from "./CareerOpportunities/CareerOpportunities";
+import { ProgrammesCourses } from "./ProgrammesCourses/ProgrammesCourses";
+import { QualificationsFramework } from "./QualificationsFramework/QualificationsFramework";
+import { LearningTeachingResources } from "./LearningTeachingResources/LearningTeachingResources";
 
 const sidebarComponent: Partial<
   Record<

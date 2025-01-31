@@ -352,13 +352,13 @@ export const NavigationBarConfiguration: NavData[] = [
             enum: navItemEnum.hkctc_reports,
             subTitle: "HKCTC Reports",
             imgUrl: "HKCTC_Reports.png",
-            navUrl: "",
+            navUrl: `events-promotion?section=${navItemEnum.hkctc_reports}`,
           },
           {
             enum: navItemEnum.council_papers,
             subTitle: "Legislative Council Papers ",
             imgUrl: "Legislative_Council_Papers.png",
-            navUrl: "",
+            navUrl: `events-promotion?section=${navItemEnum.council_papers}`,
           },
           {
             enum: "",

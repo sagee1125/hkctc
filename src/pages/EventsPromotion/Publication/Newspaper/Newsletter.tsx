@@ -1,77 +1,36 @@
-import React from "react";
-import { SquareTitle } from "../../../../components";
+import React, { useState } from "react";
+import { SquareTitle, MediaDialog } from "../../../../components";
+import { hkctcNewsletterList, MEDIA_TYPE } from "../../../../const";
 
 export const Newsletter: React.FC = () => {
-  const resourcesReportsList: Array<{
-    title: string;
-    year: string;
-    description: string;
-    date: string;
-    maskIcon: string;
-    imgUrl: string;
-  }> = [
-    {
-      title: "HKCTC Report",
-      year: "2023-24",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2023-24.png",
-    },
-    {
-      title: "Report Highlights",
-      year: "2023-24",
-      description: "",
-      date: "1 Jul 2023",
-      maskIcon: "VIDEO.png",
-      imgUrl: "2023-24-2.png",
-    },
-    {
-      title: "HKCTC Report",
-      year: "2022-23",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23.png",
-    },
-    {
-      title: "Report Highlights",
-      year: "2022-23",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23-2.png",
-    },
-    {
-      title: "HKCTC Report",
-      year: "2021-22",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23-2.png",
-    },
-  ];
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const currentReport = hkctcNewsletterList[activeReport];
   return (
     <div>
       <SquareTitle title="HKCTC Newsletter" />
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {resourcesReportsList.map((item, index) => {
-          const { imgUrl, maskIcon, title, year, date } = item;
+        {hkctcNewsletterList.map((item, index) => {
+          const { title, date, mediaType } = item;
+          const isPDF = mediaType === MEDIA_TYPE.PDF;
+          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px] mb-[48px]"
+              className="w-full flex flex-col gap-[14px] mt-[24px]"
             >
-              <div className="flex-shrink-0 relative w-full h-[190px]">
+              <div
+                className="flex-shrink-0 relative w-full h-[190px] cursor-pointer"
+                onClick={() => {
+                  setActiveReport(index);
+                  setIsPreviewOpen(true);
+                }}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-cover"
-                  src={`${process.env.PUBLIC_URL}/assets/resourcesReports/${imgUrl}`}
-                  alt={imgUrl}
+                  src={`${process.env.PUBLIC_URL}/assets/publications/publications/newsletter_1.png`}
+                  alt="newsletter"
                 />
                 {/* Icon */}
                 <img
@@ -82,7 +41,6 @@ export const Newsletter: React.FC = () => {
               </div>
               <div className="flex flex-col items-start justify-center">
                 <p className="text-highlight-l">{title}</p>
-                <p className="text-highlight-l">{year}</p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <img
                     className="w-[16px] h-[16px]"
@@ -96,6 +54,15 @@ export const Newsletter: React.FC = () => {
           );
         })}
       </div>
+
+      {isPreviewOpen && (
+        <MediaDialog
+          mediaType={currentReport.mediaType}
+          setIsPreviewOpen={setIsPreviewOpen}
+          title={currentReport.title}
+          link={currentReport.link}
+        />
+      )}
     </div>
   );
 };
