@@ -59,6 +59,14 @@ const sidebarComponent: Partial<
     bannerImage: "",
     component: <Comics />,
   },
+  [navItemEnum.corruption_prevention]: {
+    bannerImage: "",
+    component: <></>,
+  },
+  [navItemEnum.useful_information]: {
+    bannerImage: "",
+    component: <></>,
+  },
 
   // reports
   [navItemEnum.hkctc_reports]: {
