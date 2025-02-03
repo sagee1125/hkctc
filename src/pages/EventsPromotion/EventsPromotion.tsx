@@ -8,6 +8,7 @@ import { PressReleases } from "./News/PressReleases/PressReleases";
 import { Comics } from "./Publication/Comics/Comics";
 import { HKCTCReports } from "./Reports/HKCTCReports";
 import { LegislativeCouncil } from "./Reports/LegislativeCouncil";
+import { OtherInformation } from "./Publication/OtherInformation";
 import {
   BannerPhotoBox,
   Breadcrumb,
@@ -65,7 +66,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.useful_information]: {
     bannerImage: "",
-    component: <></>,
+    component: <OtherInformation />,
   },
 
   // reports
