@@ -1,55 +1,11 @@
-import React from "react";
-import { SquareTitle } from "../../../../components";
+import React, { useState } from "react";
+import { SquareTitle, MediaDialog } from "../../../../components";
+import { comicsList } from "../../../../const";
 
 export const Comics: React.FC = () => {
-  const publicationsInfo = [
-    {
-      title: "第一話 : 講個「信」字？",
-      img: "p_1.png",
-      tags: [],
-    },
-    {
-      title: "第二話：我要 check 清楚",
-      img: "p_2.png",
-      tags: [],
-    },
-    {
-      title: "第三話：抗菌防臭襪",
-      img: "p_3.png",
-      tags: [],
-    },
-    {
-      title: "第四話：生日禮物",
-      img: "p_4.png",
-      tags: [],
-    },
-    {
-      title: "第五話：壓力煲風雲",
-      img: "p_5.png",
-      tags: [],
-    },
-    {
-      title: "第六話：能源效益測試",
-      img: "p_6.png",
-      tags: [],
-    },
-    {
-      title: "第七話：神奇縮水毛衣",
-      img: "p_7.png",
-      tags: [],
-    },
-    {
-      title: "第八話：我很大方",
-      img: "p_8.png",
-      tags: [],
-    },
-    {
-      title: "第九話：明明都是碟",
-      img: "p_9.png",
-      tags: [],
-    },
-  ];
-
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const currentReport = comicsList[activeReport];
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Comics" />
@@ -73,18 +29,21 @@ export const Comics: React.FC = () => {
         you enjoy reading these interesting stories!
       </div>
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {publicationsInfo.map((item, index) => {
-          const { img, title } = item;
+        {comicsList.map((item, index) => {
+          const { title } = item;
           return (
-            <div
-              key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px]"
-            >
-              <div className="flex-shrink-0 relative w-full h-[190px]">
+            <div key={index} className="w-full flex flex-col gap-[14px]">
+              <div
+                className="flex-shrink-0 relative w-full h-[190px] cursor-pointer"
+                onClick={() => {
+                  setActiveReport(index);
+                  setIsPreviewOpen(true);
+                }}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-cover"
-                  src={`${process.env.PUBLIC_URL}/assets/publications/pamphlets/${img}`}
-                  alt={img}
+                  src={`${process.env.PUBLIC_URL}/assets/publications/pamphlets/p_1.png`}
+                  alt={"comics"}
                 />
                 {/* Icon */}
                 <img
@@ -100,6 +59,15 @@ export const Comics: React.FC = () => {
           );
         })}
       </div>
+
+      {isPreviewOpen && (
+        <MediaDialog
+          mediaType={currentReport.mediaType}
+          setIsPreviewOpen={setIsPreviewOpen}
+          title={currentReport.title}
+          link={currentReport.link}
+        />
+      )}
     </div>
   );
 };
