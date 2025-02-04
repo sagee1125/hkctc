@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { SquareTitle, MediaDialog } from "../../../../components";
-import { otherInformationList, MEDIA_TYPE } from "../../../../const";
+import { corruptionGuideList, MEDIA_TYPE } from "../../../../const";
 
-export const OtherInformation: React.FC = () => {
+export const CorruptionGuide: React.FC = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
-  const currentReport = otherInformationList[activeReport];
+  const currentReport = corruptionGuideList[activeReport];
   return (
     <div>
-      <SquareTitle title="Other Useful Information" />
-      {otherInformationList.map((item, index) => {
+      <SquareTitle title="Corruption Prevention Guide for T&C Industry" />
+      {corruptionGuideList.map((item, index) => {
         const { title, img, mediaType } = item;
         const isPDF = mediaType === MEDIA_TYPE.PDF;
         const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
@@ -27,7 +27,7 @@ export const OtherInformation: React.FC = () => {
                 className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                 src={
                   process.env.PUBLIC_URL +
-                  "/assets/publications/publications/otherInfo/" +
+                  "/assets/publications/publications/corruptions/" +
                   img
                 }
                 alt={title}
