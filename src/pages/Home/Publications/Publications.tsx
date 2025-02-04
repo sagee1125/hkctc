@@ -11,6 +11,7 @@ import styled, { css, keyframes } from "styled-components";
 import { EmailBox, FileTemplate, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { useNavigate } from "react-router-dom";
+import { navItemEnum } from "../../../const";
 
 type ResourcesData = {
   title: string;
@@ -462,19 +463,14 @@ export const Publications: React.FC = () => {
         </div>
 
         <div
-          className="flex flex-row items-center gap-[16px]"
           style={{
             marginTop: "48px",
           }}
         >
-          <Icon
-            icon="material-symbols-light:square"
-            style={{ height: "24px", width: "24px" }}
-          />
-          <p className="text-heading-l">Learning Corner</p>
-          <Icon
-            icon="teenyicons:right-outline"
-            style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
+          <SquareTitle
+            title="Learning Corner"
+            showArrowIcon
+            redirectTo={`/career_and_education?section=${navItemEnum.learning_teaching_resources}`}
           />
         </div>
 
