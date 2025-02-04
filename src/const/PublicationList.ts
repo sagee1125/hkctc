@@ -632,3 +632,31 @@ export const comicsList = [
     category: [CATEGORIES.PUBLICATIONS],
   },
 ];
+
+export const corruptionGuideList = [
+  {
+    title: "Corruption Prevention Guide for Testing and Certification Industry",
+    link: "https://cpas.icac.hk/UPloadImages/InfoFile/cate_43/2016/f0cf22b8-ca79-403e-9682-16b6a2166abe.pdf",
+    img: "c_1.png",
+    mediaType: MEDIA_TYPE.PDF,
+    category: [CATEGORIES.PUBLICATIONS],
+  },
+  {
+    title:
+      "Pamphlet for Frontline Materials Testing Staff (Chinese Version Only)",
+    link: "http://www.hkbedc.icac.hk/tc_chi/files/publications/PamphletforFrontlineMaterialsTestingStaff.pdf",
+    img: "c_2.png",
+    mediaType: MEDIA_TYPE.PDF,
+    category: [CATEGORIES.PUBLICATIONS],
+  },
+];
+
+export const otherInformationList = [
+  {
+    title: "Hong Kong: The Facts – Testing and Certification",
+    link: "/en/doc/Testing_and_Certification_EN.pdf",
+    img: "other_1.png",
+    mediaType: MEDIA_TYPE.PDF,
+    category: [CATEGORIES.PUBLICATIONS],
+  },
+];

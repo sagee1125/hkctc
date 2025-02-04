@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { Newsletter } from "./Publication/Newspaper/Newsletter";
-import { Pamphlets } from "./Publication/Pamphlets/Pamphlets";
 import { PressReleases } from "./News/PressReleases/PressReleases";
-import { Comics } from "./Publication/Comics/Comics";
 import { HKCTCReports } from "./Reports/HKCTCReports";
 import { LegislativeCouncil } from "./Reports/LegislativeCouncil";
-import { OtherInformation } from "./Publication/OtherInformation";
+import {
+  CorruptionGuide,
+  OtherInformation,
+  Comics,
+  Pamphlets,
+  Newsletter,
+} from "./Publication";
 import {
   BannerPhotoBox,
   Breadcrumb,
@@ -62,7 +65,7 @@ const sidebarComponent: Partial<
   },
   [navItemEnum.corruption_prevention]: {
     bannerImage: "",
-    component: <></>,
+    component: <CorruptionGuide />,
   },
   [navItemEnum.useful_information]: {
     bannerImage: "",
