@@ -8,7 +8,7 @@ import advertorials from "./assets/Advertorials.png";
 
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
-import { EmailBox, FileTemplate } from "../../../components";
+import { EmailBox, FileTemplate, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { useNavigate } from "react-router-dom";
 
@@ -334,12 +334,8 @@ export const Publications: React.FC = () => {
         }`}
       >
         <div className="flex flex-row justify-between items-center w-full">
-          <div className="flex flex-row items-center gap-[16px] w-1/2">
-            <Icon
-              icon="material-symbols-light:square"
-              style={{ height: "24px", width: "24px" }}
-            />
-            <p className="text-heading-l">What do you know about T&C</p>
+          <div className="w-1/2">
+            <SquareTitle title="What do you know about T&C" />
           </div>
           <div className="w-1/2 justify-start" ref={containerRef}>
             <div className="flex flex-row justify-between w-full">

@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import { WhatsNewConfiguration } from "../../../const";
+import { SquareTitle } from "../../../components";
 
 export const WhatsNew: React.FC = () => {
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
@@ -51,17 +52,8 @@ export const WhatsNew: React.FC = () => {
 
   return (
     <div className="w-full px-[24px]">
-      <div className="flex flex-row items-center">
-        <Icon
-          icon="material-symbols-light:square"
-          style={{ height: "24px", width: "24px", marginRight: "16px" }}
-        />
-        <p className="text-heading-l mr-[12px]">What's New</p>
-        <Icon
-          icon="teenyicons:right-outline"
-          style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
-        />
-      </div>
+      <SquareTitle title="What’s New" showArrowIcon />
+
       <div className="pt-[24px]">
         <div
           ref={containerRef}
