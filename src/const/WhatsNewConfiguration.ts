@@ -27,21 +27,32 @@
  *
  */
 
+import { navItemEnum } from "./NavigationBarConfiguration";
+
 export type WhatsNewData = {
   title: string;
   date: string;
   imagePath: string;
   imagePathSwitch?: string;
+  redirectTo?: string;
   onClick?: () => void;
 };
 
 export const WhatsNewConfiguration: WhatsNewData[] = [
+  {
+    title: 'The eleventh "HKCTC Newsletter" has been issued',
+    date: "23 Dec 2024",
+    imagePath: "whatsnew_3.png",
+    imagePathSwitch: "Testing_1.png",
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
+  },
   {
     title:
       "Further liberalisation measures for testing and certification under CEPA",
     date: "9 Oct 2024",
     imagePath: "whatsnew_1.png",
     imagePathSwitch: "Trade_Show_1.png",
+    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
   },
   {
     title:
@@ -49,19 +60,16 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     date: "6 Aug 2024",
     imagePath: "whatsnew_2.png",
     imagePathSwitch: "Mid_Autumn_1.png",
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
   },
-  {
-    title: 'The eleventh "HKCTC Newsletter" has been issued',
-    date: "29 May 2024",
-    imagePath: "whatsnew_3.png",
-    imagePathSwitch: "Testing_1.png",
-  },
+
   {
     title:
       "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
     date: "16 Apr 2024",
     imagePath: "whatsnew_4.png",
     imagePathSwitch: "Belt_1.png",
+    redirectTo: `/tc-sector?section=${navItemEnum.profile_and_role}`,
   },
   {
     title:

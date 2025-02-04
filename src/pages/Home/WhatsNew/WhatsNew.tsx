@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import { WhatsNewConfiguration } from "../../../const";
 import { SquareTitle } from "../../../components";
-
+import { useNavigate } from "react-router-dom";
 export const WhatsNew: React.FC = () => {
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -11,7 +11,7 @@ export const WhatsNew: React.FC = () => {
   const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
 
   const changingEffectOn = false;
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (changingEffectOn) {
       const intervalId = setInterval(() => {
@@ -52,7 +52,7 @@ export const WhatsNew: React.FC = () => {
 
   return (
     <div className="w-full px-[24px]">
-      <SquareTitle title="What’s New" showArrowIcon />
+      <SquareTitle title="What’s New" showArrowIcon redirectTo="/whats-new" />
 
       <div className="pt-[24px]">
         <div
@@ -65,12 +65,25 @@ export const WhatsNew: React.FC = () => {
           }}
         >
           {firstFourWhatsNew.map((item, index) => {
-            const { title, imagePath, imagePathSwitch, date } = item;
+            const { title, imagePath, imagePathSwitch, date, redirectTo } =
+              item;
 
             const isEven = currentTime % 2 === 0;
 
             return (
-              <div key={index} className="flex flex-col items-center group">
+              <div
+                key={index}
+                className="flex flex-col items-center group cursor-pointer"
+                onClick={() => {
+                  if (redirectTo) {
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                    navigate(redirectTo);
+                  }
+                }}
+              >
                 <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden cursor-pointer">
                   {/* 上层图片 */}
                   <img
