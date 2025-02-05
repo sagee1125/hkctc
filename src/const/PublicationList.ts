@@ -113,7 +113,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 15-16",
     date: "",
-    link: "en/doc/HKCTCAnnualReport_2015-16_Eng.pdf",
+    link: "/en/doc/HKCTCAnnualReport_2015-16_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [15, 16], // start, end
     category: [CATEGORIES.REPORTS],
