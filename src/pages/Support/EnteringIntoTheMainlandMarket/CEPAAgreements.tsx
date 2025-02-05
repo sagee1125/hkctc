@@ -219,7 +219,7 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
                   onClick={() => {
-                    navigate("/support/agreement_on_trade_in_services_clauses");
+                    navigate("/support/agreement-clause");
                   }}
                 >
                   Agreement on Trade in Services
