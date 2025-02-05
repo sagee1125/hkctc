@@ -11,14 +11,14 @@ import styled, { css, keyframes } from "styled-components";
 import { EmailBox, FileTemplate, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { useNavigate } from "react-router-dom";
-import { navItemEnum } from "../../../const";
+import { CATEGORIES, navItemEnum } from "../../../const";
 
 type ResourcesData = {
   title: string;
   icon: string;
   sideColor: string;
   bgImg: string;
-  onClick: () => void;
+  navTo: string;
 };
 
 type PublicationCategory = {
@@ -140,23 +140,21 @@ export const Publications: React.FC = () => {
       icon: "lsicon:report-outline",
       sideColor: "#D1E39B",
       bgImg: report,
-      onClick: () => {
-        navigate("resources-reports");
-      },
+      navTo: `/resources-reports?category=${CATEGORIES.REPORTS}`,
     },
     {
       title: "Newsletter",
       icon: "qlementine-icons:newspaper-16",
       sideColor: "#F15A31",
       bgImg: newsletter,
-      onClick: () => {},
+      navTo: `/resources-reports?category=${CATEGORIES.NEWSLETTER}`,
     },
     {
       title: "Publications",
       icon: "lsicon:report-outline",
       sideColor: "#D9B6F6",
       bgImg: publications,
-      onClick: () => {},
+      navTo: `/resources-reports?category=${CATEGORIES.PUBLICATIONS}`,
     },
 
     {
@@ -164,14 +162,14 @@ export const Publications: React.FC = () => {
       icon: "hugeicons:teacher",
       sideColor: "#BBC9E7",
       bgImg: courses,
-      onClick: () => {},
+      navTo: `/resources-reports?category=${CATEGORIES.COURSES}`,
     },
     {
       title: "Advertorials",
       icon: "fluent-mdl2:publish-course",
       sideColor: "#FFC786",
       bgImg: advertorials,
-      onClick: () => {},
+      navTo: `/resources-reports?category=${CATEGORIES.ADVERTORIALS}`,
     },
   ];
 
@@ -481,7 +479,13 @@ export const Publications: React.FC = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               minHeight: "420px",
+              cursor: "pointer",
               ...imgBox,
+            }}
+            onClick={() => {
+              navigate(
+                `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`
+              );
             }}
           >
             <div
@@ -533,6 +537,12 @@ export const Publications: React.FC = () => {
               width: "100%",
               height: "auto",
               position: "relative",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              navigate(
+                `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`
+              );
             }}
           >
             <div
@@ -588,12 +598,18 @@ export const Publications: React.FC = () => {
           <div className="text-heading-l">Resources</div>
           <div>
             {resourcesData.map((item, index) => {
-              const { title, icon, sideColor, bgImg, onClick } = item;
+              const { title, icon, sideColor, bgImg, navTo } = item;
               return (
                 <div
                   key={index}
                   className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
-                  onClick={onClick}
+                  onClick={() => {
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                    navigate(navTo);
+                  }}
                 >
                   {/* Inner Background Div */}
                   <div

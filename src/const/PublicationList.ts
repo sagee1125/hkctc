@@ -11,6 +11,13 @@ export enum CATEGORIES {
   ADVERTORIALS = "ADVERTORIALS",
 }
 
+export enum CategoryLabel {
+  REPORTS = "Reports",
+  NEWSLETTER = "Newsletter",
+  PUBLICATIONS = "Publications",
+  COURSES = "Courses",
+  ADVERTORIALS = "Advertorials",
+}
 type PublicationType = {
   title: string;
   date: string;

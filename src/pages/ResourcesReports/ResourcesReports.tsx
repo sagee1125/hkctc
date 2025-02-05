@@ -4,7 +4,7 @@ import { Breadcrumb, fullContainer, maxContainer } from "../../components";
 
 export const ResourcesReports: React.FC = () => {
   const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
+    { label: "Home", href: "/" },
     { label: "Resources " },
   ];
 

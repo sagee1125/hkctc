@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
@@ -9,12 +9,17 @@ import {
   SquareTitle,
   activatedButtonStyle,
 } from "../../components";
+import { CATEGORIES, CategoryLabel } from "../../const";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const reportsButtons = ["All", "HKCTC Reports", "Legislative Council Papers"];
 const mediaType = ["PDF", "Video"];
-const currentYear = new Date().getFullYear(); // 获取当前年份
+const currentYear = new Date().getFullYear(); // get current year
 
 export const ResourcesReportsContent: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [activeButton, setActiveButton] = useState<number>(0);
   const [layoutButton, setLayoutButton] = useState<number>(0);
   const [selectedMediaType, setSelectedMediaType] = useState(mediaType[0]);
@@ -22,8 +27,30 @@ export const ResourcesReportsContent: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<string>(
     "From latest to oldest"
   );
+  const queryParams = new URLSearchParams(location.search);
+  const initialSection = queryParams.get("category") ?? "";
 
-  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+  const initialParam: CATEGORIES = Object.values(CATEGORIES).includes(
+    initialSection as CATEGORIES
+  )
+    ? (initialSection as CATEGORIES)
+    : CATEGORIES.REPORTS;
+
+  const [selectedCategory, setSelectedCategory] =
+    useState<CATEGORIES>(initialParam);
+
+  useEffect(() => {
+    if (initialParam !== selectedCategory) {
+      navigate(`?category=${initialParam}`);
+      setSelectedCategory(initialParam);
+    }
+  }, [initialParam, navigate]);
+
+  const handleChangeCategory = (item: string) => {
+    setSelectedCategory(item as CATEGORIES);
+    navigate(`?section=${item}`);
+  };
+
   const items = ["Option 1", "Option 2", "Option 3"];
   const layoutIcons = ["row_layout.svg", "grid_layout.svg"];
 
@@ -38,12 +65,32 @@ export const ResourcesReportsContent: React.FC = () => {
     setRangeValue(newValue as number[]);
   };
 
-  const categories: Array<{ label: string; totalNumber: number }> = [
-    { label: "Reports", totalNumber: 22 },
-    { label: "Newsletter", totalNumber: 26 },
-    { label: "Publications", totalNumber: 14 },
-    { label: "Courses", totalNumber: 32 },
-    { label: "Advertorials", totalNumber: 68 },
+  const categories: Array<{
+    enum: CATEGORIES;
+    label: string;
+    totalNumber: number;
+  }> = [
+    {
+      enum: CATEGORIES.REPORTS,
+      label: CategoryLabel.REPORTS,
+      totalNumber: 22,
+    },
+    {
+      enum: CATEGORIES.NEWSLETTER,
+      label: CategoryLabel.NEWSLETTER,
+      totalNumber: 26,
+    },
+    {
+      enum: CATEGORIES.PUBLICATIONS,
+      label: CategoryLabel.PUBLICATIONS,
+      totalNumber: 14,
+    },
+    { enum: CATEGORIES.COURSES, label: CategoryLabel.COURSES, totalNumber: 32 },
+    {
+      enum: CATEGORIES.ADVERTORIALS,
+      label: CategoryLabel.ADVERTORIALS,
+      totalNumber: 68,
+    },
   ];
   const resourcesReportsList: Array<{
     title: string;
@@ -406,18 +453,18 @@ export const ResourcesReportsContent: React.FC = () => {
           <p className="text-heading-l mt-[32px] mb-[16px]">Categories</p>
           <div className="flex flex-col gap-[16px] mb-[32px]">
             {categories.map((cat, index) => {
-              const { label, totalNumber } = cat;
-              const isActivated = index === selectedCategory;
+              const { label, enum: catEnum, totalNumber } = cat;
+              const isActivated = catEnum === selectedCategory;
               return (
                 <div
                   key={index}
-                  className="flex flex-row justify-between w-full h-[77px] items-center px-[20px] transition-all duration-800 ease-in-out"
+                  className="cursor-pointer flex flex-row justify-between w-full h-[77px] items-center px-[20px] transition-all duration-800 ease-in-out"
                   style={{
                     backgroundColor: isActivated ? "#233F55" : "#EAEAE5",
                     color: !isActivated ? "#242A31" : "#EAEAE5",
                   }}
                   onClick={() => {
-                    setSelectedCategory(index);
+                    handleChangeCategory(catEnum);
                   }}
                 >
                   <p className="text-heading-l">{label}</p>

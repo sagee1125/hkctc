@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SquareTitle, VideoPlayer } from "../../../components";
 
 export const LearningTeachingResources: React.FC = () => {
   const [playVideoOneIndex, setPlayVideoOneIndex] = useState<number>(0);
   const [playVideoTwoIndex, setPlayVideoTwoIndex] = useState<number>(0);
+
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
+
   const downloadDataOne = [
     {
       title: "Download Teacher's Guide",
@@ -119,7 +130,7 @@ export const LearningTeachingResources: React.FC = () => {
         </p>
 
         <hr className="my-[24px] text-[#E0E0E0]" />
-        <p className="text-heading-l mb-[24px]">
+        <p className="text-heading-l mb-[24px]" id="STEM_Teaching_Kit">
           STEM Teaching Kit on Testing and Certification for Junior Secondary
           Students
         </p>
@@ -192,7 +203,7 @@ export const LearningTeachingResources: React.FC = () => {
           ))}
         </div>
         <hr className="my-[24px] text-[#E0E0E0]" />
-        <p className="text-heading-l">
+        <p className="text-heading-l" id="Teaching_Kit">
           Teaching Kit on Chemical Testing for Senior Secondary Curriculum
         </p>
         <p className="text-body-m mt-[24px]">
