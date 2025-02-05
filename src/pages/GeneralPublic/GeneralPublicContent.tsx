@@ -6,63 +6,72 @@ export const GeneralPublicContent: React.FC = () => {
   const materialsData: Array<{
     title: string;
     imgUrl: string;
+    link: string;
     onClick?: () => void;
   }> = [
     {
       title: "HKCTC Reports",
       imgUrl: "material_1",
+      link: "/events-promotion?section=hkctc_reports",
     },
     {
       title: "HKCTC Newsletter",
       imgUrl: "material_2",
+      link: "/events-promotion?section=hkctc_newsletter",
     },
     {
       title: "Pamphlets and Booklets",
       imgUrl: "material_3",
+      link: "/events-promotion?section=pamphlets_booklets",
     },
     {
       title: "Advertorials",
       imgUrl: "material_4",
+      link: "/events-promotion?section=advertorials",
     },
   ];
 
   // Updated at 19/01/2025
   const whatsNew = [
     {
+      title: 'The eleventh "HKCTC Newsletter" has been issued',
+      date: "29 May 2024",
+      imagePath: "material_2.png",
+      link: "/events-promotion?section=hkctc_newsletter",
+    },
+    {
       title:
         "Further liberalisation measures for testing and certification under CEPA",
       date: "9 Oct 2024",
       imagePath: "whatsnew_1.png",
+      link: "/support/agreement-clause",
     },
     {
       title:
         "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
       date: "6 Aug 2024",
       imagePath: "material_1.png",
-    },
-
-    {
-      title: 'The eleventh "HKCTC Newsletter" has been issued',
-      date: "29 May 2024",
-      imagePath: "material_2.png",
+      link: "/events-promotion?section=hkctc_reports",
     },
     {
       title:
         "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
       date: "16 Apr 2024",
       imagePath: "whatsnew_2.png",
+      link: "/tc-sector?section=profile_and_role",
     },
-
     {
       title:
         "Recruit雜誌封面故事：檢測認證　衣食住行　專業把關 (Chinese version only)",
       date: "15 Mar 2024",
       imagePath: "whatsnew_3.png",
+      link: "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
     },
     {
       title: "“The BUD Fund - Easy BUD” has been launched",
       date: "16 Jun 2023",
       imagePath: "whatsnew_4.png",
+      link: "",
     },
   ];
 
@@ -78,11 +87,14 @@ export const GeneralPublicContent: React.FC = () => {
           <p className="text-heading-l">Materials</p>
           <div className="flex flex-col gap-[24px]">
             {materialsData.map((mat, index) => {
-              const { title, imgUrl } = mat;
+              const { title, imgUrl, link } = mat;
               return (
                 <div
                   key={index}
-                  className="flex flex-row items-start gap-[24px]"
+                  className="flex flex-row items-start gap-[24px] cursor-pointer"
+                  onClick={() => {
+                    window.open(link);
+                  }}
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -107,6 +119,10 @@ export const GeneralPublicContent: React.FC = () => {
                 backgroundPosition: "center top",
                 position: "relative",
                 height: "134px",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                window.open("/events-promotion?section=seminar_workshop");
               }}
             >
               <div
@@ -129,7 +145,12 @@ export const GeneralPublicContent: React.FC = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/events-promotion?section=comics");
+            }}
+          >
             <div
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/comics_1.png)`,
@@ -148,7 +169,14 @@ export const GeneralPublicContent: React.FC = () => {
       </div>
       <div className="flex flex-col gap-[24px]">
         <span className="flex flex-row items-center">
-          <SquareTitle title="What’s New" />
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/whats-new");
+            }}
+          >
+            <SquareTitle title="What’s New" />
+          </div>
           <ArrowForwardIosIcon
             sx={{
               marginLeft: "8px",
@@ -163,9 +191,15 @@ export const GeneralPublicContent: React.FC = () => {
               <div className="flex flex-row items-center">
                 <div className="flex flex-col w-full mr-[16px] gap-[16px]">
                   <div className="text-heading-m">
-                    <Link linkColor="#203136">{w.title}</Link>
+                    <Link
+                      linkColor="#203136"
+                      innerLink={w.link}
+                      outerLink={w.link}
+                    >
+                      {w.title}
+                    </Link>
                   </div>
-                  <div className="flex flex-row items-center gap-[8px]">
+                  <div className="flex flex-row items-center gap-[8px] ">
                     <img
                       src={
                         process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
@@ -177,7 +211,10 @@ export const GeneralPublicContent: React.FC = () => {
                 </div>
 
                 <img
-                  className="w-[278px] h-auto"
+                  className="w-[278px] h-auto cursor-pointer"
+                  onClick={() => {
+                    window.open(w.link);
+                  }}
                   src={
                     process.env.PUBLIC_URL +
                     `/assets/generalPublic/${w.imagePath}`

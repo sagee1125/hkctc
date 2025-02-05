@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { PressReleases } from "./News/PressReleases/PressReleases";
+import { PressReleases, Advertorials } from "./News";
 import { HKCTCReports } from "./Reports/HKCTCReports";
 import { LegislativeCouncil } from "./Reports/LegislativeCouncil";
 import {
@@ -86,6 +86,10 @@ const sidebarComponent: Partial<
   [navItemEnum.press_releases]: {
     bannerImage: "",
     component: <PressReleases />,
+  },
+  [navItemEnum.advertorials]: {
+    bannerImage: "",
+    component: <Advertorials />,
   },
 };
 

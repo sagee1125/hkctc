@@ -5,10 +5,13 @@ export const PhotoPanel: React.FC = () => {
     <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
       <div className="grid grid-cols-2 gap-[24px]">
         <div
-          className="col-span-2"
+          className="col-span-2 cursor-pointer"
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
             ...imgBox,
+          }}
+          onClick={() => {
+            window.open("/about-us");
           }}
         >
           <div style={overlayStyle} />
@@ -19,6 +22,10 @@ export const PhotoPanel: React.FC = () => {
           </div>
         </div>
         <div
+          className="cursor-pointer"
+          onClick={() => {
+            window.open("/tc-sector?section=profile_and_role");
+          }}
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
             ...imgBox,
@@ -37,6 +44,10 @@ export const PhotoPanel: React.FC = () => {
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
             ...imgBox,
           }}
+          className="cursor-pointer"
+          onClick={() => {
+            window.open("/tc-sector?section=tc_sector_strengths");
+          }}
         >
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -51,6 +62,10 @@ export const PhotoPanel: React.FC = () => {
           backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
           minHeight: "537px",
           ...imgBox,
+        }}
+        className="cursor-pointer"
+        onClick={() => {
+          window.open("/tc-sector?section=services_provided");
         }}
       >
         <div style={overlayStyle} />
