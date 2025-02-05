@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { MEDIA_TYPE } from "../../const";
 import { useSettings } from "../../context";
 
@@ -13,9 +13,12 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   setIsPreviewOpen,
   title,
   link,
+  mediaType,
 }: MediaDialogProps) => {
   const { withLoading } = useSettings();
-  
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const handlePdfDownload = async () => {
     if (!link) return;
     await withLoading(async () => {
@@ -37,31 +40,64 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
       }
     });
   };
+
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div className="bg-white p-4 w-[70vw] h-[80vh] relative">
           <button
-            className="absolute top-2 right-2 px-2"
+            className="absolute top-2 right-2 px-2 cursor-pointer"
             onClick={() => setIsPreviewOpen(false)}
           >
             ✕
           </button>
-          <iframe
-            className="w-full h-full pt-[24px]"
-            title={title}
-            src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-              `https://www.hkctc.gov.hk` + link
-            )}&embedded=true&chrome=false`}
-          />
-          <div className="absolute bottom-4 right-4 flex gap-2">
-            <button
-              className="bg-newPrimary text-white px-4 py-2"
-              onClick={handlePdfDownload}
-            >
-              Download
-            </button>
-          </div>
+          {mediaType === MEDIA_TYPE.VIDEO && (
+            <>
+              <video
+                ref={videoRef}
+                className="w-full h-full pt-[24px] object-cover"
+                title={title}
+                controls
+                onClick={handlePlayPause}
+              >
+                <source
+                  src={`https://www.hkctc.gov.hk${link}`}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </>
+          )}
+          {mediaType === MEDIA_TYPE.PDF && (
+            <>
+              <iframe
+                className="w-full h-full pt-[24px]"
+                title={title}
+                src={`https://docs.google.com/viewer?url=${encodeURIComponent(
+                  `https://www.hkctc.gov.hk` + link
+                )}&embedded=true&chrome=false`}
+              />
+              <div className="absolute bottom-4 right-4 flex gap-2">
+                <button
+                  className="bg-newPrimary text-white px-4 py-2"
+                  onClick={handlePdfDownload}
+                >
+                  Download
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
