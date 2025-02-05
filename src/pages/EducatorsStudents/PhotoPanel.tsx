@@ -8,6 +8,12 @@ export const PhotoPanel: React.FC = () => {
           backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
           minHeight: "537px",
           ...imgBox,
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          window.open(
+            "/career_and_education?section=learning_teaching_resources"
+          );
         }}
       >
         <div style={overlayStyle} />
@@ -23,6 +29,10 @@ export const PhotoPanel: React.FC = () => {
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
             ...imgBox,
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.open("/events-promotion?section=student_competition");
           }}
         >
           <div style={overlayStyle} />
@@ -36,6 +46,12 @@ export const PhotoPanel: React.FC = () => {
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
             ...imgBox,
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.open(
+              "/career_and_education?section=qualifications_framework"
+            );
           }}
         >
           <div style={overlayStyle} />
@@ -50,6 +66,10 @@ export const PhotoPanel: React.FC = () => {
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
             ...imgBox,
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.open("/career_and_education?section=programmes_and_courses");
           }}
         >
           <div style={overlayStyle} />
