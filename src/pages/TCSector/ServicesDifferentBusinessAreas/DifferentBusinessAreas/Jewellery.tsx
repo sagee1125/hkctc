@@ -137,16 +137,19 @@ export const Jewellery: React.FC = () => {
                 title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
                 iconPath={"VIDEO.png"}
+                mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
               />
             </div>
             <div className="grid grid-cols-2 w-full gap-[24px] mb-[24px]">
               <FileTemplate
                 title={"Testing of Fei Cui and Diamond in Hong Kong"}
                 imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
+                pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
               />
               <FileTemplate
                 title={"Diamond Testing Services in Hong Kong"}
                 imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
+                pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
               />
             </div>
             <div className="w-full flex flex-col gap-[24px]">

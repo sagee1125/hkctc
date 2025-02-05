@@ -76,10 +76,13 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
       "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
     date: "15 Mar 2024",
     imagePath: "whatsnew_5.png",
+    redirectTo:
+      "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
   },
   {
     title: "“The BUD Fund - Easy BUD” has been launched",
     date: "16 Jun 2023",
     imagePath: "whatsnew_6.png",
+    redirectTo: "/support?section=funding_schemes",
   },
 ];

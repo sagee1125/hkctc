@@ -188,18 +188,26 @@ export const Food: React.FC = () => {
     },
   ];
 
-  const photos: Array<{ title: string; img: string; icon?: string }> = [
+  const photos: Array<{
+    title: string;
+    img: string;
+    icon?: string;
+    link: string;
+  }> = [
     {
       title: "Food Testing and Certification",
       img: "food_1",
+      link: "https://www.hkctc.gov.hk/en/doc/Food_Pamphlet_2018.pdf",
     },
     {
       title: "Food",
       img: "food_2",
+      link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
     },
     {
       title: "Hong Kong's Testing and Certification for Food",
       img: "food_3",
+      link: "https://www.youtube.com/embed/oGRho-M6kEg",
       icon: "VIDEO.png",
     },
   ];
@@ -236,6 +244,7 @@ export const Food: React.FC = () => {
                     title={item.title}
                     iconPath={item.icon}
                     imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
+                    mediaLink={item.link}
                   />
                 </div>
               ))}

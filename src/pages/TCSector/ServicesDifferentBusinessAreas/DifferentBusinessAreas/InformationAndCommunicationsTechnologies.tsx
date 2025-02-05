@@ -221,6 +221,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
               <MediaTemplate
                 title="Understanding Information Security Management System (ISMS) Certification"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
+                mediaLink="https://www.hkctc.gov.hk/en/doc/ISMS_Flyer_Communications_5.pdf"
               />
             </div>
 

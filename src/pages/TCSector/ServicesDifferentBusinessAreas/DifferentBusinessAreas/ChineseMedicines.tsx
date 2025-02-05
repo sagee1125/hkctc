@@ -262,12 +262,14 @@ export const ChineseMedicines: React.FC = () => {
                 title="Hong Kong's Testing Services for Chinese Medicines"
                 iconPath={"VIDEO.png"}
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
+                mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
               />
             </div>
 
             <FileTemplate
               title={"Chinese Medicines Testing"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
+              pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
             />
 
             <div className="w-full flex flex-col gap-[24px] mt-[24px]">

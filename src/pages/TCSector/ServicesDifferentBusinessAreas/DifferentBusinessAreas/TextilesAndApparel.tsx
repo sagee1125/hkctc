@@ -103,12 +103,14 @@ export const TextilesAndApparel: React.FC = () => {
                 iconPath="VIDEO.png"
                 title="Hong Kong's Testing and Certification Services for Textiles and Garment"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/Textiles_Garment.png"
+                mediaLink="https://www.youtube.com/embed/JL54Sx8IFF0"
               />
             </div>
 
             <FileTemplate
               title={"Textile and Apparel"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
+              pdfHyperlink="/en/doc/textile_booklet_low_res_eng.pdf"
             />
             <p className="text-heading-l my-[24px]">
               Benefits of Textile and Apparel Testing & Certification

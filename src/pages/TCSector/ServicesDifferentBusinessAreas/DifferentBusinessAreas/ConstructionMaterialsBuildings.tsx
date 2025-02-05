@@ -280,6 +280,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           <FileTemplate
             title={"Feature Article on Benefits of Product Certification"}
             imagePath="assets/tcSector/servicesDifferentBusinessAreas/FeatureArticlePDF.png"
+            pdfHyperlink="/en/doc/hkctc_newsletter_issue2.pdf"
           />
         </>
       ),
@@ -634,6 +635,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 iconPath="VIDEO.png"
                 title="Hong Kong's Testing and Certification Services for Construction Materials and Buildings"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
+                mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
               />
             </div>
             <p className="text-heading-l mb-[24px]">
@@ -642,6 +644,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             <FileTemplate
               title={"Product Certification - An Upstream Quality Control"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
+              pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
             />
 
             <div className="w-full flex flex-col gap-[24px] mt-[24px]">
