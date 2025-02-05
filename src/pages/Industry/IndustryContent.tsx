@@ -5,6 +5,7 @@ type IndustryData = {
   title: string;
   description: string;
   imagePath: string;
+  link: string;
   onClick?: () => void;
 };
 export const IndustryContent: React.FC = () => {
@@ -14,43 +15,51 @@ export const IndustryContent: React.FC = () => {
       description:
         "According to the revitalisation scheme for industrial buildings (“IBs”), one of the measures is to relax the waiver application policy to permit uses for a ...",
       imagePath: "industry/Accommodation_Land.png",
+      link: "/support?section=accommodation_and_land",
     },
     {
       title: "Funding Schemes",
       description:
         "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
       imagePath: "generalPublic/whatsnew_4.png",
+      link: "/support?section=funding_schemes",
     },
     {
       title: "Entering into the Mainland market",
       description:
         "Since the signing of Supplement VII to the Mainland and Hong Kong Closer Economic Partnership Arrangement (CEPA), the Mainland has been...",
       imagePath: "industry/Entering.png",
+      link: "/support?section=entering_into_the_mainland_market",
     },
     {
       title: "HKCTC Exhibition Programme",
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
       imagePath: "industry/support_1.png",
+      link: "/support?section=exhibition_programme",
     },
   ];
 
   const publicationData: Array<{
     title: string;
     imgUrl: string;
+    link: string;
     onClick?: () => void;
   }> = [
     {
       title: "Corruption Prevention Guide for T&C Industry",
       imgUrl: "industry/Corruption.png",
+      link: "/events-promotion?section=corruption_prevention",
     },
     {
       title: "HKCTC Newsletter",
       imgUrl: "generalPublic/material_2.png",
+      link: "/events-promotion?section=hkctc_newsletter",
     },
     {
       title: "HKCTC Reports",
       imgUrl: "generalPublic/material_1.png",
+      link: "/events-promotion?section=hkctc_reports",
     },
   ];
 
@@ -61,11 +70,14 @@ export const IndustryContent: React.FC = () => {
 
         <div>
           {industryData.map((item, index) => {
-            const { title, imagePath, description } = item;
+            const { title, imagePath, description, link } = item;
             return (
               <div
                 key={index}
-                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px]"
+                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px] cursor-pointer"
+                onClick={() => {
+                  window.open(link);
+                }}
               >
                 <div className="overflow-hidden">
                   <img
@@ -98,11 +110,14 @@ export const IndustryContent: React.FC = () => {
 
           <div>
             {publicationData.map((item, index) => {
-              const { title, imgUrl } = item;
+              const { title, imgUrl, link } = item;
               return (
                 <div
                   key={index}
-                  className="flex flex-row items-start mt-[24px] gap-[24px]"
+                  className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
+                  onClick={() => {
+                    window.open(link);
+                  }}
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -115,7 +130,12 @@ export const IndustryContent: React.FC = () => {
             })}
           </div>
 
-          <div className="pt-[24px]">
+          <div
+            className="pt-[24px] cursor-pointer"
+            onClick={() => {
+              window.open("/events-promotion?section=award_scheme");
+            }}
+          >
             <div
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/industry/20232014.png)`,
@@ -128,7 +148,12 @@ export const IndustryContent: React.FC = () => {
               }}
             />
           </div>
-          <div className="pt-[24px] pb-[32px]">
+          <div
+            className="pt-[24px] pb-[32px] cursor-pointer"
+            onClick={() => {
+              window.open("/events-promotion?section=seminar_workshop");
+            }}
+          >
             <div
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,

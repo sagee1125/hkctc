@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
-import { PressReleases, Advertorials } from "./News";
+import { PressReleases } from "./News";
+import { Advertorials } from "./News/Advertorials/Advertorials";
 import { HKCTCReports } from "./Reports/HKCTCReports";
 import { LegislativeCouncil } from "./Reports/LegislativeCouncil";
 import {

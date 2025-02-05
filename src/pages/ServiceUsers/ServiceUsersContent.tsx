@@ -5,6 +5,7 @@ type IndustryData = {
   title: string;
   description: string;
   imagePath: string;
+  link: string;
   onClick?: () => void;
 };
 
@@ -37,29 +38,34 @@ export const ServiceUsersContent: React.FC = () => {
       description:
         "In general, the testing and certification (T&C) sector provides three types of services - Testing, Inspection and Certification.",
       imagePath: "serviceUsers/Services_Provided_TC.png",
+      link: "/tc-sector?section=services_provided",
     },
     {
       title: "Services for Business Areas",
       description:
         "The testing and certification sector offers services covering a wide range of areas...",
       imagePath: "serviceUsers/service_1.png",
+      link: "/tc-sector?section=different_business_areas",
     },
     {
       title: "HKCTC Exhibition Programme",
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
       imagePath: "industry/support_1.png",
+      link: "/support?section=exhibition_programme",
     },
   ];
 
   const othersData: Array<{
     title: string;
     imgUrl: string;
+    link: string;
     onClick?: () => void;
   }> = [
     {
       title: "HKCTC Reports",
       imgUrl: "Reports.png",
+      link: "/events-promotion?section=hkctc_reports",
     },
   ];
 
@@ -70,11 +76,14 @@ export const ServiceUsersContent: React.FC = () => {
 
         <div>
           {industryData.map((item, index) => {
-            const { title, imagePath, description } = item;
+            const { title, imagePath, description, link } = item;
             return (
               <div
                 key={index}
-                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px]"
+                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px] cursor-pointer"
+                onClick={() => {
+                  window.open(link);
+                }}
               >
                 <div className="overflow-hidden">
                   <img
@@ -115,7 +124,12 @@ export const ServiceUsersContent: React.FC = () => {
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <div className="relative w-[130px] h-full">
+                <div
+                  className="relative w-[130px] h-full cursor-pointer"
+                  onClick={() => {
+                    window.open(link);
+                  }}
+                >
                   <img
                     className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/${imagePath}`}
@@ -143,7 +157,14 @@ export const ServiceUsersContent: React.FC = () => {
 
         <div className="w-full">
           <div className="flex flex-row h-[90px] gap-[24px]">
-            <div className="relative w-[130px] h-full">
+            <div
+              className="relative w-[130px] h-full cursor-pointer"
+              onClick={() => {
+                window.open(
+                  "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"
+                );
+              }}
+            >
               <img
                 className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                 src={`${process.env.PUBLIC_URL}/assets/serviceUsers/Full_List.png`}
@@ -156,7 +177,14 @@ export const ServiceUsersContent: React.FC = () => {
                 alt="PDF Icon"
               />
             </div>
-            <div className="text-highlight-m text-black">
+            <div
+              className="text-highlight-m text-black cursor-pointer"
+              onClick={() => {
+                window.open(
+                  "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"
+                );
+              }}
+            >
               Directory of Accredited Organisations (Full List)
             </div>
           </div>
@@ -175,11 +203,14 @@ export const ServiceUsersContent: React.FC = () => {
 
           <div>
             {othersData.map((item, index) => {
-              const { title, imgUrl } = item;
+              const { title, imgUrl, link } = item;
               return (
                 <div
                   key={index}
-                  className="flex flex-row items-start mt-[24px] gap-[24px]"
+                  className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
+                  onClick={() => {
+                    window.open(link);
+                  }}
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -217,7 +248,12 @@ export const ServiceUsersContent: React.FC = () => {
                   zIndex: 1,
                 }}
               />
-              <div className="flex items-end w-full h-full pl-[24px] pb-[24px]">
+              <div
+                className="flex items-end w-full h-full pl-[24px] pb-[24px] cursor-pointer"
+                onClick={() => {
+                  window.open("/events-promotion?section=seminar_workshop");
+                }}
+              >
                 <p className={"text-heading-l text-white z-10"}>
                   Seminars & Workshops
                 </p>
