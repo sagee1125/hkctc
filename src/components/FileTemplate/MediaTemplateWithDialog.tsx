@@ -23,7 +23,7 @@ export const MediaTemplateWithDialog: React.FC<
 
   useEffect(() => {
     const fetchAndRenderPdf = async () => {
-      const pdfUrl = "/pdf-proxy/" + mediaLink;
+      const pdfUrl = "/pdf-proxy" + mediaLink;
 
       const loadingTask = pdfjsLib.getDocument(pdfUrl);
       const pdf = await loadingTask.promise;
