@@ -71,10 +71,10 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
   const { sidebars, activatedItems, setActivatedItems } = props;
   return (
     <div className="border-2 border-inherit p-[24px]">
-      {sidebars.map((sidebar) => {
+      {sidebars.map((sidebar, index) => {
         const { title, sidebarItems } = sidebar;
         return (
-          <div className="flex flex-col gap-[24px] mb-[24px]">
+          <div key={index} className="flex flex-col gap-[24px] mb-[24px]">
             <p className="text-heading-l">{title}</p>
             <div className="w-full flex flex-col gap-[24px]">
               {sidebarItems.map((item, i) => {
