@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { SquareTitle, AreaChart } from "../../../components";
+import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
+import { MEDIA_TYPE } from "../../../const";
 
 export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
@@ -162,17 +163,23 @@ export const ProfileAndRole: React.FC = () => {
     title: string;
     imagePath: string;
     date?: string;
+    link: string;
   }> = [
     {
       title: "Statistics of Testing and Certification Activities in Hong Kong",
       imagePath: "Statistics.png",
       date: "May 2024",
+      link: "/en/doc/HKCTC_StatPresentation_English.pdf",
     },
     {
       title: "Key Data available from 2009 - 2022",
       imagePath: "KeyData.png",
+      link: "/en/doc/Statistics_2009to2022_eng.pdf",
     },
   ];
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const currentReport = listOfData[activeReport];
 
   return (
     <div className="w-full flex flex-row gap-[24px] pr-[24px]">
@@ -320,7 +327,13 @@ export const ProfileAndRole: React.FC = () => {
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <div className="relative w-[130px] h-full">
+                <div
+                  className="relative w-[130px] h-full cursor-pointer"
+                  onClick={() => {
+                    setActiveReport(index);
+                    setIsPreviewOpen(true);
+                  }}
+                >
                   <img
                     className="border-2 border-inherit w-auto h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/${imagePath}`}
@@ -329,12 +342,20 @@ export const ProfileAndRole: React.FC = () => {
                   {/* Icon */}
                   <img
                     className="absolute bottom-0 right-0 w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/icons/PRESS.png`}
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="PDF Icon"
                   />
                 </div>
                 <div>
-                  <div className="text-highlight-m text-black">{title}</div>
+                  <div
+                    className="text-highlight-m text-black cursor-pointer"
+                    onClick={() => {
+                      setActiveReport(index);
+                      setIsPreviewOpen(true);
+                    }}
+                  >
+                    {title}
+                  </div>
                   {date && (
                     <div className="flex flex-row w-full mt-[8px] gap-2">
                       <Icon icon="material-symbols:date-range-rounded" />
@@ -347,6 +368,14 @@ export const ProfileAndRole: React.FC = () => {
           })}
         </div>
       </div>
+      {isPreviewOpen && (
+        <MediaDialog
+          mediaType={MEDIA_TYPE.PDF}
+          setIsPreviewOpen={setIsPreviewOpen}
+          title={currentReport.title}
+          link={currentReport.link}
+        />
+      )}
     </div>
   );
 };

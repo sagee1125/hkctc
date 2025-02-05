@@ -126,11 +126,13 @@ export const ElectricalElectronicProducts: React.FC = () => {
                 iconPath="VIDEO.png"
                 title="Hong Kong's Testing and Certification Services for Electrical and Electronic Products"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ElectricalElectronicProducts_Video.png"
+                mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
               />
             </div>
             <FileTemplate
               title={"Electrical and Electronic Products"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/Electrical_PDF.png"
+              pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
             />
 
             <p className="text-heading-l my-[24px]">

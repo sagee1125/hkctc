@@ -1,16 +1,26 @@
 import React from "react";
 import { type FileTemplateProps } from "./types";
 
-export const MediaTemplate: React.FC<FileTemplateProps> = ({
+export const MediaTemplate: React.FC<
+  FileTemplateProps & {
+    mediaLink?: string;
+  }
+> = ({
   title,
   imagePath,
   iconPath = "PDF.png",
   date,
   direction = "horizontal",
+  mediaLink,
 }) => {
   const componentMap: Record<"horizontal" | "vertical", React.ReactNode> = {
     horizontal: (
-      <div className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px]">
+      <div
+        className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px] cursor-pointer"
+        onClick={() => {
+          mediaLink && window.open(mediaLink);
+        }}
+      >
         <div className="flex-shrink-0 relative h-full w-auto">
           <img
             className="w-full h-full object-cover"
@@ -42,7 +52,12 @@ export const MediaTemplate: React.FC<FileTemplateProps> = ({
     ),
 
     vertical: (
-      <div className="w-full flex flex-col h-auto gap-[24px]">
+      <div
+        className="w-full flex flex-col h-auto gap-[24px] cursor-pointer"
+        onClick={() => {
+          mediaLink && window.open(mediaLink);
+        }}
+      >
         <div className="flex-shrink-0 relative h-full w-auto">
           <img
             className="w-full h-full object-cover"

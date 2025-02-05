@@ -347,6 +347,7 @@ export const MedicalTesting: React.FC = () => {
               <MediaTemplate
                 title="What you Need to Know about Medical Testing"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/medicalTestingEvent.png"
+                mediaLink="https://www.hkctc.gov.hk/en/doc/HKCTC_Leaflet_Medical.pdf"
               />
             </div>
             <p className="text-heading-l my-[24px]">

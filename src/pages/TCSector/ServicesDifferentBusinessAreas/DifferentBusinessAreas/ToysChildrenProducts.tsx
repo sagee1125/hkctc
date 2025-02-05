@@ -99,12 +99,14 @@ export const ToysChildrenProducts: React.FC = () => {
                 title="Hong Kong's Testing and Certification Services for Toys and Children's Products"
                 iconPath="VIDEO.png"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ToysAndChildren_Video.png"
+                mediaLink="https://www.youtube.com/embed/fKkwNRX0i6c"
               />
             </div>
 
             <FileTemplate
               title={"Toys"}
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
+              pdfHyperlink="/en/doc/toys_booklet_eng.pdf"
             />
             <p className="text-heading-l my-[24px]">
               Benefits of Toy Testing & Certification

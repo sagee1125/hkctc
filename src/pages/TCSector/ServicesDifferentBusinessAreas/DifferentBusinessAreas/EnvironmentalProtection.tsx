@@ -422,6 +422,8 @@ export const EnvironmentalProtection: React.FC = () => {
               <MediaTemplate
                 title="Hong Kong's Testing and Certification Services on the Environmental Protection Front"
                 imagePath="/assets/tcSector/servicesDifferentBusinessAreas/environmental_protection_pdf.png"
+                mediaLink="https://www.youtube.com/embed/5ncIXAbe9mI"
+                iconPath="VIDEO.png"
               />
             </div>
             <p className="text-heading-l mb-[24px]">
@@ -432,6 +434,7 @@ export const EnvironmentalProtection: React.FC = () => {
                 "Greenhouse Gas (GHG) Quantification, Validation and Verification"
               }
               imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
+              pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO14064.pdf"
             />
 
             <div className="w-full flex flex-col gap-[24px] my-[24px]">

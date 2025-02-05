@@ -71,7 +71,7 @@ export const GeneralPublicContent: React.FC = () => {
       title: "“The BUD Fund - Easy BUD” has been launched",
       date: "16 Jun 2023",
       imagePath: "whatsnew_4.png",
-      link: "",
+      link: "/support?section=funding_schemes",
     },
   ];
 
