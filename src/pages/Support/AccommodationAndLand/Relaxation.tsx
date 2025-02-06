@@ -7,6 +7,7 @@ export const Relaxation: React.FC = () => {
     date: string;
     maskIcon: string;
     imgUrl: string;
+    hyperlink: string;
   }> = [
     {
       title:
@@ -14,13 +15,26 @@ export const Relaxation: React.FC = () => {
       date: "26 January 2014",
       maskIcon: "PRESS.png",
       imgUrl: "extending.png",
+      hyperlink:
+        "https://www.info.gov.hk/gia/general/202401/26/P2024012600321.htm",
     },
     {
       title:
-        "Relaxation of Waiver Application  for Existing Industrial Buildings",
+        "Work Focuses of Development Bureau in the Chief Executive’s 2024 Policy Address",
+      date: "",
+      maskIcon: "PRESS.png",
+      imgUrl: "Work_Focuses.png",
+      hyperlink:
+        "https://www.devb.gov.hk/en/about_us/policy/2024-policy-address-supplement/policy-address-initiatives/index.html",
+    },
+    {
+      title:
+        "Relaxation of Waiver Application  for Existing Industrial Buildings ",
       date: "",
       maskIcon: "PDF.png",
       imgUrl: "relaxation.png",
+      hyperlink:
+        "https://www.devb.gov.hk/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
     },
   ];
 
@@ -74,31 +88,41 @@ export const Relaxation: React.FC = () => {
         />
       </div>
       <li className="text-body-m">
-        Under the arrangement, the Government would permit, between 1 February
-        2019 and 31 January 2025 (the Specified Period, which has now been
-        extended from five years to six years until 31 January 2025) five
-        non-industrial uses in premises within IBs. The prerequisite is that
-        such uses are always permitted under the relevant statutory plan, and do
-        not involve direct provision of services or goods attracting visiting
-        members of the public. An owner of part(s) of an existing IB does not
-        need to apply for a temporary waiver from LandsD, and does not need to
-        pay a waiver fee and an administrative fee which would otherwise be
+        As the Development Bureau announced on 1 February 2019, the Government
+        would permit five non-industrial uses in premises within IBs on a
+        time-limited basis. The prerequisite is that such uses are always
+        permitted under the relevant statutory plan, and do not involve direct
+        provision of services or goods attracting visiting members of the
+        public. Under the arrangement, an owner of part(s) of an existing IB
+        does&nbsp;<span className="text-newPrimary !text-highlight-m">not</span>
+        &nbsp;need to apply for a temporary waiver from LandsD, and does&nbsp;
+        <span className="text-newPrimary !text-highlight-m">not</span>&nbsp;need
+        to pay a waiver fee and an administrative fee which would otherwise be
         payable, for putting the relevant IB premises to such permitted
-        non-industrial uses during the Specified Period.
+        non-industrial uses during the effective period.&nbsp;
+        <span className="text-newPrimary !text-highlight-m">
+          The effective period of the arrangement
+        </span>
+        &nbsp;was initially set for five years, followed by an extension to 31
+        January 2025 announced on 26 January 2024, and a&nbsp;
+        <span className="text-newPrimary !text-highlight-m">
+          further extension to the end of 2027
+        </span>
+        &nbsp;announced in the 2024 Policy Address.
       </li>
       <br />
       <li className="text-body-m">
-        As the Development Bureau announced on 1 February 2019, “Research,
-        Design and Development Centre” is one of the five permitted uses.
-        According to the Definition of Terms published by the Town Planning
-        Board, testing laboratories are covered by “Laboratory, Inspection and
-        Testing Centre” which is subsumed under the use of “Research, Design and
-        Development Centre”. As such, testing laboratories in industrial
-        premises in compliance with the above prerequisites can benefit from the
-        relaxation of waiver application arrangement. In determining whether the
-        use of a premise has involved non-compliant uses outside the scope of
-        the permission, LandsD will seek advice from the Innovation and
-        Technology Commission and the decision of which shall be final.
+        "Research, Design and Development Centre" is one of the five permitted
+        uses. According to the Definition of Terms published by the Town
+        Planning Board, testing laboratories are covered by “Laboratory,
+        Inspection and Testing Centre” which is subsumed under the use of
+        “Research, Design and Development Centre”. As such, testing laboratories
+        in industrial premises in compliance with the above prerequisites can
+        benefit from the relaxation of waiver application arrangement. In
+        determining whether the use of a premise has involved non-compliant uses
+        outside the scope of the permission, LandsD will seek advice from the
+        Innovation and Technology Commission and the decision of which shall be
+        final.
       </li>
       <br />
       <li className="text-body-m">
@@ -117,18 +141,24 @@ export const Relaxation: React.FC = () => {
       <br />
       <p className="text-body-m">
         Please refer to the announcement of Development Bureau on 1 February
-        2019 and the press release of the extension on 26 January 2024 for
-        further details:
+        2019 and the press release of the extension on 26 January 2024, and the
+        2024 Policy Address for further details:
       </p>
       <div className="w-full">
         {fileList.map((item, index) => {
-          const { title, date, maskIcon, imgUrl } = item;
+          const { title, date, maskIcon, imgUrl, hyperlink } = item;
+          const onClick = (): void => {
+            window.open(hyperlink, "_blank");
+          };
           return (
             <div
               key={index}
               className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
             >
-              <div className="relative w-[130px] h-full">
+              <div
+                className="relative w-[130px] h-full cursor-pointer"
+                onClick={onClick}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                   src={`${process.env.PUBLIC_URL}/assets/support/${imgUrl}`}
@@ -142,9 +172,17 @@ export const Relaxation: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col justify-between">
-                <div className="text-highlight-m text-black">{title}</div>
+                <div
+                  className="text-highlight-m text-black cursor-pointer"
+                  onClick={onClick}
+                >
+                  {title}
+                </div>
                 {date && (
-                  <div className="text-body-s text-[#666666] flex flex-wrap gap-[8px]">
+                  <div
+                    className="text-body-s text-[#666666] flex flex-wrap gap-[8px] cursor-pointer"
+                    onClick={onClick}
+                  >
                     <img
                       className="w-[16px] h-[16px]"
                       src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
@@ -170,14 +208,15 @@ export const Relaxation: React.FC = () => {
           <p className="text-body-m flex-grow min-w-0">
             Enquiries about how this measure will impact on individual IBs
             should be addressed to the relevant District Lands Office of LandsD.
-            The contact information can be found at&nbsp;
+            The contact information can be found at
+            <br />
             <a
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              https://www.landsd.gov.hk/en/about-us/contact-us.html
+              https://www.landsd.gov.hk/en/about-us/contact-us.htm
             </a>
           </p>
         </div>
@@ -190,7 +229,8 @@ export const Relaxation: React.FC = () => {
           <p className="text-body-m flex-grow min-w-0">
             Information regarding the zoning of an IB and the “Column 1”
             always-permitted uses specified in the relevant OZP is available on
-            the website of the Town Planning Board&nbsp;(
+            the website of the Town Planning Board
+            <br />(
             <a
               href="https://www.ozp.tpb.gov.hk/"
               target="_blank"
