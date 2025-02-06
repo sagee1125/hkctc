@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { SummaryTable } from "./SummaryTable";
-import { Accordion, SquareTitle } from "../../../components";
+import { Accordion, Link, SquareTitle, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
+import { MEDIA_TYPE } from "../../../const";
 
 const Aim: React.FC = () => {
   const aimQuestion: Array<{ question: string; answer: React.ReactNode }> = [
@@ -309,31 +310,52 @@ export const TCJS: React.FC = () => {
   );
 
   const documentsList: Array<{
-    title: string;
+    title: React.ReactNode;
     maskIcon: string;
     imgUrl: string;
+    pdfLink?: string;
+    docLink?: string;
   }> = [
     {
       title: "Application Guide (Updated on 20 October 2023)",
       maskIcon: "PDF.png",
       imgUrl: "application_guide.png",
+      pdfLink: "/en/doc/tcjs_application_guide_eng.pdf",
     },
     {
       title: "Authority For Payment To A Bank (Added on 20 October 2023)",
       maskIcon: "PDF.png",
       imgUrl: "Authority.png",
+      pdfLink: "/en/doc/GF179A.pdf",
     },
     {
-      title: "Application Form (Supplementary Sheet)",
-      maskIcon: "PRESS.png",
+      title: (
+        <>
+          Application Form (
+          <Link
+            linkColor="ink"
+            outerLink="https://www.hkctc.gov.hk/en/doc/tcjs_supplementary_sheet_eng.docx"
+          >
+            Supplementary Sheet
+          </Link>
+          )
+        </>
+      ),
+      maskIcon: "DOCS.png",
       imgUrl: "Authority.png",
+      docLink: "https://www.hkctc.gov.hk/en/doc/tcjs_application_form_eng.docx",
     },
     {
       title: "Claim Form (Updated on 20 October 2023)",
-      maskIcon: "PRESS.png",
+      maskIcon: "DOCS.png",
       imgUrl: "Authority.png",
+      docLink: "https://www.hkctc.gov.hk/en/doc/tcjs_claim_form_eng.docx",
     },
   ];
+
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const currentReport = documentsList[activeReport];
 
   const tableHeads = ["Date", "Events"];
   const tableRows = [
@@ -434,13 +456,22 @@ export const TCJS: React.FC = () => {
       <p className="text-heading-l">Application Documents</p>
       <div className="w-full">
         {documentsList.map((item, index) => {
-          const { title, maskIcon, imgUrl } = item;
+          const { title, maskIcon, imgUrl, pdfLink, docLink } = item;
           return (
             <div
               key={index}
               className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
             >
-              <div className="relative w-[130px] h-full">
+              <div
+                className="relative w-[130px] h-full cursor-pointer"
+                onClick={() => {
+                  docLink && window.open(docLink);
+                  if (pdfLink) {
+                    setActiveReport(index);
+                    setIsPreviewOpen(true);
+                  }
+                }}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                   src={`${process.env.PUBLIC_URL}/assets/support/${imgUrl}`}
@@ -459,6 +490,14 @@ export const TCJS: React.FC = () => {
           );
         })}
       </div>
+      {isPreviewOpen && (
+        <MediaDialog
+          mediaType={MEDIA_TYPE.PDF}
+          setIsPreviewOpen={setIsPreviewOpen}
+          title={currentReport.title as string}
+          link={currentReport.pdfLink as string}
+        />
+      )}
     </div>
   );
 };
