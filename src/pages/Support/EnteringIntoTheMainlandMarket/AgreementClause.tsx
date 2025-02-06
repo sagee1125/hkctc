@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { AgreementOnTradeInServicesClauses } from "./AgreementOnTradeInServicesClauses";
 import { AgreementOnTradeInGoodsClauses } from "./AgreementOnTradeInGoodsClauses";
 import { AgreementOnEconomicTechnicalCooperationClauses } from "./AgreementOnEconomicTechnicalCooperationClauses";
@@ -17,6 +18,12 @@ import {
 } from "../../../components";
 
 export const AgreementClause: React.FC = () => {
+  const navigate = useNavigate();
+  const initialHash = window.location.hash;
+  const initialHashIndex = initialHash
+    ? Number(initialHash.substring(1))
+    : null; // remove `#`, get index
+
   const [activeItem, setActiveItem] = useState<string>(
     "Agreement on Trade in Services - Clauses"
   );
@@ -35,7 +42,7 @@ export const AgreementClause: React.FC = () => {
     "Supplement VII to CEPA - Clauses": <SupplementVIItoCEPAClauses />,
   };
 
-  const sidebarItems = [
+  const sidebarItems: string[] = [
     "Agreement on Trade in Services - Clauses",
     "Agreement on Trade in Goods - Clauses",
     "Agreement on Economic and Technical Cooperation - Clauses",
@@ -48,6 +55,26 @@ export const AgreementClause: React.FC = () => {
 
   const currentTitle = activeItem;
   const currentComponent = clauseContent?.[activeItem];
+
+  useEffect(() => {
+    if (!initialHashIndex) navigate(`/support/agreement-clause#0`);
+    else {
+      navigate(`/support/agreement-clause#${initialHashIndex}`);
+      setActiveItem(sidebarItems[initialHashIndex]);
+    }
+  }, [initialHashIndex, navigate]);
+
+  const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
+    const hashIndex = sidebarItems.findIndex((item) => item === activatedItems);
+    setActiveItem(activatedItems);
+
+    window.location.hash = `${hashIndex}`;
+
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -75,7 +102,7 @@ export const AgreementClause: React.FC = () => {
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
             <DirectorySidebar
-              setActivatedItems={setActiveItem}
+              setActivatedItems={handleChangeDirectorySidebarItems}
               directorySidebarItems={sidebarItems}
               activatedItems={activeItem}
             />
