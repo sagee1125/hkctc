@@ -196,8 +196,8 @@ export const legislativeCouncilList: PublicationType[] = [
   },
   {
     title: "Latest Development of the T&C Industry 2015",
-    date: "/en/doc/ci20151117cb1-148-3-e.pdf",
-    link: "",
+    date: "",
+    link: "/en/doc/ci20151117cb1-148-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [15, 15],
     category: [CATEGORIES.REPORTS],

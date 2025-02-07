@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { SquareTitle, MediaDialog } from "../../../../components";
-import { comicsList } from "../../../../const";
+import React from "react";
+import { SquareTitle, MediaTemplateWithDialog } from "../../../../components";
+import { comicsList, MEDIA_TYPE } from "../../../../const";
 
 export const Comics: React.FC = () => {
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [activeReport, setActiveReport] = useState(0);
-  const currentReport = comicsList[activeReport];
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Comics" />
@@ -30,44 +27,25 @@ export const Comics: React.FC = () => {
       </div>
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
         {comicsList.map((item, index) => {
-          const { title } = item;
+          const { title, mediaType, link } = item;
+          const isPDF = mediaType === MEDIA_TYPE.PDF;
+          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
-            <div key={index} className="w-full flex flex-col gap-[14px]">
-              <div
-                className="flex-shrink-0 relative w-full h-[190px] cursor-pointer"
-                onClick={() => {
-                  setActiveReport(index);
-                  setIsPreviewOpen(true);
-                }}
-              >
-                <img
-                  className="border-2 border-inherit w-full h-full object-cover"
-                  src={`${process.env.PUBLIC_URL}/assets/publications/pamphlets/p_1.png`}
-                  alt={"comics"}
-                />
-                {/* Icon */}
-                <img
-                  className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                  src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                  alt="PDF Icon"
-                />
-              </div>
-              <div className="flex flex-col items-start justify-center">
-                <p className="text-highlight-l">{title}</p>
-              </div>
+            <div
+              key={index}
+              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px]"
+            >
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={""}
+                mediaLink={link}
+                mediaType={mediaType}
+              />
             </div>
           );
         })}
       </div>
-
-      {isPreviewOpen && (
-        <MediaDialog
-          mediaType={currentReport.mediaType}
-          setIsPreviewOpen={setIsPreviewOpen}
-          title={currentReport.title}
-          link={currentReport.link}
-        />
-      )}
     </div>
   );
 };

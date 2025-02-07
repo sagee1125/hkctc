@@ -4,9 +4,9 @@ import {
   NormalAccordion,
   normalButtonStyle,
   activatedButtonStyle,
-  MediaDialog,
+  MediaTemplateWithDialog,
 } from "../../../../components";
-import { pamphletsList, bookletsList } from "../../../../const";
+import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
 
 export const Pamphlets: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
@@ -17,9 +17,6 @@ export const Pamphlets: React.FC = () => {
     Booklets: bookletsList,
   };
 
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [activeReport, setActiveReport] = useState(0);
-  const currentReport = filterList[filterButtons[activeButton]][activeReport];
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Pamphlets And Booklets" />
@@ -33,7 +30,6 @@ export const Pamphlets: React.FC = () => {
                 return (
                   <button
                     key={index}
-                    className="p-2 transition-all duration-800 ease-in-out"
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
@@ -52,46 +48,25 @@ export const Pamphlets: React.FC = () => {
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
         {filterList[filterButtons[activeButton]].map((item, index) => {
-          const { img, title } = item;
+          const { title, mediaType, date, link } = item;
+          const isPDF = mediaType === MEDIA_TYPE.PDF;
+          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px]"
+              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px]"
             >
-              <div
-                className="flex-shrink-0 relative w-full h-[190px] cursor-pointer"
-                onClick={() => {
-                  setActiveReport(index);
-                  setIsPreviewOpen(true);
-                }}
-              >
-                <img
-                  className="border-2 border-inherit w-full h-full object-cover"
-                  src={`${process.env.PUBLIC_URL}/assets/publications/pamphlets/${img}`}
-                  alt={img}
-                />
-                {/* Icon */}
-                <img
-                  className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                  src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                  alt="PDF Icon"
-                />
-              </div>
-              <div className="flex flex-col items-start justify-center">
-                <p className="text-highlight-l">{title}</p>
-              </div>
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={date}
+                mediaLink={link}
+                mediaType={mediaType}
+              />
             </div>
           );
         })}
       </div>
-      {isPreviewOpen && (
-        <MediaDialog
-          mediaType={currentReport.mediaType}
-          setIsPreviewOpen={setIsPreviewOpen}
-          title={currentReport.title}
-          link={currentReport.link}
-        />
-      )}
     </div>
   );
 };
