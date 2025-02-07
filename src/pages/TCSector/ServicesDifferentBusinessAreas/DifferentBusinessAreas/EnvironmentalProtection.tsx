@@ -125,7 +125,6 @@ export const EnvironmentalProtection: React.FC = () => {
               return (
                 <button
                   key={index}
-                  className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveBSectionButton(index);
@@ -150,7 +149,6 @@ export const EnvironmentalProtection: React.FC = () => {
               return (
                 <button
                   key={index}
-                  className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveCSectionButton(index);

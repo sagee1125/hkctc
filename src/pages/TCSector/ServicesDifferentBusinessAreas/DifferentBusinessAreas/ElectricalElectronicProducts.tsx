@@ -66,7 +66,6 @@ export const ElectricalElectronicProducts: React.FC = () => {
               return (
                 <button
                   key={index}
-                  className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveButton(index);

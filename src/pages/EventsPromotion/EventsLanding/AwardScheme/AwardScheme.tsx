@@ -117,7 +117,6 @@ export const AwardScheme: React.FC = () => {
           return (
             <button
               key={index}
-              className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveTestingOneButton(index);
@@ -237,7 +236,6 @@ export const AwardScheme: React.FC = () => {
           return (
             <button
               key={index}
-              className="p-0 transition-all duration-800 ease-in-out bg-newPrimary"
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setQuestionCategoriesArray(index);
