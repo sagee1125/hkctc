@@ -1,25 +1,47 @@
 import React, { useState } from "react";
 import {
-  SquareTitle,
-  NormalAccordion,
-  normalButtonStyle,
   activatedButtonStyle,
   MediaTemplateWithDialog,
+  NormalAccordion,
+  normalButtonStyle,
+  SquareTitle,
 } from "../../../../components";
-import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
+import {
+  VIDEO_TYPE,
+  videoList,
+  type VideoListData,
+} from "../../../../const/VideoList";
+import { MEDIA_TYPE } from "../../../../const";
 
-export const Pamphlets: React.FC = () => {
+export const Videos: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
-  const filterButtons = ["All", "Pamphlets", "Booklets"];
-  const filterList: Record<string, any[]> = {
-    All: [...pamphletsList, ...bookletsList],
-    Pamphlets: pamphletsList,
-    Booklets: bookletsList,
+  const filterButtons = [
+    "All",
+    "HKCTC Reports",
+    "T&C services",
+    "Career development",
+    "Manpower Development Award Scheme",
+  ];
+
+  const filterList: Record<string, VideoListData[]> = {
+    All: videoList,
+    "HKCTC Reports": videoList.filter((v) =>
+      v.category.includes(VIDEO_TYPE.HKCTC_REPORT)
+    ),
+    "T&C services": videoList.filter((v) =>
+      v.category.includes(VIDEO_TYPE.TC_SERVICES)
+    ),
+    "Career development": videoList.filter((v) =>
+      v.category.includes(VIDEO_TYPE.CAREER_DEVELOPMENT)
+    ),
+    "Manpower Development Award Scheme": videoList.filter((v) =>
+      v.category.includes(VIDEO_TYPE.MANPOWER_DEVELOPMENT)
+    ),
   };
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="Pamphlets And Booklets" />
+      <SquareTitle title="Videos" />
       <div>
         <NormalAccordion
           title="Types"
@@ -48,9 +70,8 @@ export const Pamphlets: React.FC = () => {
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
         {filterList[filterButtons[activeButton]].map((item, index) => {
-          const { title, mediaType, date, link } = item;
-          const isPDF = mediaType === MEDIA_TYPE.PDF;
-          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
+          const { title, link, domain } = item;
+          const maskIcon = "VIDEO.png";
           return (
             <div
               key={index}
@@ -59,9 +80,10 @@ export const Pamphlets: React.FC = () => {
               <MediaTemplateWithDialog
                 title={title}
                 maskIcon={maskIcon}
-                date={date}
+                date={""}
                 mediaLink={link}
-                mediaType={mediaType}
+                mediaType={MEDIA_TYPE.VIDEO}
+                mediaDomain={domain}
               />
             </div>
           );

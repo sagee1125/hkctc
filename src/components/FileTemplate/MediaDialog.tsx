@@ -7,6 +7,7 @@ type MediaDialogProps = {
   title: string;
   link: string;
   mediaType: MEDIA_TYPE;
+  mediaDomain?: "hkctc" | "youtube";
 };
 
 export const MediaDialog: React.FC<MediaDialogProps> = ({
@@ -14,6 +15,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   title,
   link,
   mediaType,
+  mediaDomain = "hkctc",
 }: MediaDialogProps) => {
   const { withLoading } = useSettings();
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -55,49 +57,61 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-4 w-[70vw] h-[80vh] relative">
+        <div className="bg-white p-4 w-[70vw] h-[90vh] relative">
           <button
             className="absolute top-2 right-2 px-2 cursor-pointer"
             onClick={() => setIsPreviewOpen(false)}
           >
             ✕
           </button>
-          {mediaType === MEDIA_TYPE.VIDEO && (
-            <>
-              <video
-                ref={videoRef}
-                className="w-full h-full pt-[24px] object-cover"
-                title={title}
-                controls
-                onClick={handlePlayPause}
-              >
-                <source
-                  src={`https://www.hkctc.gov.hk${link}`}
-                  type="video/mp4"
+          <div className="w-full h-full">
+            {mediaType === MEDIA_TYPE.VIDEO && (
+              <>
+                {mediaDomain === "hkctc" ? (
+                  <video
+                    ref={videoRef}
+                    className="w-full h-full pt-[24px] object-cover"
+                    title={title}
+                    controls
+                    onClick={handlePlayPause}
+                  >
+                    <source
+                      src={`https://www.hkctc.gov.hk${link}`}
+                      type="video/mp4"
+                    />
+                  </video>
+                ) : (
+                  <iframe
+                    className="w-full h-full pt-[24px]"
+                    src={link}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    title={title}
+                  />
+                )}
+              </>
+            )}
+            {mediaType === MEDIA_TYPE.PDF && (
+              <>
+                <iframe
+                  className="w-full h-full pt-[24px]"
+                  title={title}
+                  src={`https://docs.google.com/viewer?url=${encodeURIComponent(
+                    `https://www.hkctc.gov.hk` + link
+                  )}&embedded=true&chrome=false`}
                 />
-                Your browser does not support the video tag.
-              </video>
-            </>
-          )}
-          {mediaType === MEDIA_TYPE.PDF && (
-            <>
-              <iframe
-                className="w-full h-full pt-[24px]"
-                title={title}
-                src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-                  `https://www.hkctc.gov.hk` + link
-                )}&embedded=true&chrome=false`}
-              />
-              <div className="absolute bottom-4 right-4 flex gap-2">
-                <button
-                  className="bg-newPrimary text-white px-4 py-2"
-                  onClick={handlePdfDownload}
-                >
-                  Download
-                </button>
-              </div>
-            </>
-          )}
+                <div className="absolute bottom-4 right-4 flex gap-2">
+                  <button
+                    className="bg-newPrimary text-white px-4 py-2"
+                    onClick={handlePdfDownload}
+                  >
+                    Download
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>
