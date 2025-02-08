@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import * as pdfjsLib from "pdfjs-dist";
+import CircularProgress from "@mui/material/CircularProgress";
 import { MediaDialog } from "./MediaDialog";
 import { MEDIA_TYPE } from "../../const";
-import * as pdfjsLib from "pdfjs-dist";
 
 type MediaTemplateWithDialogProps = {
   title: string;
@@ -26,6 +27,7 @@ export const MediaTemplateWithDialog: React.FC<
   mediaDomain = "hkctc",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
 
@@ -34,6 +36,7 @@ export const MediaTemplateWithDialog: React.FC<
 
     const fetchAndRenderPdf = async () => {
       const pdfUrl = "/pdf-proxy" + mediaLink;
+      setLoading(true);
 
       try {
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
@@ -74,9 +77,12 @@ export const MediaTemplateWithDialog: React.FC<
           }
         }
       }
+
+      setLoading(false);
     };
 
     const fetchVideoPoster = () => {
+      setLoading(true);
       const videoElement = document.createElement("video");
       videoElement.src = mediaLink;
       videoElement.onloadeddata = () => {
@@ -104,9 +110,11 @@ export const MediaTemplateWithDialog: React.FC<
           };
         }
       };
+      setLoading(false);
     };
 
     const fetchYouTubePoster = () => {
+      setLoading(true);
       const videoId = mediaLink.match(
         /(?:embed\/|v=|youtu\.be\/|watch\?v=|\/v\/|\/vi\/)([^"&?/\s]{11})/
       );
@@ -139,6 +147,7 @@ export const MediaTemplateWithDialog: React.FC<
           };
         });
       }
+      setLoading(false);
     };
 
     if (mediaType === MEDIA_TYPE.PDF) {
@@ -153,6 +162,7 @@ export const MediaTemplateWithDialog: React.FC<
       isCancelled = true;
     };
   }, [mediaLink, mediaType, mediaDomain]);
+
   return (
     <>
       <div
@@ -172,6 +182,12 @@ export const MediaTemplateWithDialog: React.FC<
           }}
           className="border-2 border-inherit"
         >
+          {loading && (
+            <div className="absolute flex items-center justify-center">
+              <CircularProgress />
+            </div>
+          )}
+
           {mediaType === MEDIA_TYPE.PDF && (
             <canvas
               key={mediaLink}
@@ -192,14 +208,14 @@ export const MediaTemplateWithDialog: React.FC<
               }}
             />
           )}
-        </div>
 
-        {/* Icon */}
-        <img
-          className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-          src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-          alt="PDF Icon"
-        />
+          {/* Icon */}
+          <img
+            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+            src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
+            alt="PDF Icon"
+          />
+        </div>
       </div>
       <div className="flex flex-col items-start justify-center">
         <p className="text-highlight-l">{title}</p>
