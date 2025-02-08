@@ -668,18 +668,32 @@ export const otherInformationList = [
   },
 ];
 
-enum ADVERTORIALS_SECTOR {
+export enum ADVERTORIALS_SECTOR {
   OVERVIEW = "OVERVIEW",
   MAINLAND_OPPORTUNITY = "MAINLAND_OPPORTUNITY",
   MANPOWER = "MANPOWER",
   METROLOGY = "METROLOGY",
   TC_SUPPORT = "TC_SUPPORT",
+
+  MANAGEMENT_SYSTEM = "MANAGEMENT_SYSTEM",
+  CHINESE_MEDICINE = "CHINESE_MEDICINE",
+  CONSTRUCTION = "CONSTRUCTION",
+  ELECTRICAL_PRODUCTS = "ELECTRICAL_PRODUCTS",
+  ENVIRONMENT_PROTECTION = "ENVIRONMENT_PROTECTION",
+  FOOD = "FOOD",
+  INFORMATION_TECHNOLOGY = "INFORMATION_TECHNOLOGY",
+  JEWELLERY = "JEWELLERY",
+  MEDICAL_TESTING = "MEDICAL_TESTING",
+  TEXTILE_CLOTHING = "TEXTILE_CLOTHING",
+  TOYS = "TOYS",
 }
 
 export const advertorialsList = [
   // overview
+  // overview
   {
     title: "25 Mar 2022",
+    date: "25 Mar 2022",
     link: "/en/doc/20220325-SkyPost-Promotion_of_Professionalism_of_TC_Practitioners.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -687,6 +701,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Feb 2022",
+    date: "28 Feb 2022",
     link: "/en/doc/20220228-Professionalism_of_TC_Practitioners.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -694,6 +709,7 @@ export const advertorialsList = [
   },
   {
     title: "13 Mar 2018",
+    date: "13 Mar 2018",
     link: "/en/doc/20180313_AM730_Supply_Chain.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -701,6 +717,7 @@ export const advertorialsList = [
   },
   {
     title: "27 Jul 2017",
+    date: "27 Jul 2017",
     link: "/en/doc/20170727-SCMP-Overview_of_T&C_Industry.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -708,6 +725,7 @@ export const advertorialsList = [
   },
   {
     title: "27 Jul 2017",
+    date: "27 Jul 2017",
     link: "/en/doc/20170727-Sing_Tao-Overview_of_T&C_Industry.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -715,6 +733,7 @@ export const advertorialsList = [
   },
   {
     title: "8 Mar 2017",
+    date: "8 Mar 2017",
     link: "/en/doc/20170308-Ming_Pao_Consumer_Product_Testing.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -722,6 +741,7 @@ export const advertorialsList = [
   },
   {
     title: "22 Dec 2016",
+    date: "22 Dec 2016",
     link: "/en/doc/20161222-Headline_Daily-Consumer_Council.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -729,6 +749,7 @@ export const advertorialsList = [
   },
   {
     title: "22 Dec 2016",
+    date: "22 Dec 2016",
     link: "/en/doc/20161222-Oriental_Daily-Consumer_Council.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -736,6 +757,7 @@ export const advertorialsList = [
   },
   {
     title: "16 Dec 2016",
+    date: "16 Dec 2016",
     link: "/en/doc/20161216-HKET-Trade_Description_Ordinance.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -743,6 +765,7 @@ export const advertorialsList = [
   },
   {
     title: "12 Jul 2016",
+    date: "12 Jul 2016",
     link: "/en/doc/20160712-Singtao-Outlook_of_T&C.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
@@ -752,6 +775,7 @@ export const advertorialsList = [
   // Mainland Opportunity
   {
     title: "24 Apr 2018",
+    date: "24 Apr 2018",
     link: "/en/doc/20180424_China_Daily_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
@@ -759,6 +783,7 @@ export const advertorialsList = [
   },
   {
     title: "18 Apr 2018",
+    date: "18 Apr 2018",
     link: "/en/doc/20180418_HKET_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
@@ -766,6 +791,7 @@ export const advertorialsList = [
   },
   {
     title: "20 Jun 2017",
+    date: "20 Jun 2017",
     link: "/en/doc/20170620-China_Daily-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
@@ -773,6 +799,7 @@ export const advertorialsList = [
   },
   {
     title: "16 Jun 2017",
+    date: "16 Jun 2017",
     link: "/en/doc/20170616-HKET-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
@@ -780,6 +807,7 @@ export const advertorialsList = [
   },
   {
     title: "8 Mar 2017",
+    date: "8 Mar 2017",
     link: "/en/doc/20170308-Ming_Pao_Consumer_Product_Testing.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
@@ -789,6 +817,7 @@ export const advertorialsList = [
   // Manpower Development
   {
     title: "9 Oct 2024",
+    date: "9 Oct 2024",
     link: "/en/doc/20241009-MingPao-Digi_Sci_video_prod_comp_secondary_2023_24.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -796,6 +825,7 @@ export const advertorialsList = [
   },
   {
     title: "7 Oct 2024",
+    date: "7 Oct 2024",
     link: "/en/doc/20241007-YoungPost-Digi_Sci_video_prod_comp_secondary_2023_24.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -803,6 +833,7 @@ export const advertorialsList = [
   },
   {
     title: "21 Jun 2024",
+    date: "21 Jun 2024",
     link: "/en/doc/240621_recruit_magazine.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -810,6 +841,7 @@ export const advertorialsList = [
   },
   {
     title: "23 May 2024",
+    date: "23 May 2024",
     link: "/en/doc/20240523-SingTao-HKCTC_Special_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -817,6 +849,7 @@ export const advertorialsList = [
   },
   {
     title: "20 May 2024",
+    date: "20 May 2024",
     link: "/en/doc/20240520-Young_post-HKCTC_Special_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -824,6 +857,7 @@ export const advertorialsList = [
   },
   {
     title: "8 Dec 2023",
+    date: "8 Dec 2023",
     link: "/en/doc/20231208-HKET-ceremony_tcmpaward_2023-24.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -831,6 +865,7 @@ export const advertorialsList = [
   },
   {
     title: "6 Aug 2023",
+    date: "6 Aug 2023",
     link: "/en/doc/202307-YP-Digi_Science.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -838,6 +873,7 @@ export const advertorialsList = [
   },
   {
     title: "27 Jul 2023",
+    date: "27 Jul 2023",
     link: "/en/doc/20230727-SingTao-Digi_Science_Video_Production_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -845,6 +881,7 @@ export const advertorialsList = [
   },
   {
     title: "19 Jun 2023",
+    date: "19 Jun 2023",
     link: "/en/doc/20230619-YP-HKCTC_Special_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -852,6 +889,7 @@ export const advertorialsList = [
   },
   {
     title: "15 Jun 2023",
+    date: "15 Jun 2023",
     link: "/en/doc/20230615-Ming_Pao-Advertorial_on_HKCTC_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -859,6 +897,7 @@ export const advertorialsList = [
   },
   {
     title: "17 Oct 2022",
+    date: "17 Oct 2022",
     link: "/en/doc/20221017-Young_Post-Digi-Science_2022.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -866,6 +905,7 @@ export const advertorialsList = [
   },
   {
     title: "13 Oct 2022",
+    date: "13 Oct 2022",
     link: "/en/doc/20221013-Digi_Sciece_Video_Production_Competition_22_MP.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -873,6 +913,7 @@ export const advertorialsList = [
   },
   {
     title: "10 Oct 2022",
+    date: "10 Oct 2022",
     link: "/en/doc/20221010-Young_Post-HKCTC_Special_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -880,6 +921,7 @@ export const advertorialsList = [
   },
   {
     title: "6 Oct 2022",
+    date: "6 Oct 2022",
     link: "/en/doc/20221006-Sing_Tao-HKCTC_Special_Award.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -887,6 +929,7 @@ export const advertorialsList = [
   },
   {
     title: "23 Aug 2022",
+    date: "23 Aug 2022",
     link: "/en/doc/20220823-Corporate_Awardees.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -894,6 +937,7 @@ export const advertorialsList = [
   },
   {
     title: "30 Dec 2021",
+    date: "30 Dec 2021",
     link: "/en/doc/20211230-HKET-TnC_Manpower_Development_Award_Scheme.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -901,6 +945,7 @@ export const advertorialsList = [
   },
   {
     title: "30 Dec 2021",
+    date: "30 Dec 2021",
     link: "/en/doc/20211230-Headline_Daily-TnC_Manpower_Development_Award_Scheme.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -908,6 +953,7 @@ export const advertorialsList = [
   },
   {
     title: "30 Nov 2021",
+    date: "30 Nov 2021",
     link: "/en/doc/20211130-Ming_Pao-HK_Youth_Science_and_Technology_Innovation_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -915,6 +961,7 @@ export const advertorialsList = [
   },
   {
     title: "15 Nov 2021",
+    date: "15 Nov 2021",
     link: "/en/doc/20211115-Young_Post-HK_Youth_Science_and_Technology_Innovation_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -922,6 +969,7 @@ export const advertorialsList = [
   },
   {
     title: "11 Oct 2021",
+    date: "11 Oct 2021",
     link: "/en/doc/20211011_Digi-Science_Video_Production_Competition_Young_Post.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -929,6 +977,7 @@ export const advertorialsList = [
   },
   {
     title: "29 Sep 2021",
+    date: "29 Sep 2021",
     link: "/en/doc/20210929_Digi-Science_Video_Production_Competition_Sing_Tao.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -936,6 +985,7 @@ export const advertorialsList = [
   },
   {
     title: "29 Oct 2020",
+    date: "29 Oct 2020",
     link: "/en/doc/20201029_Young_Post_Science_Technology_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -943,6 +993,7 @@ export const advertorialsList = [
   },
   {
     title: "15 Oct 2020",
+    date: "15 Oct 2020",
     link: "/en/doc/20201015_Sing_Tao_Young_Post_Science_Technology_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -950,6 +1001,7 @@ export const advertorialsList = [
   },
   {
     title: "5 Aug 2019",
+    date: "5 Aug 2019",
     link: "/en/doc/20190805_Headline_Daily_Manpower.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -957,6 +1009,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Jun 2019",
+    date: "28 Jun 2019",
     link: "/en/doc/20190628_Student_Competition_Young_Post.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -964,6 +1017,7 @@ export const advertorialsList = [
   },
   {
     title: "20 Jun 2019",
+    date: "20 Jun 2019",
     link: "/en/doc/20190620_Student_Competition_Sing_Tao_Daily.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -971,6 +1025,7 @@ export const advertorialsList = [
   },
   {
     title: "11 Jun 2019",
+    date: "11 Jun 2019",
     link: "/en/doc/20190611_Student_Competition_Ming_Pao.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -978,6 +1033,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Jun 2018",
+    date: "28 Jun 2018",
     link: "/en/doc/20180628_Sing_Tao_Student_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -985,6 +1041,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Jun 2018",
+    date: "28 Jun 2018",
     link: "/en/doc/20180628_Ming_Pao_Student_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -992,6 +1049,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Jun 2018",
+    date: "28 Jun 2018",
     link: "/en/doc/20180628_Young_Post_Student_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -999,6 +1057,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Mar 2018",
+    date: "28 Mar 2018",
     link: "/en/doc/20180328_Ming_Pao_Manpower_Development.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1006,6 +1065,7 @@ export const advertorialsList = [
   },
   {
     title: "29 Jun 2017",
+    date: "29 Jun 2017",
     link: "/en/doc/20170629_Ming_Pao_School_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1013,6 +1073,7 @@ export const advertorialsList = [
   },
   {
     title: "29 Jun 2017",
+    date: "29 Jun 2017",
     link: "/en/doc/20170629_Young_Post_SCMP_School_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1020,6 +1081,7 @@ export const advertorialsList = [
   },
   {
     title: "11 May 2017",
+    date: "11 May 2017",
     link: "/en/doc/20170511_Sing_Tao_Daily_School_Competition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1027,6 +1089,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Apr 2017",
+    date: "28 Apr 2017",
     link: "/en/doc/20170428-Ming_Pao-Professional_Development.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1034,6 +1097,7 @@ export const advertorialsList = [
   },
   {
     title: "28 Apr 2017",
+    date: "28 Apr 2017",
     link: "/en/doc/20170428-The_Standard.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
@@ -1041,90 +1105,104 @@ export const advertorialsList = [
   },
   {
     title: "15 Jun 2016",
+    date: "15 Jun 2016",
     link: "/en/doc/20160615_Oriental_Daily.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
   },
-  {
+
+ {
     title: "15 Feb 2016",
+    date: "15 Feb 2016",
     link: "/en/doc/20160215_MingPao_Prof_recognition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
-  },
+},
 
-  // Metrology, accreditation and standards
-  {
+// Metrology, accreditation and standards
+{
     title: "30 Jul 2019",
+    date: "30 Jul 2019",
     link: "/en/doc/20190730_HKET_ITC_Advertorial.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "30 Jul 2019",
+    date: "30 Jul 2019",
     link: "/en/doc/20190730_The_Standard_WAD.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "26 Jul 2018",
+    date: "26 Jul 2018",
     link: "/en/doc/20180726_HKET_HP26Jul.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "26 Jul 2018",
+    date: "26 Jul 2018",
     link: "/en/doc/20180726_The_Standard.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "3 May 2018",
+    date: "3 May 2018",
     link: "/en/doc/20180503_Sing_Tao_Daily_Accreditation.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "21 Dec 2017",
+    date: "21 Dec 2017",
     link: "/en/doc/20171221_Sky_Post_Metrology_Symposium.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "21 Jul 2017",
+    date: "21 Jul 2017",
     link: "/en/doc/20170721_Ming_Pao_3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "21 Jul 2017",
+    date: "21 Jul 2017",
     link: "/en/doc/20170721_The_Standard_3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "5 Aug 2016",
+    date: "5 Aug 2016",
     link: "/en/doc/20160805-Mingpao-3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
+},
+{
     title: "5 Aug 2016",
+    date: "5 Aug 2016",
     link: "/en/doc/20160805-The_Standard.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-  },
+},
+
 
   // Support to T&C Sector
   {
@@ -1139,6 +1217,328 @@ export const advertorialsList = [
     link: "/en/doc/20170727-HKET-ITF_Projects.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TC_SUPPORT,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "10 Apr 2019",
+    link: "/en/doc/20190410_SCMP_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "2 Apr 2019",
+    link: "/en/doc/20190402_Ming_Pao_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "May 2018",
+    link: "/en/doc/SME_May2018_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Mar 2016",
+    link: "/en/doc/20160331_AM730_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Mar 2016",
+    link: "/en/doc/20160331_HKET_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Mar 2016",
+    link: "/en/doc/20160331_SCMP_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "24 Apr 2024",
+    link: "/en/doc/20240424_CMM.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "13 Apr 2016",
+    link: "/en/doc/20160413_Headline_CMM.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "27 Mar 2024",
+    link: "/en/doc/20240327-advertorial.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "23 Jan 2020",
+    link: "/en/doc/20200123_Product_Certification_on_Construction_Materials_Economic_Times.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "23 Jan 2020",
+    link: "/en/doc/20200123_Product_Certification_on_Construction_Materials_SCMP.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "25 Jul 2019",
+    link: "/en/doc/20190725_Sky_Post_UU_Survey.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "18 Dec 2017",
+    link: "/en/doc/20171218_ODN_Construction_Materials.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "Dec 2017",
+    link: "/en/doc/SME_Dec2017_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "3 Jul 2017",
+    link: "/en/doc/20170703-Oriental_Daily-EEP.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "28 May 2024",
+    link: "/en/doc/20240528-ESG_Advertorial.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "1 Aug 2019",
+    link: "/en/doc/20190801_HKET_Greenhouse_Gas.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Jul 2019",
+    link: "/en/doc/20190731_AM730_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "10 Apr 2019",
+    link: "/en/doc/20190410_SCMP_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "2 Apr 2019",
+    link: "/en/doc/20190402_Ming_Pao_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "23 Apr 2018",
+    link: "/en/doc/20180423_Sing_Tao_Daily_Environmental_Protection.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "10 Apr 2017",
+    link: "/en/doc/20170410-Sing_Tao-Environmental_Protection.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "30 Apr 2019",
+    link: "/en/doc/20190430_Food.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.FOOD,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "28 Jun 2018",
+    link: "/en/doc/20180628_Smart_Parents_Food_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.FOOD,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "13 Mar 2018",
+    link: "/en/doc/20180313_Headline_Daily_Food_Certification.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.FOOD,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "11 Jul 2018",
+    link: "/en/doc/20180711_Headline_Daily_ISO27001.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "30 Aug 2017",
+    link: "/en/doc/20170830_AM730_ISO27001.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "29 Aug 2017",
+    link: "/en/doc/20170829_HKEJ_ISO27001.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "26 Jan 2017",
+    link: "/en/doc/20170126-HKET-ICT_ISO27001.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "26 Apr 2018",
+    link: "/en/doc/20180426_HKET_Jewellery_Seminar.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.JEWELLERY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "May 2017",
+    link: "/en/doc/SME_May2017_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.JEWELLERY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "16 Dec 2016",
+    link: "/en/doc/20161216-HKET-Trade_Description_Ordinance.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.JEWELLERY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "18 Nov 2016",
+    link: "/en/doc/20161118-Ming_Pao-Jewellery_Seminar.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.JEWELLERY,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "20 Apr 2023",
+    link: "/en/doc/20230420-Advertorial_on_Medical_Laboratory.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "Apr 2021",
+    link: "/en/doc/202104_Medical_Laboratory_Accreditation_Health_Action.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "Mar 2021",
+    link: "/en/doc/202103_Medical_Laboratory_Accreditation_Health_Plus.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "4 Oct 2018",
+    link: "/en/doc/20181004_Sing_Tao_Medical_Lab_Accreditation.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "May 2018",
+    link: "/en/doc/Medical_May2018_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "30 Sep 2016",
+    link: "/en/doc/20160930-Headline-medical_testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Jul 2019",
+    link: "/en/doc/20190731_AM730_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "15 Dec 2017",
+    link: "/en/doc/20171215_ODN_Textile_and_Garment.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "Dec 2016",
+    link: "/en/doc/SME_Dec2016_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "31 Jul 2019",
+    link: "/en/doc/20190731_AM730_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "9 Jan 2017",
+    link: "/en/doc/20170109-Oriental_Daily-Toy_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TOYS,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "May 2016",
+    link: "/en/doc/SME_May2016_SF_Testing.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TOYS,
+    category: [CATEGORIES.ADVERTORIALS],
+  },
+  {
+    title: "14 Apr 2016",
+    link: "/en/doc/20160414_Mingpao_Toys.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
   },
 ];

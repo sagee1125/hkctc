@@ -68,7 +68,6 @@ export const NormalAccordion: React.FC<AccordionProps> = ({
 }) => {
   return (
     <MuiAccordion
-      id="type"
       sx={{
         ":before": { display: "none" },
         boxShadow: "none",
@@ -87,7 +86,7 @@ export const NormalAccordion: React.FC<AccordionProps> = ({
         }}
         expandIcon={<ExpandMoreIcon className="text-[#000000]" />}
       >
-        <span className="mr-[8px]">{title}</span>
+        <span className="mr-[8px] text-highlight-m">{title}</span>
       </AccordionSummary>
       <AccordionDetails
         sx={{
