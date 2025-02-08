@@ -27,6 +27,7 @@ import {
   NavigationBarConfiguration,
   navItemEnum,
 } from "../../const";
+import { Videos } from "./News/Videos";
 
 const sidebarComponent: Partial<
   Record<
@@ -91,6 +92,10 @@ const sidebarComponent: Partial<
   [navItemEnum.advertorials]: {
     bannerImage: "",
     component: <Advertorials />,
+  },
+  [navItemEnum.videos]: {
+    bannerImage: "",
+    component: <Videos />,
   },
 };
 

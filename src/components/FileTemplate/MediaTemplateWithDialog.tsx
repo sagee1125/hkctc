@@ -9,6 +9,7 @@ type MediaTemplateWithDialogProps = {
   date: string;
   mediaLink: string;
   mediaType: MEDIA_TYPE;
+  mediaDomain?: "hkctc" | "youtube";
 };
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
@@ -16,7 +17,14 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 //   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
 export const MediaTemplateWithDialog: React.FC<
   MediaTemplateWithDialogProps
-> = ({ title, maskIcon = "PDF.png", date, mediaLink, mediaType }) => {
+> = ({
+  title,
+  maskIcon = "PDF.png",
+  date,
+  mediaLink,
+  mediaType,
+  mediaDomain = "hkctc",
+}) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
@@ -98,17 +106,53 @@ export const MediaTemplateWithDialog: React.FC<
       };
     };
 
+    const fetchYouTubePoster = () => {
+      const videoId = mediaLink.match(
+        /(?:embed\/|v=|youtu\.be\/|watch\?v=|\/v\/|\/vi\/)([^"&?/\s]{11})/
+      );
+
+      if (videoId && videoId[1] && imageRef.current) {
+        const resolutions = [
+          "maxresdefault.jpg",
+          "sddefault.jpg",
+          "hqdefault.jpg",
+          "mqdefault.jpg",
+          "default.jpg",
+        ];
+
+        let found = false;
+
+        resolutions.forEach((res) => {
+          if (found) return;
+          const img = new Image();
+          img.src = `https://img.youtube.com/vi/${videoId[1]}/${res}`;
+
+          img.onload = () => {
+            if (!found) {
+              imageRef.current!.src = img.src;
+              found = true;
+            }
+          };
+
+          img.onerror = () => {
+            console.warn(`Failed to load: ${img.src}`);
+          };
+        });
+      }
+    };
+
     if (mediaType === MEDIA_TYPE.PDF) {
       fetchAndRenderPdf();
     } else if (mediaType === MEDIA_TYPE.VIDEO) {
-      fetchVideoPoster();
+      if (mediaDomain === "hkctc") fetchVideoPoster();
+      if (mediaDomain === "youtube") fetchYouTubePoster();
     }
 
     // 清理函數，當組件卸載時取消渲染
     return () => {
       isCancelled = true;
     };
-  }, [mediaLink, mediaType]);
+  }, [mediaLink, mediaType, mediaDomain]);
   return (
     <>
       <div
@@ -178,6 +222,7 @@ export const MediaTemplateWithDialog: React.FC<
           setIsPreviewOpen={setIsPreviewOpen}
           title={title}
           link={mediaLink}
+          mediaDomain={mediaDomain}
         />
       )}
     </>

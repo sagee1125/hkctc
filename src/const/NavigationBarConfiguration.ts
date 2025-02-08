@@ -390,19 +390,19 @@ export const NavigationBarConfiguration: NavData[] = [
             enum: navItemEnum.press_releases,
             subTitle: "Press Releases",
             imgUrl: "Press_Releases.png",
-            navUrl: "",
+            navUrl: `events-promotion?section=${navItemEnum.press_releases}`,
           },
           {
             enum: navItemEnum.advertorials,
             subTitle: "Advertorials",
             imgUrl: "Advertorials.png",
-            navUrl: "",
+            navUrl: `events-promotion?section=${navItemEnum.advertorials}`,
           },
           {
             enum: navItemEnum.videos,
             subTitle: "Videos",
             imgUrl: "video.png",
-            navUrl: "",
+            navUrl: `events-promotion?section=${navItemEnum.videos}`,
           },
           {
             enum: "",
