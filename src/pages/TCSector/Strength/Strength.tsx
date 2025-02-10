@@ -95,15 +95,13 @@ export const Strength: React.FC = () => {
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out whitespace-nowrap bg-newPrimary"
+                className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveTopicButton(index);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">
-                  {strengthInfo.title}
-                </p>
+                <p className="text-highlight-xs">{strengthInfo.title}</p>
               </button>
             );
           })}

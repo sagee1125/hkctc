@@ -114,7 +114,6 @@ export const Advertorials: React.FC = () => {
                 return (
                   <button
                     key={index}
-                    className="p-2 transition-all duration-800 ease-in-out"
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
@@ -122,7 +121,7 @@ export const Advertorials: React.FC = () => {
                       setActiveAboutSector(index);
                     }}
                   >
-                    <p className="px-[12px] text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs">{name}</p>
                   </button>
                 );
               })}

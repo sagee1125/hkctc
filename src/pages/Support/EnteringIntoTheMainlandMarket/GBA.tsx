@@ -131,13 +131,12 @@ export const GBA: React.FC = () => {
             return (
               <button
                 key={index}
-                className="p-2 transition-all duration-800 ease-in-out"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveCertificationType(btn);
                 }}
               >
-                <p className="px-[12px] text-highlight-xs">{btn}</p>
+                <p className="text-highlight-xs">{btn}</p>
               </button>
             );
           })}
