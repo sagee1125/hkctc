@@ -7,11 +7,16 @@ import {
   fullContainer,
   maxContainer,
 } from "../../../../components";
+import { navItemEnum } from "../../../../const";
 
 export const AwardScheme23to24: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
     { label: "Events", href: "/events-promotion" },
+    {
+      label: "T&C Manpower Development Award Scheme",
+      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
+    },
     { label: "T&C Manpower Development Award Scheme 2023-2024" },
   ];
 
@@ -198,7 +203,7 @@ export const AwardScheme23to24: React.FC = () => {
 
   return (
     <div style={fullContainer}>
-      <div className="w-full h-[460px] bg-white flex items-center justify-center">
+      <div className="w-full h-auto bg-white flex items-center justify-center">
         <video
           src={
             process.env.PUBLIC_URL +
@@ -209,8 +214,8 @@ export const AwardScheme23to24: React.FC = () => {
           loop
           playsInline
           style={{
-            height: "460px", // 高度固定为460px
-            width: "auto", // 宽度根据视频比例自适应
+            height: "auto",
+            width: "100%",
             objectFit: "contain", // 确保视频内容保持原比例
           }}
         />

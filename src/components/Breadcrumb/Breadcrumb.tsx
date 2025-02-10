@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { Tooltip } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,33 +27,37 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   alt="Home Icon"
                   className="w-[16px] h-[16px] text-[#A7AAAD]"
                 />
-                <p
-                  className="text-body-m cursor-pointer"
+                <Tooltip title={item.label}>
+                  <span
+                    className="text-body-m cursor-pointer truncate max-w-[20ch]"
+                    onClick={() => {
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      navigate(`${item.href}`); // back to homepage
+                    }}
+                  >
+                    {item.label}
+                  </span>
+                </Tooltip>
+              </div>
+            ) : item.href ? (
+              <Tooltip title={item.label}>
+                <span
+                  className="text-body-m cursor-pointer truncate max-w-[20ch]"
                   onClick={() => {
-                    window.scroll({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                    navigate(`${item.href}`); // back to homepage
+                    const element = document.getElementById("breadcrumb");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+
+                    navigate(`${item.href}`);
                   }}
                 >
                   {item.label}
-                </p>
-              </div>
-            ) : item.href ? (
-              <p
-                className="text-body-m cursor-pointer"
-                onClick={() => {
-                  const element = document.getElementById("breadcrumb");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-
-                  navigate(`${item.href}`);
-                }}
-              >
-                {item.label}
-              </p>
+                </span>
+              </Tooltip>
             ) : (
               <span className="text-highlight-m">{item.label}</span>
             )}
