@@ -5,6 +5,7 @@ import {
   normalButtonStyle,
   activatedButtonStyle,
   SquareTitle,
+  Accordion,
 } from "../../../../components";
 
 const assessmentCriteriaGrid = [
@@ -305,11 +306,103 @@ const awardMapTwo: Record<string, React.ReactNode> = {
     </div>
   ),
 };
-const questionCategories = [
-  "General",
-  "Testing and Certification Manpower Development Corporate Award",
-  "Excellent Testing and Certification Professional Award",
-];
+
+const questionCategoriesMap: Record<
+  string,
+  Array<{ title: string; content: React.ReactNode }>
+> = {
+  General: [
+    {
+      title: "Is there any submission or processing fee for the Award Scheme?",
+      content: "No. Participation is free of charge.",
+    },
+    {
+      title:
+        "Can we submit applications for both Testing and Certification Manpower Development Corporate Award and Excellent Testing and Certification Professional Award?",
+      content:
+        "Yes. An accredited testing and certification body may apply for Testing and Certification Manpower Development Corporate Award as well as nominate its testing and certification practitioners for the Excellent Testing and Certification Professional Award, subject to meeting the eligibility requirements of the Awards.",
+    },
+    {
+      title: "Is there a fixed number of awardees?",
+      content: "There is no pre-set number of awardees for both Awards.",
+    },
+  ],
+  "Testing and Certification Manpower Development Corporate Award": [
+    {
+      title: "Why should our company apply for the Award?",
+      content:
+        "The Award recognises your company’s achievements and efforts made in the manpower and professional development of testing and certification practitioners, demonstrating to the community that talent is much treasured by your company. It thus projects a good corporate image for your company that helps attract and retain talent.",
+    },
+    {
+      title:
+        "Our company group consists of several accredited testing and certification bodies. Do we need to submit a separate application for each accredited testing and certification body in our group?",
+      content:
+        "Applicant entities may include accredited testing and certification bodies of the same group in one application if such testing and certification bodies are under the same management and apply the same company policy. In that case, information provided in the application should cover all T&C bodies specified in the application, and the application would be assessed holistically based on the activities and achievements made by all testing and certification bodies specified in the application.",
+    },
+    {
+      title:
+        "Do we need to submit supporting information for each Criteria fulfilled?",
+      content:
+        "Yes. Evidence, supporting documents or examples should be provided for every Criteria claimed to be fulfilled in the application form.",
+    },
+    {
+      title:
+        "What kind of supporting documents are required for fulfilling the assessment Criteria?",
+      content:
+        "Supporting documents may take the form of acknowledge letters, internal office memos, photographs, staff manuals, emails, receipts, corporate publications, posters and certificate copies, etc. Consent must be obtained from the parties concerned for disclosure of personal data in the documents.",
+    },
+    {
+      title:
+        "If an activity of our company was conducted before 1 June 2021, could we use this to support our application?",
+      content:
+        "No. Only those activities and achievements made during the period from 1 June 2021 up to the date of application would be considered for the Award.",
+    },
+    {
+      title:
+        "What is the effective period for the use of the logos under the Corporate Award?",
+      content:
+        "Awardees of the Testing and Certification Manpower Development Corporate Award will be permitted to use the logo for the Gold Award and Platinum Award under the Corporate Award as appropriate from the date of public announcement of the award results. The specific date would be announced in due course.",
+    },
+    {
+      title:
+        "Do we need to submit samples of our promotional materials using the logos under the Corporate Award to the HKCTC Secretariat for prior approval?",
+      content: (
+        <p>
+          No. However, all promotional materials bearing the Corporate Award
+          Logo must be legal, decent, healthy, honest, and trustful and must not
+          contain any content of unlawful, defamatory, discrimination, insulting
+          or otherwise objectionable nature.
+          <br />
+          <br />
+          Please refer to the “Guidelines on the Use of the Logos under the
+          Testing and Certification Manpower Development Corporate Award” at
+          Annex to the Guidance Notes for details about the use of the logo for
+          the Gold Award and Platinum Award under the Corporate Award as
+          appropriate.
+        </p>
+      ),
+    },
+  ],
+  "Excellent Testing and Certification Professional Award": [
+    {
+      title:
+        "As a self-employed testing and certification practitioner, may I nominate myself for the Award?",
+      content:
+        "No. Applicant practitioner must be nominated by an accredited testing and certification body and is an employee of that nominating testing and certification body for at least one year.",
+    },
+    {
+      title:
+        "Can a testing and certification body nominate more than one testing and certification practitioner?",
+      content:
+        "Yes, as long as the nominees fulfill the eligibility requirement for the Award. There is no restriction on the number of employees nominated by a testing and certification body.",
+    },
+    {
+      title: "Can a testing and certification body nominate an ex-employee?",
+      content:
+        "No. Testing and certification practitioners can only be nominated by their current employers.",
+    },
+  ],
+};
 
 export const AwardScheme: React.FC = () => {
   const navigate = useNavigate();
@@ -320,8 +413,9 @@ export const AwardScheme: React.FC = () => {
   const [activeAwardTwoButton, setActiveAwardTwoButton] = useState<string>(
     Object.keys(awardMapTwo)[0]
   );
-  const [questionCategoriesArray, setQuestionCategoriesArray] =
-    useState<number>(0);
+  const [questionCategory, setQuestionCategory] = useState<string>(
+    Object.keys(questionCategoriesMap)[0]
+  );
 
   const pastSchemes: Array<{
     title: string;
@@ -468,14 +562,14 @@ export const AwardScheme: React.FC = () => {
 
       <p className="text-heading-l mt-[24px]">Frequently Asked Questions</p>
       <div className="flex flex-wrap gap-[8px] my-[24px]">
-        {questionCategories.map((btn, index) => {
-          const isActivated = index === questionCategoriesArray;
+        {Object.keys(questionCategoriesMap).map((btn, index) => {
+          const isActivated = btn === questionCategory;
           return (
             <button
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
-                setQuestionCategoriesArray(index);
+                setQuestionCategory(btn);
               }}
             >
               {btn}
@@ -484,25 +578,14 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
 
-      <div className="w-full flex flex-col gap-[8px] pb-[48px]">
-        <div className="w-full flex flex-row justify-between p-[24px] border-2 border-inherit">
-          <p>
-            1. Is there any submission or processing fee for the Award Scheme?
-          </p>
-          <Icon icon="icon-park-outline:down" className="h-[16px] w-[16px]" />
-        </div>
-        <div className="w-full flex flex-row justify-between p-[24px] border-2 border-inherit">
-          <p>
-            2. Can we submit applications for both Testing and Certification
-            Manpower Development Corporate Award and Excellent Testing and
-            Certification Professional Award?
-          </p>
-          <Icon icon="icon-park-outline:down" className="h-[16px] w-[16px]" />
-        </div>
-        <div className="w-full flex flex-row justify-between p-[24px] border-2 border-inherit">
-          <p>3. Is there a fixed number of awardees?</p>
-          <Icon icon="icon-park-outline:down" className="h-[16px] w-[16px]" />
-        </div>
+      <div className="w-full flex flex-col gap-[8px]">
+        {questionCategoriesMap[questionCategory].map((q, index) => (
+          <Accordion
+            key={index}
+            title={`${index + 1}. ${q.title}`}
+            details={<div className="!text-body-m">{q.content}</div>}
+          />
+        ))}
       </div>
     </div>
   );
