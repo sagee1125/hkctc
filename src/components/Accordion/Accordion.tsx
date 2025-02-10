@@ -41,7 +41,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
             },
           }}
         >
-          <p className="text-highlight-m">{title}</p>
+          <p className="!text-highlight-m">{title}</p>
         </AccordionSummary>
         <div className="mx-[24px]">
           <hr
