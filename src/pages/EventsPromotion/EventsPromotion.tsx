@@ -40,7 +40,7 @@ const sidebarComponent: Partial<
 > = {
   // events
   [navItemEnum.award_scheme]: {
-    bannerImage: "eventsLanding/banner_bg.png",
+    bannerImage: "eventsLanding/banner_bg_1.png",
     component: <AwardScheme />,
   },
   [navItemEnum.seminar_workshop]: {
