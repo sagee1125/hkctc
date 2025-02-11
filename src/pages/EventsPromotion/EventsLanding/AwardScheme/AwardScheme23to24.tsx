@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import classNames from "classnames";
 import {
@@ -19,6 +19,29 @@ export const AwardScheme23to24: React.FC = () => {
     },
     { label: "T&C Manpower Development Award Scheme 2023-2024" },
   ];
+
+  const [locateAnchor, setLocateAnchor] = useState<number>(0);
+  const [paddingTop, setPaddingTop] = useState<number>(0);
+
+  const handleScroll = () => {
+    // get the distance
+    const containerTop =
+      document.getElementById("sticky-container")?.getBoundingClientRect()
+        .top || 0;
+    if (containerTop <= 0) {
+      setPaddingTop(Math.abs(containerTop) + 8);
+    } else {
+      setPaddingTop(0);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const supportingOrg: Array<{
     title: string;
@@ -167,7 +190,6 @@ export const AwardScheme23to24: React.FC = () => {
       date: "4 December 2023",
     },
   ];
-  const [locateAnchor, setLocateAnchor] = useState<number>(0);
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
     {
@@ -222,8 +244,15 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
       <div style={maxContainer}>
         <Breadcrumb items={breadcrumbItems} />
-        <div className="w-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
-          <div className="flex flex-col gap-[0]">
+        <div className="w-full h-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
+          <div
+            id="sticky-container"
+            className="flex flex-col gap-[0]"
+            style={{
+              paddingTop: `${paddingTop}px`,
+              transition: "padding-top 0.2s ease-out",
+            }}
+          >
             {directoryAnchorIds.map((anchor, index) => {
               const isActivated = index === locateAnchor;
               const { title, id } = anchor;
@@ -232,7 +261,7 @@ export const AwardScheme23to24: React.FC = () => {
                 ? "border-newPrimary z-10"
                 : "border-[#E0E0E0]";
               const fontStyle = isActivated
-                ? "text-heading-m"
+                ? "text-heading-m bg-newPrimary text-white"
                 : "text-heading-m text-[#AAAAAA]";
 
               const marginStyle = index === 0 ? "" : "-mt-[2px]";
