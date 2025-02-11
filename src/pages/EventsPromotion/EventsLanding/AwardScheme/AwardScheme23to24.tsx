@@ -2,13 +2,77 @@ import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import classNames from "classnames";
 import {
+  Accordion,
   Breadcrumb,
   SquareTitle,
+  activatedButtonStyle,
   fullContainer,
   maxContainer,
+  normalButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
+const platinumAwardees: string[] = [
+  "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+  "ALS Technichem (HK) Pty Limited",
+  "Bureau Veritas Hong Kong Limited",
+  "Chan & Hou Medical Laboratories Limited",
+  "Civil Engineering and Development Department - Public Works Laboratories",
+  "CMA Industrial Development Foundation Limited",
+  "Department of Health - Government Chinese Medicines Testing Institute",
+  "Government Laboratory",
+  "Hong Kong Police Force - Identification Bureau",
+  "Hong Kong Productivity Council - Green Living Laboratory",
+  "Hospital Authority - Medical Equipment Calibration Laboratory",
+  "Housing Department - Materials Testing Laboratory",
+  "Innovation and Technology Commission - Standards and Calibration Laboratory",
+  "Intertek Testing Services Hong Kong Ltd.",
+  "SGS Hong Kong Limited",
+  "The Hong Kong Jockey Club - Racing Laboratory",
+  "The Hong Kong Standards and Testing Centre Limited, The Hong Kong Certification Centre Limited and The Hong Kong Inspection Company Limited",
+  "The Lab (Asia) Limited",
+  "TÜV SÜD Hong Kong Limited",
+  "UL International Limited",
+];
+
+const goldAwardees: string[] = [
+  "Accredited Certification International Limited",
+  "Castco Testing Centre Limited",
+  "Chow Sang Sang Precious Metal Laboratory",
+  "Drainage Services Department - Shatin Central Laboratory and Sewage Services Branch Operation Section Laboratory",
+  "Fugro Technical Services Limited",
+  "Geotechnics & Concrete Engineering (Hong Kong) Ltd.",
+  "Gilson China Limited - Gilson Hong Kong Laboratory",
+  "Hong Kong Baptist University - Chemical Testing Services",
+  "Material Tech Company Limited",
+  "MINSEN Testing (Hong Kong) Limited and MINSEN Certification (Asia) Limited",
+  "QIMA Testing (HK) Limited and QIMA Limited",
+  "Quality Pro Test-Consult Limited",
+  "Sunrise Diagnostic Centre Limited",
+  "TÜV Rheinland Hong Kong Limited",
+  "Xcelom Limited",
+];
+
+const buttonOneMap: Record<string, React.ReactNode> = {
+  "Platinum Awardees": (
+    <>
+      {platinumAwardees.map((og, index) => (
+        <p key={index}>
+          {index + 1}.&nbsp;{og}
+        </p>
+      ))}
+    </>
+  ),
+  "Gold Awardees": (
+    <>
+      {goldAwardees.map((og, index) => (
+        <p key={index}>
+          {index + 1}.&nbsp;{og}
+        </p>
+      ))}
+    </>
+  ),
+};
 export const AwardScheme23to24: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
@@ -22,6 +86,8 @@ export const AwardScheme23to24: React.FC = () => {
 
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
   const [paddingTop, setPaddingTop] = useState<number>(0);
+  const [activeButtonOne, setActiveButtonOne] =
+    React.useState<string>("Platinum Awardees");
 
   const handleScroll = () => {
     // get the distance
@@ -268,7 +334,7 @@ export const AwardScheme23to24: React.FC = () => {
               return (
                 <div
                   className={classNames(
-                    "border-2 p-[24px] text-heading-m",
+                    "border-2 p-[24px] text-heading-m cursor-pointer",
                     borderStyle,
                     fontStyle,
                     marginStyle
@@ -337,19 +403,42 @@ export const AwardScheme23to24: React.FC = () => {
             <p className="text-heading-l my-[24px]" id="awardees">
               Awardees
             </p>
-            <div className="border-2 border-inherit flex flex-row justify-between p-[24px]">
-              <p className="text-heading-m">
-                Testing and Certification Manpower Development Corporate
-                Awardees
-              </p>
-              <Icon icon="ep:arrow-down-bold" className="w-[16px] h-[16px]" />
-            </div>
+            <Accordion
+              title="Testing and Certification Manpower Development Corporate Awardees"
+              details={
+                <div>
+                  <div className="flex flex-row gap-[8px] mb-[16px]">
+                    {["Platinum Awardees", "Gold Awardees"].map((b, i) => {
+                      const isActivated = activeButtonOne === b;
+                      return (
+                        <button
+                          key={i}
+                          style={
+                            isActivated
+                              ? activatedButtonStyle
+                              : normalButtonStyle
+                          }
+                          onClick={() => {
+                            setActiveButtonOne(b);
+                          }}
+                        >
+                          {b}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div className="text-body-m">
+                    {buttonOneMap[activeButtonOne]}
+                  </div>
+                </div>
+              }
+            />
 
-            <div className="border-2 border-inherit flex flex-row justify-between p-[24px] mt-[24px]">
-              <p className="text-heading-m">
-                Excellent Testing and Certification Professional Awardees
-              </p>
-              <Icon icon="ep:arrow-down-bold" className="w-[16px] h-[16px]" />
+            <div className="mt-[24px]">
+              <Accordion
+                title="Excellent Testing and Certification Professional Awardees"
+                details={<></>}
+              />
             </div>
             <p
               className="text-heading-l my-[24px]"
