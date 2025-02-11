@@ -73,6 +73,159 @@ const buttonOneMap: Record<string, React.ReactNode> = {
     </>
   ),
 };
+
+const juniorGroup: Array<{ one: string; two: string; three: string }> = [
+  {
+    one: "Miss LAW Tsz-yen",
+    two: "Associate Veterinary Technologist",
+    three:
+      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+  },
+  {
+    one: "Miss LIN Yuet-ching",
+    two: "Chemical Analyst I",
+    three: "The Hong Kong Jockey Club - Racing Laboratory",
+  },
+  {
+    one: "Miss LO Man-Ki",
+    two: "Associate Veterinary Technologist",
+    three:
+      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+  },
+  {
+    one: "Mr MAK Tsz-shing, Stephen",
+    two: "Chemist",
+    three: "Bureau Veritas Hong Kong Limited",
+  },
+  {
+    one: "Mr WONG Chi-ho",
+    two: "Assistant Technical Executive",
+    three: "SGS Hong Kong Limited",
+  },
+  {
+    one: "Dr WONG Fai, George",
+    two: "Chemist",
+    three: "Government Laboratory",
+  },
+  {
+    one: "Miss WONG Hoi-ki",
+    two: "Senior Technical Officer",
+    three: "Castco Testing Centre Limited",
+  },
+];
+const seniorGroup: Array<{ one: string; two: string; three: string }> = [
+  {
+    one: "Mr CHAN Kang-chiu",
+    two: "Assistant Manager",
+    three: "Fugro Technical Services Limited",
+  },
+  {
+    one: "Ms CHOW Hoi-yi",
+    two: "Assistant Manager",
+    three: "The Hong Kong Standards and Testing Centre Ltd",
+  },
+  {
+    one: "Dr KWOK Ying",
+    two: "Senior Chemist",
+    three: "The Hong Kong Jockey Club - Racing Laboratory",
+  },
+  {
+    one: "Ms LAU Hazel",
+    two: "Lead Project Engineer",
+    three: "UL International Limited",
+  },
+  {
+    one: "Ms MAK Chui-wan, Cherie",
+    two: "Senior Certification Officer",
+    three: "SGS Hong Kong Limited",
+  },
+  {
+    one: "Ms NG Carmen",
+    two: "Assistant Technical Services Manager",
+    three: "SGS Hong Kong Limited",
+  },
+  {
+    one: "Miss NG Hoi-ying",
+    two: "Assistant Technical Services Manager",
+    three: "SGS Hong Kong Limited",
+  },
+  {
+    one: "Mr NIP Ming-fung, Melvin",
+    two: "Manager",
+    three: "Intertek Testing Services Hong Kong Limited",
+  },
+  {
+    one: "Dr TAN Tung-fai, Tony",
+    two: "Chief Inspector, Forensic Fingerprint Laboratory",
+    three: "Hong Kong Police Force - Identification Bureau",
+  },
+  {
+    one: "Dr TAN Tung-fai, Tony",
+    two: "Chief Inspector, Forensic Fingerprint Laboratory",
+    three: "Hong Kong Police Force - Identification Bureau",
+  },
+  {
+    one: "Mr TANG Pak-yau",
+    two: "Assistant Laboratory Manager",
+    three: "Chow Sang Sang Precious Metal Laboratory",
+  },
+  {
+    one: "Mr TANG Pak-yau",
+    two: "Assistant Laboratory Manager",
+    three: "Chow Sang Sang Precious Metal Laboratory",
+  },
+  {
+    one: "Dr WONG Kin-sing",
+    two: "Biochemist",
+    three: "The Hong Kong Jockey Club - Racing Laboratory",
+  },
+  {
+    one: "Mr YU Shing-lun, Gary",
+    two: "Senior Manager",
+    three: "Intertek Testing Services Hong Kong Limited",
+  },
+];
+
+const buttonTwoMap: Record<string, React.ReactNode> = {
+  "Junior Professional Sub-group": (
+    <div>
+      {juniorGroup.map((og, index) => (
+        <div
+          key={index}
+          className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+        >
+          {[og.one, og.two, og.three].map((c, key) => (
+            <p
+              key={key}
+              className="py-[15px] px-[10px] flex items-center h-[102px]"
+            >
+              {c}
+            </p>
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
+  "Senior Professional Sub-group": (
+    <div>
+      {seniorGroup.map((og, index) => (
+        <div
+          key={index}
+          className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+        >
+          {[og.one, og.two, og.three].map((c, key) => (
+            <p
+              key={key}
+              className="py-[15px] px-[10px] flex items-center h-[102px]"
+            >
+              {c}
+            </p>
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
+};
 export const AwardScheme23to24: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
@@ -87,15 +240,18 @@ export const AwardScheme23to24: React.FC = () => {
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
   const [paddingTop, setPaddingTop] = useState<number>(0);
   const [activeButtonOne, setActiveButtonOne] =
-    React.useState<string>("Platinum Awardees");
+    useState<string>("Platinum Awardees");
+  const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
+    "Junior Professional Sub-group"
+  );
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     // get the distance
     const containerTop =
       document.getElementById("sticky-container")?.getBoundingClientRect()
         .top || 0;
     if (containerTop <= 0) {
-      setPaddingTop(Math.abs(containerTop) + 8);
+      if (containerTop > -6000) setPaddingTop(Math.abs(containerTop) + 8);
     } else {
       setPaddingTop(0);
     }
@@ -437,7 +593,36 @@ export const AwardScheme23to24: React.FC = () => {
             <div className="mt-[24px]">
               <Accordion
                 title="Excellent Testing and Certification Professional Awardees"
-                details={<></>}
+                details={
+                  <>
+                    <div className="flex flex-row gap-[8px] mb-[16px]">
+                      {[
+                        "Junior Professional Sub-group",
+                        "Senior Professional Sub-group",
+                      ].map((b, i) => {
+                        const isActivated = activeButtonTwo === b;
+                        return (
+                          <button
+                            key={i}
+                            style={
+                              isActivated
+                                ? activatedButtonStyle
+                                : normalButtonStyle
+                            }
+                            onClick={() => {
+                              setActiveButtonTwo(b);
+                            }}
+                          >
+                            {b}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div className="text-body-m">
+                      {buttonTwoMap[activeButtonTwo]}
+                    </div>
+                  </>
+                }
               />
             </div>
             <p
