@@ -27,9 +27,12 @@ export const MediaTemplateWithDialog: React.FC<
   mediaDomain = "hkctc",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
+  const videoRef = useRef<HTMLVideoElement | HTMLIFrameElement | null>(null);
 
   useEffect(() => {
     let isCancelled = false;
@@ -84,7 +87,7 @@ export const MediaTemplateWithDialog: React.FC<
     const fetchVideoPoster = () => {
       setLoading(true);
       const videoElement = document.createElement("video");
-      videoElement.src = mediaLink;
+      videoElement.src = "/pdf-proxy" + mediaLink;
       videoElement.onloadeddata = () => {
         if (videoElement.poster && imageRef.current) {
           imageRef.current.src = videoElement.poster;
@@ -162,6 +165,49 @@ export const MediaTemplateWithDialog: React.FC<
       isCancelled = true;
     };
   }, [mediaLink, mediaType, mediaDomain]);
+  const handleMouseEnter = (): void => {
+    if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
+    if (videoRef.current) {
+      if (videoRef.current instanceof HTMLVideoElement) {
+        videoRef.current.muted = true;
+        videoRef.current.currentTime = 0; // Start from the first frame
+        videoRef.current.play().catch((error) => {
+          console.error("Error playing video:", error);
+        });
+
+        setTimeout(() => {
+          if (
+            videoRef?.current &&
+            videoRef.current instanceof HTMLVideoElement
+          ) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0; // Reset to first frame
+          }
+        }, 3000);
+      }
+      // else if (videoRef.current instanceof HTMLIFrameElement) {
+      //   const iframe = videoRef.current as HTMLIFrameElement;
+      //   const iframeSrc = iframe.src;
+
+      //   if (iframeSrc.includes("youtube.com")) {
+      //     const youtubePlayer = iframe.contentWindow;
+      //     if (youtubePlayer) {
+      //       youtubePlayer.postMessage(
+      //         JSON.stringify({ event: "command", func: "playVideo" }),
+      //         "*"
+      //       );
+
+      //       setTimeout(() => {
+      //         youtubePlayer.postMessage(
+      //           JSON.stringify({ event: "command", func: "pauseVideo" }),
+      //           "*"
+      //         );
+      //       }, 3000);
+      //     }
+      //   }
+      // }
+    }
+  };
 
   return (
     <>
@@ -182,31 +228,114 @@ export const MediaTemplateWithDialog: React.FC<
           }}
           className="border-2 border-inherit"
         >
-          {loading && (
+          {loading ? (
             <div className="absolute flex items-center justify-center">
               <CircularProgress />
             </div>
-          )}
+          ) : (
+            <>
+              {mediaType === MEDIA_TYPE.PDF && (
+                <canvas
+                  key={mediaLink}
+                  ref={canvasRef}
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />
+              )}
 
-          {mediaType === MEDIA_TYPE.PDF && (
-            <canvas
-              key={mediaLink}
-              ref={canvasRef}
-              style={{
-                objectFit: "contain",
-              }}
-            />
-          )}
+              {mediaType === MEDIA_TYPE.VIDEO && (
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={() => {
+                    if (mediaDomain === "youtube") {
+                      setTimeout(() => {
+                        setIsHoveringYTBVideo(false);
+                      }, 3000);
+                    }
+                  }}
+                >
+                  {/*  video, play when mouse enter */}
+                  {mediaDomain === "hkctc" && videoRef && (
+                    <video
+                      ref={videoRef as React.RefObject<HTMLVideoElement>}
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        height: "100%",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        zIndex: 1,
+                      }}
+                    >
+                      <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
+                    </video>
+                  )}
+                  {mediaDomain === "youtube" && isHoveringYTBVideo && (
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`${mediaLink}?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&modestbranding=1&fs=0&disablekb=1&cc_load_policy=0`}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        zIndex: 1,
+                        objectFit: "contain",
+                        cursor: "pointer",
+                      }}
+                    />
+                  )}
 
-          {mediaType === MEDIA_TYPE.VIDEO && (
-            <img
-              key={mediaLink}
-              ref={imageRef}
-              alt="Video"
-              style={{
-                objectFit: "contain",
-              }}
-            />
+                  <img
+                    ref={imageRef}
+                    alt="Video"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                      zIndex: 0,
+                    }}
+                  />
+                </div>
+              )}
+              {/* 
+              {mediaType === MEDIA_TYPE.VIDEO && (
+                <div
+                  key={mediaLink}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={() => {
+                    if (videoRef.current) {
+                      videoRef.current.pause();
+                      videoRef.current.currentTime = 0;
+                    }
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <img
+                    ref={imageRef}
+                    alt="Video"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+              )} */}
+            </>
           )}
 
           {/* Icon */}
@@ -214,6 +343,9 @@ export const MediaTemplateWithDialog: React.FC<
             className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
             src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
             alt="PDF Icon"
+            style={{
+              zIndex: 3,
+            }}
           />
         </div>
       </div>

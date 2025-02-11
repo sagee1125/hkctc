@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { type SubItems } from "../../const";
 import { Collapse, IconButton } from "@mui/material";
@@ -107,6 +107,14 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
       [title]: !prevState[title],
     }));
   };
+  useEffect(() => {
+    if (activatedParentTitle) {
+      setExpandStates((prevState) => ({
+        ...prevState,
+        [activatedParentTitle]: true,
+      }));
+    }
+  }, [activatedParentTitle]);
 
   return (
     <div className="border-2 border-inherit p-[24px]">
