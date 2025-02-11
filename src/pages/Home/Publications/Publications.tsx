@@ -8,7 +8,7 @@ import advertorials from "./assets/Advertorials.png";
 
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
-import { EmailBox, FileTemplate, SquareTitle } from "../../../components";
+import { EmailBox, FileTemplate, Quiz, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { useNavigate } from "react-router-dom";
 import { CATEGORIES, navItemEnum } from "../../../const";
@@ -388,25 +388,8 @@ export const Publications: React.FC = () => {
           {/* column 1 */}
           <div className="flex flex-col items-center">
             <div className="relative flex justify-center items-center w-full">
-              <img
-                className="w-full h-full object-contain cursor-not-allowed"
-                src={process.env.PUBLIC_URL + "/assets/publications/Quiz.png"}
-                alt={"Quiz"}
-              />
+              <Quiz />
             </div>
-            {/* <div className="text-heading-m text-left w-full mt-4">
-              T&C Manpower Development Award Scheme 2023-24
-            </div>
-            <div className="text-body-m pt-4 ">
-              With a view to encouraging the testing and certification (T&C)
-              bodies to invest in talent training and development, while also
-              commending those T&C practitioners who has striven for
-              continuous...
-            </div> */}
-            {/* <div className="flex flex-row w-full mt-4 gap-2">
-              <Icon icon="material-symbols:date-range-rounded" />
-              <h2 className="text-body-m text-grey">{"6 Aug 2024"}</h2>
-            </div> */}
           </div>
           {/* column 2 */}
           <div>
