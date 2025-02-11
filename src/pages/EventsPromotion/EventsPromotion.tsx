@@ -16,6 +16,7 @@ import {
 import {
   BannerPhotoBox,
   Breadcrumb,
+  Link,
   MultipleSidebars,
   fullContainer,
   maxContainer,
@@ -35,6 +36,7 @@ const sidebarComponent: Partial<
     {
       bannerImage: string;
       component: React.ReactNode;
+      subComponent?: React.ReactNode;
     }
   >
 > = {
@@ -46,6 +48,30 @@ const sidebarComponent: Partial<
   [navItemEnum.seminar_workshop]: {
     bannerImage: "eventsLanding/banner_bg_2.png",
     component: <SeminarsWorkshops />,
+    subComponent: (
+      <div className="flex flex-row w-full border-2 border-[#E0E0E0]">
+        <div className="w-[60%] h-[134px] p-[20px] flex flex-row justify-center items-center">
+          <img
+            width={"71px"}
+            height={"68px"}
+            src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
+            alt="registration"
+          />
+        </div>
+        <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px]">
+          <p>
+            Seminar on Environmental, Social and Governance (ESG) and
+            Sustainability
+          </p>
+          <Link
+            linkColor="#FFF"
+            innerLink="/events-promotion/seminars-registration"
+          >
+            Register Now
+          </Link>
+        </div>
+      </div>
+    ),
   },
   [navItemEnum.student_competition]: {
     bannerImage: "eventsLanding/banner_bg_3.png",
@@ -190,6 +216,8 @@ export const EventsPromotion: React.FC = () => {
 
   const component = sidebarComponent[activeItem]?.component;
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
+  const subComponent = sidebarComponent[activeItem]?.subComponent;
+
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
@@ -200,6 +228,7 @@ export const EventsPromotion: React.FC = () => {
       label: activeSidebarItemsLabel ?? "",
     },
   ];
+
   return (
     <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
@@ -209,6 +238,7 @@ export const EventsPromotion: React.FC = () => {
         </div>
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="px-[24px] min-w-[440px] w-1/3">
+            <div className="mb-[24px]">{subComponent}</div>
             <MultipleSidebars
               sidebars={sidebarData}
               activatedItems={activeItem}

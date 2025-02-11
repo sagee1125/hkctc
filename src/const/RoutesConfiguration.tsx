@@ -84,6 +84,7 @@ import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
 import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
 import { CareerEducation } from "../pages/CareerEducation/CareerEducation";
 import { AgreementClause } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementClause";
+import { SeminarsRegistration } from "../pages/EventsPromotion/EventsLanding/SeminarsWorkshops/SeminarsRegistration";
 
 export type RouteConfig = {
   path: string;
@@ -135,6 +136,11 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/events-promotion/award-scheme2324",
     element: <AwardScheme23to24 />,
+    description: "",
+  },
+  {
+    path: "/events-promotion/seminars-registration",
+    element: <SeminarsRegistration />,
     description: "",
   },
   { path: "/tc-sector", element: <TCSector />, description: "" },
