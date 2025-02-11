@@ -18,3 +18,4 @@ export * from "./Paginator";
 export * from "./Container";
 export * from "./List";
 export * from "./VideoPlayer";
+export * from "./Quiz";
