@@ -39,6 +39,8 @@ export const MediaTemplateWithDialog: React.FC<
 
     const fetchAndRenderPdf = async () => {
       const pdfUrl = "/pdf-proxy" + mediaLink;
+      console.log("Fetching PDF from:", pdfUrl); // Debug line
+
       setLoading(true);
 
       try {
@@ -71,6 +73,7 @@ export const MediaTemplateWithDialog: React.FC<
               canvasContext: context,
               viewport: viewport,
             }).promise;
+            console.log("PDF rendered");
           }
         }
       } catch (error) {
@@ -283,34 +286,38 @@ export const MediaTemplateWithDialog: React.FC<
                       <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
                     </video>
                   )}
-                  {mediaDomain === "youtube" && isHoveringYTBVideo && (
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`${mediaLink}?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&modestbranding=1&fs=0&disablekb=1&cc_load_policy=0`}
-                      frameBorder="0"
-                      allow="autoplay; encrypted-media"
+                  {mediaDomain === "youtube" &&
+                    isHoveringYTBVideo &&
+                    videoRef && (
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`${mediaLink}?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&modestbranding=1&fs=0&disablekb=1&cc_load_policy=0`}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          zIndex: 1,
+                          objectFit: "contain",
+                          cursor: "pointer",
+                        }}
+                      />
+                    )}
+
+                  {imageRef && (
+                    <img
+                      ref={imageRef}
+                      alt="Video"
                       style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        zIndex: 1,
                         objectFit: "contain",
-                        cursor: "pointer",
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
                       }}
                     />
                   )}
-
-                  <img
-                    ref={imageRef}
-                    alt="Video"
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                      zIndex: 0,
-                    }}
-                  />
                 </div>
               )}
               {/* 
