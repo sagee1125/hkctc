@@ -218,58 +218,54 @@ export const MediaTemplateWithDialog: React.FC<
           }}
           className="border-2 border-inherit"
         >
-          {loading || !isMounted ? (
-            <div className="absolute flex items-center justify-center">
+          {(loading || !isMounted) && (
+            <div
+              className="absolute flex items-center justify-center bg-white border-2 border-inherit"
+              style={{ zIndex: "10", width: "100%", height: "100%" }}
+            >
               <CircularProgress />
             </div>
-          ) : (
-            <>
-              {mediaType === MEDIA_TYPE.PDF && (
-                <canvas
-                  key={mediaLink}
-                  ref={canvasRef}
-                  style={{
-                    objectFit: "contain",
-                    zIndex: 1,
-                  }}
-                />
-              )}
+          )}
+          <>
+            {mediaType === MEDIA_TYPE.PDF && (
+              <canvas
+                key={mediaLink}
+                ref={canvasRef}
+                style={{
+                  objectFit: "contain",
+                  zIndex: 1,
+                }}
+              />
+            )}
 
-              {mediaType === MEDIA_TYPE.VIDEO && (
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={() => {
-                  //   if (mediaDomain === "youtube") {
-                  //     setTimeout(() => {
-                  //       setIsHoveringYTBVideo(false);
-                  //     }, 3000);
-                  //   }
-                  // }}
-                >
-                  {/*  video, play when mouse enter */}
-                  {mediaDomain === "hkctc" && videoRef && (
-                    <video
-                      ref={videoRef as React.RefObject<HTMLVideoElement>}
-                      style={{
-                        objectFit: "contain",
-                        width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        zIndex: 1,
-                      }}
-                    >
-                      <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
-                    </video>
-                  )}
-                  {/* {mediaDomain === "youtube" &&
+            {mediaType === MEDIA_TYPE.VIDEO && (
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={handleMouseEnter}
+              >
+                {/*  video, play when mouse enter */}
+                {mediaDomain === "hkctc" && videoRef && (
+                  <video
+                    ref={videoRef as React.RefObject<HTMLVideoElement>}
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      zIndex: 1,
+                    }}
+                  >
+                    <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
+                  </video>
+                )}
+                {/* {mediaDomain === "youtube" &&
                     isHoveringYTBVideo &&
                     videoRef && (
                       <iframe
@@ -289,21 +285,21 @@ export const MediaTemplateWithDialog: React.FC<
                       />
                     )} */}
 
-                  {imageRef && (
-                    <img
-                      ref={imageRef}
-                      alt="Video"
-                      style={{
-                        objectFit: "contain",
-                        width: "100%",
-                        height: "100%",
-                        zIndex: 0,
-                      }}
-                    />
-                  )}
-                </div>
-              )}
-              {/* 
+                {imageRef && (
+                  <img
+                    ref={imageRef}
+                    alt="Video"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                      zIndex: 0,
+                    }}
+                  />
+                )}
+              </div>
+            )}
+            {/* 
               {mediaType === MEDIA_TYPE.VIDEO && (
                 <div
                   key={mediaLink}
@@ -330,8 +326,7 @@ export const MediaTemplateWithDialog: React.FC<
                   />
                 </div>
               )} */}
-            </>
-          )}
+          </>
 
           {/* Icon */}
           <img
