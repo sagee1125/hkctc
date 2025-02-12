@@ -9,14 +9,11 @@ import {
   KNOW_SEMINAR_WAY,
   countryList,
 } from "./constants";
-import {
-  TextField,
-  Select,
-  Radio,
-  Checkbox,
-  Button,
-  Link,
-} from "../../../../../components";
+import { Button, Link } from "../../../../../components";
+import { TextField } from "../../../../../components/TextField/TextField";
+import { Radio } from "../../../../../components/Radio/Radio";
+import { Checkbox } from "../../../../../components/Checkbox/Checkbox";
+import { Select } from "../../../../../components/Select/Select";
 import { handleReadySubmit } from "../../../../../utils";
 
 type RegistrationFormData = {
