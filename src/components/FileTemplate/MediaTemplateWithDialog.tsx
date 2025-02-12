@@ -38,7 +38,6 @@ export const MediaTemplateWithDialog: React.FC<
 
     const fetchAndRenderPdf = async () => {
       const pdfUrl = "/pdf-proxy" + mediaLink;
-      console.log("Fetching PDF from:", pdfUrl); // Debug line
 
       setLoading(true);
 
@@ -57,6 +56,7 @@ export const MediaTemplateWithDialog: React.FC<
         const viewport = page.getViewport({ scale });
 
         const canvas = canvasRef.current;
+        console.log("canvas:", canvas, "!isCancelled:", !isCancelled);
         if (canvas && !isCancelled) {
           const context = canvas.getContext("2d");
           if (context) {
@@ -172,6 +172,7 @@ export const MediaTemplateWithDialog: React.FC<
       isCancelled = true;
     };
   }, [mediaLink, mediaType, mediaDomain]);
+
   const handleMouseEnter = (): void => {
     // if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
     if (videoRef.current) {
