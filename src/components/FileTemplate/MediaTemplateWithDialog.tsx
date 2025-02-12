@@ -28,12 +28,11 @@ export const MediaTemplateWithDialog: React.FC<
   // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isIMGLoaded, setIsIMGLoaded] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
+  const handleImageLoad = (): void => {
+    setIsIMGLoaded(true);
+  };
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
   const videoRef = useRef<HTMLVideoElement | HTMLIFrameElement | null>(null);
@@ -77,7 +76,6 @@ export const MediaTemplateWithDialog: React.FC<
               canvasContext: context,
               viewport: viewport,
             }).promise;
-            console.log("PDF rendered");
           }
         }
       } catch (error) {
@@ -92,7 +90,7 @@ export const MediaTemplateWithDialog: React.FC<
           }
         }
       }
-      if (canvasRef) setLoading(false);
+      setLoading(false);
     };
 
     const fetchVideoPoster = () => {
@@ -123,8 +121,8 @@ export const MediaTemplateWithDialog: React.FC<
             }
           };
         }
+        setLoading(false);
       };
-      setLoading(false);
     };
 
     const fetchYouTubePoster = () => {
@@ -218,7 +216,7 @@ export const MediaTemplateWithDialog: React.FC<
           }}
           className="border-2 border-inherit"
         >
-          {(loading || !isMounted) && (
+          {loading && (
             <div
               className="absolute flex items-center justify-center bg-white border-2 border-inherit"
               style={{ zIndex: "10", width: "100%", height: "100%" }}
@@ -245,11 +243,12 @@ export const MediaTemplateWithDialog: React.FC<
                   width: "100%",
                   height: "100%",
                   cursor: "pointer",
+                  zIndex: 1,
                 }}
                 onMouseEnter={handleMouseEnter}
               >
                 {/*  video, play when mouse enter */}
-                {mediaDomain === "hkctc" && videoRef && (
+                {mediaDomain === "hkctc" && (
                   <video
                     ref={videoRef as React.RefObject<HTMLVideoElement>}
                     style={{
@@ -285,18 +284,18 @@ export const MediaTemplateWithDialog: React.FC<
                       />
                     )} */}
 
-                {imageRef && (
-                  <img
-                    ref={imageRef}
-                    alt="Video"
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                      zIndex: 0,
-                    }}
-                  />
-                )}
+                <img
+                  ref={imageRef}
+                  alt="Video"
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 0,
+                    opacity: isIMGLoaded ? 1 : 0,
+                  }}
+                  onLoad={handleImageLoad}
+                />
               </div>
             )}
             {/* 

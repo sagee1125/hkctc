@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import { MEDIA_TYPE } from "../../const";
 import { useSettings } from "../../context";
 
@@ -20,7 +20,6 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   const { withLoading } = useSettings();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const handlePdfDownload = async () => {
     if (!link) return;
     await withLoading(async () => {
@@ -58,10 +57,22 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     mediaDomain === "hkctc" ? `https://www.hkctc.gov.hk` + link : link
   )}&embedded=true&chrome=false`;
 
+  const MemoizedIframe: React.FC<{
+    src: string;
+  }> = memo(({ src }) => {
+    return (
+      <iframe
+        className="w-full h-full pt-[24px]"
+        title="PDF Viewer"
+        src={src}
+      />
+    );
+  });
+
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-4 w-[70vw] h-[90vh] relative">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+        <div className="bg-[#D4D4D4] p-4 w-[70vw] h-[90vh] relative">
           <button
             className="absolute top-2 right-2 px-2 cursor-pointer"
             onClick={() => setIsPreviewOpen(false)}
@@ -98,11 +109,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
             )}
             {mediaType === MEDIA_TYPE.PDF && (
               <>
-                <iframe
-                  className="w-full h-full pt-[24px]"
-                  title={title}
-                  src={pdfLink}
-                />
+                <MemoizedIframe src={pdfLink} />
                 {mediaDomain === "hkctc" && (
                   <div className="absolute bottom-4 right-4 flex gap-2">
                     <button

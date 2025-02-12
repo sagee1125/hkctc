@@ -51,6 +51,7 @@ export const CorruptionGuide: React.FC = () => {
       {isPreviewOpen && (
         <MediaDialog
           mediaDomain="others"
+          key={currentReport.title}
           mediaType={currentReport.mediaType}
           setIsPreviewOpen={setIsPreviewOpen}
           title={currentReport.title}
