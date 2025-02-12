@@ -7,7 +7,7 @@ type MediaDialogProps = {
   title: string;
   link: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube";
+  mediaDomain?: "hkctc" | "youtube" | "others";
 };
 
 export const MediaDialog: React.FC<MediaDialogProps> = ({
@@ -54,6 +54,10 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     }
   };
 
+  const pdfLink = `https://docs.google.com/viewer?url=${encodeURIComponent(
+    mediaDomain === "hkctc" ? `https://www.hkctc.gov.hk` + link : link
+  )}&embedded=true&chrome=false`;
+
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -97,18 +101,18 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                 <iframe
                   className="w-full h-full pt-[24px]"
                   title={title}
-                  src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-                    `https://www.hkctc.gov.hk` + link
-                  )}&embedded=true&chrome=false`}
+                  src={pdfLink}
                 />
-                <div className="absolute bottom-4 right-4 flex gap-2">
-                  <button
-                    className="bg-newPrimary text-white px-4 py-2"
-                    onClick={handlePdfDownload}
-                  >
-                    Download
-                  </button>
-                </div>
+                {mediaDomain === "hkctc" && (
+                  <div className="absolute bottom-4 right-4 flex gap-2">
+                    <button
+                      className="bg-newPrimary text-white px-4 py-2"
+                      onClick={handlePdfDownload}
+                    >
+                      Download
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </div>

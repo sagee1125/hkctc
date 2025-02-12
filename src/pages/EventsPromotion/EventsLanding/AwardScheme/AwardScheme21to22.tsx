@@ -293,7 +293,7 @@ export const AwardScheme21to22: React.FC = () => {
       document.getElementById("sticky-container")?.getBoundingClientRect()
         .top || 0;
     if (containerTop <= 0) {
-      if (containerTop > -6000) setPaddingTop(Math.abs(containerTop) + 8);
+      if (containerTop > -6500) setPaddingTop(Math.abs(containerTop) + 8);
     } else {
       setPaddingTop(0);
     }
