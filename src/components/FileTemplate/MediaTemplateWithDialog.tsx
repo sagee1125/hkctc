@@ -42,9 +42,14 @@ export const MediaTemplateWithDialog: React.FC<
       setLoading(true);
 
       try {
-        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        // Force to render file
+        const response = await fetch(pdfUrl);
+        const arrayBuffer = await response.arrayBuffer();
+
+        const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
         const pdf = await loadingTask.promise;
         const page = await pdf.getPage(1);
+
         const rotation = page.rotate;
         const scale = 0.5;
         const viewport = page.getViewport({ scale });
