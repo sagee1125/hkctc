@@ -38,7 +38,8 @@ export const MediaTemplateWithDialog: React.FC<
     let isCancelled = false;
 
     const fetchAndRenderPdf = async () => {
-      const pdfUrl = "/pdf-proxy" + mediaLink;
+      // const pdfUrl = "/pdf-proxy" + mediaLink;
+      const pdfUrl = "/pdf-proxy" + mediaLink + "?t=" + new Date().getTime(); // 在 URL 添加时间戳，避免缓存
       console.log("Fetching PDF from:", pdfUrl); // Debug line
 
       setLoading(true);
