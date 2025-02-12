@@ -81,7 +81,10 @@ import {
 import { TCSector } from "../pages/TCSector/TCSector";
 import { AboutSite } from "../pages/AboutSite/AboutSite";
 import { EventsPromotion } from "../pages/EventsPromotion/EventsPromotion";
-import { AwardScheme23to24 } from "../pages/EventsPromotion/EventsLanding";
+import {
+  AwardScheme23to24,
+  AwardScheme21to22,
+} from "../pages/EventsPromotion/EventsLanding";
 import { CareerEducation } from "../pages/CareerEducation/CareerEducation";
 import { AgreementClause } from "../pages/Support/EnteringIntoTheMainlandMarket/AgreementClause";
 import { SeminarsRegistration } from "../pages/EventsPromotion/EventsLanding/SeminarsWorkshops/SeminarsRegistration";
@@ -122,7 +125,6 @@ export const routesConfiguration: RouteConfig[] = [
     element: <InternationalMultilateralSystems />,
     description: "International Multilateral Systems on Mutual Recognition",
   },
-
   {
     path: "/career_and_education",
     element: <CareerEducation />,
@@ -136,6 +138,11 @@ export const routesConfiguration: RouteConfig[] = [
   {
     path: "/events-promotion/award-scheme2324",
     element: <AwardScheme23to24 />,
+    description: "",
+  },
+  {
+    path: "/events-promotion/award-scheme2122",
+    element: <AwardScheme21to22 />,
     description: "",
   },
   {

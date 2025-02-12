@@ -436,7 +436,13 @@ export const AwardScheme: React.FC = () => {
     {
       title: "T&C Manpower Development Award Scheme 2021-2022",
       imgUrl: "2021-2022.png",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/events-promotion/award-scheme2122");
+        window.scroll({
+          top: 100,
+          behavior: "smooth",
+        });
+      },
     },
   ];
 
