@@ -28,6 +28,12 @@ export const MediaTemplateWithDialog: React.FC<
   // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
   const videoRef = useRef<HTMLVideoElement | HTMLIFrameElement | null>(null);
@@ -48,7 +54,6 @@ export const MediaTemplateWithDialog: React.FC<
 
         const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
         const pdf = await loadingTask.promise;
-        console.log("PDF loaded", pdf);
         const page = await pdf.getPage(1);
 
         const rotation = page.rotate;
@@ -56,7 +61,6 @@ export const MediaTemplateWithDialog: React.FC<
         const viewport = page.getViewport({ scale });
 
         const canvas = canvasRef.current;
-        console.log("canvas:", canvas, "!isCancelled:", !isCancelled);
         if (canvas && !isCancelled) {
           const context = canvas.getContext("2d");
           if (context) {
@@ -167,7 +171,6 @@ export const MediaTemplateWithDialog: React.FC<
       if (mediaDomain === "youtube") fetchYouTubePoster();
     }
 
-    // 清理函數，當組件卸載時取消渲染
     return () => {
       isCancelled = true;
     };
@@ -215,13 +218,13 @@ export const MediaTemplateWithDialog: React.FC<
           }}
           className="border-2 border-inherit"
         >
-          {loading ? (
+          {loading || !isMounted ? (
             <div className="absolute flex items-center justify-center">
               <CircularProgress />
             </div>
           ) : (
             <>
-              {mediaType === MEDIA_TYPE.PDF && canvasRef && (
+              {mediaType === MEDIA_TYPE.PDF && (
                 <canvas
                   key={mediaLink}
                   ref={canvasRef}
