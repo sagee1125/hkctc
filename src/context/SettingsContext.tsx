@@ -1,10 +1,12 @@
 import { Backdrop, CircularProgress } from "@mui/material";
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import * as pdfjsLib from "pdfjs-dist";
 
 type SettingsContextType = {
   isLoading: boolean;
   fontSize: "small" | "medium" | "large";
   language: "zh-CN" | "zh-TW" | "en";
+  pdfjsLib: typeof pdfjsLib;
   setLanguage: (language: "zh-CN" | "zh-TW" | "en") => void;
   setFontSize: (fontSize: "small" | "medium" | "large") => void;
   setIsLoading: (isLoading: boolean) => void;
@@ -14,6 +16,7 @@ type SettingsContextType = {
 const SettingsContext = createContext<SettingsContextType | undefined>(
   undefined
 );
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
 export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   children,
@@ -43,6 +46,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         setLanguage,
         setIsLoading,
         withLoading,
+        pdfjsLib,
       }}
     >
       {isLoading && (

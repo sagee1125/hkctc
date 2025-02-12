@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-
 import CircularProgress from "@mui/material/CircularProgress";
 import { MediaDialog } from "./MediaDialog";
 import { MEDIA_TYPE } from "../../const";
+import { useSettings } from "../../context";
 
 type MediaTemplateWithDialogProps = {
   title: string;
@@ -13,8 +12,6 @@ type MediaTemplateWithDialogProps = {
   mediaType: MEDIA_TYPE;
   mediaDomain?: "hkctc" | "youtube";
 };
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
 //   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
 export const MediaTemplateWithDialog: React.FC<
@@ -34,6 +31,7 @@ export const MediaTemplateWithDialog: React.FC<
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
   const videoRef = useRef<HTMLVideoElement | HTMLIFrameElement | null>(null);
+  const { pdfjsLib } = useSettings();
 
   useEffect(() => {
     let isCancelled = false;
