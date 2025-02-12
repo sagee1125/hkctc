@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import { MediaDialog } from "./MediaDialog";
 import { MEDIA_TYPE } from "../../const";
@@ -27,7 +28,7 @@ export const MediaTemplateWithDialog: React.FC<
   mediaDomain = "hkctc",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
+  // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
@@ -38,8 +39,7 @@ export const MediaTemplateWithDialog: React.FC<
     let isCancelled = false;
 
     const fetchAndRenderPdf = async () => {
-      // const pdfUrl = "/pdf-proxy" + mediaLink;
-      const pdfUrl = "/pdf-proxy" + mediaLink + "?t=" + new Date().getTime(); // 在 URL 添加时间戳，避免缓存
+      const pdfUrl = "/pdf-proxy" + mediaLink;
       console.log("Fetching PDF from:", pdfUrl); // Debug line
 
       setLoading(true);
@@ -51,6 +51,7 @@ export const MediaTemplateWithDialog: React.FC<
 
         const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
         const pdf = await loadingTask.promise;
+        console.log("PDF loaded", pdf);
         const page = await pdf.getPage(1);
 
         const rotation = page.rotate;
@@ -89,8 +90,7 @@ export const MediaTemplateWithDialog: React.FC<
           }
         }
       }
-
-      setLoading(false);
+      if (canvasRef) setLoading(false);
     };
 
     const fetchVideoPoster = () => {
@@ -175,7 +175,7 @@ export const MediaTemplateWithDialog: React.FC<
     };
   }, [mediaLink, mediaType, mediaDomain]);
   const handleMouseEnter = (): void => {
-    if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
+    // if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
     if (videoRef.current) {
       if (videoRef.current instanceof HTMLVideoElement) {
         videoRef.current.muted = true;
@@ -192,29 +192,8 @@ export const MediaTemplateWithDialog: React.FC<
             videoRef.current.pause();
             videoRef.current.currentTime = 0; // Reset to first frame
           }
-        }, 3000);
+        }, 5000);
       }
-      // else if (videoRef.current instanceof HTMLIFrameElement) {
-      //   const iframe = videoRef.current as HTMLIFrameElement;
-      //   const iframeSrc = iframe.src;
-
-      //   if (iframeSrc.includes("youtube.com")) {
-      //     const youtubePlayer = iframe.contentWindow;
-      //     if (youtubePlayer) {
-      //       youtubePlayer.postMessage(
-      //         JSON.stringify({ event: "command", func: "playVideo" }),
-      //         "*"
-      //       );
-
-      //       setTimeout(() => {
-      //         youtubePlayer.postMessage(
-      //           JSON.stringify({ event: "command", func: "pauseVideo" }),
-      //           "*"
-      //         );
-      //       }, 3000);
-      //     }
-      //   }
-      // }
     }
   };
 
@@ -249,6 +228,7 @@ export const MediaTemplateWithDialog: React.FC<
                   ref={canvasRef}
                   style={{
                     objectFit: "contain",
+                    zIndex: 1,
                   }}
                 />
               )}
@@ -262,13 +242,13 @@ export const MediaTemplateWithDialog: React.FC<
                     cursor: "pointer",
                   }}
                   onMouseEnter={handleMouseEnter}
-                  onMouseLeave={() => {
-                    if (mediaDomain === "youtube") {
-                      setTimeout(() => {
-                        setIsHoveringYTBVideo(false);
-                      }, 3000);
-                    }
-                  }}
+                  // onMouseLeave={() => {
+                  //   if (mediaDomain === "youtube") {
+                  //     setTimeout(() => {
+                  //       setIsHoveringYTBVideo(false);
+                  //     }, 3000);
+                  //   }
+                  // }}
                 >
                   {/*  video, play when mouse enter */}
                   {mediaDomain === "hkctc" && videoRef && (
@@ -287,7 +267,7 @@ export const MediaTemplateWithDialog: React.FC<
                       <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
                     </video>
                   )}
-                  {mediaDomain === "youtube" &&
+                  {/* {mediaDomain === "youtube" &&
                     isHoveringYTBVideo &&
                     videoRef && (
                       <iframe
@@ -305,7 +285,7 @@ export const MediaTemplateWithDialog: React.FC<
                           cursor: "pointer",
                         }}
                       />
-                    )}
+                    )} */}
 
                   {imageRef && (
                     <img
