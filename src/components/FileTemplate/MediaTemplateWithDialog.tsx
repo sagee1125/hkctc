@@ -234,7 +234,7 @@ export const MediaTemplateWithDialog: React.FC<
             </div>
           ) : (
             <>
-              {mediaType === MEDIA_TYPE.PDF && (
+              {mediaType === MEDIA_TYPE.PDF && canvasRef && (
                 <canvas
                   key={mediaLink}
                   ref={canvasRef}
