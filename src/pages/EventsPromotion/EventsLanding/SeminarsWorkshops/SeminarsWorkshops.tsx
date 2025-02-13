@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import { seminarsData } from "./seminarData";
 import {
   activatedButtonStyle,
   normalButtonStyle,
+  Link,
+  SquareTitle,
+  NormalAccordion,
 } from "../../../../components";
 
 const topicArray = [
@@ -16,7 +20,6 @@ const topicArray = [
   "General Support",
   "Information & Communication Technologies",
   "Inspection",
-
   "Integrity &Professional Development",
   "Jewellery",
   "Medical",
@@ -42,147 +45,103 @@ export const SeminarsWorkshops: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
 
-  const seminarData: Array<{
-    title: string;
-    date: string;
-    imagePath: string;
-  }> = [
-    {
-      title:
-        "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
-      date: "11 April 2024",
-      imagePath: "Environmental.png",
-    },
-    {
-      title:
-        "Seminar on Construction Testing: Towards Digitalisation and Automation in Construction Testing",
-      date: "29 February 2024",
-      imagePath: "Construction.png",
-    },
-    {
-      title: "Metrology Symposium 2023",
-      date: "24 October 2023",
-      imagePath: "Metrology.png",
-    },
-    {
-      title:
-        "Seminar on Integrity and Professional Development in Testing and Certification Industry",
-      date: "18 September 2023",
-      imagePath: "Integrity.png",
-    },
-    {
-      title: "World Accreditation Day Forum 2023",
-      date: "16 June 2023",
-      imagePath: "Accreditation.png",
-    },
-    {
-      title:
-        "Webinar on Application of Automation and Technology in Construction Materials Testing",
-      date: "28 February 2023",
-      imagePath: "Webinar.png",
-    },
+  const displaySeminars = seminarsData.filter((item) => {
+    const activeYear = yearArray[activeYearButton];
+    const activeTopic = topicArray[activeTopicButton];
 
-    {
-      title:
-        "“Professional Integrity and Corruption Prevention in Testing and Certification” Webinar 2022",
-      date: "30 August 2022",
-      imagePath: "Professional.png",
-    },
+    // Check if the item matches the active year
+    const yearMatch = activeYear === "All" || String(item.year) === activeYear;
 
-    {
-      title: "Metrology Symposium 2022",
-      date: "31 Jul 2023",
-      imagePath: "Metrology_Symposium.png",
-    },
-    {
-      title:
-        "Webinar on Environmental, Social and Governance (ESG) and sustainability",
-      date: "19 July 2022",
-      imagePath: "Governance.png",
-    },
-  ];
+    // Check if the item matches the active topic
+    const topicMatch = activeTopic === "All" || item.tag === activeTopic;
+
+    // Return true if both conditions are met
+    return yearMatch && topicMatch;
+  });
 
   return (
-    <div className="w-full flex flex-col pr-[24px]">
-      <div className="flex flex-row gap-[16px] items-start">
-        <div className="h-[15px] w-[15px] bg-newPrimary mt-[8px]" />
-        <p className="text-heading-l">Seminars and Workshops</p>
-      </div>
-      <div className="flex flex-row items-center pb-[10px] pt-[24px] gap-[8px]">
-        <p className="text-highlight-m">Topics</p>
-        <Icon icon="icon-park-outline:up" className="h-[12px] w-[12px]" />
-      </div>
-
-      <div className="flex flex-wrap gap-[8px]">
-        {topicArray.map((btn, index) => {
-          const isActivated = index === activeTopicButton;
-          return (
-            <button
-              key={index}
-              style={isActivated ? activatedButtonStyle : normalButtonStyle}
-              onClick={() => {
-                setActiveTopicButton(index);
-              }}
-            >
-              {btn}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="flex flex-row items-center pb-[10px] pt-[24px] gap-[8px]">
-        <p className="text-highlight-m">Years</p>
-        <Icon icon="icon-park-outline:up" className="h-[12px] w-[12px]" />
-      </div>
-
-      <div className="w-full flex flex-wrap gap-[8px]">
-        {yearArray.map((btn, index) => {
-          const isActivated = index === activeYearButton;
-          return (
-            <button
-              key={index}
-              style={isActivated ? activatedButtonStyle : normalButtonStyle}
-              onClick={() => {
-                setActiveYearButton(index);
-              }}
-            >
-              {btn}
-            </button>
-          );
-        })}
+    <div className="w-full flex flex-col gap-[24px]">
+      <SquareTitle title="Seminars and Workshops" />
+      <div>
+        <NormalAccordion
+          title="Topics"
+          details={
+            <div className="flex flex-row flex-wrap gap-[8px]">
+              {topicArray.map((btn, index) => {
+                const isActivated = index === activeTopicButton;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveTopicButton(index);
+                    }}
+                  >
+                    {btn}
+                  </button>
+                );
+              })}
+            </div>
+          }
+        />
       </div>
 
       <div>
-        {seminarData.map((item, index) => {
-          const { title, imagePath, date } = item;
+        <NormalAccordion
+          title="Years"
+          details={
+            <div className="w-full flex flex-wrap gap-[8px]">
+              {yearArray.map((btn, index) => {
+                const isActivated = index === activeYearButton;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveYearButton(index);
+                    }}
+                  >
+                    {btn}
+                  </button>
+                );
+              })}
+            </div>
+          }
+        />
+      </div>
+
+      <div className="flex flex-col gap-[24px]">
+        {displaySeminars.map((item) => {
+          const { title, id, date, img } = item;
           return (
-            <div
-              key={index}
-              className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px]"
-            >
-              <div className="overflow-hidden">
+            <div key={id} className="flex flex-row w-full">
+              <div className="flex flex-col w-full justify-center">
+                <div className="text-heading-m underline-offset-4 mb-[16px]">
+                  <Link linkColor="#203136">{title}</Link>
+                </div>
+                <div className="flex flex-row items-center">
+                  <img
+                    className="w-[16px] h-[16px] mr-[8px]"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+                    alt={date}
+                  />
+                  <span>{date}</span>
+                </div>
+              </div>
+              {img && (
                 <img
-                  className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+                  className="h-[198px] w-auto object-fit"
                   src={
                     process.env.PUBLIC_URL +
-                    "/assets/eventsLanding/seminarsWorkshops/" +
-                    imagePath
+                    `/assets/eventsLanding/seminarsWorkshops/${img}`
                   }
-                  alt={title}
+                  alt="Role1"
                 />
-              </div>
-              <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
-                <div
-                  className="text-heading-m text-start w-full 
-                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
-                >
-                  {title}
-                </div>
-                <div className="flex flex-row w-full mt-4 gap-2">
-                  <Icon icon="material-symbols:date-range-rounded" />
-                  <h2 className="text-body-m text-grey">{date}</h2>
-                </div>
-              </div>
+              )}
             </div>
           );
         })}
