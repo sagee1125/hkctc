@@ -11,7 +11,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
   MediaTemplateWithDialog,
-  MediaTemplateWithDialogProps,
+  type MediaTemplateWithDialogProps,
 } from "../../../../components";
 
 const manpowerDevelopmentAwardees = [
@@ -799,7 +799,7 @@ export const AwardScheme21to22: React.FC = () => {
               Application
             </p>
 
-            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+            <div className="w-full flex flex-col gap-[24px]">
               {applicationData.map((item, index) => {
                 const { title, link } = item;
                 return (
