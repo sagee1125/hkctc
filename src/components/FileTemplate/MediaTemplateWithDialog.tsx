@@ -201,6 +201,11 @@ export const MediaTemplateWithDialog: React.FC<
     }
   };
 
+  const handleOnClick = (): void => {
+    if (mediaType === MEDIA_TYPE.NEW_PAGE) {
+      window.open(mediaLink, "_blank");
+    } else setIsPreviewOpen(true);
+  };
   return (
     <>
       <div
@@ -208,11 +213,7 @@ export const MediaTemplateWithDialog: React.FC<
           w-[${direction == "column" ? "full" : "160px"}] 
           h-[${direction == "column" ? "190" : "90"}px] 
           overflow-hidden cursor-pointer`}
-        onClick={() => {
-          if (mediaType === MEDIA_TYPE.NEW_PAGE) {
-            window.open(mediaLink, "_blank");
-          } else setIsPreviewOpen(true);
-        }}
+        onClick={handleOnClick}
       >
         <div
           style={{
@@ -365,6 +366,10 @@ export const MediaTemplateWithDialog: React.FC<
         className={`flex flex-col items-start justify-${
           direction == "column" ? "center" : "start"
         }`}
+        onClick={handleOnClick}
+        style={{
+          cursor: mediaType === MEDIA_TYPE.NEW_PAGE ? "pointer" : "none",
+        }}
       >
         <p className="text-highlight-l">{title}</p>
 

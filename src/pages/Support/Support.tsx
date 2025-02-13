@@ -57,7 +57,6 @@ const returnComponent = (
 } => {
   const directoryItems =
     Object.keys(directorySidebarItemsMap[navItem] ?? {}) ?? [];
-
   const rightComponentMap: Partial<
     Record<
       navItemEnum,
@@ -205,7 +204,15 @@ export const Support: React.FC = () => {
     },
     {
       label: activeSidebarItemsLabel,
+      ...(directoryItems.length === 0
+        ? {}
+        : {
+            href: `/support?section=${activeSidebarItems}#0`,
+          }),
     },
+    ...(directoryItems.length === 0
+      ? []
+      : [{ label: activatedDirectorySidebarItems }]),
   ];
 
   return (

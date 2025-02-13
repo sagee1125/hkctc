@@ -1,7 +1,12 @@
 import React from "react";
 
-import { FileTemplate, SquareTitle } from "../../../components";
+import {
+  FileTemplate,
+  MediaTemplateWithDialog,
+  SquareTitle,
+} from "../../../components";
 import { accreditationService } from "../../ServiceUsers";
+import { MEDIA_TYPE } from "../../../const";
 
 export const AccreditationServices: React.FC = () => {
   return (
@@ -37,11 +42,13 @@ export const AccreditationServices: React.FC = () => {
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <FileTemplate
+                <MediaTemplateWithDialog
                   title={title}
                   imagePath={imagePath}
-                  titleHyperlink={link}
-                  iconPath={"PRESS.png"}
+                  mediaLink={link}
+                  direction="row"
+                  date={""}
+                  mediaType={MEDIA_TYPE.NEW_PAGE}
                 />
               </div>
             );

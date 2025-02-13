@@ -16,17 +16,17 @@ export const accreditationService: Array<{
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
-    imagePath: "assets/serviceUsers/HOKLAS_1.png",
+    imagePath: "serviceUsers/HOKLAS_1.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
   },
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
-    imagePath: "assets/serviceUsers/HOKLAS_2.png",
+    imagePath: "serviceUsers/HOKLAS_2.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html",
   },
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
-    imagePath: "assets/serviceUsers/HOKLAS_3.png",
+    imagePath: "serviceUsers/HOKLAS_3.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkias.html",
   },
 ];

@@ -87,8 +87,11 @@ export const AgreementClause: React.FC = () => {
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     {
+      label: "Summary of CEPA Clauses Relating to Testing and Certification",
+      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
+    },
+    {
       label: currentTitle,
-      href: `/support/agreement-clause`,
     },
   ];
 
