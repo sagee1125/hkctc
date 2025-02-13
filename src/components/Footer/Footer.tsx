@@ -525,11 +525,11 @@ export const Footer: React.FC = () => {
                                       key={index}
                                       onClick={() => {
                                         if (item.link) {
-                                          navigate(item.link);
                                           window.scroll({
                                             top: 0,
                                             behavior: "smooth",
                                           });
+                                          navigate(item.link);
                                         }
                                       }}
                                     >

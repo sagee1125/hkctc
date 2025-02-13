@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 import report from "./assets/report.png";
 import newsletter from "./assets/Newsletter.png";
 import publications from "./assets/publications.png";
@@ -8,9 +9,8 @@ import advertorials from "./assets/Advertorials.png";
 
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
-import { EmailBox, FileTemplate, Quiz, SquareTitle } from "../../../components";
+import { EmailBox, Quiz, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
-import { useNavigate } from "react-router-dom";
 import { CATEGORIES, navItemEnum } from "../../../const";
 
 type ResourcesData = {
@@ -24,6 +24,7 @@ type ResourcesData = {
 type PublicationCategory = {
   title: Category;
   items: PublicationItems[];
+  seeMore: string;
 };
 
 type PublicationItems = {
@@ -33,7 +34,7 @@ type PublicationItems = {
   header?: string;
 
   imgPath: string;
-  onClick: () => void;
+  nav: string;
 };
 enum Category {
   Events = "Events",
@@ -178,33 +179,37 @@ export const Publications: React.FC = () => {
       title: Category.Events,
       items: [
         {
-          header: "T&C Manpower Development Award Scheme",
-          title:
-            "Testing and Certification Manpower Development Award Scheme 2023-24",
+          title: "T&C Manpower Development Award Scheme 2023-2024",
           type: "VIDEO",
           date: "4 Dec 2023",
           imgPath: "images/Manpower_Development.png",
-          onClick: () => {},
+          nav: "/events-promotion/award-scheme2324",
         },
         {
-          header: "Seminars and Workshops",
-
           title:
             "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
           type: "VIDEO",
           date: "11 Apr 2024",
-          imgPath: "images/Seminars.png",
-          onClick: () => {},
+          imgPath: "images/Seminar_ESG.png",
+          nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Seminar on Environmental, Social and Governance (ESG) and Sustainability
         },
         {
-          header: "Student Competitions",
-          title: "Testing Science - Sustainability in Daily Life",
+          title:
+            "Seminar on Construction Testing: Towards Digitalisation and ...",
           type: "PDF",
           date: "2023-24",
-          imgPath: "images/StudentCompetitions.png",
-          onClick: () => {},
+          imgPath: "images/Seminar_Construction.png",
+          nav: `/events-promotion?section=${navItemEnum.student_competition}`,
+        },
+        {
+          title: "Metrology Symposium 2023",
+          type: "PDF",
+          date: "2023-24",
+          imgPath: "images/Metrology_Symposium.png",
+          nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Metrology Symposium 2023
         },
       ],
+      seeMore: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
       title: Category.Publications,
@@ -214,30 +219,31 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Ceremony.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Infographic_Video.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Pamphlet.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Commemorative_Publication.png",
-          onClick: () => {},
+          nav: "",
         },
       ],
+      seeMore: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
     },
     {
       title: Category.CEPA,
@@ -247,7 +253,7 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Infographic_Video.png",
-          onClick: () => {},
+          nav: "",
         },
 
         {
@@ -255,23 +261,24 @@ export const Publications: React.FC = () => {
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Pamphlet.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Award Ceremony",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Ceremony.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Commemorative_Publication.png",
-          onClick: () => {},
+          nav: "",
         },
       ],
+      seeMore: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
     },
     {
       title: Category.Competitions,
@@ -281,36 +288,39 @@ export const Publications: React.FC = () => {
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Ceremony.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Infographic video",
           type: "VIDEO",
           date: "6 Aug 2024",
           imgPath: "publications/Infographic_Video.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Award Pamphlet",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Award_Pamphlet.png",
-          onClick: () => {},
+          nav: "",
         },
         {
           title: "Commemorative publication",
           type: "PDF",
           date: "6 Aug 2024",
           imgPath: "publications/Commemorative_Publication.png",
-          onClick: () => {},
+          nav: "",
         },
       ],
+      seeMore: `/events-promotion?section=${navItemEnum.press_releases}`,
     },
   ];
 
-  const showCurrentPubliationItem =
-    publicationCategory.find((cate) => cate.title === activeCategory)?.items ??
-    [];
+  const currentCategory = publicationCategory.find(
+    (cate) => cate.title === activeCategory
+  );
+  const showCurrentPubliationItem = currentCategory?.items ?? [];
+  const seeMore = currentCategory?.seeMore ?? "";
 
   return (
     <motion.div
@@ -384,9 +394,9 @@ export const Publications: React.FC = () => {
         </div>
 
         <hr className="my-[24px]" />
-        <div className="w-full grid grid-cols-2 gap-[24px]">
+        <div className="w-full grid grid-cols-2 gap-[32px]">
           {/* column 1 */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center justify-start">
             <div className="relative flex justify-center items-center w-full">
               <Quiz />
             </div>
@@ -395,50 +405,68 @@ export const Publications: React.FC = () => {
           <div>
             <Container className="flex flex-col gap-[32px]">
               {showCurrentPubliationItem.map((subItem, index) => {
-                const { title, date, imgPath, header } = subItem;
+                const { title, imgPath, nav } = subItem;
 
                 return (
                   <BannerSlide
                     key={index}
-                    className="flex flex-col cursor-pointer"
+                    className="flex flex-col"
                     animate={animate}
                     direction={direction}
                   >
-                    <p
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 700,
-                        lineHeight: "32px",
+                    <div
+                      className="flex flex-row h-[100px] gap-[24px] w-full cursor-pointer"
+                      onClick={() => {
+                        if (nav) {
+                          window.scroll({
+                            top: 0,
+                            behavior: "smooth",
+                          });
+                          navigate(nav);
+                        }
                       }}
                     >
-                      {header}
-                    </p>
-                    <FileTemplate
-                      title={title}
-                      imagePath={"assets/" + imgPath}
-                      date={date}
-                      iconPath={null}
-                    />
-                    {/* <img
-                      className="w-full h-auto max-w-full aspect-[16/10]"
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/publications/" +
-                        imgPath
-                      }
-                      alt={title}
-                    />
-                    <div className="flex flex-col justify-between py-1 px-4">
-                      <div className="text-highlight-s">{type}</div>
-                      <div className="text-heading-m">{title}</div>
-                      <div className="text-body-s flex flex-row items-center gap-2 text-grey">
-                        <Icon icon="material-symbols:date-range-rounded" />
-                        {date}
+                      <div className="flex-shrink-0 relative w-[130px] h-[90px]">
+                        <img
+                          className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
+                          src={`${process.env.PUBLIC_URL}/assets/${imgPath}`}
+                          alt={imgPath}
+                        />
                       </div>
-                    </div> */}
+                      <div className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-full justify-center">
+                        <p className="text-highlight-s text-[#7B8C99]">
+                          {prevActiveCategory.toUpperCase()}
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "16px",
+                            fontWeight: 700,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {title}
+                        </p>
+                      </div>
+                    </div>
                   </BannerSlide>
                 );
               })}
+              <div className="w-full flex justify-end underline text-[#00E] text-linked-s">
+                <p
+                  onClick={() => {
+                    if (seeMore) {
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      navigate(seeMore);
+                    }
+                  }}
+                  className="cursor-pointer"
+                >
+                  Explore more
+                </p>
+              </div>
             </Container>
           </div>
         </div>
