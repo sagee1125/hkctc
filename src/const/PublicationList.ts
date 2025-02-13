@@ -19,12 +19,33 @@ export enum CategoryLabel {
   COURSES = "Courses",
   ADVERTORIALS = "Advertorials",
 }
-type PublicationType = {
+
+export enum ADVERTORIALS_SECTOR {
+  OVERVIEW = "OVERVIEW",
+  MAINLAND_OPPORTUNITY = "MAINLAND_OPPORTUNITY",
+  MANPOWER = "MANPOWER",
+  METROLOGY = "METROLOGY",
+  TC_SUPPORT = "TC_SUPPORT",
+  MANAGEMENT_SYSTEM = "MANAGEMENT_SYSTEM",
+  CHINESE_MEDICINE = "CHINESE_MEDICINE",
+  CONSTRUCTION = "CONSTRUCTION",
+  ELECTRICAL_PRODUCTS = "ELECTRICAL_PRODUCTS",
+  ENVIRONMENT_PROTECTION = "ENVIRONMENT_PROTECTION",
+  FOOD = "FOOD",
+  INFORMATION_TECHNOLOGY = "INFORMATION_TECHNOLOGY",
+  JEWELLERY = "JEWELLERY",
+  MEDICAL_TESTING = "MEDICAL_TESTING",
+  TEXTILE_CLOTHING = "TEXTILE_CLOTHING",
+  TOYS = "TOYS",
+}
+
+export type PublicationType = {
   title: string;
   date: string;
   link: string;
+  sector?: ADVERTORIALS_SECTOR;
   mediaType: MEDIA_TYPE;
-  yearRange: number[];
+  yearRange?: number[];
   category: CATEGORIES[];
 };
 
@@ -669,28 +690,7 @@ export const otherInformationList = [
   },
 ];
 
-export enum ADVERTORIALS_SECTOR {
-  OVERVIEW = "OVERVIEW",
-  MAINLAND_OPPORTUNITY = "MAINLAND_OPPORTUNITY",
-  MANPOWER = "MANPOWER",
-  METROLOGY = "METROLOGY",
-  TC_SUPPORT = "TC_SUPPORT",
-
-  MANAGEMENT_SYSTEM = "MANAGEMENT_SYSTEM",
-  CHINESE_MEDICINE = "CHINESE_MEDICINE",
-  CONSTRUCTION = "CONSTRUCTION",
-  ELECTRICAL_PRODUCTS = "ELECTRICAL_PRODUCTS",
-  ENVIRONMENT_PROTECTION = "ENVIRONMENT_PROTECTION",
-  FOOD = "FOOD",
-  INFORMATION_TECHNOLOGY = "INFORMATION_TECHNOLOGY",
-  JEWELLERY = "JEWELLERY",
-  MEDICAL_TESTING = "MEDICAL_TESTING",
-  TEXTILE_CLOTHING = "TEXTILE_CLOTHING",
-  TOYS = "TOYS",
-}
-
-export const advertorialsList = [
-  // overview
+export const advertorialsList: PublicationType[] = [
   // overview
   {
     title: "25 Mar 2022",
@@ -780,6 +780,7 @@ export const advertorialsList = [
     link: "/en/doc/20180424_China_Daily_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+    yearRange: [2018, 2018],
     category: [CATEGORIES.ADVERTORIALS],
   },
   {
@@ -788,6 +789,7 @@ export const advertorialsList = [
     link: "/en/doc/20180418_HKET_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
   },
   {
@@ -796,6 +798,7 @@ export const advertorialsList = [
     link: "/en/doc/20170620-China_Daily-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
   },
   {
@@ -804,6 +807,7 @@ export const advertorialsList = [
     link: "/en/doc/20170616-HKET-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
   },
   {
@@ -1205,12 +1209,14 @@ export const advertorialsList = [
   },
 
   // Support to T&C Sector
+
   {
     title: "5 Jan 2018",
     link: "/en/doc/20180105_HKET_Support_to_the_T&C_Industry.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TC_SUPPORT,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "5 Jan 2018",
   },
   {
     title: "27 Jul 2017",
@@ -1218,6 +1224,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TC_SUPPORT,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "27 Jul 2017",
   },
   {
     title: "10 Apr 2019",
@@ -1225,6 +1232,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "10 Apr 2019",
   },
   {
     title: "2 Apr 2019",
@@ -1232,6 +1240,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "2 Apr 2019",
   },
   {
     title: "May 2018",
@@ -1239,6 +1248,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "May 2018",
   },
   {
     title: "31 Mar 2016",
@@ -1246,6 +1256,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Mar 2016",
   },
   {
     title: "31 Mar 2016",
@@ -1253,6 +1264,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Mar 2016",
   },
   {
     title: "31 Mar 2016",
@@ -1260,6 +1272,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Mar 2016",
   },
   {
     title: "24 Apr 2024",
@@ -1267,6 +1280,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "24 Apr 2024",
   },
   {
     title: "13 Apr 2016",
@@ -1274,6 +1288,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "13 Apr 2016",
   },
   {
     title: "27 Mar 2024",
@@ -1281,6 +1296,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "27 Mar 2024",
   },
   {
     title: "23 Jan 2020",
@@ -1288,6 +1304,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "23 Jan 2020",
   },
   {
     title: "23 Jan 2020",
@@ -1295,6 +1312,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "23 Jan 2020",
   },
   {
     title: "25 Jul 2019",
@@ -1302,6 +1320,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "25 Jul 2019",
   },
   {
     title: "18 Dec 2017",
@@ -1309,6 +1328,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "18 Dec 2017",
   },
   {
     title: "Dec 2017",
@@ -1316,6 +1336,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "Dec 2017",
   },
   {
     title: "3 Jul 2017",
@@ -1323,6 +1344,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "3 Jul 2017",
   },
   {
     title: "28 May 2024",
@@ -1330,6 +1352,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "28 May 2024",
   },
   {
     title: "1 Aug 2019",
@@ -1337,6 +1360,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "1 Aug 2019",
   },
   {
     title: "31 Jul 2019",
@@ -1344,20 +1368,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
-    title: "10 Apr 2019",
-    link: "/en/doc/20190410_SCMP_Certification.pdf",
-    mediaType: MEDIA_TYPE.PDF,
-    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
-    category: [CATEGORIES.ADVERTORIALS],
-  },
-  {
-    title: "2 Apr 2019",
-    link: "/en/doc/20190402_Ming_Pao_Certification.pdf",
-    mediaType: MEDIA_TYPE.PDF,
-    sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
-    category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Jul 2019",
   },
   {
     title: "23 Apr 2018",
@@ -1365,6 +1376,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "23 Apr 2018",
   },
   {
     title: "10 Apr 2017",
@@ -1372,6 +1384,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "10 Apr 2017",
   },
   {
     title: "30 Apr 2019",
@@ -1379,6 +1392,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "30 Apr 2019",
   },
   {
     title: "28 Jun 2018",
@@ -1386,6 +1400,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "28 Jun 2018",
   },
   {
     title: "13 Mar 2018",
@@ -1393,6 +1408,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "13 Mar 2018",
   },
   {
     title: "11 Jul 2018",
@@ -1400,6 +1416,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "11 Jul 2018",
   },
   {
     title: "30 Aug 2017",
@@ -1407,6 +1424,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "30 Aug 2017",
   },
   {
     title: "29 Aug 2017",
@@ -1414,6 +1432,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "29 Aug 2017",
   },
   {
     title: "26 Jan 2017",
@@ -1421,6 +1440,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "26 Jan 2017",
   },
   {
     title: "26 Apr 2018",
@@ -1428,6 +1448,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "26 Apr 2018",
   },
   {
     title: "May 2017",
@@ -1435,6 +1456,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "May 2017",
   },
   {
     title: "16 Dec 2016",
@@ -1442,6 +1464,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "16 Dec 2016",
   },
   {
     title: "18 Nov 2016",
@@ -1449,6 +1472,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "18 Nov 2016",
   },
   {
     title: "20 Apr 2023",
@@ -1456,6 +1480,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "20 Apr 2023",
   },
   {
     title: "Apr 2021",
@@ -1463,6 +1488,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "Apr 2021",
   },
   {
     title: "Mar 2021",
@@ -1470,6 +1496,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "Mar 2021",
   },
   {
     title: "4 Oct 2018",
@@ -1477,6 +1504,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "4 Oct 2018",
   },
   {
     title: "May 2018",
@@ -1484,6 +1512,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "May 2018",
   },
   {
     title: "30 Sep 2016",
@@ -1491,6 +1520,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "30 Sep 2016",
   },
   {
     title: "31 Jul 2019",
@@ -1498,6 +1528,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Jul 2019",
   },
   {
     title: "15 Dec 2017",
@@ -1505,6 +1536,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "15 Dec 2017",
   },
   {
     title: "Dec 2016",
@@ -1512,6 +1544,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "Dec 2016",
   },
   {
     title: "31 Jul 2019",
@@ -1519,6 +1552,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "31 Jul 2019",
   },
   {
     title: "9 Jan 2017",
@@ -1526,6 +1560,7 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "9 Jan 2017",
   },
   {
     title: "May 2016",
@@ -1533,9 +1568,11 @@ export const advertorialsList = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
+    date: "May 2016",
   },
   {
     title: "14 Apr 2016",
+    date: "14 Apr 2016",
     link: "/en/doc/20160414_Mingpao_Toys.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TOYS,

@@ -24,7 +24,7 @@ export const Advertorials: React.FC = () => {
         ADVERTORIALS_SECTOR.MANPOWER,
         ADVERTORIALS_SECTOR.METROLOGY,
         ADVERTORIALS_SECTOR.TC_SUPPORT,
-      ].includes(item.sector)
+      ].includes(item.sector as ADVERTORIALS_SECTOR)
     ),
     Overview: advertorialsList.filter(
       (item) => item.sector === ADVERTORIALS_SECTOR.OVERVIEW
@@ -57,7 +57,7 @@ export const Advertorials: React.FC = () => {
         ADVERTORIALS_SECTOR.MEDICAL_TESTING,
         ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
         ADVERTORIALS_SECTOR.TOYS,
-      ].includes(item.sector)
+      ].includes(item.sector as ADVERTORIALS_SECTOR)
     ),
     "Management System Certification": advertorialsList.filter(
       (item) => item.sector === ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM
