@@ -4,6 +4,7 @@ import classNames from "classnames";
 import {
   Accordion,
   Breadcrumb,
+  InternalBackButton,
   MediaTemplateWithDialog,
   MediaTemplateWithDialogProps,
   SquareTitle,
@@ -478,7 +479,9 @@ export const AwardScheme23to24: React.FC = () => {
         />
       </div>
       <div style={maxContainer}>
-        <Breadcrumb items={breadcrumbItems} />
+        <div id="breadcrumb">
+          <Breadcrumb items={breadcrumbItems} />
+        </div>
         <div className="w-full h-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
           <div
             id="sticky-container"
@@ -894,14 +897,10 @@ export const AwardScheme23to24: React.FC = () => {
                 );
               })}
             </div>
-            <hr className="mt-[24px]" />
-            <div className="flex flex-row gap-[8px] my-[24px]">
-              <Icon
-                icon="tdesign:share"
-                className="h-[20px] w-[20px] text-newPrimary"
-              />
-              <p className="text-highlight-m text-newPrimary">Share</p>
-            </div>
+            <hr className="my-[24px]" />
+            <InternalBackButton
+              targetUrl={`/events-promotion?section=${navItemEnum.award_scheme}`}
+            />
           </div>
         </div>
       </div>

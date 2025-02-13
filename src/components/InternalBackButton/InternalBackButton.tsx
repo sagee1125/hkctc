@@ -20,10 +20,11 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
       <p
         className="text-highlight-l cursor-pointer text-newPrimary"
         onClick={() => {
-          const element = document.getElementById("breadcrumb");
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
+          window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
+
           navigate(targetUrl);
         }}
       >
