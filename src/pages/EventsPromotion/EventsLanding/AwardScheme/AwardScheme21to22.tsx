@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { Icon } from "@iconify/react";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import {
   Accordion,
   fullContainer,
@@ -10,6 +10,8 @@ import {
   SquareTitle,
   activatedButtonStyle,
   normalButtonStyle,
+  MediaTemplateWithDialog,
+  MediaTemplateWithDialogProps,
 } from "../../../../components";
 
 const manpowerDevelopmentAwardees = [
@@ -227,56 +229,57 @@ const buttonTwoMap: Record<string, React.ReactNode> = {
 
 const applicationData: Array<{
   title: string;
-  imagePath: string;
+  link: string;
 }> = [
   {
     title: "Guidance Notes",
-    imagePath: "Guidance_Notes.png",
+    link: "/en/event/mpaward/GuidanceNotes.pdf",
   },
   {
     title:
       "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
-    imagePath: "Testing.png",
+    link: "/en/event/mpaward/MP01.pdf",
   },
   {
     title:
       "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
-    imagePath: "Excellent.png",
+    link: "/en/event/mpaward/MP02.pdf",
   },
 ];
 
-const publicationData: Array<{
-  title: string;
-  imagePath: string;
-  iconPath: string;
-  date?: string;
-}> = [
+const publicationData: MediaTemplateWithDialogProps[] = [
   {
     title: "Pamphlet",
-    iconPath: "PDF.png",
-    imagePath: "Pamphlet.png",
+    maskIcon: "PDF.png",
+    date: "",
+    mediaType: MEDIA_TYPE.PDF,
+    mediaLink: "/en/event/mpaward/pamphlet.pdf",
+    mediaDomain: "hkctc",
   },
   {
-    title: "Media Coverage",
-    iconPath: "PDF.png",
-    imagePath: "Coverage.png",
+    title: "Congratulatory Messages for the Award Scheme",
+    maskIcon: "VIDEO.png",
+    date: "",
+    mediaType: MEDIA_TYPE.VIDEO,
+    mediaLink: "/videos/en/MPAward_Congratulatory_Video-EN.mp4",
+    mediaDomain: "hkctc",
   },
   {
-    title: "Award ceremony video",
-    iconPath: "VIDEO.png",
-
-    imagePath: "ceremony.png",
-  },
-  {
-    title: "Commemorative publication",
-    iconPath: "PDF.png",
-    imagePath: "Commemorative.png",
+    title: "Highlights of the Ceremony",
+    maskIcon: "VIDEO.png",
+    date: "",
+    mediaType: MEDIA_TYPE.VIDEO,
+    mediaLink: "/videos/tc/MPAward_Highlight.mp4",
+    mediaDomain: "hkctc",
   },
   {
     title: "Press Release",
-    iconPath: "PDF.png",
-    imagePath: "Release.png",
-    date: "4 December 2023",
+    maskIcon: "PRESS.png",
+    date: "22 December 2021",
+    imagePath: "press_release.png",
+    mediaType: MEDIA_TYPE.NEW_PAGE,
+    mediaLink:
+      "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
   },
 ];
 
@@ -795,70 +798,51 @@ export const AwardScheme21to22: React.FC = () => {
             <p className="text-heading-l" id="application">
               Application
             </p>
-            {applicationData.map((item, index) => {
-              const { title, imagePath } = item;
-              return (
-                <div
-                  key={index}
-                  className="flex flex-row h-[90px] gap-[24px] w-full"
-                >
-                  <div className="flex-shrink-0 relative w-[130px] h-[90px]">
-                    <img
-                      className="border-2 border-inherit w-full h-full object-cover"
-                      src={`${process.env.PUBLIC_URL}/assets/eventsLanding/awardScheme/${imagePath}`}
-                      alt={imagePath}
-                    />
-                    {/* Icon */}
-                    <img
-                      className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                      alt="PDF Icon"
-                    />
-                  </div>
-                  <div className="flex-grow text-highlight-m text-black overflow-hidden text-ellipsis">
-                    {title}
-                  </div>
-                </div>
-              );
-            })}
 
+            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+              {applicationData.map((item, index) => {
+                const { title, link } = item;
+                return (
+                  <div key={index} className="w-full flex flex-row gap-[24px]">
+                    <MediaTemplateWithDialog
+                      title={title}
+                      maskIcon={"PDF.png"}
+                      date={""}
+                      mediaLink={link}
+                      mediaType={MEDIA_TYPE.PDF}
+                      mediaDomain={"hkctc"}
+                      direction={"row"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
             <p className="text-heading-l" id="publications">
               Publications
             </p>
             <div className="w-full grid grid-cols-2 gap-[24px]">
               {publicationData.map((item, index) => {
-                const { title, imagePath, date, iconPath } = item;
+                const {
+                  title,
+                  imagePath,
+                  date = "",
+                  maskIcon,
+                  mediaType,
+                  mediaLink,
+                  mediaDomain,
+                } = item;
                 return (
-                  <div
-                    key={index}
-                    className="flex flex-row h-[90px] gap-[24px] w-full"
-                  >
-                    <div className="flex-shrink-0 relative w-[130px] h-[90px]">
-                      <img
-                        className="border-2 border-inherit w-full h-full object-cover"
-                        src={`${process.env.PUBLIC_URL}/assets/eventsLanding/awardScheme/${imagePath}`}
-                        alt={imagePath}
-                      />
-                      {/* Icon */}
-                      <img
-                        className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                        src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
-                        alt="PDF Icon"
-                      />
-                    </div>
-                    <div className="flex-grow flex-col flex text-black overflow-hidden text-ellipsis">
-                      <p className="text-highlight-m">{title}</p>
-                      {date && (
-                        <div className="flex flex-row gap-[8px] mt-[8px] items-center">
-                          <img
-                            className="w-[16px] h-[16px]"
-                            src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                            alt={"calendar"}
-                          />
-                          <p className="text-body-s text-grey">{date}</p>
-                        </div>
-                      )}
-                    </div>
+                  <div key={index} className="w-full flex flex-row gap-[24px]">
+                    <MediaTemplateWithDialog
+                      title={title}
+                      maskIcon={maskIcon}
+                      date={date}
+                      mediaLink={mediaLink}
+                      mediaType={mediaType}
+                      mediaDomain={mediaDomain}
+                      direction={"row"}
+                      imagePath={"eventsLanding/awardScheme/" + imagePath}
+                    />
                   </div>
                 );
               })}

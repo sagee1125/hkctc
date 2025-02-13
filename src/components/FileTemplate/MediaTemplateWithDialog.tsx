@@ -4,13 +4,15 @@ import { MediaDialog } from "./MediaDialog";
 import { MEDIA_TYPE } from "../../const";
 import { useSettings } from "../../context";
 
-type MediaTemplateWithDialogProps = {
+export type MediaTemplateWithDialogProps = {
   title: string;
   maskIcon?: string;
   date: string;
+  imagePath?: string;
   mediaLink: string;
   mediaType: MEDIA_TYPE;
   mediaDomain?: "hkctc" | "youtube";
+  direction?: "column" | "row";
 };
 
 //   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
@@ -19,10 +21,12 @@ export const MediaTemplateWithDialog: React.FC<
 > = ({
   title,
   maskIcon = "PDF.png",
+  imagePath,
   date,
   mediaLink,
   mediaType,
   mediaDomain = "hkctc",
+  direction = "column",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
@@ -200,15 +204,20 @@ export const MediaTemplateWithDialog: React.FC<
   return (
     <>
       <div
-        className="flex-shrink-0 relative w-full h-[190px] overflow-hidden cursor-pointer"
+        className={`flex-shrink-0 relative 
+          w-[${direction == "column" ? "full" : "160px"}] 
+          h-[${direction == "column" ? "190" : "90"}px] 
+          overflow-hidden cursor-pointer`}
         onClick={() => {
-          setIsPreviewOpen(true);
+          if (mediaType === MEDIA_TYPE.NEW_PAGE) {
+            window.open(mediaLink, "_blank");
+          } else setIsPreviewOpen(true);
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: direction,
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
@@ -298,6 +307,20 @@ export const MediaTemplateWithDialog: React.FC<
                 />
               </div>
             )}
+
+            {mediaType === MEDIA_TYPE.NEW_PAGE && (
+              <img
+                alt="img"
+                src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                style={{
+                  objectFit: "cover",
+
+                  width: "100%",
+                  height: "100%",
+                  zIndex: 0,
+                }}
+              />
+            )}
             {/* 
               {mediaType === MEDIA_TYPE.VIDEO && (
                 <div
@@ -338,7 +361,11 @@ export const MediaTemplateWithDialog: React.FC<
           />
         </div>
       </div>
-      <div className="flex flex-col items-start justify-center">
+      <div
+        className={`flex flex-col items-start justify-${
+          direction == "column" ? "center" : "start"
+        }`}
+      >
         <p className="text-highlight-l">{title}</p>
 
         {date && (

@@ -1,6 +1,7 @@
 export enum MEDIA_TYPE {
   PDF = "PDF",
   VIDEO = "VIDEO",
+  NEW_PAGE = "NEW_PAGE",
 }
 
 export enum CATEGORIES {
@@ -1112,97 +1113,96 @@ export const advertorialsList = [
     category: [CATEGORIES.ADVERTORIALS],
   },
 
- {
+  {
     title: "15 Feb 2016",
     date: "15 Feb 2016",
     link: "/en/doc/20160215_MingPao_Prof_recognition.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
-},
+  },
 
-// Metrology, accreditation and standards
-{
+  // Metrology, accreditation and standards
+  {
     title: "30 Jul 2019",
     date: "30 Jul 2019",
     link: "/en/doc/20190730_HKET_ITC_Advertorial.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "30 Jul 2019",
     date: "30 Jul 2019",
     link: "/en/doc/20190730_The_Standard_WAD.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "26 Jul 2018",
     date: "26 Jul 2018",
     link: "/en/doc/20180726_HKET_HP26Jul.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "26 Jul 2018",
     date: "26 Jul 2018",
     link: "/en/doc/20180726_The_Standard.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "3 May 2018",
     date: "3 May 2018",
     link: "/en/doc/20180503_Sing_Tao_Daily_Accreditation.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "21 Dec 2017",
     date: "21 Dec 2017",
     link: "/en/doc/20171221_Sky_Post_Metrology_Symposium.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "21 Jul 2017",
     date: "21 Jul 2017",
     link: "/en/doc/20170721_Ming_Pao_3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "21 Jul 2017",
     date: "21 Jul 2017",
     link: "/en/doc/20170721_The_Standard_3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "5 Aug 2016",
     date: "5 Aug 2016",
     link: "/en/doc/20160805-Mingpao-3W_Day.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-{
+  },
+  {
     title: "5 Aug 2016",
     date: "5 Aug 2016",
     link: "/en/doc/20160805-The_Standard.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
-},
-
+  },
 
   // Support to T&C Sector
   {
