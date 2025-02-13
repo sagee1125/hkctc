@@ -7,48 +7,63 @@ export const StudentCompetition: React.FC = () => {
     date: string;
     maskIcon: string;
     imgUrl: string;
+    hyperLink: string;
   }> = [
     {
       title: "Testing Science - Sustainability in Daily Life",
       date: "2023-24",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_1.png",
+      hyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Food Testing in Daily Life",
       date: "2022-23",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_2.png",
+      hyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Materials Testing Science in Daily Life",
       date: "2021-22",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
+      hyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Testing Science in Daily Life - Healthcare and Hygiene",
       date: "2020-21",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_4.png",
+      hyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Testing Science for Green Living",
       date: "2018-19",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_5.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Testing Science for Improving the Quality of Life",
       date: "2017-18",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_6.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
     },
     {
       title: "Scientific Testing in Everyday Life",
       date: "2016-2017",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
     },
   ];
 
@@ -78,11 +93,14 @@ export const StudentCompetition: React.FC = () => {
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[24px]">
         {awardeesList.map((item, index) => {
-          const { imgUrl, maskIcon, title, date } = item;
+          const { imgUrl, maskIcon, title, date, hyperLink } = item;
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px]"
+              className="w-full h-[282px] flex flex-col gap-[14px] cursor-pointer"
+              onClick={() => {
+                window.open(hyperLink, "_blank");
+              }}
             >
               <div className="flex-shrink-0 relative w-full h-[190px]">
                 <img

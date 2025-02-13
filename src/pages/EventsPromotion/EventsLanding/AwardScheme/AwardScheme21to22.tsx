@@ -384,7 +384,7 @@ export const AwardScheme21to22: React.FC = () => {
         <video
           src={
             process.env.PUBLIC_URL +
-            "/assets/eventsLanding/awardScheme/mpaward-2023-24-Compressed.mp4"
+            "/assets/eventsLanding/awardScheme/mpaward-2021-22-Compressed.mp4"
           }
           autoPlay
           muted
