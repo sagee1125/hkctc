@@ -29,10 +29,7 @@ type PublicationCategory = {
 
 type PublicationItems = {
   title: string;
-  type: "VIDEO" | "PDF";
-  date: string;
   header?: string;
-
   imgPath: string;
   nav: string;
 };
@@ -180,31 +177,23 @@ export const Publications: React.FC = () => {
       items: [
         {
           title: "T&C Manpower Development Award Scheme 2023-2024",
-          type: "VIDEO",
-          date: "4 Dec 2023",
           imgPath: "images/Manpower_Development.png",
           nav: "/events-promotion/award-scheme2324",
         },
         {
           title:
             "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
-          type: "VIDEO",
-          date: "11 Apr 2024",
           imgPath: "images/Seminar_ESG.png",
           nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Seminar on Environmental, Social and Governance (ESG) and Sustainability
         },
         {
           title:
             "Seminar on Construction Testing: Towards Digitalisation and ...",
-          type: "PDF",
-          date: "2023-24",
           imgPath: "images/Seminar_Construction.png",
           nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
         {
           title: "Metrology Symposium 2023",
-          type: "PDF",
-          date: "2023-24",
           imgPath: "images/Metrology_Symposium.png",
           nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Metrology Symposium 2023
         },
@@ -215,32 +204,24 @@ export const Publications: React.FC = () => {
       title: Category.Publications,
       items: [
         {
-          title: "Award Ceremony",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Ceremony.png",
-          nav: "",
+          title: "HKCTC Newsletter",
+          imgPath: "images/newsletter_small.png",
+          nav: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
         },
         {
-          title: "Infographic video",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Infographic_Video.png",
-          nav: "",
+          title: "Corruption Prevention Guide for T&C Industry",
+          imgPath: "images/corruption_small.png",
+          nav: `/events-promotion?section=${navItemEnum.corruption_prevention}`,
         },
         {
-          title: "Award Pamphlet",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Pamphlet.png",
-          nav: "",
+          title: "Pamphlets And Booklets",
+          imgPath: "images/pamphlet_small.png",
+          nav: `/events-promotion?section=${navItemEnum.comics}`,
         },
         {
-          title: "Commemorative publication",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Commemorative_Publication.png",
-          nav: "",
+          title: "Comics",
+          imgPath: "images/comics_small.png",
+          nav: `/events-promotion?section=${navItemEnum.comics}`,
         },
       ],
       seeMore: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
@@ -249,70 +230,54 @@ export const Publications: React.FC = () => {
       title: Category.CEPA,
       items: [
         {
-          title: "Infographic video",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Infographic_Video.png",
-          nav: "",
-        },
-
-        {
-          title: "Award Pamphlet",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Pamphlet.png",
-          nav: "",
+          title: "Agreement on Trade in Services",
+          imgPath: "images/agreement_small.png",
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
         {
-          title: "Award Ceremony",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Ceremony.png",
-          nav: "",
+          title: "Agreement on Trade in Goods",
+          imgPath: "images/agreement_small.png",
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
         {
-          title: "Commemorative publication",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Commemorative_Publication.png",
-          nav: "",
+          title:
+            "Summary of CEPA Clauses Relating to Testing and Certification",
+          imgPath: "images/agreement_small.png",
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
+        },
+        {
+          title: "GBA Standard and Certification",
+          imgPath: "images/GBA_small.png",
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#3`,
         },
       ],
-      seeMore: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
+      seeMore: `/support?section=${navItemEnum.entering_into_the_mainland_market}#0`,
     },
     {
       title: Category.Competitions,
       items: [
         {
-          title: "Award Ceremony",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Ceremony.png",
-          nav: "",
+          title: "T&C Manpower Development Award Scheme 2023-2024",
+          imgPath: "images/Manpower_Development.png",
+          nav: "/events-promotion/award-scheme2324",
         },
         {
-          title: "Infographic video",
-          type: "VIDEO",
-          date: "6 Aug 2024",
-          imgPath: "publications/Infographic_Video.png",
-          nav: "",
+          title: `"Digi-Science" Video Production Competition for Hong Kong Secondary Schools`,
+          imgPath: "images/Digi-Science.png",
+          nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
         {
-          title: "Award Pamphlet",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Award_Pamphlet.png",
-          nav: "",
+          title: "T&C Manpower Development Award Scheme 2021-2022",
+          imgPath: "images/Manpower_Development.png",
+          nav: "/events-promotion/award-scheme2122",
         },
         {
-          title: "Commemorative publication",
-          type: "PDF",
-          date: "6 Aug 2024",
-          imgPath: "publications/Commemorative_Publication.png",
-          nav: "",
+          title: "Hong Kong Youth Science and Technology Competition",
+          imgPath: "images/Youth-Science.png",
+          nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
       ],
-      seeMore: `/events-promotion?section=${navItemEnum.press_releases}`,
+      seeMore: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
   ];
 
@@ -360,11 +325,13 @@ export const Publications: React.FC = () => {
                     }}
                   >
                     <p
-                      className={
-                        "text-center " + isActivated
-                          ? "text-heading-s"
-                          : "text-body-m"
-                      }
+                      className={"text-center"}
+                      style={{
+                        fontSize: "16px",
+                        lineHeight: "22px",
+                        fontWeight: 700,
+                        color: isActivated ? "#233F55" : "black",
+                      }}
                       ref={(el) => (titleRefs.current[index] = el)}
                     >
                       {title}
@@ -428,12 +395,12 @@ export const Publications: React.FC = () => {
                     >
                       <div className="flex-shrink-0 relative w-[130px] h-[90px]">
                         <img
-                          className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
+                          className="border-[1px] border-[#E0E0E0] w-full h-full object-fit"
                           src={`${process.env.PUBLIC_URL}/assets/${imgPath}`}
                           alt={imgPath}
                         />
                       </div>
-                      <div className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-full justify-center">
+                      <div className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center">
                         <p className="text-highlight-s text-[#7B8C99]">
                           {prevActiveCategory.toUpperCase()}
                         </p>
