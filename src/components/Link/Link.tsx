@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const colorMapping: Record<LinkColor, string> = {
   ink: "#233F55",
@@ -18,6 +19,7 @@ type LinkProps = {
 };
 
 export const Link: React.FC<LinkProps> = (props: LinkProps) => {
+  const navigate = useNavigate();
   const {
     children,
     outerLink,
@@ -27,7 +29,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
   } = props;
 
   const handleOpenOuterLink = () => {
-    if (innerLink) window.open(innerLink, "_blank");
+    if (innerLink) navigate(innerLink);
   };
 
   return (

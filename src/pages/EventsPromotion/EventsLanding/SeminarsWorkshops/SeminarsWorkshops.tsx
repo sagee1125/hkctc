@@ -121,7 +121,12 @@ export const SeminarsWorkshops: React.FC = () => {
             <div key={id} className="flex flex-row w-full">
               <div className="flex flex-col w-full justify-center">
                 <div className="text-heading-m underline-offset-4 mb-[16px]">
-                  <Link linkColor="#203136">{title}</Link>
+                  <Link
+                    linkColor="#203136"
+                    innerLink="/events-promotion?section=seminar_article"
+                  >
+                    {title}
+                  </Link>
                 </div>
                 <div className="flex flex-row items-center">
                   <img

@@ -15,7 +15,7 @@ import {
 export const Advertorials: React.FC = () => {
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
-    useState<number>(0);
+    useState<number>(-1);
   const aboutTestingSector: Record<string, any[]> = {
     All: advertorialsList.filter((item) =>
       [
@@ -95,10 +95,14 @@ export const Advertorials: React.FC = () => {
   };
 
   const displayList = [
-    ...aboutTestingSector[Object.keys(aboutTestingSector)[activeAboutSector]],
-    ...certificateSector[
-      Object.keys(certificateSector)[activeCertificateSector]
-    ],
+    ...(activeAboutSector >= 0
+      ? aboutTestingSector[Object.keys(aboutTestingSector)[activeAboutSector]]
+      : []),
+    ...(activeCertificateSector >= 0
+      ? certificateSector[
+          Object.keys(certificateSector)[activeCertificateSector]
+        ]
+      : []),
   ];
 
   return (
@@ -119,6 +123,7 @@ export const Advertorials: React.FC = () => {
                     }
                     onClick={() => {
                       setActiveAboutSector(index);
+                      setActiveCertificateSector(-1);
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>
@@ -145,6 +150,7 @@ export const Advertorials: React.FC = () => {
                     }
                     onClick={() => {
                       setActiveCertificateSector(index);
+                      setActiveAboutSector(-1);
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>
