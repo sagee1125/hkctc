@@ -82,6 +82,8 @@ export enum navItemEnum {
   press_releases = "press_releases",
   advertorials = "advertorials",
   videos = "videos",
+
+  seminar_article = "seminar_article",
 }
 
 export type SubItems = {
