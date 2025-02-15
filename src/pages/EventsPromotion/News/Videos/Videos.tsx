@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   activatedButtonStyle,
   MediaTemplateWithDialog,
   NormalAccordion,
   normalButtonStyle,
   SquareTitle,
+  Paginator,
+  handleGetPaginatorProp,
 } from "../../../../components";
 import {
   VIDEO_TYPE,
@@ -13,6 +15,7 @@ import {
 } from "../../../../const/VideoList";
 import { MEDIA_TYPE } from "../../../../const";
 
+const itemsPerPage = 9;
 export const Videos: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
   const filterButtons = [
@@ -38,6 +41,22 @@ export const Videos: React.FC = () => {
       v.category.includes(VIDEO_TYPE.MANPOWER_DEVELOPMENT)
     ),
   };
+
+  const filteredArticles = filterList[filterButtons[activeButton]];
+
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    filteredArticles
+  );
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
 
   return (
     <div className="flex flex-col gap-[24px]">
@@ -69,7 +88,7 @@ export const Videos: React.FC = () => {
       </div>
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {filterList[filterButtons[activeButton]].map((item, index) => {
+        {currentPageData.map((item, index) => {
           const { title, link, domain } = item;
           const maskIcon = "VIDEO.png";
           return (
@@ -89,6 +108,15 @@ export const Videos: React.FC = () => {
           );
         })}
       </div>
+
+      <Paginator
+        dataSet={filteredArticles}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        startIndex={startIndex}
+        endIndex={endIndex}
+      />
     </div>
   );
 };

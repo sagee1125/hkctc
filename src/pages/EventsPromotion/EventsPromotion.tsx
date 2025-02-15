@@ -29,7 +29,7 @@ import {
   navItemEnum,
 } from "../../const";
 import { Videos } from "./News/Videos";
-import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage";
+import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 
 const sidebarComponent: Partial<
   Record<

@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SquareTitle,
   NormalAccordion,
   normalButtonStyle,
   activatedButtonStyle,
   MediaTemplateWithDialog,
+  Paginator,
+  handleGetPaginatorProp,
 } from "../../../../components";
 import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
 
+const itemsPerPage = 9;
 export const Pamphlets: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
   const filterButtons = ["All", "Pamphlets", "Booklets"];
@@ -16,6 +19,21 @@ export const Pamphlets: React.FC = () => {
     Pamphlets: pamphletsList,
     Booklets: bookletsList,
   };
+
+  const filteredArticles = filterList[filterButtons[activeButton]];
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    filteredArticles
+  );
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
 
   return (
     <div className="flex flex-col gap-[24px]">
@@ -35,6 +53,7 @@ export const Pamphlets: React.FC = () => {
                     }
                     onClick={() => {
                       setActiveButton(index);
+                      setCurrentPage(0);
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>
@@ -47,7 +66,7 @@ export const Pamphlets: React.FC = () => {
       </div>
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {filterList[filterButtons[activeButton]].map((item, index) => {
+        {currentPageData.map((item, index) => {
           const { title, mediaType, date, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
@@ -67,6 +86,15 @@ export const Pamphlets: React.FC = () => {
           );
         })}
       </div>
+
+      <Paginator
+        dataSet={filteredArticles}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        startIndex={startIndex}
+        endIndex={endIndex}
+      />
     </div>
   );
 };
