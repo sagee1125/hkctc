@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 import { seminarsData } from "./seminarData";
 import {
   activatedButtonStyle,
@@ -7,6 +7,8 @@ import {
   Link,
   SquareTitle,
   NormalAccordion,
+  Paginator,
+  handleGetPaginatorProp,
 } from "../../../../components";
 
 const topicArray = [
@@ -41,9 +43,13 @@ const yearArray = [
   "2015",
 ];
 
+const itemsPerPage = 9;
 export const SeminarsWorkshops: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const navigate = useNavigate();
 
   const displaySeminars = seminarsData.filter((item) => {
     const activeYear = yearArray[activeYearButton];
@@ -58,6 +64,12 @@ export const SeminarsWorkshops: React.FC = () => {
     // Return true if both conditions are met
     return yearMatch && topicMatch;
   });
+
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    displaySeminars
+  );
 
   return (
     <div className="w-full flex flex-col gap-[24px]">
@@ -77,6 +89,7 @@ export const SeminarsWorkshops: React.FC = () => {
                     }
                     onClick={() => {
                       setActiveTopicButton(index);
+                      setCurrentPage(0);
                     }}
                   >
                     {btn}
@@ -103,6 +116,7 @@ export const SeminarsWorkshops: React.FC = () => {
                     }
                     onClick={() => {
                       setActiveYearButton(index);
+                      setCurrentPage(0);
                     }}
                   >
                     {btn}
@@ -115,18 +129,23 @@ export const SeminarsWorkshops: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-[24px]">
-        {displaySeminars.map((item) => {
+        {currentPageData.map((item) => {
           const { title, id, date, img } = item;
           return (
-            <div key={id} className="flex flex-row w-full">
+            <div
+              key={id}
+              className="flex flex-row w-full cursor-pointer"
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+                navigate("/events-promotion?section=seminar_article");
+              }}
+            >
               <div className="flex flex-col w-full justify-center">
                 <div className="text-heading-m underline-offset-4 mb-[16px]">
-                  <Link
-                    linkColor="#203136"
-                    innerLink="/events-promotion?section=seminar_article"
-                  >
-                    {title}
-                  </Link>
+                  <Link linkColor="#203136">{title}</Link>
                 </div>
                 <div className="flex flex-row items-center">
                   <img
@@ -151,27 +170,15 @@ export const SeminarsWorkshops: React.FC = () => {
           );
         })}
       </div>
-      <div className="flex justify-center flex-row items-center py-[48px] gap-[9px]">
-        <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-          <Icon icon="fluent:arrow-left-12-filled" />
-        </button>
-        <button
-          style={activatedButtonStyle}
-          className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]"
-        >
-          1
-        </button>
-        <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-          2
-        </button>
-        <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-          3
-        </button>
-        <span className="px-4 py-2 text-gray-600">...</span>
-        <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-          <Icon icon="fluent:arrow-right-12-filled" />
-        </button>
-      </div>
+
+      <Paginator
+        dataSet={displaySeminars}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        startIndex={startIndex}
+        endIndex={endIndex}
+      />
     </div>
   );
 };

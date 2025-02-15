@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SquareTitle,
   NormalAccordion,
   activatedButtonStyle,
   normalButtonStyle,
   MediaTemplateWithDialog,
+  Paginator,
+  handleGetPaginatorProp,
 } from "../../../../components";
 import {
   advertorialsList,
@@ -12,6 +14,7 @@ import {
   MEDIA_TYPE,
 } from "../../../../const";
 
+const itemsPerPage = 9;
 export const Advertorials: React.FC = () => {
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
@@ -105,6 +108,20 @@ export const Advertorials: React.FC = () => {
       : []),
   ];
 
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    displayList
+  );
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Advertorials" />
@@ -124,6 +141,7 @@ export const Advertorials: React.FC = () => {
                     onClick={() => {
                       setActiveAboutSector(index);
                       setActiveCertificateSector(-1);
+                      setCurrentPage(0);
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>
@@ -151,6 +169,7 @@ export const Advertorials: React.FC = () => {
                     onClick={() => {
                       setActiveCertificateSector(index);
                       setActiveAboutSector(-1);
+                      setCurrentPage(0);
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>
@@ -163,7 +182,7 @@ export const Advertorials: React.FC = () => {
       </div>
 
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {displayList.map((item, index) => {
+        {currentPageData.map((item, index) => {
           const { title, date, mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
@@ -183,6 +202,15 @@ export const Advertorials: React.FC = () => {
           );
         })}
       </div>
+
+      <Paginator
+        dataSet={displayList}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        startIndex={startIndex}
+        endIndex={endIndex}
+      />
     </div>
   );
 };

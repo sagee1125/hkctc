@@ -1,8 +1,28 @@
-import React from "react";
-import { SquareTitle, MediaTemplateWithDialog } from "../../../../components";
+import React, { useState, useEffect } from "react";
+import {
+  SquareTitle,
+  MediaTemplateWithDialog,
+  Paginator,
+  handleGetPaginatorProp,
+} from "../../../../components";
 import { comicsList, MEDIA_TYPE } from "../../../../const";
 
+const itemsPerPage = 9;
 export const Comics: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    comicsList
+  );
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
   return (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="Comics" />
@@ -26,7 +46,7 @@ export const Comics: React.FC = () => {
         you enjoy reading these interesting stories!
       </div>
       <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-        {comicsList.map((item, index) => {
+        {currentPageData.map((item, index) => {
           const { title, mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
@@ -46,6 +66,15 @@ export const Comics: React.FC = () => {
           );
         })}
       </div>
+
+      <Paginator
+        dataSet={comicsList}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        startIndex={startIndex}
+        endIndex={endIndex}
+      />
     </div>
   );
 };
