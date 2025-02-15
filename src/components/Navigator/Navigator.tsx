@@ -7,7 +7,6 @@ import { ExploreBar } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
 import { useSettings } from "../../context";
-import { NavigatorMobile } from "./NavigatorMobile";
 
 const hideExploreBar = [
   "/events-landing",
@@ -50,6 +49,7 @@ export const Navigator: React.FC = () => {
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(null);
+  const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
 
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -122,7 +122,55 @@ export const Navigator: React.FC = () => {
                   icon="ri:search-line"
                   className="h-[24px] w-[24px] text-[#333333]"
                 />
-                <NavigatorMobile />
+                <div
+                  className="cursor-pointer h-[24px] w-[24px]"
+                  onClick={() => {
+                    setOpenMobileDropDown(!openMobileDropDown);
+                  }}
+                >
+                  {!openMobileDropDown ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-[24px] w-[24px]"
+                      viewBox="0 0 24 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 2H24"
+                        stroke="#4B4746"
+                        stroke-width="2"
+                        stroke-linecap="square"
+                      />
+                      <path
+                        d="M0 10H24"
+                        stroke="#4B4746"
+                        stroke-width="2"
+                        stroke-linecap="square"
+                      />
+                      <path
+                        d="M0 18H24"
+                        stroke="#4B4746"
+                        stroke-width="2"
+                        stroke-linecap="square"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-[22px] w-[22px]"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                    >
+                      <path
+                        d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
+                        stroke="#4B4746"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
               </div>
             ) : (
               <div className="pl-[32px]">
@@ -332,6 +380,61 @@ export const Navigator: React.FC = () => {
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </Transition>
+
+        <Transition show={openMobileDropDown}>
+          <div
+            style={{
+              width: "100%",
+              backgroundColor: "white",
+              color: "black",
+              height: "428px",
+              zIndex: 100,
+              // boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)",
+              position: "absolute",
+            }}
+          >
+            <div className="w-full px-[24px] py-[32px] flex flex-col gap-[24px]">
+              {NavigationBarConfiguration.map((nav, index) => {
+                const { title, items, navUrl } = nav;
+                const ifHideArrow: boolean = !items.length;
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-row justify-between items-center gap-[6px] cursor-pointer h-full"
+                    onMouseEnter={() => {
+                      //   setActiveIndex(index);
+                      //   setActiveSubItem(
+                      //     NavigationBarConfiguration[index]?.items?.[0]
+                      //       ?.name ?? ""
+                      //   );
+                    }}
+                    onClick={() => {
+                      //   if (navUrl) navigate(navUrl);
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {title}
+                    </p>
+                    <Icon
+                      icon="icon-park-outline:right"
+                      style={{
+                        display: ifHideArrow ? "none" : "block",
+                        color: "black",
+                      }}
+                    />
+                  </div>
+                );
+              })}
+              <hr className="text-[#E0E0E0]" />
+              <div></div>
             </div>
           </div>
         </Transition>

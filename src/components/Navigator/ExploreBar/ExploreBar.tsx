@@ -95,7 +95,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({ isMobileView }) => {
           >
             {({ open }) => (
               <>
-                <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white">
+                <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
                   <p className="!text-body-s flex items-center justify-start">
                     {selectedExploreOption ?? "Explore as"}
                   </p>
@@ -116,7 +116,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({ isMobileView }) => {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute z-50 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none max-h-[300px] overflow-y-auto">
+                  <Menu.Items className="absolute z-50 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none left-0">
                     {exploreOption.map((item, index) => (
                       <Menu.Item key={index}>
                         {({ active }) => (
