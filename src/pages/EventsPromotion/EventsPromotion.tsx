@@ -152,10 +152,14 @@ export const EventsPromotion: React.FC = () => {
   const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
 
   useEffect(() => {
+    const hashValue = window.location.hash.replace("#", "");
     if (initialParam !== activeItem) {
-      navigate(`?section=${initialParam}`);
-
       setActiveItem(initialParam);
+      if (hashValue) {
+        navigate(`?section=${initialParam}#${hashValue}`);
+      } else {
+        navigate(`?section=${initialParam}`);
+      }
     }
   }, [initialParam, activeItem, navigate]);
 

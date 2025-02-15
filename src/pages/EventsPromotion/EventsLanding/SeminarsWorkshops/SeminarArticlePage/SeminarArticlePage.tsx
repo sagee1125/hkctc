@@ -3,8 +3,13 @@ import { seminarsAndWorkshopsList } from "./seminarArticles";
 import { InternalBackButton, Link } from "../../../../../components";
 
 export const SeminarArticlePage: React.FC = () => {
-  const pageContent = seminarsAndWorkshopsList[0];
-  const { img, title, date, content, topics } = pageContent;
+  const pageIndex = Number(window.location.hash.replace("#", ""));
+  console.log("pageIndex", pageIndex);
+
+  const pageContent = seminarsAndWorkshopsList[pageIndex];
+  const { img, title, date, content, topics, subContent, subTopics } =
+    pageContent;
+
   return (
     <div className="flex flex-col gap-[24px]">
       {img && (
@@ -33,12 +38,38 @@ export const SeminarArticlePage: React.FC = () => {
           return (
             <div className="text-linked-m flex flex-row items-center flex-wrap gap-[8px]">
               <div className="w-[6px] h-[6px] bg-black rounded-full" />
-              <Link linkColor="#000">{t.title}</Link>
+              {t.pdfLink ? (
+                <Link linkColor="#000" outerLink={t.pdfLink}>
+                  {t.title}
+                </Link>
+              ) : (
+                <div color="#000">{t.title}</div>
+              )}
             </div>
           );
         })}
       </div>
 
+      {subContent && <div>{subContent}</div>}
+
+      {subTopics && (
+        <div className="flex flex-col gap-[24px]">
+          {subTopics.map((t) => {
+            return (
+              <div className="text-linked-m flex flex-row items-center flex-wrap gap-[8px]">
+                <div className="w-[6px] h-[6px] bg-black rounded-full" />
+                {t.pdfLink ? (
+                  <Link linkColor="#000" outerLink={t.pdfLink}>
+                    {t.title}
+                  </Link>
+                ) : (
+                  <div color="#000">{t.title}</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
       <hr />
       <InternalBackButton targetUrl="/events-promotion?section=seminar_workshop" />
     </div>

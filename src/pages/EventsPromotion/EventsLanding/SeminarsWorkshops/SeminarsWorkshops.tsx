@@ -140,7 +140,9 @@ export const SeminarsWorkshops: React.FC = () => {
                   top: 0,
                   behavior: "smooth",
                 });
-                navigate("/events-promotion?section=seminar_article");
+                navigate(`/events-promotion?section=seminar_article#${id}`, {
+                  replace: false,
+                });
               }}
             >
               <div className="flex flex-col w-full justify-center">
