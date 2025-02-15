@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ExploreBar } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
+import { useSettings } from "../../context";
+import { NavigatorMobile } from "./NavigatorMobile";
 
 const hideExploreBar = [
   "/events-landing",
@@ -22,7 +24,27 @@ const hideExploreBar = [
   "/career_and_education",
   "/*",
 ];
+
+export const exploreOption: Array<{ title: string; nav: string }> = [
+  {
+    title: "General Public",
+    nav: "general-public",
+  },
+  {
+    title: "Educators & Students",
+    nav: "educators-students",
+  },
+  {
+    title: "T&C Bodies & Practitioners",
+    nav: "industry",
+  },
+  {
+    title: "T&C Service Users",
+    nav: "service-users",
+  },
+];
 export const Navigator: React.FC = () => {
+  const { device } = useSettings();
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const [selectedExploreOption, setSelectedExploreOption] = useState<
@@ -64,49 +86,29 @@ export const Navigator: React.FC = () => {
     ? NavigationBarConfiguration[activeIndex]?.items?.length === 1
     : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
-  const sideItemRows = navItems?.length;
-  console.log("sideItemRows", sideItemRows);
 
-  const exploreOption: Array<{ title: string; onClick: () => void }> = [
-    {
-      title: "General Public",
-      onClick: () => {
-        navigate("general-public");
-      },
-    },
-    {
-      title: "Educators & Students",
-      onClick: () => {
-        navigate("educators-students");
-      },
-    },
-    {
-      title: "T&C Bodies & Practitioners",
-      onClick: () => {
-        navigate("industry");
-      },
-    },
-    {
-      title: "T&C Service Users",
-      onClick: () => {
-        navigate("service-users");
-      },
-    },
-  ];
+  const isMobile: boolean = device === "mobile";
   return (
-    <>
+    <div style={isMobile ? { paddingBottom: "24px" } : {}}>
       <nav
         ref={navRef}
         style={{
-          borderBottom: "1px solid #E0E0E0",
+          ...(isMobile
+            ? { marginTop: "48px" }
+            : { borderBottom: "1px solid #E0E0E0" }),
         }}
         onMouseLeave={() => {
           setActiveIndex(null);
         }}
       >
         <div className="flex flex-row w-full justify-between items-center">
-          <div style={navStyle}>
-            <div className="flex items-center h-[54px] w-[141px]">
+          <div
+            style={{
+              ...navStyle,
+              justifyContent: isMobile ? "space-between" : "flex-start",
+            }}
+          >
+            <div className={`flex items-center h-[54px] w-[141px]`}>
               <Logo
                 className="h-[54px] w-[141px] cursor-pointer"
                 onClick={() => {
@@ -114,56 +116,65 @@ export const Navigator: React.FC = () => {
                 }}
               />
             </div>
-            <div className="pl-[32px]">
-              <div className="flex flex-row gap-[26px] h-full">
-                {NavigationBarConfiguration.map((nav, index) => {
-                  const { title, items, navUrl } = nav;
-                  const ifHideArrow: boolean = !items.length;
-                  return (
-                    <div
-                      key={index}
-                      className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
-                      onMouseEnter={() => {
-                        setActiveIndex(index);
-                        setActiveSubItem(
-                          NavigationBarConfiguration[index]?.items?.[0]?.name ??
-                            ""
-                        );
-                      }}
-                      onClick={() => {
-                        if (navUrl) navigate(navUrl);
-                      }}
-                    >
-                      <p
-                        className="text-highlight-s"
-                        style={{
-                          color:
-                            activeIndex === index || activeIndex === null
-                              ? "black"
-                              : "#AAAAAA",
+            {isMobile ? (
+              <div className="flex flex-row gap-[24px] justify-center items-center">
+                <Icon
+                  icon="ri:search-line"
+                  className="h-[24px] w-[24px] text-[#333333]"
+                />
+                <NavigatorMobile />
+              </div>
+            ) : (
+              <div className="pl-[32px]">
+                <div className="flex flex-row gap-[26px] h-full">
+                  {NavigationBarConfiguration.map((nav, index) => {
+                    const { title, items, navUrl } = nav;
+                    const ifHideArrow: boolean = !items.length;
+                    return (
+                      <div
+                        key={index}
+                        className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
+                        onMouseEnter={() => {
+                          setActiveIndex(index);
+                          setActiveSubItem(
+                            NavigationBarConfiguration[index]?.items?.[0]
+                              ?.name ?? ""
+                          );
+                        }}
+                        onClick={() => {
+                          if (navUrl) navigate(navUrl);
                         }}
                       >
-                        {title}
-                      </p>
-                      <Icon
-                        icon="oui:arrow-down"
-                        style={{
-                          display: ifHideArrow ? "none" : "block",
-                          color:
-                            activeIndex === index || activeIndex === null
-                              ? "black"
-                              : "#AAAAAA",
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                        <p
+                          className="text-highlight-s"
+                          style={{
+                            color:
+                              activeIndex === index || activeIndex === null
+                                ? "black"
+                                : "#AAAAAA",
+                          }}
+                        >
+                          {title}
+                        </p>
+                        <Icon
+                          icon="oui:arrow-down"
+                          style={{
+                            display: ifHideArrow ? "none" : "block",
+                            color:
+                              activeIndex === index || activeIndex === null
+                                ? "black"
+                                : "#AAAAAA",
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
           {isHideExploreBar && (
             <div className="flex flex-row items-center gap-[8px] pr-[24px]">
-              {/* <p className="text-highlight-s">Explore as</p> */}
               <div className="min-w-[200px]">
                 <Menu
                   as="div"
@@ -198,7 +209,7 @@ export const Navigator: React.FC = () => {
                                 <button
                                   onClick={() => {
                                     setSelectedExploreOption(item.title);
-                                    item.onClick();
+                                    navigate(item.nav);
                                   }}
                                   className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
                                     active
@@ -325,8 +336,8 @@ export const Navigator: React.FC = () => {
           </div>
         </Transition>
       </nav>
-      {!isHideExploreBar && <ExploreBar />}
-    </>
+      {!isHideExploreBar && <ExploreBar isMobileView={isMobile} />}
+    </div>
   );
 };
 
@@ -334,10 +345,12 @@ const navStyle: React.CSSProperties = {
   background: "white",
   color: "black",
   display: "flex",
-  justifyContent: "flex-start",
+  flexDirection: "row",
   alignItems: "center",
   height: "90px",
-  paddingLeft: "2rem",
+  paddingLeft: "24px",
+  paddingRight: "24px",
+  width: "100%",
 };
 
 const dropDownStyle: React.CSSProperties = {

@@ -1,14 +1,29 @@
 import React from "react";
 import { Footer, Header, Navigator } from "./components";
+import { useSettings } from "./context";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const { device } = useSettings();
+  const isMobile: boolean = device === "mobile";
+
   return (
-    <div style={layoutStyle}>
-      <Header />
+    <div
+      style={{
+        ...layoutStyle,
+        ...(isMobile
+          ? {
+              maxWidth: "10230px",
+            }
+          : {
+              minWidth: "1300px",
+            }),
+      }}
+    >
+      {!isMobile && <Header />}
       <Navigator />
       <main style={contentStyle}>{children}</main>
       <Footer />
@@ -20,7 +35,6 @@ const layoutStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-  minWidth: "1300px",
 };
 
 const contentStyle: React.CSSProperties = {
