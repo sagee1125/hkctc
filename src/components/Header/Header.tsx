@@ -3,6 +3,27 @@ import { useSettings } from "../../context";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 
+export const HeaderSocialMedia: React.FC = () => {
+  return (
+    <>
+      <Icon
+        icon="mage:camera-2"
+        className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
+        onClick={() => {
+          window.location.href = "https://www.instagram.com/hkctcgovhk/";
+        }}
+      />
+      <Icon
+        icon="fa6-brands:facebook-f"
+        className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
+        onClick={() => {
+          window.location.href = "https://www.facebook.com/hkctcgovhk";
+        }}
+      />
+    </>
+  );
+};
+
 export const Header: React.FC = () => {
   const { fontSize, setFontSize, language, setLanguage } = useSettings();
 
@@ -46,20 +67,7 @@ export const Header: React.FC = () => {
               backgroundColor: "#666666",
             }}
           />
-          <Icon
-            icon="mage:camera-2"
-            className="h-6 w-6 text-[#333333] cursor-pointer"
-            onClick={() => {
-              window.location.href = "https://www.instagram.com/hkctcgovhk/";
-            }}
-          />
-          <Icon
-            icon="fa6-brands:facebook-f"
-            className="h-5 w-5 text-[#333333] cursor-pointer"
-            onClick={() => {
-              window.location.href = "https://www.facebook.com/hkctcgovhk";
-            }}
-          />
+          <HeaderSocialMedia />
         </div>
       </header>
     </>
