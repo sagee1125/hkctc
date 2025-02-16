@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, fullContainer, maxContainer } from "../../components";
+import { Breadcrumb, fullContainer, maxPCContainer } from "../../components";
 import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { EducatorsStudentsContent } from "./EducatorsStudentsContent";
@@ -18,7 +18,7 @@ export const EducatorsStudents: React.FC = () => {
         description="Know more about certificate & testing in education, and how to become part of us."
         barBackgroundImg="educatorsStudents/banner_bg.png"
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <Breadcrumb items={breadcrumbItems} />
         <PhotoPanel />
         <EducatorsStudentsContent />

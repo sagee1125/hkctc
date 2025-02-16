@@ -13,7 +13,7 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   DirectorySidebar,
 } from "../../../components";
 
@@ -98,7 +98,7 @@ export const AgreementClause: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

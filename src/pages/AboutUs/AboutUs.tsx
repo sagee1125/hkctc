@@ -6,7 +6,7 @@ import {
   Breadcrumb,
   DirectorySidebar,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../components";
 
 const rightComponentMap: Record<string, React.ReactNode> = {
@@ -23,7 +23,7 @@ export const AboutUs: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"about/banner_bg.png"} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <Breadcrumb items={breadcrumbItems} />
         <div className="w-full flex flex-row pt-[48px] px-[24px] gap-[24px]">
           <div className="min-w-[440px] w-1/3">

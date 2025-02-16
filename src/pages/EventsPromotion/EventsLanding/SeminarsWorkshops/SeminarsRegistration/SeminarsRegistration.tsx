@@ -4,7 +4,7 @@ import { RegistrationForm } from "./RegistrationForm";
 import { navItemEnum } from "../../../../../const";
 import {
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   Breadcrumb,
   DirectorySidebar,
 } from "../../../../../components";
@@ -68,7 +68,7 @@ export const SeminarsRegistration: React.FC = () => {
 
   return (
     <div style={fullContainer}>
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

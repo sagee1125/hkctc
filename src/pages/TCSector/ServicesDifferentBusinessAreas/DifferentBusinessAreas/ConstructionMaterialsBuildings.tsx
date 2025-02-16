@@ -14,7 +14,7 @@ import {
   SquareTitle,
   activatedPagingButtonStyle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   normalPagingButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
@@ -614,7 +614,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Construction_banner.png"}
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

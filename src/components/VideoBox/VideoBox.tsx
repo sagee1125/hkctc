@@ -1,8 +1,12 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import { fullContainer } from "../Container";
+import { useSettings } from "../../context";
 
 export const VideoBox: React.FC = () => {
+  const { device } = useSettings();
+  const isMobile: boolean = device === "mobile";
+
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
@@ -116,75 +120,88 @@ export const VideoBox: React.FC = () => {
         </div>
 
         {/* mask */}
-        {
-          <div
-            style={{
-              zIndex: 10,
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-            }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <div className="flex flex-col jusity-between h-full">
-              <div className="h-[50px] w-[50px] bg-newPrimary" />
-              <div
-                className="flex justify-between items-end py-10 px-[24px] mt-auto" // Added mt-auto for bottom alignment
-                style={{
-                  background:
-                    "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
-                }}
-              >
+
+        <div
+          style={{
+            zIndex: 10,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <div className="flex flex-col jusity-between h-full">
+            {!isMobile && <div className="h-[50px] w-[50px] bg-newPrimary" />}
+            <div
+              className="flex justify-between items-end py-10 px-[24px] mt-auto" // Added mt-auto for bottom alignment
+              style={{
+                ...(isMobile
+                  ? {}
+                  : {
+                      background:
+                        "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                    }),
+              }}
+            >
+              {!isMobile && (
                 <div className="text-white pr-[26em]">
-                  <h2 className="text-heading-xl">
-                    {`Welcome to the InnoCarnival 2024`}
-                  </h2>
+                  <p className="text-heading-xl">
+                    Welcome to the InnoCarnival 2024
+                  </p>
 
                   <p className="!text-body-m py-[24px]">
                     {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
                 November 3 at the Hong Kong Science Park with the theme of
                 "Let's Sail with Innovation and Technology".`}
                   </p>
-                  {/* <div className="py-2 text-highlight-m">
-                    <button style={buttonStyle}>SEE MORE</button>
-                  </div> */}
                 </div>
-                <div className="flex flex-row">
-                  {videoUrls.length > 1 ? (
-                    <>
-                      <Icon
-                        icon="icons8:left-squared"
-                        className="text-white cursor-pointer"
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          strokeWidth: "1px",
-                        }}
-                        onClick={() => handleSlide("prev")}
-                      />
-                      <Icon
-                        icon="icons8:right-squared"
-                        className="text-white cursor-pointer"
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          strokeWidth: "1px",
-                        }}
-                        onClick={() => handleSlide("next")}
-                      />
-                    </>
-                  ) : (
-                    <div />
-                  )}
-                </div>
+              )}
+              <div className="flex flex-row">
+                {videoUrls.length > 1 ? (
+                  <>
+                    <Icon
+                      icon="icons8:left-squared"
+                      className="text-white cursor-pointer"
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        strokeWidth: "1px",
+                      }}
+                      onClick={() => handleSlide("prev")}
+                    />
+                    <Icon
+                      icon="icons8:right-squared"
+                      className="text-white cursor-pointer"
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        strokeWidth: "1px",
+                      }}
+                      onClick={() => handleSlide("next")}
+                    />
+                  </>
+                ) : (
+                  <div />
+                )}
               </div>
             </div>
           </div>
-        }
+        </div>
       </div>
 
+      {isMobile && (
+        <div className="text-white bg-newPrimary p-[14px]">
+          <p className="text-highlight-m">Welcome to the InnoCarnival 2024</p>
+
+          <p className="!text-body-xs pt-[16px]">
+            {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
+                November 3 at the Hong Kong Science Park with the theme of
+                "Let's Sail with Innovation and Technology".`}
+          </p>
+        </div>
+      )}
       {/* progress*/}
       <div style={progressBarContainerStyle}>
         <div

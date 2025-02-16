@@ -13,7 +13,7 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 
 const timeLineData: Array<{
@@ -200,7 +200,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/InformationAndCommunicationsTechnologiesBanner.png"
         }
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

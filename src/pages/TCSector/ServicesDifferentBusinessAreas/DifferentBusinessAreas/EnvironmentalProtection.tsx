@@ -15,7 +15,7 @@ import {
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
 
@@ -399,7 +399,7 @@ export const EnvironmentalProtection: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/EnvironmentalProtectionBanner.png"
         }
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

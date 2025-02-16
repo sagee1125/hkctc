@@ -13,7 +13,7 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 
 const tableRowsData = [
@@ -217,7 +217,7 @@ export const Food: React.FC = () => {
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/food_banner.png"}
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

@@ -6,7 +6,7 @@ import {
   InternalBackButton,
   SquareTitle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
@@ -42,7 +42,7 @@ export const CCCTesting: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

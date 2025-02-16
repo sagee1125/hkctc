@@ -1,6 +1,6 @@
 import React from "react";
 import { ResourcesReportsContent } from "./ResourcesReportsContent";
-import { Breadcrumb, fullContainer, maxContainer } from "../../components";
+import { Breadcrumb, fullContainer, maxPCContainer } from "../../components";
 
 export const ResourcesReports: React.FC = () => {
   const breadcrumbItems = [
@@ -10,7 +10,7 @@ export const ResourcesReports: React.FC = () => {
 
   return (
     <div style={fullContainer}>
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <Breadcrumb items={breadcrumbItems} />
         <ResourcesReportsContent />
       </div>

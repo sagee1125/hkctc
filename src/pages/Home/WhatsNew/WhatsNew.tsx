@@ -4,12 +4,14 @@ import "./style.css";
 import { WhatsNewConfiguration } from "../../../const";
 import { SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import { useSettings } from "../../../context";
 export const WhatsNew: React.FC = () => {
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
-
+  const { device } = useSettings();
+  const isMobile: boolean = device === "mobile";
   const changingEffectOn = false;
   const navigate = useNavigate();
   useEffect(() => {
@@ -54,13 +56,23 @@ export const WhatsNew: React.FC = () => {
     <div className="w-full px-[24px]">
       <SquareTitle title="What’s New" showArrowIcon redirectTo="/whats-new" />
 
-      <div className="pt-[24px]">
+      <div
+        className={`pt-[24px] w-full`}
+        style={{
+          maxWidth: "100%",
+          overflowX: "scroll",
+          width: isMobile ? "1024px" : "100%",
+        }}
+      >
         <div
-          ref={containerRef}
+          ref={isMobile ? null : containerRef}
           className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${
-            visibleWhatsNew ? "opacity-100" : "opacity-0"
+            visibleWhatsNew || isMobile ? "opacity-100" : "opacity-0"
           }`}
           style={{
+            display: "grid",
+            whiteSpace: "nowrap",
+            gap: "24px",
             gridTemplateColumns: `repeat(${firstFourWhatsNew.length}, minmax(0, 1fr))`,
           }}
         >
@@ -73,7 +85,9 @@ export const WhatsNew: React.FC = () => {
             return (
               <div
                 key={index}
-                className="flex flex-col items-center group cursor-pointer"
+                className={`flex flex-col items-center ${
+                  isMobile ? "" : "group"
+                } cursor-pointer`}
                 onClick={() => {
                   if (redirectTo) {
                     window.scroll({
@@ -84,7 +98,7 @@ export const WhatsNew: React.FC = () => {
                   }
                 }}
               >
-                <div className="relative flex justify-center items-center w-full aspect-[16/9] overflow-hidden cursor-pointer">
+                <div className="relative flex justify-center items-center w-full min-w-[290px] aspect-[16/9] overflow-hidden cursor-pointer">
                   {/* 上层图片 */}
                   <img
                     className={`absolute w-full h-auto 
@@ -111,6 +125,11 @@ export const WhatsNew: React.FC = () => {
                 <div
                   className="text-heading-s text-left w-full mt-4 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-800 ease-in-out"
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    overflow: "hidden",
+                  }}
                 >
                   {title}
                 </div>

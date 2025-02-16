@@ -13,7 +13,7 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 import {
   activatedButtonStyle,
@@ -103,7 +103,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Electrical_banner.png"}
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         {" "}
         <div id="breadcrumb">
           <Breadcrumb

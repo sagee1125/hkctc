@@ -50,7 +50,6 @@ export const Navigator: React.FC = () => {
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(null);
-  console.log("activeIndex", activeIndex);
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
 
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -464,7 +463,6 @@ export const Navigator: React.FC = () => {
                   {navItems.map((sideItems, index) => {
                     if (activeSubItem !== sideItems.name) return <></>;
                     const { name: currentSideName, subItems } = sideItems;
-                    console.log("sideItems", sideItems);
                     return (
                       <div key={index}>
                         {/* sidebar */}

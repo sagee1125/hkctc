@@ -13,7 +13,7 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -77,7 +77,7 @@ export const ToysChildrenProducts: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/ToysAndChildren_banner.png"
         }
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

@@ -3,7 +3,7 @@ import {
   SquareTitle,
   Link,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   MediaDialog,
 } from "../../components";
 import { WhatsNewConfiguration, hkctcNewsletterList } from "../../const";
@@ -14,7 +14,7 @@ export const WhatsNew: React.FC = () => {
   const currentReport = hkctcNewsletterList[activeReport];
   return (
     <div style={fullContainer}>
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
           <div className="w-full flex flex-col gap-[24px]">
             <SquareTitle title={"What’s New"} />

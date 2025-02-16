@@ -10,7 +10,7 @@ import {
   DirectorySidebar,
   Sidebar,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../components";
 import {
   type NavData,
@@ -218,7 +218,7 @@ export const Support: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

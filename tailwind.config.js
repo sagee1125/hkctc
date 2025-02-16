@@ -56,6 +56,8 @@ module.exports = {
         "highlight-extra": ["18px", { lineHeight: "32px", fontWeight: 600 }],
 
         "body-s": ["14px", { lineHeight: "20px", fontWeight: 300 }],
+        "body-xs": ["12px", { lineHeight: "20px", fontWeight: 300 }],
+
         "italic-s": [
           "14px",
           { lineHeight: "20px", fontStyle: "italic", fontWeight: 300 },

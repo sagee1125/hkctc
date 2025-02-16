@@ -12,7 +12,7 @@ import {
   SquareTitle,
   fullContainer,
   List,
-  maxContainer,
+  maxPCContainer,
   Paginator,
   handleGetPaginatorProp,
 } from "../../../../components";
@@ -321,7 +321,7 @@ export const MedicalTesting: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/medicalTesting_banner.png"
         }
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

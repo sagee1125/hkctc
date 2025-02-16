@@ -16,7 +16,7 @@ import {
   activatedButtonStyle,
   normalButtonStyle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
@@ -239,7 +239,7 @@ export const ChineseMedicines: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/chinese_medicines_banner.png"
         }
       />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb
             items={handleReturnDifferentBusinessAreasBreadcrumb(

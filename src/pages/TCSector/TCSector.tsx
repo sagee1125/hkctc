@@ -9,7 +9,7 @@ import {
   Breadcrumb,
   Sidebar,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../components";
 import {
   NavigationBarConfiguration,
@@ -141,7 +141,7 @@ export const TCSector: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={bannerImage} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

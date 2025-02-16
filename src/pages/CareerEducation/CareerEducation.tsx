@@ -6,7 +6,7 @@ import {
   Breadcrumb,
   MultipleSidebars,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../components";
 import {
   type NavData,
@@ -142,7 +142,7 @@ export const CareerEducation: React.FC = () => {
   return (
     <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

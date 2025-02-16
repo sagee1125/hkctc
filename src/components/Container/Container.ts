@@ -1,5 +1,10 @@
-export const maxContainer: React.CSSProperties = {
+export const maxPCContainer: React.CSSProperties = {
   maxWidth: "1440px",
+  width: "100%",
+};
+
+export const maxMobileContainer: React.CSSProperties = {
+  maxWidth: "1024px",
   width: "100%",
 };
 

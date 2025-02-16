@@ -7,7 +7,7 @@ import {
   SquareTitle,
   Link,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
 } from "../../components";
 
 const ImportantNote: React.FC = () => {
@@ -319,7 +319,7 @@ export const AboutSite: React.FC = () => {
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>

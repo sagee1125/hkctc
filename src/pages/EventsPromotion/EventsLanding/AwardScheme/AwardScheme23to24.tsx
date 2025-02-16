@@ -10,7 +10,7 @@ import {
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
-  maxContainer,
+  maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
@@ -478,7 +478,7 @@ export const AwardScheme23to24: React.FC = () => {
           }}
         />
       </div>
-      <div style={maxContainer}>
+      <div style={maxPCContainer}>
         <div id="breadcrumb">
           <Breadcrumb items={breadcrumbItems} />
         </div>
