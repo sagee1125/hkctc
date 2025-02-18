@@ -1,14 +1,13 @@
 import { Backdrop, CircularProgress } from "@mui/material";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as pdfjsLib from "pdfjs-dist";
-import bowser from "bowser";
+import { useMediaQuery } from "@mui/material";
 
-export type Device = "mobile" | "tablet" | "desktop";
 type SettingsContextType = {
   isLoading: boolean;
   fontSize: "small" | "medium" | "large";
   language: "zh-CN" | "zh-TW" | "en";
-  device: Device;
+  isPC: boolean;
   pdfjsLib: typeof pdfjsLib;
   setLanguage: (language: "zh-CN" | "zh-TW" | "en") => void;
   setFontSize: (fontSize: "small" | "medium" | "large") => void;
@@ -24,8 +23,8 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
-  const browser = bowser.getParser(window.navigator.userAgent);
-  const device = browser.getPlatformType() as Device;
+
+  const isPC = useMediaQuery("(min-width:1024px)");
 
   const [fontSize, setFontSize] = useState<"small" | "medium" | "large">(
     "medium"
@@ -48,7 +47,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         fontSize,
         language,
         isLoading,
-        device,
+        isPC,
         setFontSize,
         setLanguage,
         setIsLoading,

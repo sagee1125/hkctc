@@ -80,6 +80,10 @@ export const ResourcesReportsContent: React.FC = () => {
 
   const handleChangeCategory = (item: string) => {
     setSelectedCategory(item as CATEGORIES);
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
     navigate(`?section=${item}`);
     setCurrentPage(0);
   };

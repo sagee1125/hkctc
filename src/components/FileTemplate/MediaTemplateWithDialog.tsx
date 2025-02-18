@@ -352,8 +352,8 @@ export const MediaTemplateWithDialog: React.FC<
     <>
       <div
         className={`flex-shrink-0 relative 
-          w-[${direction == "column" ? "full" : "160px"}] 
-          h-[${direction == "column" ? "190" : "90"}px] 
+          w-[${direction === "column" ? "full" : "160px"}] 
+          h-[${direction === "column" ? "190" : "90"}px] 
           overflow-hidden cursor-pointer`}
         onClick={handleOnClick}
       >
@@ -506,7 +506,7 @@ export const MediaTemplateWithDialog: React.FC<
       </div>
       <div
         className={`flex flex-col items-start justify-${
-          direction == "column" ? "center" : "start"
+          direction === "column" ? "center" : "start"
         }`}
         onClick={handleOnClick}
         style={{

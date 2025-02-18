@@ -10,8 +10,7 @@ export const WhatsNew: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
-  const { device } = useSettings();
-  const isMobile: boolean = device === "mobile";
+  const { isPC } = useSettings();
   const changingEffectOn = false;
   const navigate = useNavigate();
   useEffect(() => {
@@ -61,13 +60,13 @@ export const WhatsNew: React.FC = () => {
         style={{
           maxWidth: "100%",
           overflowX: "scroll",
-          width: isMobile ? "1024px" : "100%",
+          width: isPC ? "100%" : "1024px",
         }}
       >
         <div
-          ref={isMobile ? null : containerRef}
+          ref={isPC ? containerRef : null}
           className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${
-            visibleWhatsNew || isMobile ? "opacity-100" : "opacity-0"
+            visibleWhatsNew || !isPC ? "opacity-100" : "opacity-0"
           }`}
           style={{
             display: "grid",
@@ -86,7 +85,7 @@ export const WhatsNew: React.FC = () => {
               <div
                 key={index}
                 className={`flex flex-col items-center ${
-                  isMobile ? "" : "group"
+                  !isPC ? "" : "group"
                 } cursor-pointer`}
                 onClick={() => {
                   if (redirectTo) {
