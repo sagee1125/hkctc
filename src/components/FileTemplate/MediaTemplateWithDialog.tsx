@@ -12,7 +12,7 @@ export type MediaTemplateWithDialogProps = {
   mediaLink: string;
   mediaType: MEDIA_TYPE;
   mediaDomain?: "hkctc" | "youtube";
-  direction?: "column" | "row";
+  direction?: "column" | "row" | "full";
 };
 
 //   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
@@ -206,7 +206,149 @@ export const MediaTemplateWithDialog: React.FC<
       window.open(mediaLink, "_blank");
     } else setIsPreviewOpen(true);
   };
-  return (
+  return direction === "full" ? (
+    <>
+      <div
+        className="grid grid-cols-2 cursor-pointer justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px]"
+        onClick={handleOnClick}
+      >
+        <div className="overflow-hidden flex-shrink-0 relative border-1">
+          {loading && (
+            <div
+              className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
+              style={{ zIndex: "10", width: "100%", height: "100%" }}
+            >
+              <CircularProgress />
+            </div>
+          )}
+          <>
+            {mediaType === MEDIA_TYPE.PDF && (
+              <canvas
+                key={mediaLink}
+                ref={canvasRef}
+                style={{
+                  objectFit: "contain",
+                  zIndex: 1,
+                  width: "100%",
+                  border: "1px solid #e5e7eb",
+                  // height: "max-content",
+                }}
+              />
+            )}
+
+            {mediaType === MEDIA_TYPE.VIDEO && (
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  cursor: "pointer",
+                  zIndex: 1,
+                }}
+                onMouseEnter={handleMouseEnter}
+              >
+                {/*  video, play when mouse enter */}
+                {mediaDomain === "hkctc" && (
+                  <video
+                    ref={videoRef as React.RefObject<HTMLVideoElement>}
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      zIndex: 1,
+                    }}
+                  >
+                    <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
+                  </video>
+                )}
+                {/* {mediaDomain === "youtube" &&
+                    isHoveringYTBVideo &&
+                    videoRef && (
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`${mediaLink}?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&modestbranding=1&fs=0&disablekb=1&cc_load_policy=0`}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          zIndex: 1,
+                          objectFit: "contain",
+                          cursor: "pointer",
+                        }}
+                      />
+                    )} */}
+
+                <img
+                  ref={imageRef}
+                  alt="Video"
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 0,
+                    opacity: isIMGLoaded ? 1 : 0,
+                  }}
+                  onLoad={handleImageLoad}
+                />
+              </div>
+            )}
+
+            {mediaType === MEDIA_TYPE.NEW_PAGE && (
+              <img
+                alt="img"
+                src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                style={{
+                  objectFit: "cover",
+
+                  width: "100%",
+                  height: "100%",
+                  zIndex: 0,
+                }}
+              />
+            )}
+            {/* 
+              {mediaType === MEDIA_TYPE.VIDEO && (
+                <div
+                  key={mediaLink}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={() => {
+                    if (videoRef.current) {
+                      videoRef.current.pause();
+                      videoRef.current.currentTime = 0;
+                    }
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <img
+                    ref={imageRef}
+                    alt="Video"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+              )} */}
+          </>
+        </div>
+        <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
+          <div className="text-heading-m text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out">
+            {title}
+          </div>
+        </div>
+      </div>
+    </>
+  ) : (
     <>
       <div
         className={`flex-shrink-0 relative 

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Slider, Box } from "@mui/material";
@@ -8,21 +8,49 @@ import {
   EmailBox,
   SquareTitle,
   activatedButtonStyle,
+  MediaTemplateWithDialog,
+  Paginator,
+  handleGetPaginatorProp,
+  NormalAccordion,
 } from "../../components";
-import { CATEGORIES, CategoryLabel } from "../../const";
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  CATEGORIES,
+  CategoryLabel,
+  hktctReportsList,
+  legislativeCouncilList,
+  hkctcNewsletterList,
+  advertorialsList,
+  type PublicationType,
+  MEDIA_TYPE,
+} from "../../const";
 
-const reportsButtons = ["All", "HKCTC Reports", "Legislative Council Papers"];
-const mediaType = ["PDF", "Video"];
+const mediaTypeMapping: Partial<Record<MEDIA_TYPE, string>> = {
+  [MEDIA_TYPE.PDF]: "PDF",
+  [MEDIA_TYPE.VIDEO]: "Video",
+};
 const currentYear = new Date().getFullYear(); // get current year
 
+const resourcesList: PublicationType[] = [
+  ...hktctReportsList,
+  ...legislativeCouncilList,
+  ...hkctcNewsletterList,
+  ...advertorialsList,
+];
+
+const itemsPerPage = 9;
 export const ResourcesReportsContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const [activeButton, setActiveButton] = useState<number>(0);
+  // filter buttons inside the Accordion
+  const [activeReport, setActiveReport] = useState(0);
+
+  // layout display
   const [layoutButton, setLayoutButton] = useState<number>(0);
-  const [selectedMediaType, setSelectedMediaType] = useState(mediaType[0]);
+
+  // filter conditions display on the left side
+  const [selectedMediaType, setSelectedMediaType] = useState(MEDIA_TYPE.PDF);
   const [rangeValue, setRangeValue] = useState<number[]>([currentYear, 2009]);
   const [selectedItem, setSelectedItem] = useState<string>(
     "From latest to oldest"
@@ -40,15 +68,20 @@ export const ResourcesReportsContent: React.FC = () => {
     useState<CATEGORIES>(initialParam);
 
   useEffect(() => {
-    if (initialParam !== selectedCategory) {
-      navigate(`?category=${initialParam}`);
-      setSelectedCategory(initialParam);
-    }
-  }, [initialParam, navigate]);
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [selectedMediaType]);
 
   const handleChangeCategory = (item: string) => {
     setSelectedCategory(item as CATEGORIES);
     navigate(`?section=${item}`);
+    setCurrentPage(0);
   };
 
   const items = ["Option 1", "Option 2", "Option 3"];
@@ -65,122 +98,80 @@ export const ResourcesReportsContent: React.FC = () => {
     setRangeValue(newValue as number[]);
   };
 
-  const categories: Array<{
-    enum: CATEGORIES;
-    label: string;
-    totalNumber: number;
-  }> = [
+  const categories: Record<
+    string,
     {
+      enum: CATEGORIES;
+      categoryArray: PublicationType[];
+      subComponent?: React.ReactNode;
+    }
+  > = {
+    [CategoryLabel.REPORTS]: {
       enum: CATEGORIES.REPORTS,
-      label: CategoryLabel.REPORTS,
-      totalNumber: 22,
+      categoryArray: resourcesList.filter((item) =>
+        item.category.includes(CATEGORIES.REPORTS)
+      ),
+      //  TODO: SAGE
+      subComponent: <NormalAccordion title="Reports" details={<></>} />,
     },
-    {
+    [CategoryLabel.NEWSLETTER]: {
       enum: CATEGORIES.NEWSLETTER,
-      label: CategoryLabel.NEWSLETTER,
-      totalNumber: 26,
+      categoryArray: resourcesList.filter((item) =>
+        item.category.includes(CATEGORIES.NEWSLETTER)
+      ),
+      subComponent: <></>,
     },
-    {
+    [CategoryLabel.PUBLICATIONS]: {
       enum: CATEGORIES.PUBLICATIONS,
-      label: CategoryLabel.PUBLICATIONS,
-      totalNumber: 14,
+      categoryArray: resourcesList.filter((item) =>
+        item.category.includes(CATEGORIES.PUBLICATIONS)
+      ),
+      subComponent: <></>,
     },
-    { enum: CATEGORIES.COURSES, label: CategoryLabel.COURSES, totalNumber: 32 },
-    {
+    [CategoryLabel.COURSES]: {
+      enum: CATEGORIES.COURSES,
+      categoryArray: resourcesList.filter((item) =>
+        item.category.includes(CATEGORIES.COURSES)
+      ),
+      subComponent: <></>,
+    },
+    [CategoryLabel.ADVERTORIALS]: {
       enum: CATEGORIES.ADVERTORIALS,
-      label: CategoryLabel.ADVERTORIALS,
-      totalNumber: 68,
+      categoryArray: resourcesList.filter((item) =>
+        item.category.includes(CATEGORIES.ADVERTORIALS)
+      ),
+      subComponent: <></>,
     },
-  ];
-  const resourcesReportsList: Array<{
-    title: string;
-    year: string;
-    description: string;
-    date: string;
-    maskIcon: string;
-    imgUrl: string;
-  }> = [
-    {
-      title: "HKCTC Report",
-      year: "2023-24",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2023-24.png",
-    },
-    {
-      title: "Report Highlights",
-      year: "2023-24",
-      description: "",
-      date: "1 Jul 2023",
-      maskIcon: "VIDEO.png",
-      imgUrl: "2023-24-2.png",
-    },
-    {
-      title: "HKCTC Report",
-      year: "2022-23",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23.png",
-    },
-    {
-      title: "Report Highlights",
-      year: "2022-23",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23-2.png",
-    },
-    {
-      title: "HKCTC Report",
-      year: "2021-22",
-      description:
-        "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
-      date: "31 Jul 2023",
-      maskIcon: "PDF.png",
-      imgUrl: "2022-23-2.png",
-    },
-  ];
+  };
+
+  const displayList = (
+    Object.values(categories).filter(
+      (item) => item.enum === selectedCategory
+    )?.[0]?.categoryArray ?? []
+  ).filter((cat) => cat.mediaType === selectedMediaType);
+
+  console.log(
+    displayList,
+    Object.values(categories).filter((item) => item.enum === selectedCategory)
+  );
+
+  const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
+    currentPage,
+    itemsPerPage,
+    displayList
+  );
+
   return (
     <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
       <div>
         <SquareTitle title="Resources" />
 
-        <div className="flex flex-row gap-[8px] items-center mt-[28px] mb-[10px]">
-          <p className="text-highlight-m">Reports</p>
-          <img
-            className="w-[12px] h-[12px]"
-            src={`${process.env.PUBLIC_URL}/assets/icons/arrow_up.svg`}
-            alt={"arrow_up"}
-          />
-        </div>
-        <div className="flex flex-wrap gap-[8px]">
-          {reportsButtons.map((btn, index) => {
-            const isActivated = index === activeButton;
-            return (
-              <button
-                key={index}
-                style={isActivated ? activatedButtonStyle : normalButtonStyle}
-                onClick={() => {
-                  setActiveButton(index);
-                }}
-              >
-                <p className="text-highlight-xs">{btn}</p>
-              </button>
-            );
-          })}
-        </div>
         <div className="flex flex-row justify-between mt-[16px] items-center">
           <div className="text-body-s">
             Showing <b className="text-button-s">21</b> results for{" "}
             <b className="text-button-s">Reports</b>
           </div>
           <div className="border-[1px] border-[#E0E0E0] flex flex-row p-[4px]">
-            {" "}
             {layoutIcons.map((icon, index) => {
               const isActivated = layoutButton === index;
               return (
@@ -209,112 +200,46 @@ export const ResourcesReportsContent: React.FC = () => {
           </div>
         </div>
 
-        {layoutButton === 0 ? (
-          <div className="flex flex-col w-full gap-[36px] mt-[24px] mb-[48px]">
-            {resourcesReportsList.map((item, index) => {
-              const { imgUrl, maskIcon, title, year, description, date } = item;
-              return (
-                <div
-                  key={index}
-                  className="w-full border-[1px] border-[#E0E0E0] h-[278px] grid grid-cols-2 gap-[24px]"
-                >
-                  <div className="flex-shrink-0 relative w-full h-[278px]">
-                    <img
-                      className="border-2 border-inherit w-full h-full object-cover"
-                      src={`${process.env.PUBLIC_URL}/assets/resourcesReports/${imgUrl}`}
-                      alt={imgUrl}
-                    />
-                    {/* Icon */}
-                    <img
-                      className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-                      alt="PDF Icon"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start justify-center">
-                    <p className="text-heading-m">{title}</p>
-                    <p className="text-heading-m">{year}</p>
-                    {description && (
-                      <p className="text-body-m mt-[16px] mb-[8px]">
-                        {description}
-                      </p>
-                    )}
-                    <div className="flex flex-row gap-[8px] mt-[8px] items-center">
-                      <img
-                        className="w-[16px] h-[16px]"
-                        src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                        alt={"calendar"}
-                      />
-                      <p className="text-body-s text-grey">{date}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
-            {resourcesReportsList.map((item, index) => {
-              const { imgUrl, maskIcon, title, year, date } = item;
-              return (
-                <div
-                  key={index}
-                  className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px] mb-[48px]"
-                >
-                  <div className="flex-shrink-0 relative w-full h-[190px]">
-                    <img
-                      className="border-2 border-inherit w-full h-full object-cover"
-                      src={`${process.env.PUBLIC_URL}/assets/resourcesReports/${imgUrl}`}
-                      alt={imgUrl}
-                    />
-                    {/* Icon */}
-                    <img
-                      className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-                      alt="PDF Icon"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start justify-center">
-                    <p className="text-highlight-l">{title}</p>
-                    <p className="text-highlight-l">{year}</p>
-                    <div className="flex flex-row gap-[8px] mt-[8px] items-center">
-                      <img
-                        className="w-[16px] h-[16px]"
-                        src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                        alt={"calendar"}
-                      />
-                      <p className="text-body-s text-grey">{date}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+        <div
+          className={
+            layoutButton === 0
+              ? "flex flex-col gap-[24px]"
+              : `w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]`
+          }
+        >
+          {currentPageData.map((item, index) => {
+            const { title, date, link, mediaType } = item;
+            const maskIcon =
+              mediaType === MEDIA_TYPE.PDF ? "PDF.png" : "VIDEO.png";
+            return (
+              <div
+                key={index}
+                className="w-full h-[282px] flex flex-col gap-[14px]"
+              >
+                <MediaTemplateWithDialog
+                  title={title}
+                  maskIcon={maskIcon}
+                  date={date}
+                  mediaLink={link}
+                  mediaType={mediaType}
+                  direction={layoutButton === 0 ? "full" : "column"}
+                />
+              </div>
+            );
+          })}
+        </div>
 
         {/* pagination  */}
-        <div className="flex justify-center flex-row items-center py-[48px] gap-[9px]">
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-            <Icon icon="fluent:arrow-left-12-filled" />
-          </button>
-          <button
-            style={activatedButtonStyle}
-            className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]"
-          >
-            1
-          </button>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-            2
-          </button>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-            3
-          </button>
-          <span className="px-4 py-2 text-gray-600">...</span>
-          <button className="px-4 py-2 border border-gray-300 hover:bg-gray-100 text-highlight-l h-[48px] w-[48px]">
-            <Icon icon="fluent:arrow-right-12-filled" />
-          </button>
-        </div>
+        <Paginator
+          dataSet={displayList}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsPerPage={itemsPerPage}
+          startIndex={startIndex}
+          endIndex={endIndex}
+        />
       </div>
+
       <div>
         <div className="border-2 border-inherit p-[24px]">
           <p className="text-heading-l">Filter</p>
@@ -327,7 +252,7 @@ export const ResourcesReportsContent: React.FC = () => {
               aria-label="Media type"
               className="flex flex-col gap-4"
             >
-              {mediaType.map((type, index) => (
+              {Object.keys(mediaTypeMapping).map((type, index) => (
                 <div key={index} className="flex items-center gap-[8px]">
                   <Radio
                     value={type}
@@ -345,7 +270,9 @@ export const ResourcesReportsContent: React.FC = () => {
                       }`}
                     />
                   </Radio>
-                  <p className="text-body-m">{type}</p>
+                  <p className="text-body-m">
+                    {mediaTypeMapping[type as MEDIA_TYPE]}
+                  </p>
                 </div>
               ))}
             </RadioGroup>
@@ -451,8 +378,8 @@ export const ResourcesReportsContent: React.FC = () => {
 
           <p className="text-heading-l mt-[32px] mb-[16px]">Categories</p>
           <div className="flex flex-col gap-[16px] mb-[32px]">
-            {categories.map((cat, index) => {
-              const { label, enum: catEnum, totalNumber } = cat;
+            {Object.keys(categories).map((cat, index) => {
+              const { enum: catEnum, categoryArray = [] } = categories[cat];
               const isActivated = catEnum === selectedCategory;
               return (
                 <div
@@ -466,8 +393,10 @@ export const ResourcesReportsContent: React.FC = () => {
                     handleChangeCategory(catEnum);
                   }}
                 >
-                  <p className="text-heading-l">{label}</p>
-                  <p className="text-highlight-l">{"(" + totalNumber + ")"}</p>
+                  <p className="text-heading-l">{cat}</p>
+                  <p className="text-highlight-l">
+                    {"(" + categoryArray.length + ")"}
+                  </p>
                 </div>
               );
             })}

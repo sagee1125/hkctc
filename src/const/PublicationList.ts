@@ -56,7 +56,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "31 Jul 2023",
     link: "/en/doc/HKCTCAnnualReport_2023-24.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 24], // start, end
+    yearRange: [23, 24], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -64,7 +64,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "1 Jul 2023",
     link: "/videos/en/hkctc_report_2023-24_highlights_en.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [23, 24], // start, end
+    yearRange: [23, 24], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -72,7 +72,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "27 Jun 2023",
     link: "/en/doc/HKCTCAnnualReport_2022-23.pdf",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [22, 23], // start, end
+    yearRange: [22, 23], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -80,7 +80,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "27 Jun 2023",
     link: "/videos/en/hkctc_report_2022-23_highlights.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [22, 23], // start, end
+    yearRange: [22, 23], 
     category: [CATEGORIES.REPORTS],
   },
 
@@ -89,7 +89,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2021-22_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [21, 22], // start, end
+    yearRange: [21, 22], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -105,7 +105,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2019-20_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [19, 20], // start, end
+    yearRange: [19, 20], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -113,7 +113,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2018-19_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [18, 19], // start, end
+    yearRange: [18, 19], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -121,7 +121,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2017-18_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [17, 18], // start, end
+    yearRange: [17, 18], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -129,7 +129,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2016-17_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [16, 17], // start, end
+    yearRange: [16, 17], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -137,7 +137,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2015-16_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [15, 16], // start, end
+    yearRange: [15, 16], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -145,7 +145,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2014-15_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [14, 15], // start, end
+    yearRange: [14, 15], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -153,7 +153,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2013-14_Eng_F.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [13, 14], // start, end
+    yearRange: [13, 14], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -161,7 +161,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_Eng(2013)LR.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [13, 14], // start, end
+    yearRange: [13, 14], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -169,7 +169,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_annual_report_2011-12_e_final2.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [11, 12], // start, end
+    yearRange: [11, 12], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -177,7 +177,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_2010-11_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [10, 11], // start, end
+    yearRange: [10, 11], 
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -185,7 +185,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [10, 11], // start, end
+    yearRange: [10, 11], 
     category: [CATEGORIES.REPORTS],
   },
 ];
