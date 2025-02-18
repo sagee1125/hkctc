@@ -4,7 +4,6 @@ import { InternalBackButton, Link } from "../../../../../components";
 
 export const SeminarArticlePage: React.FC = () => {
   const pageIndex = Number(window.location.hash.replace("#", ""));
-  console.log("pageIndex", pageIndex);
 
   const pageContent = seminarsAndWorkshopsList[pageIndex];
   const { img, title, date, content, topics, subContent, subTopics } =
