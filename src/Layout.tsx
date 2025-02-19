@@ -7,23 +7,22 @@ type LayoutProps = {
 };
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { device } = useSettings();
-  const isMobile: boolean = device === "mobile";
+  const { isPC } = useSettings();
 
   return (
     <div
       style={{
         ...layoutStyle,
-        ...(isMobile
+        ...(isPC
           ? {
-              maxWidth: "10230px",
+              minWidth: "1300px",
             }
           : {
-              minWidth: "1300px",
+              maxWidth: "1024px",
             }),
       }}
     >
-      {!isMobile && <Header />}
+      {isPC && <Header />}
       <Navigator />
       <main style={contentStyle}>{children}</main>
       <Footer />

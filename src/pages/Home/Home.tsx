@@ -10,13 +10,12 @@ import { Publications } from "./Publications";
 import { useSettings } from "../../context";
 
 export const Home: React.FC = () => {
-  const { device } = useSettings();
-  const isMobile: boolean = device === "mobile";
+  const { isPC } = useSettings();
 
   return (
     <div style={fullContainer}>
       <VideoBox />
-      <div style={isMobile ? maxMobileContainer : maxPCContainer}>
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
         <WhatsNew />
         <Publications />
       </div>

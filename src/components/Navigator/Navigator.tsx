@@ -44,7 +44,7 @@ export const exploreOption: Array<{ title: string; nav: string }> = [
   },
 ];
 export const Navigator: React.FC = () => {
-  const { device } = useSettings();
+  const { isPC } = useSettings();
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const [selectedExploreOption, setSelectedExploreOption] = useState<
@@ -88,13 +88,12 @@ export const Navigator: React.FC = () => {
     : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
 
-  const isMobile: boolean = device === "mobile";
   return (
-    <div style={isMobile ? { paddingBottom: "24px" } : {}}>
+    <div style={!isPC ? { paddingBottom: "24px" } : {}}>
       <nav
         ref={navRef}
         style={{
-          ...(isMobile
+          ...(!isPC
             ? { marginTop: "48px" }
             : { borderBottom: "1px solid #E0E0E0" }),
         }}
@@ -106,7 +105,7 @@ export const Navigator: React.FC = () => {
           <div
             style={{
               ...navStyle,
-              justifyContent: isMobile ? "space-between" : "flex-start",
+              justifyContent: !isPC ? "space-between" : "flex-start",
             }}
           >
             <div className={`flex items-center h-[54px] w-[141px]`}>
@@ -117,7 +116,7 @@ export const Navigator: React.FC = () => {
                 }}
               />
             </div>
-            {isMobile ? (
+            {!isPC ? (
               <div className="flex flex-row gap-[24px] justify-center items-center">
                 <Icon
                   icon="ri:search-line"
@@ -223,7 +222,7 @@ export const Navigator: React.FC = () => {
               </div>
             )}
           </div>
-          {isHideExploreBar && !isMobile && (
+          {isHideExploreBar && isPC && (
             <div className="flex flex-row items-center gap-[8px] pr-[24px]">
               <div className="min-w-[200px]">
                 <Menu
@@ -282,7 +281,7 @@ export const Navigator: React.FC = () => {
           )}
         </div>
         <Transition
-          show={!isHideDropdown && !isMobile}
+          show={!isHideDropdown && isPC}
           enter="transition-all duration-500 ease-out"
           enterFrom="opacity-0 transform scale-90"
           enterTo="opacity-100 transform scale-100"
@@ -627,10 +626,7 @@ export const Navigator: React.FC = () => {
           </div>
         </Transition>
       </nav>
-      <ExploreBar
-        isMobileView={isMobile}
-        isHidePCExploreBar={isHideExploreBar}
-      />
+      <ExploreBar isMobileView={!isPC} isHidePCExploreBar={isHideExploreBar} />
     </div>
   );
 };

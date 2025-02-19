@@ -4,8 +4,7 @@ import { fullContainer } from "../Container";
 import { useSettings } from "../../context";
 
 export const VideoBox: React.FC = () => {
-  const { device } = useSettings();
-  const isMobile: boolean = device === "mobile";
+  const { isPC } = useSettings();
 
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -133,11 +132,11 @@ export const VideoBox: React.FC = () => {
           className="absolute inset-0 w-full h-full"
         >
           <div className="flex flex-col jusity-between h-full">
-            {!isMobile && <div className="h-[50px] w-[50px] bg-newPrimary" />}
+            {isPC && <div className="h-[50px] w-[50px] bg-newPrimary" />}
             <div
               className="flex justify-between items-end py-10 px-[24px] mt-auto" // Added mt-auto for bottom alignment
               style={{
-                ...(isMobile
+                ...(!isPC
                   ? {}
                   : {
                       background:
@@ -145,7 +144,7 @@ export const VideoBox: React.FC = () => {
                     }),
               }}
             >
-              {!isMobile && (
+              {isPC && (
                 <div className="text-white pr-[26em]">
                   <p className="text-heading-xl">
                     Welcome to the InnoCarnival 2024
@@ -191,7 +190,7 @@ export const VideoBox: React.FC = () => {
         </div>
       </div>
 
-      {isMobile && (
+      {!isPC && (
         <div className="text-white bg-newPrimary p-[14px]">
           <p className="text-highlight-m">Welcome to the InnoCarnival 2024</p>
 
