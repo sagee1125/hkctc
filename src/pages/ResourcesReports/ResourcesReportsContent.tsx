@@ -21,10 +21,15 @@ import {
   legislativeCouncilList,
   hkctcNewsletterList,
   advertorialsList,
+  pamphletsList,
+  bookletsList,
+  comicsList,
+  corruptionGuideList,
+  otherInformationList,
   type PublicationType,
   MEDIA_TYPE,
+  ADVERTORIALS_SECTOR,
   convertedCoursesList,
-  CoursesType,
   coursesList,
   LANGUAGE,
 } from "../../const";
@@ -55,7 +60,6 @@ const reportsList: Record<string, PublicationType[]> = {
   "Legislative Council Papers": legislativeCouncilList,
 };
 
-// Publication filter buttons inside the Accordion
 const filterPublicationButtons = [
   "All",
   "Pamphlets",
@@ -64,6 +68,99 @@ const filterPublicationButtons = [
   "Corruption Prevention Guide",
   "Other Useful Information",
 ];
+const publicationList: Record<string, PublicationType[]> = {
+  All: [
+    ...pamphletsList,
+    ...bookletsList,
+    ...comicsList,
+    ...corruptionGuideList,
+    ...otherInformationList,
+  ],
+  Pamphlets: pamphletsList,
+  Booklets: bookletsList,
+  Comics: comicsList,
+  "Corruption Prevention Guide": corruptionGuideList,
+  "Other Useful Information": otherInformationList,
+};
+
+const aboutTestingSector: Record<string, any[]> = {
+  All: advertorialsList.filter((item) =>
+    [
+      ADVERTORIALS_SECTOR.OVERVIEW,
+      ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+      ADVERTORIALS_SECTOR.MANPOWER,
+      ADVERTORIALS_SECTOR.METROLOGY,
+      ADVERTORIALS_SECTOR.TC_SUPPORT,
+    ].includes(item.sector as ADVERTORIALS_SECTOR)
+  ),
+  Overview: advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.OVERVIEW
+  ),
+  "Mainland Opportunities": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY
+  ),
+  "Manpower Development": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.MANPOWER
+  ),
+  "Metrology, Accreditation and Standards": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.METROLOGY
+  ),
+  "Support to T&C Sector": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.TC_SUPPORT
+  ),
+};
+
+const certificateSector: Record<string, any[]> = {
+  All: advertorialsList.filter((item) =>
+    [
+      ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+      ADVERTORIALS_SECTOR.CHINESE_MEDICINE,
+      ADVERTORIALS_SECTOR.CONSTRUCTION,
+      ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
+      ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+      ADVERTORIALS_SECTOR.FOOD,
+      ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+      ADVERTORIALS_SECTOR.JEWELLERY,
+      ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+      ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
+      ADVERTORIALS_SECTOR.TOYS,
+    ].includes(item.sector as ADVERTORIALS_SECTOR)
+  ),
+  "Management System Certification": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM
+  ),
+  "Chinese Medicines": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.CHINESE_MEDICINE
+  ),
+  "Construction Materials": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.CONSTRUCTION
+  ),
+  "Electrical & Electronic Products": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS
+  ),
+  "Environmental Protection": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION
+  ),
+  Food: advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.FOOD
+  ),
+  "Information and Communications Technologies": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY
+  ),
+  Jewellery: advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.JEWELLERY
+  ),
+  "Medical testing": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.MEDICAL_TESTING
+  ),
+  "Textile, Clothing & Footwear": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.TEXTILE_CLOTHING
+  ),
+  "Toys & Children's Products": advertorialsList.filter(
+    (item) => item.sector === ADVERTORIALS_SECTOR.TOYS
+  ),
+};
+
 const coursesButtonMap: Record<string, PublicationType[]> = {
   All: [...convertedCoursesList],
   "English Version": coursesList
@@ -96,6 +193,12 @@ export const ResourcesReportsContent: React.FC = () => {
 
   // Reports filter buttons inside the Accordion
   const [activeReport, setActiveReport] = useState(0);
+  // Publication filter buttons inside the Accordion
+  const [activePublication, setActivePublication] = useState(0);
+  // Advertorials filter button inside the Accordion
+  const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
+  const [activeCertificateSector, setActiveCertificateSector] =
+    useState<number>(-1);
   const [activeCoursesCategory, setActiveCoursesCategory] = useState(
     Object.keys(coursesButtonMap)[0]
   );
@@ -114,6 +217,17 @@ export const ResourcesReportsContent: React.FC = () => {
     rangeValue: [2009, currentYear],
     selectedItem: selectedItem,
   });
+
+  const advertorialsFilterList = [
+    ...(activeAboutSector >= 0
+      ? aboutTestingSector[Object.keys(aboutTestingSector)[activeAboutSector]]
+      : []),
+    ...(activeCertificateSector >= 0
+      ? certificateSector[
+          Object.keys(certificateSector)[activeCertificateSector]
+        ]
+      : []),
+  ];
 
   const handleApplyFilter = () => {
     setFilterCondition({
@@ -162,6 +276,12 @@ export const ResourcesReportsContent: React.FC = () => {
   function rangValuetext(value: number): string {
     return `${value}`;
   }
+
+  console.log(
+    activePublication,
+    filterPublicationButtons[activePublication],
+    publicationList[filterPublicationButtons[activePublication]]
+  );
 
   const handleRangeChange = (
     event: Event,
@@ -218,10 +338,34 @@ export const ResourcesReportsContent: React.FC = () => {
     },
     [CategoryLabel.PUBLICATIONS]: {
       enum: CATEGORIES.PUBLICATIONS,
-      categoryArray: resourcesList.filter((item) =>
-        item.category.includes(CATEGORIES.PUBLICATIONS)
+      categoryArray:
+        publicationList[filterPublicationButtons[activePublication]],
+      subComponent: (
+        <NormalAccordion
+          title="Publications"
+          details={
+            <div className="flex flex-row gap-[8px]">
+              {filterPublicationButtons.map((name, index: number) => {
+                const isActivated = activePublication === index;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActivePublication(index);
+                      setCurrentPage(0);
+                    }}
+                  >
+                    <p className="text-highlight-xs">{name}</p>
+                  </button>
+                );
+              })}
+            </div>
+          }
+        />
       ),
-      subComponent: <></>,
     },
     [CategoryLabel.COURSES]: {
       enum: CATEGORIES.COURSES,
@@ -255,10 +399,66 @@ export const ResourcesReportsContent: React.FC = () => {
     },
     [CategoryLabel.ADVERTORIALS]: {
       enum: CATEGORIES.ADVERTORIALS,
-      categoryArray: resourcesList.filter((item) =>
-        item.category.includes(CATEGORIES.ADVERTORIALS)
+      categoryArray: advertorialsFilterList,
+      subComponent: (
+        <div className="flex flex-col gap-[24px]">
+          <div>
+            <NormalAccordion
+              title="About the testing and certification sector"
+              details={
+                <div className="flex flex-row flex-wrap gap-[8px]">
+                  {Object.keys(aboutTestingSector).map((name, index) => {
+                    const isActivated = activeAboutSector === index;
+                    return (
+                      <button
+                        key={index}
+                        style={
+                          isActivated ? activatedButtonStyle : normalButtonStyle
+                        }
+                        onClick={() => {
+                          setActiveAboutSector(index);
+                          setActiveCertificateSector(-1);
+                          setCurrentPage(0);
+                        }}
+                      >
+                        <p className="text-highlight-xs">{name}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              }
+            />
+          </div>
+
+          <div>
+            <NormalAccordion
+              title="Services offered by the testing and certification sector"
+              details={
+                <div className="flex flex-row flex-wrap gap-[8px]">
+                  {Object.keys(certificateSector).map((name, index) => {
+                    const isActivated = activeCertificateSector === index;
+                    return (
+                      <button
+                        key={index}
+                        style={
+                          isActivated ? activatedButtonStyle : normalButtonStyle
+                        }
+                        onClick={() => {
+                          setActiveCertificateSector(index);
+                          setActiveAboutSector(-1);
+                          setCurrentPage(0);
+                        }}
+                      >
+                        <p className="text-highlight-xs">{name}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              }
+            />
+          </div>
+        </div>
       ),
-      subComponent: <></>,
     },
   };
 
@@ -270,9 +470,10 @@ export const ResourcesReportsContent: React.FC = () => {
   const displayList = (activeCategoryList?.categoryArray ?? []).filter(
     (cat) =>
       cat.mediaType === filterCondition.mediaType &&
-      cat.yearRange &&
-      cat.yearRange[0] <= filterCondition.rangeValue[1] &&
-      cat.yearRange[1] >= filterCondition.rangeValue[0]
+      (cat.yearRange
+        ? cat.yearRange[0] <= filterCondition.rangeValue[1] &&
+          cat.yearRange[1] >= filterCondition.rangeValue[0]
+        : true)
   );
 
   const subComponent = activeCategoryList?.subComponent;

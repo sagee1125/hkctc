@@ -19,7 +19,7 @@ export const LegislativeCouncil: React.FC = () => {
               <MediaTemplateWithDialog
                 title={title}
                 maskIcon={maskIcon}
-                date={date}
+                date={date as string}
                 mediaLink={link}
                 mediaType={mediaType}
               />

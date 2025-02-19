@@ -44,7 +44,7 @@ export enum ADVERTORIALS_SECTOR {
 
 export type PublicationType = {
   title: string;
-  date: string;
+  date?: string;
   link: string;
   sector?: ADVERTORIALS_SECTOR;
   mediaType: MEDIA_TYPE;
@@ -531,10 +531,9 @@ export const convertedCoursesList: PublicationType[] = coursesList.map((c) => ({
   category: c.category,
 }));
 
-export const pamphletsList = [
+export const pamphletsList: PublicationType[] = [
   {
     title: "Tested in Hong Kong Certified in Hong Kong",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/Tested_in_Hong_Kong_Certified_in_Hong_Kong_en_tc.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -542,7 +541,6 @@ export const pamphletsList = [
   },
   {
     title: "Product Certification - An Upstream Quality Control",
-    img: "p_2.png",
     date: "",
     link: "/en/doc/HKCTC_Leaflet_construction_product_certification.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -551,7 +549,6 @@ export const pamphletsList = [
   {
     title:
       "Testing and Inspection Services for Buildings and Construction Materials",
-    img: "p_3.png",
     date: "",
     link: "/en/doc/HKCTC_Leaflet_Building_inspection.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -559,7 +556,6 @@ export const pamphletsList = [
   },
   {
     title: "What you Need to Know about Medical Testing",
-    img: "p_4.png",
     date: "",
     link: "/en/quality/hkas/doc/pamphlets/HKAS_PB004.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -567,7 +563,6 @@ export const pamphletsList = [
   },
   {
     title: "Food Testing and Certification",
-    img: "p_5.png",
     date: "",
     link: "/en/doc/Food_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -575,7 +570,6 @@ export const pamphletsList = [
   },
   {
     title: "Chinese Medicines Testing",
-    img: "p_6.png",
     date: "",
     link: "/en/doc/Chinese_Medicines_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -583,7 +577,6 @@ export const pamphletsList = [
   },
   {
     title: "Testing of Fei Cui and Diamond in Hong Kong",
-    img: "p_7.png",
     date: "",
     link: "/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -591,7 +584,6 @@ export const pamphletsList = [
   },
   {
     title: "Diamond Testing Services in Hong Kong",
-    img: "p_8.png",
     date: "",
     link: "/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -600,7 +592,6 @@ export const pamphletsList = [
   {
     title:
       "Understanding Information Security Management System (ISMS) Certification",
-    img: "p_9.png",
     date: "",
     link: "/en/doc/ISMS_Flyer_Communications_5.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -608,7 +599,6 @@ export const pamphletsList = [
   },
   {
     title: "Greenhouse Gas (GHG) Quantification, Validation and Verification",
-    img: "p_9.png", // TODO: not sure using photos or access pdf directly
     date: "",
     link: "/en/doc/2017_ITC_Leaflet_ISO14064.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -616,7 +606,6 @@ export const pamphletsList = [
   },
   {
     title: "ISO 50001 Energy Management System Certification",
-    img: "p_9.png",
     date: "",
     link: "/en/doc/2017_ITC_Leaflet_ISO50001.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -624,7 +613,6 @@ export const pamphletsList = [
   },
   {
     title: "Career Development in Testing and Certificate Sector",
-    img: "p_9.png",
     date: "",
     link: "/en/doc/pamphlet_a.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -632,10 +620,9 @@ export const pamphletsList = [
   },
 ];
 
-export const bookletsList = [
+export const bookletsList: PublicationType[] = [
   {
     title: "Electrical and Electronic Products",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/EEP_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -643,7 +630,6 @@ export const bookletsList = [
   },
   {
     title: "Textile and Apparel",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/textile_booklet_low_res_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -651,7 +637,6 @@ export const bookletsList = [
   },
   {
     title: "Toys",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/toys_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -659,16 +644,13 @@ export const bookletsList = [
   },
   {
     title: "Food",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/food_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
   },
-
   {
     title: "Testing and Certification Create Your Future",
-    img: "p_1.png",
     date: "",
     link: "/en/doc/brochure_e.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -676,7 +658,7 @@ export const bookletsList = [
   },
 ];
 
-export const comicsList = [
+export const comicsList: PublicationType[] = [
   {
     title: "第一話 : 講個「信」字？",
     link: "/tc/doc/comic_issue_no_1.pdf",
@@ -859,11 +841,10 @@ export const comicsList = [
   },
 ];
 
-export const corruptionGuideList = [
+export const corruptionGuideList: PublicationType[] = [
   {
     title: "Corruption Prevention Guide for Testing and Certification Industry",
     link: "https://cpas.icac.hk/UPloadImages/InfoFile/cate_43/2016/f0cf22b8-ca79-403e-9682-16b6a2166abe.pdf",
-    img: "c_1.png",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
   },
@@ -871,17 +852,15 @@ export const corruptionGuideList = [
     title:
       "Pamphlet for Frontline Materials Testing Staff (Chinese Version Only)",
     link: "http://www.hkbedc.icac.hk/tc_chi/files/publications/PamphletforFrontlineMaterialsTestingStaff.pdf",
-    img: "c_2.png",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
   },
 ];
 
-export const otherInformationList = [
+export const otherInformationList: PublicationType[] = [
   {
     title: "Hong Kong: The Facts – Testing and Certification",
     link: "/en/doc/Testing_and_Certification_EN.pdf",
-    img: "other_1.png",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
   },
