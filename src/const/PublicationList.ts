@@ -19,7 +19,10 @@ export enum CategoryLabel {
   COURSES = "Courses",
   ADVERTORIALS = "Advertorials",
 }
-
+export enum LANGUAGE {
+  EN = "EN",
+  CH = "CH",
+}
 export enum ADVERTORIALS_SECTOR {
   OVERVIEW = "OVERVIEW",
   MAINLAND_OPPORTUNITY = "MAINLAND_OPPORTUNITY",
@@ -47,6 +50,10 @@ export type PublicationType = {
   mediaType: MEDIA_TYPE;
   yearRange?: number[];
   category: CATEGORIES[];
+};
+
+export type CoursesType = Omit<PublicationType, "date" | "mediaType"> & {
+  language: LANGUAGE;
 };
 
 // Reports
@@ -332,6 +339,197 @@ export const hkctcNewsletterList: PublicationType[] = [
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
 ];
+
+export const coursesList: CoursesType[] = [
+  {
+    title:
+      "Analysis of Colorants in Food and Personal-Care Products (English Version)",
+    link: "/videos/en/STEM_Module_1_Eng.mp4", // https://www.hkctc.gov.hk
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+
+  {
+    title:
+      "Analysis of Colorants in Food and Personal-Care Products (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_1_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+  {
+    title:
+      "Screening Test for Plastic Type of Plastic Products (English Version)",
+    link: "/videos/en/STEM_Module_2_Eng.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Screening Test for Plastic Type of Plastic Products (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_2_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title: "Analysis of Bacteria in Environmental Samples (English Version)",
+    link: "/videos/en/STEM_Module_3_Eng.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title: "Analysis of Bacteria in Environmental Samples (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_3_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title: "Wine-Making and Analysis of Alcohol in Beverage (English Version)",
+    link: "/videos/en/STEM_Module_4_Eng.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Wine-Making and Analysis of Alcohol in Beverage (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_4_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title: "Slime-Making and Analysis of Borax in Slime (English Version)",
+    link: "/videos/en/STEM_Module_5_Eng.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title: "Slime-Making and Analysis of Borax in Slime (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_5_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Solar Cell Fabrication and Testing on its Electrical Properties (English Version)",
+    link: "/videos/en/STEM_Module_6_Eng.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Solar Cell Fabrication and Testing on its Electrical Properties (Cantonese Version)",
+    link: "/videos/tc/STEM_Module_6_Chi.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Determination of NO2 in Air: Air Pollutant Analysis (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp01.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Determination of NO2 in Air: Air Pollutant Analysis (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp01.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title: "Analysis of Copper in Wastewater (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp02.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title: "Analysis of Copper in Wastewater (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp02.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Determination of SO2 in Dried Food Using Optimized Monier-Williams Method (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp03.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Determination of SO2 in Dried Food Using Optimized Monier-Williams Method (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp03.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Is the Dairy Product Safe? Gold Nanoparticles as a Visual Detection Tool of Melamine (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp04.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Is the Dairy Product Safe? Gold Nanoparticles as a Visual Detection Tool of Melamine (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp04.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Is the Dairy Product Safe? Gold Nanoparticles as a Visual Detection Tool of Melamine (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp04.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.EN,
+  },
+  {
+    title:
+      "Differentiation of Chinese Herb Danshen from Other Similar Herbs Using Facile Test-Tube Scale Chemical Test Method (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp05.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+  {
+    title:
+      "Differentiation of Chinese Herb Danshen from Other Similar Herbs Using Facile Test-Tube Scale Chemical Test Method (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp05.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+
+  {
+    title:
+      "Determination of Vitamin C in Commercial Sample and Fresh Fruit Juice by Iodometric Titration (English Version)",
+    link: "/videos/en/chemistryhkbueduhkitcDemo-Ehtm_Exp06.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+  {
+    title:
+      "Determination of Vitamin C in Commercial Sample and Fresh Fruit Juice by Iodometric Titration (Cantonese Version)",
+    link: "/videos/tc/chemistryhkbueduhkitcDemo-Chtm_Exp06.mp4.mp4",
+    category: [CATEGORIES.COURSES],
+    language: LANGUAGE.CH,
+  },
+];
+
+export const convertedCoursesList: PublicationType[] = coursesList.map((c) => ({
+  title: c.title,
+  date: "",
+  link: c.link,
+  yearRange: [2009, new Date().getFullYear()],
+  mediaType: MEDIA_TYPE.VIDEO,
+  category: c.category,
+}));
 
 export const pamphletsList = [
   {
