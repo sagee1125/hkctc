@@ -23,6 +23,10 @@ import {
   advertorialsList,
   type PublicationType,
   MEDIA_TYPE,
+  convertedCoursesList,
+  CoursesType,
+  coursesList,
+  LANGUAGE,
 } from "../../const";
 
 const mediaTypeMapping: Partial<Record<MEDIA_TYPE, string>> = {
@@ -36,7 +40,53 @@ const resourcesList: PublicationType[] = [
   ...legislativeCouncilList,
   ...hkctcNewsletterList,
   ...advertorialsList,
+  ...convertedCoursesList,
 ];
+
+const filterReportsButtons = [
+  "All",
+  "HKCTC Reports",
+  "Legislative Council Papers",
+];
+
+const reportsList: Record<string, PublicationType[]> = {
+  All: [...hktctReportsList, ...legislativeCouncilList],
+  "HKCTC Reports": hktctReportsList,
+  "Legislative Council Papers": legislativeCouncilList,
+};
+
+// Publication filter buttons inside the Accordion
+const filterPublicationButtons = [
+  "All",
+  "Pamphlets",
+  "Booklets",
+  "Comics",
+  "Corruption Prevention Guide",
+  "Other Useful Information",
+];
+const coursesButtonMap: Record<string, PublicationType[]> = {
+  All: [...convertedCoursesList],
+  "English Version": coursesList
+    .filter((c) => c.language === LANGUAGE.EN)
+    .map((c) => ({
+      title: c.title,
+      date: "",
+      link: c.link,
+      yearRange: [2009, new Date().getFullYear()],
+      mediaType: MEDIA_TYPE.VIDEO,
+      category: c.category,
+    })),
+  "Cantonese Version": coursesList
+    .filter((c) => c.language === LANGUAGE.CH)
+    .map((c) => ({
+      title: c.title,
+      date: "",
+      yearRange: [2009, new Date().getFullYear()],
+      link: c.link,
+      mediaType: MEDIA_TYPE.VIDEO,
+      category: c.category,
+    })),
+};
 
 const itemsPerPage = 9;
 export const ResourcesReportsContent: React.FC = () => {
@@ -46,34 +96,9 @@ export const ResourcesReportsContent: React.FC = () => {
 
   // Reports filter buttons inside the Accordion
   const [activeReport, setActiveReport] = useState(0);
-  const filterReportsButtons = [
-    "All",
-    "HKCTC Reports",
-    "Legislative Council Papers",
-  ];
-  const reportsList: Record<string, PublicationType[]> = {
-    All: [...hktctReportsList, ...legislativeCouncilList],
-    "HKCTC Reports": hktctReportsList,
-    "Legislative Council Papers": legislativeCouncilList,
-  };
-
-  // Publication filter buttons inside the Accordion
-  const filterPublicationButtons = [
-    "All",
-    "Pamphlets",
-    "Booklets",
-    "Comics",
-    "Corruption Prevention Guide",
-    "Other Useful Information",
-  ];
-  const publicationList: Record<string, PublicationType[]> = {
-    All: [],
-    Pamphlets: [],
-    Booklets: [],
-    Comics: [],
-    "Corruption Prevention Guide": [],
-    "Other Useful Information": [],
-  };
+  const [activeCoursesCategory, setActiveCoursesCategory] = useState(
+    Object.keys(coursesButtonMap)[0]
+  );
 
   // layout display
   const [layoutButton, setLayoutButton] = useState<number>(0);
@@ -200,10 +225,33 @@ export const ResourcesReportsContent: React.FC = () => {
     },
     [CategoryLabel.COURSES]: {
       enum: CATEGORIES.COURSES,
-      categoryArray: resourcesList.filter((item) =>
-        item.category.includes(CATEGORIES.COURSES)
+      categoryArray: coursesButtonMap[activeCoursesCategory],
+      subComponent: (
+        <NormalAccordion
+          title="Courses"
+          details={
+            <div className="flex flex-row gap-[8px]">
+              {Object.keys(coursesButtonMap).map((name, index) => {
+                const isActivated = activeCoursesCategory === name;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveCoursesCategory(name);
+                      setCurrentPage(0);
+                    }}
+                  >
+                    <p className="text-highlight-xs">{name}</p>
+                  </button>
+                );
+              })}
+            </div>
+          }
+        />
       ),
-      subComponent: <></>,
     },
     [CategoryLabel.ADVERTORIALS]: {
       enum: CATEGORIES.ADVERTORIALS,
@@ -218,6 +266,7 @@ export const ResourcesReportsContent: React.FC = () => {
     Object.values(categories).filter(
       (item) => item.enum === selectedCategory
     )?.[0] ?? {};
+
   const displayList = (activeCategoryList?.categoryArray ?? []).filter(
     (cat) =>
       cat.mediaType === filterCondition.mediaType &&
@@ -227,11 +276,6 @@ export const ResourcesReportsContent: React.FC = () => {
   );
 
   const subComponent = activeCategoryList?.subComponent;
-
-  console.log(
-    displayList,
-    Object.values(categories).filter((item) => item.enum === selectedCategory)
-  );
 
   const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
     currentPage,
