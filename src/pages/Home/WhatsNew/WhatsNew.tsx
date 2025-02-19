@@ -59,20 +59,28 @@ export const WhatsNew: React.FC = () => {
         className={`pt-[24px] w-full`}
         style={{
           maxWidth: "100%",
-          overflowX: "scroll",
           width: isPC ? "100%" : "1024px",
         }}
       >
         <div
           ref={isPC ? containerRef : null}
-          className={`grid w-full gap-[24px] transition-opacity duration-1000 ease-in-out ${
+          className={`transition-opacity duration-1000 ease-in-out ${
             visibleWhatsNew || !isPC ? "opacity-100" : "opacity-0"
           }`}
           style={{
-            display: "grid",
             whiteSpace: "nowrap",
+            width: isPC ? "100%" : "1024px",
             gap: "24px",
-            gridTemplateColumns: `repeat(${firstFourWhatsNew.length}, minmax(0, 1fr))`,
+            display: "grid",
+            ...(isPC
+              ? {
+                  gridTemplateColumns: `repeat(${firstFourWhatsNew.length}, minmax(0, 1fr))`,
+                }
+              : {
+                  gridTemplateColumns: "repeat(4, 290px)",
+                  overflowX: "auto",
+                  maxWidth: "100%",
+                }),
           }}
         >
           {firstFourWhatsNew.map((item, index) => {
@@ -84,9 +92,7 @@ export const WhatsNew: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center ${
-                  !isPC ? "" : "group"
-                } cursor-pointer`}
+                className={`flex flex-col items-center group cursor-pointer`}
                 onClick={() => {
                   if (redirectTo) {
                     window.scroll({
@@ -97,7 +103,11 @@ export const WhatsNew: React.FC = () => {
                   }
                 }}
               >
-                <div className="relative flex justify-center items-center w-full min-w-[290px] aspect-[16/9] overflow-hidden cursor-pointer">
+                <div
+                  className={`relative flex justify-center items-center w-full ${
+                    isPC ? "min-w-[290px]" : ""
+                  } aspect-[16/9] overflow-hidden cursor-pointer`}
+                >
                   {/* 上层图片 */}
                   <img
                     className={`absolute w-full h-auto 

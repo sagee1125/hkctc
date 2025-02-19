@@ -12,6 +12,7 @@ import styled, { css, keyframes } from "styled-components";
 import { EmailBox, Quiz, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { CATEGORIES, navItemEnum } from "../../../const";
+import { useSettings } from "../../../context";
 
 type ResourcesData = {
   title: string;
@@ -49,6 +50,7 @@ export const Publications: React.FC = () => {
     Category.Events
   );
   const navigate = useNavigate();
+  const { isPC } = useSettings();
 
   const slideContainerRef = useRef<HTMLDivElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -290,7 +292,9 @@ export const Publications: React.FC = () => {
   return (
     <motion.div
       ref={slideContainerRef}
-      className="w-full grid grid-cols-[2fr,1fr]"
+      className={`w-full ${
+        isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col"
+      }`}
       style={{
         marginTop: "48px",
       }}
@@ -307,70 +311,143 @@ export const Publications: React.FC = () => {
             : "-translate-x-full opacity-0"
         }`}
       >
-        <div className="flex flex-row justify-between items-center w-full">
-          <div className="w-1/2">
+        <div
+          className={`flex ${
+            isPC ? "flex-row justify-between items-center" : "flex-col"
+          }  w-full`}
+        >
+          <div className={isPC ? "w-1/2" : "w-full"}>
             <SquareTitle title="What do you know about T&C" />
           </div>
-          <div className="w-1/2 justify-start" ref={containerRef}>
-            <div className="flex flex-row justify-between w-full">
-              {publicationCategory.map((cate, index) => {
-                const { title } = cate;
-                const isActivated = title === activeCategory;
-                return (
-                  <div
-                    key={index}
-                    className="cursor-pointer flex flex-col items-center"
-                    onClick={() => {
-                      setActiveCategory(title);
-                    }}
-                  >
-                    <p
-                      className={"text-center"}
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "22px",
-                        fontWeight: 700,
-                        color: isActivated ? "#233F55" : "black",
+          {isPC && (
+            <div className="w-1/2 justify-start" ref={containerRef}>
+              <div className="flex flex-row justify-between w-full">
+                {publicationCategory.map((cate, index) => {
+                  const { title } = cate;
+                  const isActivated = title === activeCategory;
+                  return (
+                    <div
+                      key={index}
+                      className="cursor-pointer flex flex-col items-center"
+                      onClick={() => {
+                        setActiveCategory(title);
                       }}
-                      ref={(el) => (titleRefs.current[index] = el)}
                     >
-                      {title}
-                    </p>
-                  </div>
-                );
-              })}
+                      <p
+                        className={"text-center"}
+                        style={{
+                          fontSize: "16px",
+                          lineHeight: "22px",
+                          fontWeight: 700,
+                          color: isActivated ? "#233F55" : "black",
+                        }}
+                        ref={(el) => (titleRefs.current[index] = el)}
+                      >
+                        {title}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* underline */}
+              <motion.div
+                className="bg-black h-[3px] absolute"
+                style={{
+                  width: underlineProps.width,
+                  left: underlineProps.left,
+                }}
+                initial={{
+                  width: underlineProps.width,
+                  left: underlineProps.left,
+                }}
+                animate={{
+                  width: underlineProps.width,
+                  left: underlineProps.left,
+                }}
+                transition={{ duration: 0.2 }}
+              />
             </div>
-            {/* underline */}
-            <motion.div
-              className="bg-black h-[3px] absolute"
-              style={{
-                width: underlineProps.width,
-                left: underlineProps.left,
-              }}
-              initial={{
-                width: underlineProps.width,
-                left: underlineProps.left,
-              }}
-              animate={{
-                width: underlineProps.width,
-                left: underlineProps.left,
-              }}
-              transition={{ duration: 0.2 }}
-            />
-          </div>
+          )}
         </div>
 
         <hr className="my-[24px]" />
-        <div className="w-full grid grid-cols-2 gap-[32px]">
-          {/* column 1 */}
-          <div className="flex flex-col items-center justify-start">
-            <div className="relative flex justify-center items-center w-full">
-              <Quiz />
+        <div
+          className={`w-full ${
+            isPC ? "grid grid-cols-2 gap-[32px]" : "flex flex-col "
+          }`}
+        >
+          {/* PC column 1 */}
+          <div className={isPC ? "" : "h-[480px] pr-[24px]"}>
+            <div className={`flex flex-col items-center justify-start`}>
+              <div
+                className={`relative flex justify-center items-center w-full`}
+              >
+                <Quiz />
+              </div>
             </div>
           </div>
-          {/* column 2 */}
+          {/* PC column 2 */}
           <div>
-            <Container className="flex flex-col gap-[32px]">
+            {!isPC && (
+              <>
+                <div
+                  className="w-full justify-start mt-[24px]"
+                  ref={containerRef}
+                >
+                  <div className="flex flex-row w-full gap-[20px]">
+                    {publicationCategory.map((cate, index) => {
+                      const { title } = cate;
+                      const isActivated = title === activeCategory;
+                      return (
+                        <div
+                          key={index}
+                          className="cursor-pointer flex flex-col items-center"
+                          onClick={() => {
+                            setActiveCategory(title);
+                          }}
+                        >
+                          <p
+                            className={"text-center"}
+                            style={{
+                              fontSize: "16px",
+                              lineHeight: "22px",
+                              fontWeight: 700,
+                              color: isActivated ? "#233F55" : "black",
+                            }}
+                            ref={(el) => (titleRefs.current[index] = el)}
+                          >
+                            {title}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* underline */}
+                  <motion.div
+                    className="bg-black h-[3px] absolute"
+                    style={{
+                      width: underlineProps.width,
+                      left: underlineProps.left,
+                    }}
+                    initial={{
+                      width: underlineProps.width,
+                      left: underlineProps.left,
+                    }}
+                    animate={{
+                      width: underlineProps.width,
+                      left: underlineProps.left,
+                    }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </div>
+                <hr className="my-[24px]" />
+              </>
+            )}
+            <Container
+              className={`flex flex-col gap-[32px] mt-[24px] w-full ${
+                isPC ? "" : "pr-[24px]"
+              }`}
+            >
               {showCurrentPubliationItem.map((subItem, index) => {
                 const { title, imgPath, nav } = subItem;
 
@@ -418,7 +495,11 @@ export const Publications: React.FC = () => {
                   </BannerSlide>
                 );
               })}
-              <div className="w-full flex justify-end underline text-[#00E] text-linked-s">
+              <div
+                className={`w-full flex justify-end underline text-[#00E] text-linked-s ${
+                  isPC ? "" : "pr-[24px]"
+                }`}
+              >
                 <p
                   onClick={() => {
                     if (seeMore) {
@@ -450,114 +531,146 @@ export const Publications: React.FC = () => {
           />
         </div>
 
-        <div className="w-full h-auto grid grid-cols-2 gap-[24px] mt-[24px]">
-          <div
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minHeight: "420px",
-              cursor: "pointer",
-              ...imgBox,
-            }}
-            onClick={() => {
-              navigate(
-                `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`
-              );
-            }}
-          >
+        <div
+          className={`w-full grid grid-cols-${
+            isPC ? "2" : "1"
+          } mt-[24px] h-auto gap-[24px]`}
+        >
+          <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
             <div
+              className={`${isPC ? "h-auto" : "aspect-[1/1]"}`}
               style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "420px",
+                backgroundRepeat: "no-repeat",
                 width: "100%",
-                height: "140px",
-                background:
-                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
-                pointerEvents: "none",
-                zIndex: 1,
+                height: "auto",
+                position: "relative",
+                cursor: "pointer",
+                overflow: "hidden",
               }}
-            />
-            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <div className="z-10">
-                <p
-                  className={"text-white z-10"}
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "700",
-                    lineHeight: "24px",
-                  }}
-                >
-                  STEM Teaching Kit
-                </p>
-                <p
-                  className={"text-white z-10"}
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    lineHeight: "22px",
-                  }}
-                >
-                  for Junior Secondary Students
-                </p>
+              onClick={() => {
+                navigate(
+                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`
+                );
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "140px",
+                  background:
+                    "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                  pointerEvents: "none",
+                  zIndex: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 10,
+                }}
+              >
+                <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+                  <div className="z-10">
+                    <p
+                      className={"text-white z-10"}
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      STEM Teaching Kit
+                    </p>
+                    <p
+                      className={"text-white z-10"}
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: "600",
+                        lineHeight: "22px",
+                      }}
+                    >
+                      for Junior Secondary Students
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <div
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minHeight: "0",
-              backgroundRepeat: "no-repeat",
-              width: "100%",
-              height: "auto",
-              position: "relative",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              navigate(
-                `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`
-              );
-            }}
-          >
+          <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
             <div
+              className={`${isPC ? "h-auto" : "aspect-[1/1]"}`}
               style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "420px",
+                backgroundRepeat: "no-repeat",
                 width: "100%",
-                height: "33%",
-                background:
-                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
-                pointerEvents: "none",
-                zIndex: 1,
+                height: "auto",
+                position: "relative",
+                cursor: "pointer",
+                overflow: "hidden",
               }}
-            />
-            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <div className="z-10">
-                <p
-                  className={"text-white z-10"}
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "700",
-                    lineHeight: "24px",
-                  }}
-                >
-                  Chemical Testing Teaching Kit
-                </p>
-                <p
-                  className={"text-white z-10"}
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    lineHeight: "22px",
-                  }}
-                >
-                  for Senior Secondary Curriculum
-                </p>
+              onClick={() => {
+                navigate(
+                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`
+                );
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "33%",
+                  background:
+                    "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                  pointerEvents: "none",
+                  zIndex: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 10,
+                }}
+              >
+                <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+                  <div className="z-10">
+                    <p
+                      className={"text-white z-10"}
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      Chemical Testing Teaching Kit
+                    </p>
+                    <p
+                      className={"text-white z-10"}
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: "600",
+                        lineHeight: "22px",
+                      }}
+                    >
+                      for Senior Secondary Curriculum
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -565,7 +678,7 @@ export const Publications: React.FC = () => {
       </div>
 
       {/* column 3 */}
-      <div className="px-[24px]">
+      <div className={`px-[24px] ${isPC ? "" : "mt-[24px] mb-[48px]"}`}>
         <div
           className={`py-[24px] px-[30px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
             isVisible
