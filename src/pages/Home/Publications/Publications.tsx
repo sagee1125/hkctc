@@ -351,10 +351,11 @@ export const Publications: React.FC = () => {
               </div>
               {/* underline */}
               <motion.div
-                className="bg-black h-[3px] absolute"
+                className="bg-newPrimary h-[3px] absolute"
                 style={{
                   width: underlineProps.width,
                   left: underlineProps.left,
+                  backgroundColor: "#233F55",
                 }}
                 initial={{
                   width: underlineProps.width,
@@ -424,7 +425,7 @@ export const Publications: React.FC = () => {
                   </div>
                   {/* underline */}
                   <motion.div
-                    className="bg-black h-[3px] absolute"
+                    className="bg-newPrimary h-[3px] absolute"
                     style={{
                       width: underlineProps.width,
                       left: underlineProps.left,

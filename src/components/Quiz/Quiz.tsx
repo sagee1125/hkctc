@@ -64,14 +64,16 @@ export const Quiz: React.FC = () => {
                 <>
                   <p
                     style={{
-                      fontSize: "14px",
+                      fontSize: isPC ? "14px" : "12px",
                       fontStyle: "normal",
                       fontWeight: 700,
                     }}
                   >
                     QUICK QUIZ
                   </p>
-                  <p className="py-[8px] text-heading-l">{quizData.question}</p>
+                  <p className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}>
+                    {quizData.question}
+                  </p>
                   <div className="flex flex-col">
                     {Object.entries(quizData.quizAnswers).map(
                       (answer, index) => {
@@ -117,7 +119,9 @@ export const Quiz: React.FC = () => {
                               />
                             </div>
                             <p
-                              className={`text-[${quizData.theme}] text-heading-s w-[260px]`}
+                              className={`text-[${
+                                quizData.theme
+                              }] text-heading-${isPC ? "s" : "xs"} w-[260px]`}
                             >
                               {optionCharacter}.&nbsp;{answer[1]}
                             </p>
@@ -231,7 +235,11 @@ export const Quiz: React.FC = () => {
                       </div>
                     )}
 
-                    <div className="grid grid-cols-2 gap-[16px] text-heading-s pb-[24px]">
+                    <div
+                      className={`grid grid-cols-2 gap-[16px] text-heading-${
+                        isPC ? "s" : "xs"
+                      } pb-[24px]`}
+                    >
                       <div
                         className="text-white w-full py-[12px] px-auto text-center cursor-pointer"
                         style={{
@@ -316,7 +324,11 @@ export const Quiz: React.FC = () => {
                     Please try again!
                   </div>
 
-                  <div className="grid grid-cols-2 gap-[16px] text-heading-s pb-[24px]">
+                  <div
+                    className={`grid grid-cols-2 gap-[16px] text-heading-${
+                      isPC ? "s" : "xs"
+                    } pb-[24px]`}
+                  >
                     <div
                       className="text-white w-full py-[12px] px-auto text-center cursor-pointer"
                       style={{

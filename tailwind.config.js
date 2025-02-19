@@ -39,6 +39,7 @@ module.exports = {
         "roboto-flex": ["Roboto Flex", "sans-serif"],
       },
       fontSize: {
+        "heading-xs": ["14px", { lineHeight: "20px", fontWeight: 700 }],
         "heading-s": ["16px", { lineHeight: "22px", fontWeight: 700 }],
         "heading-m": ["18px", { lineHeight: "24px", fontWeight: 700 }],
         "heading-l": ["24px", { lineHeight: "32px", fontWeight: 700 }],

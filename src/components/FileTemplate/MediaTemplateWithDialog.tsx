@@ -30,6 +30,7 @@ export const MediaTemplateWithDialog: React.FC<
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
+  const { isPC } = useSettings();
 
   const [loading, setLoading] = useState(false);
   const [isIMGLoaded, setIsIMGLoaded] = useState(false);
@@ -342,7 +343,11 @@ export const MediaTemplateWithDialog: React.FC<
           </>
         </div>
         <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
-          <div className="text-heading-m text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out">
+          <div
+            className={`text-heading-${
+              isPC ? "m" : "xs"
+            } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
+          >
             {title}
           </div>
         </div>
@@ -513,7 +518,7 @@ export const MediaTemplateWithDialog: React.FC<
           cursor: mediaType === MEDIA_TYPE.NEW_PAGE ? "pointer" : "none",
         }}
       >
-        <p className="text-highlight-l">{title}</p>
+        <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
 
         {date && (
           <div className="flex flex-row gap-[8px] mt-[8px] items-center">
@@ -522,7 +527,7 @@ export const MediaTemplateWithDialog: React.FC<
               src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
               alt={"calendar"}
             />
-            <p className="text-body-s text-grey">{date}</p>
+            <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>{date}</p>
           </div>
         )}
       </div>

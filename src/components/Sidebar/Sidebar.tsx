@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { Menu, Transition } from "@headlessui/react";
+import { Collapse } from "@mui/material";
+import { useSettings } from "../../context";
 import { type SubItems } from "../../const";
-import { Collapse, IconButton } from "@mui/material";
 
 type SidebarProps = {
   title: string;
@@ -16,47 +19,112 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activatedItems,
   setActivatedItems,
 }) => {
-  return (
-    <div className="border-2 border-inherit p-[24px]">
-      <p className="text-heading-l">{title}</p>
-      <div className="w-full flex flex-col gap-[24px] py-[24px]">
-        <div className="w-full flex flex-col gap-[24px]">
-          {sidebarItems.map((item, index) => {
-            const { subTitle, imgUrl, enum: navItemEnum } = item;
-            if (subTitle === "") return null;
+  const { isPC } = useSettings();
 
-            const isActivated = activatedItems === navItemEnum;
-            return (
-              <div
-                key={index}
-                className={`transition-all duration-200 ease-in-out ${
-                  isActivated
-                    ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
-                    : "bg-transparent border-[0px] border-transparent"
-                }`}
-                onClick={() => {
-                  setActivatedItems(navItemEnum);
-                }}
-              >
-                <div className="flex flex-row gap-[24px] w-full cursor-pointer ">
-                  <div className="w-[130px] h-[90px] overflow-hidden">
-                    <img
-                      className="min-w-[130px] min-h-[90px] object-cover object-center"
-                      src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                      alt={imgUrl}
-                    />
-                  </div>
-                  <div className="text-highlight-m text-black w-[252px]">
-                    {subTitle}
+  if (isPC)
+    return (
+      <div className="border-2 border-inherit p-[24px]">
+        <p className="text-heading-l">{title}</p>
+        <div className="w-full flex flex-col gap-[24px] py-[24px]">
+          <div className="w-full flex flex-col gap-[24px]">
+            {sidebarItems.map((item, index) => {
+              const { subTitle, imgUrl, enum: navItemEnum } = item;
+              if (subTitle === "") return null;
+
+              const isActivated = activatedItems === navItemEnum;
+              return (
+                <div
+                  key={index}
+                  className={`transition-all duration-200 ease-in-out ${
+                    isActivated
+                      ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
+                      : "bg-transparent border-[0px] border-transparent"
+                  }`}
+                  onClick={() => {
+                    setActivatedItems(navItemEnum);
+                  }}
+                >
+                  <div className="flex flex-row gap-[24px] w-full cursor-pointer ">
+                    <div className="w-[130px] h-[90px] overflow-hidden">
+                      <img
+                        className="min-w-[130px] min-h-[90px] object-cover object-center"
+                        src={
+                          process.env.PUBLIC_URL + "/assets/images/" + imgUrl
+                        }
+                        alt={imgUrl}
+                      />
+                    </div>
+                    <div className="text-highlight-m text-black w-[252px]">
+                      {subTitle}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  else
+    return (
+      <div className="w-full">
+        <Menu as="div" className="relative inline-block text-left w-full">
+          {({ open }) => (
+            <>
+              <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
+                <p className="!text-heading-xs">
+                  {
+                    sidebarItems.find((i) => i.enum === activatedItems)
+                      ?.subTitle
+                  }
+                </p>
+                <ChevronDownIcon
+                  className={`h-5 w-5 text-black transform transition-transform ${
+                    open ? "rotate-180" : "rotate-0"
+                  }`}
+                  aria-hidden="true"
+                />
+              </Menu.Button>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  {sidebarItems.map((item, index) => {
+                    const { subTitle, enum: navItemEnum } = item;
+                    if (subTitle === "") return null;
+
+                    return (
+                      <Menu.Item key={index}>
+                        {({ active }) => (
+                          <button
+                            onClick={() => {
+                              setActivatedItems(navItemEnum);
+                            }}
+                            className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
+                              active
+                                ? "bg-newPrimary text-white"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {subTitle}
+                          </button>
+                        )}
+                      </Menu.Item>
+                    );
+                  })}
+                </Menu.Items>
+              </Transition>
+            </>
+          )}
+        </Menu>
+      </div>
+    );
 };
 
 type MultipleSidebarsProps = {

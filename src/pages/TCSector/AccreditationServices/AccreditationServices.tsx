@@ -10,7 +10,7 @@ import { MEDIA_TYPE } from "../../../const";
 
 export const AccreditationServices: React.FC = () => {
   return (
-    <div className="w-full flex flex-row gap-[24px] pr-[24px]">
+    <div className="w-full">
       <div className="flex-1">
         <SquareTitle title={"Accreditation Services"} />
         <div className="bg-[#EEEEEA] my-[24px] py-[36px] px-[42px]">
