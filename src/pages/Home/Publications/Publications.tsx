@@ -370,7 +370,7 @@ export const Publications: React.FC = () => {
           )}
         </div>
 
-        <hr className="my-[24px]" />
+        <hr className={`my-[24px] ${isPC ? "" : "mr-[24px]"}`} />
         <div
           className={`w-full ${
             isPC ? "grid grid-cols-2 gap-[32px]" : "flex flex-col "
@@ -394,7 +394,7 @@ export const Publications: React.FC = () => {
                   className="w-full justify-start mt-[24px]"
                   ref={containerRef}
                 >
-                  <div className="flex flex-row w-full gap-[20px]">
+                  <div className="flex flex-row w-full gap-[16px]">
                     {publicationCategory.map((cate, index) => {
                       const { title } = cate;
                       const isActivated = title === activeCategory;
@@ -409,7 +409,7 @@ export const Publications: React.FC = () => {
                           <p
                             className={"text-center"}
                             style={{
-                              fontSize: "16px",
+                              fontSize: isPC ? "16px" : "14px",
                               lineHeight: "22px",
                               fontWeight: 700,
                               color: isActivated ? "#233F55" : "black",
@@ -440,7 +440,7 @@ export const Publications: React.FC = () => {
                     transition={{ duration: 0.2 }}
                   />
                 </div>
-                <hr className="my-[24px]" />
+                <hr className="my-[24px] mr-[24px]" />
               </>
             )}
             <Container
@@ -478,14 +478,19 @@ export const Publications: React.FC = () => {
                         />
                       </div>
                       <div className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center">
-                        <p className="text-highlight-s text-[#7B8C99]">
+                        <p
+                          className={`text-highlight-${
+                            isPC ? "s" : "xs"
+                          } text-[#7B8C99]`}
+                        >
                           {prevActiveCategory.toUpperCase()}
                         </p>
                         <p
                           style={{
-                            fontSize: "16px",
+                            fontSize: isPC ? "16px" : "12px",
                             fontWeight: 700,
-                            lineHeight: "20px",
+                            lineHeight: isPC ? "20px" : "16px",
+                            textOverflow: "ellipsis",
                           }}
                         >
                           {title}
@@ -532,18 +537,19 @@ export const Publications: React.FC = () => {
         </div>
 
         <div
-          className={`w-full grid grid-cols-${
+          className={`w-full max-w-full grid grid-cols-${
             isPC ? "2" : "1"
           } mt-[24px] h-auto gap-[24px]`}
         >
           <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
             <div
-              className={`${isPC ? "h-auto" : "aspect-[1/1]"}`}
+              className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 minHeight: "420px",
+                maxHeight: "1000px",
                 backgroundRepeat: "no-repeat",
                 width: "100%",
                 height: "auto",
@@ -605,14 +611,15 @@ export const Publications: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
+          <div className={`w-full ${isPC ? "" : "max-w-full pr-[24px]"}`}>
             <div
-              className={`${isPC ? "h-auto" : "aspect-[1/1]"}`}
+              className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 minHeight: "420px",
+                maxHeight: "1000px",
                 backgroundRepeat: "no-repeat",
                 width: "100%",
                 height: "auto",
@@ -678,9 +685,9 @@ export const Publications: React.FC = () => {
       </div>
 
       {/* column 3 */}
-      <div className={`px-[24px] ${isPC ? "" : "mt-[24px] mb-[48px]"}`}>
+      <div className={`px-[24px] w-full ${isPC ? "" : "mt-[24px] mb-[48px]"}`}>
         <div
-          className={`py-[24px] px-[30px] border-2 border-inherit flex flex-col transition-transform duration-700 ${
+          className={`py-[24px] px-[30px] border-2 border-inherit w-full flex flex-col transition-transform duration-700 ${
             isVisible
               ? "translate-x-0 opacity-100"
               : "translate-x-full opacity-0"

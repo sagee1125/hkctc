@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSettings } from "../../context";
 type SquareTitleProps = {
   title: string;
   showArrowIcon?: boolean;
@@ -13,6 +14,8 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
   redirectTo,
 }) => {
   const navigate = useNavigate();
+  const { isPC } = useSettings();
+
   return (
     <div
       className={`flex flex-row gap-[12px] items-center ${
@@ -28,12 +31,20 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
         }
       }}
     >
-      <div className="h-[15px] w-[15px] bg-newPrimary" />
-      <p className="text-heading-l">{title}</p>
+      <div
+        className={`h-[${isPC ? "15" : "12"}px] w-[${
+          isPC ? "15" : "12"
+        }px] bg-newPrimary`}
+      />
+      <p className={isPC ? "text-heading-l" : "text-heading-m"}>{title}</p>
       {showArrowIcon && (
         <Icon
           icon="teenyicons:right-outline"
-          style={{ height: "24px", width: "24px", strokeWidth: "2px" }}
+          style={{
+            height: isPC ? "24px" : "16px",
+            width: isPC ? "24px" : "16px",
+            strokeWidth: "2px",
+          }}
         />
       )}
     </div>

@@ -19,6 +19,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             }
           : {
               maxWidth: "1024px",
+              width: "100%",
+              overflow: "hidden",
             }),
       }}
     >
