@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { QUIZ, QuizStage, type QuizAnswers } from "./types";
 import { quizInteractionMap } from "./const";
+import { useSettings } from "../../context";
 
 export const Quiz: React.FC = () => {
   // show random quiz
@@ -9,6 +10,7 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
+  const { isPC } = useSettings();
 
   // State to track whether quizInteractionMap has been loaded
   const [isLoaded, setIsLoaded] = useState(false);
@@ -36,7 +38,9 @@ export const Quiz: React.FC = () => {
     <>
       {isLoaded && (
         <div
-          className={`w-full aspect-[380/480] bg-no-repeat bg-center bg-contain relative transition-opacity duration-1000 ${
+          className={`w-full ${
+            isPC ? "aspect-[380/480] bg-center bg-contain" : "h-[480px]"
+          } bg-no-repeat relative transition-opacity duration-1000 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           style={{
