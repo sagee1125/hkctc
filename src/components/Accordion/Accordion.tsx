@@ -5,6 +5,7 @@ import {
   Accordion as MuiAccordion,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useSettings } from "../../context";
 
 type AccordionProps = {
   title: string;
@@ -12,6 +13,8 @@ type AccordionProps = {
 };
 
 export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
+  const { isPC } = useSettings();
+
   return (
     <div>
       <MuiAccordion
@@ -41,7 +44,10 @@ export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
             },
           }}
         >
-          <p className="!text-highlight-m">{title}</p>
+          {/* TODO tbc */}
+          <div className={`!text-highlight-${isPC ? "m" : "m"} !pr-[24px]`}>
+            {title}
+          </div>
         </AccordionSummary>
         <div className="mx-[24px]">
           <hr

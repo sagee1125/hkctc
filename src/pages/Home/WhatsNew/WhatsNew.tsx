@@ -80,6 +80,7 @@ export const WhatsNew: React.FC = () => {
                   gridTemplateColumns: "repeat(4, 290px)",
                   overflowX: "auto",
                   maxWidth: "100%",
+                  paddingBottom: "8px",
                 }),
           }}
         >

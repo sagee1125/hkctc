@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as echarts from "echarts";
 import type { ChartProps } from "./types";
+import { useSettings } from "../../context";
 
 type AreaChartProps = ChartProps & {
   xAxisData: string[] | number[];
@@ -20,10 +21,14 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
     seriesBackgroundColor = "#D9B6F6",
     seriesItemColor = "#BD78FC",
   } = props;
+  const { isPC } = useSettings();
+
   useEffect(() => {
     const areaChartElement = document.getElementById(elementId) as HTMLElement;
     const areaChart = echarts.init(areaChartElement);
-
+    // 在窗口尺寸变化时重设图表大小
+    const resizeHandler = () => areaChart.resize();
+    window.addEventListener("resize", resizeHandler);
     const option: echarts.EChartsOption = {
       tooltip: {
         trigger: "axis", // 根据轴触发
@@ -55,7 +60,7 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
         },
         axisLabel: {
           color: "#000", // 设置 X 轴标签颜色为黑色
-          fontSize: 16,
+          fontSize: isPC ? 16 : 10,
         },
         axisTick: {
           show: false, // 隐藏 X 轴刻度
@@ -70,7 +75,7 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
         },
         axisLabel: {
           color: "#000", // 黑色标签
-          fontSize: 16,
+          fontSize: isPC ? 16 : 10,
         },
         axisTick: {
           show: true, // 显示刻度
@@ -98,17 +103,17 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
             color: seriesItemColor,
           },
           symbol: "circle", // 使用圆形点
-          symbolSize: 10, // 设置点的大小
+          symbolSize: isPC ? 10 : 4, // 设置点的大小
           lineStyle: {
-            width: 2,
+            width: isPC ? 2 : 1,
           },
         },
       ],
     };
 
     areaChart.setOption(option);
-
     return () => {
+      window.removeEventListener("resize", resizeHandler); // 清除事件监听
       areaChart.dispose();
     };
   }, [
@@ -118,18 +123,32 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
     seriesItemColor,
     elementId,
     yAxisStartValue,
+    isPC,
   ]);
 
   return (
-    <div>
+    <div
+      className="flex flex-col justify-center"
+      style={{
+        overflow: "visible",
+      }}
+    >
       <div>{title}</div>
       <div
-        id={elementId}
         style={{
-          width: "100%",
-          height: "500px",
+          paddingLeft: isPC ? "0px" : "20px",
+          overflow: "visible",
         }}
-      />
+      >
+        <div
+          id={elementId}
+          style={{
+            width: "100%",
+            minHeight: isPC ? "500px" : "240px",
+            overflow: "visible",
+          }}
+        />
+      </div>
     </div>
   );
 };

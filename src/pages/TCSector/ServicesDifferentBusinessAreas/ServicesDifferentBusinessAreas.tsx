@@ -2,6 +2,7 @@ import React from "react";
 
 import { SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import { useSettings } from "../../../context";
 
 export const displayBusinessAreas: Array<{
   title: string;
@@ -62,16 +63,17 @@ export const displayBusinessAreas: Array<{
 
 export const ServicesDifferentBusinessAreas: React.FC = () => {
   const navigate = useNavigate();
+  const { isPC } = useSettings();
 
   return (
-    <div className="w-full flex flex-row gap-[24px] pr-[24px]">
+    <div className="w-full">
       <div className="flex-1">
         <SquareTitle title={"Services for Different Business Areas"} />
         <p className="text-body-m my-[24px]">
           The testing and certification sector offers services covering a wide
           range of areas, some major ones are set out below.
         </p>
-        <div className="flex flex-wrap gap-[24px]">
+        <div className={`flex ${isPC ? "flex-wrap" : "flex-col"} gap-[24px]`}>
           {displayBusinessAreas.map((item, index) => {
             const { img, title, nav } = item;
             const onClick = (): void => {
@@ -84,7 +86,9 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
             return (
               <div
                 key={index}
-                className="flex flex-col gap-[14px] w-[270px] group"
+                className={`flex flex-col gap-[14px] ${
+                  isPC ? "w-[270px]" : "w-full"
+                } group`}
               >
                 <div className="w-full aspect-[260/202] overflow-hidden cursor-pointer">
                   <img

@@ -12,12 +12,12 @@ const pageText = TC_SERVICE_PROVIDED_TEXT.EN;
 
 const TestingService: React.FC = () => {
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[24px] text-body-m">
       <div>{pageText.TESTING.CONTENT_1}</div>
       {pageText.TESTING.INCLUDE_LIST.map((item, index) => {
         return (
           <div
-            className="border-2 py-[24px] flex flex-row items-center pl-[36px]"
+            className="border-2 py-[24px] flex flex-row items-center px-[36px]"
             key={index}
           >
             <img
@@ -48,7 +48,7 @@ const InspectionService: React.FC = () => {
         to authorities. Examples include:
       </div>
 
-      <div className="border-2 py-[24px] flex flex-row items-center pl-[36px]">
+      <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/icons/Inspection.svg`}
           alt="testIcon"
@@ -59,7 +59,7 @@ const InspectionService: React.FC = () => {
         </span>
       </div>
 
-      <div className="border-2 py-[24px] flex flex-row items-center pl-[36px]">
+      <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/icons/Inspection.svg`}
           alt="testIcon"

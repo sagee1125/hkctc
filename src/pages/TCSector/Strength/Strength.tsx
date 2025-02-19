@@ -6,6 +6,7 @@ import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 const pageText = TC_SECTOR_STRENGTH_TEXT.EN;
 export const Strength: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
+
   const strengthContent = [
     {
       title: pageText.FROM_MACRO_ANGLE.TITLE,
@@ -78,7 +79,7 @@ export const Strength: React.FC = () => {
     },
   ];
   return (
-    <div className="w-full flex flex-row gap-[24px] pr-[24px]">
+    <div className="w-full flex gap-[24px]">
       <div className="flex-1">
         <SquareTitle title={pageText.TITLE} />
         <div className="bg-[#EEEEEA] my-[24px]">
@@ -101,7 +102,11 @@ export const Strength: React.FC = () => {
                   setActiveTopicButton(index);
                 }}
               >
-                <p className="text-highlight-xs">{strengthInfo.title}</p>
+                <p className="text-highlight-xs">
+                  {strengthInfo.title.length > 52
+                    ? strengthInfo.title.slice(0, 52) + "..."
+                    : strengthInfo.title}
+                </p>
               </button>
             );
           })}

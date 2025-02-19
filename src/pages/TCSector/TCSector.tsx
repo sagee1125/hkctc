@@ -9,6 +9,7 @@ import {
   Breadcrumb,
   Sidebar,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../components";
 import {
@@ -19,6 +20,7 @@ import {
   SubItems,
 } from "../../const";
 import { ServicesDifferentBusinessAreas } from "./ServicesDifferentBusinessAreas";
+import { useSettings } from "../../context";
 
 const returnComponent = (
   navItem: navItemEnum
@@ -80,7 +82,7 @@ export const TCSector: React.FC = () => {
         subNav.name ===
         "Introducing the Testing and Certificate sector, and what service we can provide"
     )?.subItems ?? [];
-
+  const { isPC } = useSettings();
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -138,24 +140,35 @@ export const TCSector: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <Sidebar
+      title={"About T&C Sector"}
+      sidebarItems={eventItems}
+      activatedItems={activeSidebarItems}
+      setActivatedItems={handleChangeSidebar}
+    />
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={bannerImage} />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="px-[24px] min-w-[440px] w-1/3">
-            <Sidebar
-              title={"About T&C Sector"}
-              sidebarItems={eventItems}
-              activatedItems={activeSidebarItems}
-              setActivatedItems={handleChangeSidebar}
-            />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="flex-1">{component}</div>
-        </div>
+        )}
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="px-[24px] min-w-[440px] w-1/3">{sidebar}</div>
+            <div className="flex-1">{component}</div>
+          </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{component}</div>
+          </div>
+        )}
       </div>
     </div>
   );

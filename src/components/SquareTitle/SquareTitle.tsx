@@ -18,9 +18,9 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
 
   return (
     <div
-      className={`flex flex-row gap-[12px] items-center ${
-        redirectTo ? "cursor-pointer" : ""
-      }`}
+      className={`flex flex-row gap-[12px] ${
+        isPC ? "items-center" : "items-start"
+      } ${redirectTo ? "cursor-pointer" : ""}`}
       onClick={() => {
         if (redirectTo) {
           window.scroll({
@@ -32,9 +32,9 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       }}
     >
       <div
-        className={`h-[${isPC ? "15" : "12"}px] w-[${
-          isPC ? "15" : "12"
-        }px] bg-newPrimary`}
+        className={`${
+          isPC ? "h-[15px] w-[15px]" : "h-[12px] w-[12px] mt-[6px]"
+        }  bg-newPrimary`}
       />
       <p className={isPC ? "text-heading-l" : "text-heading-m"}>{title}</p>
       {showArrowIcon && (

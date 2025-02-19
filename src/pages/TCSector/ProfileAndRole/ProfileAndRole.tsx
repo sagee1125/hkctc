@@ -3,16 +3,24 @@ import { Icon } from "@iconify/react";
 import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
+import { useSettings } from "../../../context";
 
 export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeReport, setActiveReport] = useState(0);
+  const { isPC } = useSettings();
   const chartsArray = [
     {
       label: "Institutions and employees engagement",
       charts: [
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Number of institutions engaged in testing and certification
               activities
               <br />
@@ -45,7 +53,11 @@ export const ProfileAndRole: React.FC = () => {
         },
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Number of employees engaged in testing and certification
               activities
               <br />
@@ -84,7 +96,11 @@ export const ProfileAndRole: React.FC = () => {
       charts: [
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Total Number of Establishments (Category A, B and C)
               <br />
             </p>
@@ -103,7 +119,11 @@ export const ProfileAndRole: React.FC = () => {
       charts: [
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Total Number of Persons Engaged (Category A, B and C)
               <br />
             </p>
@@ -122,7 +142,11 @@ export const ProfileAndRole: React.FC = () => {
       charts: [
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Business Receipts (HK$ million) of Category A Establishments
               <br />
             </p>
@@ -141,7 +165,11 @@ export const ProfileAndRole: React.FC = () => {
       charts: [
         {
           title: (
-            <p className="text-heading-m pt-[24px] ml-[24px]">
+            <p
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } pt-[24px] ml-[24px]`}
+            >
               Industry value added (HK$ million) of Category A Establishments
               <br />
             </p>
@@ -177,12 +205,11 @@ export const ProfileAndRole: React.FC = () => {
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
     },
   ];
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [activeReport, setActiveReport] = useState(0);
+
   const currentReport = listOfData[activeReport];
 
   return (
-    <div className="w-full flex flex-row gap-[24px] pr-[24px]">
+    <div className="w-full flex">
       <div className="flex-1">
         <SquareTitle title="Profile of the Sector" />
 
@@ -239,12 +266,11 @@ export const ProfileAndRole: React.FC = () => {
         {displayCharts.map((chart, index) => {
           return (
             <>
-              <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+              <div className="w-full mb-[24px]">
                 <div
                   style={{
                     width: "100%",
                     border: "2px solid #E0E0E0",
-                    boxSizing: "border-box",
                   }}
                 >
                   <AreaChart key={index} {...chart} />
@@ -275,14 +301,20 @@ export const ProfileAndRole: React.FC = () => {
           In additional to its direct economic contribution, the sector also
           supports the manufacturing, export and supply chain.
         </p>
-        <div className="grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full">
+        <div
+          className={`grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full`}
+        >
           <img
-            className="h-[340px] w-auto object-fit"
+            className={`${
+              isPC ? "h-[340px]" : "h-[160px]"
+            } w-full object-cover`}
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role1.png"}
             alt="Role1"
           />
           <img
-            className="h-[340px] w-auto object-contain"
+            className={`${
+              isPC ? "h-[340px]" : "h-[160px]"
+            } w-full object-cover`}
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role2.png"}
             alt="Role2"
           />
@@ -325,17 +357,18 @@ export const ProfileAndRole: React.FC = () => {
             return (
               <div
                 key={index}
-                className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
+                className="flex flex-row h-[90px] mt-[24px] gap-[24px] w-full"
               >
                 <div
-                  className="relative w-[130px] h-full cursor-pointer"
+                  className="relative w-[130px] h-full cursor-pointer border-2 border-inherit"
                   onClick={() => {
                     setActiveReport(index);
                     setIsPreviewOpen(true);
                   }}
+                  style={{ flexShrink: 0 }} // 确保左边不会被压缩
                 >
                   <img
-                    className="border-2 border-inherit w-auto h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/${imagePath}`}
                     alt={imagePath}
                   />
@@ -348,7 +381,9 @@ export const ProfileAndRole: React.FC = () => {
                 </div>
                 <div>
                   <div
-                    className="text-highlight-m text-black cursor-pointer"
+                    className={`text-highlight-${
+                      isPC ? "m" : "s"
+                    } text-black cursor-pointer`}
                     onClick={() => {
                       setActiveReport(index);
                       setIsPreviewOpen(true);
@@ -359,7 +394,11 @@ export const ProfileAndRole: React.FC = () => {
                   {date && (
                     <div className="flex flex-row w-full mt-[8px] gap-2">
                       <Icon icon="material-symbols:date-range-rounded" />
-                      <h2 className="text-body-m text-grey">{date}</h2>
+                      <h2
+                        className={`text-body-${isPC ? "m" : "s"} text-[#666]`}
+                      >
+                        {date}
+                      </h2>
                     </div>
                   )}
                 </div>
