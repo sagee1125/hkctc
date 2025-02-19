@@ -209,7 +209,7 @@ export const MediaTemplateWithDialog: React.FC<
   return direction === "full" ? (
     <>
       <div
-        className="grid grid-cols-2 cursor-pointer justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px]"
+        className="grid grid-cols-2 cursor-pointer justify-start group border-2 border-inherit h-[278px] gap-[24px]"
         onClick={handleOnClick}
       >
         <div className="overflow-hidden flex-shrink-0 relative border-1">

@@ -56,7 +56,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "31 Jul 2023",
     link: "/en/doc/HKCTCAnnualReport_2023-24.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 24], 
+    yearRange: [2023, 2024],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -64,7 +64,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "1 Jul 2023",
     link: "/videos/en/hkctc_report_2023-24_highlights_en.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [23, 24], 
+    yearRange: [2023, 2024],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -72,7 +72,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "27 Jun 2023",
     link: "/en/doc/HKCTCAnnualReport_2022-23.pdf",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [22, 23], 
+    yearRange: [2022, 2023],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -80,16 +80,15 @@ export const hktctReportsList: PublicationType[] = [
     date: "27 Jun 2023",
     link: "/videos/en/hkctc_report_2022-23_highlights.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
-    yearRange: [22, 23], 
+    yearRange: [2022, 2023],
     category: [CATEGORIES.REPORTS],
   },
-
   {
     title: "HKCTC Report 21-22",
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2021-22_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [21, 22], 
+    yearRange: [2021, 2022],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -97,7 +96,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2020-21_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [20, 21],
+    yearRange: [2020, 2021],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -105,7 +104,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2019-20_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [19, 20], 
+    yearRange: [2019, 2020],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -113,7 +112,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2018-19_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [18, 19], 
+    yearRange: [2018, 2019],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -121,7 +120,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2017-18_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [17, 18], 
+    yearRange: [2017, 2018],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -129,7 +128,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2016-17_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [16, 17], 
+    yearRange: [2016, 2017],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -137,7 +136,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2015-16_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [15, 16], 
+    yearRange: [2015, 2016],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -145,7 +144,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2014-15_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [14, 15], 
+    yearRange: [2014, 2015],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -153,7 +152,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2013-14_Eng_F.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [13, 14], 
+    yearRange: [2013, 2014],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -161,7 +160,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_Eng(2013)LR.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [13, 14], 
+    yearRange: [2013, 2014],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -169,7 +168,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_annual_report_2011-12_e_final2.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [11, 12], 
+    yearRange: [2011, 2012],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -177,7 +176,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_2010-11_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [10, 11], 
+    yearRange: [2010, 2011],
     category: [CATEGORIES.REPORTS],
   },
   {
@@ -185,7 +184,7 @@ export const hktctReportsList: PublicationType[] = [
     date: "",
     link: "/en/doc/HKCTC_Report_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [10, 11], 
+    yearRange: [2010, 2011],
     category: [CATEGORIES.REPORTS],
   },
 ];
@@ -193,44 +192,44 @@ export const hktctReportsList: PublicationType[] = [
 export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2023",
-    date: "",
+    date: "27 6月 2023",
     link: "/en/doc/ci20230620cb1-661-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 23],
+    yearRange: [2023, 2023],
     category: [CATEGORIES.REPORTS],
   },
   {
     title: "Latest Development of the T&C Industry 2021",
-    date: "",
+    date: "19 2月 2021",
     link: "/en/doc/CIPanel_20210219_Paper_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [21, 21],
+    yearRange: [2021, 2021],
     category: [CATEGORIES.REPORTS],
   },
 
   {
     title: "Latest Development of the T&C Industry 2018",
-    date: "",
+    date: "27 2月 2018",
     link: "/en/doc/AdministrationPaper_ci20180227cb1-604-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [18, 18],
+    yearRange: [2018, 2018],
     category: [CATEGORIES.REPORTS],
   },
   {
     title: "Latest Development of the T&C Industry 2015",
-    date: "",
+    date: "17 11月 2015",
     link: "/en/doc/ci20151117cb1-148-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [15, 15],
+    yearRange: [2015, 2015],
     category: [CATEGORIES.REPORTS],
   },
   {
     title:
       "Measures to Regularise and Facilitate the Operation of Testing Laboratories in Industrial Buildings",
-    date: "",
+    date: "23 4月 2015",
     link: "/en/doc/itc-hkctc-17-7-1c-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [15, 15],
+    yearRange: [2015, 2015],
     category: [CATEGORIES.REPORTS],
   },
 ];
@@ -241,7 +240,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Dec 2024",
     link: "/tc/doc/hkctc_newsletter_issue12.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [24, 25],
+    yearRange: [2024, 2025],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -249,7 +248,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 May 2024",
     link: "/tc/doc/hkctc_newsletter_issue11.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 23],
+    yearRange: [2023, 2023],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -257,7 +256,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Dec 2023",
     link: "/tc/doc/hkctc_newsletter_issue10.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 23],
+    yearRange: [2023, 2023],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -265,7 +264,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 May 2023",
     link: "/tc/doc/hkctc_newsletter_issue9.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [23, 23],
+    yearRange: [2023, 2023],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -273,7 +272,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Aug 2022",
     link: "/tc/doc/hkctc_newsletter_issue8.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [22, 22],
+    yearRange: [2022, 2022],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -281,7 +280,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Jul 2021",
     link: "/tc/doc/hkctc_newsletter_issue7.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [21, 21],
+    yearRange: [2021, 2021],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -289,7 +288,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Dec 2020",
     link: "/tc/doc/hkctc_newsletter_issue6.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [20, 20],
+    yearRange: [2020, 2020],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -297,7 +296,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Jan 2020",
     link: "/tc/doc/hkctc_newsletter_issue5.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [20, 20],
+    yearRange: [2020, 2020],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -305,7 +304,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Jul 2019",
     link: "/tc/doc/hkctc_newsletter_issue4.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [19, 19],
+    yearRange: [2019, 2019],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -313,7 +312,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Oct 2018",
     link: "/tc/doc/hkctc_newsletter_issue3.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [18, 18],
+    yearRange: [2018, 2018],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -321,7 +320,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Dec 2017",
     link: "/tc/doc/hkctc_newsletter_issue2.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [17, 17],
+    yearRange: [2017, 2017],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
   {
@@ -329,7 +328,7 @@ export const hkctcNewsletterList: PublicationType[] = [
     date: "31 Jul 2017",
     link: "/tc/doc/hkctc_newsletter_issue1.pdf",
     mediaType: MEDIA_TYPE.PDF,
-    yearRange: [17, 17],
+    yearRange: [2017, 2017],
     category: [CATEGORIES.NEWSLETTER, CATEGORIES.PUBLICATIONS],
   },
 ];
@@ -691,7 +690,6 @@ export const otherInformationList = [
 ];
 
 export const advertorialsList: PublicationType[] = [
-  // overview
   {
     title: "25 Mar 2022",
     date: "25 Mar 2022",
@@ -699,6 +697,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "28 Feb 2022",
@@ -707,6 +706,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "13 Mar 2018",
@@ -715,6 +715,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "27 Jul 2017",
@@ -723,6 +724,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "27 Jul 2017",
@@ -731,6 +733,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "8 Mar 2017",
@@ -739,6 +742,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "22 Dec 2016",
@@ -747,6 +751,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
   {
     title: "22 Dec 2016",
@@ -755,6 +760,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
   {
     title: "16 Dec 2016",
@@ -763,6 +769,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
   {
     title: "12 Jul 2016",
@@ -771,17 +778,16 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.OVERVIEW,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
-
-  // Mainland Opportunity
   {
     title: "24 Apr 2018",
     date: "24 Apr 2018",
     link: "/en/doc/20180424_China_Daily_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
-    yearRange: [2018, 2018],
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "18 Apr 2018",
@@ -789,8 +795,8 @@ export const advertorialsList: PublicationType[] = [
     link: "/en/doc/20180418_HKET_CEPA_Seminar.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
-    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "20 Jun 2017",
@@ -798,8 +804,8 @@ export const advertorialsList: PublicationType[] = [
     link: "/en/doc/20170620-China_Daily-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
-    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "16 Jun 2017",
@@ -807,8 +813,8 @@ export const advertorialsList: PublicationType[] = [
     link: "/en/doc/20170616-HKET-Mainland_Opp.pdf",
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
-    yearRange: [2017, 2017],
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "8 Mar 2017",
@@ -817,9 +823,8 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
-
-  // Manpower Development
   {
     title: "9 Oct 2024",
     date: "9 Oct 2024",
@@ -827,6 +832,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2024, 2024],
   },
   {
     title: "7 Oct 2024",
@@ -835,6 +841,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2024, 2024],
   },
   {
     title: "21 Jun 2024",
@@ -843,6 +850,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2024, 2024],
   },
   {
     title: "23 May 2024",
@@ -851,6 +859,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2024, 2024],
   },
   {
     title: "20 May 2024",
@@ -859,6 +868,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2024, 2024],
   },
   {
     title: "8 Dec 2023",
@@ -867,6 +877,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2023, 2023],
   },
   {
     title: "6 Aug 2023",
@@ -875,6 +886,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2023, 2023],
   },
   {
     title: "27 Jul 2023",
@@ -883,6 +895,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2023, 2023],
   },
   {
     title: "19 Jun 2023",
@@ -891,6 +904,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2023, 2023],
   },
   {
     title: "15 Jun 2023",
@@ -899,6 +913,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2023, 2023],
   },
   {
     title: "17 Oct 2022",
@@ -907,6 +922,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "13 Oct 2022",
@@ -915,6 +931,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "10 Oct 2022",
@@ -923,6 +940,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "6 Oct 2022",
@@ -931,6 +949,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "23 Aug 2022",
@@ -939,6 +958,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2022, 2022],
   },
   {
     title: "30 Dec 2021",
@@ -947,6 +967,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "30 Dec 2021",
@@ -955,6 +976,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "30 Nov 2021",
@@ -963,6 +985,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "15 Nov 2021",
@@ -971,6 +994,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "11 Oct 2021",
@@ -979,6 +1003,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "29 Sep 2021",
@@ -987,6 +1012,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2021, 2021],
   },
   {
     title: "29 Oct 2020",
@@ -995,6 +1021,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2020, 2020],
   },
   {
     title: "15 Oct 2020",
@@ -1003,6 +1030,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2020, 2020],
   },
   {
     title: "5 Aug 2019",
@@ -1011,6 +1039,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "28 Jun 2019",
@@ -1019,6 +1048,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "20 Jun 2019",
@@ -1027,6 +1057,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "11 Jun 2019",
@@ -1035,6 +1066,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "28 Jun 2018",
@@ -1043,6 +1075,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "28 Jun 2018",
@@ -1051,6 +1084,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "28 Jun 2018",
@@ -1059,6 +1093,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "28 Mar 2018",
@@ -1067,6 +1102,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "29 Jun 2017",
@@ -1075,6 +1111,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "29 Jun 2017",
@@ -1083,6 +1120,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "11 May 2017",
@@ -1091,6 +1129,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "28 Apr 2017",
@@ -1099,6 +1138,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "28 Apr 2017",
@@ -1107,6 +1147,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "15 Jun 2016",
@@ -1115,8 +1156,8 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
-
   {
     title: "15 Feb 2016",
     date: "15 Feb 2016",
@@ -1124,9 +1165,8 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.MANPOWER,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
-
-  // Metrology, accreditation and standards
   {
     title: "30 Jul 2019",
     date: "30 Jul 2019",
@@ -1134,6 +1174,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "30 Jul 2019",
@@ -1142,6 +1183,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2019, 2019],
   },
   {
     title: "26 Jul 2018",
@@ -1150,6 +1192,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "26 Jul 2018",
@@ -1158,6 +1201,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "3 May 2018",
@@ -1166,6 +1210,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2018, 2018],
   },
   {
     title: "21 Dec 2017",
@@ -1174,6 +1219,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "21 Jul 2017",
@@ -1182,6 +1228,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "21 Jul 2017",
@@ -1190,6 +1237,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2017, 2017],
   },
   {
     title: "5 Aug 2016",
@@ -1198,6 +1246,7 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
   {
     title: "5 Aug 2016",
@@ -1206,10 +1255,8 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.METROLOGY,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
-
-  // Support to T&C Sector
-
   {
     title: "5 Jan 2018",
     link: "/en/doc/20180105_HKET_Support_to_the_T&C_Industry.pdf",
@@ -1217,6 +1264,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TC_SUPPORT,
     category: [CATEGORIES.ADVERTORIALS],
     date: "5 Jan 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "27 Jul 2017",
@@ -1225,6 +1273,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TC_SUPPORT,
     category: [CATEGORIES.ADVERTORIALS],
     date: "27 Jul 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "10 Apr 2019",
@@ -1233,6 +1282,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "10 Apr 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "2 Apr 2019",
@@ -1241,6 +1291,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "2 Apr 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "May 2018",
@@ -1249,6 +1300,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "May 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "31 Mar 2016",
@@ -1257,6 +1309,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Mar 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "31 Mar 2016",
@@ -1265,6 +1318,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Mar 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "31 Mar 2016",
@@ -1273,6 +1327,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Mar 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "24 Apr 2024",
@@ -1281,6 +1336,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "24 Apr 2024",
+    yearRange: [2024, 2024],
   },
   {
     title: "13 Apr 2016",
@@ -1289,6 +1345,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "13 Apr 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "27 Mar 2024",
@@ -1297,6 +1354,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
     category: [CATEGORIES.ADVERTORIALS],
     date: "27 Mar 2024",
+    yearRange: [2024, 2024],
   },
   {
     title: "23 Jan 2020",
@@ -1305,6 +1363,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "23 Jan 2020",
+    yearRange: [2020, 2020],
   },
   {
     title: "23 Jan 2020",
@@ -1313,6 +1372,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "23 Jan 2020",
+    yearRange: [2020, 2020],
   },
   {
     title: "25 Jul 2019",
@@ -1321,6 +1381,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "25 Jul 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "18 Dec 2017",
@@ -1329,6 +1390,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "18 Dec 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "Dec 2017",
@@ -1337,6 +1399,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.CONSTRUCTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "Dec 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "3 Jul 2017",
@@ -1345,6 +1408,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
     category: [CATEGORIES.ADVERTORIALS],
     date: "3 Jul 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "28 May 2024",
@@ -1353,6 +1417,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "28 May 2024",
+    yearRange: [2024, 2024],
   },
   {
     title: "1 Aug 2019",
@@ -1361,6 +1426,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "1 Aug 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "31 Jul 2019",
@@ -1369,6 +1435,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Jul 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "23 Apr 2018",
@@ -1377,6 +1444,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "23 Apr 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "10 Apr 2017",
@@ -1385,6 +1453,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
     category: [CATEGORIES.ADVERTORIALS],
     date: "10 Apr 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "30 Apr 2019",
@@ -1393,6 +1462,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
     date: "30 Apr 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "28 Jun 2018",
@@ -1401,6 +1471,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
     date: "28 Jun 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "13 Mar 2018",
@@ -1409,6 +1480,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.FOOD,
     category: [CATEGORIES.ADVERTORIALS],
     date: "13 Mar 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "11 Jul 2018",
@@ -1417,6 +1489,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "11 Jul 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "30 Aug 2017",
@@ -1425,6 +1498,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "30 Aug 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "29 Aug 2017",
@@ -1433,6 +1507,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "29 Aug 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "26 Jan 2017",
@@ -1441,6 +1516,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "26 Jan 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "26 Apr 2018",
@@ -1449,6 +1525,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "26 Apr 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "May 2017",
@@ -1457,6 +1534,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "May 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "16 Dec 2016",
@@ -1465,6 +1543,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "16 Dec 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "18 Nov 2016",
@@ -1473,6 +1552,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.JEWELLERY,
     category: [CATEGORIES.ADVERTORIALS],
     date: "18 Nov 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "20 Apr 2023",
@@ -1481,6 +1561,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "20 Apr 2023",
+    yearRange: [2023, 2023],
   },
   {
     title: "Apr 2021",
@@ -1489,6 +1570,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "Apr 2021",
+    yearRange: [2021, 2021],
   },
   {
     title: "Mar 2021",
@@ -1497,6 +1579,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "Mar 2021",
+    yearRange: [2021, 2021],
   },
   {
     title: "4 Oct 2018",
@@ -1505,6 +1588,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "4 Oct 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "May 2018",
@@ -1513,6 +1597,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "May 2018",
+    yearRange: [2018, 2018],
   },
   {
     title: "30 Sep 2016",
@@ -1521,6 +1606,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "30 Sep 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "31 Jul 2019",
@@ -1529,6 +1615,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.MEDICAL_TESTING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Jul 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "15 Dec 2017",
@@ -1537,6 +1624,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "15 Dec 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "Dec 2016",
@@ -1545,6 +1633,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "Dec 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "31 Jul 2019",
@@ -1553,6 +1642,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     category: [CATEGORIES.ADVERTORIALS],
     date: "31 Jul 2019",
+    yearRange: [2019, 2019],
   },
   {
     title: "9 Jan 2017",
@@ -1561,6 +1651,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
     date: "9 Jan 2017",
+    yearRange: [2017, 2017],
   },
   {
     title: "May 2016",
@@ -1569,6 +1660,7 @@ export const advertorialsList: PublicationType[] = [
     sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
     date: "May 2016",
+    yearRange: [2016, 2016],
   },
   {
     title: "14 Apr 2016",
@@ -1577,5 +1669,6 @@ export const advertorialsList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     sector: ADVERTORIALS_SECTOR.TOYS,
     category: [CATEGORIES.ADVERTORIALS],
+    yearRange: [2016, 2016],
   },
 ];
