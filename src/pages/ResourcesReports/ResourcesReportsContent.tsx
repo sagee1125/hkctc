@@ -12,6 +12,7 @@ import {
   Paginator,
   handleGetPaginatorProp,
   NormalAccordion,
+  Button,
 } from "../../components";
 import {
   CATEGORIES,
@@ -43,18 +44,60 @@ export const ResourcesReportsContent: React.FC = () => {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  // filter buttons inside the Accordion
+  // Reports filter buttons inside the Accordion
   const [activeReport, setActiveReport] = useState(0);
+  const filterReportsButtons = [
+    "All",
+    "HKCTC Reports",
+    "Legislative Council Papers",
+  ];
+  const reportsList: Record<string, PublicationType[]> = {
+    All: [...hktctReportsList, ...legislativeCouncilList],
+    "HKCTC Reports": hktctReportsList,
+    "Legislative Council Papers": legislativeCouncilList,
+  };
+
+  // Publication filter buttons inside the Accordion
+  const filterPublicationButtons = [
+    "All",
+    "Pamphlets",
+    "Booklets",
+    "Comics",
+    "Corruption Prevention Guide",
+    "Other Useful Information",
+  ];
+  const publicationList: Record<string, PublicationType[]> = {
+    All: [],
+    Pamphlets: [],
+    Booklets: [],
+    Comics: [],
+    "Corruption Prevention Guide": [],
+    "Other Useful Information": [],
+  };
 
   // layout display
   const [layoutButton, setLayoutButton] = useState<number>(0);
 
   // filter conditions display on the left side
   const [selectedMediaType, setSelectedMediaType] = useState(MEDIA_TYPE.PDF);
-  const [rangeValue, setRangeValue] = useState<number[]>([currentYear, 2009]);
+  const [rangeValue, setRangeValue] = useState<number[]>([2009, currentYear]);
   const [selectedItem, setSelectedItem] = useState<string>(
     "From latest to oldest"
   );
+  const [filterCondition, setFilterCondition] = useState({
+    mediaType: MEDIA_TYPE.PDF,
+    rangeValue: [2009, currentYear],
+    selectedItem: selectedItem,
+  });
+
+  const handleApplyFilter = () => {
+    setFilterCondition({
+      mediaType: selectedMediaType,
+      rangeValue: rangeValue,
+      selectedItem: selectedItem,
+    });
+  };
+
   const queryParams = new URLSearchParams(location.search);
   const initialSection = queryParams.get("category") ?? "";
 
@@ -108,18 +151,41 @@ export const ResourcesReportsContent: React.FC = () => {
   > = {
     [CategoryLabel.REPORTS]: {
       enum: CATEGORIES.REPORTS,
-      categoryArray: resourcesList.filter((item) =>
-        item.category.includes(CATEGORIES.REPORTS)
+      categoryArray: reportsList[filterReportsButtons[activeReport]].filter(
+        (item) => item.category.includes(CATEGORIES.REPORTS)
       ),
-      //  TODO: SAGE
-      subComponent: <NormalAccordion title="Reports" details={<></>} />,
+      subComponent: (
+        <NormalAccordion
+          title="Reports"
+          details={
+            <div className="flex flex-row gap-[8px]">
+              {filterReportsButtons.map((name, index) => {
+                const isActivated = activeReport === index;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveReport(index);
+                      setCurrentPage(0);
+                    }}
+                  >
+                    <p className="text-highlight-xs">{name}</p>
+                  </button>
+                );
+              })}
+            </div>
+          }
+        />
+      ),
     },
     [CategoryLabel.NEWSLETTER]: {
       enum: CATEGORIES.NEWSLETTER,
       categoryArray: resourcesList.filter((item) =>
         item.category.includes(CATEGORIES.NEWSLETTER)
       ),
-      subComponent: <></>,
     },
     [CategoryLabel.PUBLICATIONS]: {
       enum: CATEGORIES.PUBLICATIONS,
@@ -144,11 +210,19 @@ export const ResourcesReportsContent: React.FC = () => {
     },
   };
 
-  const displayList = (
+  const activeCategoryList =
     Object.values(categories).filter(
       (item) => item.enum === selectedCategory
-    )?.[0]?.categoryArray ?? []
-  ).filter((cat) => cat.mediaType === selectedMediaType);
+    )?.[0] ?? {};
+  const displayList = (activeCategoryList?.categoryArray ?? []).filter(
+    (cat) =>
+      cat.mediaType === filterCondition.mediaType &&
+      cat.yearRange &&
+      cat.yearRange[0] <= filterCondition.rangeValue[1] &&
+      cat.yearRange[1] >= filterCondition.rangeValue[0]
+  );
+
+  const subComponent = activeCategoryList?.subComponent;
 
   console.log(
     displayList,
@@ -163,13 +237,14 @@ export const ResourcesReportsContent: React.FC = () => {
 
   return (
     <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
-      <div>
+      <div className="flex flex-col gap-[24px]">
         <SquareTitle title="Resources" />
-
-        <div className="flex flex-row justify-between mt-[16px] items-center">
+        {subComponent && <div>{subComponent}</div>}
+        <div className="flex flex-row justify-between items-center">
           <div className="text-body-s">
-            Showing <b className="text-button-s">21</b> results for{" "}
-            <b className="text-button-s">Reports</b>
+            Showing <b className="text-button-s">{currentPageData.length}</b>{" "}
+            results for{" "}
+            <b className="text-button-s">{selectedCategory.toLowerCase()}</b>
           </div>
           <div className="border-[1px] border-[#E0E0E0] flex flex-row p-[4px]">
             {layoutIcons.map((icon, index) => {
@@ -366,14 +441,21 @@ export const ResourcesReportsContent: React.FC = () => {
               </Menu>
             </div>
 
-            <button
-              className="w-full text-white p-[16px] mt-[16px] mb-[22px] bg-newPrimary"
+            <Button
               style={{
                 lineHeight: 1.5,
+                width: "100%",
+                color: "#fff",
+                backgroundColor: "#233F55",
+                margin: "16px 0 22px 0",
+                padding: "16px",
+                textTransform: "none",
               }}
+              onClick={handleApplyFilter}
+              variant="contained"
             >
               Apply
-            </button>
+            </Button>
           </div>
 
           <p className="text-heading-l mt-[32px] mb-[16px]">Categories</p>
