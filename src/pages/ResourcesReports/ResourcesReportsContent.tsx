@@ -273,7 +273,7 @@ export const ResourcesReportsContent: React.FC = () => {
       mediaType: selectedMediaType,
       rangeValue: rangeValue,
       selectedItem: selectedItem,
-      needRangeValue: true,
+      needRangeValue: needRangeValue,
     });
   };
 
@@ -304,6 +304,7 @@ export const ResourcesReportsContent: React.FC = () => {
     setFilterCondition(defaultFilterCondition);
     setSelectedMediaType("All");
     setRangeValue([2009, currentYear]);
+    setNeedRangeValue(true);
     setSelectedItem(filterOptions[0]);
   };
 
@@ -323,12 +324,6 @@ export const ResourcesReportsContent: React.FC = () => {
   function rangValuetext(value: number): string {
     return `${value}`;
   }
-
-  console.log(
-    activePublication,
-    filterPublicationButtons[activePublication],
-    publicationList[filterPublicationButtons[activePublication]]
-  );
 
   const handleRangeChange = (
     event: Event,
@@ -519,15 +514,16 @@ export const ResourcesReportsContent: React.FC = () => {
       ? sortByDateDescending
       : sortByDateAscending
   )(
-    (activeCategoryList?.categoryArray ?? []).filter(
-      (cat) =>
-        (filterCondition.mediaType === "All"
-          ? true
-          : cat.mediaType === filterCondition.mediaType) &&
-        (cat.yearRange && filterCondition.needRangeValue
+    (activeCategoryList?.categoryArray ?? []).filter((cat) =>
+      (filterCondition.mediaType === "All"
+        ? true
+        : cat.mediaType === filterCondition.mediaType) &&
+      filterCondition.needRangeValue
+        ? cat.yearRange
           ? cat.yearRange[0] <= filterCondition.rangeValue[1] &&
             cat.yearRange[1] >= filterCondition.rangeValue[0]
-          : true)
+          : true
+        : true
     )
   );
 
