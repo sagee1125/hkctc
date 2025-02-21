@@ -238,6 +238,9 @@ export const EventsPromotion: React.FC = () => {
     {
       label: activeSidebarItemsLabel ?? "",
     },
+    {
+      label:""
+    }
   ];
 
   return (

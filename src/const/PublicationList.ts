@@ -199,7 +199,7 @@ export const hktctReportsList: PublicationType[] = [
 export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2023",
-    date: "27 6月 2023",
+    date: "27 Jun 2023",
     link: "/en/doc/ci20230620cb1-661-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2023],
@@ -207,7 +207,7 @@ export const legislativeCouncilList: PublicationType[] = [
   },
   {
     title: "Latest Development of the T&C Industry 2021",
-    date: "19 2月 2021",
+    date: "19 Feb 2021",
     link: "/en/doc/CIPanel_20210219_Paper_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2021, 2021],
@@ -216,7 +216,7 @@ export const legislativeCouncilList: PublicationType[] = [
 
   {
     title: "Latest Development of the T&C Industry 2018",
-    date: "27 2月 2018",
+    date: "27 Feb 2018",
     link: "/en/doc/AdministrationPaper_ci20180227cb1-604-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2018, 2018],
@@ -224,7 +224,7 @@ export const legislativeCouncilList: PublicationType[] = [
   },
   {
     title: "Latest Development of the T&C Industry 2015",
-    date: "17 11月 2015",
+    date: "17 Nov 2015",
     link: "/en/doc/ci20151117cb1-148-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2015, 2015],
@@ -233,7 +233,7 @@ export const legislativeCouncilList: PublicationType[] = [
   {
     title:
       "Measures to Regularise and Facilitate the Operation of Testing Laboratories in Industrial Buildings",
-    date: "23 4月 2015",
+    date: "23 Apr 2015",
     link: "/en/doc/itc-hkctc-17-7-1c-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2015, 2015],

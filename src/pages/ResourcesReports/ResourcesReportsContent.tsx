@@ -13,6 +13,8 @@ import {
   handleGetPaginatorProp,
   NormalAccordion,
   Button,
+  Link,
+  Checkbox,
 } from "../../components";
 import {
   CATEGORIES,
@@ -34,7 +36,8 @@ import {
   LANGUAGE,
 } from "../../const";
 
-const mediaTypeMapping: Partial<Record<MEDIA_TYPE, string>> = {
+const mediaTypeMapping: Partial<Record<string, string>> = {
+  All: "All",
   [MEDIA_TYPE.PDF]: "PDF",
   [MEDIA_TYPE.VIDEO]: "Video",
 };
@@ -185,6 +188,37 @@ const coursesButtonMap: Record<string, PublicationType[]> = {
     })),
 };
 
+const parseDate = (dateString: string) => {
+  return new Date(dateString);
+};
+
+const sortByDateAscending = (list: PublicationType[]) => {
+  const validDateList = list.every((l) => Boolean(l.date));
+  return validDateList
+    ? list
+        .slice()
+        .sort(
+          (a, b) =>
+            parseDate(a.date as string).getTime() -
+            parseDate(b.date as string).getTime()
+        )
+    : list;
+};
+
+const sortByDateDescending = (list: PublicationType[]) => {
+  const validDateList = list.every((l) => Boolean(l.date));
+
+  return validDateList
+    ? list
+        .slice()
+        .sort(
+          (a, b) =>
+            parseDate(b.date as string).getTime() -
+            parseDate(a.date as string).getTime()
+        )
+    : list;
+};
+
 const itemsPerPage = 9;
 export const ResourcesReportsContent: React.FC = () => {
   const navigate = useNavigate();
@@ -207,16 +241,21 @@ export const ResourcesReportsContent: React.FC = () => {
   const [layoutButton, setLayoutButton] = useState<number>(0);
 
   // filter conditions display on the left side
-  const [selectedMediaType, setSelectedMediaType] = useState(MEDIA_TYPE.PDF);
+  const [selectedMediaType, setSelectedMediaType] = useState("All");
+  const [needRangeValue, setNeedRangeValue] = useState(true);
   const [rangeValue, setRangeValue] = useState<number[]>([2009, currentYear]);
-  const [selectedItem, setSelectedItem] = useState<string>(
-    "From latest to oldest"
-  );
-  const [filterCondition, setFilterCondition] = useState({
-    mediaType: MEDIA_TYPE.PDF,
+  const filterOptions = ["From Latest to Oldest", "From Oldest to Latest"];
+  const [selectedItem, setSelectedItem] = useState<string>(filterOptions[0]);
+  const defaultFilterCondition = {
+    mediaType: "All",
     rangeValue: [2009, currentYear],
+    needRangeValue,
     selectedItem: selectedItem,
-  });
+  };
+
+  const [filterCondition, setFilterCondition] = useState(
+    defaultFilterCondition
+  );
 
   const advertorialsFilterList = [
     ...(activeAboutSector >= 0
@@ -234,6 +273,7 @@ export const ResourcesReportsContent: React.FC = () => {
       mediaType: selectedMediaType,
       rangeValue: rangeValue,
       selectedItem: selectedItem,
+      needRangeValue: true,
     });
   };
 
@@ -260,8 +300,16 @@ export const ResourcesReportsContent: React.FC = () => {
     setCurrentPage(0);
   }, [selectedMediaType]);
 
+  const handleClearFilter = (): void => {
+    setFilterCondition(defaultFilterCondition);
+    setSelectedMediaType("All");
+    setRangeValue([2009, currentYear]);
+    setSelectedItem(filterOptions[0]);
+  };
+
   const handleChangeCategory = (item: string) => {
     setSelectedCategory(item as CATEGORIES);
+    handleClearFilter();
     window.scroll({
       top: 0,
       behavior: "smooth",
@@ -467,13 +515,21 @@ export const ResourcesReportsContent: React.FC = () => {
       (item) => item.enum === selectedCategory
     )?.[0] ?? {};
 
-  const displayList = (activeCategoryList?.categoryArray ?? []).filter(
-    (cat) =>
-      cat.mediaType === filterCondition.mediaType &&
-      (cat.yearRange
-        ? cat.yearRange[0] <= filterCondition.rangeValue[1] &&
-          cat.yearRange[1] >= filterCondition.rangeValue[0]
-        : true)
+  const displayList = (
+    filterCondition.selectedItem === filterOptions[0]
+      ? sortByDateDescending
+      : sortByDateAscending
+  )(
+    (activeCategoryList?.categoryArray ?? []).filter(
+      (cat) =>
+        (filterCondition.mediaType === "All"
+          ? true
+          : cat.mediaType === filterCondition.mediaType) &&
+        (cat.yearRange && filterCondition.needRangeValue
+          ? cat.yearRange[0] <= filterCondition.rangeValue[1] &&
+            cat.yearRange[1] >= filterCondition.rangeValue[0]
+          : true)
+    )
   );
 
   const subComponent = activeCategoryList?.subComponent;
@@ -484,6 +540,7 @@ export const ResourcesReportsContent: React.FC = () => {
     displayList
   );
 
+  const dataCount = (displayList ?? []).length;
   return (
     <div className="w-full px-[24px] mt-[48px] grid grid-cols-[2fr,1fr] gap-[24px]">
       <div className="flex flex-col gap-[24px]">
@@ -491,8 +548,7 @@ export const ResourcesReportsContent: React.FC = () => {
         {subComponent && <div>{subComponent}</div>}
         <div className="flex flex-row justify-between items-center">
           <div className="text-body-s">
-            Showing <b className="text-button-s">{currentPageData.length}</b>{" "}
-            results for{" "}
+            Showing <b className="text-button-s">{dataCount}</b> results for{" "}
             <b className="text-button-s">{selectedCategory.toLowerCase()}</b>
           </div>
           <div className="border-[1px] border-[#E0E0E0] flex flex-row p-[4px]">
@@ -524,49 +580,73 @@ export const ResourcesReportsContent: React.FC = () => {
           </div>
         </div>
 
-        <div
-          className={
-            layoutButton === 0
-              ? "flex flex-col gap-[24px]"
-              : `w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]`
-          }
-        >
-          {currentPageData.map((item, index) => {
-            const { title, date, link, mediaType } = item;
-            const maskIcon =
-              mediaType === MEDIA_TYPE.PDF ? "PDF.png" : "VIDEO.png";
-            return (
-              <div
-                key={index}
-                className="w-full h-[282px] flex flex-col gap-[14px]"
-              >
-                <MediaTemplateWithDialog
-                  title={title}
-                  maskIcon={maskIcon}
-                  date={date}
-                  mediaLink={link}
-                  mediaType={mediaType}
-                  direction={layoutButton === 0 ? "full" : "column"}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* pagination  */}
-        <Paginator
-          dataSet={displayList}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          itemsPerPage={itemsPerPage}
-          startIndex={startIndex}
-          endIndex={endIndex}
-        />
+        {dataCount > 0 ? (
+          <>
+            <div
+              className={
+                layoutButton === 0
+                  ? "flex flex-col gap-[24px]"
+                  : `w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]`
+              }
+            >
+              {currentPageData.map((item, index) => {
+                const { title, date, link, mediaType } = item;
+                const maskIcon =
+                  mediaType === MEDIA_TYPE.PDF ? "PDF.png" : "VIDEO.png";
+                return (
+                  <div
+                    key={index}
+                    className="w-full h-[282px] flex flex-col gap-[14px]"
+                  >
+                    <MediaTemplateWithDialog
+                      title={title}
+                      maskIcon={maskIcon}
+                      date={date}
+                      mediaLink={link}
+                      mediaType={mediaType}
+                      direction={layoutButton === 0 ? "full" : "column"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {/* pagination  */}
+            <Paginator
+              dataSet={displayList}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              itemsPerPage={itemsPerPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+            />
+          </>
+        ) : (
+          <div className="flex flex-col text-center w-full gap-[20px]">
+            <div className="text-newPrimary text-heading-l">
+              No Results Match
+            </div>
+            <div>
+              Please try to select a different Media Type/ expand the Year
+              range.
+            </div>
+            <div onClick={handleClearFilter}>
+              <Link>Clear Filters and Apply</Link>
+            </div>
+          </div>
+        )}
       </div>
 
       <div>
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Filter</p>
+          <div className="flex flex-row items-center">
+            <p className="text-heading-l w-full">Filter</p>
+            <div
+              onClick={handleClearFilter}
+              className="w-[50%] flex flex-row-reverse "
+            >
+              <Link>Clear Filters</Link>
+            </div>
+          </div>
           <div className="bg-[#EEEEEA] mt-[16px] pt-[22px] px-[24px]">
             <p className="text-highlight-l mb-[16px]">Media type</p>
 
@@ -574,7 +654,7 @@ export const ResourcesReportsContent: React.FC = () => {
               value={selectedMediaType}
               onChange={setSelectedMediaType}
               aria-label="Media type"
-              className="flex flex-col gap-4"
+              className="flex flex-row gap-4"
             >
               {Object.keys(mediaTypeMapping).map((type, index) => (
                 <div key={index} className="flex items-center gap-[8px]">
@@ -601,10 +681,30 @@ export const ResourcesReportsContent: React.FC = () => {
               ))}
             </RadioGroup>
 
-            <p className="text-highlight-l mb-[16px] mt-[24px]">Year</p>
+            <div className="flex flex-row content-space-between w-full items-center flex-1">
+              <p className="text-highlight-l mb-[16px] mt-[24px] w-full">
+                Year
+              </p>
+              <Checkbox
+                checked={needRangeValue}
+                value={needRangeValue}
+                label=""
+                sx={{
+                  marginRight: "0 !important",
+                  ".MuiButtonBase-root": {
+                    color: "#233F55 !important",
+                    padding: 0,
+                  },
+                }}
+                onClick={() => {
+                  setNeedRangeValue(!needRangeValue);
+                }}
+              />
+            </div>
 
-            <Box sx={{ width: "100%" }}>
+            <Box sx={{ width: "100%", padding: "0.5rem" }}>
               <Slider
+                disabled={!needRangeValue}
                 value={rangeValue}
                 min={2009}
                 max={currentYear}
@@ -615,7 +715,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 sx={{
                   zIndex: 10,
                   "& .MuiSlider-track": {
-                    bgcolor: "#233F55",
+                    bgcolor: needRangeValue ? "#233F55" : "#AAA",
                     height: "6px",
                     border: "none",
                   },
@@ -637,10 +737,28 @@ export const ResourcesReportsContent: React.FC = () => {
                     width: "12px",
                     boxSizing: "border-box",
                   },
+                  "& .MuiSlider-valueLabel": {
+                    fontSize: 12,
+                    fontWeight: "normal",
+                    top: -6,
+                    backgroundColor: "unset",
+                    "&::before": {
+                      display: "none",
+                    },
+                    "& *": {
+                      background: "transparent",
+                      color: needRangeValue ? "#233F55" : "#AAA",
+                    },
+                  },
                 }}
               />
             </Box>
-            <p className="text-body-m mb-[16px]">
+            <p
+              className={`text-body-m mb-[16px]`}
+              style={{
+                color: needRangeValue ? "#233F55" : "#AAA",
+              }}
+            >
               Year: {rangeValue[0]}-{rangeValue[1]}
             </p>
 
