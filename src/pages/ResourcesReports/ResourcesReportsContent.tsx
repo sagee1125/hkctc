@@ -318,7 +318,6 @@ export const ResourcesReportsContent: React.FC = () => {
     setCurrentPage(0);
   };
 
-  const items = ["Option 1", "Option 2", "Option 3"];
   const layoutIcons = ["row_layout.svg", "grid_layout.svg"];
 
   function rangValuetext(value: number): string {
@@ -785,7 +784,7 @@ export const ResourcesReportsContent: React.FC = () => {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {items.map((item, index) => (
+                        {filterOptions.map((item, index) => (
                           <Menu.Item key={index}>
                             {({ active }) => (
                               <button
