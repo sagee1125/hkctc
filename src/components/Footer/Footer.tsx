@@ -5,6 +5,7 @@ import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Collapse } from "@mui/material";
 import { navItemEnum } from "../../const";
+import { useSettings } from "../../context";
 
 type Sub = {
   label: string;
@@ -21,8 +22,35 @@ type FooterData = {
 
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
+  const { isPC } = useSettings();
 
   const [sitemapCollapsed, setSitemapCollapsed] = useState<boolean>(true);
+
+  const commonDate: Sub[] = [
+    {
+      label: "Resources Library",
+      link: "",
+    },
+    {
+      label: "Important Notices",
+      link: "/about-the-site?am=Important+Notices",
+    },
+    {
+      label: "Accessibility",
+      link: "/about-the-site?am=Accessibility",
+    },
+    {
+      label: "Privacy Policy",
+      link: "/about-the-site?am=Privacy+Policy",
+    },
+    {
+      label: "Related Site",
+      link: "",
+    },
+    //   label: "Contact Us",
+    //   link: "/about-the-site?am=Contact+Us",
+    // },
+  ];
 
   const footerData: FooterData[] = [
     {
@@ -46,32 +74,7 @@ export const Footer: React.FC = () => {
         {
           title: "",
           link: "",
-          subs: [
-            {
-              label: "Resources Library",
-              link: "",
-            },
-            {
-              label: "Important Notices",
-              link: "/about-the-site?am=Important+Notices",
-            },
-            {
-              label: "Accessibility",
-              link: "/about-the-site?am=Accessibility",
-            },
-            {
-              label: "Privacy Policy",
-              link: "/about-the-site?am=Privacy+Policy",
-            },
-            {
-              label: "Related Site",
-              link: "",
-            },
-            // {
-            //   label: "Contact Us",
-            //   link: "/about-the-site?am=Contact+Us",
-            // },
-          ],
+          subs: commonDate,
         },
 
         {
@@ -341,43 +344,49 @@ export const Footer: React.FC = () => {
 
   const downsideLogos = [
     {
-      logoSize: "h-[31px] w-[88px]",
+      logoSize: isPC ? "h-[31px] w-[88px]" : "h-[24px]",
       img: "w3c_logo.png",
       hyperlink: "http://www.w3.org/WAI/WCAG2AA-Conformance",
     },
     {
-      logoSize: "h-[56px] w-[88px]",
+      logoSize: isPC ? "h-[56px] w-[88px]" : "h-[43px]",
       img: "WA_Gold_TC.png",
       hyperlink: "http://www.webforall.gov.hk/recognition_scheme",
     },
 
     {
-      logoSize: "h-[48px] w-[120px]",
+      logoSize: isPC ? "h-[48px] w-[120px]" : "h-[27px]",
       img: "brandhk.png",
       hyperlink: "http://www.brandhk.gov.hk/html/en/index.html",
     },
     {
-      logoSize: "h-[74px] w-[100px]",
+      logoSize: isPC ? "h-[74px] w-[100px]" : "h-[50px]",
       img: "SIPS_logo.png",
       hyperlink: "https://www.science.gov.hk/",
     },
     {
-      logoSize: "h-[34px] w-[160px]",
+      logoSize: isPC ? "h-[34px] w-[160px]" : "14px",
       img: "IHHK_logo_tc.png",
       hyperlink: "https://www.innovationhub.hk/",
     },
   ];
+
   return (
     <footer>
       <div className="bg-newPrimary text-white px-[24px]">
-        <div className="h-[100px] w-full flex justify-end items-end">
+        <div
+          className={`${
+            isPC ? "h-[100px]" : "h-auto"
+          } w-full flex justify-end items-end`}
+        >
           <div
             style={{
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "center",
               gap: "14px",
-              paddingRight: "72px",
+              paddingRight: isPC ? "72px" : "0px",
+              paddingTop: isPC ? "0px" : "24px",
             }}
           >
             <Logo
@@ -405,152 +414,178 @@ export const Footer: React.FC = () => {
             />
           </div>
         </div>
-        <div className="h-[42px] w-full flex justify-center items-center">
-          <div
-            className="flex flex-row gap-[6px] items-center cursor-pointer"
-            onClick={() => {
-              setSitemapCollapsed(!sitemapCollapsed);
-            }}
-          >
-            <p className="text-body-s">Sitemap</p>
-            <ExpandMoreIcon
-              sx={{
-                transform: !sitemapCollapsed
-                  ? "rotate(180deg)"
-                  : "rotate(0deg)",
-                transition: "transform 0.3s ease",
-              }}
-            />
-          </div>
-        </div>
-
-        <Collapse in={!sitemapCollapsed} timeout="auto" unmountOnExit>
-          <div className="grid grid-cols-4 gap-[24px] px-[25px] py-[42px]">
-            {footerData.map((col, index) => (
-              <div key={index} className="flex flex-col">
-                <p
-                  className="text-heading-l cursor-pointer"
-                  onClick={() => {
-                    if (col.link) {
-                      navigate(col.link);
-                      window.scroll({
-                        top: 0,
-                        behavior: "smooth",
-                      });
-                    }
+        {isPC ? (
+          <>
+            <div className="h-[42px] w-full flex justify-center items-center">
+              <div
+                className="flex flex-row gap-[6px] items-center cursor-pointer"
+                onClick={() => {
+                  setSitemapCollapsed(!sitemapCollapsed);
+                }}
+              >
+                <p className="text-body-s">Sitemap</p>
+                <ExpandMoreIcon
+                  sx={{
+                    transform: !sitemapCollapsed
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
+                    transition: "transform 0.3s ease",
                   }}
-                >
-                  {col.title}
-                </p>
-                <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
-                <div className="flex flex-col gap-[16px] text-body-m">
-                  {col.subs.map((sub, index) => (
-                    <div key={index}>
-                      <div className="flex flex-row gap-[8px] items-center cursor-pointer">
-                        <Icon
-                          icon="weui:arrow-outlined"
-                          className="h-[36px] w-[10px] text-white"
-                          onClick={() => {
-                            if (sub.link) {
-                              navigate(sub.link);
-                              window.scroll({
-                                top: 0,
-                                behavior: "smooth",
-                              });
-                            }
-                          }}
-                        />
+                />
+              </div>
+            </div>
 
-                        {sub.label}
-                      </div>
-                      {sub.items && (
-                        <div className="flex flex-col gap-[16px] pl-[16px]">
-                          {sub.items.map((item, index) => (
-                            <li
-                              className="cursor-pointer"
-                              key={index}
+            <Collapse in={!sitemapCollapsed} timeout="auto" unmountOnExit>
+              <div className="grid grid-cols-4 gap-[24px] px-[25px] py-[42px]">
+                {footerData.map((col, index) => (
+                  <div key={index} className="flex flex-col">
+                    <p
+                      className="text-heading-l cursor-pointer"
+                      onClick={() => {
+                        if (col.link) {
+                          navigate(col.link);
+                          window.scroll({
+                            top: 0,
+                            behavior: "smooth",
+                          });
+                        }
+                      }}
+                    >
+                      {col.title}
+                    </p>
+                    <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
+                    <div className="flex flex-col gap-[16px] text-body-m">
+                      {col.subs.map((sub, index) => (
+                        <div key={index}>
+                          <div className="flex flex-row gap-[8px] items-center cursor-pointer">
+                            <Icon
+                              icon="weui:arrow-outlined"
+                              className="h-[36px] w-[10px] text-white"
                               onClick={() => {
-                                if (item.link) {
-                                  navigate(item.link);
+                                if (sub.link) {
+                                  navigate(sub.link);
                                   window.scroll({
                                     top: 0,
                                     behavior: "smooth",
                                   });
                                 }
                               }}
-                            >
-                              {item.label}
-                            </li>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                            />
 
-                {col.secSubs && (
-                  <div>
-                    {(col.secSubs ?? []).map((sec, index) => (
-                      <div key={index} className="mt-[42px] flex flex-col">
-                        <p className="text-heading-l">{sec.title}</p>
-                        <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
-
-                        <div className="flex flex-col gap-[16px] text-body-m">
-                          {sec.subs.map((sub, index) => (
-                            <div key={index}>
-                              <div
-                                className="flex flex-row gap-[8px] items-center cursor-pointer h-[22px]"
-                                onClick={() => {
-                                  if (sub.link) {
-                                    navigate(sub.link);
-                                    window.scroll({
-                                      top: 0,
-                                      behavior: "smooth",
-                                    });
-                                  }
-                                }}
-                              >
-                                <Icon
-                                  icon="weui:arrow-outlined"
-                                  className="h-full w-[10px] text-white"
-                                />
-
-                                {sub.label}
-                              </div>
-                              {sub.items && (
-                                <div className="flex flex-col gap-[16px] pl-[16px]">
-                                  {sub.items.map((item, index) => (
-                                    <li
-                                      className="cursor-pointer"
-                                      key={index}
-                                      onClick={() => {
-                                        if (item.link) {
-                                          window.scroll({
-                                            top: 0,
-                                            behavior: "smooth",
-                                          });
-                                          navigate(item.link);
-                                        }
-                                      }}
-                                    >
-                                      {item.label}
-                                    </li>
-                                  ))}
-                                </div>
-                              )}
+                            {sub.label}
+                          </div>
+                          {sub.items && (
+                            <div className="flex flex-col gap-[16px] pl-[16px]">
+                              {sub.items.map((item, index) => (
+                                <li
+                                  className="cursor-pointer"
+                                  key={index}
+                                  onClick={() => {
+                                    if (item.link) {
+                                      navigate(item.link);
+                                      window.scroll({
+                                        top: 0,
+                                        behavior: "smooth",
+                                      });
+                                    }
+                                  }}
+                                >
+                                  {item.label}
+                                </li>
+                              ))}
                             </div>
-                          ))}
+                          )}
                         </div>
+                      ))}
+                    </div>
+
+                    {col.secSubs && (
+                      <div>
+                        {(col.secSubs ?? []).map((sec, index) => (
+                          <div key={index} className="mt-[42px] flex flex-col">
+                            <p className="text-heading-l">{sec.title}</p>
+                            <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
+
+                            <div className="flex flex-col gap-[16px] text-body-m">
+                              {sec.subs.map((sub, index) => (
+                                <div key={index}>
+                                  <div
+                                    className="flex flex-row gap-[8px] items-center cursor-pointer h-[22px]"
+                                    onClick={() => {
+                                      if (sub.link) {
+                                        navigate(sub.link);
+                                        window.scroll({
+                                          top: 0,
+                                          behavior: "smooth",
+                                        });
+                                      }
+                                    }}
+                                  >
+                                    <Icon
+                                      icon="weui:arrow-outlined"
+                                      className="h-full w-[10px] text-white"
+                                    />
+
+                                    {sub.label}
+                                  </div>
+                                  {sub.items && (
+                                    <div className="flex flex-col gap-[16px] pl-[16px]">
+                                      {sub.items.map((item, index) => (
+                                        <li
+                                          className="cursor-pointer"
+                                          key={index}
+                                          onClick={() => {
+                                            if (item.link) {
+                                              window.scroll({
+                                                top: 0,
+                                                behavior: "smooth",
+                                              });
+                                              navigate(item.link);
+                                            }
+                                          }}
+                                        >
+                                          {item.label}
+                                        </li>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
                   </div>
-                )}
+                ))}
               </div>
-            ))}
+            </Collapse>
+          </>
+        ) : (
+          <div className="w-full flex flex-col items-center gap-[8px] py-[24px]">
+            <div className="flex justify-center gap-4 text-white">
+              {commonDate.slice(0, 3).map((item, index) => (
+                <p key={index} className="text-body-s">
+                  {item.label}
+                </p>
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-4">
+              {commonDate.slice(3, 5).map((item, index) => (
+                <p key={index} className="text-body-s">
+                  {item.label}
+                </p>
+              ))}
+            </div>
           </div>
-        </Collapse>
+        )}
       </div>
-      <div className="bg-white h-[90px] flex items-center justify-center gap-[12px]">
+      <div
+        className={`bg-white ${
+          isPC ? "h-[90px]" : "py-[16px] px-[24px]"
+        } flex items-center justify-center gap-[12px]`}
+      >
         {downsideLogos.map((logo, index) => (
           <div
             className={logo.logoSize}
