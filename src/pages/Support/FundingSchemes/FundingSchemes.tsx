@@ -17,6 +17,7 @@ import {
   SMELoanGuaranteeScheme,
   TSF,
 } from "./TIDFundingSchemes";
+import { useSettings } from "../../../context";
 
 const schemesTypeMap: Record<string, React.ReactNode> = {
   "Innovation and Technology Fund (ITF)": <ITF />,
@@ -43,6 +44,7 @@ const tidMap: Record<string, React.ReactNode> = {
 };
 
 export const FundingSchemes: React.FC = () => {
+  const { isPC } = useSettings();
   const [activeSchemesType, setActiveSchemesType] = useState<string>(
     Object.keys(schemesTypeMap)[0]
   );
@@ -76,7 +78,11 @@ export const FundingSchemes: React.FC = () => {
                         setActiveSchemesType(btn);
                       }}
                     >
-                      <p className="text-highlight-xs">{btn}</p>
+                      <p className="text-highlight-xs">
+                        {btn.length > 38 && !isPC
+                          ? btn.slice(0, 38) + "..."
+                          : btn}
+                      </p>
                     </button>
                   );
                 })}
@@ -121,7 +127,11 @@ export const FundingSchemes: React.FC = () => {
                         setActiveIFTFunding(btn);
                       }}
                     >
-                      <p className="text-highlight-xs">{btn}</p>
+                      <p className="text-highlight-xs">
+                        {btn.length > 38 && !isPC
+                          ? btn.slice(0, 38) + "..."
+                          : btn}
+                      </p>
                     </button>
                   );
                 })}
@@ -218,7 +228,11 @@ export const FundingSchemes: React.FC = () => {
                         setActiveTIDFunding(btn);
                       }}
                     >
-                      <p className="text-highlight-xs">{btn}</p>
+                      <p className="text-highlight-xs">
+                        {btn.length > 38 && !isPC
+                          ? btn.slice(0, 38) + "..."
+                          : btn}
+                      </p>
                     </button>
                   );
                 })}

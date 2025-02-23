@@ -6,6 +6,7 @@ import {
   Breadcrumb,
   MultipleSidebars,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../components";
 import {
@@ -21,6 +22,7 @@ import { CareerOpportunities } from "./CareerOpportunities/CareerOpportunities";
 import { ProgrammesCourses } from "./ProgrammesCourses/ProgrammesCourses";
 import { QualificationsFramework } from "./QualificationsFramework/QualificationsFramework";
 import { LearningTeachingResources } from "./LearningTeachingResources/LearningTeachingResources";
+import { useSettings } from "../../context";
 
 const sidebarComponent: Partial<
   Record<
@@ -68,6 +70,7 @@ export const CareerEducation: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
+  const { isPC } = useSettings();
 
   const initialSection = queryParams.get("section") ?? "";
 
@@ -139,20 +142,27 @@ export const CareerEducation: React.FC = () => {
       label: activeSidebarItemsLabel ?? "",
     },
   ];
+
+  const multipleSidebars = (
+    <MultipleSidebars
+      sidebars={sidebarData}
+      activatedItems={activeItem}
+      setActivatedItems={handleChangeSidebar}
+    />
+  );
+
   return (
     <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
+        )}
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="px-[24px] min-w-[440px] w-1/3">
-            <MultipleSidebars
-              sidebars={sidebarData}
-              activatedItems={activeItem}
-              setActivatedItems={handleChangeSidebar}
-            />
+            {multipleSidebars}
           </div>
           <div className="flex-1">{component}</div>
         </div>

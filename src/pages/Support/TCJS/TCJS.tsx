@@ -470,6 +470,7 @@ export const TCJS: React.FC = () => {
                     setIsPreviewOpen(true);
                   }
                 }}
+                style={{ flexShrink: 0 }}
               >
                 <img
                   className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"

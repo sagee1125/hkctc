@@ -6,9 +6,12 @@ import {
   activatedButtonStyle,
   Link,
 } from "../../../components";
+import { useSettings } from "../../../context";
 
 export const NilWaiverFee: React.FC = () => {
   const [activeButton, setActiveButton] = React.useState(0);
+  const { isPC } = useSettings();
+
   const questionButtons = [
     "Eligibility",
     "Lease & Planning Matters",
@@ -463,7 +466,7 @@ export const NilWaiverFee: React.FC = () => {
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-[#00E]"
+              className="underline text-[#00E] break-all"
             >
               https://www.landsd.gov.hk/en/about-us/contact-us.html
             </a>
@@ -481,7 +484,7 @@ export const NilWaiverFee: React.FC = () => {
           lease conditions or land use zoning, you are encouraged to seek
           professional advice.
         </p>
-        <div className="flex flex-row gap-[8px]">
+        <div className="flex flex-wrap gap-[8px]">
           {questionButtons.map((b, i) => {
             const isActivated = activeButton === i;
             return (
@@ -492,7 +495,9 @@ export const NilWaiverFee: React.FC = () => {
                   setActiveButton(i);
                 }}
               >
-                {b}
+                <p className="text-highlight-xs">
+                  {b.length > 44 && !isPC ? b.slice(0, 44) + "..." : b}
+                </p>
               </button>
             );
           })}

@@ -35,6 +35,7 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
         className={`${
           isPC ? "h-[15px] w-[15px]" : "h-[12px] w-[12px] mt-[6px]"
         }  bg-newPrimary`}
+        style={{ flexShrink: 0 }}
       />
       <p className={isPC ? "text-heading-l" : "text-heading-m"}>{title}</p>
       {showArrowIcon && (

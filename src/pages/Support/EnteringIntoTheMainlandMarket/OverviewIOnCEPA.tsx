@@ -6,6 +6,7 @@ import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { CEPAAgreements_ids } from "./CEPAAgreements";
 import { navItemEnum } from "../../../const";
 import { useNavigate } from "react-router-dom";
+import { useSettings } from "../../../context";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{
@@ -319,6 +320,7 @@ const faqMap: Record<string, React.ReactNode> = {
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
+  const { isPC } = useSettings();
   const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
   );
@@ -521,7 +523,9 @@ export const OverviewIOnCEPA: React.FC = () => {
                   setActiveFAQType(btn);
                 }}
               >
-                <p className="text-highlight-xs">{btn}</p>
+                <p className="text-highlight-xs">
+                  {btn.length > 48 && !isPC ? btn.slice(0, 48) + "..." : btn}
+                </p>
               </button>
             );
           })}

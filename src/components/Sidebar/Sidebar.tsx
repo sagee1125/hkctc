@@ -72,7 +72,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {({ open }) => (
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
-                <p className="!text-heading-xs">
+                <p className="!text-heading-xs w-full text-left">
                   {
                     sidebarItems.find((i) => i.enum === activatedItems)
                       ?.subTitle

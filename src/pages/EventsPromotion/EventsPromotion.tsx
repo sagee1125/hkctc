@@ -19,6 +19,7 @@ import {
   Link,
   MultipleSidebars,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../components";
 import {
@@ -30,6 +31,7 @@ import {
 } from "../../const";
 import { Videos } from "./News/Videos";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
+import { useSettings } from "../../context";
 
 const sidebarComponent: Partial<
   Record<
@@ -140,6 +142,7 @@ export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
+  const { isPC } = useSettings();
 
   const initialSection = queryParams.get("section") ?? "";
 
@@ -239,17 +242,19 @@ export const EventsPromotion: React.FC = () => {
       label: activeSidebarItemsLabel ?? "",
     },
     {
-      label:""
-    }
+      label: "",
+    },
   ];
 
   return (
     <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
+        )}
         <div className="w-full flex flex-row pt-[48px] pr-[24px]">
           <div className="px-[24px] min-w-[440px] w-1/3">
             {subComponent && <div className="mb-[24px]">{subComponent}</div>}

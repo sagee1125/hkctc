@@ -10,6 +10,7 @@ import {
   DirectorySidebar,
   Sidebar,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../components";
 import {
@@ -25,6 +26,7 @@ import {
   OverviewIOnCEPA,
   SummaryOfCEPA,
 } from "./EnteringIntoTheMainlandMarket";
+import { useSettings } from "../../context";
 
 export const directorySidebarItemsMap: Partial<
   Record<navItemEnum, Record<string, React.ReactNode>>
@@ -116,6 +118,7 @@ const leftComponentMapKeys = [
 export const Support: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isPC } = useSettings();
 
   const queryParams = new URLSearchParams(location.search);
   const initialSection = queryParams.get("section") ?? "";
@@ -215,31 +218,45 @@ export const Support: React.FC = () => {
       : [{ label: activatedDirectorySidebarItems }]),
   ];
 
+  const sidebar = (
+    <>
+      {directoryItems.length > 0 && (
+        <DirectorySidebar
+          directorySidebarItems={directoryItems}
+          activatedItems={activatedDirectorySidebarItems}
+          setActivatedItems={handleChangeDirectorySidebarItems}
+        />
+      )}
+      <Sidebar
+        title={"Support"}
+        sidebarItems={eventItems}
+        activatedItems={activeSidebarItems}
+        setActivatedItems={handleChangeSidebar}
+      />
+    </>
+  );
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            {directoryItems.length > 0 && (
-              <DirectorySidebar
-                directorySidebarItems={directoryItems}
-                activatedItems={activatedDirectorySidebarItems}
-                setActivatedItems={handleChangeDirectorySidebarItems}
-              />
-            )}
-            <Sidebar
-              title={"Support"}
-              sidebarItems={eventItems}
-              activatedItems={activeSidebarItems}
-              setActivatedItems={handleChangeSidebar}
-            />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="flex-1">{component}</div>
-        </div>
+        )}
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="px-[24px] min-w-[440px] w-1/3">{sidebar}</div>
+            <div className="flex-1">{component}</div>
+          </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{component}</div>
+          </div>
+        )}
       </div>
     </div>
   );

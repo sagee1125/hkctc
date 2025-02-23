@@ -1,7 +1,10 @@
 import * as React from "react";
 import { SquareTitle } from "../../../components";
+import { useSettings } from "../../../context";
 
 export const Relaxation: React.FC = () => {
+  const { isPC } = useSettings();
+
   const fileList: Array<{
     title: string;
     date: string;
@@ -158,6 +161,7 @@ export const Relaxation: React.FC = () => {
               <div
                 className="relative w-[130px] h-full cursor-pointer"
                 onClick={onClick}
+                style={{ flexShrink: 0 }}
               >
                 <img
                   className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -176,7 +180,9 @@ export const Relaxation: React.FC = () => {
                   className="text-highlight-m text-black cursor-pointer"
                   onClick={onClick}
                 >
-                  {title}
+                  {title.length > 60 && !isPC
+                    ? title.slice(0, 60) + "..."
+                    : title}
                 </div>
                 {date && (
                   <div
