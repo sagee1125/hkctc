@@ -246,6 +246,13 @@ export const EventsPromotion: React.FC = () => {
     },
   ];
 
+  const multipleSidebars = (
+    <MultipleSidebars
+      sidebars={sidebarData}
+      activatedItems={activeItem}
+      setActivatedItems={handleChangeSidebar}
+    />
+  );
   return (
     <div style={fullContainer}>
       {bannerImage && <BannerPhotoBox src={bannerImage} />}
@@ -255,17 +262,21 @@ export const EventsPromotion: React.FC = () => {
             <Breadcrumb items={breadcrumbItems} />
           </div>
         )}
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="px-[24px] min-w-[440px] w-1/3">
-            {subComponent && <div className="mb-[24px]">{subComponent}</div>}
-            <MultipleSidebars
-              sidebars={sidebarData}
-              activatedItems={activeItem}
-              setActivatedItems={handleChangeSidebar}
-            />
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px]">
+            <div className="px-[24px] min-w-[440px] w-1/3">
+              {subComponent && <div className="mb-[24px]">{subComponent}</div>}
+              {multipleSidebars}
+            </div>
+            <div className="flex-1 pr-[24px]">{component}</div>
           </div>
-          <div className="flex-1">{component}</div>
-        </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>{multipleSidebars}</div>
+            <div>{component}</div>
+          </div>
+        )}
       </div>
     </div>
   );

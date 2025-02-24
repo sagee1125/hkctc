@@ -9,6 +9,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 export const Pamphlets: React.FC = () => {
@@ -19,6 +20,7 @@ export const Pamphlets: React.FC = () => {
     Pamphlets: pamphletsList,
     Booklets: bookletsList,
   };
+  const { isPC } = useSettings();
 
   const filteredArticles = filterList[filterButtons[activeButton]];
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -65,7 +67,13 @@ export const Pamphlets: React.FC = () => {
         />
       </div>
 
-      <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
+      <div
+        className={`w-full ${
+          isPC
+            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "flex flex-wrap gap-[24px]"
+        } `}
+      >
         {currentPageData.map((item, index) => {
           const { title, mediaType, date, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
@@ -73,7 +81,9 @@ export const Pamphlets: React.FC = () => {
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px]"
+              className={`${
+                isPC ? "w-full" : ""
+              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
                 title={title}

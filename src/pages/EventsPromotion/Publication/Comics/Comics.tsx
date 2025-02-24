@@ -6,6 +6,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { comicsList, MEDIA_TYPE } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 export const Comics: React.FC = () => {
@@ -15,6 +16,7 @@ export const Comics: React.FC = () => {
     itemsPerPage,
     comicsList
   );
+  const { isPC } = useSettings();
 
   useEffect(() => {
     window.scroll({
@@ -45,7 +47,13 @@ export const Comics: React.FC = () => {
         This comic series showcase the importance of T&C in our daily life. Hope
         you enjoy reading these interesting stories!
       </div>
-      <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
+      <div
+        className={`w-full ${
+          isPC
+            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "flex flex-wrap gap-[24px]"
+        }`}
+      >
         {currentPageData.map((item, index) => {
           const { title, mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
@@ -53,7 +61,9 @@ export const Comics: React.FC = () => {
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px]"
+              className={`${
+                isPC ? "w-full" : ""
+              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
                 title={title}

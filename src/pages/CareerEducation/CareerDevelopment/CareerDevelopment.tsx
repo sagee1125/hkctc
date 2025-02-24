@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { FileTemplateTitleCenter, SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { navItemEnum } from "../../../const";
+import { useSettings } from "../../../context";
 
 type RelatedLinks = {
   title: string;
@@ -12,6 +13,7 @@ type RelatedLinks = {
 
 export const CareerDevelopment: React.FC = () => {
   const navigate = useNavigate();
+  const { isPC } = useSettings();
 
   const careerDev: RelatedLinks[] = [
     {
@@ -123,172 +125,219 @@ export const CareerDevelopment: React.FC = () => {
   ];
 
   return (
-    <div className="w-full flex flex-row gap-[24px] pr-[24px]">
-      <div className="flex-1">
-        <SquareTitle title="Career Development" />
+    <div className="w-full">
+      <SquareTitle title="Career Development" />
 
-        <div className="my-[24px]">
-          <p className="text-body-m">
-            Testing and certification play a crucial role in our daily life.
-            They provide assurance on the quality and safety of products and
-            services for a wide spectrum of industries.
-            <br />
-            <br />
-            The demand for quality products and services has never been higher.
-            Given the growing need for testing and certification services, the
-            testing and certification sector has a keen demand for talent.
-            Pursuing a career in testing and certification will bring you a wide
-            range of opportunities!
+      <div className="my-[24px]">
+        <p className="text-body-m">
+          Testing and certification play a crucial role in our daily life. They
+          provide assurance on the quality and safety of products and services
+          for a wide spectrum of industries.
+          <br />
+          <br />
+          The demand for quality products and services has never been higher.
+          Given the growing need for testing and certification services, the
+          testing and certification sector has a keen demand for talent.
+          Pursuing a career in testing and certification will bring you a wide
+          range of opportunities!
+        </p>
+      </div>
+      <div>
+        {careerDev.map((item, index) => {
+          const { title, imgUrl, nav } = item;
+          return (
+            <div
+              key={index}
+              className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+                navigate(nav);
+              }}
+            >
+              <img
+                className="w-[130px] h-full object-contain"
+                src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
+                alt={imgUrl}
+              />
+              <div
+                className={`text-highlight-m text-black py-[8px] ${
+                  isPC ? "pr-[16px]" : ""
+                } w-[414px]`}
+              >
+                {title.length > 42 && !isPC
+                  ? title.slice(0, 42) + "..."
+                  : title}
+              </div>
+              <svg
+                className="flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_2682_55750)">
+                  <path
+                    d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2682_55750">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          );
+        })}
+      </div>
+      <hr className="my-[24px] text-[#E0E0E0]" />
+
+      <p className="text-heading-l">
+        How to prepare yourself to join the testing and certification sector
+      </p>
+      <p className="text-heading-m my-[24px] text-trustfulBlue">
+        At the senior secondary level
+      </p>
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
+        <div className="flex flex-row gap-[24px] items-center w-full">
+          <img
+            className="w-[32px] h-[32px] flex-shrink-0"
+            src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
+            alt={"tick"}
+          />
+          <p className="text-highlight-m flex-grow min-w-0">
+            To be proficient in languages and scientific thinking
           </p>
         </div>
-        <div>
-          {careerDev.map((item, index) => {
-            const { title, imgUrl, nav } = item;
-            return (
-              <div
-                key={index}
-                className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
-                onClick={() => {
-                  window.scroll({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                  navigate(nav);
-                }}
-              >
-                <img
-                  className="w-[130px] h-full object-contain"
-                  src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                  alt={imgUrl}
-                />
-                <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[414px]">
-                  {title}
-                </div>
-                <Icon
-                  icon="teenyicons:right-outline"
-                  style={{ height: "16px", width: "16px", strokeWidth: "2px" }}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <hr className="my-[24px] text-[#E0E0E0]" />
-
-        <p className="text-heading-l">
-          How to prepare yourself to join the testing and certification sector
-        </p>
-        <p className="text-heading-m my-[24px] text-trustfulBlue">
-          At the senior secondary level
-        </p>
-        <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
-          <div className="flex flex-row gap-[24px] items-center w-full">
-            <img
-              className="w-[32px] h-[32px] flex-shrink-0"
-              src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
-              alt={"tick"}
-            />
-            <p className="text-highlight-m flex-grow min-w-0">
-              To be proficient in languages and scientific thinking
-            </p>
-          </div>
-        </div>
-        <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
-          <div className="flex flex-row gap-[24px] items-center w-full">
-            <img
-              className="w-[32px] h-[32px] flex-shrink-0"
-              src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
-              alt={"tick"}
-            />
-            <p className="text-highlight-m flex-grow min-w-0">
-              To study at least one science subject, e.g. Biology, Chemistry,
-              Physics, Combined Science, Integrated Science, etc.
-            </p>
-          </div>
-        </div>
-        <p className="text-heading-m my-[24px] text-trustfulBlue">
-          At the post-secondary / university level{" "}
-        </p>
-
-        <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
-          <div className="flex flex-row gap-[24px] items-center w-full">
-            <img
-              className="w-[32px] h-[32px] flex-shrink-0"
-              src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
-              alt={"tick"}
-            />
-            <p className="text-highlight-m flex-grow min-w-0">
-              Examples of major: Science, Engineering, Testing and
-              Certification, Applied Science, Fashion and Textiles, etc.{" "}
-            </p>
-          </div>
-        </div>
-        <hr className="my-[24px] text-[#E0E0E0]" />
-        <div>
+      </div>
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
+        <div className="flex flex-row gap-[24px] items-center w-full">
           <img
-            className="w-full h-full object-cover"
-            src={`${process.env.PUBLIC_URL}/assets/careerEducation/career_path_en.png`}
-            alt={"career path"}
+            className="w-[32px] h-[32px] flex-shrink-0"
+            src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
+            alt={"tick"}
           />
+          <p className="text-highlight-m flex-grow min-w-0">
+            To study at least one science subject, e.g. Biology, Chemistry,
+            Physics, Combined Science, Integrated Science, etc.
+          </p>
         </div>
-        <hr className="my-[24px] text-[#E0E0E0]" />
+      </div>
+      <p className="text-heading-m my-[24px] text-trustfulBlue">
+        At the post-secondary / university level{" "}
+      </p>
 
-        <p className="text-heading-l">Related Links</p>
-        <div className="mt-[24px]">
-          {relatedLinks.map((item, index) => {
-            const { title, imgUrl, nav } = item;
+      <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
+        <div className="flex flex-row gap-[24px] items-center w-full">
+          <img
+            className="w-[32px] h-[32px] flex-shrink-0"
+            src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
+            alt={"tick"}
+          />
+          <p className="text-highlight-m flex-grow min-w-0">
+            Examples of major: Science, Engineering, Testing and Certification,
+            Applied Science, Fashion and Textiles, etc.{" "}
+          </p>
+        </div>
+      </div>
+      <hr className="my-[24px] text-[#E0E0E0]" />
+      <div>
+        <img
+          className="w-full h-full object-cover"
+          src={`${process.env.PUBLIC_URL}/assets/careerEducation/career_path_en.png`}
+          alt={"career path"}
+        />
+      </div>
+      <hr className="my-[24px] text-[#E0E0E0]" />
+
+      <p className="text-heading-l">Related Links</p>
+      <div className="mt-[24px]">
+        {relatedLinks.map((item, index) => {
+          const { title, imgUrl, nav } = item;
+          return (
+            <div
+              key={index}
+              className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+                navigate(nav);
+              }}
+            >
+              <img
+                className="w-[130px] h-full object-contain"
+                src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
+                alt={imgUrl}
+              />
+
+              <div
+                className={`text-highlight-m text-black py-[8px] ${
+                  isPC ? "pr-[16px]" : ""
+                } w-[414px]`}
+              >
+                {title.length > 42 && !isPC
+                  ? title.slice(0, 42) + "..."
+                  : title}
+              </div>
+              <svg
+                className="flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_2682_55750)">
+                  <path
+                    d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2682_55750">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          );
+        })}
+      </div>
+
+      <hr className="my-[24px] text-[#E0E0E0]" />
+
+      <p className="text-heading-l">Resources</p>
+      <div className="mt-[24px]">
+        <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
+          {resourcesData.map((item, index) => {
+            const { title, imgUrl, link, iconPath } = item;
             return (
               <div
                 key={index}
-                className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+                className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
                 onClick={() => {
-                  window.scroll({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                  navigate(nav);
+                  window.open(link, "_blank");
                 }}
               >
-                <img
-                  className="w-[130px] h-full object-contain"
-                  src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                  alt={imgUrl}
-                />
-                <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[414px]">
-                  {title}
-                </div>
-                <Icon
-                  icon="teenyicons:right-outline"
-                  style={{ height: "16px", width: "16px", strokeWidth: "2px" }}
+                <FileTemplateTitleCenter
+                  title={
+                    title.length > 48 && !isPC
+                      ? title.slice(0, 48) + "..."
+                      : title
+                  }
+                  imagePath={"assets/careerEducation/" + imgUrl}
+                  iconPath={iconPath}
                 />
               </div>
             );
           })}
-        </div>
-
-        <hr className="my-[24px] text-[#E0E0E0]" />
-
-        <p className="text-heading-l">Resources</p>
-        <div className="mt-[24px]">
-          <div className="grid grid-cols-2 gap-[24px]">
-            {resourcesData.map((item, index) => {
-              const { title, imgUrl, link, iconPath } = item;
-              return (
-                <div
-                  key={index}
-                  className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
-                  onClick={() => {
-                    window.open(link, "_blank");
-                  }}
-                >
-                  <FileTemplateTitleCenter
-                    title={title}
-                    imagePath={"assets/careerEducation/" + imgUrl}
-                    iconPath={iconPath}
-                  />
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </div>

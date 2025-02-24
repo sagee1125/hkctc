@@ -7,6 +7,7 @@ import {
   SquareTitle,
   Accordion,
 } from "../../../../components";
+import { useSettings } from "../../../../context";
 
 const assessmentCriteriaGrid = [
   {
@@ -56,256 +57,6 @@ const stagesGridTwo = [
       "Independent Assessment Panel will consider and, shortlisting as the circumstances require, interview applicants with a view to deciding on the awardees",
   },
 ];
-const awardMapOne: Record<string, React.ReactNode> = {
-  "Two Tiers of Awards": (
-    <div className="w-full grid grid-cols-2 gap-[24px] h-[218px]">
-      <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
-        <div className="text-heading-s flex flex-row items-center gap-[8px]">
-          <Icon icon="bxs:trophy" style={{ height: "24px", width: "24px" }} />
-          Platinum Award
-        </div>
-        <p className="text-body-m">
-          Those who have fulfilled 19 or more of the 24 Assessment Criteria,
-          inclusive of at least two Criteria under each Area
-        </p>
-      </div>
-      <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
-        <div className="text-heading-s flex flex-row items-center gap-[8px]">
-          <Icon
-            icon="bxs:trophy"
-            style={{ color: "#EE9C22", height: "24px", width: "24px" }}
-          />
-          Gold Award
-        </div>
-        <p className="text-body-m">
-          Those who have fulfilled 10 or more of the 24 Assessment Criteria,
-          inclusive of at least two Criteria under each Area
-        </p>
-      </div>
-    </div>
-  ),
-  Benefits: (
-    <>
-      <li>Presented with a Trophy and an Award Certificate;</li>
-      <br />
-      <li>
-        Permitted to use the logo for the Gold Award and the Platinum Award as
-        appropriate on their websites and promotional materials (Please refer to
-        the Guidelines on the Use of the Logos under the Testing and
-        Certification Manpower Development Corporate Award at Annex of the&nbsp;
-        <a
-          className="underline"
-          href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
-        >
-          Guidance Notes
-        </a>
-        );
-      </li>
-      <br />
-
-      <li>Invited to attend the presentation ceremony and publicity events.</li>
-    </>
-  ),
-  Eligibility: (
-    <>
-      <p>Applicant entities must be -</p>
-      <br />
-      <li>
-        Accredited by the Hong Kong Accreditation Service (HKAS) or other
-        accreditation bodies having Mutual Recognition Arrangements with HKAS;
-        and
-      </li>
-      <br />
-      <li>
-        Located in Hong Kong with testing and certification services provided
-        locally.
-      </li>
-      <br />
-      <p>
-        Testing and certification services refer to testing, calibration,
-        inspection and/or certification services.
-      </p>
-    </>
-  ),
-  "Assessment Criteria": (
-    <>
-      <p>
-        The assessment covers the following four Areas, each with six Criteria
-        as specified in the Guidance Notes -
-      </p>
-      <div className="grid grid-cols-2 gap-[24px] my-[24px]">
-        {assessmentCriteriaGrid.map((item, index) => (
-          <div
-            key={index}
-            className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]"
-          >
-            <p className={`text-${item.color} underline !text-heading-s`}>
-              {item.title}
-            </p>
-            <p className="!text-body-m">{item.content}</p>
-          </div>
-        ))}
-      </div>
-      <p>
-        Activities carried out and achievements made during the period from 1
-        June 2021 up to the date of application would be considered for the
-        Award.
-        <br />
-        <br />
-        Subject to provision of valid and credible supporting documents,
-        applicant entities would be eligible for the award in two tiers -
-        <br />
-        <br />
-        Platinum Award:
-        <br />
-        Those who have fulfilled 19 or more of the 24 Criteria, inclusive of at
-        least two Criteria under each Area
-        <br />
-        <br />
-        Gold Award:
-        <br />
-        Those who have fulfilled 10 or more of the 24 Criteria, inclusive of at
-        least two Criteria under each Area
-      </p>
-    </>
-  ),
-  "Selection Process": (
-    <div className="grid grid-cols-2 gap-[24px]">
-      {stagesGridOne.map((item, index) => (
-        <div
-          key={index}
-          className={`bg-${
-            index !== 0 ? "newPrimary" : "white"
-          } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
-        >
-          <p
-            className={`text-${
-              index === 0 ? "newPrimary" : "white"
-            } underline !text-heading-s`}
-          >
-            {item.title}
-          </p>
-          <p className={`text-${index === 0 ? "black" : "white"} !text-body-m`}>
-            {item.content}
-          </p>
-        </div>
-      ))}
-    </div>
-  ),
-};
-
-const awardMapTwo: Record<string, React.ReactNode> = {
-  "Two Tiers of Awards": (
-    <div className="w-full grid grid-cols-2 gap-[24px] h-[218px]">
-      <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
-        <div className="text-heading-s flex flex-row items-center gap-[8px]">
-          <img
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/eventsLanding/Professional_Icon.svg"
-            }
-            style={{ height: "24px", width: "24px" }}
-            alt=""
-          />
-          Junior Professional
-        </div>
-        <p className="text-body-m">
-          Open to T&C practitioners who have 1 year up to less than 6 years of
-          T&C services in aggregate
-        </p>
-      </div>
-      <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
-        <div className="text-heading-s flex flex-row items-center gap-[8px]">
-          <img
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/eventsLanding/Professional_Icon_2.svg"
-            }
-            style={{ height: "24px", width: "24px" }}
-            alt="Professional"
-          />
-          Senior Professional
-        </div>
-        <p className="text-body-m">
-          Open to T&C practitioners who have 6 years up to less than 20 years of
-          T&C services in aggregate
-        </p>
-      </div>
-    </div>
-  ),
-  Benefits: (
-    <>
-      <p>Awardees will be -</p>
-      <br />
-      <li>Presented with a Trophy and an Award Certificate;</li>
-      <br />
-      <li>Invited to attend the presentation ceremony and publicity events</li>
-    </>
-  ),
-  Eligibility: (
-    <>
-      <p>Applicant practitioners must be -</p>
-      <br />
-      <li>
-        Nominated by a testing and certification body which is accredited by the
-        Hong Kong Accreditation Service (HKAS) or other accreditation bodies
-        having Mutual Recognition Arrangements with HKAS;
-      </li>
-      <br />
-      <li>
-        An employee of the nominating testing and certification body for at
-        least 1 year; and
-      </li>
-      <br />
-      <li>
-        Located in Hong Kong with major duty to carry out testing, calibration,
-        inspection and/or certification service.
-      </li>
-    </>
-  ),
-  "Assessment Criteria": (
-    <>
-      <p>
-        Each application will be considered on the basis of its overall merits,
-        including but not limited to -
-        <br />
-        <br />
-        i. Commitment to continuous learning and professional development by
-        acquiring new skills, capabilities as well as relevant academic and
-        professional qualifications after joining the testing and certification
-        sector;
-        <br />
-        <br />
-        ii. Impact/significance of contributions made to improving service
-        quality or productivity of the nominating testing and certification body
-        (e.g. adopting innovation and/or new technology in service delivery).
-      </p>
-    </>
-  ),
-  "Selection Process": (
-    <div className="grid grid-cols-2 gap-[24px]">
-      {stagesGridTwo.map((item, index) => (
-        <div
-          key={index}
-          className={`bg-${
-            index !== 0 ? "newPrimary" : "white"
-          } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
-        >
-          <p
-            className={`text-${
-              index === 0 ? "newPrimary" : "white"
-            } underline !text-heading-s`}
-          >
-            {item.title}
-          </p>
-          <p className={`text-${index === 0 ? "black" : "white"} !text-body-m`}>
-            {item.content}
-          </p>
-        </div>
-      ))}
-    </div>
-  ),
-};
 
 const questionCategoriesMap: Record<
   string,
@@ -406,7 +157,279 @@ const questionCategoriesMap: Record<
 
 export const AwardScheme: React.FC = () => {
   const navigate = useNavigate();
+  const { isPC } = useSettings();
 
+  const awardMapOne: Record<string, React.ReactNode> = {
+    "Two Tiers of Awards": (
+      <div
+        className={`w-full grid grid-cols-${
+          isPC ? "2 h-[218px]" : "1 h-auto"
+        } gap-[24px] `}
+      >
+        <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
+          <div className="text-heading-s flex flex-row items-center gap-[8px]">
+            <Icon icon="bxs:trophy" style={{ height: "24px", width: "24px" }} />
+            Platinum Award
+          </div>
+          <p className="text-body-m">
+            Those who have fulfilled 19 or more of the 24 Assessment Criteria,
+            inclusive of at least two Criteria under each Area
+          </p>
+        </div>
+        <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
+          <div className="text-heading-s flex flex-row items-center gap-[8px]">
+            <Icon
+              icon="bxs:trophy"
+              style={{ color: "#EE9C22", height: "24px", width: "24px" }}
+            />
+            Gold Award
+          </div>
+          <p className="text-body-m">
+            Those who have fulfilled 10 or more of the 24 Assessment Criteria,
+            inclusive of at least two Criteria under each Area
+          </p>
+        </div>
+      </div>
+    ),
+    Benefits: (
+      <>
+        <li>Presented with a Trophy and an Award Certificate;</li>
+        <br />
+        <li>
+          Permitted to use the logo for the Gold Award and the Platinum Award as
+          appropriate on their websites and promotional materials (Please refer
+          to the Guidelines on the Use of the Logos under the Testing and
+          Certification Manpower Development Corporate Award at Annex of
+          the&nbsp;
+          <a
+            className="underline"
+            href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+          >
+            Guidance Notes
+          </a>
+          );
+        </li>
+        <br />
+
+        <li>
+          Invited to attend the presentation ceremony and publicity events.
+        </li>
+      </>
+    ),
+    Eligibility: (
+      <>
+        <p>Applicant entities must be -</p>
+        <br />
+        <li>
+          Accredited by the Hong Kong Accreditation Service (HKAS) or other
+          accreditation bodies having Mutual Recognition Arrangements with HKAS;
+          and
+        </li>
+        <br />
+        <li>
+          Located in Hong Kong with testing and certification services provided
+          locally.
+        </li>
+        <br />
+        <p>
+          Testing and certification services refer to testing, calibration,
+          inspection and/or certification services.
+        </p>
+      </>
+    ),
+    "Assessment Criteria": (
+      <>
+        <p>
+          The assessment covers the following four Areas, each with six Criteria
+          as specified in the Guidance Notes -
+        </p>
+        <div
+          className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] my-[24px]`}
+        >
+          {assessmentCriteriaGrid.map((item, index) => (
+            <div
+              key={index}
+              className={`border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-${
+                isPC ? "[216px]" : "auto"
+              }`}
+            >
+              <p className={`text-${item.color} underline !text-heading-s`}>
+                {item.title}
+              </p>
+              <p className="!text-body-m">{item.content}</p>
+            </div>
+          ))}
+        </div>
+        <p>
+          Activities carried out and achievements made during the period from 1
+          June 2021 up to the date of application would be considered for the
+          Award.
+          <br />
+          <br />
+          Subject to provision of valid and credible supporting documents,
+          applicant entities would be eligible for the award in two tiers -
+          <br />
+          <br />
+          Platinum Award:
+          <br />
+          Those who have fulfilled 19 or more of the 24 Criteria, inclusive of
+          at least two Criteria under each Area
+          <br />
+          <br />
+          Gold Award:
+          <br />
+          Those who have fulfilled 10 or more of the 24 Criteria, inclusive of
+          at least two Criteria under each Area
+        </p>
+      </>
+    ),
+    "Selection Process": (
+      <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
+        {stagesGridOne.map((item, index) => (
+          <div
+            key={index}
+            className={`bg-${
+              index !== 0 ? "newPrimary" : "white"
+            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
+          >
+            <p
+              className={`text-${
+                index === 0 ? "newPrimary" : "white"
+              } underline !text-heading-s`}
+            >
+              {item.title}
+            </p>
+            <p
+              className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
+            >
+              {item.content}
+            </p>
+          </div>
+        ))}
+      </div>
+    ),
+  };
+  const awardMapTwo: Record<string, React.ReactNode> = {
+    "Two Tiers of Awards": (
+      <div
+        className={`w-full grid grid-cols-${
+          isPC ? "2 h-[218px]" : "1 h-auto"
+        } gap-[24px]`}
+      >
+        <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
+          <div className="text-heading-s flex flex-row items-center gap-[8px]">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/eventsLanding/Professional_Icon.svg"
+              }
+              style={{ height: "24px", width: "24px" }}
+              alt=""
+            />
+            Junior Professional
+          </div>
+          <p className="text-body-m">
+            Open to T&C practitioners who have 1 year up to less than 6 years of
+            T&C services in aggregate
+          </p>
+        </div>
+        <div className="border-2 border-inherit flex flex-col justify-center p-[24px] gap-[8px]">
+          <div className="text-heading-s flex flex-row items-center gap-[8px]">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/eventsLanding/Professional_Icon_2.svg"
+              }
+              style={{ height: "24px", width: "24px" }}
+              alt="Professional"
+            />
+            Senior Professional
+          </div>
+          <p className="text-body-m">
+            Open to T&C practitioners who have 6 years up to less than 20 years
+            of T&C services in aggregate
+          </p>
+        </div>
+      </div>
+    ),
+    Benefits: (
+      <>
+        <p>Awardees will be -</p>
+        <br />
+        <li>Presented with a Trophy and an Award Certificate;</li>
+        <br />
+        <li>
+          Invited to attend the presentation ceremony and publicity events
+        </li>
+      </>
+    ),
+    Eligibility: (
+      <>
+        <p>Applicant practitioners must be -</p>
+        <br />
+        <li>
+          Nominated by a testing and certification body which is accredited by
+          the Hong Kong Accreditation Service (HKAS) or other accreditation
+          bodies having Mutual Recognition Arrangements with HKAS;
+        </li>
+        <br />
+        <li>
+          An employee of the nominating testing and certification body for at
+          least 1 year; and
+        </li>
+        <br />
+        <li>
+          Located in Hong Kong with major duty to carry out testing,
+          calibration, inspection and/or certification service.
+        </li>
+      </>
+    ),
+    "Assessment Criteria": (
+      <>
+        <p>
+          Each application will be considered on the basis of its overall
+          merits, including but not limited to -
+          <br />
+          <br />
+          i. Commitment to continuous learning and professional development by
+          acquiring new skills, capabilities as well as relevant academic and
+          professional qualifications after joining the testing and
+          certification sector;
+          <br />
+          <br />
+          ii. Impact/significance of contributions made to improving service
+          quality or productivity of the nominating testing and certification
+          body (e.g. adopting innovation and/or new technology in service
+          delivery).
+        </p>
+      </>
+    ),
+    "Selection Process": (
+      <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
+        {stagesGridTwo.map((item, index) => (
+          <div
+            key={index}
+            className={`bg-${
+              index !== 0 ? "newPrimary" : "white"
+            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
+          >
+            <p
+              className={`text-${
+                index === 0 ? "newPrimary" : "white"
+              } underline !text-heading-s`}
+            >
+              {item.title}
+            </p>
+            <p
+              className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
+            >
+              {item.content}
+            </p>
+          </div>
+        ))}
+      </div>
+    ),
+  };
   const [activeAwardOneButton, setActiveAwardOneButton] = useState<string>(
     Object.keys(awardMapOne)[0]
   );
@@ -447,7 +470,7 @@ export const AwardScheme: React.FC = () => {
   ];
 
   return (
-    <div className="w-full mb-[48px] flex flex-col">
+    <div className="w-full">
       <SquareTitle title="Testing & Certificate Manpower Development Award Scheme" />
 
       <p className="text-body-m my-[24px]">
@@ -481,13 +504,35 @@ export const AwardScheme: React.FC = () => {
                 src={process.env.PUBLIC_URL + "/assets/eventsLanding/" + imgUrl}
                 alt={imgUrl}
               />
-              <div className="text-highlight-m text-black py-[8px] pr-[16px]">
-                {title}
+              <div
+                className={`text-highlight-m text-black py-[8px] ${
+                  isPC ? "pr-[16px]" : ""
+                }`}
+              >
+                {title.length > 36 && !isPC
+                  ? title.slice(0, 36) + "..."
+                  : title}
               </div>
-              <Icon
-                icon="teenyicons:right-outline"
-                style={{ height: "16px", width: "16px", strokeWidth: "2px" }}
-              />
+              <svg
+                className="flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_2682_55750)">
+                  <path
+                    d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2682_55750">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
           );
         })}
@@ -520,7 +565,7 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
 
-      <div className="mb-[24px] text-body-m">
+      <div className="pb-[24px] text-body-m">
         {awardMapOne[activeAwardOneButton]}
       </div>
 
@@ -538,7 +583,7 @@ export const AwardScheme: React.FC = () => {
           qualifications after joining the T&C sector;
         </li>
         <li>
-          Making outstanding contribution s to improving service quality or
+          Making outstanding contributions to improving service quality or
           productivity; etc
         </li>
       </p>
@@ -578,7 +623,7 @@ export const AwardScheme: React.FC = () => {
                 setQuestionCategory(btn);
               }}
             >
-              {btn}
+              {btn.length > 48 && !isPC ? btn.slice(0, 48) + "..." : btn}
             </button>
           );
         })}

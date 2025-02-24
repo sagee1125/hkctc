@@ -160,12 +160,20 @@ export const CareerEducation: React.FC = () => {
             <Breadcrumb items={breadcrumbItems} />
           </div>
         )}
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="px-[24px] min-w-[440px] w-1/3">
-            {multipleSidebars}
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="px-[24px] min-w-[440px] w-1/3">
+              {multipleSidebars}
+            </div>
+            <div className="flex-1">{component}</div>
           </div>
-          <div className="flex-1">{component}</div>
-        </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>{multipleSidebars}</div>
+            <div className="pr-[24px]">{component}</div>
+          </div>
+        )}
       </div>
     </div>
   );

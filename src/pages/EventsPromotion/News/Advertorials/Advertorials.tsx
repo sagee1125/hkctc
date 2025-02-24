@@ -13,6 +13,7 @@ import {
   ADVERTORIALS_SECTOR,
   MEDIA_TYPE,
 } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 export const Advertorials: React.FC = () => {
@@ -114,6 +115,7 @@ export const Advertorials: React.FC = () => {
     itemsPerPage,
     displayList
   );
+  const { isPC } = useSettings();
 
   useEffect(() => {
     window.scroll({
@@ -181,7 +183,13 @@ export const Advertorials: React.FC = () => {
         />
       </div>
 
-      <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
+      <div
+        className={`w-full ${
+          isPC
+            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "flex flex-wrap gap-[24px]"
+        }`}
+      >
         {currentPageData.map((item, index) => {
           const { title, date, mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
@@ -189,7 +197,9 @@ export const Advertorials: React.FC = () => {
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px]"
+              className={`${
+                isPC ? "w-full" : "w-[252px]"
+              } h-[282px] flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
                 title={title}

@@ -1,7 +1,10 @@
 import React from "react";
 import { SquareTitle, Link } from "../../../../components";
+import { useSettings } from "../../../../context";
 
 export const StudentCompetition: React.FC = () => {
+  const { isPC } = useSettings();
+
   const awardeesList: Array<{
     title: string;
     date: string;
@@ -91,13 +94,21 @@ export const StudentCompetition: React.FC = () => {
       <hr />
       <p className="text-heading-l">List of awardees</p>
 
-      <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[24px]">
+      <div
+        className={`w-full ${
+          isPC
+            ? "grid grid-cols-3 gap-x-[24px] gap-y-[24px]"
+            : "flex flex-wrap gap-[24px]"
+        } `}
+      >
         {awardeesList.map((item, index) => {
           const { imgUrl, maskIcon, title, date, hyperLink } = item;
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px] cursor-pointer"
+              className={`${
+                isPC ? "w-full" : "w-[252px]"
+              } h-[282px] flex flex-col gap-[14px] cursor-pointer`}
               onClick={() => {
                 window.open(hyperLink, "_blank");
               }}
@@ -136,7 +147,11 @@ export const StudentCompetition: React.FC = () => {
       <p className="text-heading-l">
         Hong Kong Youth Science and Technology Competition
       </p>
-      <div className="w-full grid grid-cols-2 gap-x-[24px]">
+      <div
+        className={`w-full grid grid-cols-${
+          isPC ? "2 gap-x-[24px]" : "1 gap-[24px]"
+        }`}
+      >
         <img
           className="border-2 border-inherit w-full h-full object-cover"
           src={`${process.env.PUBLIC_URL}/assets/eventsLanding/studentsCompetition/competition_1.png`}

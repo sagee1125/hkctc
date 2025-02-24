@@ -14,6 +14,7 @@ import {
   type VideoListData,
 } from "../../../../const/VideoList";
 import { MEDIA_TYPE } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 export const Videos: React.FC = () => {
@@ -43,6 +44,7 @@ export const Videos: React.FC = () => {
   };
 
   const filteredArticles = filterList[filterButtons[activeButton]];
+  const { isPC } = useSettings();
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
@@ -65,7 +67,7 @@ export const Videos: React.FC = () => {
         <NormalAccordion
           title="Types"
           details={
-            <div className="flex flex-row gap-[8px]">
+            <div className="flex flex-wrap gap-[8px]">
               {filterButtons.map((name, index) => {
                 const isActivated = activeButton === index;
                 return (
@@ -87,14 +89,22 @@ export const Videos: React.FC = () => {
         />
       </div>
 
-      <div className="w-full grid grid-cols-3 gap-x-[24px] gap-y-[36px]">
+      <div
+        className={`w-full ${
+          isPC
+            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "flex flex-wrap gap-[24px]"
+        }`}
+      >
         {currentPageData.map((item, index) => {
           const { title, link, domain } = item;
           const maskIcon = "VIDEO.png";
           return (
             <div
               key={index}
-              className="w-full h-[282px] flex flex-col gap-[14px] mt-[24px]"
+              className={`${
+                isPC ? "w-full" : "w-[252px]"
+              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
                 title={title}
