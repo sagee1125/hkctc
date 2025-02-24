@@ -220,7 +220,7 @@ export const Relaxation: React.FC = () => {
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-[#00E]"
+              className="underline text-[#00E] break-all"
             >
               https://www.landsd.gov.hk/en/about-us/contact-us.htm
             </a>
@@ -241,7 +241,7 @@ export const Relaxation: React.FC = () => {
               href="https://www.ozp.tpb.gov.hk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-[#00E]"
+              className="underline text-[#00E] break-all"
             >
               https://www.ozp.tpb.gov.hk/
             </a>

@@ -84,6 +84,10 @@ export enum navItemEnum {
   videos = "videos",
 
   seminar_article = "seminar_article",
+
+  // about (for mobile use)
+  about_HKCTC = "about_HKCTC",
+  panel_on_manpower_development = "panel_on_manpower_development",
 }
 
 export type SubItems = {

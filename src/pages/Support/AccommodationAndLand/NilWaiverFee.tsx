@@ -61,7 +61,7 @@ export const NilWaiverFee: React.FC = () => {
           and Certification (
           <a
             href="mailto:enquiry@hkctc.gov.hk"
-            className="underline text-[#00E]"
+            className="underline text-[#00E] break-all"
           >
             enquiry@hkctc.gov.hk
           </a>

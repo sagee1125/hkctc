@@ -6,12 +6,21 @@ import {
   Breadcrumb,
   DirectorySidebar,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
+  Sidebar,
 } from "../../components";
+import { useSettings } from "../../context";
+import { navItemEnum, SubItems } from "../../const";
 
 const rightComponentMap: Record<string, React.ReactNode> = {
   "About HKCTC": <AboutHKCTC />,
   "Panel on Manpower Development": <PanelManpowerDevelopment />,
+};
+
+const rightMobileComponentMap: Record<string, React.ReactNode> = {
+  [navItemEnum.about_HKCTC]: <AboutHKCTC />,
+  [navItemEnum.panel_on_manpower_development]: <PanelManpowerDevelopment />,
 };
 
 export const AboutUs: React.FC = () => {
@@ -19,23 +28,53 @@ export const AboutUs: React.FC = () => {
   const [activatedItems, setActivatedItems] = useState<string>(
     Object.keys(rightComponentMap)[0]
   );
-
+  const [activatedMBItems, setActivatedMBItems] = useState<string>(
+    Object.keys(rightMobileComponentMap)[0]
+  );
+  const { isPC } = useSettings();
+  const mbSidebarItems: SubItems[] = [
+    { enum: navItemEnum.about_HKCTC, subTitle: "About HKCTC", imgUrl: "" },
+    {
+      enum: navItemEnum.panel_on_manpower_development,
+      subTitle: "Panel on Manpower Development",
+      imgUrl: "",
+    },
+  ];
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"about/banner_bg.png"} />
-      <div style={maxPCContainer}>
-        <Breadcrumb items={breadcrumbItems} />
-        <div className="w-full flex flex-row pt-[48px] px-[24px] gap-[24px]">
-          <div className="min-w-[440px] w-1/3">
-            <DirectorySidebar
-              activatedItems={activatedItems}
-              directorySidebarItems={Object.keys(rightComponentMap)}
-              setActivatedItems={setActivatedItems}
-            />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
+        )}
 
-          <div className="flex-1">{rightComponentMap[activatedItems]}</div>
-        </div>
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] px-[24px] gap-[24px]">
+            <div className="min-w-[440px] w-1/3">
+              <DirectorySidebar
+                activatedItems={activatedItems}
+                directorySidebarItems={Object.keys(rightComponentMap)}
+                setActivatedItems={setActivatedItems}
+              />
+            </div>
+
+            <div className="flex-1">{rightComponentMap[activatedItems]}</div>
+          </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>
+              <Sidebar
+                title={""}
+                activatedItems={activatedMBItems}
+                sidebarItems={mbSidebarItems}
+                setActivatedItems={setActivatedItems}
+              />
+            </div>
+            <div>{rightMobileComponentMap[activatedItems]}</div>
+          </div>
+        )}
       </div>
     </div>
   );

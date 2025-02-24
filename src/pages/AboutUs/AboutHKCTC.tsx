@@ -1,6 +1,9 @@
 import React from "react";
+import { useSettings } from "../../context";
 
 export const AboutHKCTC: React.FC = () => {
+  const { isPC } = useSettings();
+
   const names = [
     "Ms Bess CHOI Siu-fong",
     "Mr Martin FAN",
@@ -49,7 +52,9 @@ export const AboutHKCTC: React.FC = () => {
       </p>
       <p className="text-heading-l">Membership</p>
       <p className="text-italic-s italic mt-[8px]">2024-2025</p>
-      <div className="grid grid-cols-2 gap-[24px] mt-[28px]">
+      <div
+        className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] mt-[28px]`}
+      >
         <div>
           <p className="text-heading-m">Chairman</p>
           <p className="text-highlight-l mt-[8px]">Professor WONG Wing-tak</p>
