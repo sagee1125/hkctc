@@ -69,10 +69,10 @@ export const AboutUs: React.FC = () => {
                 title={""}
                 activatedItems={activatedMBItems}
                 sidebarItems={mbSidebarItems}
-                setActivatedItems={setActivatedItems}
+                setActivatedItems={setActivatedMBItems}
               />
             </div>
-            <div>{rightMobileComponentMap[activatedItems]}</div>
+            <div>{rightMobileComponentMap[activatedMBItems]}</div>
           </div>
         )}
       </div>

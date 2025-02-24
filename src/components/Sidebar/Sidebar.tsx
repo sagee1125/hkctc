@@ -107,8 +107,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                               setActivatedItems(navItemEnum);
                             }}
                             className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
-                              active
-                                ? "bg-newPrimary text-white"
+                              active || navItemEnum === activatedItems
+                                ? "bg-[#F7F7F5] text-black"
                                 : "text-gray-700"
                             }`}
                           >
