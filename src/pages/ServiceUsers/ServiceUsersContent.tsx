@@ -1,5 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle, Link } from "../../components";
+import { useSettings } from "../../context";
 
 type IndustryData = {
   title: string;
@@ -32,6 +33,8 @@ export const accreditationService: Array<{
 ];
 
 export const ServiceUsersContent: React.FC = () => {
+  const { isPC } = useSettings();
+
   const industryData: IndustryData[] = [
     {
       title: "Services Provided by T&C Sector",
@@ -70,7 +73,11 @@ export const ServiceUsersContent: React.FC = () => {
   ];
 
   return (
-    <div className="w-full grid grid-cols-[2fr,1fr] py-[48px] px-[24px] gap-[24px]">
+    <div
+      className={`w-full grid grid-cols-${
+        isPC ? "[2fr,1fr]" : "1"
+      } py-[48px] px-[24px] gap-[24px]`}
+    >
       <div>
         <SquareTitle title="Our Support" />
 
@@ -80,7 +87,9 @@ export const ServiceUsersContent: React.FC = () => {
             return (
               <div
                 key={index}
-                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px] cursor-pointer"
+                className={`grid grid-cols-${
+                  isPC ? "2 h-[278px]" : "1"
+                } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
                 onClick={() => {
                   window.open(link);
                 }}
@@ -92,7 +101,13 @@ export const ServiceUsersContent: React.FC = () => {
                     alt={title}
                   />
                 </div>
-                <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
+                <div
+                  className={`flex flex-col justify-center ${
+                    isPC
+                      ? "pr-[24px] py-[24px]"
+                      : "px-[24px] pt-[8px] pb-[24px]"
+                  } gap-[24px]`}
+                >
                   <div
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
@@ -125,7 +140,7 @@ export const ServiceUsersContent: React.FC = () => {
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
                 <div
-                  className="relative w-[130px] h-full cursor-pointer"
+                  className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
                   onClick={() => {
                     window.open(link);
                   }}
@@ -158,7 +173,7 @@ export const ServiceUsersContent: React.FC = () => {
         <div className="w-full">
           <div className="flex flex-row h-[90px] gap-[24px]">
             <div
-              className="relative w-[130px] h-full cursor-pointer"
+              className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
               onClick={() => {
                 window.open(
                   "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"

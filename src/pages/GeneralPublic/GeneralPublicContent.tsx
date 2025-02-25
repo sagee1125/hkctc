@@ -1,8 +1,11 @@
 import React from "react";
-import { EmailBox, SquareTitle, Link } from "../../components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { EmailBox, SquareTitle, Link } from "../../components";
+import { useSettings } from "../../context";
 
 export const GeneralPublicContent: React.FC = () => {
+  const { isPC } = useSettings();
+
   const materialsData: Array<{
     title: string;
     imgUrl: string;
@@ -77,7 +80,9 @@ export const GeneralPublicContent: React.FC = () => {
 
   return (
     <div
-      className="w-full grid grid-cols-[1fr,2fr] gap-[24px] pb-[48px]"
+      className={`w-full ${
+        isPC ? "grid grid-cols-[1fr,2fr]" : "flex flex-col-reverse"
+      } gap-[24px] pb-[48px]`}
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
       {/* Materials & Enquires */}
@@ -97,7 +102,7 @@ export const GeneralPublicContent: React.FC = () => {
                   }}
                 >
                   <img
-                    className="w-[130px] h-auto"
+                    className={`w-[130px] h-auto`}
                     src={
                       process.env.PUBLIC_URL +
                       `/assets/generalPublic/${imgUrl}.png`
@@ -187,19 +192,22 @@ export const GeneralPublicContent: React.FC = () => {
         </span>
         <>
           {whatsNew.map((w, i) => {
+            const { title } = w;
             return (
-              <div className="flex flex-row items-center">
+              <div className="flex flex-row items-center" key={i}>
                 <div className="flex flex-col w-full mr-[16px] gap-[16px]">
-                  <div className="text-heading-m">
+                  <div className={isPC ? "text-heading-m" : "text-heading-s"}>
                     <Link
                       linkColor="#203136"
                       innerLink={w.link}
                       outerLink={w.link}
                     >
-                      {w.title}
+                      {title.length > 42 && !isPC
+                        ? title.slice(0, 42) + "..."
+                        : title}
                     </Link>
                   </div>
-                  <div className="flex flex-row items-center gap-[8px] ">
+                  <div className="flex flex-row items-center gap-[8px] text-body-s">
                     <img
                       src={
                         process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
@@ -211,7 +219,9 @@ export const GeneralPublicContent: React.FC = () => {
                 </div>
 
                 <img
-                  className="w-[278px] h-auto cursor-pointer"
+                  className={`${
+                    isPC ? "w-[278px]" : "w-[160px]"
+                  } h-auto cursor-pointer`}
                   onClick={() => {
                     window.open(w.link);
                   }}

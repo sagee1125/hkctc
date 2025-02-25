@@ -1,5 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle } from "../../components";
+import { useSettings } from "../../context";
 
 type IndustryData = {
   title: string;
@@ -9,6 +10,8 @@ type IndustryData = {
   onClick?: () => void;
 };
 export const IndustryContent: React.FC = () => {
+  const { isPC } = useSettings();
+
   const industryData: IndustryData[] = [
     {
       title: "Accommodation and Land",
@@ -64,7 +67,11 @@ export const IndustryContent: React.FC = () => {
   ];
 
   return (
-    <div className="w-full grid grid-cols-[2fr,1fr] py-[48px] px-[24px] gap-[24px]">
+    <div
+      className={`w-full ${
+        isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col"
+      } py-[48px] px-[24px] gap-[24px]`}
+    >
       <div>
         <SquareTitle title="Our Support" />
 
@@ -74,7 +81,9 @@ export const IndustryContent: React.FC = () => {
             return (
               <div
                 key={index}
-                className="grid grid-cols-2 justify-start group border-2 border-inherit h-[278px] mt-[24px] gap-[24px] cursor-pointer"
+                className={`grid grid-cols-${
+                  isPC ? "2 h-[278px]" : "1"
+                } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
                 onClick={() => {
                   window.open(link);
                 }}
@@ -86,7 +95,13 @@ export const IndustryContent: React.FC = () => {
                     alt={title}
                   />
                 </div>
-                <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
+                <div
+                  className={`flex flex-col justify-center ${
+                    isPC
+                      ? "pr-[24px] py-[24px]"
+                      : "px-[24px] pt-[8px] pb-[24px]"
+                  } gap-[24px]`}
+                >
                   <div
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"

@@ -1,5 +1,6 @@
 import React from "react";
 import { EmailBox } from "../../components";
+import { useSettings } from "../../context";
 
 type EducationData = {
   title: string;
@@ -9,6 +10,8 @@ type EducationData = {
   onClick?: () => void;
 };
 export const EducatorsStudentsContent: React.FC = () => {
+  const { isPC } = useSettings();
+
   const careerData: Array<{
     title: string;
     imgUrl: string;
@@ -64,7 +67,9 @@ export const EducatorsStudentsContent: React.FC = () => {
   ];
   return (
     <div
-      className="w-full grid grid-cols-[1fr,2fr] gap-[24px]"
+      className={`w-full ${
+        isPC ? "grid grid-cols-[1fr,2fr]" : "flex flex-col-reverse"
+      } gap-[24px] pb-[48px]`}
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
       {/* Career Opportunities & Enquires */}
@@ -118,7 +123,7 @@ export const EducatorsStudentsContent: React.FC = () => {
           <EmailBox />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-[24px] pb-[48px]">
+      <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] `}>
         {educationData.map((item, index) => {
           const { title, imagePath, description, link } = item;
           return (

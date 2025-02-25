@@ -1,82 +1,223 @@
 import React from "react";
+import { useSettings } from "../../context";
 
 export const PhotoPanel: React.FC = () => {
-  return (
-    <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
-      <div className="grid grid-cols-2 gap-[24px]">
-        <div
-          className="col-span-2 cursor-pointer"
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
-            ...imgBox,
-          }}
-          onClick={() => {
-            window.open("/about-us");
-          }}
-        >
-          <div style={overlayStyle} />
-          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-            <p className={"text-heading-l-extra text-white z-20"}>
-              About HKCTC
-            </p>
+  const { isPC } = useSettings();
+  if (isPC)
+    return (
+      <div className={`w-full h-full grid grid-cols-2 gap-[24px] p-[24px]`}>
+        <div className="grid grid-cols-2 gap-[24px]">
+          <div
+            className="col-span-2 cursor-pointer"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
+              ...imgBox,
+            }}
+            onClick={() => {
+              window.open("/about-us");
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-20"}>
+                About HKCTC
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          className="cursor-pointer"
-          onClick={() => {
-            window.open("/tc-sector?section=profile_and_role");
-          }}
-          style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
-            ...imgBox,
-          }}
-        >
-          <div style={overlayStyle} />
-          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-            <p className={"text-heading-l-extra text-white z-20"}>
-              Profile & Role of T&C Sector
-            </p>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/tc-sector?section=profile_and_role");
+            }}
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
+              ...imgBox,
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-20"}>
+                Profile & Role of T&C Sector
+              </p>
+            </div>
           </div>
-        </div>
 
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
+              ...imgBox,
+            }}
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/tc-sector?section=tc_sector_strengths");
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-10"}>
+                Strengths of Hong Kong's T&C Sector
+              </p>
+            </div>
+          </div>
+        </div>
         <div
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
+            minHeight: "537px",
             ...imgBox,
           }}
           className="cursor-pointer"
           onClick={() => {
-            window.open("/tc-sector?section=tc_sector_strengths");
+            window.open("/tc-sector?section=services_provided");
           }}
         >
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Strengths of Hong Kong's T&C Sector
+              Services Provided by T&C Sector
             </p>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
-          minHeight: "537px",
-          ...imgBox,
-        }}
-        className="cursor-pointer"
-        onClick={() => {
-          window.open("/tc-sector?section=services_provided");
-        }}
-      >
-        <div style={overlayStyle} />
-        <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-          <p className={"text-heading-l-extra text-white z-10"}>
-            Services Provided by T&C Sector
-          </p>
+    );
+  else
+    return (
+      <div className={`w-full flex flex-col gap-[24px] p-[24px]`}>
+        <div className="grid grid-cols-1 gap-[24px]">
+          <div
+            className="cursor-pointer"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
+              backgroundSize: "cover",
+              paddingTop: "56.25%", // 16:9
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center top",
+              position: "relative",
+            }}
+            onClick={() => {
+              window.open("/about-us");
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "50%",
+                background:
+                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
+            />
+            <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
+              <p className={"text-heading-l text-white z-20"}>About HKCTC</p>
+            </div>
+          </div>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/tc-sector?section=profile_and_role");
+            }}
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
+              backgroundSize: "cover",
+              paddingTop: "56.25%", // 16:9
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center top",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "50%",
+                background:
+                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
+            />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l text-white z-20"}>
+                Profile & Role of T&C Sector
+              </p>
+            </div>
+          </div>
+
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
+              backgroundSize: "cover",
+              paddingTop: "56.25%", // 16:9
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center top",
+              position: "relative",
+            }}
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/tc-sector?section=tc_sector_strengths");
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "50%",
+                background:
+                  "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
+            />
+            <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
+              <p className={"text-heading-l text-white z-10"}>
+                Strengths of Hong Kong's T&C Sector
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
+            backgroundSize: "cover",
+            paddingTop: "56.25%", // 16:9
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center top",
+            position: "relative",
+          }}
+          className="cursor-pointer"
+          onClick={() => {
+            window.open("/tc-sector?section=services_provided");
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "50%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+          <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
+            <p className={"text-heading-l-extra text-white z-10"}>
+              Services Provided by T&C Sector
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export const overlayStyle: React.CSSProperties = {

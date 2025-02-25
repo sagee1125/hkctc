@@ -1,41 +1,158 @@
 import React from "react";
+import { useSettings } from "../../context";
 
 export const PhotoPanel: React.FC = () => {
-  return (
-    <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
-      <div
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
-          minHeight: "537px",
-          ...imgBox,
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          window.open(
-            "/career_and_education?section=learning_teaching_resources"
-          );
-        }}
-      >
-        <div style={overlayStyle} />
-        <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-          <p className={"text-heading-l-extra text-white z-10"}>
-            Learning and Teaching Resources
-          </p>
+  const { isPC } = useSettings();
+
+  if (isPC)
+    return (
+      <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
+        <div
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
+            minHeight: "537px",
+            ...imgBox,
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.open(
+              "/career_and_education?section=learning_teaching_resources"
+            );
+          }}
+        >
+          <div style={overlayStyle} />
+          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+            <p className={"text-heading-l-extra text-white z-10"}>
+              Learning and Teaching Resources
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-[24px]">
+          <div
+            className="col-span-2"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
+              ...imgBox,
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              window.open("/events-promotion?section=student_competition");
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-10"}>
+                Student Competitions
+              </p>
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
+              ...imgBox,
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              window.open(
+                "/career_and_education?section=qualifications_framework"
+              );
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-10"}>
+                Qualifications Framework
+              </p>
+            </div>
+          </div>
+
+          <div
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
+              ...imgBox,
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              window.open(
+                "/career_and_education?section=programmes_and_courses"
+              );
+            }}
+          >
+            <div style={overlayStyle} />
+            <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+              <p className={"text-heading-l-extra text-white z-10"}>
+                Programmes and Courses
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-[24px]">
+    );
+  else
+    return (
+      <div className={`w-full flex flex-col gap-[24px] p-[24px]`}>
         <div
-          className="col-span-2"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
+            backgroundSize: "cover",
+            paddingTop: "56.25%", // 16:9
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center top",
+            position: "relative",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.open(
+              "/career_and_education?section=learning_teaching_resources"
+            );
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "50%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+          <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
+            <p className={"text-heading-l-extra text-white z-10"}>
+              Learning and Teaching Resources
+            </p>
+          </div>
+        </div>
+        <div
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
-            ...imgBox,
+            backgroundSize: "cover",
+            paddingTop: "56.25%", // 16:9
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center top",
+            position: "relative",
             cursor: "pointer",
           }}
           onClick={() => {
             window.open("/events-promotion?section=student_competition");
           }}
         >
-          <div style={overlayStyle} />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "50%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
               Student Competitions
@@ -45,7 +162,11 @@ export const PhotoPanel: React.FC = () => {
         <div
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
-            ...imgBox,
+            backgroundSize: "cover",
+            paddingTop: "56.25%", // 16:9
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center top",
+            position: "relative",
             cursor: "pointer",
           }}
           onClick={() => {
@@ -54,7 +175,19 @@ export const PhotoPanel: React.FC = () => {
             );
           }}
         >
-          <div style={overlayStyle} />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "50%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
               Qualifications Framework
@@ -65,14 +198,30 @@ export const PhotoPanel: React.FC = () => {
         <div
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
-            ...imgBox,
+            backgroundSize: "cover",
+            paddingTop: "56.25%", // 16:9
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center top",
+            position: "relative",
             cursor: "pointer",
           }}
           onClick={() => {
             window.open("/career_and_education?section=programmes_and_courses");
           }}
         >
-          <div style={overlayStyle} />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              height: "50%",
+              background:
+                "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
               Programmes and Courses
@@ -80,8 +229,7 @@ export const PhotoPanel: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export const overlayStyle: React.CSSProperties = {
