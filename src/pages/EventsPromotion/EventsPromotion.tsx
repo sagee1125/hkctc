@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
+import { seminarsAndWorkshopsList } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/seminarArticles";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
 import { PressReleases } from "./News";
 import { Advertorials } from "./News/Advertorials/Advertorials";
@@ -33,116 +34,130 @@ import { Videos } from "./News/Videos";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 import { useSettings } from "../../context";
 
-const sidebarComponent: Partial<
-  Record<
-    navItemEnum,
-    {
-      bannerImage: string;
-      component: React.ReactNode;
-      subComponent?: React.ReactNode;
-    }
-  >
-> = {
-  // events
-  [navItemEnum.award_scheme]: {
-    bannerImage: "eventsLanding/banner_bg_1.png",
-    component: <AwardScheme />,
-  },
-  [navItemEnum.seminar_workshop]: {
-    bannerImage: "eventsLanding/banner_bg_2.png",
-    component: <SeminarsWorkshops />,
-    subComponent: (
-      <div className="flex flex-row w-full border-2 border-[#E0E0E0]">
-        <div className="w-[60%] h-[134px] p-[20px] flex flex-row justify-center items-center">
-          <img
-            width={"71px"}
-            height={"68px"}
-            src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
-            alt="registration"
-          />
-        </div>
-        <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px]">
-          <p>
-            Seminar on Environmental, Social and Governance (ESG) and
-            Sustainability
-          </p>
-          <Link
-            linkColor="#FFF"
-            innerLink="/events-promotion/seminars-registration"
-          >
-            Register Now
-          </Link>
-        </div>
-      </div>
-    ),
-  },
-  [navItemEnum.student_competition]: {
-    bannerImage: "eventsLanding/banner_bg_3.png",
-    component: <StudentCompetition />,
-  },
-
-  // publications
-  [navItemEnum.hkctc_newsletter]: {
-    bannerImage: "",
-    component: <Newsletter />,
-  },
-  [navItemEnum.pamphlets_booklets]: {
-    bannerImage: "",
-    component: <Pamphlets />,
-  },
-  [navItemEnum.comics]: {
-    bannerImage: "",
-    component: <Comics />,
-  },
-  [navItemEnum.corruption_prevention]: {
-    bannerImage: "",
-    component: <CorruptionGuide />,
-  },
-  [navItemEnum.useful_information]: {
-    bannerImage: "",
-    component: <OtherInformation />,
-  },
-
-  // reports
-  [navItemEnum.hkctc_reports]: {
-    bannerImage: "",
-    component: <HKCTCReports />,
-  },
-  [navItemEnum.council_papers]: {
-    bannerImage: "",
-    component: <LegislativeCouncil />,
-  },
-
-  // news
-  [navItemEnum.press_releases]: {
-    bannerImage: "",
-    component: <PressReleases />,
-  },
-  [navItemEnum.advertorials]: {
-    bannerImage: "",
-    component: <Advertorials />,
-  },
-  [navItemEnum.videos]: {
-    bannerImage: "",
-    component: <Videos />,
-  },
-
-  // display seminar articles
-  [navItemEnum.seminar_article]: {
-    bannerImage: "",
-    component: <SeminarArticlePage />,
-  },
-};
-
-const sidebarKeys = Object.keys(
-  sidebarComponent
-) as (keyof typeof sidebarComponent)[];
-
 export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const { isPC } = useSettings();
+
+  const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
+  const seminarArticleTitle =
+    seminarsAndWorkshopsList[seminarArticleIndex].title;
+
+  const sidebarComponent: Partial<
+    Record<
+      navItemEnum,
+      {
+        bannerImage: string;
+        component: React.ReactNode;
+        subComponent?: React.ReactNode;
+        path?: any[];
+      }
+    >
+  > = {
+    // events
+    [navItemEnum.award_scheme]: {
+      bannerImage: "eventsLanding/banner_bg_1.png",
+      component: <AwardScheme />,
+    },
+    [navItemEnum.seminar_workshop]: {
+      bannerImage: "eventsLanding/banner_bg_2.png",
+      component: <SeminarsWorkshops />,
+      subComponent: (
+        <div className="flex flex-row w-full border-2 border-[#E0E0E0]">
+          <div className="w-[60%] h-[134px] p-[20px] flex flex-row justify-center items-center">
+            <img
+              width={"71px"}
+              height={"68px"}
+              src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
+              alt="registration"
+            />
+          </div>
+          <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px]">
+            <p>
+              Seminar on Environmental, Social and Governance (ESG) and
+              Sustainability
+            </p>
+            <Link
+              linkColor="#FFF"
+              innerLink="/events-promotion/seminars-registration"
+            >
+              Register Now
+            </Link>
+          </div>
+        </div>
+      ),
+    },
+    [navItemEnum.student_competition]: {
+      bannerImage: "eventsLanding/banner_bg_3.png",
+      component: <StudentCompetition />,
+    },
+
+    // publications
+    [navItemEnum.hkctc_newsletter]: {
+      bannerImage: "",
+      component: <Newsletter />,
+    },
+    [navItemEnum.pamphlets_booklets]: {
+      bannerImage: "",
+      component: <Pamphlets />,
+    },
+    [navItemEnum.comics]: {
+      bannerImage: "",
+      component: <Comics />,
+    },
+    [navItemEnum.corruption_prevention]: {
+      bannerImage: "",
+      component: <CorruptionGuide />,
+    },
+    [navItemEnum.useful_information]: {
+      bannerImage: "",
+      component: <OtherInformation />,
+    },
+
+    // reports
+    [navItemEnum.hkctc_reports]: {
+      bannerImage: "",
+      component: <HKCTCReports />,
+    },
+    [navItemEnum.council_papers]: {
+      bannerImage: "",
+      component: <LegislativeCouncil />,
+    },
+
+    // news
+    [navItemEnum.press_releases]: {
+      bannerImage: "",
+      component: <PressReleases />,
+    },
+    [navItemEnum.advertorials]: {
+      bannerImage: "",
+      component: <Advertorials />,
+    },
+    [navItemEnum.videos]: {
+      bannerImage: "",
+      component: <Videos />,
+    },
+
+    // display seminar articles
+    [navItemEnum.seminar_article]: {
+      bannerImage: "",
+      component: <SeminarArticlePage />,
+      path: [
+        {
+          label: "Seminars and Workshops",
+          href: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
+        },
+        {
+          label: seminarArticleTitle,
+        },
+      ],
+    },
+  };
+
+  const sidebarKeys = Object.keys(
+    sidebarComponent
+  ) as (keyof typeof sidebarComponent)[];
 
   const initialSection = queryParams.get("section") ?? "";
 
@@ -213,11 +228,17 @@ export const EventsPromotion: React.FC = () => {
     },
   ];
 
-  const activeSidebarItemsLabel = sidebarData
+  const activeSidebarItemsLabel = sidebarData.filter((section) =>
+    section.sidebarItems.find((item) => item.enum === activeItem)
+  )?.[0].title;
+  const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
     )
-    .find((matchedItem) => matchedItem !== undefined)?.subTitle;
+    .find((matchedItem) => matchedItem !== undefined);
+
+  const firstActiveItemEnum = firstActiveItem?.enum;
+  const activeSidebarItemsSubLabel = firstActiveItem?.subTitle;
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -231,19 +252,24 @@ export const EventsPromotion: React.FC = () => {
   const component = sidebarComponent[activeItem]?.component;
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
   const subComponent = sidebarComponent[activeItem]?.subComponent;
-
+  const otherPath = sidebarComponent[activeItem]?.path ?? []; // only used for seminars
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "Events",
-      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
+      label: "Events & Promotions",
+      href: `/events-promotion`,
     },
     {
-      label: activeSidebarItemsLabel ?? "",
+      label: activeSidebarItemsLabel,
+      href: `/events-promotion?section=${firstActiveItemEnum}`,
     },
-    {
-      label: "",
-    },
+    ...(otherPath.length > 0
+      ? otherPath
+      : [
+          {
+            label: activeSidebarItemsSubLabel ?? "",
+          },
+        ]),
   ];
 
   const multipleSidebars = (

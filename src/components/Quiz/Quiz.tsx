@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ArrowForwardIos } from "@mui/icons-material";
 import { QUIZ, QuizStage, type QuizAnswers } from "./types";
 import { quizInteractionMap } from "./const";
 import { useSettings } from "../../context";
@@ -61,7 +62,7 @@ export const Quiz: React.FC = () => {
           <div className="p-[12px] w-full h-full">
             <div className="py-[22px] px-[16px] w-full h-full">
               {quizStage === QuizStage.QUESTION_DISPLAY && (
-                <>
+                <div>
                   <p
                     style={{
                       fontSize: isPC ? "14px" : "12px",
@@ -85,14 +86,6 @@ export const Quiz: React.FC = () => {
                             className="flex flex-row gap-[8px] my-[8px] items-center cursor-pointer"
                             onClick={() => {
                               setCurrentAnswer(optionCharacter);
-
-                              setTimeout(() => {
-                                setQuizStage(
-                                  optionCharacter === quizData.correctAnser
-                                    ? QuizStage.ANSWER_CORRECT
-                                    : QuizStage.ANSWER_WRONG
-                                );
-                              }, 1000);
                             }}
                           >
                             <div
@@ -130,7 +123,23 @@ export const Quiz: React.FC = () => {
                       }
                     )}
                   </div>
-                </>
+
+                  <div
+                    className={`absolute right-0 bottom-0 cursor-pointer pb-6 pt-4 pl-4 pr-6`}
+                    style={{
+                      backgroundColor: quizData.theme,
+                    }}
+                    onClick={() => {
+                      setQuizStage(
+                        currentAnswer === quizData.correctAnser
+                          ? QuizStage.ANSWER_CORRECT
+                          : QuizStage.ANSWER_WRONG
+                      );
+                    }}
+                  >
+                    <ArrowForwardIos className="text-[#fff]" />
+                  </div>
+                </div>
               )}
 
               {quizStage === QuizStage.ANSWER_CORRECT && (
