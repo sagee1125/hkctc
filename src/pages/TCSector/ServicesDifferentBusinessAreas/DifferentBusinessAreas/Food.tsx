@@ -10,6 +10,7 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   InternalBackButton,
+  Link,
   MediaTemplate,
   SquareTitle,
   fullContainer,
@@ -100,10 +101,10 @@ export const Food: React.FC = () => {
             Hazard Analysis and Critical Control Points (HACCP) Certification
           </li>
           <br />
-          <li className="underline text-[#00E]">
+          <Link outerLink="https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/">
             Food Hygiene Standard Certification System for Catering Industry
             (FHSCS)*
-          </li>
+          </Link>
           <br />
           <li>Organic Food Certification</li>
           <br />
@@ -139,14 +140,14 @@ export const Food: React.FC = () => {
           <br />
           <br />
           List of&nbsp;
-          <span className="underline text-[#00E]">
+          <Link outerLink="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services">
             laboratories accredited for performing food testing
-          </span>
+          </Link>
           &nbsp;and&nbsp;
-          <span className="underline text-[#00E]">
+          <Link outerLink="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html">
             certification bodies accredited for carrying out food safety
             management system certification
-          </span>
+          </Link>
           &nbsp;can be obtained from HKAS website.
         </p>
       ),
@@ -156,10 +157,10 @@ export const Food: React.FC = () => {
       content: (
         <p>
           The basic food law in Hong Kong is laid down in&nbsp;
-          <span className="underline text-[#00E]">
+          <Link outerLink="https://www.cfs.gov.hk/english/food_leg/food_leg_list.html#part5">
             Part V of the Public Health and Municipal Services Ordinance (Cap.
             132)
-          </span>
+          </Link>
           &nbsp;. The main provisions cover general protection for food
           purchasers, offences in connection with sale of unfit food and
           adulterated food, composition and labeling of food, food hygiene,
@@ -168,9 +169,9 @@ export const Food: React.FC = () => {
           <br />
           <br />
           Another food related ordinance is&nbsp;
-          <span className="underline text-[#00E]">
+          <Link outerLink="http://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
             the Food Safety Ordinance (Cap. 612)
-          </span>
+          </Link>
           &nbsp;which provides new food safety control measures, including a
           registration scheme for food importers and food distributors and a
           requirement for food traders to maintain proper records of the
@@ -179,9 +180,9 @@ export const Food: React.FC = () => {
           <br />
           For more details on Food Legislation / Guidelines in Hong Kong, please
           visit the&nbsp;
-          <span className="underline text-[#00E]">
+          <Link outerLink="http://www.cfs.gov.hk/english/food_leg/food_leg.html">
             Centre for Food Safety website
-          </span>
+          </Link>
           .
         </p>
       ),

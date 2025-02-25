@@ -60,7 +60,7 @@ export type CoursesType = Omit<PublicationType, "date" | "mediaType"> & {
 export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 2023-24",
-    date: "31 Jul 2023",
+    date: "",
     link: "/en/doc/HKCTCAnnualReport_2023-24.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2024],
@@ -68,7 +68,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "Report Highlights 23-24",
-    date: "1 Jul 2023",
+    date: "",
     link: "/videos/en/hkctc_report_2023-24_highlights_en.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
     yearRange: [2023, 2024],
@@ -76,7 +76,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 22-23",
-    date: "27 Jun 2023",
+    date: "",
     link: "/en/doc/HKCTCAnnualReport_2022-23.pdf",
     mediaType: MEDIA_TYPE.VIDEO,
     yearRange: [2022, 2023],
@@ -84,7 +84,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "Report Highlights 22-23",
-    date: "27 Jun 2023",
+    date: "",
     link: "/videos/en/hkctc_report_2022-23_highlights.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
     yearRange: [2022, 2023],

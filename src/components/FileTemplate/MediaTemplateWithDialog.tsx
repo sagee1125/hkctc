@@ -342,7 +342,7 @@ export const MediaTemplateWithDialog: React.FC<
               )} */}
           </>
         </div>
-        <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[24px]">
+        <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
           <div
             className={`text-heading-${
               isPC ? "m" : "xs"
@@ -350,6 +350,18 @@ export const MediaTemplateWithDialog: React.FC<
           >
             {title}
           </div>
+          {date && (
+            <div className="flex flex-row gap-[8px] items-center">
+              <img
+                className="w-[16px] h-[16px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+                alt={"calendar"}
+              />
+              <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
+                {date}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </>

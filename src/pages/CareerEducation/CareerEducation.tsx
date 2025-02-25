@@ -115,11 +115,17 @@ export const CareerEducation: React.FC = () => {
     },
   ];
 
-  const activeSidebarItemsLabel = sidebarData
+  const activeSidebarItemsLabel = sidebarData.filter((section) =>
+    section.sidebarItems.find((item) => item.enum === activeItem)
+  )?.[0].title;
+  const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
     )
-    .find((matchedItem) => matchedItem !== undefined)?.subTitle;
+    .find((matchedItem) => matchedItem !== undefined);
+
+  const firstActiveItemEnum = firstActiveItem?.enum;
+  const activeSidebarItemsSubLabel = firstActiveItem?.subTitle;
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -139,7 +145,11 @@ export const CareerEducation: React.FC = () => {
       href: `/career_and_education?section=${navItemEnum.career_development}`,
     },
     {
-      label: activeSidebarItemsLabel ?? "",
+      label: activeSidebarItemsLabel,
+      href: `/career_and_education?section=${firstActiveItemEnum}`,
+    },
+    {
+      label: activeSidebarItemsSubLabel ?? "",
     },
   ];
 
