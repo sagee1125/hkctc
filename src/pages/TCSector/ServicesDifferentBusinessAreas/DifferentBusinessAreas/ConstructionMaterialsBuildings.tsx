@@ -14,11 +14,13 @@ import {
   SquareTitle,
   activatedPagingButtonStyle,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
   normalPagingButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { Icon } from "@iconify/react";
+import { useSettings } from "../../../../context";
 
 type HyperlinkData = {
   label: string;
@@ -104,6 +106,7 @@ const handleGenerateA = (hyperlinkData: HyperlinkData): React.ReactNode => {
 export const ConstructionMaterialsBuildings: React.FC = () => {
   const businessAreaTitle =
     "Construction Materials and Buildings" as BusinessAreaTitle;
+  const { isPC } = useSettings();
 
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9;
@@ -337,45 +340,49 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 <Icon icon="mingcute:arrow-right-fill" width="24" height="24" />
               </button>
             </div>
-            <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E]">
-              {[
-                "Product",
-                "Name of Scheme",
-                "Scheme Owner",
-                "Certification Bodies Accredited by Hong Kong Accreditation Service",
-              ].map((head, index) => (
-                <p key={index}>{head}</p>
-              ))}
-            </div>
-            <div
-              className="!text-[#2F2F2F]"
-              style={{
-                borderTop: "2px solid #2F2F2F",
-              }}
-            >
-              {/* Map over the sliced data */}
-              {currentPageData.map((_, index) => (
-                <div
-                  key={startIndex + index} // Key should be unique and based on the actual index in the full array
-                  className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px]"
-                  style={{
-                    borderBottom: "1px dashed #C8CFD6",
-                  }}
-                >
-                  <p className="text-body-s">
-                    {tableRowsData[0][startIndex + index]}
-                  </p>
-                  <p className="text-body-s">
-                    {tableRowsData[1][startIndex + index]}
-                  </p>
-                  <div className="text-linked-s">
-                    {tableRowsData[2][startIndex + index]}
+            <div style={{ overflowX: "auto" }}>
+              <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E]">
+                {[
+                  "Product",
+                  "Name of Scheme",
+                  "Scheme Owner",
+                  "Certification Bodies Accredited by Hong Kong Accreditation Service",
+                ].map((head, index) => (
+                  <p key={index}>{head}</p>
+                ))}
+              </div>
+              <hr
+                style={{
+                  width: "100%",
+                  height: "3px",
+                  backgroundColor: "black",
+                }}
+              />
+              <div className="!text-[#2F2F2F]">
+                {/* Map over the sliced data */}
+                {currentPageData.map((_, index) => (
+                  <div
+                    key={startIndex + index} // Key should be unique and based on the actual index in the full array
+                    className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px]"
+                    style={{
+                      borderBottom: "1px dashed #C8CFD6",
+                    }}
+                  >
+                    <p className="text-body-s">
+                      {tableRowsData[0][startIndex + index]}
+                    </p>
+                    <p className="text-body-s">
+                      {tableRowsData[1][startIndex + index]}
+                    </p>
+                    <div className="text-linked-s">
+                      {tableRowsData[2][startIndex + index]}
+                    </div>
+                    <div className="text-linked-s">
+                      {tableRowsData[3][startIndex + index]}
+                    </div>
                   </div>
-                  <div className="text-linked-s">
-                    {tableRowsData[3][startIndex + index]}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </>
@@ -609,109 +616,123 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+      <div className="my-[24px]">
+        <MediaTemplate
+          iconPath="VIDEO.png"
+          title="Hong Kong's Testing and Certification Services for Construction Materials and Buildings"
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
+          mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
+        />
+      </div>
+      <p className="text-heading-l mb-[24px]">
+        Product Certification for Construction Materials
+      </p>
+      <FileTemplate
+        title={"Product Certification - An Upstream Quality Control"}
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
+        pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
+      />
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+        {productData.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="!text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+      <p className="text-heading-l my-[24px]">
+        Testing and Inspection Services for Buildings and Construction Materials
+      </p>
+      <p className="text-body-m">
+        Details of the laboratories providing the public with accredited
+        electrical and electronic product (EEP) testing services are available
+        at&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        .
+      </p>
+      <hr className="my-[24px]" />
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+        {testingData.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={
+              <div>
+                <div className="!text-body-m">{item.descriptionTitle}</div>
+                <div className="!text-body-m flex flex-col gap-[12px]">
+                  {[...item.description].map((desc, index) => (
+                    <div key={index}>
+                      <li>{desc}</li>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
+                  <p className="text-heading-m">{item.contentTitle}</p>
+                  <p className="text-body-m mt-[16px]">{item.content}</p>
+                </div>
+              </div>
+            }
+          />
+        ))}
+      </div>
+      <hr className="my-[24px]" />
+
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Construction_banner.png"}
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
-            <div className="my-[24px]">
-              <MediaTemplate
-                iconPath="VIDEO.png"
-                title="Hong Kong's Testing and Certification Services for Construction Materials and Buildings"
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
-                mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
-              />
+        )}
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-            <p className="text-heading-l mb-[24px]">
-              Product Certification for Construction Materials
-            </p>
-            <FileTemplate
-              title={"Product Certification - An Upstream Quality Control"}
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
-              pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
-            />
-
-            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-              {productData.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="!text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-            <p className="text-heading-l my-[24px]">
-              Testing and Inspection Services for Buildings and Construction
-              Materials
-            </p>
-            <p className="text-body-m">
-              Details of the laboratories providing the public with accredited
-              electrical and electronic product (EEP) testing services are
-              available at&nbsp;
-              <a
-                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-[#00E]"
-              >
-                HKAS's website
-              </a>
-              .
-            </p>
-            <hr className="my-[24px]" />
-
-            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-              {testingData.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={
-                    <div>
-                      <div className="!text-body-m">
-                        {item.descriptionTitle}
-                      </div>
-                      <div className="!text-body-m flex flex-col gap-[12px]">
-                        {[...item.description].map((desc, index) => (
-                          <div key={index}>
-                            <li>{desc}</li>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
-                        <p className="text-heading-m">{item.contentTitle}</p>
-                        <p className="text-body-m mt-[16px]">{item.content}</p>
-                      </div>
-                    </div>
-                  }
-                />
-              ))}
-            </div>
-            <hr className="my-[24px]" />
-
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );

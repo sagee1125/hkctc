@@ -13,8 +13,10 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
+import { useSettings } from "../../../../context";
 
 const timeLineData: Array<{
   text: string;
@@ -57,6 +59,7 @@ const timeLineData: Array<{
 export const InformationAndCommunicationsTechnologies: React.FC = () => {
   const businessAreaTitle =
     "Information and Communications Technologies" as BusinessAreaTitle;
+  const { isPC } = useSettings();
 
   const data: Array<{
     title: string;
@@ -193,6 +196,41 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+
+      <div className="my-[24px]">
+        <MediaTemplate
+          title="Understanding Information Security Management System (ISMS) Certification"
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
+          mediaLink="https://www.hkctc.gov.hk/en/doc/ISMS_Flyer_Communications_5.pdf"
+        />
+      </div>
+
+      <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+        {data.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
@@ -200,48 +238,29 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/InformationAndCommunicationsTechnologiesBanner.png"
         }
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
-
-            <div className="my-[24px]">
-              <MediaTemplate
-                title="Understanding Information Security Management System (ISMS) Certification"
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
-                mediaLink="https://www.hkctc.gov.hk/en/doc/ISMS_Flyer_Communications_5.pdf"
-              />
+        )}
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-
-            <div className="w-full flex flex-col gap-[24px] mb-[24px]">
-              {data.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );

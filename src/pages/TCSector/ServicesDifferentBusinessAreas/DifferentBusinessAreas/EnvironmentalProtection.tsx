@@ -15,9 +15,11 @@ import {
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
+import { useSettings } from "../../../../context";
 
 const timeLineData: string[] = [
   "Define the scope (i.e. activities, facilities, decisions, etc. covered), boundary (e.g. a process, a site, an entire organisation) and policy of an EnMS",
@@ -92,6 +94,7 @@ export const EnvironmentalProtection: React.FC = () => {
   const businessAreaTitle = "Environmental Protection" as BusinessAreaTitle;
   const [activeBSectionButton, setActiveBSectionButton] = useState<number>(0);
   const [activeCSectionButton, setActiveCSectionButton] = useState<number>(0);
+  const { isPC } = useSettings();
 
   const environmentalProtection: Array<{
     title: string;
@@ -160,7 +163,11 @@ export const EnvironmentalProtection: React.FC = () => {
             })}
           </div>
           <div>{cSectionMap[activeCSectionButton].component}</div>
-          <div className="overflow-hidden w-[500px] mt-[16px]">
+          <div
+            className={`overflow-hidden ${
+              isPC ? "w-[500px]" : "w-full"
+            } mt-[16px]`}
+          >
             <img
               className="w-full h-auto object-contain"
               src={
@@ -392,6 +399,72 @@ export const EnvironmentalProtection: React.FC = () => {
       ),
     },
   ];
+
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+
+      <div className="my-[24px]">
+        <MediaTemplate
+          title="Hong Kong's Testing and Certification Services on the Environmental Protection Front"
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/environmental_protection_pdf.png"
+          mediaLink="https://www.youtube.com/embed/5ncIXAbe9mI"
+          iconPath="VIDEO.png"
+        />
+      </div>
+      <p className="text-heading-l mb-[24px]">
+        Greenhouse Gas (GHG) Quantification, Validation and Verification
+      </p>
+      <FileTemplate
+        title={
+          "Greenhouse Gas (GHG) Quantification, Validation and Verification"
+        }
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
+        pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO14064.pdf"
+      />
+
+      <div className="w-full flex flex-col gap-[24px] my-[24px]">
+        {environmentalProtection.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+
+      <p className="text-heading-l mb-[24px]">
+        ISO 50001 Energy Management System Certification
+      </p>
+      <FileTemplate
+        title={"ISO 50001 Energy Management System Certification"}
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"
+      />
+
+      <div className="w-full flex flex-col gap-[24px] my-[24px]">
+        {EnMS.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+      <hr className="my-[24px]" />
+
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
@@ -399,78 +472,30 @@ export const EnvironmentalProtection: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/EnvironmentalProtectionBanner.png"
         }
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
+        )}
 
-            <div className="my-[24px]">
-              <MediaTemplate
-                title="Hong Kong's Testing and Certification Services on the Environmental Protection Front"
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/environmental_protection_pdf.png"
-                mediaLink="https://www.youtube.com/embed/5ncIXAbe9mI"
-                iconPath="VIDEO.png"
-              />
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-            <p className="text-heading-l mb-[24px]">
-              Greenhouse Gas (GHG) Quantification, Validation and Verification
-            </p>
-            <FileTemplate
-              title={
-                "Greenhouse Gas (GHG) Quantification, Validation and Verification"
-              }
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
-              pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO14064.pdf"
-            />
-
-            <div className="w-full flex flex-col gap-[24px] my-[24px]">
-              {environmentalProtection.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-
-            <p className="text-heading-l mb-[24px]">
-              ISO 50001 Energy Management System Certification
-            </p>
-            <FileTemplate
-              title={"ISO 50001 Energy Management System Certification"}
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"
-            />
-
-            <div className="w-full flex flex-col gap-[24px] my-[24px]">
-              {EnMS.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-            <hr className="my-[24px]" />
-
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );

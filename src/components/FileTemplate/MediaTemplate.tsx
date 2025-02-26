@@ -1,5 +1,6 @@
 import React from "react";
 import { type FileTemplateProps } from "./types";
+import { useSettings } from "../../context";
 
 export const MediaTemplate: React.FC<
   FileTemplateProps & {
@@ -13,10 +14,14 @@ export const MediaTemplate: React.FC<
   direction = "horizontal",
   mediaLink,
 }) => {
+  const { isPC } = useSettings();
+
   const componentMap: Record<"horizontal" | "vertical", React.ReactNode> = {
     horizontal: (
       <div
-        className="border-2 border-[#E0E0E0] w-full flex flex-row h-[278px] gap-[24px] cursor-pointer"
+        className={`border-2 border-[#E0E0E0] w-full flex ${
+          isPC ? "flex-row h-[278px]" : "flex-col"
+        } gap-[24px] cursor-pointer`}
         onClick={() => {
           mediaLink && window.open(mediaLink);
         }}
@@ -35,7 +40,11 @@ export const MediaTemplate: React.FC<
           />
         </div>
 
-        <div className="flex flex-col justify-center items-start pr-[24px] gap-[16px]">
+        <div
+          className={`flex flex-col justify-center items-start pr-[24px] gap-[16px] ${
+            isPC ? "" : "px-[24px] pb-[24px]"
+          }`}
+        >
           <p className="text-heading-m">{title}</p>
           {date && (
             <div className="flex flex-row gap-[8px] items-center">
@@ -53,12 +62,18 @@ export const MediaTemplate: React.FC<
 
     vertical: (
       <div
-        className="w-full flex flex-col h-auto gap-[24px] cursor-pointer"
+        className={`w-full flex ${
+          isPC ? "flex-col" : "flex-row"
+        } h-auto gap-[24px] cursor-pointer`}
         onClick={() => {
           mediaLink && window.open(mediaLink);
         }}
       >
-        <div className="flex-shrink-0 relative h-full w-auto">
+        <div
+          className={`flex-shrink-0 relative ${
+            isPC ? "h-full w-auto" : "w-1/2 h-auto"
+          }`}
+        >
           <img
             className="w-full h-full object-cover"
             src={process.env.PUBLIC_URL + imagePath}

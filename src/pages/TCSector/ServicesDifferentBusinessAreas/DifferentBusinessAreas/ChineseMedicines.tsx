@@ -17,12 +17,16 @@ import {
   normalButtonStyle,
   fullContainer,
   maxPCContainer,
+  maxMobileContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
 
 export const ChineseMedicines: React.FC = () => {
+  const { isPC } = useSettings();
+
   const businessAreaTitle = "Chinese Medicines" as BusinessAreaTitle;
   const [activeButton, setActiveButton] = useState<number>(0);
   const servicesForChineseMedicine: Array<{
@@ -232,6 +236,47 @@ export const ChineseMedicines: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+
+      <div className="my-[24px]">
+        <MediaTemplate
+          title="Hong Kong's Testing Services for Chinese Medicines"
+          iconPath={"VIDEO.png"}
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
+          mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
+        />
+      </div>
+
+      <FileTemplate
+        title={"Chinese Medicines Testing"}
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
+        pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
+      />
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+        {servicesForChineseMedicine.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
@@ -239,54 +284,30 @@ export const ChineseMedicines: React.FC = () => {
           "tcSector/servicesDifferentBusinessAreas/chinese_medicines_banner.png"
         }
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
+        )}
 
-            <div className="my-[24px]">
-              <MediaTemplate
-                title="Hong Kong's Testing Services for Chinese Medicines"
-                iconPath={"VIDEO.png"}
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
-                mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
-              />
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-
-            <FileTemplate
-              title={"Chinese Medicines Testing"}
-              imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
-              pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
-            />
-
-            <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-              {servicesForChineseMedicine.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );

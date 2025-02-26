@@ -13,12 +13,15 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
+import { useSettings } from "../../../../context";
 
 export const Jewellery: React.FC = () => {
   const businessAreaTitle = "Jewellery" as BusinessAreaTitle;
+  const { isPC } = useSettings();
 
   const acc: Array<{
     title: string;
@@ -110,64 +113,85 @@ export const Jewellery: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+
+      <div className="my-[24px]">
+        <MediaTemplate
+          title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
+          iconPath={"VIDEO.png"}
+          mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
+        />
+      </div>
+      <div
+        className={`grid grid-cols-${
+          isPC ? "2" : "1"
+        } w-full gap-[24px] mb-[24px]`}
+      >
+        <FileTemplate
+          title={"Testing of Fei Cui and Diamond in Hong Kong"}
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
+          pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
+        />
+        <FileTemplate
+          title={"Diamond Testing Services in Hong Kong"}
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
+          pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
+        />
+      </div>
+      <div className="w-full flex flex-col gap-[24px]">
+        {acc.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/Jewellery_banner.png"}
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
+        )}
 
-            <div className="my-[24px]">
-              <MediaTemplate
-                title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
-                imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
-                iconPath={"VIDEO.png"}
-                mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
-              />
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-            <div className="grid grid-cols-2 w-full gap-[24px] mb-[24px]">
-              <FileTemplate
-                title={"Testing of Fei Cui and Diamond in Hong Kong"}
-                imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
-                pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
-              />
-              <FileTemplate
-                title={"Diamond Testing Services in Hong Kong"}
-                imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
-                pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
-              />
-            </div>
-            <div className="w-full flex flex-col gap-[24px]">
-              {acc.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );

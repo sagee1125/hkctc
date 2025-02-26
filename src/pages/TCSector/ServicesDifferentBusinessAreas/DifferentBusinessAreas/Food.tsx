@@ -14,8 +14,10 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
+  maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
+import { useSettings } from "../../../../context";
 
 const tableRowsData = [
   [
@@ -41,6 +43,8 @@ const tableRowsData = [
 
 export const Food: React.FC = () => {
   const businessAreaTitle = "Food" as BusinessAreaTitle;
+  const { isPC } = useSettings();
+
   const data: Array<{
     title: string;
     content: React.ReactNode;
@@ -213,61 +217,81 @@ export const Food: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={businessAreaTitle}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={businessAreaTitle} />
+
+      <div
+        className={`my-[24px] grid grid-cols-${
+          isPC ? photos.length : 1
+        } gap-[24px]`}
+      >
+        {photos.map((item, index) => (
+          <div key={index} className="w-full">
+            <MediaTemplate
+              direction={"vertical"}
+              title={item.title}
+              iconPath={item.icon}
+              imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
+              mediaLink={item.link}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+        {data.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+
+      <InternalBackButton
+        targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
+      />
+    </>
+  );
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
         src={"tcSector/servicesDifferentBusinessAreas/food_banner.png"}
       />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb
-            items={handleReturnDifferentBusinessAreasBreadcrumb(
-              businessAreaTitle
-            )}
-          />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DifferentBusinessAreasDirectorySidebar
-              businessAreaTitle={businessAreaTitle}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb
+              items={handleReturnDifferentBusinessAreasBreadcrumb(
+                businessAreaTitle
+              )}
             />
           </div>
-          <div className="flex-1">
-            <SquareTitle title={businessAreaTitle} />
+        )}
 
-            <div
-              className={`my-[24px] grid grid-cols-${photos.length} gap-[24px]`}
-            >
-              {photos.map((item, index) => (
-                <div key={index} className="w-full">
-                  <MediaTemplate
-                    direction="vertical"
-                    title={item.title}
-                    iconPath={item.icon}
-                    imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
-                    mediaLink={item.link}
-                  />
-                </div>
-              ))}
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
             </div>
-
-            <div className="w-full flex flex-col gap-[24px] mb-[24px]">
-              {data.map((item, index) => (
-                <Accordion
-                  key={index}
-                  title={item.title}
-                  details={<div className="text-body-m">{item.content}</div>}
-                />
-              ))}
-            </div>
-
-            <hr className="my-[24px]" />
-
-            <InternalBackButton
-              targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
-            />
+            <div className="flex-1">{content}</div>
           </div>
-        </div>
+        ) : (
+          <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
+            <div>{sidebar}</div>
+            <div>{content}</div>
+          </div>
+        )}
       </div>
     </div>
   );
