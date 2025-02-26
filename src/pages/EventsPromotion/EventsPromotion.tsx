@@ -42,7 +42,7 @@ export const EventsPromotion: React.FC = () => {
 
   const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
   const seminarArticleTitle =
-    seminarsAndWorkshopsList[seminarArticleIndex].title;
+    seminarsAndWorkshopsList[seminarArticleIndex]?.title;
 
   const sidebarComponent: Partial<
     Record<
@@ -145,6 +145,10 @@ export const EventsPromotion: React.FC = () => {
       component: <SeminarArticlePage />,
       path: [
         {
+          label: "Events",
+          href: `/events-promotion?section=${navItemEnum.tc_sector_strengths}`,
+        },
+        {
           label: "Seminars and Workshops",
           href: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
         },
@@ -228,9 +232,17 @@ export const EventsPromotion: React.FC = () => {
     },
   ];
 
-  const activeSidebarItemsLabel = sidebarData.filter((section) =>
-    section.sidebarItems.find((item) => item.enum === activeItem)
-  )?.[0].title;
+  const activeSidebarItemsLabel = sidebarData.filter((section) => {
+    console.log("111111111111111", section.sidebarItems, activeItem);
+    return section.sidebarItems.find((item) => item.enum === activeItem);
+  })?.[0]?.title;
+  console.log(
+    "22222222222222222",
+    sidebarData.filter((section) =>
+      section.sidebarItems.find((item) => item.enum === activeItem)
+    ),
+    activeSidebarItemsLabel
+  );
   const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
@@ -259,13 +271,13 @@ export const EventsPromotion: React.FC = () => {
       label: "Events & Promotions",
       href: `/events-promotion`,
     },
-    {
-      label: activeSidebarItemsLabel,
-      href: `/events-promotion?section=${firstActiveItemEnum}`,
-    },
     ...(otherPath.length > 0
       ? otherPath
       : [
+          {
+            label: activeSidebarItemsLabel,
+            href: `/events-promotion?section=${firstActiveItemEnum}`,
+          },
           {
             label: activeSidebarItemsSubLabel ?? "",
           },

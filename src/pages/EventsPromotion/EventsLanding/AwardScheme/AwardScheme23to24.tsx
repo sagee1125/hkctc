@@ -232,6 +232,7 @@ const buttonTwoMap: Record<string, React.ReactNode> = {
 export const AwardScheme23to24: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
+    { label: "Events & Promotions", href: "/events-promotion" },
     { label: "Events", href: "/events-promotion" },
     {
       label: "T&C Manpower Development Award Scheme",

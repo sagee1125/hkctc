@@ -294,7 +294,10 @@ export const AboutSite: React.FC = () => {
 
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
-    { label: "About the Site" },
+    { label: "About the Site", href: "/about-the-site" },
+    {
+      label: sidebarActivated,
+    },
   ];
 
   const [activeItem, setActiveItem] = useState(sidebarActivated);
