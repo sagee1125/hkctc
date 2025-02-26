@@ -313,6 +313,7 @@ export const AwardScheme21to22: React.FC = () => {
 
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
+    { label: "Events & Promotions", href: "/events-promotion" },
     { label: "Events", href: "/events-promotion" },
     {
       label: "T&C Manpower Development Award Scheme",
