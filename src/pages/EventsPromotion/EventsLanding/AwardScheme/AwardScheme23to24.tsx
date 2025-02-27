@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import {
   Accordion,
