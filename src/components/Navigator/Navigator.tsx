@@ -22,6 +22,7 @@ const hideExploreBar = [
   "/about-us",
   "/about-the-site",
   "/career_and_education",
+  "/whats-new",
   "/*",
 ];
 
