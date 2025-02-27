@@ -30,7 +30,7 @@ export const MediaTemplateWithDialog: React.FC<
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
-  const { isPC } = useSettings();
+  const { isPC, pdfjsLib } = useSettings();
 
   const [loading, setLoading] = useState(false);
   const [isIMGLoaded, setIsIMGLoaded] = useState(false);
@@ -41,7 +41,6 @@ export const MediaTemplateWithDialog: React.FC<
   const canvasRef = useRef<HTMLCanvasElement | null>(null); // ref for the canvas
   const imageRef = useRef<HTMLImageElement | null>(null); // ref for the image
   const videoRef = useRef<HTMLVideoElement | HTMLIFrameElement | null>(null);
-  const { pdfjsLib } = useSettings();
 
   useEffect(() => {
     let isCancelled = false;
@@ -205,7 +204,19 @@ export const MediaTemplateWithDialog: React.FC<
   const handleOnClick = (): void => {
     if (mediaType === MEDIA_TYPE.NEW_PAGE) {
       window.open(mediaLink, "_blank");
-    } else setIsPreviewOpen(true);
+      return;
+    }
+
+    if (isPC) {
+      setIsPreviewOpen(true);
+    } else {
+      if (mediaType === MEDIA_TYPE.VIDEO) {
+        if (mediaDomain === "hkctc") window.open(mediaLink, "_blank");
+        else if (mediaDomain === "youtube")
+          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+      } else if (mediaType === MEDIA_TYPE.PDF)
+        window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+    }
   };
   return direction === "full" ? (
     <>
