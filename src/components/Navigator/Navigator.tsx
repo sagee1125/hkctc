@@ -11,7 +11,14 @@ import { HeaderSocialMedia } from "../Header";
 import { TextField } from "../TextField";
 import { useFormik } from "formik";
 import { object, string } from "yup";
-import { Collapse, IconButton, InputAdornment } from "@mui/material";
+import {
+  ClickAwayListener,
+  Collapse,
+  IconButton,
+  InputAdornment,
+  Paper,
+  Popper,
+} from "@mui/material";
 
 const hideExploreBar = [
   "/events-landing",
@@ -57,6 +64,7 @@ export const Navigator: React.FC = () => {
   >(null);
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
+  const anchorRef = useRef(null); // mobile drop drown icon
 
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -232,6 +240,7 @@ export const Navigator: React.FC = () => {
                       className="h-[24px] w-[24px] text-[#333333] flex-shrink-0"
                     />
                     <div
+                      ref={anchorRef}
                       className="cursor-pointer h-[24px] w-[24px]"
                       onClick={() => {
                         setActiveIndex(null);
@@ -452,246 +461,273 @@ export const Navigator: React.FC = () => {
           </Transition>
         </nav>
 
-        <Collapse in={openMobileDropDown} timeout="auto" unmountOnExit>
-          <div
-            style={{
-              width: "100%",
-              backgroundColor: "white",
-              color: "black",
-              minHeight: "428px",
-              zIndex: 100,
-              borderBottom: "1px solid rgba(0, 0, 0, 0.25)",
-              position: "absolute",
-            }}
-          >
-            <div className="w-full px-[24px] py-[32px]">
-              {activeIndex === null ? (
-                <div className="flex flex-col gap-[24px]">
-                  {NavigationBarConfiguration.map((nav, index) => {
-                    const { title, items, navUrl } = nav;
-                    const ifHideArrow: boolean = !items.length;
-                    return (
+        <Popper
+          open={openMobileDropDown}
+          anchorEl={anchorRef.current}
+          placement="bottom-start"
+          modifiers={[
+            {
+              name: "preventOverflow",
+              options: { boundary: "window" },
+            },
+            {
+              name: "offset",
+              options: { offset: [0, 30] },
+            },
+          ]}
+          style={{ width: "100%", left: 0 }}
+        >
+          <ClickAwayListener onClickAway={() => setOpenMobileDropDown(false)}>
+            <Paper elevation={0} sx={{ width: "100%" }}>
+              <div
+                style={{
+                  width: "100%",
+                  backgroundColor: "white",
+                  color: "black",
+                  minHeight: "428px",
+                  zIndex: 100,
+                  borderTop: "none",
+                  boxShadow: "0px 10px 10px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                <div className="w-full px-[24px] py-[32px]">
+                  {activeIndex === null ? (
+                    <div className="flex flex-col gap-[24px]">
+                      {NavigationBarConfiguration.map((nav, index) => {
+                        const { title, items, navUrl } = nav;
+                        const ifHideArrow: boolean = !items.length;
+                        return (
+                          <div
+                            key={index}
+                            className="flex flex-row justify-between items-center gap-[6px] cursor-pointer h-full"
+                            onClick={() => {
+                              // means has subitems
+                              if (!ifHideArrow) {
+                                setActiveIndex(index);
+                                setActiveSubItem(
+                                  NavigationBarConfiguration[index]?.items?.[0]
+                                    ?.name ?? ""
+                                );
+                              }
+                              if (navUrl) {
+                                setOpenMobileDropDown(false);
+                                setActiveIndex(null);
+                                navigate(navUrl);
+                              }
+                            }}
+                          >
+                            <p
+                              style={{
+                                fontSize: "18px",
+                                fontWeight: 600,
+                              }}
+                            >
+                              {title}
+                            </p>
+                            <Icon
+                              icon="icon-park-outline:right"
+                              style={{
+                                display: ifHideArrow ? "none" : "block",
+                                color: "black",
+                              }}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col">
+                      {/* allow to back */}
                       <div
-                        key={index}
-                        className="flex flex-row justify-between items-center gap-[6px] cursor-pointer h-full"
+                        className="flex flex-row gap-[16px] items-center cursor-pointer"
                         onClick={() => {
-                          // means has subitems
-                          if (!ifHideArrow) {
-                            setActiveIndex(index);
-                            setActiveSubItem(
-                              NavigationBarConfiguration[index]?.items?.[0]
-                                ?.name ?? ""
-                            );
-                          }
-                          if (navUrl) {
-                            setOpenMobileDropDown(false);
-                            setActiveIndex(null);
-                            navigate(navUrl);
-                          }
+                          setActiveIndex(null);
                         }}
                       >
-                        <p
-                          style={{
-                            fontSize: "18px",
-                            fontWeight: 600,
-                          }}
-                        >
-                          {title}
-                        </p>
                         <Icon
-                          icon="icon-park-outline:right"
-                          style={{
-                            display: ifHideArrow ? "none" : "block",
-                            color: "black",
-                          }}
+                          icon="icon-park-outline:left"
+                          className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
                         />
+                        <p className="text-highlight-extra">
+                          {NavigationBarConfiguration[activeIndex].title}
+                        </p>
                       </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="flex flex-col">
-                  {/* allow to back */}
-                  <div
-                    className="flex flex-row gap-[16px] items-center cursor-pointer"
-                    onClick={() => {
-                      setActiveIndex(null);
-                    }}
-                  >
-                    <Icon
-                      icon="icon-park-outline:left"
-                      className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
-                    />
-                    <p className="text-highlight-extra">
-                      {NavigationBarConfiguration[activeIndex].title}
-                    </p>
-                  </div>
-                  {navItems.map((sideItems, index) => {
-                    if (activeSubItem !== sideItems.name) return <></>;
-                    const { name: currentSideName, subItems } = sideItems;
-                    return (
-                      <div key={index}>
-                        {/* sidebar */}
-                        {/* customizedSidebar */}
-                        {showSidebar ? (
-                          <>
-                            <div className="w-full h-full flex flex-col mt-[16px]">
-                              {customizedSidebar === true ? (
-                                <>
-                                  <div className="flex flex-row mb-[24px]">
-                                    <div
-                                      className="bg-[#EEEEEA]"
-                                      style={{
-                                        width: "16px",
-                                        marginRight: "8px",
-                                      }}
-                                    />
-                                    <div
-                                      style={{
-                                        fontSize: "14px",
-                                        fontWeight: 600,
-                                      }}
-                                    >
-                                      {navItems[0].name}
-                                    </div>
-                                  </div>
+                      {navItems.map((sideItems, index) => {
+                        if (activeSubItem !== sideItems.name) return <></>;
+                        const { name: currentSideName, subItems } = sideItems;
+                        return (
+                          <div key={index}>
+                            {/* sidebar */}
+                            {/* customizedSidebar */}
+                            {showSidebar ? (
+                              <>
+                                <div className="w-full h-full flex flex-col mt-[16px]">
+                                  {customizedSidebar === true ? (
+                                    <>
+                                      <div className="flex flex-row mb-[24px]">
+                                        <div
+                                          className="bg-[#EEEEEA]"
+                                          style={{
+                                            width: "16px",
+                                            marginRight: "8px",
+                                          }}
+                                        />
+                                        <div
+                                          style={{
+                                            fontSize: "14px",
+                                            fontWeight: 600,
+                                          }}
+                                        >
+                                          {navItems[0].name}
+                                        </div>
+                                      </div>
 
-                                  <div className="mt-[16px]">
-                                    <div className="flex flex-col gap-[24px]">
-                                      {subItems.map((sub, index) => {
-                                        const { subTitle, navUrl } = sub;
+                                      <div className="mt-[16px]">
+                                        <div className="flex flex-col gap-[24px]">
+                                          {subItems.map((sub, index) => {
+                                            const { subTitle, navUrl } = sub;
 
-                                        if (!subTitle) return null;
+                                            if (!subTitle) return null;
+                                            return (
+                                              <div
+                                                key={index}
+                                                onClick={() => {
+                                                  setOpenMobileDropDown(false);
+                                                  setActiveIndex(null);
+                                                  if (navUrl) navigate(navUrl);
+                                                }}
+                                              >
+                                                <div className="text-body-m">
+                                                  {subTitle}
+                                                </div>
+                                              </div>
+                                            );
+                                          })}
+                                        </div>
+                                      </div>
+                                    </>
+                                  ) : (
+                                    <>
+                                      {navItems.map((sideItem, index) => {
+                                        const { name: sideName } = sideItem;
+                                        const clicked =
+                                          sideName === currentSideName;
                                         return (
-                                          <div
-                                            key={index}
-                                            onClick={() => {
-                                              setOpenMobileDropDown(false);
-                                              setActiveIndex(null);
-                                              if (navUrl) navigate(navUrl);
-                                            }}
-                                          >
-                                            <div className="text-body-m">
-                                              {subTitle}
+                                          <div key={index}>
+                                            <div
+                                              key={index}
+                                              className={`flex flex-row justify-between px-[10px] py-[8px] cursor-pointer transition-all duration-300 ease-in-out ${
+                                                clicked ? "bg-lightGrey" : ""
+                                              }`}
+                                              onClick={() => {
+                                                setActiveSubItem(sideName);
+                                              }}
+                                            >
+                                              <p
+                                                style={{
+                                                  fontSize: "16px",
+                                                  fontWeight: 600,
+                                                }}
+                                              >
+                                                {sideName}
+                                              </p>
+
+                                              <Icon
+                                                icon="icon-park-outline:down"
+                                                style={{
+                                                  transition:
+                                                    "transform 0.3s ease",
+                                                  transform: clicked
+                                                    ? "rotate(-180deg)"
+                                                    : "rotate(0deg)",
+                                                  color: "black",
+                                                }}
+                                              />
                                             </div>
+                                            {clicked && (
+                                              <div className="pl-[24px] mt-[16px] mb-[24px]">
+                                                <div className="flex flex-col gap-[24px]">
+                                                  {subItems.map(
+                                                    (sub, index) => {
+                                                      const {
+                                                        subTitle,
+                                                        navUrl,
+                                                      } = sub;
+
+                                                      if (!subTitle)
+                                                        return null;
+                                                      return (
+                                                        <div
+                                                          key={index}
+                                                          onClick={() => {
+                                                            setOpenMobileDropDown(
+                                                              false
+                                                            );
+                                                            setActiveIndex(
+                                                              null
+                                                            );
+                                                            if (navUrl)
+                                                              navigate(navUrl);
+                                                          }}
+                                                        >
+                                                          <div className="text-body-m">
+                                                            {subTitle}
+                                                          </div>
+                                                        </div>
+                                                      );
+                                                    }
+                                                  )}
+                                                </div>
+                                              </div>
+                                            )}
                                           </div>
                                         );
                                       })}
-                                    </div>
-                                  </div>
-                                </>
-                              ) : (
-                                <>
-                                  {navItems.map((sideItem, index) => {
-                                    const { name: sideName } = sideItem;
-                                    const clicked =
-                                      sideName === currentSideName;
-                                    return (
-                                      <div key={index}>
+                                    </>
+                                  )}
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                <div className="mt-[16px] mb-[24px]">
+                                  <div className="flex flex-col gap-[24px]">
+                                    {subItems.map((sub, index) => {
+                                      const { subTitle, navUrl } = sub;
+
+                                      if (!subTitle) return null;
+                                      return (
                                         <div
                                           key={index}
-                                          className={`flex flex-row justify-between px-[10px] py-[8px] cursor-pointer transition-all duration-300 ease-in-out ${
-                                            clicked ? "bg-lightGrey" : ""
-                                          }`}
                                           onClick={() => {
-                                            setActiveSubItem(sideName);
+                                            setOpenMobileDropDown(false);
+                                            setActiveIndex(null);
+                                            if (navUrl) navigate(navUrl);
                                           }}
                                         >
-                                          <p
-                                            style={{
-                                              fontSize: "16px",
-                                              fontWeight: 600,
-                                            }}
-                                          >
-                                            {sideName}
-                                          </p>
-
-                                          <Icon
-                                            icon="icon-park-outline:down"
-                                            style={{
-                                              transition: "transform 0.3s ease",
-                                              transform: clicked
-                                                ? "rotate(-180deg)"
-                                                : "rotate(0deg)",
-                                              color: "black",
-                                            }}
-                                          />
-                                        </div>
-                                        {clicked && (
-                                          <div className="pl-[24px] mt-[16px] mb-[24px]">
-                                            <div className="flex flex-col gap-[24px]">
-                                              {subItems.map((sub, index) => {
-                                                const { subTitle, navUrl } =
-                                                  sub;
-
-                                                if (!subTitle) return null;
-                                                return (
-                                                  <div
-                                                    key={index}
-                                                    onClick={() => {
-                                                      setOpenMobileDropDown(
-                                                        false
-                                                      );
-                                                      setActiveIndex(null);
-                                                      if (navUrl)
-                                                        navigate(navUrl);
-                                                    }}
-                                                  >
-                                                    <div className="text-body-m">
-                                                      {subTitle}
-                                                    </div>
-                                                  </div>
-                                                );
-                                              })}
-                                            </div>
+                                          <div className="text-body-m">
+                                            {subTitle}
                                           </div>
-                                        )}
-                                      </div>
-                                    );
-                                  })}
-                                </>
-                              )}
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div className="mt-[16px] mb-[24px]">
-                              <div className="flex flex-col gap-[24px]">
-                                {subItems.map((sub, index) => {
-                                  const { subTitle, navUrl } = sub;
-
-                                  if (!subTitle) return null;
-                                  return (
-                                    <div
-                                      key={index}
-                                      onClick={() => {
-                                        setOpenMobileDropDown(false);
-                                        setActiveIndex(null);
-                                        if (navUrl) navigate(navUrl);
-                                      }}
-                                    >
-                                      <div className="text-body-m">
-                                        {subTitle}
-                                      </div>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    );
-                  })}
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  <hr className="text-[#E0E0E0] my-[24px]" />
+                  <div className="flex flex-row gap-[24px] items-center">
+                    <HeaderSocialMedia />
+                  </div>
                 </div>
-              )}
-              <hr className="text-[#E0E0E0] my-[24px]" />
-              <div className="flex flex-row gap-[24px] items-center">
-                <HeaderSocialMedia />
               </div>
-            </div>
-          </div>
-        </Collapse>
+            </Paper>
+          </ClickAwayListener>
+        </Popper>
         <ExploreBar
           isMobileView={!isPC}
           isHidePCExploreBar={isHideExploreBar}
