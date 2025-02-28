@@ -7,7 +7,9 @@ import {
   maxPCContainer,
   Breadcrumb,
   DirectorySidebar,
+  maxMobileContainer,
 } from "../../../../../components";
+import { useSettings } from "../../../../../context";
 
 export const SeminarsRegistration: React.FC = () => {
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ export const SeminarsRegistration: React.FC = () => {
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(0))
     : null; // remove `#`, get index
+  const { isPC } = useSettings();
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -65,23 +68,35 @@ export const SeminarsRegistration: React.FC = () => {
   }, []);
 
   const currentComponent = sidebarContentMapping?.[activeItem];
-
+  const sidebar = (
+    <DirectorySidebar
+      setActivatedItems={handleChangeDirectorySidebarItems}
+      directorySidebarItems={sidebarItems}
+      activatedItems={activeItem}
+    />
+  );
   return (
     <div style={fullContainer}>
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DirectorySidebar
-              setActivatedItems={handleChangeDirectorySidebarItems}
-              directorySidebarItems={sidebarItems}
-              activatedItems={activeItem}
-            />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="flex-1">{currentComponent}</div>
-        </div>
+        )}
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
+            </div>
+            <div className="flex-1">{currentComponent}</div>
+          </div>
+        ) : (
+          <div className="w-full flex flex-col px-[24px]">
+            <hr className="mb-[48px]" />
+            {sidebar}
+            <div className="flex-1">{currentComponent}</div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -167,27 +167,27 @@ export const RegistrationForm: React.FC = () => {
         className="flex flex-col gap-[24px]"
       >
         <div className="flex flex-col gap-[16px]">
-          <div className="w-[51%]">
-            <div className="text-highlight-m mb-[8px]">Title 稱謂*</div>
-            <TextField
-              name="title"
-              required
-              value={registrationFormik.values.title}
-              onChange={registrationFormik.handleChange}
-              onBlur={registrationFormik.handleBlur}
-              error={
-                registrationFormik.touched.title &&
-                Boolean(registrationFormik.errors.title)
-              }
-              helperText={
-                Boolean(registrationFormik.touched.title) &&
-                registrationFormik.errors.title
-              }
-              fullWidth
-            />
-          </div>
-
           <div className="grid grid-cols-2 gap-[24px]">
+            <div>
+              <div className="text-highlight-m mb-[8px]">Title 稱謂*</div>
+              <TextField
+                name="title"
+                required
+                value={registrationFormik.values.title}
+                onChange={registrationFormik.handleChange}
+                onBlur={registrationFormik.handleBlur}
+                error={
+                  registrationFormik.touched.title &&
+                  Boolean(registrationFormik.errors.title)
+                }
+                helperText={
+                  Boolean(registrationFormik.touched.title) &&
+                  registrationFormik.errors.title
+                }
+                fullWidth
+              />
+            </div>
+            <div />
             <div>
               <div className="text-highlight-m mb-[8px]">First Name 名字*</div>
               <TextField
@@ -362,59 +362,68 @@ export const RegistrationForm: React.FC = () => {
                 fullWidth
               />
             </div>
-          </div>
 
-          <div className="w-[51%]">
-            <div className="text-highlight-m mb-[8px]">
-              Attendance Certificate 出席證明書*
+            <div className="col-span-2">
+              <p className="text-highlight-m mb-[8px]">
+                Attendance Certificate 出席證明書*
+              </p>
+              <div className="w-1/2">
+                <Select
+                  name="attendanceCertificate"
+                  required
+                  value={registrationFormik.values.attendanceCertificate}
+                  options={[]}
+                  onChange={registrationFormik.handleChange}
+                  onBlur={registrationFormik.handleBlur}
+                  error={
+                    registrationFormik.touched.attendanceCertificate &&
+                    Boolean(registrationFormik.errors.attendanceCertificate)
+                  }
+                  helperText={
+                    registrationFormik.touched.attendanceCertificate &&
+                    registrationFormik.errors.attendanceCertificate
+                  }
+                  sx={{
+                    width: "52%",
+                  }}
+                  fullWidth
+                />
+              </div>
             </div>
-            <Select
-              name="attendanceCertificate"
-              required
-              value={registrationFormik.values.attendanceCertificate}
-              options={[]}
-              onChange={registrationFormik.handleChange}
-              onBlur={registrationFormik.handleBlur}
-              error={
-                registrationFormik.touched.attendanceCertificate &&
-                Boolean(registrationFormik.errors.attendanceCertificate)
-              }
-              helperText={
-                registrationFormik.touched.attendanceCertificate &&
-                registrationFormik.errors.attendanceCertificate
-              }
-              sx={{
-                width: "52%",
-              }}
-              fullWidth
-            />
+
+            <div className="col-span-2">
+              <p className="text-highlight-m mb-[8px]">
+                Full Name for Attendance Certificate (In English only)
+                出席證明書所載的英文全名
+              </p>
+              <div className="w-1/2">
+                <TextField
+                  name="fullNameAttendanceCertificate"
+                  required
+                  value={
+                    registrationFormik.values.fullNameAttendanceCertificate
+                  }
+                  onChange={registrationFormik.handleChange}
+                  onBlur={registrationFormik.handleBlur}
+                  error={
+                    registrationFormik.touched.fullNameAttendanceCertificate &&
+                    Boolean(
+                      registrationFormik.errors.fullNameAttendanceCertificate
+                    )
+                  }
+                  helperText={
+                    registrationFormik.touched.fullNameAttendanceCertificate &&
+                    registrationFormik.errors.fullNameAttendanceCertificate
+                  }
+                  fullWidth
+                />
+              </div>
+            </div>
+
+            <div />
           </div>
 
           <div className="flex flex-col gap-[8px] w-full">
-            <div className="text-highlight-m">
-              Full Name for Attendance Certificate (In English only)
-              出席證明書所載的英文全名
-            </div>
-            <div className="w-[51%]">
-              <TextField
-                name="fullNameAttendanceCertificate"
-                required
-                value={registrationFormik.values.fullNameAttendanceCertificate}
-                onChange={registrationFormik.handleChange}
-                onBlur={registrationFormik.handleBlur}
-                error={
-                  registrationFormik.touched.fullNameAttendanceCertificate &&
-                  Boolean(
-                    registrationFormik.errors.fullNameAttendanceCertificate
-                  )
-                }
-                helperText={
-                  registrationFormik.touched.fullNameAttendanceCertificate &&
-                  registrationFormik.errors.fullNameAttendanceCertificate
-                }
-                fullWidth
-              />
-            </div>
             <div>
               Certificate will be issued via Email 證明書會以電郵方式發出
             </div>
