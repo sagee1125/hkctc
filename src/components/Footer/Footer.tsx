@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Collapse } from "@mui/material";
 import { navItemEnum } from "../../const";
 import { useSettings } from "../../context";
+import { ABOUT_SIDE_MODULE } from "../../pages";
 
 type Sub = {
   label: string;
@@ -29,23 +30,23 @@ export const Footer: React.FC = () => {
   const commonDate: Sub[] = [
     {
       label: "Resources Library",
-      link: "",
+      link: "/resources-reports",
     },
     {
       label: "Important Notices",
-      link: "/about-the-site?am=Important+Notices",
+      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.IMPORTANT_NOTE}`,
     },
     {
       label: "Accessibility",
-      link: "/about-the-site?am=Accessibility",
+      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.ACCESSIBILITY}`,
     },
     {
       label: "Privacy Policy",
-      link: "/about-the-site?am=Privacy+Policy",
+      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.PRIVACY}`,
     },
     {
       label: "Related Site",
-      link: "",
+      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.CONTACT}`,
     },
     //   label: "Contact Us",
     //   link: "/about-the-site?am=Contact+Us",
@@ -565,7 +566,19 @@ export const Footer: React.FC = () => {
           <div className="w-full flex flex-col items-center gap-[8px] py-[24px]">
             <div className="flex justify-center gap-4 text-white">
               {commonDate.slice(0, 3).map((item, index) => (
-                <p key={index} className="text-body-s">
+                <p
+                  key={index}
+                  className="text-body-s cursor-pointer"
+                  onClick={() => {
+                    if (item.link) {
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      navigate(item.link);
+                    }
+                  }}
+                >
                   {item.label}
                 </p>
               ))}
@@ -573,7 +586,19 @@ export const Footer: React.FC = () => {
 
             <div className="flex justify-center gap-4">
               {commonDate.slice(3, 5).map((item, index) => (
-                <p key={index} className="text-body-s">
+                <p
+                  key={index}
+                  className="text-body-s cursor-pointer"
+                  onClick={() => {
+                    if (item.link) {
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      navigate(item.link);
+                    }
+                  }}
+                >
                   {item.label}
                 </p>
               ))}

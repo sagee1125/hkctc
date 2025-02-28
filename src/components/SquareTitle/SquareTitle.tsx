@@ -32,18 +32,16 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       }}
     >
       <div
-        className={`${
-          isPC ? "h-[15px] w-[15px]" : "h-[12px] w-[12px] mt-[6px]"
-        }  bg-newPrimary`}
+        className={`${isPC ? "" : "mt-[8px]"} h-[15px] w-[15px] bg-newPrimary`}
         style={{ flexShrink: 0 }}
       />
-      <p className={isPC ? "text-heading-l" : "text-heading-m"}>{title}</p>
+      <p className={"text-heading-l"}>{title}</p>
       {showArrowIcon && (
         <Icon
           icon="teenyicons:right-outline"
           style={{
-            height: isPC ? "24px" : "16px",
-            width: isPC ? "24px" : "16px",
+            height: "24px",
+            width: "24px",
             strokeWidth: "2px",
           }}
         />

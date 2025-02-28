@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   DirectorySidebar,
@@ -8,7 +8,9 @@ import {
   Link,
   fullContainer,
   maxPCContainer,
+  maxMobileContainer,
 } from "../../components";
+import { useSettings } from "../../context";
 
 const ImportantNote: React.FC = () => {
   return (
@@ -218,8 +220,8 @@ const Contact: React.FC = () => {
       <div className="font-semibold">Opening Hours:</div>
       <div>
         <span className="underline">Monday to Friday</span> <br />
-        8:45 am – 12:30 pm <br />
-        1:30 pm – 6:00 pm
+        8:45 am - 12:30 pm <br />
+        1:30 pm - 6:00 pm
       </div>
       <div>Closed on Saturdays, Sundays and public holidays</div>
 
@@ -257,7 +259,7 @@ const Contact: React.FC = () => {
   );
 };
 
-enum ABOUT_SIDE_MODULE {
+export enum ABOUT_SIDE_MODULE {
   IMPORTANT_NOTE = "Important Notices",
   ACCESSIBILITY = "Accessibility",
   PRIVACY = "Privacy Policy",
@@ -272,25 +274,27 @@ const componentMapping: Record<string, React.ReactNode> = {
   [ABOUT_SIDE_MODULE.CONTACT]: <Contact />,
 };
 
+const directoryItems = [
+  ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
+  ABOUT_SIDE_MODULE.ACCESSIBILITY,
+  ABOUT_SIDE_MODULE.PRIVACY,
+  ABOUT_SIDE_MODULE.CONTACT,
+];
+
 export const AboutSite: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const searchParams = useMemo(
-    () => new URLSearchParams(location.search),
-    [location.search]
-  );
-  let sidebarActivated = searchParams.get("am") as ABOUT_SIDE_MODULE;
+  const { isPC } = useSettings();
 
-  const directoryItems = [
-    ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
-    ABOUT_SIDE_MODULE.ACCESSIBILITY,
-    ABOUT_SIDE_MODULE.PRIVACY,
-    ABOUT_SIDE_MODULE.CONTACT,
-  ];
+  const searchParams = new URLSearchParams(location.search);
 
-  if (!directoryItems.includes(sidebarActivated)) {
-    sidebarActivated = ABOUT_SIDE_MODULE.IMPORTANT_NOTE;
-  }
+  let sidebarActivated = searchParams.get("am") ?? ""; //  as ABOUT_SIDE_MODULE;
+
+  const initialParam: ABOUT_SIDE_MODULE = directoryItems.includes(
+    sidebarActivated as ABOUT_SIDE_MODULE
+  )
+    ? (sidebarActivated as ABOUT_SIDE_MODULE)
+    : ABOUT_SIDE_MODULE.IMPORTANT_NOTE;
 
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
@@ -300,7 +304,7 @@ export const AboutSite: React.FC = () => {
     },
   ];
 
-  const [activeItem, setActiveItem] = useState(sidebarActivated);
+  const [activeItem, setActiveItem] = useState(initialParam);
 
   const handleChangeDirectorySidebarItems = (activatedItems: String): void => {
     setActiveItem(activatedItems as ABOUT_SIDE_MODULE);
@@ -312,32 +316,49 @@ export const AboutSite: React.FC = () => {
   };
 
   useEffect(() => {
-    searchParams.set("am", activeItem);
-    // Update the URL with new Module
-    navigate(`${location.pathname}?${searchParams.toString()}`, {
-      replace: true,
-    });
-  }, [activeItem, location.pathname, navigate, searchParams]);
+    if (initialParam !== activeItem) {
+      navigate(`?am=${initialParam}`);
+      setActiveItem(initialParam);
+    }
+  }, [activeItem, initialParam, navigate]);
 
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={topBanner} />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            {directoryItems.length > 0 && (
-              <DirectorySidebar
-                directorySidebarItems={directoryItems}
-                activatedItems={activeItem}
-                setActivatedItems={handleChangeDirectorySidebarItems}
-              />
-            )}
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="flex-1">{componentMapping[activeItem]}</div>
-        </div>
+        )}
+
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {directoryItems.length > 0 && (
+                <DirectorySidebar
+                  directorySidebarItems={directoryItems}
+                  activatedItems={activeItem}
+                  setActivatedItems={handleChangeDirectorySidebarItems}
+                />
+              )}
+            </div>
+            <div className="flex-1">{componentMapping[activeItem]}</div>
+          </div>
+        ) : (
+          <div className="p-[24px] flex flex-col gap-[24px]">
+            <div>
+              {directoryItems.length > 0 && (
+                <DirectorySidebar
+                  directorySidebarItems={directoryItems}
+                  activatedItems={activeItem}
+                  setActivatedItems={handleChangeDirectorySidebarItems}
+                />
+              )}
+            </div>
+            <div>{componentMapping[activeItem]}</div>
+          </div>
+        )}
       </div>
     </div>
   );
