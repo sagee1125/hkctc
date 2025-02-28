@@ -55,27 +55,20 @@ export const Header: React.FC = () => {
     }),
     onSubmit: (value) => {
       const { search } = value;
-      const preLink = `https://www.search.gov.hk/result?tpl_id=stdsearch&gp0=hkctc_home&ui_charset=utf-8&web=this&ui_lang=en&query=`;
-
-      window.open(preLink + search, "_blank");
+      if (search) {
+        const preLink = `https://www.search.gov.hk/result?tpl_id=stdsearch&gp0=hkctc_home&ui_charset=utf-8&web=this&ui_lang=en&query=`;
+        window.open(preLink + search, "_blank");
+      }
     },
   });
 
   return (
     <>
       <header className="w-full">
-        <form
-          noValidate
-          onSubmit={formik.handleSubmit}
+        <div
           className="flex-shrink-0"
           style={{
             ...headerStyle,
-            // fontSize:
-            //   fontSize === "small"
-            //     ? "12px"
-            //     : fontSize === "medium"
-            //     ? "16px"
-            //     : "20px",
           }}
         >
           <p className="pl-4 items-center text-body-s">
@@ -91,28 +84,30 @@ export const Header: React.FC = () => {
               <Icon icon="ri:search-line" className="h-6 w-6 text-[#333333]" />
             </div>
             {openSearchInput && (
-              <TextField
-                name="search"
-                value={formik.values.search}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                size="small"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        size="small"
-                        className="!text-body-s"
-                        disabled={!formik.values.search}
-                        color="primary"
-                        type="submit"
-                      >
-                        GO
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <form noValidate onSubmit={formik.handleSubmit}>
+                <TextField
+                  name="search"
+                  value={formik.values.search}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          size="small"
+                          className="!text-body-s"
+                          disabled={!formik.values.search}
+                          color="primary"
+                          type="submit"
+                        >
+                          GO
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </form>
             )}
             <Icon
               icon="mingcute:font-line"
@@ -132,7 +127,7 @@ export const Header: React.FC = () => {
             />
             <HeaderSocialMedia />
           </div>
-        </form>
+        </div>
       </header>
     </>
   );
