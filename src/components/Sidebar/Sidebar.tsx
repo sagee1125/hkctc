@@ -158,6 +158,9 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
   const { isPC } = useSettings();
 
   const activatedParentTitle = findParentTitle(activatedItems, sidebars);
+  const [currentExpandMobile, setCurrentExpandMobile] = useState<string>(
+    activatedParentTitle ?? ""
+  );
   const [expandStates, setExpandStates] = useState<Record<string, boolean>>(
     () => {
       const initialExpandStates: Record<string, boolean> = sidebars.reduce(
@@ -286,7 +289,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 <Menu.Items className="absolute z-40 mt-2 pt-[8px] w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {sidebars.map((item, index) => {
                     const { title, sidebarItems } = item;
-                    const expand = expandStates[title];
+                    const expand = title === currentExpandMobile;
 
                     const activatedSub = sidebars
                       .flatMap((item) => item.sidebarItems)
@@ -297,7 +300,9 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                       <div key={index}>
                         <div
                           className="flex flex-row justify-between items-center cursor-pointer px-[16px] py-[8px]"
-                          onClick={() => toggleExpand(title)}
+                          onClick={() => {
+                            setCurrentExpandMobile(expand ? "" : title);
+                          }}
                         >
                           <p className="text-heading-m">{title}</p>
                           <ChevronDownIcon
