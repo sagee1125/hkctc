@@ -259,7 +259,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
           {({ open }) => (
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
-                <p className="!text-heading-xs w-full text-left">
+                <p className="!text-heading-s w-full text-left">
                   {
                     sidebars
                       .flatMap((item) => item.sidebarItems)
@@ -286,6 +286,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 <Menu.Items className="absolute z-40 mt-2 pt-[8px] w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {sidebars.map((item, index) => {
                     const { title, sidebarItems } = item;
+                    const expand = expandStates[title];
 
                     const activatedSub = sidebars
                       .flatMap((item) => item.sidebarItems)
@@ -294,30 +295,41 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                       )?.subTitle;
                     return (
                       <div key={index}>
-                        <p className="text-heading-m px-[16px] py-[8px]">
-                          {title}
-                        </p>
-                        {sidebarItems.map((i, innerIndex) => {
-                          const { subTitle, enum: navItemEnum } = i;
-                          return (
-                            <Menu.Item key={innerIndex}>
-                              {({ active }) => (
-                                <button
-                                  onClick={() => {
-                                    setActivatedItems(navItemEnum);
-                                  }}
-                                  className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
-                                    active || subTitle === activatedSub
-                                      ? "bg-[#F7F7F5] text-black"
-                                      : "text-gray-700"
-                                  }`}
-                                >
-                                  {subTitle}
-                                </button>
-                              )}
-                            </Menu.Item>
-                          );
-                        })}
+                        <div
+                          className="flex flex-row justify-between items-center cursor-pointer px-[16px] py-[8px]"
+                          onClick={() => toggleExpand(title)}
+                        >
+                          <p className="text-heading-m">{title}</p>
+                          <ChevronDownIcon
+                            className={`h-5 w-5 text-black transform transition-transform ${
+                              expand ? "rotate-180" : "rotate-0"
+                            }`}
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <Collapse in={expand}>
+                          {sidebarItems.map((i, innerIndex) => {
+                            const { subTitle, enum: navItemEnum } = i;
+                            return (
+                              <Menu.Item key={innerIndex}>
+                                {({ active }) => (
+                                  <button
+                                    onClick={() => {
+                                      setActivatedItems(navItemEnum);
+                                    }}
+                                    className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
+                                      active || subTitle === activatedSub
+                                        ? "bg-[#F7F7F5] text-black"
+                                        : "text-gray-700"
+                                    }`}
+                                  >
+                                    {subTitle}
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            );
+                          })}
+                        </Collapse>
                       </div>
                     );
                   })}
