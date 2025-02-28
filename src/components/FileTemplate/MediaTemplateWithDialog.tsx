@@ -380,10 +380,11 @@ export const MediaTemplateWithDialog: React.FC<
     <>
       <div
         className={`flex-shrink-0 relative 
-          w-[${direction === "column" ? "full" : "160px"}] 
-          ${direction === "column" ? "max-w-[300px]" : ""}
-          h-[${direction === "column" ? "190" : "90"}px] 
-          overflow-hidden cursor-pointer`}
+          ${direction === "column" ? "w-full" : "w-[160px]"} 
+          ${direction === "column" ? "h-[190px]" : "h-[90px]"} 
+          ${
+            isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
+          } cursor-pointer`}
         onClick={handleOnClick}
       >
         <div
@@ -395,7 +396,7 @@ export const MediaTemplateWithDialog: React.FC<
             height: "100%",
             overflow: "hidden",
           }}
-          className="border-2 border-inherit"
+          className="border-[1px] border-inherit"
         >
           {loading && (
             <div

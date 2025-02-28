@@ -107,13 +107,17 @@ export const StudentCompetition: React.FC = () => {
             <div
               key={index}
               className={`${
-                isPC ? "w-full" : "w-[252px]"
-              } h-[282px] flex flex-col gap-[14px] cursor-pointer`}
+                isPC ? "w-full h-[282px]" : "w-full h-auto"
+              }  flex flex-col gap-[14px] cursor-pointer`}
               onClick={() => {
                 window.open(hyperLink, "_blank");
               }}
             >
-              <div className="flex-shrink-0 relative w-full h-[190px]">
+              <div
+                className={`flex-shrink-0 relative w-full ${
+                  isPC ? "h-[190px]" : "h-auto"
+                }`}
+              >
                 <img
                   className="border-2 border-inherit w-full h-full object-cover"
                   src={`${process.env.PUBLIC_URL}/assets/eventsLanding/studentsCompetition/${imgUrl}`}

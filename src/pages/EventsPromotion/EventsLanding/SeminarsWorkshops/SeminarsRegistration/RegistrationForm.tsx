@@ -367,7 +367,7 @@ export const RegistrationForm: React.FC = () => {
               <p className="text-highlight-m mb-[8px]">
                 Attendance Certificate 出席證明書*
               </p>
-              <div className="w-1/2">
+              <div className="w-1/2 pr-[12px]">
                 <Select
                   name="attendanceCertificate"
                   required
@@ -383,9 +383,6 @@ export const RegistrationForm: React.FC = () => {
                     registrationFormik.touched.attendanceCertificate &&
                     registrationFormik.errors.attendanceCertificate
                   }
-                  sx={{
-                    width: "52%",
-                  }}
                   fullWidth
                 />
               </div>
@@ -396,7 +393,7 @@ export const RegistrationForm: React.FC = () => {
                 Full Name for Attendance Certificate (In English only)
                 出席證明書所載的英文全名
               </p>
-              <div className="w-1/2">
+              <div className="w-1/2 pr-[12px]">
                 <TextField
                   name="fullNameAttendanceCertificate"
                   required

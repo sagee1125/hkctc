@@ -33,7 +33,7 @@ export const Newsletter: React.FC = () => {
         className={`w-full ${
           isPC
             ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
-            : "flex flex-wrap gap-[24px]"
+            : "grid grid-cols-1 gap-[24px]"
         }`}
       >
         {currentPageData.map((item, index) => {
@@ -44,8 +44,8 @@ export const Newsletter: React.FC = () => {
             <div
               key={index}
               className={`${
-                isPC ? "w-full" : ""
-              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
+                isPC ? "w-full h-[282px]" : "w-full h-auto object-cover"
+              } flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
                 title={title}
