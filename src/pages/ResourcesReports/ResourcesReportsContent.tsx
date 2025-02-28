@@ -171,9 +171,7 @@ const coursesButtonMap: Record<string, PublicationType[]> = {
     .filter((c) => c.language === LANGUAGE.EN)
     .map((c) => ({
       title: c.title,
-      date: "",
       link: c.link,
-      yearRange: [2009, new Date().getFullYear()],
       mediaType: MEDIA_TYPE.VIDEO,
       category: c.category,
     })),
@@ -181,8 +179,6 @@ const coursesButtonMap: Record<string, PublicationType[]> = {
     .filter((c) => c.language === LANGUAGE.CH)
     .map((c) => ({
       title: c.title,
-      date: "",
-      yearRange: [2009, new Date().getFullYear()],
       link: c.link,
       mediaType: MEDIA_TYPE.VIDEO,
       category: c.category,
@@ -193,31 +189,44 @@ const parseDate = (dateString: string) => {
   return new Date(dateString);
 };
 
+// Set the date as the middle of the year
+const getMiddleDateFromYearRange = (yearRange: number[]): string => {
+  const middleYear = Math.floor((yearRange[0] + yearRange[1]) / 2);
+  return `${middleYear}-07-01`;
+};
+
 const sortByDateAscending = (list: PublicationType[]) => {
-  const validDateList = list.every((l) => Boolean(l.date));
-  return validDateList
-    ? list
-        .slice()
-        .sort(
-          (a, b) =>
-            parseDate(a.date as string).getTime() -
-            parseDate(b.date as string).getTime()
-        )
-    : list;
+  const validDateList = list.every(
+    (l) => Boolean(l.date) || Boolean(l.yearRange)
+  );
+  if (!validDateList) return list;
+  return list.slice().sort((a, b) => {
+    const aDate = Boolean(a.date)
+      ? parseDate(a.date as string)
+      : parseDate(getMiddleDateFromYearRange(a.yearRange as number[]));
+    const bDate = Boolean(b.date)
+      ? parseDate(b.date as string)
+      : parseDate(getMiddleDateFromYearRange(b.yearRange as number[]));
+
+    return aDate.getTime() - bDate.getTime();
+  });
 };
 
 const sortByDateDescending = (list: PublicationType[]) => {
-  const validDateList = list.every((l) => Boolean(l.date));
+  const validDateList = list.every(
+    (l) => Boolean(l.date) || Boolean(l.yearRange)
+  );
+  if (!validDateList) return list;
+  return list.slice().sort((a, b) => {
+    const aDate = Boolean(a.date)
+      ? parseDate(a.date as string)
+      : parseDate(getMiddleDateFromYearRange(a.yearRange as number[]));
+    const bDate = Boolean(b.date)
+      ? parseDate(b.date as string)
+      : parseDate(getMiddleDateFromYearRange(b.yearRange as number[]));
 
-  return validDateList
-    ? list
-        .slice()
-        .sort(
-          (a, b) =>
-            parseDate(b.date as string).getTime() -
-            parseDate(a.date as string).getTime()
-        )
-    : list;
+    return bDate.getTime() - aDate.getTime();
+  });
 };
 
 const itemsPerPage = 9;
@@ -513,22 +522,28 @@ export const ResourcesReportsContent: React.FC = () => {
       (item) => item.enum === selectedCategory
     )?.[0] ?? {};
 
+  // apply filter on the displayed list
   const displayList = (
     filterCondition.selectedItem === filterOptions[0]
       ? sortByDateDescending
       : sortByDateAscending
   )(
-    (activeCategoryList?.categoryArray ?? []).filter((cat) =>
-      (filterCondition.mediaType === "All"
-        ? true
-        : cat.mediaType === filterCondition.mediaType) &&
-      filterCondition.needRangeValue
+    (activeCategoryList?.categoryArray ?? []).filter((cat) => {
+      // Media Type filter
+      const mediaTypeFilter =
+        filterCondition.mediaType === "All"
+          ? true
+          : cat.mediaType === filterCondition.mediaType;
+
+      // Year Range Filter
+      const yearRangeFilter = filterCondition.needRangeValue
         ? cat.yearRange
           ? cat.yearRange[0] <= filterCondition.rangeValue[1] &&
             cat.yearRange[1] >= filterCondition.rangeValue[0]
           : true
-        : true
-    )
+        : true;
+      return mediaTypeFilter && yearRangeFilter;
+    })
   );
 
   const subComponent = activeCategoryList?.subComponent;
@@ -540,6 +555,10 @@ export const ResourcesReportsContent: React.FC = () => {
   );
 
   const dataCount = (displayList ?? []).length;
+
+  const displayDateRelatedFilter = displayList.every((i) =>
+    Boolean(i.yearRange)
+  );
 
   const filterBox = (
     <>
@@ -586,130 +605,135 @@ export const ResourcesReportsContent: React.FC = () => {
           ))}
         </RadioGroup>
 
-        <div className="flex flex-row content-space-between w-full items-center flex-1">
-          <p className="text-highlight-l mb-[16px] mt-[24px] w-full">Year</p>
-          <Checkbox
-            checked={needRangeValue}
-            value={needRangeValue}
-            label=""
-            sx={{
-              marginRight: "0 !important",
-              ".MuiButtonBase-root": {
-                color: "#233F55 !important",
-                padding: 0,
-              },
-            }}
-            onClick={() => {
-              setNeedRangeValue(!needRangeValue);
-            }}
-          />
-        </div>
+        {displayDateRelatedFilter && (
+          <>
+            <div className="flex flex-row content-space-between w-full items-center flex-1">
+              <p className="text-highlight-l mb-[16px] mt-[24px] w-full">
+                Year
+              </p>
+              <Checkbox
+                checked={needRangeValue}
+                value={needRangeValue}
+                label=""
+                sx={{
+                  marginRight: "0 !important",
+                  ".MuiButtonBase-root": {
+                    color: "#233F55 !important",
+                    padding: 0,
+                  },
+                }}
+                onClick={() => {
+                  setNeedRangeValue(!needRangeValue);
+                }}
+              />
+            </div>
+            <Box sx={{ width: "100%", padding: "0.5rem" }}>
+              <Slider
+                disabled={!needRangeValue}
+                value={rangeValue}
+                min={2009}
+                max={currentYear}
+                onChange={handleRangeChange}
+                valueLabelDisplay="on"
+                getAriaValueText={rangValuetext}
+                step={1}
+                sx={{
+                  zIndex: 10,
+                  "& .MuiSlider-track": {
+                    bgcolor: needRangeValue ? "#233F55" : "#AAA",
+                    height: "6px",
+                    border: "none",
+                  },
+                  "& .MuiSlider-rail": {
+                    bgcolor: "white",
+                    opacity: 1,
+                    height: "6px",
+                  },
+                  "& .MuiSlider-root": {
+                    boxShadow: "none",
+                    border: "none",
+                  },
+                  "& .MuiSlider-thumb": {
+                    bgcolor: "white", // 滑块内部颜色
+                    borderColor: "#50555A", // 滑块边框颜色
+                    borderWidth: "2px", // 滑块边框宽度
+                    borderStyle: "solid",
+                    height: "12px", // 滑块直径 = 8px (内部) + 2px (边框) * 2
+                    width: "12px",
+                    boxSizing: "border-box",
+                  },
+                  "& .MuiSlider-valueLabel": {
+                    fontSize: 12,
+                    fontWeight: "normal",
+                    top: -6,
+                    backgroundColor: "unset",
+                    "&::before": {
+                      display: "none",
+                    },
+                    "& *": {
+                      background: "transparent",
+                      color: needRangeValue ? "#233F55" : "#AAA",
+                    },
+                  },
+                }}
+              />
+            </Box>
+            <p
+              className={`text-body-m mb-[16px]`}
+              style={{
+                color: needRangeValue ? "#233F55" : "#AAA",
+              }}
+            >
+              Year: {rangeValue[0]}-{rangeValue[1]}
+            </p>
 
-        <Box sx={{ width: "100%", padding: "0.5rem" }}>
-          <Slider
-            disabled={!needRangeValue}
-            value={rangeValue}
-            min={2009}
-            max={currentYear}
-            onChange={handleRangeChange}
-            valueLabelDisplay="on"
-            getAriaValueText={rangValuetext}
-            step={1}
-            sx={{
-              zIndex: 10,
-              "& .MuiSlider-track": {
-                bgcolor: needRangeValue ? "#233F55" : "#AAA",
-                height: "6px",
-                border: "none",
-              },
-              "& .MuiSlider-rail": {
-                bgcolor: "white",
-                opacity: 1,
-                height: "6px",
-              },
-              "& .MuiSlider-root": {
-                boxShadow: "none",
-                border: "none",
-              },
-              "& .MuiSlider-thumb": {
-                bgcolor: "white", // 滑块内部颜色
-                borderColor: "#50555A", // 滑块边框颜色
-                borderWidth: "2px", // 滑块边框宽度
-                borderStyle: "solid",
-                height: "12px", // 滑块直径 = 8px (内部) + 2px (边框) * 2
-                width: "12px",
-                boxSizing: "border-box",
-              },
-              "& .MuiSlider-valueLabel": {
-                fontSize: 12,
-                fontWeight: "normal",
-                top: -6,
-                backgroundColor: "unset",
-                "&::before": {
-                  display: "none",
-                },
-                "& *": {
-                  background: "transparent",
-                  color: needRangeValue ? "#233F55" : "#AAA",
-                },
-              },
-            }}
-          />
-        </Box>
-        <p
-          className={`text-body-m mb-[16px]`}
-          style={{
-            color: needRangeValue ? "#233F55" : "#AAA",
-          }}
-        >
-          Year: {rangeValue[0]}-{rangeValue[1]}
-        </p>
-
-        <div className="w-full">
-          <Menu as="div" className="relative inline-block text-left w-full">
-            {({ open }) => (
-              <>
-                <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 p-[16px] bg-white text-body-m text-gray-700">
-                  {selectedItem}
-                  <ChevronDownIcon
-                    className={`h-5 w-5 text-[#666666] transform transition-transform ${
-                      open ? "rotate-180" : "rotate-0"
-                    }`}
-                    aria-hidden="true"
-                  />
-                </Menu.Button>
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {filterOptions.map((item, index) => (
-                      <Menu.Item key={index}>
-                        {({ active }) => (
-                          <button
-                            onClick={() => setSelectedItem(item)}
-                            className={`block w-full text-left px-4 py-3 text-sm ${
-                              active
-                                ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700"
-                            }`}
-                          >
-                            {item}
-                          </button>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </Transition>
-              </>
-            )}
-          </Menu>
-        </div>
+            <div className="w-full">
+              <Menu as="div" className="relative inline-block text-left w-full">
+                {({ open }) => (
+                  <>
+                    <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 p-[16px] bg-white text-body-m text-gray-700">
+                      {selectedItem}
+                      <ChevronDownIcon
+                        className={`h-5 w-5 text-[#666666] transform transition-transform ${
+                          open ? "rotate-180" : "rotate-0"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </Menu.Button>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        {filterOptions.map((item, index) => (
+                          <Menu.Item key={index}>
+                            {({ active }) => (
+                              <button
+                                onClick={() => setSelectedItem(item)}
+                                className={`block w-full text-left px-4 py-3 text-sm ${
+                                  active
+                                    ? "bg-gray-100 text-gray-900"
+                                    : "text-gray-700"
+                                }`}
+                              >
+                                {item}
+                              </button>
+                            )}
+                          </Menu.Item>
+                        ))}
+                      </Menu.Items>
+                    </Transition>
+                  </>
+                )}
+              </Menu>
+            </div>
+          </>
+        )}
 
         <Button
           style={{
@@ -720,6 +744,7 @@ export const ResourcesReportsContent: React.FC = () => {
             margin: "16px 0 22px 0",
             padding: "16px",
             textTransform: "none",
+            borderRadius: 0,
           }}
           onClick={handleApplyFilter}
           variant="contained"

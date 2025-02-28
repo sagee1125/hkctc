@@ -524,9 +524,7 @@ export const coursesList: CoursesType[] = [
 
 export const convertedCoursesList: PublicationType[] = coursesList.map((c) => ({
   title: c.title,
-  date: "",
   link: c.link,
-  yearRange: [2009, new Date().getFullYear()],
   mediaType: MEDIA_TYPE.VIDEO,
   category: c.category,
 }));
