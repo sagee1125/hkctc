@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useSettings } from "../../context";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { object, string } from "yup";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { Search } from "@mui/icons-material";
 
 export const HeaderSocialMedia: React.FC = () => {
   return (
@@ -42,60 +46,91 @@ export const Header: React.FC = () => {
     setLanguage(event.target.value as "zh-CN" | "zh-TW" | "en");
   };
 
+  const formik = useFormik<{ search: string }>({
+    initialValues: {
+      search: "",
+    },
+    validationSchema: object({
+      search: string(),
+    }),
+    onSubmit: (value) => {
+      const { search } = value;
+      const preLink = `https://www.search.gov.hk/result?tpl_id=stdsearch&gp0=hkctc_home&ui_charset=utf-8&web=this&ui_lang=en&query=`;
+
+      window.open(preLink + search, "_blank");
+    },
+  });
+
   return (
     <>
-      <header
-        className="flex-shrink-0"
-        style={{
-          ...headerStyle,
-          // fontSize:
-          //   fontSize === "small"
-          //     ? "12px"
-          //     : fontSize === "medium"
-          //     ? "16px"
-          //     : "20px",
-        }}
-      >
-        <p className="pl-4 items-center text-body-s">
-          The Hong Kong Council for Testing and Certification
-        </p>
-        <div className="flex flex-row gap-4 items-center pr-4">
-          <div
-            onClick={() => {
-              setOpenSearchInput(true);
-            }}
-          >
-            <Icon icon="ri:search-line" className="h-6 w-6 text-[#333333]" />
-          </div>
-          {openSearchInput && (
-            <input
-              placeholder=""
-              className="w-full p-[16px] resize-none overflow-y-auto"
-              style={{
-                lineHeight: 2,
-                minHeight: "calc(2.5em * 1)",
-                maxHeight: "calc(2.5em * 1)",
+      <header className="w-full">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex-shrink-0"
+          style={{
+            ...headerStyle,
+            // fontSize:
+            //   fontSize === "small"
+            //     ? "12px"
+            //     : fontSize === "medium"
+            //     ? "16px"
+            //     : "20px",
+          }}
+        >
+          <p className="pl-4 items-center text-body-s">
+            The Hong Kong Council for Testing and Certification
+          </p>
+          <div className="flex flex-row gap-4 items-center pr-4">
+            <div
+              onClick={() => {
+                setOpenSearchInput(!openSearchInput);
               }}
+            >
+              <Icon icon="ri:search-line" className="h-6 w-6 text-[#333333]" />
+            </div>
+            {openSearchInput && (
+              <TextField
+                name="search"
+                value={formik.values.search}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                size="small"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        size="small"
+                        className="!text-body-s"
+                        disabled={!formik.values.search}
+                        color="primary"
+                        type="submit"
+                      >
+                        GO
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            )}
+            <Icon
+              icon="mingcute:font-line"
+              className="h-6 w-6 text-[#333333] flex-shrink-0"
             />
-          )}
-          <Icon
-            icon="mingcute:font-line"
-            className="h-6 w-6 text-[#333333] flex-shrink-0"
-          />
-          <Icon
-            icon="ci:globe"
-            className="h-6 w-6 text-[#333333] flex-shrink-0"
-          />
-          <div
-            style={{
-              width: "1.5px",
-              height: "18px",
-              backgroundColor: "#666666",
-            }}
-            className="flex-shrink-0"
-          />
-          <HeaderSocialMedia />
-        </div>
+            <Icon
+              icon="ci:globe"
+              className="h-6 w-6 text-[#333333] flex-shrink-0"
+            />
+            <div
+              style={{
+                width: "1.5px",
+                height: "18px",
+                backgroundColor: "#666666",
+              }}
+              className="flex-shrink-0"
+            />
+            <HeaderSocialMedia />
+          </div>
+        </form>
       </header>
     </>
   );
