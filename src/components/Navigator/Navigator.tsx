@@ -110,7 +110,7 @@ export const Navigator: React.FC = () => {
     ? NavigationBarConfiguration[activeIndex]?.items?.length === 1
     : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
-
+  console.log("isPC && hideExploreBar", isPC && hideExploreBar);
   return (
     <div style={!isPC ? { paddingBottom: "24px" } : {}}>
       <nav
@@ -467,7 +467,7 @@ export const Navigator: React.FC = () => {
           },
           {
             name: "offset",
-            options: { offset: [0, 100] },
+            options: { offset: [0, !isPC && !isHideExploreBar ? 100 : 30] },
           },
         ]}
         style={{ width: "100%", left: 0, zIndex: 1000 }}

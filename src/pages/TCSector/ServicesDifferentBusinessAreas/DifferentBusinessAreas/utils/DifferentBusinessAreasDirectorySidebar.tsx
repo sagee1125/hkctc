@@ -16,10 +16,11 @@ export const DifferentBusinessAreasDirectorySidebar: React.FC<
   const navigate = useNavigate();
 
   const handleNavToAreas = (area: string): void => {
-    const element = document.getElementById("breadcrumb");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+
     const targetUrl =
       displayBusinessAreas.find(
         (item) => item.title === (area as BusinessAreaTitle)

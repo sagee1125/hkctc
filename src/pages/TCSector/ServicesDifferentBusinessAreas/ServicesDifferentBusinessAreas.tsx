@@ -81,6 +81,7 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
               if (element) {
                 element.scrollIntoView({ behavior: "smooth" });
               }
+
               navigate(nav);
             };
             return (

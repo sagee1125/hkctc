@@ -341,7 +341,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               </button>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E]">
+              <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E] min-w-[900px]">
                 {[
                   "Product",
                   "Name of Scheme",
@@ -363,7 +363,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 {currentPageData.map((_, index) => (
                   <div
                     key={startIndex + index} // Key should be unique and based on the actual index in the full array
-                    className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px]"
+                    className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] min-w-[900px]"
                     style={{
                       borderBottom: "1px dashed #C8CFD6",
                     }}
