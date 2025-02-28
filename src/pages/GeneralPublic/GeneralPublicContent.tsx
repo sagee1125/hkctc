@@ -65,7 +65,7 @@ export const GeneralPublicContent: React.FC = () => {
     },
     {
       title:
-        "Recruit雜誌封面故事：檢測認證　衣食住行　專業把關 (Chinese version only)",
+        "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
       date: "15 Mar 2024",
       imagePath: "whatsnew_3.png",
       link: "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
@@ -194,17 +194,20 @@ export const GeneralPublicContent: React.FC = () => {
           {whatsNew.map((w, i) => {
             const { title } = w;
             return (
-              <div className="flex flex-row items-center" key={i}>
-                <div className="flex flex-col w-full mr-[16px] gap-[16px]">
-                  <div className={isPC ? "text-heading-m" : "text-heading-s"}>
+              <div
+                className={`flex ${
+                  isPC ? "flex-row" : "flex-col-reverse w-full gap-[24px]"
+                } items-center`}
+                key={i}
+              >
+                <div className={`flex flex-col w-full mx-[24px] gap-[16px]`}>
+                  <div className={"text-heading-m"}>
                     <Link
                       linkColor="#203136"
                       innerLink={w.link}
                       outerLink={w.link}
                     >
-                      {title.length > 42 && !isPC
-                        ? title.slice(0, 42) + "..."
-                        : title}
+                      {title}
                     </Link>
                   </div>
                   <div className="flex flex-row items-center gap-[8px] text-body-s">
@@ -220,8 +223,8 @@ export const GeneralPublicContent: React.FC = () => {
 
                 <img
                   className={`${
-                    isPC ? "w-[278px]" : "w-[160px]"
-                  } h-auto cursor-pointer`}
+                    isPC ? "w-[278px] h-full" : "w-full h-auto"
+                  } object-cover cursor-pointer`}
                   onClick={() => {
                     window.open(w.link);
                   }}

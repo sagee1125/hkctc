@@ -37,14 +37,19 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       />
       <p className={"text-heading-l"}>{title}</p>
       {showArrowIcon && (
-        <Icon
-          icon="teenyicons:right-outline"
-          style={{
-            height: "24px",
-            width: "24px",
-            strokeWidth: "2px",
-          }}
-        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="24"
+          viewBox="0 0 16 24"
+          fill="none"
+          className={`${isPC ? "" : "mt-[4px]"}`}
+        >
+          <path
+            d="M0.938498 2.124L3.0625 0L15.0625 12L3.0625 24L0.938498 21.876L10.8145 12L0.938498 2.124Z"
+            fill="black"
+          />
+        </svg>
       )}
     </div>
   );

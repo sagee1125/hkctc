@@ -76,6 +76,10 @@ export const Navigator: React.FC = () => {
   );
 
   useEffect(() => {
+    console.log("openMobileDropDown has changed to", openMobileDropDown);
+  }, [openMobileDropDown]); // 监听状态变化
+
+  useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
   }, [isPC]);
 
@@ -110,7 +114,7 @@ export const Navigator: React.FC = () => {
     ? NavigationBarConfiguration[activeIndex]?.items?.length === 1
     : false;
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
-  console.log("isPC && hideExploreBar", isPC && hideExploreBar);
+  const isTouchDevice = "ontouchstart" in window;
   return (
     <div style={!isPC ? { paddingBottom: "24px" } : {}}>
       <nav
@@ -191,45 +195,48 @@ export const Navigator: React.FC = () => {
             ) : (
               <>
                 <div className="flex flex-row gap-[8px] justify-center items-center">
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => {
-                      setOpenSearchInput(!openSearchInput);
-                    }}
-                  >
-                    <Icon
-                      icon="ri:search-line"
-                      className="h-[24px] w-[24px] text-[#333333]"
-                    />
-                  </div>
-
-                  {openSearchInput && (
-                    <form onSubmit={formik.handleSubmit} noValidate>
-                      <TextField
-                        name="search"
-                        value={formik.values.search}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        size="small"
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <IconButton
-                                size="small"
-                                className="!text-button-xs"
-                                disabled={!formik.values.search}
-                                color="primary"
-                                type="submit"
-                              >
-                                GO
-                              </IconButton>
-                            </InputAdornment>
-                          ),
+                  {openMobileDropDown && (
+                    <>
+                      <div
+                        className="cursor-pointer"
+                        onClick={() => {
+                          setOpenSearchInput(!openSearchInput);
                         }}
-                      />
-                    </form>
-                  )}
+                      >
+                        <Icon
+                          icon="ri:search-line"
+                          className="h-[24px] w-[24px] text-[#333333]"
+                        />
+                      </div>
 
+                      {openSearchInput && (
+                        <form onSubmit={formik.handleSubmit} noValidate>
+                          <TextField
+                            name="search"
+                            value={formik.values.search}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            size="small"
+                            InputProps={{
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <IconButton
+                                    size="small"
+                                    className="!text-button-xs"
+                                    disabled={!formik.values.search}
+                                    color="primary"
+                                    type="submit"
+                                  >
+                                    GO
+                                  </IconButton>
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                        </form>
+                      )}
+                    </>
+                  )}
                   <Icon
                     icon="ci:globe"
                     className="h-[24px] w-[24px] text-[#333333] flex-shrink-0"
@@ -237,10 +244,24 @@ export const Navigator: React.FC = () => {
                   <div
                     ref={anchorRef}
                     className="cursor-pointer h-[24px] w-[24px]"
-                    onClick={() => {
-                      setActiveIndex(null);
-                      setOpenMobileDropDown(!openMobileDropDown);
-                    }}
+                    onClick={
+                      isTouchDevice
+                        ? undefined
+                        : (e) => {
+                            e.preventDefault();
+                            setActiveIndex(null);
+                            setOpenMobileDropDown(!openMobileDropDown);
+                          }
+                    }
+                    onTouchEnd={
+                      isTouchDevice
+                        ? (e) => {
+                            e.preventDefault();
+                            setActiveIndex(null);
+                            setOpenMobileDropDown(!openMobileDropDown);
+                          }
+                        : undefined
+                    }
                   >
                     {openMobileDropDown ? (
                       <svg
