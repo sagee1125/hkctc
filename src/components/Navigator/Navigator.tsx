@@ -242,7 +242,22 @@ export const Navigator: React.FC = () => {
                       setOpenMobileDropDown(!openMobileDropDown);
                     }}
                   >
-                    {!openMobileDropDown ? (
+                    {openMobileDropDown ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-[22px] w-[22px]"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                      >
+                        <path
+                          d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
+                          stroke="#4B4746"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    ) : (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-[24px] w-[24px]"
@@ -266,21 +281,6 @@ export const Navigator: React.FC = () => {
                           stroke="#4B4746"
                           stroke-width="2"
                           stroke-linecap="square"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-[22px] w-[22px]"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                      >
-                        <path
-                          d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
-                          stroke="#4B4746"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
                         />
                       </svg>
                     )}
