@@ -11,7 +11,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { useSettings } from "../../../../context";
-import { regBox } from "../../EventsPromotion";
+import { RegistrationBox } from "./RegistrationBox";
 
 const topicArray = [
   "All",
@@ -77,7 +77,7 @@ export const SeminarsWorkshops: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px]">
       <SquareTitle title="Seminars and Workshops" />
-      {!isPC && <>{regBox}</>}
+      {!isPC && <RegistrationBox />}
       <div>
         <NormalAccordion
           title="Topics"
