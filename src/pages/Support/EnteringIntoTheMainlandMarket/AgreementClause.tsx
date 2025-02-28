@@ -15,7 +15,9 @@ import {
   fullContainer,
   maxPCContainer,
   DirectorySidebar,
+  maxMobileContainer,
 } from "../../../components";
+import { useSettings } from "../../../context";
 
 export const AgreementClause: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ export const AgreementClause: React.FC = () => {
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(1))
     : null; // remove `#`, get index
+  const { isPC } = useSettings();
 
   const [activeItem, setActiveItem] = useState<string>(
     "Agreement on Trade in Services - Clauses"
@@ -73,6 +76,11 @@ export const AgreementClause: React.FC = () => {
     const element = document.getElementById("breadcrumb");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -95,23 +103,37 @@ export const AgreementClause: React.FC = () => {
     },
   ];
 
+  const sidebar = (
+    <DirectorySidebar
+      setActivatedItems={handleChangeDirectorySidebarItems}
+      directorySidebarItems={sidebarItems}
+      activatedItems={activeItem}
+    />
+  );
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"support/support_5.png"} />
-      <div style={maxPCContainer}>
-        <div id="breadcrumb">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
-        <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-          <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-            <DirectorySidebar
-              setActivatedItems={handleChangeDirectorySidebarItems}
-              directorySidebarItems={sidebarItems}
-              activatedItems={activeItem}
-            />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && (
+          <div id="breadcrumb">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="flex-1">{currentComponent}</div>
-        </div>
+        )}
+        {isPC ? (
+          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
+            </div>
+            <div className="flex-1">{currentComponent}</div>
+          </div>
+        ) : (
+          <div className="w-full flex flex-col pt-[48px] px-[24px]">
+            <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
+              {sidebar}
+            </div>
+            <div className="flex-1">{currentComponent}</div>
+          </div>
+        )}
       </div>
     </div>
   );
