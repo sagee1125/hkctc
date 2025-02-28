@@ -286,23 +286,15 @@ export const AboutSite: React.FC = () => {
   const navigate = useNavigate();
   const { isPC } = useSettings();
 
-  const searchParams = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search);
 
-  let sidebarActivated = searchParams.get("am") ?? ""; //  as ABOUT_SIDE_MODULE;
+  const initialSection = queryParams.get("section") ?? "";
 
   const initialParam: ABOUT_SIDE_MODULE = directoryItems.includes(
-    sidebarActivated as ABOUT_SIDE_MODULE
+    initialSection as ABOUT_SIDE_MODULE
   )
-    ? (sidebarActivated as ABOUT_SIDE_MODULE)
+    ? (initialSection as ABOUT_SIDE_MODULE)
     : ABOUT_SIDE_MODULE.IMPORTANT_NOTE;
-
-  const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "About the Site", href: "/about-the-site" },
-    {
-      label: sidebarActivated,
-    },
-  ];
 
   const [activeItem, setActiveItem] = useState(initialParam);
 
@@ -312,15 +304,29 @@ export const AboutSite: React.FC = () => {
     const element = document.getElementById("breadcrumb");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
     }
+    navigate(`?am=${activatedItems}`);
   };
 
   useEffect(() => {
     if (initialParam !== activeItem) {
-      navigate(`?am=${initialParam}`);
       setActiveItem(initialParam);
+      navigate(`?am=${initialParam}`);
     }
-  }, [activeItem, initialParam, navigate]);
+  }, [initialParam, navigate]);
+
+  const breadcrumbItems = [
+    { label: "Home", href: "/hkctc" },
+    { label: "About the Site", href: "/about-the-site" },
+    {
+      label: activeItem,
+    },
+  ];
 
   return (
     <div style={fullContainer}>
