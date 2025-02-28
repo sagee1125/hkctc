@@ -17,6 +17,12 @@ type ExploreBarProps = {
   isHidePCExploreBar: boolean;
 };
 
+export const getCurrentTitle = (currentPath: string): string | null => {
+  const findTitle = exploreOption.find(
+    (op) => "/" + op.nav === currentPath
+  )?.title;
+  return !findTitle ? null : findTitle;
+};
 export const ExploreBar: React.FC<ExploreBarProps> = ({
   isMobileView,
   isHidePCExploreBar,
@@ -26,7 +32,8 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   const currentPath = location.pathname;
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
-  >(null);
+  >(getCurrentTitle(currentPath));
+
   const paths: string[] = [
     "/general-public",
     "/educators-students",
@@ -97,7 +104,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
         <>
           {!isHidePCExploreBar && (
             <>
-              <div className="bg-newPrimary h-[56px] mx-[24px] justify-center items-center flex-row text-white">
+              <div className="bg-newPrimary h-[56px] mx-[24px] justify-center items-center flex-row text-white z-900">
                 <Menu
                   as="div"
                   className="text-left w-full relative py-[8px] px-[16px] h-full"

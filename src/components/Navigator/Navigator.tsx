@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { Transition, Menu } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ExploreBar } from "./ExploreBar";
+import { ExploreBar, getCurrentTitle } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
 import { useSettings } from "../../context";
@@ -56,20 +56,20 @@ export const exploreOption: Array<{ title: string; nav: string }> = [
 ];
 export const Navigator: React.FC = () => {
   const { isPC } = useSettings();
+  const location = useLocation();
+  const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
   const [activeSubItem, setActiveSubItem] = useState<string>("");
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
-  >(null);
+  >(getCurrentTitle(currentPath));
+
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
   const anchorRef = useRef(null); // mobile drop drown icon
 
   const navRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
-
-  const location = useLocation();
-  const currentPath = location.pathname;
 
   const isHideExploreBar = hideExploreBar.some((path) =>
     currentPath.startsWith(path)
@@ -78,20 +78,6 @@ export const Navigator: React.FC = () => {
   useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
   }, [isPC]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setActiveIndex(null);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   const formik = useFormik<{ search: string }>({
     initialValues: {
@@ -121,7 +107,7 @@ export const Navigator: React.FC = () => {
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} noValidate>
       <div style={!isPC ? { paddingBottom: "24px" } : {}}>
         <nav
           ref={navRef}
@@ -366,6 +352,9 @@ export const Navigator: React.FC = () => {
                 position: "absolute", // on the top
                 zIndex: 1000,
               }}
+              onMouseLeave={() => {
+                if (isPC) setActiveIndex(null);
+              }}
             >
               <div className="w-full">
                 {navItems.map((sideItems, index) => {
@@ -474,7 +463,7 @@ export const Navigator: React.FC = () => {
               options: { offset: [0, 30] },
             },
           ]}
-          style={{ width: "100%", left: 0 }}
+          style={{ width: "100%", left: 0, zIndex: 1000 }}
         >
           <ClickAwayListener onClickAway={() => setOpenMobileDropDown(false)}>
             <Paper elevation={0} sx={{ width: "100%" }}>
@@ -592,7 +581,6 @@ export const Navigator: React.FC = () => {
                                                 key={index}
                                                 onClick={() => {
                                                   setOpenMobileDropDown(false);
-                                                  setActiveIndex(null);
                                                   if (navUrl) navigate(navUrl);
                                                 }}
                                               >
@@ -699,7 +687,6 @@ export const Navigator: React.FC = () => {
                                           key={index}
                                           onClick={() => {
                                             setOpenMobileDropDown(false);
-                                            setActiveIndex(null);
                                             if (navUrl) navigate(navUrl);
                                           }}
                                         >

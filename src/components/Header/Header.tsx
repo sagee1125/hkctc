@@ -65,6 +65,7 @@ export const Header: React.FC = () => {
     <>
       <header className="w-full">
         <form
+          noValidate
           onSubmit={formik.handleSubmit}
           className="flex-shrink-0"
           style={{
