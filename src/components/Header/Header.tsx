@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { useSettings } from "../../context";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { Search } from "@mui/icons-material";
 
 export const HeaderSocialMedia: React.FC = () => {
   return (
@@ -29,22 +26,7 @@ export const HeaderSocialMedia: React.FC = () => {
 };
 
 export const Header: React.FC = () => {
-  const { fontSize, setFontSize, language, setLanguage } = useSettings();
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
-
-  const handleFontSizeChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ): void => {
-    setFontSize(event.target.value as "small" | "medium" | "large");
-  };
-
-  const navigate = useNavigate();
-
-  const handleLanguageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ): void => {
-    setLanguage(event.target.value as "zh-CN" | "zh-TW" | "en");
-  };
 
   const formik = useFormik<{ search: string }>({
     initialValues: {

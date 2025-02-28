@@ -79,6 +79,10 @@ export const Navigator: React.FC = () => {
     if (isPC) setOpenMobileDropDown(false);
   }, [isPC]);
 
+  useEffect(() => {
+    setSelectedExploreOption(getCurrentTitle(currentPath));
+  }, [currentPath]);
+
   const formik = useFormik<{ search: string }>({
     initialValues: {
       search: "",
@@ -129,7 +133,9 @@ export const Navigator: React.FC = () => {
           >
             <div className={`flex items-center`}>
               <Logo
-                className="h-[54px] w-[141px] cursor-pointer"
+                className={`${
+                  isPC ? "h-[54px] w-[141px]" : ""
+                } aspect-[141/54] cursor-pointer`}
                 onClick={() => {
                   navigate("/");
                 }}
@@ -184,7 +190,7 @@ export const Navigator: React.FC = () => {
               </div>
             ) : (
               <>
-                <div className="flex flex-row gap-[24px] justify-center items-center pl-[32px]">
+                <div className="flex flex-row gap-[8px] justify-center items-center">
                   <div
                     className="cursor-pointer"
                     onClick={() => {
@@ -461,7 +467,7 @@ export const Navigator: React.FC = () => {
           },
           {
             name: "offset",
-            options: { offset: [0, 30] },
+            options: { offset: [0, 100] },
           },
         ]}
         style={{ width: "100%", left: 0, zIndex: 1000 }}

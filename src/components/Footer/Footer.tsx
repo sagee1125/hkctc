@@ -366,7 +366,7 @@ export const Footer: React.FC = () => {
       hyperlink: "https://www.science.gov.hk/",
     },
     {
-      logoSize: isPC ? "h-[34px] w-[160px]" : "14px",
+      logoSize: isPC ? "h-[34px] w-[160px]" : "h-[14px]",
       img: "IHHK_logo_tc.png",
       hyperlink: "https://www.innovationhub.hk/",
     },
@@ -609,18 +609,18 @@ export const Footer: React.FC = () => {
       <div
         className={`bg-white ${
           isPC ? "h-[90px]" : "py-[16px] px-[24px]"
-        } flex items-center justify-center gap-[12px]`}
+        } flex flex-row items-center justify-center gap-[12px]`}
       >
         {downsideLogos.map((logo, index) => (
           <div
-            className={logo.logoSize}
+            className={isPC ? logo.logoSize : ""}
             key={index}
             onClick={() => {
               window.location.href = logo.hyperlink;
             }}
           >
             <img
-              className="w-full h-auto object-fit cursor-pointer"
+              className="object-fit cursor-pointer"
               src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
               alt={logo.img}
             />

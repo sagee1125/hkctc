@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Icon } from "@iconify/react";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
 
@@ -33,6 +33,10 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(getCurrentTitle(currentPath));
+
+  useEffect(() => {
+    setSelectedExploreOption(getCurrentTitle(currentPath));
+  }, [currentPath]);
 
   const paths: string[] = [
     "/general-public",
