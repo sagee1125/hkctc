@@ -134,7 +134,7 @@ export const SeminarsWorkshops: React.FC = () => {
           return (
             <div
               key={id}
-              className="flex flex-row w-full cursor-pointer"
+              className="flex flex-row w-full cursor-pointer gap-[24px]"
               onClick={() => {
                 window.scroll({
                   top: 0,

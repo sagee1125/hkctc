@@ -82,6 +82,7 @@ export const Header: React.FC = () => {
           </p>
           <div className="flex flex-row gap-4 items-center pr-4">
             <div
+              className="cursor-pointer"
               onClick={() => {
                 setOpenSearchInput(!openSearchInput);
               }}
