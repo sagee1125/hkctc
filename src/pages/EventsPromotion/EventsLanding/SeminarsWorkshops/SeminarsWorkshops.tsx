@@ -10,6 +10,8 @@ import {
   Paginator,
   handleGetPaginatorProp,
 } from "../../../../components";
+import { useSettings } from "../../../../context";
+import { regBox } from "../../EventsPromotion";
 
 const topicArray = [
   "All",
@@ -48,6 +50,7 @@ export const SeminarsWorkshops: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const { isPC } = useSettings();
 
   const navigate = useNavigate();
 
@@ -74,11 +77,12 @@ export const SeminarsWorkshops: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px]">
       <SquareTitle title="Seminars and Workshops" />
+      {!isPC && <>{regBox}</>}
       <div>
         <NormalAccordion
           title="Topics"
           details={
-            <div className="flex flex-row flex-wrap gap-[8px]">
+            <div className="flex flex-wrap gap-[8px]">
               {topicArray.map((btn, index) => {
                 const isActivated = index === activeTopicButton;
                 return (
@@ -134,7 +138,9 @@ export const SeminarsWorkshops: React.FC = () => {
           return (
             <div
               key={id}
-              className="flex flex-row w-full cursor-pointer gap-[24px]"
+              className={`flex ${
+                isPC ? "flex-row " : "flex-col-reverse"
+              } w-full cursor-pointer gap-[24px] items-center`}
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -160,7 +166,9 @@ export const SeminarsWorkshops: React.FC = () => {
               </div>
               {img && (
                 <img
-                  className="h-[198px] w-auto object-fit"
+                  className={`${
+                    isPC ? "h-[198px] w-auto" : "w-full h-auto"
+                  } object-cover cursor-pointer`}
                   src={
                     process.env.PUBLIC_URL +
                     `/assets/eventsLanding/seminarsWorkshops/${img}`

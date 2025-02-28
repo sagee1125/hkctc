@@ -37,10 +37,8 @@ export const SeminarArticlePage: React.FC = () => {
           const specialTopics = ["Programme", "Presentation Material", "Flyer"];
           const removeDot = specialTopics.includes(t.title);
           return (
-            <div className="text-linked-m flex flex-row items-center flex-wrap gap-[8px]">
-              {!removeDot && (
-                <div className="w-[6px] h-[6px] bg-black rounded-full" />
-              )}
+            <div className="text-linked-m flex items-start flex-row gap-[8px]">
+              {!removeDot ? "\u25CF " : ""}
 
               {t.pdfLink ? (
                 <Link linkColor="#000" outerLink={t.pdfLink}>

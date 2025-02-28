@@ -34,6 +34,29 @@ import { Videos } from "./News/Videos";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 import { useSettings } from "../../context";
 
+export const regBox = (
+  <div className="flex flex-row w-full border-2 border-[#E0E0E0]">
+    <div className="w-[60%] h-[134px] p-[20px] flex flex-row justify-center items-center">
+      <img
+        width={"71px"}
+        height={"68px"}
+        src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
+        alt="registration"
+      />
+    </div>
+    <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px] flex flex-col justify-center">
+      <p>
+        Seminar on Environmental, Social and Governance (ESG) and Sustainability
+      </p>
+      <Link
+        linkColor="#FFF"
+        innerLink="/events-promotion/seminars-registration"
+      >
+        Register Now
+      </Link>
+    </div>
+  </div>
+);
 export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -63,30 +86,7 @@ export const EventsPromotion: React.FC = () => {
     [navItemEnum.seminar_workshop]: {
       bannerImage: "eventsLanding/banner_bg_2.png",
       component: <SeminarsWorkshops />,
-      subComponent: (
-        <div className="flex flex-row w-full border-2 border-[#E0E0E0]">
-          <div className="w-[60%] h-[134px] p-[20px] flex flex-row justify-center items-center">
-            <img
-              width={"71px"}
-              height={"68px"}
-              src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
-              alt="registration"
-            />
-          </div>
-          <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px]">
-            <p>
-              Seminar on Environmental, Social and Governance (ESG) and
-              Sustainability
-            </p>
-            <Link
-              linkColor="#FFF"
-              innerLink="/events-promotion/seminars-registration"
-            >
-              Register Now
-            </Link>
-          </div>
-        </div>
-      ),
+      subComponent: regBox,
     },
     [navItemEnum.student_competition]: {
       bannerImage: "eventsLanding/banner_bg_3.png",
@@ -233,16 +233,9 @@ export const EventsPromotion: React.FC = () => {
   ];
 
   const activeSidebarItemsLabel = sidebarData.filter((section) => {
-    console.log("111111111111111", section.sidebarItems, activeItem);
     return section.sidebarItems.find((item) => item.enum === activeItem);
   })?.[0]?.title;
-  console.log(
-    "22222222222222222",
-    sidebarData.filter((section) =>
-      section.sidebarItems.find((item) => item.enum === activeItem)
-    ),
-    activeSidebarItemsLabel
-  );
+
   const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
