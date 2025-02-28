@@ -1,8 +1,16 @@
 import React from "react";
 import { ResourcesReportsContent } from "./ResourcesReportsContent";
-import { Breadcrumb, fullContainer, maxPCContainer } from "../../components";
+import {
+  Breadcrumb,
+  fullContainer,
+  maxMobileContainer,
+  maxPCContainer,
+} from "../../components";
+import { useSettings } from "../../context";
 
 export const ResourcesReports: React.FC = () => {
+  const { isPC } = useSettings();
+
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: "Resources " },
@@ -10,8 +18,8 @@ export const ResourcesReports: React.FC = () => {
 
   return (
     <div style={fullContainer}>
-      <div style={maxPCContainer}>
-        <Breadcrumb items={breadcrumbItems} />
+      <div style={isPC ? maxPCContainer : maxMobileContainer}>
+        {isPC && <Breadcrumb items={breadcrumbItems} />}
         <ResourcesReportsContent />
       </div>
     </div>

@@ -381,7 +381,7 @@ export const MediaTemplateWithDialog: React.FC<
       <div
         className={`flex-shrink-0 relative 
           w-[${direction === "column" ? "full" : "160px"}] 
-          ${direction === "column" ? "max-w-[252px]" : ""}
+          ${direction === "column" ? "max-w-[300px]" : ""}
           h-[${direction === "column" ? "190" : "90"}px] 
           overflow-hidden cursor-pointer`}
         onClick={handleOnClick}
@@ -399,7 +399,7 @@ export const MediaTemplateWithDialog: React.FC<
         >
           {loading && (
             <div
-              className="absolute flex items-center justify-center bg-white border-2 border-inherit"
+              className="absolute flex flex-shrink-0 items-center justify-center bg-white border-2 border-inherit"
               style={{ zIndex: "10", width: "100%", height: "100%" }}
             >
               <CircularProgress />
@@ -413,6 +413,12 @@ export const MediaTemplateWithDialog: React.FC<
                 style={{
                   objectFit: "contain",
                   zIndex: 1,
+                  ...(isPC
+                    ? {}
+                    : {
+                        width: "100%",
+                        height: "auto",
+                      }),
                 }}
               />
             )}
