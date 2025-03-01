@@ -13,7 +13,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
     "Mr Robert Andrew LUI Chi-wang",
     "Mr Joseph POON Tim-leung",
     "Ms SUEN Wai-lam",
-    "Ms Gilly WONG Fung-han,",
+    "Ms Gilly WONG Fung-han",
   ];
 
   return (

@@ -194,13 +194,13 @@ export const ProfileAndRole: React.FC = () => {
     link: string;
   }> = [
     {
-      title: "Statistics of Testing and Certification Activities in Hong Kong",
+      title:
+        "Latest Statistics of Testing and Certification Activities in Hong Kong",
       imagePath: "Statistics.png",
-      date: "May 2024",
       link: "/en/doc/HKCTC_StatPresentation_English.pdf",
     },
     {
-      title: "Key Data available from 2009 - 2022",
+      title: "Key Data available for 2009 - 2022",
       imagePath: "KeyData.png",
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
     },
@@ -350,7 +350,7 @@ export const ProfileAndRole: React.FC = () => {
           Hong Kong.
         </p>
         <hr className="my-[24px]" />
-        <p className="text-heading-l mb-[24px]">Statics & Data</p>
+        <p className="text-heading-l mb-[24px]">Statistics & Data</p>
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
             const { title, imagePath, date } = item;

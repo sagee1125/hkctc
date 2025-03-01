@@ -209,7 +209,7 @@ export const ServiceProvided: React.FC = () => {
 
   const servicesTableRowsData = [
     [
-      "Service",
+      "Testing",
       "An object",
       "In general short term (applies only to the samples tested)",
       "Test report",
