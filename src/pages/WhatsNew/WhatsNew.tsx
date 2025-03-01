@@ -69,14 +69,18 @@ export const WhatsNew: React.FC = () => {
       <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
         <p className="text-heading-l">HKCTC Newsletter</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
-          const { title, date } = item;
+          const { title, date, link } = item;
           return (
             <div
               className="flex flex-row gap-[24px] cursor-pointer"
               key={index}
               onClick={() => {
-                setActiveReport(index);
-                setIsPreviewOpen(true);
+                if (isPC) {
+                  setActiveReport(index);
+                  setIsPreviewOpen(true);
+                } else {
+                  window.open("https://www.hkctc.gov.hk" + link, "_blank");
+                }
               }}
             >
               <img

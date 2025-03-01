@@ -242,14 +242,18 @@ export const MediaTemplateWithDialog: React.FC<
   };
   return direction === "full" ? (
     <div
-      className="grid grid-cols-2 cursor-pointer justify-start group border-[2px] border-inherit h-[278px] gap-[24px]"
+      className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
       onClick={handleOnClick}
     >
       <div className="overflow-hidden flex-shrink-0 relative border-1">
         {loading && (
           <div
-            className="absolute flex items-center justify-center bg-white"
-            style={{ zIndex: "10", width: "100%", height: "100%" }}
+            className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
+            style={{
+              zIndex: "10",
+              width: "100%",
+              height: "100%",
+            }}
           >
             <CircularProgress />
           </div>
@@ -263,8 +267,7 @@ export const MediaTemplateWithDialog: React.FC<
                 objectFit: "contain",
                 zIndex: 1,
                 width: "100%",
-                // border: "1px solid #e5e7eb",
-                // height: "max-content",
+                height: "max-content",
               }}
             />
           )}

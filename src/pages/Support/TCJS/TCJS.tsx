@@ -3,6 +3,7 @@ import { SummaryTable } from "./SummaryTable";
 import { Accordion, Link, SquareTitle, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
+import { useSettings } from "../../../context";
 
 const Aim: React.FC = () => {
   const aimQuestion: Array<{ question: string; answer: React.ReactNode }> = [
@@ -352,6 +353,7 @@ export const TCJS: React.FC = () => {
       docLink: "https://www.hkctc.gov.hk/en/doc/tcjs_claim_form_eng.docx",
     },
   ];
+  const { isPC } = useSettings();
 
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
@@ -464,10 +466,21 @@ export const TCJS: React.FC = () => {
               <div
                 className="relative w-[130px] h-full cursor-pointer"
                 onClick={() => {
-                  docLink && window.open(docLink);
+                  if (docLink) {
+                    window.open(docLink, "_blank");
+                    return;
+                  }
+
                   if (pdfLink) {
-                    setActiveReport(index);
-                    setIsPreviewOpen(true);
+                    if (isPC) {
+                      setActiveReport(index);
+                      setIsPreviewOpen(true);
+                    } else {
+                      window.open(
+                        "https://www.hkctc.gov.hk" + pdfLink,
+                        "_blank"
+                      );
+                    }
                   }
                 }}
                 style={{ flexShrink: 0 }}

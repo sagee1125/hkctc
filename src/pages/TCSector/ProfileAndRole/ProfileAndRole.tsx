@@ -353,7 +353,7 @@ export const ProfileAndRole: React.FC = () => {
         <p className="text-heading-l mb-[24px]">Statistics & Data</p>
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
-            const { title, imagePath, date } = item;
+            const { title, imagePath, date, link } = item;
             return (
               <div
                 key={index}
@@ -362,8 +362,12 @@ export const ProfileAndRole: React.FC = () => {
                 <div
                   className="relative w-[130px] h-full cursor-pointer border-2 border-inherit"
                   onClick={() => {
-                    setActiveReport(index);
-                    setIsPreviewOpen(true);
+                    if (isPC) {
+                      setActiveReport(index);
+                      setIsPreviewOpen(true);
+                    } else {
+                      window.open("https://www.hkctc.gov.hk" + link, "_blank");
+                    }
                   }}
                   style={{ flexShrink: 0 }} // 确保左边不会被压缩
                 >
