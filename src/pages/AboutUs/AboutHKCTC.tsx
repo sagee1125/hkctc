@@ -23,22 +23,29 @@ export const AboutHKCTC: React.FC = () => {
     "Mr Wilson WONG Wing-wa",
   ];
 
+  const reference: string[] = [
+    "the overall development strategy of the industry;",
+    "new business opportunities worth exploring for the industry, having regard to latest developments in the Mainland and overseas markets; and",
+    "measures needed to raise the professional standing and community awareness of the industry.",
+  ];
+
   return (
     <div className="w-full mb-[48px]">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px]">
         <p className="text-heading-m">Terms of Reference</p>
         <div className="text-body-m mt-[16px]">
           <p>To advise the Chief Executive on -</p>
-          <li>the overall development strategy of the industry;</li>
-          <li>
-            new business opportunities worth exploring for the industry, having
-            regard to latest developments in the Mainland and overseas markets;
-            and
-          </li>
-          <li>
-            measures needed to raise the professional standing and community
-            awareness of the industry.
-          </li>
+          <div className="ml-1">
+            {reference.map((r, index) => (
+              <div key={index} className="flex flex-row gap-[8px]">
+                <div>
+                  <div className="w-[6px] h-[6px] bg-black rounded-full mt-2" />
+                </div>
+
+                <div className="flex flex-wrap">{r}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <p className="my-[24px] text-body-m">

@@ -147,7 +147,7 @@ export const ServiceUsersContent: React.FC = () => {
                 >
                   <img
                     className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    src={`${process.env.PUBLIC_URL}/${imagePath}`}
+                    src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
                     alt={imagePath}
                   />
                   {/* Icon */}
@@ -167,7 +167,7 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
         <p className="text-heading-m py-[24px]">
-          Full directory of accredited organizations
+          Full directory of accredited organisation
         </p>
 
         <div className="w-full">
