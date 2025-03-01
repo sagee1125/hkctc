@@ -1,8 +1,7 @@
 import React from "react";
-import { Icon } from "@iconify/react";
-import { FileTemplateTitleCenter, SquareTitle } from "../../../components";
+import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { navItemEnum } from "../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../const";
 import { useSettings } from "../../../context";
 
 type RelatedLinks = {
@@ -55,50 +54,66 @@ export const CareerDevelopment: React.FC = () => {
   const resourcesData: Array<{
     title: string;
     imgUrl: string;
-    link: string;
     iconPath: string;
+    mediaType: MEDIA_TYPE;
+    mediaDomain?: "hkctc" | "youtube";
+    link: string;
   }> = [
     {
       title: "Testing and Certification Create Your Future",
       imgUrl: "TestingPdf.png",
       iconPath: "PDF.png",
-      link: "https://www.hkctc.gov.hk/en/doc/brochure_e.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "hkctc",
+      link: "/en/doc/brochure_e.pdf",
     },
     {
       title: "認識檢測和認證業 (Chinese Version Only)",
       imgUrl: "TestingPdf_Chinese.png",
       iconPath: "PDF.png",
-      link: "https://www.hkctc.gov.hk/tc/doc/brochure_b.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "hkctc",
+      link: "/tc/doc/brochure_b.pdf",
     },
     {
       title: "檢測認證青雲路 (Chinese Version Only)",
       imgUrl: "QYL.png",
       iconPath: "PDF.png",
-      link: "https://www.hkctc.gov.hk/tc/doc/brochure_c.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "hkctc",
+      link: "/tc/doc/brochure_c.pdf",
     },
     {
       title: "檢測認證工作透視 (Chinese Version Only)",
       imgUrl: "toushi.png",
       iconPath: "PDF.png",
-      link: "https://www.hkctc.gov.hk/tc/doc/brochure_d.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "hkctc",
+      link: "/tc/doc/brochure_d.pdf",
     },
     {
       title: "Career Development in Testing and Certification Sector",
       imgUrl: "defaultCover.png",
       iconPath: "PDF.png",
-      link: "https://www.hkctc.gov.hk/en/doc/pamphlet_a.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "hkctc",
+      link: "/en/doc/pamphlet_a.pdf",
     },
     {
       title: "Testing and Certification Create Your Future",
       imgUrl: "defaultCover.png",
       iconPath: "VIDEO.png",
-      link: "https://www.youtube.com/embed/GDuq9I9J9IU",
+      mediaType: MEDIA_TYPE.VIDEO,
+      mediaDomain: "youtube",
+      link: "/embed/GDuq9I9J9IU",
     },
     {
       title: "Young Testing and Certification Practitioners Talks",
       imgUrl: "defaultCover.png",
       iconPath: "VIDEO.png",
-      link: "https://www.youtube.com/embed/_baqA4hraQc",
+      mediaType: MEDIA_TYPE.VIDEO,
+      mediaDomain: "youtube",
+      link: "/embed/_baqA4hraQc",
     },
 
     {
@@ -106,21 +121,27 @@ export const CareerDevelopment: React.FC = () => {
         "Know More About T&C (1): Electronic Product Testing & Food Management System Certification",
       imgUrl: "defaultCover.png",
       iconPath: "VIDEO.png",
-      link: "https://www.youtube.com/embed/ly4dgf0K6Gc",
+      mediaType: MEDIA_TYPE.VIDEO,
+      mediaDomain: "youtube",
+      link: "/embed/ly4dgf0K6Gc",
     },
     {
       title:
         "Know More About T&C (2): Textile Testing & Construction Materials Product Certification",
       imgUrl: "defaultCover.png",
       iconPath: "VIDEO.png",
-      link: "https://www.youtube.com/embed/2P9Vbmh4Wok",
+      mediaType: MEDIA_TYPE.VIDEO,
+      mediaDomain: "youtube",
+      link: "/embed/2P9Vbmh4Wok",
     },
     {
       title:
         "Know More About T&C (3): Building / Construction Testing and Indoor Air Quality Inspection",
       imgUrl: "defaultCover.png",
       iconPath: "VIDEO.png",
-      link: "https://www.youtube.com/embed/lph2_v1FTwU",
+      mediaType: MEDIA_TYPE.VIDEO,
+      mediaDomain: "youtube",
+      link: "/embed/lph2_v1FTwU",
     },
   ];
 
@@ -317,23 +338,22 @@ export const CareerDevelopment: React.FC = () => {
       <div className="mt-[24px]">
         <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
           {resourcesData.map((item, index) => {
-            const { title, imgUrl, link, iconPath } = item;
+            const { title, imgUrl, link, mediaDomain, mediaType, iconPath } =
+              item;
             return (
               <div
                 key={index}
-                className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
-                onClick={() => {
-                  window.open(link, "_blank");
-                }}
+                className="flex flex-row items-center h-[90px] mt-[24px] gap-[24px]"
               >
-                <FileTemplateTitleCenter
-                  title={
-                    title.length > 48 && !isPC
-                      ? title.slice(0, 48) + "..."
-                      : title
-                  }
-                  imagePath={"assets/careerEducation/" + imgUrl}
-                  iconPath={iconPath}
+                <MediaTemplateWithDialog
+                  title={title}
+                  imagePath={imgUrl}
+                  date=""
+                  mediaLink={link}
+                  mediaType={mediaType}
+                  mediaDomain={mediaDomain}
+                  direction="row"
+                  maskIcon={iconPath}
                 />
               </div>
             );
