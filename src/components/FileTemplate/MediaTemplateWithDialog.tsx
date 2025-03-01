@@ -11,7 +11,7 @@ export type MediaTemplateWithDialogProps = {
   imagePath?: string;
   mediaLink: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube";
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac";
   direction?: "column" | "row" | "full";
 };
 
@@ -46,7 +46,10 @@ export const MediaTemplateWithDialog: React.FC<
     let isCancelled = false;
 
     const fetchAndRenderPdf = async () => {
-      const pdfUrl = "/pdf-proxy" + mediaLink;
+      const pdfUrl =
+        mediaDomain === "hkctc"
+          ? "/hkctc-proxy" + mediaLink
+          : "/cpas-icac-proxy" + mediaLink;
 
       setLoading(true);
 
@@ -100,7 +103,7 @@ export const MediaTemplateWithDialog: React.FC<
     const fetchVideoPoster = () => {
       setLoading(true);
       const videoElement = document.createElement("video");
-      videoElement.src = "/pdf-proxy" + mediaLink;
+      videoElement.src = "/hkctc-proxy" + mediaLink;
       videoElement.onloadeddata = () => {
         if (videoElement.poster && imageRef.current) {
           imageRef.current.src = videoElement.poster;
@@ -176,7 +179,7 @@ export const MediaTemplateWithDialog: React.FC<
     return () => {
       isCancelled = true;
     };
-  }, [mediaLink, mediaType, mediaDomain]);
+  }, [mediaLink, mediaType, mediaDomain, pdfjsLib]);
 
   const handleMouseEnter = (): void => {
     // if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
@@ -209,74 +212,92 @@ export const MediaTemplateWithDialog: React.FC<
 
     if (isPC) {
       setIsPreviewOpen(true);
-    } else {
-      if (mediaType === MEDIA_TYPE.VIDEO) {
-        if (mediaDomain === "hkctc") window.open(mediaLink, "_blank");
-        else if (mediaDomain === "youtube")
-          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
-      } else if (mediaType === MEDIA_TYPE.PDF)
-        window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+      return;
     }
+
+    // for mobile view, just open in a new page
+    if (mediaType === MEDIA_TYPE.VIDEO) {
+      switch (mediaDomain) {
+        case "hkctc":
+          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+          break;
+        case "youtube":
+          window.open(mediaLink, "_blank");
+          break;
+        default:
+          break;
+      }
+    }
+    if (mediaType === MEDIA_TYPE.PDF)
+      switch (mediaDomain) {
+        case "hkctc":
+          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+          break;
+        case "cpas-icac":
+          window.open("https://cpas.icac.hk" + mediaLink, "_blank");
+          break;
+        default:
+          break;
+      }
   };
   return direction === "full" ? (
-    <>
-      <div
-        className="grid grid-cols-2 cursor-pointer justify-start group border-2 border-inherit h-[278px] gap-[24px]"
-        onClick={handleOnClick}
-      >
-        <div className="overflow-hidden flex-shrink-0 relative border-1">
-          {loading && (
-            <div
-              className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
-              style={{ zIndex: "10", width: "100%", height: "100%" }}
-            >
-              <CircularProgress />
-            </div>
+    <div
+      className="grid grid-cols-2 cursor-pointer justify-start group border-[2px] border-inherit h-[278px] gap-[24px]"
+      onClick={handleOnClick}
+    >
+      <div className="overflow-hidden flex-shrink-0 relative border-1">
+        {loading && (
+          <div
+            className="absolute flex items-center justify-center bg-white"
+            style={{ zIndex: "10", width: "100%", height: "100%" }}
+          >
+            <CircularProgress />
+          </div>
+        )}
+        <>
+          {mediaType === MEDIA_TYPE.PDF && (
+            <canvas
+              key={mediaLink}
+              ref={canvasRef}
+              style={{
+                objectFit: "contain",
+                zIndex: 1,
+                width: "100%",
+                // border: "1px solid #e5e7eb",
+                // height: "max-content",
+              }}
+            />
           )}
-          <>
-            {mediaType === MEDIA_TYPE.PDF && (
-              <canvas
-                key={mediaLink}
-                ref={canvasRef}
-                style={{
-                  objectFit: "contain",
-                  zIndex: 1,
-                  width: "100%",
-                  border: "1px solid #e5e7eb",
-                  // height: "max-content",
-                }}
-              />
-            )}
 
-            {mediaType === MEDIA_TYPE.VIDEO && (
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "100%",
-                  cursor: "pointer",
-                  zIndex: 1,
-                }}
-                onMouseEnter={handleMouseEnter}
-              >
-                {/*  video, play when mouse enter */}
-                {mediaDomain === "hkctc" && (
-                  <video
-                    ref={videoRef as React.RefObject<HTMLVideoElement>}
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      zIndex: 1,
-                    }}
-                  >
-                    <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
-                  </video>
-                )}
-                {/* {mediaDomain === "youtube" &&
+          {mediaType === MEDIA_TYPE.VIDEO && (
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                cursor: "pointer",
+                zIndex: 1,
+              }}
+              onMouseEnter={handleMouseEnter}
+            >
+              {/*  video, play when mouse enter */}
+              {mediaDomain === "hkctc" && (
+                <video
+                  ref={videoRef as React.RefObject<HTMLVideoElement>}
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    zIndex: 1,
+                  }}
+                >
+                  <source src={"/hkctc-proxy" + mediaLink} type="video/mp4" />
+                </video>
+              )}
+              {/* {mediaDomain === "youtube" &&
                     isHoveringYTBVideo &&
                     videoRef && (
                       <iframe
@@ -296,35 +317,35 @@ export const MediaTemplateWithDialog: React.FC<
                       />
                     )} */}
 
-                <img
-                  ref={imageRef}
-                  alt="Video"
-                  style={{
-                    objectFit: "contain",
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 0,
-                    opacity: isIMGLoaded ? 1 : 0,
-                  }}
-                  onLoad={handleImageLoad}
-                />
-              </div>
-            )}
-
-            {mediaType === MEDIA_TYPE.NEW_PAGE && (
               <img
-                alt="img"
-                src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                ref={imageRef}
+                alt="Video"
                 style={{
-                  objectFit: "cover",
-
+                  objectFit: "contain",
                   width: "100%",
                   height: "100%",
                   zIndex: 0,
+                  opacity: isIMGLoaded ? 1 : 0,
                 }}
+                onLoad={handleImageLoad}
               />
-            )}
-            {/* 
+            </div>
+          )}
+
+          {mediaType === MEDIA_TYPE.NEW_PAGE && (
+            <img
+              alt="img"
+              src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+              style={{
+                objectFit: "cover",
+
+                width: "100%",
+                height: "100%",
+                zIndex: 0,
+              }}
+            />
+          )}
+          {/* 
               {mediaType === MEDIA_TYPE.VIDEO && (
                 <div
                   key={mediaLink}
@@ -351,37 +372,33 @@ export const MediaTemplateWithDialog: React.FC<
                   />
                 </div>
               )} */}
-          </>
-        </div>
-        <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
-          <div
-            className={`text-heading-${
-              isPC ? "m" : "xs"
-            } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
-          >
-            {title}
-          </div>
-          {date && (
-            <div className="flex flex-row gap-[8px] items-center">
-              <img
-                className="w-[16px] h-[16px]"
-                src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                alt={"calendar"}
-              />
-              <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
-                {date}
-              </p>
-            </div>
-          )}
-        </div>
+        </>
       </div>
-    </>
+      <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
+        <div
+          className={`text-heading-${
+            isPC ? "m" : "xs"
+          } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
+        >
+          {title}
+        </div>
+        {date && (
+          <div className="flex flex-row gap-[8px] items-center">
+            <img
+              className="w-[16px] h-[16px]"
+              src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
+              alt={"calendar"}
+            />
+            <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>{date}</p>
+          </div>
+        )}
+      </div>
+    </div>
   ) : (
     <>
       <div
         className={`flex-shrink-0 relative 
-          ${direction === "column" ? "w-full" : "w-[160px]"} 
-          ${direction === "column" ? "h-[190px]" : "h-[90px]"} 
+          ${direction === "column" ? "w-full h-[190px]" : "w-[160px] h-[90px]"} 
           ${
             isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
           } cursor-pointer`}
@@ -449,9 +466,10 @@ export const MediaTemplateWithDialog: React.FC<
                       zIndex: 1,
                     }}
                   >
-                    <source src={"/pdf-proxy" + mediaLink} type="video/mp4" />
+                    <source src={"/hkctc-proxy" + mediaLink} type="video/mp4" />
                   </video>
                 )}
+
                 {/* {mediaDomain === "youtube" &&
                     isHoveringYTBVideo &&
                     videoRef && (

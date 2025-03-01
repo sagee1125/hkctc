@@ -50,6 +50,7 @@ export type PublicationType = {
   mediaType: MEDIA_TYPE;
   yearRange?: number[];
   category: CATEGORIES[];
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac";
 };
 
 export type CoursesType = Omit<PublicationType, "date" | "mediaType"> & {
@@ -842,9 +843,10 @@ export const comicsList: PublicationType[] = [
 export const corruptionGuideList: PublicationType[] = [
   {
     title: "Corruption Prevention Guide for Testing and Certification Industry",
-    link: "https://cpas.icac.hk/UPloadImages/InfoFile/cate_43/2016/f0cf22b8-ca79-403e-9682-16b6a2166abe.pdf",
+    link: "/UPloadImages/InfoFile/cate_43/2016/f0cf22b8-ca79-403e-9682-16b6a2166abe.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    mediaDomain: "cpas-icac",
   },
   {
     title:

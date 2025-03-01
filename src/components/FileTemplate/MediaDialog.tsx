@@ -7,7 +7,7 @@ type MediaDialogProps = {
   title: string;
   link: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube" | "others";
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "others";
 };
 
 export const MediaDialog: React.FC<MediaDialogProps> = ({
@@ -24,7 +24,9 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     if (!link) return;
     await withLoading(async () => {
       try {
-        const response = await fetch("/pdf-proxy" + link);
+        const proxyHead =
+          mediaDomain === "hkctc" ? "/hkctc-proxy" : "/cpas-icac-proxy";
+        const response = await fetch(proxyHead + link);
         const pdfBlob = await response.blob();
         const pdfHyperlink = document.createElement("a");
 
@@ -54,7 +56,11 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   };
 
   const pdfLink = `https://docs.google.com/viewer?url=${encodeURIComponent(
-    mediaDomain === "hkctc" ? `https://www.hkctc.gov.hk` + link : link
+    mediaDomain === "hkctc"
+      ? `https://www.hkctc.gov.hk` + link
+      : mediaDomain === "cpas-icac"
+      ? `https://cpas.icac.hk` + link
+      : link
   )}&embedded=true&chrome=false`;
 
   const MemoizedIframe: React.FC<{

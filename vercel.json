@@ -3,8 +3,12 @@
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/static/(.*)", "destination": "/static/$1" },
     {
-      "source": "/pdf-proxy/:path*",
+      "source": "/hkctc-proxy/:path*",
       "destination": "https://www.hkctc.gov.hk/:path*"
+    },
+    {
+      "source": "/cpas-icac-proxy/:path*",
+      "destination": "https://cpas.icac.hk/:path*"
     }
   ]
 }

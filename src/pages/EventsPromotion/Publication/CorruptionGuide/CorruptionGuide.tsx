@@ -8,19 +8,26 @@ export const CorruptionGuide: React.FC = () => {
       <SquareTitle title="Corruption Prevention Guide for T&C Industry" />
       <div className="pt-[24px]">
         {corruptionGuideList.map((item, index) => {
-          const { title, mediaType, date, link } = item;
+          const { title, mediaType, date, link, mediaDomain } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
-            <MediaTemplateWithDialog
+            <div
               key={index}
-              title={title}
-              maskIcon={maskIcon}
-              date={date as string}
-              mediaLink={link}
-              mediaType={mediaType}
-              direction={"full"}
-            />
+              style={{
+                marginTop: index === 0 ? "" : "-2px",
+              }}
+            >
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={date as string}
+                mediaLink={link}
+                mediaType={mediaType}
+                direction={"full"}
+                mediaDomain={mediaDomain}
+              />
+            </div>
           );
         })}
       </div>

@@ -68,10 +68,10 @@ export const Pamphlets: React.FC = () => {
       </div>
 
       <div
-        className={`w-full ${
+        className={`w-full grid ${
           isPC
-            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
-            : "flex flex-wrap gap-[24px]"
+            ? "grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "grid-cols-1 gap-[24px]"
         } `}
       >
         {currentPageData.map((item, index) => {

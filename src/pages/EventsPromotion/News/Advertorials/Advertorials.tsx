@@ -184,10 +184,10 @@ export const Advertorials: React.FC = () => {
       </div>
 
       <div
-        className={`w-full ${
+        className={`w-full grid ${
           isPC
-            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
-            : "flex flex-wrap gap-[24px]"
+            ? "grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "grid-cols-1 gap-[24px]"
         }`}
       >
         {currentPageData.map((item, index) => {
@@ -197,9 +197,9 @@ export const Advertorials: React.FC = () => {
           return (
             <div
               key={index}
-              className={`${
-                isPC ? "w-full" : "w-[252px]"
-              } h-[282px] flex flex-col gap-[14px]`}
+              className={`w-full ${
+                isPC ? "h-[282px]" : "h-auto"
+              } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
                 title={title}

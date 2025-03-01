@@ -19,7 +19,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
     if (!pdfHyperlink) return;
     await withLoading(async () => {
       try {
-        const response = await fetch("/pdf-proxy" + pdfHyperlink);
+        const response = await fetch("/hkctc-proxy" + pdfHyperlink);
         const pdfBlob = await response.blob();
         const link = document.createElement("a");
         link.href = URL.createObjectURL(pdfBlob);

@@ -48,10 +48,10 @@ export const Comics: React.FC = () => {
         you enjoy reading these interesting stories!
       </div>
       <div
-        className={`w-full ${
+        className={`w-full grid ${
           isPC
-            ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
-            : "flex flex-wrap gap-[24px]"
+            ? "grid-cols-3 gap-x-[24px] gap-y-[36px]"
+            : "grid-cols-1 gap-[24px]"
         }`}
       >
         {currentPageData.map((item, index) => {
@@ -62,8 +62,8 @@ export const Comics: React.FC = () => {
             <div
               key={index}
               className={`${
-                isPC ? "w-full" : ""
-              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
+                isPC ? "w-full h-[282px]" : ""
+              } flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
                 title={title}
