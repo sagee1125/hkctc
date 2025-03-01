@@ -872,7 +872,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 <div
                   key={index}
                   className={`h-[282px] ${
-                    isPC ? "" : "items-center"
+                    isPC ? "" : "items-start"
                   } flex flex-col gap-[14px]`}
                 >
                   <MediaTemplateWithDialog

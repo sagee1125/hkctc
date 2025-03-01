@@ -81,9 +81,9 @@ export const Pamphlets: React.FC = () => {
           return (
             <div
               key={index}
-              className={`${
-                isPC ? "w-full" : ""
-              } h-[282px] flex flex-col gap-[14px] mt-[24px]`}
+              className={`w-full ${
+                isPC ? "h-[282px]" : "h-auto"
+              } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
                 title={title}

@@ -29,7 +29,7 @@ export const HKCTCReports: React.FC = () => {
     <div>
       <SquareTitle title="HKCTC Reports" />
       <div
-        className={`w-full grid ${
+        className={`w-full mt-[24px] grid ${
           isPC
             ? "grid-cols-3 gap-x-[24px] gap-y-[36px]"
             : "grid-cols-1 gap-[24px]"
