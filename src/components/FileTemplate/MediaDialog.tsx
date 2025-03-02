@@ -17,7 +17,8 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   mediaType,
   mediaDomain = "hkctc",
 }: MediaDialogProps) => {
-  const { withLoading } = useSettings();
+  const { withLoading, isPC } = useSettings();
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const handlePdfDownload = async () => {
@@ -76,61 +77,63 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   });
 
   return (
-    <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-        <div className="bg-[#D4D4D4] p-4 w-[70vw] h-[90vh] relative">
-          <button
-            className="absolute top-2 right-2 px-2 cursor-pointer"
-            onClick={() => setIsPreviewOpen(false)}
-          >
-            ✕
-          </button>
-          <div className="w-full h-full">
-            {mediaType === MEDIA_TYPE.VIDEO && (
-              <>
-                {mediaDomain === "hkctc" ? (
-                  <video
-                    ref={videoRef}
-                    className="w-full h-full pt-[24px] object-cover"
-                    title={title}
-                    controls
-                    onClick={handlePlayPause}
-                  >
-                    <source
-                      src={`https://www.hkctc.gov.hk${link}`}
-                      type="video/mp4"
-                    />
-                  </video>
-                ) : (
-                  <iframe
-                    className="w-full h-full pt-[24px]"
-                    src={link}
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title={title}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+      <div
+        className={`bg-[#D4D4D4] p-4 ${
+          isPC ? "w-[70vw] h-[90vh]" : "w-[80%] aspect-[384/240]"
+        } relative `}
+      >
+        <button
+          className="absolute top-2 right-2 px-2 cursor-pointer"
+          onClick={() => setIsPreviewOpen(false)}
+        >
+          ✕
+        </button>
+        <div className="w-full h-full">
+          {mediaType === MEDIA_TYPE.VIDEO && (
+            <>
+              {mediaDomain === "hkctc" ? (
+                <video
+                  ref={videoRef}
+                  className="w-full h-full pt-[24px] object-cover"
+                  title={title}
+                  controls
+                  onClick={handlePlayPause}
+                >
+                  <source
+                    src={`https://www.hkctc.gov.hk${link}`}
+                    type="video/mp4"
                   />
-                )}
-              </>
-            )}
-            {mediaType === MEDIA_TYPE.PDF && (
-              <>
-                <MemoizedIframe src={pdfLink} />
-                {mediaDomain === "hkctc" && (
-                  <div className="absolute bottom-4 right-4 flex gap-2">
-                    <button
-                      className="bg-newPrimary text-white px-4 py-2"
-                      onClick={handlePdfDownload}
-                    >
-                      Download
-                    </button>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
+                </video>
+              ) : (
+                <iframe
+                  className="w-full h-full pt-[24px]"
+                  src={link}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title={title}
+                />
+              )}
+            </>
+          )}
+          {mediaType === MEDIA_TYPE.PDF && (
+            <>
+              <MemoizedIframe src={pdfLink} />
+              {mediaDomain === "hkctc" && (
+                <div className="absolute bottom-4 right-4 flex gap-2">
+                  <button
+                    className="bg-newPrimary text-white px-4 py-2"
+                    onClick={handlePdfDownload}
+                  >
+                    Download
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -210,25 +210,18 @@ export const MediaTemplateWithDialog: React.FC<
       return;
     }
 
-    if (isPC) {
+    if (mediaType === MEDIA_TYPE.VIDEO) {
       setIsPreviewOpen(true);
       return;
     }
 
-    // for mobile view, just open in a new page
-    if (mediaType === MEDIA_TYPE.VIDEO) {
-      switch (mediaDomain) {
-        case "hkctc":
-          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
-          break;
-        case "youtube":
-          window.open(mediaLink, "_blank");
-          break;
-        default:
-          break;
+    if (mediaType === MEDIA_TYPE.PDF) {
+      if (isPC) {
+        // for mobile view, just open in a new page
+        setIsPreviewOpen(true);
+        return;
       }
-    }
-    if (mediaType === MEDIA_TYPE.PDF)
+
       switch (mediaDomain) {
         case "hkctc":
           window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
@@ -239,6 +232,7 @@ export const MediaTemplateWithDialog: React.FC<
         default:
           break;
       }
+    }
   };
   return direction === "full" ? (
     <div
