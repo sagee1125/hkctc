@@ -30,7 +30,7 @@ export const AboutHKCTC: React.FC = () => {
   ];
 
   return (
-    <div className="w-full mb-[48px]">
+    <div className="w-full mb-[48px] text-justify">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px]">
         <p className="text-heading-m">Terms of Reference</p>
         <div className="text-body-m mt-[16px]">

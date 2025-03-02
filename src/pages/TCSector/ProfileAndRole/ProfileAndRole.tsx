@@ -210,7 +210,7 @@ export const ProfileAndRole: React.FC = () => {
 
   return (
     <div className="w-full flex">
-      <div className="flex-1">
+      <div className="flex-1 text-justify">
         <SquareTitle title="Profile of the Sector" />
 
         <div className="bg-[#EEEEEA] my-[24px]">

@@ -79,7 +79,7 @@ export const Strength: React.FC = () => {
     },
   ];
   return (
-    <div className="w-full flex gap-[24px]">
+    <div className="w-full flex gap-[24px] text-justify">
       <div className="flex-1">
         <SquareTitle title={pageText.TITLE} />
         <div className="bg-[#EEEEEA] my-[24px]">

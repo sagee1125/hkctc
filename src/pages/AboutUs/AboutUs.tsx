@@ -53,11 +53,13 @@ export const AboutUs: React.FC = () => {
         {isPC ? (
           <div className="w-full flex flex-row pt-[48px] px-[24px] gap-[24px]">
             <div className="min-w-[440px] w-1/3">
-              <DirectorySidebar
-                activatedItems={activatedItems}
-                directorySidebarItems={Object.keys(rightComponentMap)}
-                setActivatedItems={setActivatedItems}
-              />
+              <div className="sticky top-[20px]">
+                <DirectorySidebar
+                  activatedItems={activatedItems}
+                  directorySidebarItems={Object.keys(rightComponentMap)}
+                  setActivatedItems={setActivatedItems}
+                />
+              </div>
             </div>
 
             <div className="flex-1">{rightComponentMap[activatedItems]}</div>

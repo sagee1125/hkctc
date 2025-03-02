@@ -248,7 +248,11 @@ export const Support: React.FC = () => {
 
         {isPC ? (
           <div className="w-full flex flex-row pt-[48px] pr-[24px]">
-            <div className="px-[24px] min-w-[440px] w-1/3">{sidebar}</div>
+            <div className="px-[24px] min-w-[440px] w-1/3">
+              <div className="sticky top-[20px] flex flex-col gap-[24px]">
+                {sidebar}
+              </div>
+            </div>
             <div className="flex-1">{component}</div>
           </div>
         ) : (

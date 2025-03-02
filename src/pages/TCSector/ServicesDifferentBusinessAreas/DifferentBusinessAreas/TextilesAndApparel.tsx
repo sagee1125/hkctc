@@ -200,7 +200,7 @@ export const TextilesAndApparel: React.FC = () => {
         {isPC ? (
           <div className="w-full flex flex-row pt-[48px] pr-[24px]">
             <div className="flex flex-col px-[24px] min-w-[440px] w-1/3 gap-[24px]">
-              {sidebar}
+              <div className="sticky top-[20px]">{sidebar}</div>
             </div>
             <div className="flex-1">{content}</div>
           </div>
