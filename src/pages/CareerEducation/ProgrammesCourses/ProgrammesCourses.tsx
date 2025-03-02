@@ -69,7 +69,7 @@ const degreeMap: Record<string, CertList[]> = {
         {
           programme:
             "BSc (Hons) in Analytical Sciences for Testing and Certification",
-          url: "https://chem.hkbu.edu.hk/programmes/bsc_bts",
+          url: "https://www.polyu.edu.hk/abct/study/undergraduate-programmes/senior-year/bachelor-of-science-honours-in-analytical-sciences-for-testing-and-certification/",
         },
       ],
     },
@@ -218,7 +218,7 @@ export const ProgrammesCourses: React.FC = () => {
         the industry. Details of the courses and seminars may be obtained at
         VTC/IVE's relevant&nbsp;
         <a
-          href="http://va.vtc.edu.hk/tcert/"
+          href="https://www.vtc.edu.hk/studyat/en/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

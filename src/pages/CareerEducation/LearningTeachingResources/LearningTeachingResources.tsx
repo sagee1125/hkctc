@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SquareTitle, VideoPlayer } from "../../../components";
+import { Link, SquareTitle, VideoPlayer } from "../../../components";
 import { useSettings } from "../../../context";
 
 export const LearningTeachingResources: React.FC = () => {
@@ -38,16 +38,6 @@ export const LearningTeachingResources: React.FC = () => {
     },
   ];
 
-  const downloadDataThree = [
-    {
-      title: "Chinese Version Only",
-      link: "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
-    },
-    {
-      title: "Text Version",
-      link: "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf",
-    },
-  ];
   const videoDataOne = [
     {
       url: "https://www.hkctc.gov.hk/videos/en/STEM_Module_1_Eng.mp4",
@@ -118,7 +108,7 @@ export const LearningTeachingResources: React.FC = () => {
     },
   ];
   return (
-    <div className="w-full">
+    <div className="w-full text-justify">
       <SquareTitle title="Learning and Teaching Resources" />
 
       <p className="text-body-m mt-[24px]">
@@ -302,34 +292,24 @@ export const LearningTeachingResources: React.FC = () => {
       </p>
 
       <img
-        className="w-full h-auto"
+        className="w-full h-auto cursor-pointer"
         alt="Maze"
         src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
+        onClick={() => {
+          window.open(
+            "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf"
+          );
+        }}
       />
 
-      <div
-        className={`grid grid-cols-${isPC ? "3 gap-[24px]" : "1"}  py-[24px]`}
-      >
-        {downloadDataThree.map((down, index) => (
-          <div
-            key={index}
-            className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-            onClick={() => {
-              window.open(down.link, "_blank");
-            }}
-          >
-            <img
-              className="w-[64px] h-[64px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-              alt={"file icon"}
-            />
-            <p className="text-highlight-l">{down.title}</p>
-          </div>
-        ))}
-      </div>
-      <p className="text-body-m">
+      <p className="text-body-m mt-[24px] text-justify">
         If you want to come along and find out how fast you can beat the maze,
-        click on the picture of the comic book.
+        click on the picture of the comic book.&nbsp;
+        <span className="text-[red]">Or read the text version</span>&nbsp;
+        <Link outerLink="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf">
+          here
+        </Link>
+        .
       </p>
     </div>
   );
