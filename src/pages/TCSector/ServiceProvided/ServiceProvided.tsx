@@ -229,7 +229,7 @@ export const ServiceProvided: React.FC = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-[24px]">
+    <div className="w-full flex flex-col gap-[24px] text-justify">
       <div className="flex-1">
         <SquareTitle title={pageText.TITLE} />
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import {
   Accordion,
@@ -206,7 +206,6 @@ export const AwardScheme23to24: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
-  const [paddingTop, setPaddingTop] = useState<number>(0);
   const [activeButtonOne, setActiveButtonOne] =
     useState<string>("Platinum Awardees");
   const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
@@ -255,26 +254,6 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
     ),
   };
-
-  const handleScroll = (): void => {
-    // get the distance
-    const containerTop =
-      document.getElementById("sticky-container")?.getBoundingClientRect()
-        .top || 0;
-    if (containerTop <= 0) {
-      if (containerTop > -6000) setPaddingTop(Math.abs(containerTop) + 8);
-    } else {
-      setPaddingTop(0);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const supportingOrg: Array<{
     title: string;
@@ -468,14 +447,7 @@ export const AwardScheme23to24: React.FC = () => {
   ];
 
   const pcSidebar = (
-    <div
-      id="sticky-container"
-      className="flex flex-col gap-[0]"
-      style={{
-        paddingTop: `${paddingTop}px`,
-        transition: "padding-top 0.2s ease-out",
-      }}
-    >
+    <div id="sticky-container" className="flex flex-col sticky top-[20px]">
       {directoryAnchorIds.map((anchor, index) => {
         const isActivated = index === locateAnchor;
         const { title, id } = anchor;
@@ -612,7 +584,6 @@ export const AwardScheme23to24: React.FC = () => {
   );
   const content = (
     <>
-      {" "}
       <SquareTitle title="T&C Manpower Development Award Scheme 2023-2024" />
       <p className="text-highlight-l text-[#666666] mt-[24px]">
         [Results announced on 4 December 2023]
@@ -994,8 +965,8 @@ export const AwardScheme23to24: React.FC = () => {
 
         {isPC ? (
           <div className="w-full h-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
-            {pcSidebar}
-            <div>{content}</div>
+            <div className="px-[24px] min-w-[440px]">{pcSidebar}</div>
+            <div className="flex-1">{content}</div>
           </div>
         ) : (
           <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">

@@ -141,13 +141,16 @@ export const TCSector: React.FC = () => {
   ];
 
   const sidebar = (
-    <Sidebar
-      title={"About T&C Sector"}
-      sidebarItems={eventItems}
-      activatedItems={activeSidebarItems}
-      setActivatedItems={handleChangeSidebar}
-    />
+    <div className="sticky top-[20px]">
+      <Sidebar
+        title={"About T&C Sector"}
+        sidebarItems={eventItems}
+        activatedItems={activeSidebarItems}
+        setActivatedItems={handleChangeSidebar}
+      />
+    </div>
   );
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={bannerImage} />
@@ -159,7 +162,7 @@ export const TCSector: React.FC = () => {
         )}
 
         {isPC ? (
-          <div className="w-full flex flex-row pt-[48px] pr-[24px]">
+          <div className="w-full flex flex-row pt-[48px] pr-[24px] relative">
             <div className="px-[24px] min-w-[440px] w-1/3">{sidebar}</div>
             <div className="flex-1">{component}</div>
           </div>

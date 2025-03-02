@@ -106,11 +106,11 @@ export const QualificationsFramework: React.FC = () => {
       </p>
       <br />
       <p className="text-body-m">
-        The School of Science and Technology of Hong Kong Metropolitan University has
-        been appointed by the Secretary for Education as the independent
-        assessment agency for the RPL for the Testing, Inspection and
-        Certification Industry. For details of the RPL mechanism and application
-        method, please visit its&nbsp;
+        The School of Science and Technology of Hong Kong Metropolitan
+        University has been appointed by the Secretary for Education as the
+        independent assessment agency for the RPL for the Testing, Inspection
+        and Certification Industry. For details of the RPL mechanism and
+        application method, please visit its&nbsp;
         <a
           href="https://www.hkmu.edu.hk/st/rpl/?repeat=w3tc"
           target="_blank"

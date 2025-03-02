@@ -274,8 +274,12 @@ export const EventsPromotion: React.FC = () => {
         {isPC ? (
           <div className="w-full flex flex-row pt-[48px]">
             <div className="px-[24px] min-w-[440px] w-1/3">
-              {subComponent && <div className="mb-[24px]">{subComponent}</div>}
-              {multipleSidebars}
+              <div className="sticky top-[20px]">
+                {subComponent && (
+                  <div className="mb-[24px]">{subComponent}</div>
+                )}
+                {multipleSidebars}
+              </div>
             </div>
             <div className="flex-1 pr-[24px]">{component}</div>
           </div>

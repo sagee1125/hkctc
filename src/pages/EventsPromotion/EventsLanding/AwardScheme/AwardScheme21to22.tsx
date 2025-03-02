@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import { Icon } from "@iconify/react";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import {
   Accordion,
@@ -248,7 +247,6 @@ const publicationData: MediaTemplateWithDialogProps[] = [
 
 export const AwardScheme21to22: React.FC = () => {
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
-  const [paddingTop, setPaddingTop] = useState<number>(0);
   const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
     "Junior Professional Sub-group"
   );
@@ -298,25 +296,6 @@ export const AwardScheme21to22: React.FC = () => {
       </div>
     ),
   };
-  const handleScroll = (): void => {
-    // get the distance
-    const containerTop =
-      document.getElementById("sticky-container")?.getBoundingClientRect()
-        .top || 0;
-    if (containerTop <= 0) {
-      if (containerTop > -6500) setPaddingTop(Math.abs(containerTop) + 8);
-    } else {
-      setPaddingTop(0);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const breadcrumbItems = [
     { label: "Home", href: "/hkctc" },
@@ -390,52 +369,43 @@ export const AwardScheme21to22: React.FC = () => {
     },
   ];
   const pcSidebar = (
-    <>
-      <div
-        id="sticky-container"
-        className="flex flex-col gap-[0]"
-        style={{
-          paddingTop: `${paddingTop}px`,
-          transition: "padding-top 0.2s ease-out",
-        }}
-      >
-        {directoryAnchorIds.map((anchor, index) => {
-          const isActivated = index === locateAnchor;
-          const { title, id } = anchor;
+    <div id="sticky-container" className="flex flex-col sticky top-[20px]">
+      {directoryAnchorIds.map((anchor, index) => {
+        const isActivated = index === locateAnchor;
+        const { title, id } = anchor;
 
-          const borderStyle = isActivated
-            ? "border-newPrimary z-10"
-            : "border-[#E0E0E0]";
-          const fontStyle = isActivated
-            ? "text-heading-m bg-newPrimary text-white"
-            : "text-heading-m text-[#AAAAAA]";
+        const borderStyle = isActivated
+          ? "border-newPrimary z-10"
+          : "border-[#E0E0E0]";
+        const fontStyle = isActivated
+          ? "text-heading-m bg-newPrimary text-white"
+          : "text-heading-m text-[#AAAAAA]";
 
-          const marginStyle = index === 0 ? "" : "-mt-[2px]";
-          return (
-            <div
-              className={classNames(
-                "border-2 p-[24px] text-heading-m cursor-pointer",
-                borderStyle,
-                fontStyle,
-                marginStyle
-              )}
-              onClick={() => {
-                const scrollElement = document.getElementById(id);
-                if (scrollElement) {
-                  setLocateAnchor(index);
-                  scrollElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
-                }
-              }}
-            >
-              {title}
-            </div>
-          );
-        })}
-      </div>
-    </>
+        const marginStyle = index === 0 ? "" : "-mt-[2px]";
+        return (
+          <div
+            className={classNames(
+              "border-2 p-[24px] text-heading-m cursor-pointer",
+              borderStyle,
+              fontStyle,
+              marginStyle
+            )}
+            onClick={() => {
+              const scrollElement = document.getElementById(id);
+              if (scrollElement) {
+                setLocateAnchor(index);
+                scrollElement.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
+            }}
+          >
+            {title}
+          </div>
+        );
+      })}
+    </div>
   );
 
   const mobileSidebar = (
@@ -964,8 +934,8 @@ export const AwardScheme21to22: React.FC = () => {
 
         {isPC ? (
           <div className="w-full h-full grid grid-cols-[1fr,2fr] pt-[48px] gap-[24px] px-[24px]">
-            {pcSidebar}
-            {content}
+            <div className="px-[24px] min-w-[440px]">{pcSidebar}</div>
+            <div className="flex-1">{content}</div>
           </div>
         ) : (
           <div className="px-[24px] pb-[24px] flex flex-col gap-[24px]">
