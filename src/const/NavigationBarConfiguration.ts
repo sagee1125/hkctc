@@ -111,7 +111,7 @@ export type NavData = {
 
 export const NavigationBarConfiguration: NavData[] = [
   {
-    title: "About Us",
+    title: "About HKCTC",
     showSidebar: false,
     items: [],
     navUrl: "about-us",
@@ -131,13 +131,13 @@ export const NavigationBarConfiguration: NavData[] = [
           },
           {
             enum: navItemEnum.tc_sector_strengths,
-            subTitle: "Strengths of Hong Kong's T&C Sector",
+            subTitle: "Strengths of Hong Kong's T&C Industry",
             imgUrl: "Strengths.png",
             navUrl: `/tc-sector?section=${navItemEnum.tc_sector_strengths}`,
           },
           {
             enum: navItemEnum.services_provided,
-            subTitle: "Services Provided by T&C Sector",
+            subTitle: "Services Provided by T&C Industry",
             imgUrl: "Services_Provided.png",
             navUrl: `/tc-sector?section=${navItemEnum.services_provided}`,
           },
@@ -176,13 +176,14 @@ export const NavigationBarConfiguration: NavData[] = [
             imgUrl: "funding_schemes.png",
             navUrl: `/support?section=${navItemEnum.funding_schemes}`,
           },
-          {
-            enum: navItemEnum.tcjs,
-            subTitle:
-              "Testing and Certification Sector Job Creation Scheme (TCJS)",
-            imgUrl: "tcjs.png",
-            navUrl: `/support?section=${navItemEnum.tcjs}`,
-          },
+          // hide it from 02/03/2025
+          // {
+          //   enum: navItemEnum.tcjs,
+          //   subTitle:
+          //     "Testing and Certification Sector Job Creation Scheme (TCJS)",
+          //   imgUrl: "tcjs.png",
+          //   navUrl: `/support?section=${navItemEnum.tcjs}`,
+          // },
           {
             enum: navItemEnum.accommodation_and_land,
             subTitle: "Accommodation and Land",
@@ -201,6 +202,7 @@ export const NavigationBarConfiguration: NavData[] = [
             imgUrl: "other_support.png",
             navUrl: `/support?section=${navItemEnum.other_support}`,
           },
+          { enum: "", subTitle: "", imgUrl: "", navUrl: "" },
         ],
       },
     ],
