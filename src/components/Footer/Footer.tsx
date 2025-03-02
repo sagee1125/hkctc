@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
 
   const footerData: FooterData[] = [
     {
-      title: "About Us",
+      title: "About HKCTC",
       link: "/about-us",
       subs: [
         {
@@ -94,11 +94,11 @@ export const Footer: React.FC = () => {
           link: `/tc-sector?section=${navItemEnum.profile_and_role}`,
         },
         {
-          label: "Strengths of Hong Kong's T&C Sector",
+          label: "Strengths of Hong Kong's T&C Industry",
           link: `/tc-sector?section=${navItemEnum.tc_sector_strengths}`,
         },
         {
-          label: "Services Provided by T&C Sector",
+          label: "Services Provided by T&C Industry",
           link: `/tc-sector?section=${navItemEnum.services_provided}`,
         },
         {

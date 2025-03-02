@@ -37,16 +37,16 @@ export const EducatorsStudentsContent: React.FC = () => {
 
   const educationData: EducationData[] = [
     {
-      title: "Strengths of Hong Kong's T&C Sector",
+      title: "Strengths of Hong Kong's T&C Industry",
       description:
         "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
       imagePath: "tc_1.png",
       link: "/tc-sector?section=tc_sector_strengths",
     },
     {
-      title: "Services Provided by T&C Sector",
+      title: "Services Provided by T&C Industry",
       description:
-        "In general, the testing and certification (T&C) sector provides three types of services - Testing, Inspection and Certification.",
+        "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
       imagePath: "Services.png",
       link: "/tc-sector?section=services_provided",
     },
@@ -68,10 +68,60 @@ export const EducatorsStudentsContent: React.FC = () => {
   return (
     <div
       className={`w-full ${
-        isPC ? "grid grid-cols-[1fr,2fr]" : "flex flex-col-reverse"
+        isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col-reverse"
       } gap-[24px] pb-[48px]`}
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
+      <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] `}>
+        {educationData.map((item, index) => {
+          const { title, imagePath, description, link } = item;
+          return (
+            <div
+              key={index}
+              className="flex flex-col justify-start group border-2 border-inherit h-auto cursor-pointer"
+              onClick={() => {
+                window.open(link);
+              }}
+            >
+              <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
+                <img
+                  className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/educatorsStudents/" +
+                    imagePath
+                  }
+                  alt={title}
+                />
+              </div>
+              <div className="flex flex-col justify-center py-[24px] px-[16px] gap-[24px]">
+                <div
+                  className="text-heading-m text-center w-full 
+                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
+                >
+                  {title}
+                </div>
+                <hr />
+                <div
+                  style={{
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "22px",
+                    textAlign: "center",
+                    paddingBottom: "24px",
+                  }}
+                >
+                  {description}
+                </div>
+                <div className="text-highlight-m text-[#A7AAAD] text-center">
+                  Continue to Read
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       {/* Career Opportunities & Enquires */}
 
       <div className="flex flex-col">
@@ -122,55 +172,6 @@ export const EducatorsStudentsContent: React.FC = () => {
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>
-      </div>
-      <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] `}>
-        {educationData.map((item, index) => {
-          const { title, imagePath, description, link } = item;
-          return (
-            <div
-              key={index}
-              className="flex flex-col justify-start group border-2 border-inherit h-auto cursor-pointer"
-              onClick={() => {
-                window.open(link);
-              }}
-            >
-              <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
-                <img
-                  className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/assets/educatorsStudents/" +
-                    imagePath
-                  }
-                  alt={title}
-                />
-              </div>
-              <div className="flex flex-col justify-center py-[24px] px-[16px] gap-[24px]">
-                <div
-                  className="text-heading-m text-center w-full 
-                group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
-                >
-                  {title}
-                </div>
-                <hr />
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "22px",
-                    textAlign: "center",
-                    paddingBottom: "24px",
-                  }}
-                >
-                  {description}
-                </div>
-                <div className="text-highlight-m text-[#A7AAAD] text-center">
-                  Continue to Read
-                </div>
-              </div>
-            </div>
-          );
-        })}
       </div>
     </div>
   );

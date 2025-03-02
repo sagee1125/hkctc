@@ -81,12 +81,78 @@ export const GeneralPublicContent: React.FC = () => {
   return (
     <div
       className={`w-full ${
-        isPC ? "grid grid-cols-[1fr,2fr]" : "flex flex-col-reverse"
+        isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col-reverse"
       } gap-[24px] pb-[48px]`}
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
-      {/* Materials & Enquires */}
+      <div className="flex flex-col gap-[24px]">
+        <span className="flex flex-row items-center">
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.open("/whats-new");
+            }}
+          >
+            <SquareTitle title="What’s New" />
+          </div>
+          <ArrowForwardIosIcon
+            sx={{
+              marginLeft: "8px",
+              width: "24px",
+              height: "24px",
+            }}
+          />
+        </span>
+        <>
+          {whatsNew.map((w, i) => {
+            const { title } = w;
+            return (
+              <div
+                className={`flex ${
+                  isPC ? "flex-row" : "flex-col-reverse w-full gap-[24px]"
+                } items-center`}
+                key={i}
+              >
+                <div className={`flex flex-col w-full mx-[24px] gap-[16px]`}>
+                  <div className={"text-heading-m"}>
+                    <Link
+                      linkColor="#203136"
+                      innerLink={w.link}
+                      outerLink={w.link}
+                    >
+                      {title}
+                    </Link>
+                  </div>
+                  <div className="flex flex-row items-center gap-[8px] text-body-s">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
+                      }
+                      alt="date"
+                    />
+                    {w.date}
+                  </div>
+                </div>
 
+                <img
+                  className={`${
+                    isPC ? "w-[278px] h-full" : "w-full h-auto"
+                  } object-cover cursor-pointer`}
+                  onClick={() => {
+                    window.open(w.link);
+                  }}
+                  src={
+                    process.env.PUBLIC_URL +
+                    `/assets/generalPublic/${w.imagePath}`
+                  }
+                  alt={w.title}
+                />
+              </div>
+            );
+          })}
+        </>
+      </div>
+      {/* Materials & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
           <p className="text-heading-l">Materials</p>
@@ -171,73 +237,6 @@ export const GeneralPublicContent: React.FC = () => {
           <hr />
           <EmailBox />
         </div>
-      </div>
-      <div className="flex flex-col gap-[24px]">
-        <span className="flex flex-row items-center">
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              window.open("/whats-new");
-            }}
-          >
-            <SquareTitle title="What’s New" />
-          </div>
-          <ArrowForwardIosIcon
-            sx={{
-              marginLeft: "8px",
-              width: "24px",
-              height: "24px",
-            }}
-          />
-        </span>
-        <>
-          {whatsNew.map((w, i) => {
-            const { title } = w;
-            return (
-              <div
-                className={`flex ${
-                  isPC ? "flex-row" : "flex-col-reverse w-full gap-[24px]"
-                } items-center`}
-                key={i}
-              >
-                <div className={`flex flex-col w-full mx-[24px] gap-[16px]`}>
-                  <div className={"text-heading-m"}>
-                    <Link
-                      linkColor="#203136"
-                      innerLink={w.link}
-                      outerLink={w.link}
-                    >
-                      {title}
-                    </Link>
-                  </div>
-                  <div className="flex flex-row items-center gap-[8px] text-body-s">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
-                      }
-                      alt="date"
-                    />
-                    {w.date}
-                  </div>
-                </div>
-
-                <img
-                  className={`${
-                    isPC ? "w-[278px] h-full" : "w-full h-auto"
-                  } object-cover cursor-pointer`}
-                  onClick={() => {
-                    window.open(w.link);
-                  }}
-                  src={
-                    process.env.PUBLIC_URL +
-                    `/assets/generalPublic/${w.imagePath}`
-                  }
-                  alt={w.title}
-                />
-              </div>
-            );
-          })}
-        </>
       </div>
     </div>
   );

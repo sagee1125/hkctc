@@ -37,7 +37,7 @@ export const ServiceUsersContent: React.FC = () => {
 
   const industryData: IndustryData[] = [
     {
-      title: "Services Provided by T&C Sector",
+      title: "Services Provided by T&C Industry",
       description:
         "In general, the testing and certification (T&C) sector provides three types of services - Testing, Inspection and Certification.",
       imagePath: "serviceUsers/Services_Provided_TC.png",

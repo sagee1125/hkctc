@@ -1,6 +1,6 @@
 export const TC_SECTOR_STRENGTH_TEXT = {
   EN: {
-    TITLE: "Strengths of Hong Kong's T&C Sector",
+    TITLE: "Strengths of Hong Kong's T&C Industry",
     SERVICE_INTRO_1:
       "Hong Kong leverages its strategic location, infrastructure, and strong legal and accreditation systems to ensure product quality, attract global businesses, and support intellectual property protection.",
     SERVICE_INTRO_2:
@@ -69,7 +69,7 @@ export const TC_SECTOR_STRENGTH_TEXT = {
 
 export const TC_SERVICE_PROVIDED_TEXT = {
   EN: {
-    TITLE: "Services Provided by T&C Sector",
+    TITLE: "Services Provided by T&C Industry",
     INTRO:
       "In general, the testing and certification (T&C) sector provides three types of services:",
 

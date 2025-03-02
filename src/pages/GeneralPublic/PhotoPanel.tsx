@@ -55,7 +55,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                Strengths of Hong Kong's T&C Sector
+                Strengths of Hong Kong's T&C Industry
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export const PhotoPanel: React.FC = () => {
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Services Provided by T&C Sector
+              Services Provided by T&C Industry
             </p>
           </div>
         </div>
@@ -178,7 +178,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
               <p className={"text-heading-l text-white z-10"}>
-                Strengths of Hong Kong's T&C Sector
+                Strengths of Hong Kong's T&C Industry
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Services Provided by T&C Sector
+              Services Provided by T&C Industry
             </p>
           </div>
         </div>
