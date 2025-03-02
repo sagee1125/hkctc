@@ -1,50 +1,43 @@
-import React, { useRef, useState } from "react";
-import { PlayCircleOutline, Pause } from "@mui/icons-material";
+import React, { useEffect, useRef } from "react";
 
 type VideoPlayerProps = {
   videoLink: string;
+  thumbnail: string;
 };
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   videoLink,
+  thumbnail,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showControls, setShowControls] = useState(false);
 
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+  const handleCanPlay = (): void => {
+    videoRef.current?.pause();
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.preload = "metadata";
+      video.load();
+      video.play().catch(() => {});
     }
-  };
+  }, []);
 
-  const onMouseEnter = () => {
-    setShowControls(true);
-  };
-
-  const onMouseLeave = () => {
-    setShowControls(false);
-  };
   return (
-    <div
-      className="w-full h-auto cursor-pointer"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {showControls && (
-        <div
-          className="h-auto absolute text-[#ffffff] "
-          onClick={handlePlayPause}
-        >
-          {isPlaying ? <Pause /> : <PlayCircleOutline />}
-        </div>
-      )}
-      <video ref={videoRef} className="w-full" onClick={handlePlayPause} loop>
+    <div className="w-full h-auto cursor-pointer relative">
+      <video
+        ref={videoRef}
+        key={videoLink}
+        className="w-full"
+        loop
+        muted
+        onCanPlay={handleCanPlay}
+        controls
+        autoPlay
+        preload="metadata"
+        poster={"assets/careerEducation/" + thumbnail + ".png"}
+      >
         <source src={videoLink} type="video/mp4" />
       </video>
     </div>

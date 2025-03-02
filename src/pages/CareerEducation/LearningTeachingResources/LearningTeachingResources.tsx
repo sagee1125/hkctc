@@ -164,7 +164,10 @@ export const LearningTeachingResources: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
         /> */}
       <div key={videoDataOne[playVideoOneIndex].thumbnail}>
-        <VideoPlayer videoLink={videoDataOne[playVideoOneIndex].url} />
+        <VideoPlayer
+          videoLink={videoDataOne[playVideoOneIndex].url}
+          thumbnail={videoDataOne[playVideoOneIndex].thumbnail}
+        />
       </div>
       <div
         className={`grid grid-cols-${isPC ? "2" : "1"} gap-[22px] mt-[24px]`}
@@ -241,7 +244,10 @@ export const LearningTeachingResources: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
         /> */}
       <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
-        <VideoPlayer videoLink={videoDataTwo[playVideoTwoIndex].url} />
+        <VideoPlayer
+          videoLink={videoDataTwo[playVideoTwoIndex].url}
+          thumbnail={videoDataTwo[playVideoTwoIndex].thumbnail}
+        />
       </div>
 
       <div
