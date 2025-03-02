@@ -206,7 +206,7 @@ export const Publications: React.FC = () => {
       title: Category.Publications,
       items: [
         {
-          title: "HKCTC Newsletter",
+          title: "HKCTC Newsletters",
           imgPath: "images/newsletter_small.png",
           nav: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
         },

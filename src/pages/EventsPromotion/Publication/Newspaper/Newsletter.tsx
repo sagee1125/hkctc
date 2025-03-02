@@ -27,7 +27,7 @@ export const Newsletter: React.FC = () => {
 
   return (
     <div>
-      <SquareTitle title="HKCTC Newsletter" />
+      <SquareTitle title="HKCTC Newsletters" />
 
       <div
         className={`w-full ${

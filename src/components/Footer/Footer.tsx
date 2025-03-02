@@ -286,7 +286,7 @@ export const Footer: React.FC = () => {
           link: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
           items: [
             {
-              label: "HKCTC Newsletter",
+              label: "HKCTC Newsletters",
               link: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
             },
             {

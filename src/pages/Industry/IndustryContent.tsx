@@ -55,7 +55,7 @@ export const IndustryContent: React.FC = () => {
       link: "/events-promotion?section=corruption_prevention",
     },
     {
-      title: "HKCTC Newsletter",
+      title: "HKCTC Newsletters",
       imgUrl: "generalPublic/material_2.png",
       link: "/events-promotion?section=hkctc_newsletter",
     },

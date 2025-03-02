@@ -4,7 +4,7 @@ import { SquareTitle } from "../../../components";
 // TODO  to update the hyperlinks
 export const QualificationsFramework: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full text-justify">
       <SquareTitle title="Other Professional Schemes" />
 
       <p className="text-body-m mt-[24px]">
@@ -106,13 +106,13 @@ export const QualificationsFramework: React.FC = () => {
       </p>
       <br />
       <p className="text-body-m">
-        The School of Science and Technology of Open University of Hong Kong has
+        The School of Science and Technology of Hong Kong Metropolitan University has
         been appointed by the Secretary for Education as the independent
         assessment agency for the RPL for the Testing, Inspection and
         Certification Industry. For details of the RPL mechanism and application
         method, please visit its&nbsp;
         <a
-          href="http://rpl.ouhk.edu.hk/"
+          href="https://www.hkmu.edu.hk/st/rpl/?repeat=w3tc"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

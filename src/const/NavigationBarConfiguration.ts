@@ -321,7 +321,7 @@ export const NavigationBarConfiguration: NavData[] = [
         subItems: [
           {
             enum: navItemEnum.hkctc_newsletter,
-            subTitle: "HKCTC Newsletter",
+            subTitle: "HKCTC Newsletters",
             imgUrl: "HKCTC_Newsletter.png",
             navUrl: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
           },

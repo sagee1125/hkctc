@@ -67,7 +67,7 @@ export const WhatsNew: React.FC = () => {
   const rightContent = (
     <div>
       <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
-        <p className="text-heading-l">HKCTC Newsletter</p>
+        <p className="text-heading-l">HKCTC Newsletters</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
           const { title, date, link } = item;
           return (
