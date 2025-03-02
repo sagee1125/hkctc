@@ -83,7 +83,13 @@ export const AboutHKCTC: React.FC = () => {
         </div>
       </div>
       <p className="text-heading-m mt-[32px] mb-[8px]">Official Members</p>
-      <div className="text-highlight-extra">
+      <div
+        className="text-highlight-extra"
+        style={{
+          textAlign: "justify",
+          textJustify: "inter-word",
+        }}
+      >
         <p>
           Executive Director of Hong Kong Productivity Council or representative
         </p>
