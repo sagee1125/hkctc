@@ -535,8 +535,8 @@ export const AwardScheme23to24: React.FC = () => {
               <path
                 d="M18 18L10 10M10 10L2 2M10 10L18 2M10 10L2 18"
                 stroke="#233F55"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
                 stroke-linejoin="round"
               />
             </svg>

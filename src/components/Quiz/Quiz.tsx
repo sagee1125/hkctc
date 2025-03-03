@@ -319,8 +319,8 @@ export const Quiz: React.FC = () => {
                           d="M19 19L12 12M12 12L5 5M12 12L19 5M12 12L5 19"
                           fill={quizData.theme}
                           stroke={quizData.theme}
-                          stroke-width="6"
-                          stroke-linecap="square"
+                          strokeWidth="6"
+                          strokeLinecap="square"
                           stroke-linejoin="round"
                         />
                       </svg>

@@ -13,6 +13,7 @@ import { useFormik } from "formik";
 import { object, string } from "yup";
 import {
   ClickAwayListener,
+  Collapse,
   IconButton,
   InputAdornment,
   Paper,
@@ -74,10 +75,6 @@ export const Navigator: React.FC = () => {
   const isHideExploreBar = hideExploreBar.some((path) =>
     currentPath.startsWith(path)
   );
-
-  useEffect(() => {
-    console.log("openMobileDropDown has changed to", openMobileDropDown);
-  }, [openMobileDropDown]); // 监听状态变化
 
   useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
@@ -274,8 +271,8 @@ export const Navigator: React.FC = () => {
                           <path
                             d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
                             stroke="#4B4746"
-                            stroke-width="2"
-                            stroke-linecap="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
                             stroke-linejoin="round"
                           />
                         </svg>
@@ -289,20 +286,20 @@ export const Navigator: React.FC = () => {
                           <path
                             d="M0 2H24"
                             stroke="#4B4746"
-                            stroke-width="2"
-                            stroke-linecap="square"
+                            strokeWidth="2"
+                            strokeLinecap="square"
                           />
                           <path
                             d="M0 10H24"
                             stroke="#4B4746"
-                            stroke-width="2"
-                            stroke-linecap="square"
+                            strokeWidth="2"
+                            strokeLinecap="square"
                           />
                           <path
                             d="M0 18H24"
                             stroke="#4B4746"
-                            stroke-width="2"
-                            stroke-linecap="square"
+                            strokeWidth="2"
+                            strokeLinecap="square"
                           />
                         </svg>
                       )}
@@ -543,10 +540,10 @@ export const Navigator: React.FC = () => {
                                                     const clicked =
                                                       sideName ===
                                                       currentSideName;
+
                                                     return (
                                                       <div key={index}>
                                                         <div
-                                                          key={index}
                                                           className={`flex flex-row justify-between px-[10px] py-[8px] cursor-pointer transition-all duration-300 ease-in-out ${
                                                             clicked
                                                               ? "bg-lightGrey"
@@ -567,19 +564,17 @@ export const Navigator: React.FC = () => {
                                                             {sideName}
                                                           </p>
 
-                                                          <Icon
-                                                            icon="icon-park-outline:down"
-                                                            style={{
-                                                              transition:
-                                                                "transform 0.3s ease",
-                                                              transform: clicked
-                                                                ? "rotate(-180deg)"
-                                                                : "rotate(0deg)",
-                                                              color: "black",
-                                                            }}
+                                                          <ChevronDownIcon
+                                                            className={`h-5 w-5 text-black transform transition-transform ${
+                                                              clicked
+                                                                ? "rotate-180"
+                                                                : "rotate-0"
+                                                            }`}
+                                                            aria-hidden="true"
                                                           />
                                                         </div>
-                                                        {clicked && (
+
+                                                        <Collapse in={clicked}>
                                                           <div className="pl-[24px] mt-[16px] mb-[24px]">
                                                             <div className="flex flex-col gap-[24px]">
                                                               {subItems.map(
@@ -625,7 +620,7 @@ export const Navigator: React.FC = () => {
                                                               )}
                                                             </div>
                                                           </div>
-                                                        )}
+                                                        </Collapse>
                                                       </div>
                                                     );
                                                   }
