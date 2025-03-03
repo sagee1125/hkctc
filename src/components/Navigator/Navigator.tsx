@@ -114,7 +114,7 @@ export const Navigator: React.FC = () => {
   const isTouchDevice = "ontouchstart" in window;
   return (
     <ClickAwayListener onClickAway={() => setOpenMobileDropDown(false)}>
-      <div style={!isPC ? { paddingBottom: "24px" } : {}}>
+      <div>
         <nav
           ref={navRef}
           style={{
@@ -146,17 +146,17 @@ export const Navigator: React.FC = () => {
               {isPC ? (
                 <div className="pl-[32px]">
                   <div className="flex flex-row gap-[26px] h-full">
-                    {NavigationBarConfiguration.map((nav, index) => {
+                    {NavigationBarConfiguration.map((nav, ncIndex) => {
                       const { title, items, navUrl } = nav;
                       const ifHideArrow: boolean = !items.length;
                       return (
                         <div
-                          key={index}
+                          key={ncIndex}
                           className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
                           onMouseEnter={() => {
-                            setActiveIndex(index);
+                            setActiveIndex(ncIndex);
                             setActiveSubItem(
-                              NavigationBarConfiguration[index]?.items?.[0]
+                              NavigationBarConfiguration[ncIndex]?.items?.[0]
                                 ?.name ?? ""
                             );
                           }}
@@ -168,7 +168,7 @@ export const Navigator: React.FC = () => {
                             className="text-highlight-s"
                             style={{
                               color:
-                                activeIndex === index || activeIndex === null
+                                activeIndex === ncIndex || activeIndex === null
                                   ? "black"
                                   : "#AAAAAA",
                             }}
@@ -180,7 +180,7 @@ export const Navigator: React.FC = () => {
                             style={{
                               display: ifHideArrow ? "none" : "block",
                               color:
-                                activeIndex === index || activeIndex === null
+                                activeIndex === ncIndex || activeIndex === null
                                   ? "black"
                                   : "#AAAAAA",
                             }}
@@ -273,7 +273,7 @@ export const Navigator: React.FC = () => {
                             stroke="#4B4746"
                             strokeWidth="2"
                             strokeLinecap="round"
-                            stroke-linejoin="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       ) : (
@@ -371,6 +371,7 @@ export const Navigator: React.FC = () => {
                                             <Menu.Item key={index}>
                                               {({ active }) => (
                                                 <button
+                                                  key={index}
                                                   onClick={() => {
                                                     setSelectedExploreOption(
                                                       item.title
@@ -534,7 +535,7 @@ export const Navigator: React.FC = () => {
                                             ) : (
                                               <>
                                                 {navItems.map(
-                                                  (sideItem, index) => {
+                                                  (sideItem, idx) => {
                                                     const { name: sideName } =
                                                       sideItem;
                                                     const clicked =
@@ -542,7 +543,7 @@ export const Navigator: React.FC = () => {
                                                       currentSideName;
 
                                                     return (
-                                                      <div key={index}>
+                                                      <div key={idx}>
                                                         <div
                                                           className={`flex flex-row justify-between px-[10px] py-[8px] cursor-pointer transition-all duration-300 ease-in-out ${
                                                             clicked
@@ -580,7 +581,7 @@ export const Navigator: React.FC = () => {
                                                               {subItems.map(
                                                                 (
                                                                   sub,
-                                                                  index
+                                                                  subIdx
                                                                 ) => {
                                                                   const {
                                                                     subTitle,
@@ -592,7 +593,7 @@ export const Navigator: React.FC = () => {
                                                                   return (
                                                                     <div
                                                                       key={
-                                                                        index
+                                                                        subIdx
                                                                       }
                                                                       onClick={() => {
                                                                         setOpenMobileDropDown(
@@ -633,28 +634,30 @@ export const Navigator: React.FC = () => {
                                         <>
                                           <div className="mt-[16px] mb-[24px]">
                                             <div className="flex flex-col gap-[24px]">
-                                              {subItems.map((sub, index) => {
-                                                const { subTitle, navUrl } =
-                                                  sub;
+                                              {subItems.map(
+                                                (sub, subItemsIndex) => {
+                                                  const { subTitle, navUrl } =
+                                                    sub;
 
-                                                if (!subTitle) return null;
-                                                return (
-                                                  <div
-                                                    key={index}
-                                                    onClick={() => {
-                                                      setOpenMobileDropDown(
-                                                        false
-                                                      );
-                                                      if (navUrl)
-                                                        navigate(navUrl);
-                                                    }}
-                                                  >
-                                                    <div className="text-body-m">
-                                                      {subTitle}
+                                                  if (!subTitle) return null;
+                                                  return (
+                                                    <div
+                                                      key={subItemsIndex}
+                                                      onClick={() => {
+                                                        setOpenMobileDropDown(
+                                                          false
+                                                        );
+                                                        if (navUrl)
+                                                          navigate(navUrl);
+                                                      }}
+                                                    >
+                                                      <div className="text-body-m">
+                                                        {subTitle}
+                                                      </div>
                                                     </div>
-                                                  </div>
-                                                );
-                                              })}
+                                                  );
+                                                }
+                                              )}
                                             </div>
                                           </div>
                                         </>
@@ -706,10 +709,11 @@ export const Navigator: React.FC = () => {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {exploreOption.map((item, index) => (
-                              <Menu.Item key={index}>
+                            {exploreOption.map((item, eoIndex) => (
+                              <Menu.Item key={eoIndex}>
                                 {({ active }) => (
                                   <button
+                                    key={eoIndex}
                                     onClick={() => {
                                       setSelectedExploreOption(item.title);
                                       navigate(item.nav);
@@ -754,13 +758,13 @@ export const Navigator: React.FC = () => {
               }}
             >
               <div className="w-full">
-                {navItems.map((sideItems, index) => {
+                {navItems.map((sideItems, nvIndex) => {
                   if (activeSubItem !== sideItems.name) return <></>;
                   const { name: currentSideName, subItems } = sideItems;
 
                   return (
                     <div
-                      key={index}
+                      key={nvIndex}
                       className="flex flex-row w-full gap-[24px]"
                     >
                       {/* sidebar */}
@@ -783,12 +787,12 @@ export const Navigator: React.FC = () => {
                               </div>
                             ) : (
                               <>
-                                {navItems.map((sideItem, index) => {
+                                {navItems.map((sideItem, i) => {
                                   const { name: sideName } = sideItem;
                                   const clicked = sideName === currentSideName;
                                   return (
                                     <div
-                                      key={index}
+                                      key={i}
                                       className={`text-highlight-s py-2 cursor-pointer transition-all duration-300 ease-in-out ${
                                         clicked
                                           ? "bg-lightGrey px-4"

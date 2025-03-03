@@ -1,10 +1,10 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_4163_21063" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1" y="0" width="22" height="24">
-<path d="M16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12C10.9391 12 9.92172 11.5786 9.17157 10.8284C8.42143 10.0783 8 9.06087 8 8" stroke="white" stroke-width="4" strokeLinecap="round" stroke-linejoin="round"/>
-<path d="M12 4C10.9391 4 9.92172 4.42143 9.17157 5.17157C8.42143 5.92172 8 6.93913 8 8H16C16 6.93913 15.5786 5.92172 14.8284 5.17157C14.0783 4.42143 13.0609 4 12 4Z" fill="white" stroke="white" stroke-width="4" strokeLinecap="round" stroke-linejoin="round"/>
-<path d="M6 8H18M12 2V4" stroke="white" stroke-width="4" strokeLinecap="round" stroke-linejoin="round"/>
-<path d="M12 13.5C7.3055 13.5 3.5 17.0815 3.5 21.5H20.5C20.5 17.0815 16.6945 13.5 12 13.5Z" fill="white" stroke="white" stroke-width="4" strokeLinecap="round" stroke-linejoin="round"/>
-<path d="M9 17V19M15 17V19" stroke="black" stroke-width="4" strokeLinecap="round" stroke-linejoin="round"/>
+<path d="M16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12C10.9391 12 9.92172 11.5786 9.17157 10.8284C8.42143 10.0783 8 9.06087 8 8" stroke="white" stroke-width="4" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M12 4C10.9391 4 9.92172 4.42143 9.17157 5.17157C8.42143 5.92172 8 6.93913 8 8H16C16 6.93913 15.5786 5.92172 14.8284 5.17157C14.0783 4.42143 13.0609 4 12 4Z" fill="white" stroke="white" stroke-width="4" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M6 8H18M12 2V4" stroke="white" stroke-width="4" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M12 13.5C7.3055 13.5 3.5 17.0815 3.5 21.5H20.5C20.5 17.0815 16.6945 13.5 12 13.5Z" fill="white" stroke="white" stroke-width="4" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M9 17V19M15 17V19" stroke="black" stroke-width="4" strokeLinecap="round" strokeLinejoin="round"/>
 </mask>
 <g mask="url(#mask0_4163_21063)">
 <path d="M0 0H24V24H0V0Z" fill="#BBC9E7"/>

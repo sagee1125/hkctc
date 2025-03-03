@@ -321,7 +321,7 @@ export const Quiz: React.FC = () => {
                           stroke={quizData.theme}
                           strokeWidth="6"
                           strokeLinecap="square"
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>

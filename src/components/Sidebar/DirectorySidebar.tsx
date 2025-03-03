@@ -124,7 +124,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
                   stroke="#233F55"
                   strokeWidth="3"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>

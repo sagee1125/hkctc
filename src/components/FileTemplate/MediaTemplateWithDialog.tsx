@@ -29,7 +29,6 @@ export const MediaTemplateWithDialog: React.FC<
   direction = "column",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  // const [isHoveringYTBVideo, setIsHoveringYTBVideo] = useState(false);
   const { isPC, pdfjsLib } = useSettings();
 
   const [loading, setLoading] = useState(false);
