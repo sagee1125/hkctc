@@ -65,14 +65,14 @@ export const Comics: React.FC = () => {
                 isPC ? "w-full h-[282px]" : ""
               } flex flex-col gap-[14px] mt-[24px]`}
             >
-              <MediaTemplateWithDialog
+              {/* <MediaTemplateWithDialog
                 title={title}
                 maskIcon={maskIcon}
                 date={""}
                 mediaDomain="hkctc"
                 mediaLink={link}
                 mediaType={mediaType}
-              />
+              /> */}
             </div>
           );
         })}
