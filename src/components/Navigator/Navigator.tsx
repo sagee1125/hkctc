@@ -85,9 +85,11 @@ export const Navigator: React.FC = () => {
   );
 
   const isShowMobileExploreBarOutside =
-    showMobileExploreBarOutsideLink.some((path) =>
+    (showMobileExploreBarOutsideLink.some((path) =>
       currentPath.startsWith(path)
-    ) && !isPC;
+    ) ||
+      currentPath === "/") &&
+    !isPC;
 
   useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
