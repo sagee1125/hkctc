@@ -47,7 +47,7 @@ export const Comics: React.FC = () => {
         This comic series showcase the importance of T&C in our daily life. Hope
         you enjoy reading these interesting stories!
       </div>
-      {/* <div
+      <div
         className={`w-full grid ${
           isPC
             ? "grid-cols-3 gap-x-[24px] gap-y-[36px]"
@@ -65,18 +65,18 @@ export const Comics: React.FC = () => {
                 isPC ? "w-full h-[282px]" : ""
               } flex flex-col gap-[14px] mt-[24px]`}
             >
-              <MediaTemplateWithDialog
+              {/* <MediaTemplateWithDialog
                 title={title}
                 maskIcon={maskIcon}
                 date={""}
                 mediaDomain="hkctc"
                 mediaLink={link}
                 mediaType={mediaType}
-              />
+              /> */}
             </div>
           );
         })}
-      </div> */}
+      </div>
 
       <Paginator
         dataSet={comicsList}
