@@ -6,9 +6,13 @@ module.exports = function (app) {
     createProxyMiddleware({
       target: 'https://www.hkctc.gov.hk', // target server
       changeOrigin: true,
+      timeout: 10000,  
+      proxyTimeout: 10000, 
+      secure: false,
       pathRewrite: {
-        '^/hkctc-proxy': '',  // remove '/pdf' , query directly
+        '^/hkctc-proxy': '',  
       },
+
     })
   );
 
@@ -18,6 +22,9 @@ module.exports = function (app) {
     createProxyMiddleware({
       target: 'https://cpas.icac.hk',
       changeOrigin: true,
+      secure: false,
+      timeout: 10000,  
+      proxyTimeout: 10000, 
       pathRewrite: {
         '^/cpas-icac-proxy': '',
       },

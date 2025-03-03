@@ -69,6 +69,7 @@ export const Comics: React.FC = () => {
                 title={title}
                 maskIcon={maskIcon}
                 date={""}
+                mediaDomain="hkctc"
                 mediaLink={link}
                 mediaType={mediaType}
               />
