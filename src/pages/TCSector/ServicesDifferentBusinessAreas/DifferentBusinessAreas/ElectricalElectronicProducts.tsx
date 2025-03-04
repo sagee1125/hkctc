@@ -123,7 +123,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
       />
 
       <p className="text-heading-l my-[24px]">
-        Benefits of EEP Testing & Certification
+        Benefits of Electrical and Electronic Products Testing & Certification
       </p>
       <p className="text-body-m">
         Electrical and electronic products (EEPs) are widely used in almost all
@@ -145,7 +145,9 @@ export const ElectricalElectronicProducts: React.FC = () => {
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">EEP Testing & Certification Services</p>
+      <p className="text-heading-l">
+        Testing & Certification Services for Electrical and Electronic Products
+      </p>
       <p className="text-body-m my-[24px]">
         Accredited testing and certification organisations in Hong Kong can
         provide professional services in electrical and electronic product (EEP)
@@ -162,12 +164,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
         ))}
       </div>
       <p className="text-heading-l my-[24px]">
-        Laboratories Accredited by HKAS Providing Testing Services on EEPs
+        Laboratories Accredited by HKAS Providing Testing Services on Electrical
+        and Electronic Products
       </p>
       <p className="text-body-m">
-        Details of the laboratories providing the public with accredited
-        electrical and electronic product (EEP) testing services are available
-        at&nbsp;
+        The laboratories providing accredited testing services on Electrical and
+        Electronic Products are available att&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
           target="_blank"

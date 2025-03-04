@@ -17,9 +17,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
 
   return (
     <nav id="breadcrumb" aria-label="Breadcrumb" style={breadcrumbStyle}>
-      <ol className="flex space-x-[8px] text-black items-center">
+      <div className="flex flex-row space-x-[8px] text-black items-center">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center flex-row gap-[8px]">
+          <div key={index} className="flex items-center flex-row gap-[8px]">
             {index === 0 ? (
               <div className="flex flex-row items-center gap-[8px]">
                 <img
@@ -64,9 +64,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
             {index < items.length - 1 && (
               <Icon icon="weui:arrow-outlined" className="w-4 h-4 text-grey" />
             )}
-          </li>
+          </div>
         ))}
-      </ol>
+      </div>
     </nav>
   );
 };

@@ -33,7 +33,7 @@ export const TextilesAndApparel: React.FC = () => {
         <>
           <p>Examples of tests to meet regulatory requirements:</p>
           <br />
-          <div className="flex flex-col gap-[12px]">
+          <ul>
             <li>
               Physical tests, such as fibre analysis on composition, colour
               fastness tests, assessments on shrinkage and appearance in
@@ -44,11 +44,11 @@ export const TextilesAndApparel: React.FC = () => {
               Chemical tests, such as azo dyes, cadmium, nickel release, lead
               and phthalates, etc.
             </li>
-          </div>
+          </ul>
           <br />
           <p>Examples of tests to fulfill quality performance requirements:</p>
           <br />
-          <div className="flex flex-col gap-[12px]">
+          <ul>
             <li>
               Physical tests, such as strength tests on tensile, tearing and
               bursting strengths, colour fastness tests to washing, water,
@@ -61,7 +61,7 @@ export const TextilesAndApparel: React.FC = () => {
               Chemical tests such as pH value, extractable heavy metals,
               chlorinated organic careers, etc.
             </li>
-          </div>
+          </ul>
         </>
       ),
     },
@@ -157,12 +157,12 @@ export const TextilesAndApparel: React.FC = () => {
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mt-[24px]">
-        Organisations Accredited by HKAS Providing Testing Services on Textile
+        Laboratories Accredited by HKAS Providing Testing Services on Textile
         and Apparel
       </p>
       <p className="text-body-m pt-[24px]">
-        The lists of laboratories accredited by HKAS on the provision of testing
-        services for textile and apparel are available at&nbsp;
+        The laboratories providing accredited testing services on Textile and
+        Apparel are available at&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
           target="_blank"
