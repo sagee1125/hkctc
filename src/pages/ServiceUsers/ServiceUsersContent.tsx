@@ -1,6 +1,8 @@
 import React from "react";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { useSettings } from "../../context";
+import { navItemEnum } from "../../const";
+import { useNavigate } from "react-router-dom";
 
 type IndustryData = {
   title: string;
@@ -67,10 +69,16 @@ export const ServiceUsersContent: React.FC = () => {
   }> = [
     {
       title: "HKCTC Reports",
-      imgUrl: "Reports.png",
-      link: "/events-promotion?section=hkctc_reports",
+      imgUrl: "industry/Reports.png",
+      link: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
+    },
+    {
+      title: "Seminars & Workshops",
+      imgUrl: "images/Seminars_Workshops.png",
+      link: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
   ];
+  const navigate = useNavigate();
 
   return (
     <div
@@ -91,7 +99,11 @@ export const ServiceUsersContent: React.FC = () => {
                   isPC ? "2 h-[278px]" : "1"
                 } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
                 onClick={() => {
-                  window.open(link);
+                  window.scroll({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                  navigate(link);
                 }}
               >
                 <div className="overflow-hidden">
@@ -124,7 +136,7 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
         <div className="pt-[48px]">
-          <SquareTitle title="Accreditation Service" />
+          <SquareTitle title="Accreditation Services" />
         </div>
         <p className="py-[24px] text-body-m">
           Discover accredited laboratories, certification bodies, and inspection
@@ -157,7 +169,7 @@ export const ServiceUsersContent: React.FC = () => {
                     alt="Share"
                   />
                 </div>
-                <span className="!text-highlight-m">
+                <span className="!text-highlight-m h-full flex items-center">
                   <Link outerLink={link} linkColor="black">
                     {title}
                   </Link>
@@ -166,44 +178,7 @@ export const ServiceUsersContent: React.FC = () => {
             );
           })}
         </div>
-        <p className="text-heading-m py-[24px]">
-          Full directory of accredited organisation
-        </p>
 
-        <div className="w-full">
-          <div className="flex flex-row h-[90px] gap-[24px]">
-            <div
-              className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
-              onClick={() => {
-                window.open(
-                  "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"
-                );
-              }}
-            >
-              <img
-                className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                src={`${process.env.PUBLIC_URL}/assets/serviceUsers/Full_List.png`}
-                alt={"Full_List.png"}
-              />
-              {/* Icon */}
-              <img
-                className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
-                src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                alt="PDF Icon"
-              />
-            </div>
-            <div
-              className="text-highlight-m text-black cursor-pointer"
-              onClick={() => {
-                window.open(
-                  "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf"
-                );
-              }}
-            >
-              Directory of Accredited Organisations (Full List)
-            </div>
-          </div>
-        </div>
         <p className="text-italic-s italic mt-[24px]">
           *This full list is for the purpose of searching specific conformity
           assessment activity and will only be updated weekly. For most
@@ -216,7 +191,7 @@ export const ServiceUsersContent: React.FC = () => {
         <div className="border-2 border-inherit p-[24px]">
           <p className="text-heading-l">Others</p>
 
-          <div>
+          <div className="mb-[32px]">
             {othersData.map((item, index) => {
               const { title, imgUrl, link } = item;
               return (
@@ -224,12 +199,16 @@ export const ServiceUsersContent: React.FC = () => {
                   key={index}
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
                   onClick={() => {
-                    window.open(link);
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                    navigate(link);
                   }}
                 >
                   <img
                     className="w-[130px] h-auto"
-                    src={process.env.PUBLIC_URL + `/assets/industry/${imgUrl}`}
+                    src={process.env.PUBLIC_URL + `/assets/${imgUrl}`}
                     alt={title}
                   />
                   <p className="text-highlight-l">{title}</p>
@@ -238,43 +217,6 @@ export const ServiceUsersContent: React.FC = () => {
             })}
           </div>
 
-          <div className="pt-[24px] pb-[32px]">
-            <div
-              style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/seminars_workshops.png)`,
-                display: "flex",
-                backgroundSize: "100% auto",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center top",
-                position: "relative",
-                height: "134px",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.42) 60%, rgba(0, 0, 0, 0) 100%)",
-                  pointerEvents: "none",
-                  zIndex: 1,
-                }}
-              />
-              <div
-                className="flex items-end w-full h-full pl-[24px] pb-[24px] cursor-pointer"
-                onClick={() => {
-                  window.open("/events-promotion?section=seminar_workshop");
-                }}
-              >
-                <p className={"text-heading-l text-white z-10"}>
-                  Seminars & Workshops
-                </p>
-              </div>
-            </div>
-          </div>
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>
