@@ -1,18 +1,15 @@
 import React from "react";
-import { useSettings } from "../../context";
 
 export const AboutHKCTC: React.FC = () => {
-  const { isPC } = useSettings();
-
   const names = [
     "Ms Bess CHOI Siu-fong",
     "Mr Martin FAN",
-    "Dr Crystal Fok Lo-ming",
+    "Dr Crystal FOK Lo-ming",
     "Dr Gray HO Koon-sing",
-    "Dr Emmie Ho Ngai-man",
+    "Dr Emmie HO Ngai-man",
     "Ms Denise HOU Yuen-chi",
-    "Dr Lesly Lam Lik-shan",
-    "Ms Fiona Lee Tsz-ching",
+    "Dr Lesly LAM Lik-shan",
+    "Ms Fiona LEE Tsz-ching",
     "Dr Ann LEUNG",
     "Hon Kenneth LEUNG Yuk-wai, JP",
     "Dr Wingco LO Kam-wing, BBS, JP",
@@ -59,19 +56,10 @@ export const AboutHKCTC: React.FC = () => {
       </p>
       <p className="text-heading-l">Membership</p>
       <p className="text-italic-s italic mt-[8px]">2024-2025</p>
-      <div
-        className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] mt-[28px]`}
-      >
+      <div className={`flex flex-col gap-[24px] mt-[22px]`}>
         <div>
           <p className="text-heading-m">Chairman</p>
           <p className="text-highlight-l mt-[8px]">Professor WONG Wing-tak</p>
-          <img
-            className="w-auto h-auto mt-[24px]"
-            src={
-              process.env.PUBLIC_URL + "/assets/about/ProfessorWONGWing-tak.png"
-            }
-            alt="Professor WONG Wing-tak"
-          />
         </div>
         <div>
           <p className="text-heading-m mb-[8px]">Members</p>
@@ -82,14 +70,8 @@ export const AboutHKCTC: React.FC = () => {
           ))}
         </div>
       </div>
-      <p className="text-heading-m mt-[32px] mb-[8px]">Official Members</p>
-      <div
-        className="text-highlight-extra"
-        style={{
-          textAlign: "justify",
-          textJustify: "inter-word",
-        }}
-      >
+      <p className="text-heading-m mt-[22px] mb-[8px]">Official Members</p>
+      <div className="text-highlight-extra">
         <p>
           Executive Director of Hong Kong Productivity Council or representative
         </p>
