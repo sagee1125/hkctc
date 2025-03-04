@@ -12,7 +12,7 @@ export const ProfileAndRole: React.FC = () => {
   const { isPC } = useSettings();
   const chartsArray = [
     {
-      label: "Institutions and employees engagement",
+      label: "Establishment and persons engaged",
       charts: [
         {
           title: (
@@ -21,10 +21,10 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Number of institutions engaged in testing and certification
+              Number of Establishment engaged in testing and certification
               activities
               <br />
-              from 2009 to 2022
+              from 2009 to 2022#
             </p>
           ),
           elementId: "institutions",
@@ -90,6 +90,8 @@ export const ProfileAndRole: React.FC = () => {
           seriesItemColor: "rgba(20, 123, 62, 0.60)",
         },
       ],
+      otherInfo:
+        "#Including private independent establishments, in-house laboratories in large manufacturers and exporters, and laboratories in Government departments / public organisations.",
     },
     {
       label: "Number of Establishments",
@@ -186,6 +188,7 @@ export const ProfileAndRole: React.FC = () => {
   ];
 
   const displayCharts = chartsArray[activeTopicButton].charts ?? [];
+  const displayChartsNote = chartsArray[activeTopicButton].otherInfo ?? "";
 
   const listOfData: Array<{
     title: string;
@@ -228,8 +231,8 @@ export const ProfileAndRole: React.FC = () => {
                 fontWeight: 400,
               }}
             >
-              - Statistics provided by the Census and Statistics Department,
-              2022
+              (according to the latest statistics provided by the Census and
+              Statistics Department for 2022)
             </p>
           </div>
         </div>
@@ -279,7 +282,9 @@ export const ProfileAndRole: React.FC = () => {
             </>
           );
         })}
-
+        {displayChartsNote && (
+          <p className="text-italic-s italic">{displayChartsNote}</p>
+        )}
         {/* <p
           className="italic"
           style={{
