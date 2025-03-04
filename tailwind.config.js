@@ -6,6 +6,7 @@ module.exports = {
       pattern: /text-(.+)/,
     },
   ],
+
   theme: {
     extend: {
       colors: {

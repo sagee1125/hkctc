@@ -33,7 +33,7 @@ export const ToysChildrenProducts: React.FC = () => {
         <>
           <p>Common testing for toys includes:</p>
           <br />
-          <div className="flex flex-col gap-[12px]">
+          <ul>
             <li>
               Testing for the bio-availability of toxic elements such as lead
               (Pb), mercury (Hg), cadmium (Cd) and the amount of hazardous
@@ -57,7 +57,7 @@ export const ToysChildrenProducts: React.FC = () => {
               Performance testing such as durability and resistance to wear and
               tear
             </li>
-          </div>
+          </ul>
         </>
       ),
     },
@@ -98,7 +98,7 @@ export const ToysChildrenProducts: React.FC = () => {
         pdfHyperlink="/en/doc/toys_booklet_eng.pdf"
       />
       <p className="text-heading-l my-[24px]">
-        Benefits of Toy Testing & Certification
+        Benefits of Toys and Children's Products Testing & Certification
       </p>
       <p className="text-body-m">
         When it comes to toys, safety is of paramount concern. The toy industry
@@ -115,7 +115,7 @@ export const ToysChildrenProducts: React.FC = () => {
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mb-[24px]">
-        Testing & Certification Services for Toys
+        Testing & Certification Services for Toys and Children's Products
       </p>
 
       <div className="w-full flex flex-col gap-[24px]">
@@ -130,13 +130,12 @@ export const ToysChildrenProducts: React.FC = () => {
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mb-[24px]">
-        Laboratories Accredited by HKAS Providing Testing Services on Toy and
+        Laboratories Accredited by HKAS Providing Testing Services on Toys and
         Children's Products
       </p>
       <p className="text-body-m">
-        Details of the laboratories providing the public with accredited
-        electrical and electronic product (EEP) testing services are available
-        at&nbsp;
+        The laboratories providing accredited testing services on Toys and
+        Children's Products are available at&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
           target="_blank"
