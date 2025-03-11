@@ -91,16 +91,18 @@ const schemeOwnerCol: HyperlinkData[] = [
 
 const handleGenerateA = (hyperlinkData: HyperlinkData): React.ReactNode => {
   return (
-    <li>
-      <a
-        href={hyperlinkData.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline text-[#2F2F2F]"
-      >
-        {hyperlinkData.label}
-      </a>
-    </li>
+    <ul>
+      <li>
+        <a
+          href={hyperlinkData.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#2F2F2F]"
+        >
+          {hyperlinkData.label}
+        </a>
+      </li>
+    </ul>
   );
 };
 export const ConstructionMaterialsBuildings: React.FC = () => {
@@ -241,9 +243,9 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. What is Product Certification?",
+      title: "What is Product Certification?",
       content: (
-        <>
+        <ul>
           <li>
             A product certification scheme stipulates a set of rules and
             procedures for suppliers of specific products to comply with.
@@ -256,30 +258,32 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             supplier satisfies the requirements set out in the specified
             certification scheme.
           </li>
-        </>
+        </ul>
       ),
     },
     {
-      title: "b. What are the Benefits of Product Certification ?",
+      title: "What are the Benefits of Product Certification ?",
       content: (
         <>
-          <li>Promoting product quality through upstream control</li>
-          <br />
-          <li>
-            Ensuring consistency in production quality through continuous
-            surveillance of production process in the factory
-          </li>
-          <br />
-          <li>
-            Giving greater confidence on product quality to recognized standards
-          </li>
-          <br />
-          <li className="mb-[16px]">
-            Reducing the risk of failure in on-site compliance testing, hence
-            reducing the risk of project delay in case reordering is required,
-            as well as avoiding wasting time and money
-          </li>
-
+          <ul>
+            <li>Promoting product quality through upstream control</li>
+            <br />
+            <li>
+              Ensuring consistency in production quality through continuous
+              surveillance of production process in the factory
+            </li>
+            <br />
+            <li>
+              Giving greater confidence on product quality to recognized
+              standards
+            </li>
+            <br />
+            <li className="mb-[16px]">
+              Reducing the risk of failure in on-site compliance testing, hence
+              reducing the risk of project delay in case reordering is required,
+              as well as avoiding wasting time and money
+            </li>
+          </ul>
           <FileTemplate
             title={"Feature Article on Benefits of Product Certification"}
             imagePath="assets/tcSector/servicesDifferentBusinessAreas/FeatureArticlePDF.png"
@@ -289,8 +293,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       ),
     },
     {
-      title:
-        "c. Local Product Certification Schemes for Construction Materialst",
+      title: "Local Product Certification Schemes for Construction Materialst",
       content: (
         <>
           <p>
@@ -390,41 +393,43 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     },
     {
       title:
-        "d. Use of Product Certification by Housing Authority and Information on its Suppliers",
+        "Use of Product Certification by Housing Authority and Information on its Suppliers",
       content: (
-        <li>
-          The Hong Kong Housing Authority (HA) is a pioneer in using certified
-          construction products in their building projects. A number of
-          suppliers are able to provide many of the certified products in the
-          table in (c) above. Information on these suppliers is available
-          at&nbsp;
-          <a
-            className="underline text-links"
-            href="https://www.housingauthority.gov.hk/en/business-partnerships/resources/construction-product-certification/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            HA's product certification webpage
-          </a>
-          &nbsp;(OR&nbsp;
-          <a
-            className="underline text-links"
-            href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            contact list of relevant manufacturers or suppliers
-          </a>
-          ). Certification bodies may also provide information on the suppliers
-          for which their construction products have been certified.
-        </li>
+        <ul>
+          <li>
+            The Hong Kong Housing Authority (HA) is a pioneer in using certified
+            construction products in their building projects. A number of
+            suppliers are able to provide many of the certified products in the
+            table in (c) above. Information on these suppliers is available
+            at&nbsp;
+            <a
+              className="underline text-links"
+              href="https://www.housingauthority.gov.hk/en/business-partnerships/resources/construction-product-certification/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              HA's product certification webpage
+            </a>
+            &nbsp;(OR&nbsp;
+            <a
+              className="underline text-links"
+              href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              contact list of relevant manufacturers or suppliers
+            </a>
+            ). Certification bodies may also provide information on the
+            suppliers for which their construction products have been certified.
+          </li>
+        </ul>
       ),
     },
     {
       title:
-        "e. Use of Product Certification by Architectural Services Department",
+        "Use of Product Certification by Architectural Services Department",
       content: (
-        <>
+        <ul>
           <li>
             The Architectural Services Department (ArchSD) has drawn up a flyer
             to present the mechanism of product certification and the benefits
@@ -447,13 +452,13 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             construction products in its works contracts. Further details are in
             the above flyer.
           </li>
-        </>
+        </ul>
       ),
     },
     {
-      title: "f. Use of Product Certification under BEAM Plus New Buildings",
+      title: "Use of Product Certification under BEAM Plus New Buildings",
       content: (
-        <>
+        <ul>
           <li>
             <a
               href="https://www.hkgbc.org.hk/eng/beam-plus/introduction/"
@@ -492,13 +497,13 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             </a>
             .
           </li>
-        </>
+        </ul>
       ),
     },
     {
-      title: "g. How does a Manufacturer get its Products Certified?",
+      title: "How does a Manufacturer get its Products Certified?",
       content: (
-        <>
+        <ul>
           <li>
             The certification process starts with the manufacturer selecting an
             accredited certification body
@@ -521,7 +526,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             Re-evaluation is undertaken at three-year intervals including audit
             testing of selected samples.
           </li>
-        </>
+        </ul>
       ),
     },
   ];
@@ -534,7 +539,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. Laboratory and on-site testing services",
+      title: "Laboratory and on-site testing services",
       descriptionTitle: "The services below are available in Hong Kong:",
       description: [
         "Physical testing of construction materials",
@@ -574,7 +579,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       ),
     },
     {
-      title: "b. Inspection Services",
+      title: "Inspection Services",
       description: [
         "Assessment of welding procedures in construction projects",
         "Inspection on production of construction materials (e.g., waterworks and paint)",
@@ -591,13 +596,15 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             :
           </p>
           <br />
-          {[
-            "Walk-through inspection of premises/buildings",
-            "On-site measurements of IAQ parameters (e.g., air movement, carbon monoxide and volatile organic compounds)",
-            "IAQ compliance assessment",
-          ].map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          <ul>
+            {[
+              "Walk-through inspection of premises/buildings",
+              "On-site measurements of IAQ parameters (e.g., air movement, carbon monoxide and volatile organic compounds)",
+              "IAQ compliance assessment",
+            ].map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
           <br />
           <p>
             More information is available on the{" "}
@@ -634,7 +641,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         />
       </div>
       <p className="text-heading-l mb-[24px]">
-        Product Certification for Construction Materials
+        Benefits of Product Certification for Construction Materials
       </p>
       <FileTemplate
         title={"Product Certification - An Upstream Quality Control"}
@@ -646,6 +653,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         {productData.map((item, index) => (
           <Accordion
             key={index}
+            defaultExpanded={false}
             title={item.title}
             details={<div className="!text-body-m">{item.content}</div>}
           />
@@ -654,8 +662,51 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
 
       <hr className="my-[24px]" />
       <p className="text-heading-l my-[24px]">
-        Testing and Inspection Services for Buildings and Construction Materials
+        Testing and Inspection Services for Construction Materials and Buildings
       </p>
+
+      <FileTemplate
+        title={
+          "Testing and Inspection Services for Buildings and Construction Materials"
+        }
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF_testing.png"
+        pdfHyperlink="/en/doc/HKCTC_Leaflet_Building_inspection.pdf"
+      />
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+        {testingData.map((item, index) => (
+          <Accordion
+            key={index}
+            title={item.title}
+            defaultExpanded={false}
+            details={
+              <div>
+                <div className="!text-body-m">{item.descriptionTitle}</div>
+                <div className="!text-body-m flex flex-col gap-[12px]">
+                  {[...item.description].map((desc, index) => (
+                    <div key={index}>
+                      <ul>
+                        <li>{desc}</li>
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
+                  <p className="text-heading-m">{item.contentTitle}</p>
+                  <p className="text-body-m mt-[16px]">{item.content}</p>
+                </div>
+              </div>
+            }
+          />
+        ))}
+      </div>
+
+      <p className="text-heading-l my-[24px]">
+        Laboratories Accredited by HKAS Providing Testing Services on
+        Construction Materials
+      </p>
+
       <p className="text-body-m">
         Details of the laboratories providing the public with accredited
         electrical and electronic product (EEP) testing services are available
@@ -670,33 +721,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         </a>
         .
       </p>
-      <hr className="my-[24px]" />
-
-      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-        {testingData.map((item, index) => (
-          <Accordion
-            key={index}
-            title={item.title}
-            details={
-              <div>
-                <div className="!text-body-m">{item.descriptionTitle}</div>
-                <div className="!text-body-m flex flex-col gap-[12px]">
-                  {[...item.description].map((desc, index) => (
-                    <div key={index}>
-                      <li>{desc}</li>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
-                  <p className="text-heading-m">{item.contentTitle}</p>
-                  <p className="text-body-m mt-[16px]">{item.content}</p>
-                </div>
-              </div>
-            }
-          />
-        ))}
-      </div>
       <hr className="my-[24px]" />
 
       <InternalBackButton

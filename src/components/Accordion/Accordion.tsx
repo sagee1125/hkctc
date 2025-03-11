@@ -9,10 +9,15 @@ import { useSettings } from "../../context";
 
 type AccordionProps = {
   title: string;
+  defaultExpanded?: boolean;
   details: React.ReactNode;
 };
 
-export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
+export const Accordion: React.FC<AccordionProps> = ({
+  title,
+  details,
+  defaultExpanded = true,
+}) => {
   const { isPC } = useSettings();
 
   return (
@@ -20,7 +25,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, details }) => {
       <MuiAccordion
         elevation={0}
         disableGutters
-        defaultExpanded
+        defaultExpanded={defaultExpanded}
         sx={{
           padding: "0 !important",
           margin: "0 !important",
