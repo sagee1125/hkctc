@@ -70,7 +70,7 @@ export const AboutHKCTC: React.FC = () => {
           ))}
         </div>
       </div>
-      <p className="text-heading-m mt-[22px] mb-[8px]">Official Members</p>
+      <p className="text-heading-m mt-[22px] mb-[8px]">Non-Official Members</p>
       <div className="text-highlight-extra">
         <p>
           Executive Director of Hong Kong Productivity Council or representative

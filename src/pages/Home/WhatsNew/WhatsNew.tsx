@@ -16,7 +16,7 @@ export const WhatsNew: React.FC = () => {
   useEffect(() => {
     if (changingEffectOn) {
       const intervalId = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 1); // 每秒增加1
+        setCurrentTime((prevTime) => prevTime + 1);
       }, 2000);
 
       return () => clearInterval(intervalId);
@@ -26,7 +26,7 @@ export const WhatsNew: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // 只要容器进入视口，设置 visibility 为 true
+        // As soon as the container enters the viewport, set visibility to true
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisibleWhatsNew(true);
@@ -34,16 +34,15 @@ export const WhatsNew: React.FC = () => {
         });
       },
       {
-        threshold: 0.5, // 当容器至少有50%可见时触发
+        threshold: 0.5, // when the container is at least 50% visible
       }
     );
 
-    // 开始观察容器
+    // Start observing the container
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
 
-    // 清理 observer
     return () => {
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
