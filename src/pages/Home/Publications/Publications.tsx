@@ -129,9 +129,14 @@ export const Publications: React.FC = () => {
         }
       }
     };
+    document.body.style.overflowX = "hidden";
+
     setActiveCategory(Category.Events);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflowX = "";
+    };
   }, []);
 
   const resourcesData: ResourcesData[] = [
@@ -186,18 +191,18 @@ export const Publications: React.FC = () => {
           title:
             "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
           imgPath: "images/Seminar_ESG.png",
-          nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Seminar on Environmental, Social and Governance (ESG) and Sustainability
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#0`,
         },
         {
           title:
             "Seminar on Construction Testing: Towards Digitalisation and ...",
           imgPath: "images/Seminar_Construction.png",
-          nav: `/events-promotion?section=${navItemEnum.student_competition}`,
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#1`,
         },
         {
           title: "Metrology Symposium 2023",
           imgPath: "images/Metrology_Symposium.png",
-          nav: `/events-promotion?section=${navItemEnum.seminar_workshop}`, // TODO: add specific tag　—　Metrology Symposium 2023
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#2`,
         },
       ],
       seeMore: `/events-promotion?section=${navItemEnum.award_scheme}`,
@@ -286,7 +291,7 @@ export const Publications: React.FC = () => {
   const currentCategory = publicationCategory.find(
     (cate) => cate.title === activeCategory
   );
-  const showCurrentPubliationItem = currentCategory?.items ?? [];
+  const showCurrentPublicationItem = currentCategory?.items ?? [];
   const seeMore = currentCategory?.seeMore ?? "";
 
   return (
@@ -449,7 +454,7 @@ export const Publications: React.FC = () => {
                 isPC ? "" : "pr-[24px]"
               }`}
             >
-              {showCurrentPubliationItem.map((subItem, index) => {
+              {showCurrentPublicationItem.map((subItem, index) => {
                 const { title, imgPath, nav } = subItem;
 
                 return (
