@@ -330,13 +330,13 @@ export const MedicalTesting: React.FC = () => {
 
       <div className="mt-[24px]">
         <MediaTemplate
-          title="What you Need to Know about Medical Testing"
+          title="What You Need to Know about Medical Testing"
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/medicalTestingEvent.png"
           mediaLink="https://www.hkctc.gov.hk/en/doc/HKCTC_Leaflet_Medical.pdf"
         />
       </div>
       <p className="text-heading-l my-[24px]">
-        a. What is Accredited Medical Testing Service?
+        Benefit of Medical Testing & Certification
       </p>
 
       <img
@@ -371,7 +371,7 @@ export const MedicalTesting: React.FC = () => {
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mb-[24px]">
-        b. Why Should We Use Accredited Medical Testing Service?
+        Why Should We Use Accredited Medical Testing Service?
       </p>
 
       <img
@@ -395,79 +395,102 @@ export const MedicalTesting: React.FC = () => {
         results provided by accredited medical laboratories is thus assured.
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">c. Find an Accredited Medical Laboratory</p>
-      <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] my-[24px] text-body-m">
-        Please note that accreditation is test-specific. When choosing medical
-        laboratories, please check their respective scope of accreditation from
-        the above “List of Medical Laboratories Accredited under HOKLAS”, or
-        from the&nbsp;
-        <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-links"
+      {/* <>
+        <p className="text-heading-l">
+          c. Find an Accredited Medical Laboratory
+        </p>
+        <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] my-[24px] text-body-m">
+          Please note that accreditation is test-specific. When choosing medical
+          laboratories, please check their respective scope of accreditation
+          from the above “List of Medical Laboratories Accredited under HOKLAS”,
+          or from the&nbsp;
+          <a
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-links"
+          >
+            HKAS's website
+          </a>
+          .
+        </div>
+        <p className="text-body-m">
+          (As at 11 Nov 2024)
+          <br />
+          <br />
+          Remarks: Accreditation is test-specific. Please check the scope of
+          accreditation of medical laboratories by clicking the respective
+          HOKLAS Registration No. in the table below, or visit the&nbsp;
+          <a
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-links"
+          >
+            HKAS's website
+          </a>
+          .
+        </p>
+
+        <Paginator
+          dataSet={listRowRender}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsPerPage={itemsPerPage}
+          startIndex={startIndex}
+          endIndex={endIndex}
+        />
+        <div className="my-[24px]">
+          <List
+            title={
+              <div className="grid grid-cols-[1fr,8fr,2fr] !text-highlight-m h-[70px]">
+                <div />
+                <p className="flex items-center justify-start px-[10px] h-full">
+                  Name of Accredited Medical Laboratory (in alphabetical order)
+                </p>
+                <p className="flex items-center justify-center text-center px-[10px] h-full w-full">
+                  HOKLAS Registration No.
+                </p>
+              </div>
+            }
+            rowData={currentPageData}
+          />
+        </div>
+        <div
+          style={{
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontWeight: "300",
+            lineHeight: "22px",
+          }}
         >
-          HKAS's website
-        </a>
-        .
-      </div>
-      <p className="text-body-m">
-        (As at 11 Nov 2024)
-        <br />
-        <br />
-        Remarks: Accreditation is test-specific. Please check the scope of
-        accreditation of medical laboratories by clicking the respective HOKLAS
-        Registration No. in the table below, or visit the&nbsp;
+          *&nbsp;denotes a medical laboratory which normally does not offer
+          testing service to the public.
+          <br />
+          #&nbsp;denotes a medical laboratory which is under the specified
+          departments of the Government.
+        </div>
+      </> */}
+
+      <p className="text-heading-l">
+        Laboratories Accredited by HKAS Providing Testing Services on Medical
+        Testing
+      </p>
+      <p className="text-body-m pt-[24px]">
+        The laboratories providing accredited testing services on Medical
+        Testing are available at&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline text-links"
+          className="underline text-[#00E]"
         >
           HKAS's website
         </a>
         .
       </p>
-
-      <Paginator
-        dataSet={listRowRender}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        itemsPerPage={itemsPerPage}
-        startIndex={startIndex}
-        endIndex={endIndex}
-      />
-      <div className="my-[24px]">
-        <List
-          title={
-            <div className="grid grid-cols-[1fr,8fr,2fr] !text-highlight-m h-[70px]">
-              <div />
-              <p className="flex items-center justify-start px-[10px] h-full">
-                Name of Accredited Medical Laboratory (in alphabetical order)
-              </p>
-              <p className="flex items-center justify-center text-center px-[10px] h-full w-full">
-                HOKLAS Registration No.
-              </p>
-            </div>
-          }
-          rowData={currentPageData}
-        />
-      </div>
-      <div
-        style={{
-          fontSize: "16px",
-          fontStyle: "normal",
-          fontWeight: "300",
-          lineHeight: "22px",
-        }}
-      >
-        *&nbsp;denotes a medical laboratory which normally does not offer
-        testing service to the public.
-        <br />
-        #&nbsp;denotes a medical laboratory which is under the specified
-        departments of the Government.
-      </div>
       <hr className="my-[24px]" />
+
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
       />
