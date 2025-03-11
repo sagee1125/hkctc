@@ -28,7 +28,7 @@ export const Jewellery: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. Testing Services for Fei Cui (Jadeite Jade) and Diamond",
+      title: "Testing Services for Fei Cui (Jadeite Jade) and Diamond",
       content: (
         <p>
           1. Authentication of natural Fei Cui (Jadeite Jade) and diamond is
@@ -53,7 +53,7 @@ export const Jewellery: React.FC = () => {
       ),
     },
     {
-      title: "b. Trade Descriptions Order",
+      title: "Trade Descriptions Order",
       content: `Under the Trade Descriptions (Provision of Information on Natural Fei
           Cui) Order and the Trade Descriptions (Provision of Information on
           Diamond) Order of the Laws of Hong Kong, retailers are required to
@@ -62,14 +62,13 @@ export const Jewellery: React.FC = () => {
           accordance with the Orders.`,
     },
     {
-      title: "c. Accreditation of Laboratories",
+      title: "Accreditation of Laboratories",
       content:
         "Application for accreditation is open and voluntary in Hong Kong. All Hong Kong Accreditation Service (HKAS) accredited laboratories meet the management and technical requirements of the international standard, ISO/IEC 17025, in the provision of high quality testing services.",
     },
 
     {
-      title:
-        "d. Laboratories Providing Accredited Testing Services for Gemstone",
+      title: "Laboratories Providing Accredited Testing Services for Gemstone",
       content: (
         <div>
           <p>
