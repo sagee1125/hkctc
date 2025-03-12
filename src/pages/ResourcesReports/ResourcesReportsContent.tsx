@@ -87,81 +87,84 @@ const publicationList: Record<string, PublicationType[]> = {
   "Other Useful Information": otherInformationList,
 };
 
+const aboutTestingTags = [
+  ADVERTORIALS_SECTOR.OVERVIEW,
+  ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
+  ADVERTORIALS_SECTOR.MANPOWER,
+  ADVERTORIALS_SECTOR.METROLOGY,
+  ADVERTORIALS_SECTOR.TC_SUPPORT,
+];
+
 const aboutTestingSector: Record<string, any[]> = {
   All: advertorialsList.filter((item) =>
-    [
-      ADVERTORIALS_SECTOR.OVERVIEW,
-      ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY,
-      ADVERTORIALS_SECTOR.MANPOWER,
-      ADVERTORIALS_SECTOR.METROLOGY,
-      ADVERTORIALS_SECTOR.TC_SUPPORT,
-    ].includes(item.sector as ADVERTORIALS_SECTOR)
+    item.sector?.some((s) => aboutTestingTags.includes(s))
   ),
-  Overview: advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.OVERVIEW
+  Overview: advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.OVERVIEW)
   ),
-  "Mainland Opportunities": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY
+  "Mainland Opportunities": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY)
   ),
-  "Manpower Development": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.MANPOWER
+  "Manpower Development": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.MANPOWER)
   ),
-  "Metrology, Accreditation and Standards": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.METROLOGY
+  "Metrology, Accreditation and Standards": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
   ),
-  "Support to T&C Sector": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.TC_SUPPORT
+  "Support to T&C Sector": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
   ),
 };
 
+const certificateTags = [
+  ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
+  ADVERTORIALS_SECTOR.CHINESE_MEDICINE,
+  ADVERTORIALS_SECTOR.CONSTRUCTION,
+  ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
+  ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
+  ADVERTORIALS_SECTOR.FOOD,
+  ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
+  ADVERTORIALS_SECTOR.JEWELLERY,
+  ADVERTORIALS_SECTOR.MEDICAL_TESTING,
+  ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
+  ADVERTORIALS_SECTOR.TOYS,
+];
 const certificateSector: Record<string, any[]> = {
   All: advertorialsList.filter((item) =>
-    [
-      ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
-      ADVERTORIALS_SECTOR.CHINESE_MEDICINE,
-      ADVERTORIALS_SECTOR.CONSTRUCTION,
-      ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS,
-      ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION,
-      ADVERTORIALS_SECTOR.FOOD,
-      ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY,
-      ADVERTORIALS_SECTOR.JEWELLERY,
-      ADVERTORIALS_SECTOR.MEDICAL_TESTING,
-      ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
-      ADVERTORIALS_SECTOR.TOYS,
-    ].includes(item.sector as ADVERTORIALS_SECTOR)
+    item?.sector?.some((s) => certificateTags.includes(s))
   ),
-  "Management System Certification": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM
+  "Management System Certification": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM)
   ),
-  "Chinese Medicines": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.CHINESE_MEDICINE
+  "Chinese Medicines": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.CHINESE_MEDICINE)
   ),
-  "Construction Materials": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.CONSTRUCTION
+  "Construction Materials": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.CONSTRUCTION)
   ),
-  "Electrical & Electronic Products": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS
+  "Electrical & Electronic Products": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS)
   ),
-  "Environmental Protection": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION
+  "Environmental Protection": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION)
   ),
-  Food: advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.FOOD
+  Food: advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.FOOD)
   ),
   "Information and Communications Technologies": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY
+    (item) => item.sector?.includes(ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY)
   ),
-  Jewellery: advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.JEWELLERY
+  Jewellery: advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.JEWELLERY)
   ),
-  "Medical testing": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.MEDICAL_TESTING
+  "Medical testing": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.MEDICAL_TESTING)
   ),
-  "Textile, Clothing & Footwear": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.TEXTILE_CLOTHING
+  "Textile, Clothing & Footwear": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.TEXTILE_CLOTHING)
   ),
-  "Toys & Children's Products": advertorialsList.filter(
-    (item) => item.sector === ADVERTORIALS_SECTOR.TOYS
+  "Toys & Children's Products": advertorialsList.filter((item) =>
+    item.sector?.includes(ADVERTORIALS_SECTOR.TOYS)
   ),
 };
 

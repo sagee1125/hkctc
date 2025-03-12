@@ -44,8 +44,8 @@ export const Comics: React.FC = () => {
       </div>
 
       <div>
-        This comic series showcase the importance of T&C in our daily life. Hope
-        you enjoy reading these interesting stories!
+        This comic series (in Chinese version only) showcase the importance of
+        T&C in our daily life. Hope you enjoy reading these interesting stories!
       </div>
       <div
         className={`w-full grid ${
