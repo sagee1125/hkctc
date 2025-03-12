@@ -130,8 +130,8 @@ export const StudentCompetition: React.FC = () => {
                   alt="PRESS Icon"
                 />
               </div>
-              <div className="flex flex-col items-start justify-center">
-                <p className="text-highlight-l">{title}</p>
+              <div className="flex flex-col items-start justify-center h-full">
+                <p className="text-highlight-l h-full">{title}</p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <img
                     className="w-[16px] h-[16px]"

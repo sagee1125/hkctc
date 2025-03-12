@@ -39,14 +39,18 @@ export const CareerOpportunities: React.FC = () => {
       <div className="border-x-[1px] border-b-[1px] border-[#E0E0E0] grid grid-cols-2 text-body-s">
         <div className="py-[16px] px-[24px] border-r-[1px] border-[#E0E0E0]">
           <p>
-            Internship programme provides a good channel for students to
-            understand more about the testing and certification sector and its
-            career opportunities.
+            HKCTC has been organising career talks for secondary school and
+            university students, and participating in career fairs in local
+            post-secondary educational institutes to promote the career
+            prospects of the testing and certification sector to students.
             <br />
             <br />
-            Since 2011, HKCTC has coordinated internship opportunities from
-            accredited testing, inspection and certification bodies in Hong Kong
-            and forwarded them to local universities and VTC.
+            In career talks, representatives from the Hong Kong Accreditation
+            Service will introduce the basic concepts and overview of the
+            testing and certification sector. Practitioners from the testing and
+            certification sector will also talk about the job nature,
+            requirements and career prospects of the sector, and share their
+            experience in working in the sector.
           </p>
         </div>
         <div className="py-[16px] px-[24px]">
@@ -62,6 +66,13 @@ export const CareerOpportunities: React.FC = () => {
           </p>
         </div>
       </div>
+
+      <p className="mt-[24px] text-body-s text-justify">
+        Schools which are interested in arranging a career talk/ laboratory
+        visits can complete the application form below and fax/ email it to us.
+        We will then contact you for arrangements.
+      </p>
+
       <div className="mt-[24px]">
         <FileTemplate
           title={"Events Application Form"}
