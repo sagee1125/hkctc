@@ -14,13 +14,13 @@ export type VideoListData = {
 
 export const videoList: VideoListData[] = [
   {
-    title: "Report Highlights 23-24",
+    title: "Report Highlights 2023-24",
     link: "/videos/en/hkctc_report_2023-24_highlights_en.mp4",
     domain: "hkctc",
     category: [VIDEO_TYPE.HKCTC_REPORT],
   },
   {
-    title: "Report Highlights 22-23",
+    title: "Report Highlights 2022-23",
     link: "/videos/en/hkctc_report_2022-23_highlights.mp4",
     domain: "hkctc",
     category: [VIDEO_TYPE.HKCTC_REPORT],

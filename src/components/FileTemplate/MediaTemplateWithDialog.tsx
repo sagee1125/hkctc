@@ -293,25 +293,6 @@ export const MediaTemplateWithDialog: React.FC<
                   <source src={"/hkctc-proxy" + mediaLink} type="video/mp4" />
                 </video>
               )}
-              {/* {mediaDomain === "youtube" &&
-                    isHoveringYTBVideo &&
-                    videoRef && (
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={`${mediaLink}?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&modestbranding=1&fs=0&disablekb=1&cc_load_policy=0`}
-                        frameBorder="0"
-                        allow="autoplay; encrypted-media"
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          zIndex: 1,
-                          objectFit: "contain",
-                          cursor: "pointer",
-                        }}
-                      />
-                    )} */}
 
               <img
                 ref={imageRef}
@@ -341,33 +322,6 @@ export const MediaTemplateWithDialog: React.FC<
               }}
             />
           )}
-          {/* 
-              {mediaType === MEDIA_TYPE.VIDEO && (
-                <div
-                  key={mediaLink}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={() => {
-                    if (videoRef.current) {
-                      videoRef.current.pause();
-                      videoRef.current.currentTime = 0;
-                    }
-                  }}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  <img
-                    ref={imageRef}
-                    alt="Video"
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </div>
-              )} */}
         </>
       </div>
       <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
@@ -514,33 +468,6 @@ export const MediaTemplateWithDialog: React.FC<
                 }}
               />
             )}
-            {/* 
-              {mediaType === MEDIA_TYPE.VIDEO && (
-                <div
-                  key={mediaLink}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={() => {
-                    if (videoRef.current) {
-                      videoRef.current.pause();
-                      videoRef.current.currentTime = 0;
-                    }
-                  }}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  <img
-                    ref={imageRef}
-                    alt="Video"
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </div>
-              )} */}
           </>
 
           {/* Icon */}
@@ -560,7 +487,7 @@ export const MediaTemplateWithDialog: React.FC<
         } `}
         onClick={handleOnClick}
         style={{
-          cursor: mediaType === MEDIA_TYPE.NEW_PAGE ? "pointer" : "none",
+          cursor: "pointer",
         }}
       >
         <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
