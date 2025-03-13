@@ -24,7 +24,6 @@ export const Videos: React.FC = () => {
     "HKCTC Reports",
     "T&C services",
     "Career development",
-    "Manpower Development Award Scheme",
   ];
 
   const filterList: Record<string, VideoListData[]> = {
@@ -37,9 +36,6 @@ export const Videos: React.FC = () => {
     ),
     "Career development": videoList.filter((v) =>
       v.category.includes(VIDEO_TYPE.CAREER_DEVELOPMENT)
-    ),
-    "Manpower Development Award Scheme": videoList.filter((v) =>
-      v.category.includes(VIDEO_TYPE.MANPOWER_DEVELOPMENT)
     ),
   };
 

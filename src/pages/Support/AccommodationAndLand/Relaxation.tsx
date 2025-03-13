@@ -14,8 +14,17 @@ export const Relaxation: React.FC = () => {
   }> = [
     {
       title:
-        "Extending effective period of relaxation of waiver application for existing industrial buildings",
-      date: "26 January 2014",
+        "Announcement: Relaxation of Waiver Application  for Existing Industrial Buildings ",
+      date: "1 February 2019",
+      maskIcon: "PDF.png",
+      imgUrl: "relaxation.png",
+      hyperlink:
+        "https://www.devb.gov.hk/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
+    },
+    {
+      title:
+        "Press Release: Extending Effective Period of Relaxation of Waiver Application for Existing Industrial Buildings",
+      date: "26 January 2024",
       maskIcon: "PRESS.png",
       imgUrl: "extending.png",
       hyperlink:
@@ -24,20 +33,11 @@ export const Relaxation: React.FC = () => {
     {
       title:
         "Work Focuses of Development Bureau in the Chief Executive’s 2024 Policy Address",
-      date: "",
+      date: "16 October 2024",
       maskIcon: "PRESS.png",
       imgUrl: "Work_Focuses.png",
       hyperlink:
         "https://www.devb.gov.hk/en/about_us/policy/2024-policy-address-supplement/policy-address-initiatives/index.html",
-    },
-    {
-      title:
-        "Relaxation of Waiver Application  for Existing Industrial Buildings ",
-      date: "",
-      maskIcon: "PDF.png",
-      imgUrl: "relaxation.png",
-      hyperlink:
-        "https://www.devb.gov.hk/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
     },
   ];
 
