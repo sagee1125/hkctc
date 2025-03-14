@@ -97,20 +97,28 @@ export const Food: React.FC = () => {
             certification services to the food trade, e.g.:
           </p>
           <br />
-          <li>Food Safety Management System Certification to ISO 22000</li>
+          <ul>
+            <li>Food Safety Management System Certification to ISO 22000</li>
+          </ul>
           <br />
-          <li>Food Safety System Certification to FSSC 22000</li>
+          <ul>
+            <li>Food Safety System Certification to FSSC 22000</li>
+          </ul>
           <br />
-          <li>
-            Hazard Analysis and Critical Control Points (HACCP) Certification
-          </li>
+          <ul>
+            <li>
+              Hazard Analysis and Critical Control Points (HACCP) Certification
+            </li>
+          </ul>
           <br />
           <Link outerLink="https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/">
             Food Hygiene Standard Certification System for Catering Industry
             (FHSCS)*
           </Link>
           <br />
-          <li>Organic Food Certification</li>
+          <ul>
+            <li>Organic Food Certification</li>
+          </ul>
           <br />
           <p>
             *Developed by the Hong Kong Polytechnic University, this is a food

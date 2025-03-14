@@ -68,7 +68,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     {
       title: "a. What is Information Security Management System (ISMS)?",
       content: (
-        <>
+        <ul>
           <li>
             Information security continues to be a big concern territory-wide
             nowadays. Organisations with poor or inadequate information security
@@ -98,7 +98,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
             through treating and managing information security risks against its
             risk acceptance levels through a risk assessment.
           </li>
-        </>
+        </ul>
       ),
     },
     {
@@ -148,7 +148,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     {
       title: "d. What are the Benefits of Getting ISMS Certification?",
       content: (
-        <>
+        <ul>
           <li>
             Certification is an attestation issued by a third-party body,
             through a formal conformity assessment process, that specified
@@ -171,13 +171,13 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
             greater confidence to its business partners, authorities, clients
             and other interested parties.
           </li>
-        </>
+        </ul>
       ),
     },
     {
       title: "e. Where can I Obtain ISMS Certification Services?",
       content: (
-        <>
+        <ul>
           <li>
             Some local certification bodies have already been providing ISO/IEC
             27001-based ISMS certification services.
@@ -191,7 +191,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
             comply with international standards and give clients peace of mind
             that they are competent to carry out ISO/IEC 27001 certification.
           </li>
-        </>
+        </ul>
       ),
     },
   ];
