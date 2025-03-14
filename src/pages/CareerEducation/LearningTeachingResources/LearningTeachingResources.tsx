@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, SquareTitle, VideoPlayer } from "../../../components";
+import { Accordion, Link, SquareTitle, VideoPlayer } from "../../../components";
 import { useSettings } from "../../../context";
 
 export const LearningTeachingResources: React.FC = () => {
@@ -111,7 +111,7 @@ export const LearningTeachingResources: React.FC = () => {
     <div className="w-full text-justify">
       <SquareTitle title="Learning and Teaching Resources" />
 
-      <p className="text-body-m mt-[24px]">
+      <p className="text-body-m my-[24px]">
         HKCTC attach importance to promoting testing and certification to
         youngsters and students, and enhance their awareness of the value
         created by testing and certification. To this end, HKCTC has produced
@@ -120,203 +120,226 @@ export const LearningTeachingResources: React.FC = () => {
         the sector.
       </p>
 
-      <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]" id="STEM_Teaching_Kit">
-        STEM Teaching Kit on Testing and Certification for Junior Secondary
-        Students
-      </p>
-
-      <p className="text-body-m">
-        The Innovation and Technology Commission and HKCTC have commissioned
-        Hong Kong Baptist University to develop a STEM teaching kit for junior
-        secondary students. The kit consists of six experiments, introducing
-        some basic scientific knowledge and concepts about product testing and
-        analysis. Through providing students with more practical opportunities,
-        the kit aims to arouse students’ interest in STEM subjects while raising
-        their awareness of the importance of testing to ensure the safety and
-        quality of products commonly used in daily life. Schools are welcome to
-        make use of the kit in class or extra-curricular activities.
-      </p>
-      <div
-        className={`grid grid-cols-${isPC ? "3 gap-[24px]" : "1"}  py-[24px]`}
-      >
-        {downloadDataOne.map((down, index) => (
-          <div
-            key={index}
-            className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-            onClick={() => {
-              window.open(down.link, "_blank");
-            }}
-          >
-            <img
-              className="w-[64px] h-[64px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-              alt={"file icon"}
-            />
-            <p className="text-highlight-l">{down.title}</p>
-          </div>
-        ))}
-      </div>
-      <p className="text-heading-l mb-[24px]">Experiment Introduction Video</p>
-      {/* <img
-          className="w-full h-auto"
-          alt="Analysis of Colorants"
-          src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
-        /> */}
-      <div key={videoDataOne[playVideoOneIndex].thumbnail}>
-        <VideoPlayer
-          videoLink={videoDataOne[playVideoOneIndex].url}
-          thumbnail={videoDataOne[playVideoOneIndex].thumbnail}
+      <div id="STEM_Teaching_Kit" className="mb-[24px]">
+        <Accordion
+          title="STEM Teaching Kit on Testing and Certification for Junior Secondary Students"
+          details={
+            <div>
+              <p className="text-body-m">
+                The Innovation and Technology Commission and HKCTC have
+                commissioned Hong Kong Baptist University to develop a STEM
+                teaching kit for junior secondary students. The kit consists of
+                six experiments, introducing some basic scientific knowledge and
+                concepts about product testing and analysis. Through providing
+                students with more practical opportunities, the kit aims to
+                arouse students’ interest in STEM subjects while raising their
+                awareness of the importance of testing to ensure the safety and
+                quality of products commonly used in daily life. Schools are
+                welcome to make use of the kit in class or extra-curricular
+                activities.
+              </p>
+              <div
+                className={`grid grid-cols-${
+                  isPC ? "3 gap-[24px]" : "1"
+                }  py-[24px]`}
+              >
+                {downloadDataOne.map((down, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+                    onClick={() => {
+                      window.open(down.link, "_blank");
+                    }}
+                  >
+                    <img
+                      className="w-[64px] h-[64px]"
+                      src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                      alt={"file icon"}
+                    />
+                    <p className="text-highlight-l">{down.title}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-heading-l mb-[24px]">
+                Experiment Introduction Video
+              </p>
+              {/* <img
+            className="w-full h-auto"
+            alt="Analysis of Colorants"
+            src={`${process.env.PUBLIC_URL}/assets/careerEducation/Analysis_of_Colorants.png`}
+          /> */}
+              <div key={videoDataOne[playVideoOneIndex].thumbnail}>
+                <VideoPlayer
+                  videoLink={videoDataOne[playVideoOneIndex].url}
+                  thumbnail={videoDataOne[playVideoOneIndex].thumbnail}
+                />
+              </div>
+              <div
+                className={`grid grid-cols-${
+                  isPC ? "2" : "1"
+                } gap-[22px] mt-[24px]`}
+              >
+                {videoDataOne.map((video, index) => (
+                  <div
+                    key={index}
+                    className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
+                      playVideoOneIndex === index
+                        ? "bg-newPrimary text-white"
+                        : "bg-whiteGrey text-black"
+                    }`}
+                    onClick={() => {
+                      setPlayVideoOneIndex(index);
+                      // window.open(video.url, "_blank");
+                    }}
+                  >
+                    <div className="w-[37px] text-center p-[10px]">{`0${
+                      index + 1
+                    }`}</div>
+                    <img
+                      className="w-[130px] h-full"
+                      alt={video.thumbnail}
+                      src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
+                    />
+                    <div className="flex flex-grow p-[10px]">
+                      {" "}
+                      {video.title.length > 48 && !isPC
+                        ? video.title.slice(0, 48) + "..."
+                        : video.title}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
         />
       </div>
-      <div
-        className={`grid grid-cols-${isPC ? "2" : "1"} gap-[22px] mt-[24px]`}
-      >
-        {videoDataOne.map((video, index) => (
-          <div
-            key={index}
-            className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
-              playVideoOneIndex === index
-                ? "bg-newPrimary text-white"
-                : "bg-whiteGrey text-black"
-            }`}
-            onClick={() => {
-              setPlayVideoOneIndex(index);
-              // window.open(video.url, "_blank");
-            }}
-          >
-            <div className="w-[37px] text-center p-[10px]">{`0${
-              index + 1
-            }`}</div>
-            <img
-              className="w-[130px] h-full"
-              alt={video.thumbnail}
-              src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
-            />
-            <div className="flex flex-grow p-[10px]">
+      <div id="Teaching_Kit" className="mb-[24px]">
+        <Accordion
+          title="Teaching Kit on Chemical Testing for Senior Secondary Curriculum"
+          details={
+            <div>
               {" "}
-              {video.title.length > 48 && !isPC
-                ? video.title.slice(0, 48) + "..."
-                : video.title}
+              <p className="text-body-m mt-[24px]">
+                The Innovation and Technology Commission and HKCTC have
+                commissioned Hong Kong Baptist University to develop a teaching
+                kit for use by senior secondary Chemistry teachers. The kit
+                consists of a total of six experiments, which introduces the
+                basic chemical testing concepts. Through providing students with
+                more practical opportunities, the kit aims to apprise students
+                of the importance of testing and how it can help ensure the
+                safety and quality of products commonly used in our daily life.
+                Schools are welcome to make use of the kit in class or
+                extra-curriculum activities.
+              </p>
+              <div
+                className={`grid grid-cols-${
+                  isPC ? "3 gap-[24px]" : "1"
+                }  py-[24px]`}
+              >
+                {downloadDataTwo.map((down, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+                    onClick={() => {
+                      window.open(down.link, "_blank");
+                    }}
+                  >
+                    <img
+                      className="w-[64px] h-[64px]"
+                      src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                      alt={"file icon"}
+                    />
+                    <p className="text-highlight-l">{down.title}</p>
+                  </div>
+                ))}
+              </div>
+              {/* <img
+            className="w-full h-auto"
+            alt="Teaching Kit"
+            src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
+          /> */}
+              <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
+                <VideoPlayer
+                  videoLink={videoDataTwo[playVideoTwoIndex].url}
+                  thumbnail={videoDataTwo[playVideoTwoIndex].thumbnail}
+                />
+              </div>
+              <div
+                className={`grid grid-cols-${
+                  isPC ? "2" : "1"
+                } gap-[22px] mt-[24px]`}
+              >
+                {videoDataTwo.map((video, index) => (
+                  <div
+                    key={index}
+                    className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
+                      playVideoTwoIndex === index
+                        ? "bg-newPrimary text-white"
+                        : "bg-whiteGrey text-black"
+                    }`}
+                    onClick={() => {
+                      setPlayVideoTwoIndex(index);
+                      // window.open(video.url, "_blank");
+                    }}
+                  >
+                    <div className="w-[37px] text-center p-[10px]">{`0${
+                      index + 1
+                    }`}</div>
+                    <img
+                      className="w-[130px] h-full"
+                      alt={video.thumbnail}
+                      src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
+                    />
+                    <div className="flex flex-grow p-[10px]">
+                      {video.title.length > 46 && !isPC
+                        ? video.title.slice(0, 46) + "..."
+                        : video.title}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l" id="Teaching_Kit">
-        Teaching Kit on Chemical Testing for Senior Secondary Curriculum
-      </p>
-      <p className="text-body-m mt-[24px]">
-        The Innovation and Technology Commission and HKCTC have commissioned
-        Hong Kong Baptist University to develop a teaching kit for use by senior
-        secondary Chemistry teachers. The kit consists of a total of six
-        experiments, which introduces the basic chemical testing concepts.
-        Through providing students with more practical opportunities, the kit
-        aims to apprise students of the importance of testing and how it can
-        help ensure the safety and quality of products commonly used in our
-        daily life. Schools are welcome to make use of the kit in class or
-        extra-curriculum activities.
-      </p>
-
-      <div
-        className={`grid grid-cols-${isPC ? "3 gap-[24px]" : "1"}  py-[24px]`}
-      >
-        {downloadDataTwo.map((down, index) => (
-          <div
-            key={index}
-            className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-            onClick={() => {
-              window.open(down.link, "_blank");
-            }}
-          >
-            <img
-              className="w-[64px] h-[64px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-              alt={"file icon"}
-            />
-            <p className="text-highlight-l">{down.title}</p>
-          </div>
-        ))}
-      </div>
-      {/* <img
-          className="w-full h-auto"
-          alt="Teaching Kit"
-          src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
-        /> */}
-      <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
-        <VideoPlayer
-          videoLink={videoDataTwo[playVideoTwoIndex].url}
-          thumbnail={videoDataTwo[playVideoTwoIndex].thumbnail}
+          }
         />
       </div>
 
-      <div
-        className={`grid grid-cols-${isPC ? "2" : "1"} gap-[22px] mt-[24px]`}
-      >
-        {videoDataTwo.map((video, index) => (
-          <div
-            key={index}
-            className={`w-full h-full flex flex-row items-start !text-body-s cursor-pointer ${
-              playVideoTwoIndex === index
-                ? "bg-newPrimary text-white"
-                : "bg-whiteGrey text-black"
-            }`}
-            onClick={() => {
-              setPlayVideoTwoIndex(index);
-              // window.open(video.url, "_blank");
-            }}
-          >
-            <div className="w-[37px] text-center p-[10px]">{`0${
-              index + 1
-            }`}</div>
-            <img
-              className="w-[130px] h-full"
-              alt={video.thumbnail}
-              src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
-            />
-            <div className="flex flex-grow p-[10px]">
-              {video.title.length > 46 && !isPC
-                ? video.title.slice(0, 46) + "..."
-                : video.title}
+      <div id="Teaching_Kit" className="mb-[24px]">
+        <Accordion
+          title="Passing Through the Maze: Learning Testing and Certification in Daily Life"
+          details={
+            <div>
+              {" "}
+              <p className="text-body-m my-[24px]">
+                Passing Through the Maze : Learning Testing and Certification in
+                Daily Life is a Chinese comic book that tells the adventure of
+                two young challengers, Samantha and Joe, who try to prove
+                themselves by getting out of a maze unscathed. Through asking
+                tough questions on testing and certification, the maze is not as
+                harmless as it first appears...
+              </p>
+              <img
+                className="w-full h-auto cursor-pointer"
+                alt="Maze"
+                src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
+                onClick={() => {
+                  window.open(
+                    "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf"
+                  );
+                }}
+              />
+              <p className="text-body-m mt-[24px] text-justify">
+                If you want to come along and find out how fast you can beat the
+                maze, click on the picture of the comic book.&nbsp;Or read the
+                text version &nbsp;
+                <Link outerLink="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf">
+                  here
+                </Link>
+                .
+              </p>
             </div>
-          </div>
-        ))}
+          }
+        />
       </div>
-
-      <hr className="my-[24px] text-[#E0E0E0]" />
-
-      <p className="text-heading-l">
-        Passing Through the Maze: Learning Testing and Certification in Daily
-        Life
-      </p>
-      <p className="text-body-m my-[24px]">
-        Passing Through the Maze : Learning Testing and Certification in Daily
-        Life is a Chinese comic book that tells the adventure of two young
-        challengers, Samantha and Joe, who try to prove themselves by getting
-        out of a maze unscathed. Through asking tough questions on testing and
-        certification, the maze is not as harmless as it first appears...
-      </p>
-
-      <img
-        className="w-full h-auto cursor-pointer"
-        alt="Maze"
-        src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
-        onClick={() => {
-          window.open(
-            "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf"
-          );
-        }}
-      />
-
-      <p className="text-body-m mt-[24px] text-justify">
-        If you want to come along and find out how fast you can beat the maze,
-        click on the picture of the comic book.&nbsp;
-        <span className="text-[red]">Or read the text version</span>&nbsp;
-        <Link outerLink="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf">
-          here
-        </Link>
-        .
-      </p>
     </div>
   );
 };
