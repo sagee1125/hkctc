@@ -101,7 +101,7 @@ export const EnvironmentalProtection: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. What is Greenhouse Gas (GHG)?",
+      title: "What is Greenhouse Gas (GHG)?",
       content: (
         <p>
           GHG refers to the gaseous constituents of the atmosphere, both natural
@@ -119,7 +119,7 @@ export const EnvironmentalProtection: React.FC = () => {
     },
     {
       title:
-        "b. International Standards/Technical Specification on GHG Quantification",
+        "International Standards/Technical Specification on GHG Quantification",
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
@@ -143,7 +143,7 @@ export const EnvironmentalProtection: React.FC = () => {
       ),
     },
     {
-      title: "c. What is GHG Validation & Verification?",
+      title: "What is GHG Validation & Verification?",
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
@@ -183,7 +183,7 @@ export const EnvironmentalProtection: React.FC = () => {
     },
 
     {
-      title: "d. Why adopt GHG Validation and Verification?",
+      title: "Why adopt GHG Validation and Verification?",
       content: (
         <>
           <p>GHG Validation and Verification can:</p>
@@ -207,7 +207,7 @@ export const EnvironmentalProtection: React.FC = () => {
     },
     {
       title:
-        "e. Validation/verification bodies accredited by HKAS for GHG Validation & Verification",
+        "Validation/verification bodies accredited by HKAS for GHG Validation & Verification",
       content: (
         <>
           <p>
@@ -242,7 +242,7 @@ export const EnvironmentalProtection: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. What is Energy Management System Certification (EnMS)?",
+      title: "What is Energy Management System Certification (EnMS)?",
       content: (
         <p>
           "Management system" is a set of inter-related or interacting elements
@@ -266,7 +266,7 @@ export const EnvironmentalProtection: React.FC = () => {
       ),
     },
     {
-      title: "b. Who can adopt ISO 50001 to set up an EnMS?",
+      title: "Who can adopt ISO 50001 to set up an EnMS?",
       content: (
         <p>
           ISO 50001 is applicable to any organisations - whatever their size,
@@ -275,7 +275,7 @@ export const EnvironmentalProtection: React.FC = () => {
       ),
     },
     {
-      title: "c. Benefits of Implementing an ISO 50001-based EnMS",
+      title: "Benefits of Implementing an ISO 50001-based EnMS",
       content: (
         <>
           <p>
@@ -306,34 +306,50 @@ export const EnvironmentalProtection: React.FC = () => {
     },
 
     {
-      title: "d. How to set up & run an ISO 50001-based EnMS?",
+      title: "How to set up & run an ISO 50001-based EnMS?",
       content: (
         <>
-          <div>
+          <div className="mb-[16px]">
             <div className="w-full flex flex-col">
               {timeLineData.map((item, index) => (
-                <div key={index} className="flex flex-row gap-[24px]">
-                  <div className="relative flex flex-col items-center">
-                    {/* ball */}
-                    <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
-                    {/* line */}
-                    <div
-                      className={`${
-                        timeLineData.length - 1 === index
-                          ? "h-[50px]"
-                          : "h-full"
-                      } w-[2px] bg-newPrimary absolute top-[17px]`}
-                    />
-                  </div>
+                <div key={index} className="flex flex-col">
                   <div
-                    className={`text-highlight-s p-[16px] border-[1px] justify-start content-center mb-[16px] w-full ${
-                      index === 0
-                        ? "border-newPrimary text-white bg-newPrimary"
-                        : "border-[#E0E0E0]"
+                    className={`text-highlight-s p-[16px] border-[1px] justify-start content-center w-full ${
+                      index % 2 === 0
+                        ? "border-[#E0E0E0]"
+                        : "border-[#E0E0E0] bg-[#E0E0E0]"
                     }`}
                   >
                     <p>{item}</p>
                   </div>
+                  {index + 1 !== timeLineData.length && (
+                    <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                      >
+                        <g clip-path="url(#clip0_2939_67250)">
+                          <path
+                            d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
+                            fill="#233F55"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2939_67250">
+                            <rect
+                              width="20"
+                              height="20"
+                              fill="white"
+                              transform="translate(0.515625 0.523438)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -342,7 +358,7 @@ export const EnvironmentalProtection: React.FC = () => {
       ),
     },
     {
-      title: "e. How can ISO 50001 EnMS Certification help your Organisation?",
+      title: "How can ISO 50001 EnMS Certification help your Organisation?",
       content: (
         <>
           <p>
@@ -364,14 +380,14 @@ export const EnvironmentalProtection: React.FC = () => {
     },
 
     {
-      title: "f. How to obtain ISO 50001 EnMS Certification?",
+      title: "How to obtain ISO 50001 EnMS Certification?",
       content:
         "In Hong Kong, some certification bodies now provide ISO 50001 EnMS certification services. Your organisation can engage a certification body to conduct certification audits. Once successfully certified, your organisation has to undergo surveillance audits at periodic intervals and re-certification audits at three-year intervals.",
     },
 
     {
       title:
-        "g. Certification bodies accredited by HKAS for ISO 50001 Certification",
+        "Certification bodies accredited by HKAS for ISO 50001 Certification",
       content: (
         <>
           <p>
@@ -434,6 +450,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <Accordion
             key={index}
             title={item.title}
+            defaultExpanded={false}
             details={<div className="text-body-m">{item.content}</div>}
           />
         ))}
@@ -454,6 +471,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <Accordion
             key={index}
             title={item.title}
+            defaultExpanded={false}
             details={<div className="text-body-m">{item.content}</div>}
           />
         ))}
