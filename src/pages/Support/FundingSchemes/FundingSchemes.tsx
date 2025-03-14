@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ITF, PASS, TID, TCJS } from "./SchemesSummary";
+import { ITF, TID } from "./SchemesSummary";
 import {
   // TVP,
   ESS,
@@ -19,15 +19,16 @@ import {
 } from "./TIDFundingSchemes";
 import { useSettings } from "../../../context";
 
-const schemesTypeMap: Record<string, React.ReactNode> = {
-  "Innovation and Technology Fund (ITF)": <ITF />,
-  "Professional Services Advancement Support Scheme (PASS)": <PASS />,
-  "TID's Funding Schemes": <TID />,
-  "Testing and Certification Sector Job Creation Scheme (TCJS)": <TCJS />,
+const tidMap: Record<string, React.ReactNode> = {
+  Summary: <TID />,
+  "BUD Fund (Enterprise Support Programme)": <BUD />,
+  "Trade and Industrial Organisation Support Fund (TSF)": <TSF />,
+  "SME Export Marketing Fund": <SMEExportMarketingFund />,
+  "SME Loan Guarantee Scheme": <SMELoanGuaranteeScheme />,
 };
 
-const itfFundingMap: Record<string, React.ReactNode> = {
-  // "Technology Voucher Programme (TVP)": <TVP />,  // hide for tmp 2025/01/19
+const ITFMap: Record<string, React.ReactNode> = {
+  Summary: <ITF />,
   "Enterprise Support Scheme (ESS)": <ESS />,
   "Innovation and Technology Support Programme (ITSP)": <ITSP />,
   "Partnership Research Programme (PRP)": <PRP />,
@@ -36,21 +37,11 @@ const itfFundingMap: Record<string, React.ReactNode> = {
   "New Industrialisation and Technology Training Programme (NITTP)": <NITTP />,
 };
 
-const tidMap: Record<string, React.ReactNode> = {
-  "BUD Fund (Enterprise Support Programme)": <BUD />,
-  "Trade and Industrial Organisation Support Fund (TSF)": <TSF />,
-  "SME Export Marketing Fund": <SMEExportMarketingFund />,
-  "SME Loan Guarantee Scheme": <SMELoanGuaranteeScheme />,
-};
-
 export const FundingSchemes: React.FC = () => {
   const { isPC } = useSettings();
-  const [activeSchemesType, setActiveSchemesType] = useState<string>(
-    Object.keys(schemesTypeMap)[0]
-  );
 
-  const [activeIFTFunding, setActiveIFTFunding] = useState<string>(
-    Object.keys(itfFundingMap)[0]
+  const [activeITFButton, setActiveITFButton] = useState<string>(
+    Object.keys(ITFMap)[0]
   );
 
   const [activeTIDFunding, setActiveTIDFunding] = useState<string>(
@@ -62,44 +53,10 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={"Schemes Summary"}
-          details={
-            <div>
-              <div className="flex flex-wrap gap-[8px]">
-                {Object.keys(schemesTypeMap).map((btn, index) => {
-                  const isActivated = btn === activeSchemesType;
-                  return (
-                    <button
-                      key={index}
-                      style={
-                        isActivated ? activatedButtonStyle : normalButtonStyle
-                      }
-                      onClick={() => {
-                        setActiveSchemesType(btn);
-                      }}
-                    >
-                      <p className="text-highlight-xs">
-                        {btn.length > 38 && !isPC
-                          ? btn.slice(0, 38) + "..."
-                          : btn}
-                      </p>
-                    </button>
-                  );
-                })}
-              </div>
-              <div className="mt-[16px]">
-                {schemesTypeMap[activeSchemesType]}
-              </div>
-            </div>
-          }
-        />
-      </div>
-      <div className="mt-[24px]">
-        <Accordion
           title={"Innovation and Technology Fund (ITF)"}
           details={
             <div>
-              <p className="text-body-m">
+              <p>
                 ITF aims to increase the added value, productivity and
                 competitiveness of Hong Kong's economic activities. The
                 Government hopes that, through the ITF, Hong Kong companies
@@ -107,16 +64,16 @@ export const FundingSchemes: React.FC = () => {
                 level and introduce innovative ideas to their business.
               </p>
               <br />
-              <p>
+              <p className="mb-[24px]">
                 ITF is administered by Innovation and Technology Commission
                 (ITC) and is open to application from all sectors. Apart from
                 funding research and development (R&D) activities, ITF also
                 supports non-R&D projects like conferences, surveys, training
                 and the like that promote innovation and technology.
               </p>
-              <div className="flex flex-wrap gap-[8px] my-[16px]">
-                {Object.keys(itfFundingMap).map((btn, index) => {
-                  const isActivated = btn === activeIFTFunding;
+              <div className="flex flex-wrap gap-[8px]">
+                {Object.keys(ITFMap).map((btn, index) => {
+                  const isActivated = btn === activeITFButton;
                   return (
                     <button
                       key={index}
@@ -124,7 +81,7 @@ export const FundingSchemes: React.FC = () => {
                         isActivated ? activatedButtonStyle : normalButtonStyle
                       }
                       onClick={() => {
-                        setActiveIFTFunding(btn);
+                        setActiveITFButton(btn);
                       }}
                     >
                       <p className="text-highlight-xs">
@@ -136,7 +93,7 @@ export const FundingSchemes: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="mt-[16px]">{itfFundingMap[activeIFTFunding]}</div>
+              <div className="mt-[16px]">{ITFMap[activeITFButton]}</div>
             </div>
           }
         />
@@ -248,14 +205,20 @@ export const FundingSchemes: React.FC = () => {
           title={"Testing and Certification Sector Job Creation Scheme (TCJS)"}
           details={
             <div>
-              <p className="text-body-m my-[16px]">
-                The Innovation and Technology Commission (ITC) has launched the
-                Testing and Certification Sector Job Creation Scheme on 24
-                August, the first job creation scheme dedicated to the testing
-                and certification (T&C) sector under the Hong Kong Special
-                Administrative Region Government.
+              <p className="!text-body-m">
+                The Innovation and Technology Commission (ITC) launched the
+                Testing and Certification Sector Job Creation Scheme (the
+                Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August
+                2022.
               </p>
-
+              <br />
+              <p className="mb-[16px] !text-body-m">
+                The Scheme was the first job creation scheme dedicated to the
+                testing and certification (T&C) sector. It aimed to encourage
+                private testing and certification (T&C) organisations to create
+                more job opportunities, and attract people to join the T&C
+                sector, so as to enrich Hong Kong’s T&C talent pool.
+              </p>
               <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
                 <div className="flex flex-row gap-[24px] items-center w-full">
                   <img
@@ -265,7 +228,7 @@ export const FundingSchemes: React.FC = () => {
                   />
                   <p className="text-body-m flex-grow min-w-0">
                     Each local private T&C organisation with valid accreditation
-                    status given by the Hong Kong Accreditation Service may
+                    status given by the Hong Kong Accreditation Service could
                     apply for a monthly subsidy for up to five eligible job
                     positions.
                   </p>
@@ -287,6 +250,13 @@ export const FundingSchemes: React.FC = () => {
                   </p>
                 </div>
               </div>
+              <p className="my-[16px] !text-body-m">
+                The application period closed on 31 July 2023. 54 organisations
+                have participated and collectively created over170 job
+                positions. The total funding involved exceeded HK$16 million.
+                The Scheme has been successfully completed, with all subsidies
+                disbursed by 31 August 2024.
+              </p>
             </div>
           }
         />
