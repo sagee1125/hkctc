@@ -405,7 +405,7 @@ export const MedicalTesting: React.FC = () => {
           from the above “List of Medical Laboratories Accredited under HOKLAS”,
           or from the&nbsp;
           <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-links"
@@ -422,7 +422,7 @@ export const MedicalTesting: React.FC = () => {
           accreditation of medical laboratories by clicking the respective
           HOKLAS Registration No. in the table below, or visit the&nbsp;
           <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-links"
@@ -480,7 +480,7 @@ export const MedicalTesting: React.FC = () => {
         The laboratories providing accredited testing services on Medical
         Testing are available at&nbsp;
         <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

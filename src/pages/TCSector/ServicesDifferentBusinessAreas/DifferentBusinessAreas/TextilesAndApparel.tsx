@@ -164,7 +164,7 @@ export const TextilesAndApparel: React.FC = () => {
         The laboratories providing accredited testing services on Textile and
         Apparel are available at&nbsp;
         <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
