@@ -196,7 +196,7 @@ export const ChineseMedicines: React.FC = () => {
         Benefits of Chinese Medicines Testing & Certification
       </p>
 
-      <p>
+      <div>
         Hong Kong is an international trading hub of Chinese medicines. Chinese
         herbal medicines and proprietary Chinese medicines (pCm) sold in Hong
         Kong are generally with good quality. To ensure that products are
@@ -210,33 +210,38 @@ export const ChineseMedicines: React.FC = () => {
         benefits to:
         <br />
         <br />
-        1.&nbsp;&nbsp;<span className="text-highlight-m">Users:</span>
-        &nbsp;It can help users to identify genuine products, reduces the chance
-        of buying fake, misprocessed (such as bleached), adulterated or
-        contaminated products.
-        <br />
-        <br />
-        2.&nbsp;&nbsp;
-        <span className="text-highlight-m">Manufacturers and Traders:</span>
-        &nbsp;It can help enhance customer confidence and satisfaction, increase
-        sales, and reduce the risk of costly recalls and lawsuits.
-        <br />
-        <br />
-        3.&nbsp;&nbsp;
-        <span className="text-highlight-m">
-          Chinese Medicine Practitioners:
-        </span>
-        &nbsp;It can ensure that prescriptions are filled with genuine and
-        quality medicinal herbs.
-        <br />
-        <br />
-        4.&nbsp;&nbsp;<span className="text-highlight-m">Hong Kong:</span>
-        &nbsp;It can promote the further development of the testing and
-        certification sector and reinforce the position and strategic advantage
-        of Hong Kong as a testing and certification hub of Chinese medicines.
-        This in turn will sustain the economic growth of Hong Kong in the long
-        run.
-      </p>
+        <ol>
+          <li>
+            <span className="text-highlight-m">Users:</span>
+            &nbsp;It can help users to identify genuine products, reduces the
+            chance of buying fake, misprocessed (such as bleached), adulterated
+            or contaminated products.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">Manufacturers and Traders:</span>
+            &nbsp;It can help enhance customer confidence and satisfaction,
+            increase sales, and reduce the risk of costly recalls and lawsuits.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">
+              Chinese Medicine Practitioners:
+            </span>
+            &nbsp;It can ensure that prescriptions are filled with genuine and
+            quality medicinal herbs.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">Hong Kong:</span>
+            &nbsp;It can promote the further development of the testing and
+            certification sector and reinforce the position and strategic
+            advantage of Hong Kong as a testing and certification hub of Chinese
+            medicines. This in turn will sustain the economic growth of Hong
+            Kong in the long run.
+          </li>
+        </ol>
+      </div>
       <hr className="my-[24px]" />
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForChineseMedicine.map((item, index) => (

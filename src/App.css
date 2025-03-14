@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+/* start with dot */
 ul {
   display: flex !important;
   flex-direction: column !important;
@@ -14,6 +15,22 @@ ul {
   padding-left: 18px !important;
   list-style: disc !important;
   list-style-type: disc !important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+/* for 1. 2. 3. */
+ol {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding-left: 18px !important;
+  list-style: decimal !important;
+  list-style-type: decimal !important;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
