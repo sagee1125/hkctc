@@ -24,7 +24,7 @@ export const LegislativeCouncil: React.FC = () => {
             <div
               key={index}
               className={`w-full ${
-                isPC ? "h-[282px]" : "h-auto"
+                isPC ? "h-[290px]" : "h-auto"
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog

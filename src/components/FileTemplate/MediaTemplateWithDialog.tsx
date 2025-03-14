@@ -334,11 +334,30 @@ export const MediaTemplateWithDialog: React.FC<
         </div>
         {date && (
           <div className="flex flex-row gap-[8px] items-center">
-            <img
-              className="w-[16px] h-[16px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-              alt={"calendar"}
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_3271_24860)">
+                <path
+                  d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3271_24860">
+                  <rect
+                    width="16"
+                    height="16"
+                    fill="white"
+                    transform="translate(0.5 0.859375)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
             <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>{date}</p>
           </div>
         )}
@@ -482,7 +501,7 @@ export const MediaTemplateWithDialog: React.FC<
         </div>
       </div>
       <div
-        className={`flex flex-col items-start justify-${
+        className={`flex flex-col items-start h-full justify-${
           direction === "column" ? "center max-w-[252px]" : "start"
         } `}
         onClick={handleOnClick}
@@ -490,18 +509,43 @@ export const MediaTemplateWithDialog: React.FC<
           cursor: "pointer",
         }}
       >
-        <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
+        <div className="flex flex-col items-start justify-center h-full">
+          <p className={`text-highlight-${isPC ? "l" : "xs"}`}>
+            {title.length > 53 ? title.slice(0, 53) + "..." : title}
+          </p>
 
-        {date && (
-          <div className="flex flex-row gap-[8px] mt-[8px] items-center">
-            <img
-              className="w-[16px] h-[16px]"
-              src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-              alt={"calendar"}
-            />
-            <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>{date}</p>
-          </div>
-        )}
+          {date && (
+            <div className="flex flex-row gap-[8px] mt-[8px] items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_3271_24860)">
+                  <path
+                    d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_3271_24860">
+                    <rect
+                      width="16"
+                      height="16"
+                      fill="white"
+                      transform="translate(0.5 0.859375)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
+                {date}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       {isPreviewOpen && (
