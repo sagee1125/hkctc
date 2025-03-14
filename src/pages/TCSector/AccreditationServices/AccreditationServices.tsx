@@ -1,10 +1,5 @@
 import React from "react";
-
-import {
-  FileTemplate,
-  MediaTemplateWithDialog,
-  SquareTitle,
-} from "../../../components";
+import { MediaTemplateWithDialog, SquareTitle } from "../../../components";
 import { accreditationService } from "../../ServiceUsers";
 import { MEDIA_TYPE } from "../../../const";
 

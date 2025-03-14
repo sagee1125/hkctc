@@ -4,7 +4,6 @@ import {
   DifferentBusinessAreasDirectorySidebar,
   handleReturnDifferentBusinessAreasBreadcrumb,
 } from "./utils";
-
 import {
   Accordion,
   BannerPhotoBox,
@@ -34,55 +33,7 @@ export const ChineseMedicines: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. Benefits of Chinese Medicines Testing",
-      content: (
-        <>
-          <p>
-            Hong Kong is an international trading hub of Chinese medicines.
-            Chinese herbal medicines and proprietary Chinese medicines (pCm)
-            sold in Hong Kong are generally with good quality. To ensure that
-            products are genuine, not misprocessed (such as bleached), and are
-            free from adulteration and contamination, testing and certification
-            is indispensable. Hong Kong has an efficient and competent testing
-            and certification sector to provide the relevant support
-            <br />
-            <br />
-            Testing and certification of Chinese medicines can bring about many
-            benefits to:
-            <br />
-            <br />
-            1.&nbsp;&nbsp;<span className="text-highlight-m">Users:</span>
-            &nbsp;It can help users to identify genuine products, reduces the
-            chance of buying fake, misprocessed (such as bleached), adulterated
-            or contaminated products.
-            <br />
-            <br />
-            2.&nbsp;&nbsp;
-            <span className="text-highlight-m">Manufacturers and Traders:</span>
-            &nbsp;It can help enhance customer confidence and satisfaction,
-            increase sales, and reduce the risk of costly recalls and lawsuits.
-            <br />
-            <br />
-            3.&nbsp;&nbsp;
-            <span className="text-highlight-m">
-              Chinese Medicine Practitioners:
-            </span>
-            &nbsp;It can ensure that prescriptions are filled with genuine and
-            quality medicinal herbs.
-            <br />
-            <br />
-            4.&nbsp;&nbsp;<span className="text-highlight-m">Hong Kong:</span>
-            &nbsp;It can promote the further development of the testing and
-            certification sector and reinforce the position and strategic
-            advantage of Hong Kong as a testing and certification hub of Chinese
-            medicines. This in turn will sustain the economic growth of Hong
-            Kong in the long run.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "b. Proprietary Chinese Medicines Testing",
+      title: "Proprietary Chinese Medicines Testing",
       content: (
         <p>
           Under the Chinese Medicine Ordinance (Chapter 549 of the Laws of Hong
@@ -103,7 +54,7 @@ export const ChineseMedicines: React.FC = () => {
       ),
     },
     {
-      title: "c. Chinese Materia Medica Testing",
+      title: "Chinese Materia Medica Testing",
       content: (
         <p>
           Many types of Chinese medicines can now be tested against the&nbsp;
@@ -126,7 +77,7 @@ export const ChineseMedicines: React.FC = () => {
 
     {
       title:
-        "d. Chinese Medicines Testing Services Provided by Laboratories in Hong Kong",
+        "Chinese Medicines Testing Services Provided by Laboratories in Hong Kong",
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
@@ -214,26 +165,6 @@ export const ChineseMedicines: React.FC = () => {
         </div>
       ),
     },
-    {
-      title:
-        "e. Laboratories Accredited by HKAS Providing Testing Services on Chinese Medicines",
-      content: (
-        <p>
-          Details of the organisations providing the public with one or several
-          types of accredited Chinese medicines testing services are available
-          at&nbsp;
-          <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            HKAS's website
-          </a>
-          .
-        </p>
-      ),
-    },
   ];
 
   const sidebar = (
@@ -261,17 +192,88 @@ export const ChineseMedicines: React.FC = () => {
         pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
       />
 
-      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+      <p className="text-heading-l my-[24px]">
+        Benefits of Chinese Medicines Testing & Certification
+      </p>
+
+      <div>
+        Hong Kong is an international trading hub of Chinese medicines. Chinese
+        herbal medicines and proprietary Chinese medicines (pCm) sold in Hong
+        Kong are generally with good quality. To ensure that products are
+        genuine, not misprocessed (such as bleached), and are free from
+        adulteration and contamination, testing and certification is
+        indispensable. Hong Kong has an efficient and competent testing and
+        certification sector to provide the relevant support
+        <br />
+        <br />
+        Testing and certification of Chinese medicines can bring about many
+        benefits to:
+        <br />
+        <br />
+        <ol>
+          <li>
+            <span className="text-highlight-m">Users:</span>
+            &nbsp;It can help users to identify genuine products, reduces the
+            chance of buying fake, misprocessed (such as bleached), adulterated
+            or contaminated products.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">Manufacturers and Traders:</span>
+            &nbsp;It can help enhance customer confidence and satisfaction,
+            increase sales, and reduce the risk of costly recalls and lawsuits.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">
+              Chinese Medicine Practitioners:
+            </span>
+            &nbsp;It can ensure that prescriptions are filled with genuine and
+            quality medicinal herbs.
+          </li>
+          <br />
+          <li>
+            <span className="text-highlight-m">Hong Kong:</span>
+            &nbsp;It can promote the further development of the testing and
+            certification sector and reinforce the position and strategic
+            advantage of Hong Kong as a testing and certification hub of Chinese
+            medicines. This in turn will sustain the economic growth of Hong
+            Kong in the long run.
+          </li>
+        </ol>
+      </div>
+      <hr className="my-[24px]" />
+      <div className="w-full flex flex-col gap-[24px]">
         {servicesForChineseMedicine.map((item, index) => (
           <Accordion
             key={index}
             title={item.title}
+            defaultExpanded={false}
             details={<div className="text-body-m">{item.content}</div>}
           />
         ))}
       </div>
 
       <hr className="my-[24px]" />
+      <p className="text-heading-l">
+        Laboratories Accredited by HKAS Providing Testing Services on Chinese
+        Medicines
+      </p>
+      <p className="text-body-m py-[24px]">
+        The laboratories providing accredited testing services on Chinese
+        Medicines are available at&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        .
+      </p>
+      <hr className="mb-[24px]" />
+
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
       />
