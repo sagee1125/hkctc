@@ -325,58 +325,72 @@ export const NilWaiverFee: React.FC = () => {
       </div>
 
       <p className="text-heading-l mt-[24px]">Summary</p>
-      <li className="text-body-m mt-[24px]">
-        The Government introduces this policy measure effective as from 1
-        February 2016 to facilitate the operation of testing and calibration
-        laboratories (hereunder referred to as "testing laboratories") in
-        industrial building. The Government hopes that this measure would offer
-        testing laboratories more choices of suitable space in the market.
-      </li>
-      <br />
-      <li className="text-body-m">
-        The leases of industrial buildings1 usually contain user restrictions.
-        The uses permitted under such leases are typically specified as
-        "industrial and/or godown purposes". However, testing laboratories not
-        involving a primary manufacturing use are not considered as industrial
-        use in the context of land leases.
-      </li>
-      <br />
-      <li className="text-body-m">
-        The owner (or his/her agent) intending to use part(s) of or an entire
-        industrial building can apply to LandsD for a waiver of the user
-        condition of the land lease to allow testing laboratory use for the
-        lifetime of the existing industrial building, or until the expiry or
-        termination of the current land lease, whichever is the earlier.
-      </li>
-      <br />
-      <li className="text-body-m">
-        For an approved application to LandsD for a waiver under this measure,
-        the Government will exempt the waiver fee otherwise be chargeable for
-        issuing waivers to allow use as a testing laboratory. However,
-        applicants would need to pay an administrative fee as and when demanded
-        by LandsD.
-      </li>
-      <br />
-      <li className="text-body-m">
-        Applications would only be accepted if the premises concerned are
-        located in an industrial building where testing laboratory use is
-        permitted under the current land use zoning of the site on the statutory
-        plan, or is subject to a valid planning permission granted by the Town
-        Planning Board (TPB), or is considered as an existing use under the
-        provisions of the statutory plan.
-      </li>
-      <br />
-      <li className="text-body-m">
-        Innovation and Technology Commission (ITC) will advise LandsD whether or
-        not the use as stated in an application is an eligible testing
-        laboratory use.
-      </li>
-      <br />
+      <ul>
+        <li className="text-body-m mt-[24px]">
+          The Government introduces this policy measure effective as from 1
+          February 2016 to facilitate the operation of testing and calibration
+          laboratories (hereunder referred to as "testing laboratories") in
+          industrial building. The Government hopes that this measure would
+          offer testing laboratories more choices of suitable space in the
+          market.
+        </li>
+        <br />
+        <li className="text-body-m">
+          The leases of industrial buildings1 usually contain user restrictions.
+          The uses permitted under such leases are typically specified as
+          "industrial and/or godown purposes". However, testing laboratories not
+          involving a primary manufacturing use are not considered as industrial
+          use in the context of land leases.
+        </li>
+        <br />
+        <li className="text-body-m">
+          The owner (or his/her agent) intending to use part(s) of or an entire
+          industrial building can apply to LandsD for a waiver of the user
+          condition of the land lease to allow testing laboratory use for the
+          lifetime of the existing industrial building, or until the expiry or
+          termination of the current land lease, whichever is the earlier.
+        </li>
+        <br />
+        <li className="text-body-m">
+          For an approved application to LandsD for a waiver under this measure,
+          the Government will exempt the waiver fee otherwise be chargeable for
+          issuing waivers to allow use as a testing laboratory. However,
+          applicants would need to pay an administrative fee as and when
+          demanded by LandsD.
+        </li>
+        <br />
+        <li className="text-body-m">
+          Applications would only be accepted if the premises concerned are
+          located in an industrial building where testing laboratory use is
+          permitted under the current land use zoning of the site on the
+          statutory plan, or is subject to a valid planning permission granted
+          by the Town Planning Board (TPB), or is considered as an existing use
+          under the provisions of the statutory plan.
+        </li>
+        <br />
+        <li className="text-body-m">
+          Innovation and Technology Commission (ITC) will advise LandsD whether
+          or not the use as stated in an application is an eligible testing
+          laboratory use.
+        </li>
+        <br />
+      </ul>
       <p className="text-body-m mb-[24px]">
         For background information, please refer to the Legislative Council
-        Brief.
+        Brief:
       </p>
-
+      <p className="text-body-m mb-[24px]">
+        Note 1: An industrial building refers to a building lawfully erected on
+        a lot which, under the lease conditions, shall not be used for any
+        purpose other than for industrial and/or godown purposes. Industrial
+        buildings do not include special factories such as those located in
+        storage premises in container terminals and flatted factories built by
+        the Hong Kong Housing Authority, or lots for special industries such as
+        cargo handling uses, ship building and repairing, oil storage and
+        refining and production of associated chemical by-product, manufacture
+        of polystyrene plastics, manufacture and storage of chlorine, hydrogen
+        and textile chemicals, etc.
+      </p>
       <div className="flex flex-row gap-[24px]">
         <div
           className="flex-shrink-0 relative w-[130px] h-[90px] cursor-pointer"
@@ -411,21 +425,7 @@ export const NilWaiverFee: React.FC = () => {
           </span>
         </div>
       </div>
-      <br />
-      <p className="text-body-m">
-        Note 1: An industrial building refers to a building lawfully erected on
-        a lot which, under the lease conditions, shall not be used for any
-        purpose other than for industrial and/or godown purposes. Industrial
-        buildings do not include special factories such as those located in
-        storage premises in container terminals and flatted factories built by
-        the Hong Kong Housing Authority, or lots for special industries such as
-        cargo handling uses, ship building and repairing, oil storage and
-        refining and production of associated chemical by-product, manufacture
-        of polystyrene plastics, manufacture and storage of chlorine, hydrogen
-        and textile chemicals, etc.
-      </p>
-      <br />
-      <p className="text-body-m">
+      <p className="text-body-m mt-[24px]">
         To learn more about the measure, please see&nbsp;
         <span className="text-newPrimary">FAQs</span>&nbsp;below .
       </p>
