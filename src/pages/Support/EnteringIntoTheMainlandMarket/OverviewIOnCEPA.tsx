@@ -135,7 +135,7 @@ const EnterpriseRun: React.FC = () => {
 
           <p>
             <a
-              href="https://www.hkctc.gov.hk/en/cepa/faq.html#:~:text=CNCA%20PN%20No.%2034%20of%202015%20%E2%80%94%20%E3%80%8A%E5%9C%8B%E5%AE%B6%E8%AA%8D%E7%9B%A3%E5%A7%94%E9%97%9C%E6%96%BC%E7%99%BC%E4%BD%88%E9%80%B2%E4%B8%80%E6%AD%A5%E6%B7%B1%E5%8C%96%E5%BC%B7%E5%88%B6%E6%80%A7%E8%AA%8D%E8%AD%89%E5%AF%A6%E6%96%BD%E6%A9%9F%E6%A7%8B%E6%8C%87%E5%AE%9A%E5%AF%A9%E6%89%B9%E5%88%B6%E5%BA%A6%E6%94%B9%E9%9D%A9%E5%B7%A5%E4%BD%9C%E8%88%89%E6%8E%AA%E7%9A%84%E5%85%AC%E5%91%8A%E3%80%8B"
+              href="Incorrect hyperlink : https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

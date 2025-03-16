@@ -118,7 +118,7 @@ export const OtherSupport: React.FC = () => {
             To meet the needs of the testing and inspection sector, ECIC offers
             the tailor-made&nbsp;
             <a
-              href="https://www.hkecic.com/en/policies_services_detail.aspx?service_type=policies&service_policies_id=9"
+              href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

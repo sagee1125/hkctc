@@ -149,6 +149,8 @@ export const SummaryOfCEPA: React.FC = () => {
             Implementation Guide
           </a>
         </p>
+        <br />
+        <p className="italic">promulgated in Apr 2015</p>
       </>,
     ],
     [
@@ -187,6 +189,8 @@ export const SummaryOfCEPA: React.FC = () => {
             Other measures
           </a>
         </li>
+        <br />
+        <p className="italic">promulgated in Jul 2015</p>
       </>,
     ],
     [
@@ -204,13 +208,16 @@ export const SummaryOfCEPA: React.FC = () => {
         <p>
           <a
             className="text-[#00E] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
             Implementation Guide
           </a>
         </p>
+
+        <br />
+        <p className="italic">promulgated in Jan 2013</p>
       </>,
     ],
     [

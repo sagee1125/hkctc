@@ -53,7 +53,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <p className="text-body-m">1. Business Services</p>
       <p className="text-body-m">F. Other Business Services</p>
       <p className="text-body-m">
-        e. Technical testing and analysis services (CPC8676)
+        e. Technical testing and analysis services (CPC8676) and freight
+        inspection (CPC749), excluding statutory inspection services for freight
+        inspection services
       </p>
       <p className="mt-[24px] text-heading-m">Specific commitments</p>
       <ul
