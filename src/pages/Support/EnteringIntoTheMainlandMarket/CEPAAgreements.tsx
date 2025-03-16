@@ -107,18 +107,10 @@ export const CEPAAgreements: React.FC = () => {
     "November 2019": (
       <>
         <p className="text-body-m">
-          On 21 November 2019, an Agreement (“
-          <span
-            className="text-newPrimary underline !text-highlight-s cursor-pointer"
-            onClick={() => {
-              navigate("/support/agreement_on_trade_in_services_clauses");
-            }}
-          >
-            Amendment Agreement
-          </span>
-          ”) was signed between the Mainland and HKSAR to amend the Services
-          Agreement. The Amendment Agreement sets out the following further
-          liberalisation measures:
+          On 21 November 2019, an Agreement ("Amendment Agreement") was signed
+          between the Mainland and HKSAR to amend the Services Agreement. The
+          Amendment Agreement sets out the following further liberalisation
+          measures:
         </p>
         <br />
         <li className="text-body-m">
@@ -169,6 +161,10 @@ export const CEPAAgreements: React.FC = () => {
             className="!text-highlight-m underline text-newPrimary cursor-pointer"
             onClick={() => {
               navigate("/support/CCC_testing");
+              window.scroll({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
             CCC testing
@@ -225,23 +221,25 @@ export const CEPAAgreements: React.FC = () => {
                   Agreement on Trade in Services
                 </span>
                 &nbsp;(“The Services Agreement”) was signed between the Mainland
-                and HKSAR in November 2015. In addition to introducing the new
-                liberalisation measure of implementing, on a pilot basis, a
-                mutual recognition arrangement of certification and relevant
-                testing business among Guangdong, Hong Kong and Macao in the
-                China (Guangdong) Pilot Free Trade Zone, with a view to carrying
-                out "certified once, tested once, and results accepted by three
-                places".
+                and HKSAR in November 2015.
+                <br />
+                <br />
+                In addition to covering and consolidating commitments (relating
+                to liberalisation of trade in services and the testing and
+                certification sector) provided in CEPA and its Supplements and
+                also the Guangdong Agreement, the Services Agreement also
+                introduces the new liberalisation measure of implementing, on a
+                pilot basis, a mutual recognition arrangement of certification
+                and relevant testing business among Guangdong, Hong Kong and
+                Macao in the China (Guangdong) Pilot Free Trade Zone, with a
+                view to carrying out "certified once, tested once, and results
+                accepted by three places".
               </p>
               <br />
               <p className="text-body-m">
-                The Services Agreement covers and consolidates commitments
-                (relating to liberalisation of trade in services and the testing
-                and certification sector) provided in CEPA and its Supplements
-                and also the Guangdong Agreement. The Mainland has formulated
-                an&nbsp;
+                The Mainland has formulated an&nbsp;
                 <a
-                  href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -287,7 +285,11 @@ export const CEPAAgreements: React.FC = () => {
               <span
                 className="!text-highlight-m underline text-newPrimary cursor-pointer"
                 onClick={() => {
-                  navigate("/support/agreement_on_trade_in_goods_clauses");
+                  navigate("/support/agreement-clause#1");
+                  window.scroll({
+                    top: 0,
+                    behavior: "smooth",
+                  });
                 }}
               >
                 The Agreement on Trade in Goods
@@ -311,9 +313,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
-                    navigate(
-                      "/support/agreement_on_economic&technical_cooperation_clauses"
-                    );
+                    navigate("/support/agreement-clause#2");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   The Agreement on Economic and Technical Cooperation
@@ -355,7 +359,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
-                    navigate("/support/guangdong_agreement_clauses");
+                    navigate("/support/agreement-clause#3");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   The Agreement between the Mainland and Hong Kong on Achieving
@@ -371,6 +379,10 @@ export const CEPAAgreements: React.FC = () => {
                   className="!text-highlight-m underline text-newPrimary cursor-pointer"
                   onClick={() => {
                     navigate("/support/CCC_testing");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   China Compulsory Certification (CCC)
@@ -422,7 +434,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
-                    navigate("/support/supplement_X_to_CEPA_clauses");
+                    navigate("/support/agreement-clause#4");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   Supplement X to CEPA
@@ -481,7 +497,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
-                    navigate("/support/supplement_IX_to_CEPA_clauses");
+                    navigate("/support/agreement-clause#5");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   Supplement IX to CEPA
@@ -525,7 +545,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
-                    navigate("/support/supplement_VIII_to_CEPA_clauses");
+                    navigate("/support/agreement-clause#6");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   Supplement VIII to CEPA
@@ -539,6 +563,10 @@ export const CEPAAgreements: React.FC = () => {
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     navigate("/support/CCC_testing");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   China Compulsory Certification (CCC) System
@@ -560,7 +588,11 @@ export const CEPAAgreements: React.FC = () => {
                 <span
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
-                    navigate("/support/supplement_VII_to_CEPA_clauses");
+                    navigate("/support/agreement-clause#7");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   Supplement VII to CEPA
@@ -571,6 +603,10 @@ export const CEPAAgreements: React.FC = () => {
                   className="!text-newPrimary underline !text-highlight-m cursor-pointer"
                   onClick={() => {
                     navigate("/support/CCC_testing");
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   China Compulsory Certification (CCC) System
@@ -583,6 +619,10 @@ export const CEPAAgreements: React.FC = () => {
                     navigate(
                       "/support/international_multilateral_systems_on_mutual_recognition"
                     );
+                    window.scroll({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                 >
                   international multilateral systems on mutual recognition

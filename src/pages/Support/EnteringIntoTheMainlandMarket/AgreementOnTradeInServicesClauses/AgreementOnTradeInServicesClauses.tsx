@@ -28,11 +28,7 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
         services (CPC749)
       </p>
       <p className="my-[24px] text-heading-m">Specific commitments</p>
-      <p className="text-italic-s italic">
-        Effective from 1 June 2020; The amendments made in Oct 2024 on item 2
-        and item 3 are marked in tracking mode, and will come into effect on 1
-        March 2025
-      </p>
+      <p className="text-italic-s italic">Effective from 1 March 2025</p>
       <ul
         style={{ listStyleType: "decimal", paddingLeft: "20px" }}
         className="text-body-m"

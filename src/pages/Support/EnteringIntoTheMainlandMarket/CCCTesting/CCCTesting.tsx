@@ -88,13 +88,13 @@ export const CCCTesting: React.FC = () => {
         <br />
         Hong Kong Accreditation Service
         <br />
-        Telephone: (852) 2829 4846
+        Telephone: (852) 2829 4826
         <br />
         Fax: (852) 2824 1302
         <br />
         Email:&nbsp;
         <span className="underline text-[#00E] cursor-pointer">
-          cc.leung@itc.gov.hk
+          wmleung@itc.gov.hk
         </span>
       </p>
       <hr className="my-[24px]" />
