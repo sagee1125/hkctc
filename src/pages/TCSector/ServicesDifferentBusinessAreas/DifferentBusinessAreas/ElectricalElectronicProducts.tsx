@@ -78,13 +78,13 @@ export const ElectricalElectronicProducts: React.FC = () => {
               );
             })}
           </div>
-          <div className="mt-[16px] flex flex-col gap-[12px]">
+          <ul className="mt-[16px] flex flex-col !gap-[12px]">
             {(activeButton === 0 ? testExamples_1 : testExamples_2).map(
               (item, index) => (
                 <li key={index}>{item}</li>
               )
             )}
-          </div>
+          </ul>
         </>
       ),
     },

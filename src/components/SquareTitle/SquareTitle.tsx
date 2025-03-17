@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSettings } from "../../context";
 type SquareTitleProps = {
-  title: string;
+  title: React.ReactNode;
   showArrowIcon?: boolean;
   redirectTo?: string;
 };
@@ -17,9 +17,9 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
 
   return (
     <div
-      className={`flex flex-row gap-[12px] ${
-        isPC ? "items-center" : "items-start"
-      } ${redirectTo ? "cursor-pointer" : ""}`}
+      className={`flex flex-row gap-[12px] items-start ${
+        redirectTo ? "cursor-pointer" : ""
+      }`}
       onClick={() => {
         if (redirectTo) {
           window.scroll({
@@ -31,10 +31,10 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       }}
     >
       <div
-        className={`${isPC ? "" : "mt-[8px]"} h-[15px] w-[15px] bg-newPrimary`}
+        className={`mt-[8px] h-[15px] w-[15px] bg-newPrimary`}
         style={{ flexShrink: 0 }}
       />
-      <p className={"text-heading-l"}>{title}</p>
+      <div className={"text-heading-l"}>{title}</div>
       {showArrowIcon && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
