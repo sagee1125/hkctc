@@ -510,9 +510,7 @@ export const MediaTemplateWithDialog: React.FC<
         }}
       >
         <div className="flex flex-col items-start justify-center h-full">
-          <p className={`text-highlight-${isPC ? "l" : "xs"}`}>
-            {title.length > 53 ? title.slice(0, 53) + "..." : title}
-          </p>
+          <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
 
           {date && (
             <div className="flex flex-row gap-[8px] mt-[8px] items-center">

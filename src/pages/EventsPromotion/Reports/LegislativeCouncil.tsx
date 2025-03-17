@@ -28,7 +28,7 @@ export const LegislativeCouncil: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={title.length > 53 ? title.slice(0, 53) + "..." : title}
                 maskIcon={maskIcon}
                 date={date as string}
                 mediaLink={link}

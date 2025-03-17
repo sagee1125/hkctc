@@ -24,7 +24,10 @@ const rightMobileComponentMap: Record<string, React.ReactNode> = {
 };
 
 export const AboutUs: React.FC = () => {
-  const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "About HKCTC" }];
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "About HKCTC" },
+  ];
   const [activatedItems, setActivatedItems] = useState<string>(
     Object.keys(rightComponentMap)[0]
   );
