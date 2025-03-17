@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ExploreBar, getCurrentTitle } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { HeaderSocialMedia } from "../Header";
 import { TextField } from "../TextField";
 import { useFormik } from "formik";
@@ -64,7 +64,7 @@ export const exploreOption: Array<{ title: string; nav: string }> = [
   },
 ];
 export const Navigator: React.FC = () => {
-  const { isPC } = useSettings();
+  const { isPC, handleChangeLang, language } = useSettings();
   const location = useLocation();
   const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -309,7 +309,15 @@ export const Navigator: React.FC = () => {
                     )}
                     <Icon
                       icon="ci:globe"
-                      className="h-[24px] w-[24px] text-[#333333] flex-shrink-0"
+                      className="h-[24px] w-[24px] text-[#333333] flex-shrink-0 cursor-pointer"
+                      onClick={() => {
+                        // TODO
+                        handleChangeLang(
+                          language === Language.EN
+                            ? Language.ZH_TW
+                            : Language.EN
+                        );
+                      }}
                     />
                     <div
                       ref={anchorRef}

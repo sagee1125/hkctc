@@ -3,9 +3,13 @@ import classNames from "classnames";
 import { Drawer } from "@mui/material";
 import { useSettings } from "../../context";
 
+export type DirectorySidebarItems = {
+  label: string;
+  value: string;
+};
 type DirectorySidebarProps = {
   disabled?: boolean;
-  directorySidebarItems: string[];
+  directorySidebarItems: DirectorySidebarItems[] | string[]; // string[] to be replaced
   activatedItems: string;
   setActivatedItems: (activatedItems: string) => void;
 };
@@ -22,7 +26,9 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
     <>
       <div className="flex flex-col gap-[0] w-full">
         {directorySidebarItems.map((item, index) => {
-          const isActivated = item === activatedItems;
+          const isActivated =
+            item === activatedItems ||
+            (item as DirectorySidebarItems).value === activatedItems;
 
           const borderStyle = isActivated
             ? "border-newPrimary z-10"
@@ -46,13 +52,18 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               }}
               onClick={() => {
                 if (disabled) return;
-                setActivatedItems(item);
+                if (typeof item === "string") {
+                  // TO BE REPLACED
+                  setActivatedItems(item);
+                } else {
+                  setActivatedItems(item.value);
+                }
                 setIsOpen(false);
               }}
               key={index}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
-                {item}
+                {typeof item === "string" ? item : item.label}
               </p>
 
               {isActivated ? (

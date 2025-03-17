@@ -5,28 +5,54 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   DirectorySidebar,
+  DirectorySidebarItems,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
   Sidebar,
 } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { navItemEnum, SubItems } from "../../const";
-
-const rightComponentMap: Record<string, React.ReactNode> = {
-  "About HKCTC": <AboutHKCTC />,
-  "Panel on Manpower Development": <PanelManpowerDevelopment />,
-};
 
 const rightMobileComponentMap: Record<string, React.ReactNode> = {
   [navItemEnum.about_HKCTC]: <AboutHKCTC />,
   [navItemEnum.panel_on_manpower_development]: <PanelManpowerDevelopment />,
 };
 
+const multilingual = {
+  en: {
+    home: "Home",
+    about_hkctc: "About HKCTC",
+    panel: "Panel on Manpower Development",
+  },
+  cn: {
+    home: "主頁",
+    about_hkctc: "關於我們",
+    panel: "人力發展小組",
+  },
+};
+
 export const AboutUs: React.FC = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "About HKCTC" },
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { home, about_hkctc, panel } = page_text;
+  const breadcrumbItems = [{ label: home, href: "/" }, { label: about_hkctc }];
+
+  const rightComponentMap: Record<string, React.ReactNode> = {
+    [navItemEnum.about_HKCTC]: <AboutHKCTC />,
+    [navItemEnum.panel_on_manpower_development]: <PanelManpowerDevelopment />,
+  };
+
+  const directorySidebarItems: DirectorySidebarItems[] = [
+    {
+      label: about_hkctc,
+      value: navItemEnum.about_HKCTC,
+    },
+    {
+      label: panel,
+      value: navItemEnum.panel_on_manpower_development,
+    },
   ];
   const [activatedItems, setActivatedItems] = useState<string>(
     Object.keys(rightComponentMap)[0]
@@ -34,15 +60,16 @@ export const AboutUs: React.FC = () => {
   const [activatedMBItems, setActivatedMBItems] = useState<string>(
     Object.keys(rightMobileComponentMap)[0]
   );
-  const { isPC } = useSettings();
+
   const mbSidebarItems: SubItems[] = [
-    { enum: navItemEnum.about_HKCTC, subTitle: "About HKCTC", imgUrl: "" },
+    { enum: navItemEnum.about_HKCTC, subTitle: about_hkctc, imgUrl: "" },
     {
       enum: navItemEnum.panel_on_manpower_development,
-      subTitle: "Panel on Manpower Development",
+      subTitle: panel,
       imgUrl: "",
     },
   ];
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox src={"about/banner_bg.png"} />
@@ -59,7 +86,7 @@ export const AboutUs: React.FC = () => {
               <div className="sticky top-[20px]">
                 <DirectorySidebar
                   activatedItems={activatedItems}
-                  directorySidebarItems={Object.keys(rightComponentMap)}
+                  directorySidebarItems={directorySidebarItems}
                   setActivatedItems={setActivatedItems}
                 />
               </div>
