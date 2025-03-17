@@ -7,7 +7,7 @@ export const handleReturnDifferentBusinessAreasBreadcrumb = (
   const differentBusinessAreasBreadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "About T&C Sector",
+      label: "About T&C Industry",
       href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
     },
     {

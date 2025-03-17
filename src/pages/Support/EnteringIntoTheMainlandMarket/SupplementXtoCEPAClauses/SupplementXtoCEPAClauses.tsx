@@ -19,7 +19,7 @@ const specificCommitments: React.ReactNode[] = [
         className="underline text-[#00E]"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+        href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
       >
         Implementation Guide
       </a>

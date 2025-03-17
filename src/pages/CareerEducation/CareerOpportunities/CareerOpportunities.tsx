@@ -9,7 +9,7 @@ export const CareerOpportunities: React.FC = () => {
       <div className="bg-[#F7F7F5] px-[42px] py-[36px] mt-[24px]">
         <p className="text-body-m flex-grow min-w-0">
           The nurture of young talent is essential to support the development of
-          the T&C sector. HKCTC has been putting much effort to assist the
+          the T&C industry. HKCTC has been putting much effort to assist the
           sector to attract new blood through arranging a wide range of
           activities for students.
         </p>

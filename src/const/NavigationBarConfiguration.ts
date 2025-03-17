@@ -117,7 +117,7 @@ export const NavigationBarConfiguration: NavData[] = [
     navUrl: "about-us",
   },
   {
-    title: "About T&C Sector",
+    title: "About T&C Industry",
     showSidebar: true,
     items: [
       {
@@ -125,7 +125,7 @@ export const NavigationBarConfiguration: NavData[] = [
         subItems: [
           {
             enum: navItemEnum.profile_and_role,
-            subTitle: "Profile and Role of T&C Sector",
+            subTitle: "Profile and Role of T&C Industry",
             imgUrl: "Profile_and_Role.png",
             navUrl: `/tc-sector?section=${navItemEnum.profile_and_role}`,
           },

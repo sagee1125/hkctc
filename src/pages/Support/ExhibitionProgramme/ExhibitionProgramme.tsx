@@ -16,7 +16,7 @@ export const ExhibitionProgramme: React.FC = () => {
         over the world. HKCTC will bear the booth rental, design and production
         costs, and coordinate the logistics arrangements, whereas the T&C
         organisations will deploy their staff at the booth to assist in
-        promoting the strengths of the Hong Kong T&C sector.
+        promoting the strengths of the Hong Kong T&C industry.
       </p>
     </div>
   );

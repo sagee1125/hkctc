@@ -111,7 +111,7 @@ const aboutTestingSector: Record<string, any[]> = {
   "Metrology, Accreditation and Standards": advertorialsList.filter((item) =>
     item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
   ),
-  "Support to T&C Sector": advertorialsList.filter((item) =>
+  "Support to T&C Industry": advertorialsList.filter((item) =>
     item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
   ),
 };

@@ -76,7 +76,7 @@ const leftComponentMapKeys = [
 export const TCSector: React.FC = () => {
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "About T&C Sector"
+      (nav: NavData) => nav.title === "About T&C Industry"
     )?.items.find(
       (subNav: NavItems) =>
         subNav.name ===
@@ -132,7 +132,7 @@ export const TCSector: React.FC = () => {
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
-      label: "About T&C Sector",
+      label: "About T&C Industry",
       href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
     },
     {
@@ -143,7 +143,7 @@ export const TCSector: React.FC = () => {
   const sidebar = (
     <div className="sticky top-[20px]">
       <Sidebar
-        title={"About T&C Sector"}
+        title={"About T&C Industry"}
         sidebarItems={eventItems}
         activatedItems={activeSidebarItems}
         setActivatedItems={handleChangeSidebar}

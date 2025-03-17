@@ -58,7 +58,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Number of employees engaged in testing and certification
+              Number of persons engaged in testing and certification
               activities
               <br />
               from 2009 to 2022
@@ -243,7 +243,7 @@ export const ProfileAndRole: React.FC = () => {
           <br />
           <br />
           In the same year, there were about 850 private independent
-          establishments in the T&C sector. The vast majority (around 94% or 800
+          establishments in the T&C industry. The vast majority (around 94% or 800
           establishments) of these were small and medium enterprises engaging
           less than 50 persons. They accounted for 37% of the total persons
           engaged and 30% of the total business receipts in the sector.
@@ -326,7 +326,7 @@ export const ProfileAndRole: React.FC = () => {
         </div>
 
         <p className="text-body-m">
-          Locally, the T&C sector plays an important role in daily life of the
+          Locally, the T&C industry plays an important role in daily life of the
           Hong Kong community. For example, medical laboratories provide
           essential support to medical sector in the diagnosis of illnesses.
           Private laboratories have been playing an increasing role in
@@ -346,7 +346,7 @@ export const ProfileAndRole: React.FC = () => {
           Hong Kong as well as Pearl River Delta Region.
           <br />
           <br />
-          From a wider perspective, the T&C sector has also contributed to the
+          From a wider perspective, the T&C industry has also contributed to the
           development of Hong Kong as a business services centre. Coupled with
           other advantages including a sound legal system, a business-friendly
           environment and world class infrastructure, the availability of
