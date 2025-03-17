@@ -59,13 +59,13 @@ const returnComponent = (
 } => {
   const directoryItems =
     Object.keys(directorySidebarItemsMap[navItem] ?? {}) ?? [];
+
   const rightComponentMap: Partial<
     Record<
       navItemEnum,
       {
         topBanner: string;
         component: React.ReactNode;
-        directorySidebar?: React.ReactNode;
       }
     >
   > = {

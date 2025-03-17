@@ -11,26 +11,6 @@ import {
 import { useSettings } from "../../../../context";
 import { MEDIA_TYPE } from "../../../../const";
 
-const applicationData: Array<{
-  title: string;
-  link: string;
-}> = [
-  {
-    title: "Guidance Notes",
-    link: "/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf",
-  },
-  {
-    title:
-      "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
-    link: "/en/event/mpaward/doc/mpaward-2023-24-Form_TC_MP01_Eng.pdf",
-  },
-  {
-    title:
-      "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
-    link: "/en/event/mpaward/doc/mpaward-2023-24-Form_TC_MP02_Eng.pdf",
-  },
-];
-
 const assessmentCriteriaGrid = [
   {
     color: "trustfulBlue",
@@ -41,7 +21,7 @@ const assessmentCriteriaGrid = [
     color: "elegancePurple",
     title: "Area B",
     content:
-      "Corporate support to enhance T&C practitioners’ competence and professionalism",
+      "Corporate support to enhance T&C practitioners’ Competence and professionalism",
   },
   {
     color: "growthfulGreen",
@@ -75,8 +55,12 @@ const stagesGridTwo = [
   },
   {
     title: "Stage 2",
-    content:
-      "Independent Assessment Panel will consider and, shortlisting as the circumstances require, interview applicants with a view to deciding on the awardees",
+    content: (
+      <>
+        <span className="underline">Assessment Panel</span>&nbsp;will shortlist
+        and interview applicant practitioners, and select the awardees
+      </>
+    ),
   },
 ];
 
@@ -91,9 +75,15 @@ const questionCategoriesMap: Record<
     },
     {
       title:
+        "Can we submit the application form and supplementary documents separately?",
+      content:
+        "No. Completed application form must be submitted together with supplementary documents before the application deadline.",
+    },
+    {
+      title:
         "Can we submit applications for both Testing and Certification Manpower Development Corporate Award and Excellent Testing and Certification Professional Award?",
       content:
-        "Yes. An accredited testing and certification body may apply for Testing and Certification Manpower Development Corporate Award as well as nominate its testing and certification practitioners for the Excellent Testing and Certification Professional Award, subject to meeting the eligibility requirements of the Awards.",
+        "Yes. Testing and certification bodies can apply for Testing and Certification Manpower Development Corporate Award as well as nominate testing and certification practitioners for the Excellent Testing and Certification Professional Award, subject to meeting the eligibility requirements of the Awards.",
     },
     {
       title: "Is there a fixed number of awardees?",
@@ -110,7 +100,7 @@ const questionCategoriesMap: Record<
       title:
         "Our company group consists of several accredited testing and certification bodies. Do we need to submit a separate application for each accredited testing and certification body in our group?",
       content:
-        "Applicant entities may include accredited testing and certification bodies of the same group in one application if such testing and certification bodies are under the same management and apply the same company policy. In that case, information provided in the application should cover all T&C bodies specified in the application, and the application would be assessed holistically based on the activities and achievements made by all testing and certification bodies specified in the application.",
+        "Applicant entities may include accredited testing and certification bodies of the same group in one application if such testing and certification bodies are under the same management and apply the same company policy. In that case, information provided in the application should cover all T&C bodies specified in the application, and the application would be assessed holistically based on the same activities and achievements made by all testing and certification bodies specified in the application.",
     },
     {
       title:
@@ -128,17 +118,17 @@ const questionCategoriesMap: Record<
       title:
         "If an activity of our company was conducted before 1 June 2021, could we use this to support our application?",
       content:
-        "No. Only those activities and achievements made during the period from 1 June 2021 up to the date of application would be considered for the Award.",
+        "No. Only those activities and achievements made during the period from 1 January 2020 up to the date of application would be considered for the Award.",
     },
     {
       title:
         "What is the effective period for the use of the logos under the Corporate Award?",
       content:
-        "Awardees of the Testing and Certification Manpower Development Corporate Award will be permitted to use the logo for the Gold Award and Platinum Award under the Corporate Award as appropriate from the date of public announcement of the award results. The specific date would be announced in due course.",
+        "Awardees of the Testing and Certification Manpower Development Corporate Award will be permitted to use the Corporate Award Logo from the date of public announcement of the award results. The specific date would be announced in due course.",
     },
     {
       title:
-        "Do we need to submit samples of our promotional materials using the logos under the Corporate Award to the HKCTC Secretariat for prior approval?",
+        "Do we need to submit samples of our promotional materials using the Corporate Award Logo to the HKCTC Secretariat for prior approval?",
       content: (
         <p>
           No. However, all promotional materials bearing the Corporate Award
@@ -147,17 +137,16 @@ const questionCategoriesMap: Record<
           or otherwise objectionable nature.
           <br />
           <br />
-          Please refer to the “Guidelines on the Use of the Logos under the
-          Testing and Certification Manpower Development Corporate Award” at
-          Annex to the&nbsp;
+          Please refer to the “Guidelines on the Use of the Testing and
+          Certification Manpower Development Corporate Award Logo” at the Annex
+          to the&nbsp;
           <a
             className="underline text-[#00E]"
             href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
           >
             Guidance Notes
           </a>
-          &nbsp;for details about the use of the logo for the Gold Award and
-          Platinum Award under the Corporate Award as appropriate.
+          &nbsp;for details about the use of the Corporate Award Logo.
         </p>
       ),
     },
@@ -173,7 +162,7 @@ const questionCategoriesMap: Record<
       title:
         "Can a testing and certification body nominate more than one testing and certification practitioner?",
       content:
-        "Yes, as long as the nominees fulfill the eligibility requirement for the Award. There is no restriction on the number of employees nominated by a testing and certification body.",
+        "Yes, as long as the nominees fulfil the eligibility requirement for the Award. There is no restriction on the number of employees nominated by a testing and certification body.",
     },
     {
       title: "Can a testing and certification body nominate an ex-employee?",
@@ -192,20 +181,12 @@ const supportingOrg: Array<{
     urlPath: "ACML.png",
   },
   {
-    title: "BEAM",
-    urlPath: "BEAM.png",
+    title: "HKICA",
+    urlPath: "HKICA.png",
   },
   {
-    title: "DoC",
-    urlPath: "DoC.png",
-  },
-  {
-    title: "Consumer_Council",
-    urlPath: "Consumer_Council.png",
-  },
-  {
-    title: "GEMMAS",
-    urlPath: "GEMMAS.png",
+    title: "HKIE",
+    urlPath: "HKIE.png",
   },
   {
     title: "HKTIC",
@@ -216,172 +197,106 @@ const supportingOrg: Array<{
     urlPath: "HKAML.png",
   },
   {
-    title: "HKICA",
-    urlPath: "HKICA.png",
-  },
-  {
-    title: "HKIE",
-    urlPath: "HKIE.png",
-  },
-  {
-    title: "HKMU",
-    urlPath: "HKMU.png",
-  },
-  {
-    title: "DABCT",
-    urlPath: "DABCT.png",
-  },
-  {
-    title: "HKSQ",
-    urlPath: "HKSQ.png",
-  },
-  {
-    title: "HKTDC",
-    urlPath: "HKTDC.png",
-  },
-  {
     title: "QF",
     urlPath: "QF.png",
-  },
-  {
-    title: "VTC",
-    urlPath: "VTC.png",
   },
 ];
 
 const timeLine: Array<{ date: string; event: string }> = [
   {
-    date: "2 May 2023",
+    date: "7 Jun 2021",
     event: "Application open",
   },
   {
-    date: "11:59 pm, 31 Jul 2023",
+    date: "31 Aug 2021, 6:00 pm",
     event: "Application close",
   },
   {
-    date: "Aug - Oct 2023",
-    event: "Application checking and assessment",
+    date: "Sep - Nov 2021",
+    event: "Application Assessment",
   },
   {
-    date: "Sep 2023",
-    event: "Interviews with applicants of Excellent T&C Professional Award",
+    date: "Oct 2021",
+    event:
+      "Notification for interviews to Excellent T&C Professional Award shortlisted applicants",
   },
   {
-    date: "Oct 2023",
+    date: "Nov 2021",
     event: "Announcement of award results",
   },
   {
-    date: "Dec 2023",
+    date: "Dec 2021",
     event: "Award presentation ceremony",
   },
 ];
 
+const applicationData: Array<{
+  title: string;
+  link: string;
+}> = [
+  {
+    title: "Guidance Notes",
+    link: "/en/event/mpaward/GuidanceNotes.pdf",
+  },
+  {
+    title:
+      "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
+    link: "/en/event/mpaward/MP01.pdf",
+  },
+  {
+    title:
+      "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
+    link: "/en/event/mpaward/MP02.pdf",
+  },
+];
 const publicationData: MediaTemplateWithDialogProps[] = [
   {
     title: "Pamphlet",
     maskIcon: "PDF.png",
     date: "",
     mediaType: MEDIA_TYPE.PDF,
-    mediaLink: "/en/event/mpaward/pamphlet-2023-24.pdf",
+    mediaLink: "/en/event/mpaward/pamphlet.pdf",
     mediaDomain: "hkctc",
   },
   {
-    title: "Media Coverage",
-    maskIcon: "PRESS.png",
-    imagePath: "press_release.png",
-
-    date: "",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaLink: "https://www.hkctc.gov.hk/en/event/mpaward/media_2023-24.html",
-  },
-  {
-    title: "Infographic video",
+    title: "Congratulatory Messages for the Award Scheme",
     maskIcon: "VIDEO.png",
     date: "",
     mediaType: MEDIA_TYPE.VIDEO,
-    mediaLink: "/videos/en/mpaward-2023-24-infographic-video-en.mp4 ",
+    mediaLink: "/videos/en/MPAward_Congratulatory_Video-EN.mp4",
     mediaDomain: "hkctc",
   },
   {
-    title: "Commemorative publication",
-    maskIcon: "PDF.png",
+    title: "Highlights of the Ceremony",
+    maskIcon: "VIDEO.png",
     date: "",
-    mediaType: MEDIA_TYPE.PDF,
-    mediaLink:
-      "/en/event/mpaward/doc/TC-Manpower-Development-Award-Scheme-2023-24_Commemorative-Publication.pdf",
+    mediaType: MEDIA_TYPE.VIDEO,
+    mediaLink: "/videos/tc/MPAward_Highlight.mp4",
     mediaDomain: "hkctc",
   },
   {
     title: "Press Release",
     maskIcon: "PRESS.png",
-    date: "4 December 2023",
-    imagePath: "press_realease_1.png",
+    date: "22 December 2021",
+    imagePath: "press_release.png",
     mediaType: MEDIA_TYPE.NEW_PAGE,
     mediaLink:
-      "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+      "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
   },
 ];
-export const AwardScheme: React.FC = () => {
+
+export const AwardScheme21to22Preview: React.FC = () => {
   const navigate = useNavigate();
   const { isPC } = useSettings();
 
   const awardMapOne: Record<string, React.ReactNode> = {
-    "Two Tiers of Awards": (
-      <div
-        className={`w-full grid grid-cols-${
-          isPC ? "2 h-[218px]" : "1 h-auto"
-        } gap-[24px] `}
-      >
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
-          <div className="text-heading-s flex flex-row items-center gap-[8px]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              viewBox="0 0 25 24"
-              fill="none"
-            >
-              <path
-                d="M21.4375 4H18.4375V3C18.4375 2.73478 18.3321 2.48043 18.1446 2.29289C17.9571 2.10536 17.7027 2 17.4375 2H7.4375C7.17228 2 6.91793 2.10536 6.73039 2.29289C6.54286 2.48043 6.4375 2.73478 6.4375 3V4H3.4375C3.17228 4 2.91793 4.10536 2.73039 4.29289C2.54286 4.48043 2.4375 4.73478 2.4375 5V8C2.4375 12.31 4.2375 14.91 7.2575 15C7.69814 15.762 8.30103 16.4176 9.02341 16.9205C9.74579 17.4234 10.57 17.7612 11.4375 17.91V20H9.4375V22H15.4375V20H13.4375V17.91C14.305 17.7612 15.1292 17.4234 15.8516 16.9205C16.574 16.4176 17.1769 15.762 17.6175 15C20.6175 14.9 22.4375 12.3 22.4375 8V5C22.4375 4.73478 22.3321 4.48043 22.1446 4.29289C21.9571 4.10536 21.7027 4 21.4375 4ZM4.4375 8V6H6.4375V12.83C4.6575 12.08 4.4375 9.3 4.4375 8ZM18.4375 12.83V6H20.4375V8C20.4375 9.3 20.2175 12.08 18.4375 12.83Z"
-                fill="#363636"
-              />
-            </svg>
-            Platinum Award
-          </div>
-          <p className="text-body-m">
-            Those who have fulfilled 19 or more of the 24 Assessment Criteria,
-            inclusive of at least two Criteria under each Area
-          </p>
-        </div>
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
-          <div className="text-heading-s flex flex-row items-center gap-[8px]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              viewBox="0 0 25 24"
-              fill="none"
-            >
-              <path
-                d="M21.4375 4H18.4375V3C18.4375 2.73478 18.3321 2.48043 18.1446 2.29289C17.9571 2.10536 17.7027 2 17.4375 2H7.4375C7.17228 2 6.91793 2.10536 6.73039 2.29289C6.54286 2.48043 6.4375 2.73478 6.4375 3V4H3.4375C3.17228 4 2.91793 4.10536 2.73039 4.29289C2.54286 4.48043 2.4375 4.73478 2.4375 5V8C2.4375 12.31 4.2375 14.91 7.2575 15C7.69814 15.762 8.30103 16.4176 9.02341 16.9205C9.74579 17.4234 10.57 17.7612 11.4375 17.91V20H9.4375V22H15.4375V20H13.4375V17.91C14.305 17.7612 15.1292 17.4234 15.8516 16.9205C16.574 16.4176 17.1769 15.762 17.6175 15C20.6175 14.9 22.4375 12.3 22.4375 8V5C22.4375 4.73478 22.3321 4.48043 22.1446 4.29289C21.9571 4.10536 21.7027 4 21.4375 4ZM4.4375 8V6H6.4375V12.83C4.6575 12.08 4.4375 9.3 4.4375 8ZM18.4375 12.83V6H20.4375V8C20.4375 9.3 20.2175 12.08 18.4375 12.83Z"
-                fill="#EE9C22"
-              />
-            </svg>
-            Gold Award
-          </div>
-          <p className="text-body-m">
-            Those who have fulfilled 10 or more of the 24 Assessment Criteria,
-            inclusive of at least two Criteria under each Area
-          </p>
-        </div>
-      </div>
-    ),
     Benefits: (
       <>
         <p>Awardees will be -</p>
         <br />
         <ul>
-          <li>Presented with a Trophy and an Award Certificate;</li> <br />
+          <li>Presented with a Trophy and an Award Certificate;</li>
+          <br />
           <li>
             Permitted to use the logo for the Gold Award and the Platinum Award
             as appropriate on their websites and promotional materials (Please
@@ -430,8 +345,9 @@ export const AwardScheme: React.FC = () => {
     "Assessment Criteria": (
       <>
         <p>
-          The assessment covers the following four Areas, each with six Criteria
-          as specified in the Guidance Notes -
+          Applicant entities which fulfill at least three Criteria under each of
+          the following four Areas are qualified for the Award, subject to the
+          provision of valid and credible supporting documents -
         </p>
         <div
           className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] my-[24px]`}
@@ -452,24 +368,13 @@ export const AwardScheme: React.FC = () => {
         </div>
         <div>
           Activities carried out and achievements made during the period from 1
-          June 2021 up to the date of application would be considered for the
+          January 2020 up to the date of application would be considered for the
           Award.
           <br />
           <br />
-          Subject to provision of valid and credible supporting documents,
-          applicant entities would be eligible for the award in two tiers -
-          <br />
-          <br />
-          <p className="!text-highlight-m">Platinum Award:</p>
-          <br />
-          Those who have fulfilled 19 or more of the 24 Criteria, inclusive of
-          at least two Criteria under each Area
-          <br />
-          <br />
-          <p className="!text-highlight-m">Gold Award:</p>
-          <br />
-          Those who have fulfilled 10 or more of the 24 Criteria, inclusive of
-          at least two Criteria under each Area
+          Those awardees who have demonstrated exceptional achievements in
+          manpower and professional development of T&C practitioners in specific
+          aspect may receive special commendation.
         </div>
       </>
     ),
@@ -500,146 +405,6 @@ export const AwardScheme: React.FC = () => {
     ),
   };
   const awardMapTwo: Record<string, React.ReactNode> = {
-    "Two Tiers of Awards": (
-      <div
-        className={`w-full grid grid-cols-${
-          isPC ? "2 h-[218px]" : "1 h-auto"
-        } gap-[24px]`}
-      >
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
-          <div className="text-heading-s flex flex-row items-center gap-[8px]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="24"
-              viewBox="0 0 22 24"
-              fill="none"
-            >
-              <mask
-                id="mask0_3330_1579"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="0"
-                width="22"
-                height="24"
-              >
-                <path
-                  d="M15.4375 8C15.4375 9.06087 15.0161 10.0783 14.2659 10.8284C13.5158 11.5786 12.4984 12 11.4375 12C10.3766 12 9.35922 11.5786 8.60907 10.8284C7.85893 10.0783 7.4375 9.06087 7.4375 8"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.4375 4C10.3766 4 9.35922 4.42143 8.60907 5.17157C7.85893 5.92172 7.4375 6.93913 7.4375 8H15.4375C15.4375 6.93913 15.0161 5.92172 14.2659 5.17157C13.5158 4.42143 12.4984 4 11.4375 4Z"
-                  fill="white"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M5.4375 8H17.4375M11.4375 2V4"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.4375 13.5C6.743 13.5 2.9375 17.0815 2.9375 21.5H19.9375C19.9375 17.0815 16.132 13.5 11.4375 13.5Z"
-                  fill="white"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8.4375 17V19M14.4375 17V19"
-                  stroke="black"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </mask>
-              <g mask="url(#mask0_3330_1579)">
-                <path d="M-0.5625 0H23.4375V24H-0.5625V0Z" fill="#D1E39B" />
-              </g>
-            </svg>
-            Junior Professional
-          </div>
-          <p className="text-body-m">
-            Open to T&C practitioners who have 1 year up to less than 6 years of
-            T&C services in aggregate
-          </p>
-        </div>
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
-          <div className="text-heading-s flex flex-row items-center gap-[8px]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="24"
-              viewBox="0 0 22 24"
-              fill="none"
-            >
-              <mask
-                id="mask0_3330_1631"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="0"
-                width="22"
-                height="24"
-              >
-                <path
-                  d="M15.4375 8C15.4375 9.06087 15.0161 10.0783 14.2659 10.8284C13.5158 11.5786 12.4984 12 11.4375 12C10.3766 12 9.35922 11.5786 8.60907 10.8284C7.85893 10.0783 7.4375 9.06087 7.4375 8"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.4375 4C10.3766 4 9.35922 4.42143 8.60907 5.17157C7.85893 5.92172 7.4375 6.93913 7.4375 8H15.4375C15.4375 6.93913 15.0161 5.92172 14.2659 5.17157C13.5158 4.42143 12.4984 4 11.4375 4Z"
-                  fill="white"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M5.4375 8H17.4375M11.4375 2V4"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.4375 13.5C6.743 13.5 2.9375 17.0815 2.9375 21.5H19.9375C19.9375 17.0815 16.132 13.5 11.4375 13.5Z"
-                  fill="white"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8.4375 17V19M14.4375 17V19"
-                  stroke="black"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </mask>
-              <g mask="url(#mask0_3330_1631)">
-                <path d="M-0.5625 0H23.4375V24H-0.5625V0Z" fill="#BBC9E7" />
-              </g>
-            </svg>
-            Senior Professional
-          </div>
-          <p className="text-body-m">
-            Open to T&C practitioners who have 6 years up to less than 20 years
-            of T&C services in aggregate
-          </p>
-        </div>
-      </div>
-    ),
     Benefits: (
       <>
         <p>Awardees will be -</p>
@@ -648,7 +413,7 @@ export const AwardScheme: React.FC = () => {
           <li>Presented with a Trophy and an Award Certificate;</li>
           <br />
           <li>
-            Invited to attend the presentation ceremony and publicity events
+            Invited to attend the presentation ceremony and publicity events.
           </li>
         </ul>
       </>
@@ -673,27 +438,47 @@ export const AwardScheme: React.FC = () => {
             Located in Hong Kong with major duty to carry out testing,
             calibration, inspection and/or certification service.
           </li>
+          <br />
+          <p>There are two subgroups under the Award -</p>
+        </div>
+        <div className="al">
+          <li>
+            <span className="!text-highlight-m">Junior Professional:</span>
+            &nbsp;Testing and certification (T&C) practitioners who have joined
+            the T&C sector for at least 1 year and are appointed in a
+            junior/entry rank position in an accredited T&C body; and
+          </li>
+          <br />
+          <li>
+            <span className="!text-highlight-m">Middle Management:</span>
+            &nbsp;T&C practitioners who have joined the T&C sector for at least
+            5 years and are appointed in a managerial position in an accredited
+            T&C body.
+          </li>
         </div>
       </>
     ),
     "Assessment Criteria": (
       <>
-        <p>
-          Each application will be considered on the basis of its overall
-          merits, including but not limited to -
+        <div className="al">
+          Merits of each application will be assessed on one of the following
+          aspects -
           <br />
           <br />
-          i. Commitment to continuous learning and professional development by
-          acquiring new skills, capabilities as well as relevant academic and
-          professional qualifications after joining the testing and
-          certification sector;
+          <li>
+            Commitment to continuous learning and professional development by
+            acquiring new skills, capabilities as well as relevant academic and
+            professional qualifications after joining the testing and
+            certification sector;
+          </li>
           <br />
-          <br />
-          ii. Impact/significance of contributions made to improving service
-          quality or productivity of the nominating testing and certification
-          body (e.g. adopting innovation and/or new technology in service
-          delivery).
-        </p>
+          <li>
+            Impact/significance of contributions made to improving service
+            quality or productivity of the nominating testing and certification
+            body (e.g. adopting innovation and/or new technology in service
+            delivery).
+          </li>
+        </div>
       </>
     ),
     "Selection Process": (
@@ -705,18 +490,18 @@ export const AwardScheme: React.FC = () => {
               index !== 0 ? "newPrimary" : "white"
             } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
           >
-            <p
+            <div
               className={`text-${
                 index === 0 ? "newPrimary" : "white"
               } underline !text-heading-s`}
             >
               {item.title}
-            </p>
-            <p
+            </div>
+            <div
               className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
             >
               {item.content}
-            </p>
+            </div>
           </div>
         ))}
       </div>
@@ -735,20 +520,16 @@ export const AwardScheme: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle title="Testing & Certification Manpower Development Award Scheme" />
-      <p className="text-heading-l">2023-2024</p>
+      <p className="text-heading-l">2021-2022</p>
       <p className="text-highlight-l my-[24px] text-[#666]">
-        [Results announced on 4 December 2023]
+        [Results announced on 22 December 2021]
       </p>
       <p className="text-body-m mb-[24px]">
-        With a view to encouraging the testing and certification (T&C) bodies to
-        invest in talent training and development, while also commending those
-        T&C practitioners who has striven for continuous learning and
-        professional development, and/or contributed to service quality
-        improvement, the Hong Kong Council for Testing and Certification (HKCTC)
-        launched the first “Testing and Certification Manpower Development Award
-        Scheme” in 2021. Having regard to the favourable feedback from the T&C
-        sector, HKCTC organised in 2023 again the Award Scheme (the 2023 - 24
-        Award Scheme).
+        HKCTC launches the first “Testing and Certification Manpower Development
+        Award Scheme” (the Award Scheme) in 2021 to recognise testing and
+        certification (T&C) bodies which attach great importance to talent
+        training and manpower development, as well as to encourage T&C
+        practitioners to strive for improvement and professional development.
       </p>
       <hr />
 
@@ -835,23 +616,24 @@ export const AwardScheme: React.FC = () => {
       <p className="text-heading-l">
         II. Excellent Testing and Certification Professional Award
       </p>
-      <p className="text-body-m mt-[24px]">
+      <div className="text-body-m mt-[24px]">
         This Award commends individual T&C practitioners who have demonstrated
         excellence in various aspects, including but not limited to the
         followings:
+        <br />
         <br />
         <ul>
           <li>
             Pursuing continuous learning and professional development by
             acquiring new skills, capabilities as well as relevant academic and
-            professional qualifications after joining the T&C industry;
+            professional qualifications after joining the T&C sector;
           </li>
           <li>
-            Making outstanding contributions to improving service quality or
+            Making outstanding contribution s to improving service quality or
             productivity; etc
           </li>
         </ul>
-      </p>
+      </div>
 
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {Object.keys(awardMapTwo).map((btn, index) => {
@@ -904,10 +686,9 @@ export const AwardScheme: React.FC = () => {
         ))}
       </div>
 
-      <p className="text-heading-l mt-[24px]" id="application">
-        Application
-      </p>
-      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+      <p className="text-heading-l my-[24px]">Application</p>
+
+      <div className="w-full flex flex-col gap-[24px]">
         {applicationData.map((item, index) => {
           const { title, link } = item;
           return (
@@ -925,9 +706,7 @@ export const AwardScheme: React.FC = () => {
           );
         })}
       </div>
-      <p className="text-heading-l my-[24px]" id="publications">
-        Publications
-      </p>
+      <p className="text-heading-l my-[24px]">Publications</p>
       <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
         {publicationData.map((item, index) => {
           const {
@@ -962,7 +741,7 @@ export const AwardScheme: React.FC = () => {
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
         onClick={() => {
-          navigate("/events-promotion/award-scheme2324");
+          navigate("/events-promotion/award-scheme2122");
           window.scroll({
             top: 100,
             behavior: "smooth",
@@ -971,7 +750,7 @@ export const AwardScheme: React.FC = () => {
       >
         <img
           className="w-[130px] h-full object-contain"
-          src={process.env.PUBLIC_URL + "/assets/eventsLanding/2023-2024.png"}
+          src={process.env.PUBLIC_URL + "/assets/eventsLanding/2021-2022.png"}
           alt={"2023-2024"}
         />
         <div
@@ -979,9 +758,7 @@ export const AwardScheme: React.FC = () => {
             isPC ? "pr-[16px]" : ""
           }`}
         >
-          {!isPC
-            ? "T&C Manpower Development Award Scheme..."
-            : "T&C Manpower Development Award Scheme 2023-2024"}
+          List of Awardees/ Award Ceremony
         </div>
         <svg
           className="flex-shrink-0"

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
+import {
+  AwardScheme,
+  AwardScheme21to22,
+  SeminarsWorkshops,
+} from "./EventsLanding";
 import { seminarsAndWorkshopsList } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/seminarArticles";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
 import { PressReleases } from "./News";
@@ -17,6 +21,8 @@ import {
 import {
   BannerPhotoBox,
   Breadcrumb,
+  DirectorySidebar,
+  DirectorySidebarItems,
   MultipleSidebars,
   fullContainer,
   maxMobileContainer,
@@ -30,19 +36,46 @@ import {
   navItemEnum,
 } from "../../const";
 import { Videos } from "./News/Videos";
+import { RegistrationBox } from "./EventsLanding/SeminarsWorkshops/RegistrationBox";
+import { AwardScheme21to22Preview } from "./EventsLanding/AwardScheme/AwardScheme21to22Preview";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 import { useSettings } from "../../context";
-import { RegistrationBox } from "./EventsLanding/SeminarsWorkshops/RegistrationBox";
+
+const directoryItems: DirectorySidebarItems[] = [
+  {
+    label: "T&C Manpower Development Award Scheme 2023-2024",
+    value: "2324",
+  },
+  {
+    label: "T&C Manpower Development Award Scheme 2021-2022",
+    value: "2122",
+  },
+];
+
+const profileAndRoleRec: Record<string, React.ReactNode> = {
+  "2324": <AwardScheme />,
+  "2122": <AwardScheme21to22Preview />,
+};
 
 export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const { isPC } = useSettings();
-
+  const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
+    useState<string>("2324");
   const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
   const seminarArticleTitle =
     seminarsAndWorkshopsList[seminarArticleIndex]?.title;
+
+  const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
+    setActivatedDirectorySidebarItems(activatedItems);
+
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const sidebarComponent: Partial<
     Record<
@@ -58,7 +91,14 @@ export const EventsPromotion: React.FC = () => {
     // events
     [navItemEnum.award_scheme]: {
       bannerImage: "eventsLanding/banner_bg_1.png",
-      component: <AwardScheme />,
+      component: profileAndRoleRec[activatedDirectorySidebarItems],
+      subComponent: (
+        <DirectorySidebar
+          directorySidebarItems={directoryItems}
+          activatedItems={activatedDirectorySidebarItems}
+          setActivatedItems={handleChangeDirectorySidebarItems}
+        />
+      ),
     },
     [navItemEnum.seminar_workshop]: {
       bannerImage: "eventsLanding/banner_bg_2.png",
@@ -241,6 +281,7 @@ export const EventsPromotion: React.FC = () => {
       label: "Events & Promotions",
       href: `/events-promotion`,
     },
+
     ...(otherPath.length > 0
       ? otherPath
       : [
@@ -250,8 +291,21 @@ export const EventsPromotion: React.FC = () => {
           },
           {
             label: activeSidebarItemsSubLabel ?? "",
+            href:
+              activeItem === navItemEnum.award_scheme
+                ? `/events-promotion?section=${navItemEnum.award_scheme}`
+                : undefined,
           },
         ]),
+    ...(activeItem === navItemEnum.award_scheme
+      ? [
+          {
+            label: directoryItems.find(
+              (i) => i.value === activatedDirectorySidebarItems
+            )?.label,
+          },
+        ]
+      : []),
   ];
 
   const multipleSidebars = (
