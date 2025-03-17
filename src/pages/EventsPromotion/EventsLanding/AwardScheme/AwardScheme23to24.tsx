@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { Drawer } from "@mui/material";
 import {
   Accordion,
   Breadcrumb,
   InternalBackButton,
-  MediaTemplateWithDialog,
-  MediaTemplateWithDialogProps,
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
@@ -13,9 +12,8 @@ import {
   maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
-import { MEDIA_TYPE, navItemEnum } from "../../../../const";
+import { navItemEnum } from "../../../../const";
 import { useSettings } from "../../../../context";
-import { Drawer } from "@mui/material";
 
 const platinumAwardees: string[] = [
   "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
@@ -60,22 +58,18 @@ const goldAwardees: string[] = [
 
 const buttonOneMap: Record<string, React.ReactNode> = {
   "Platinum Awardees": (
-    <>
+    <ol>
       {platinumAwardees.map((og, index) => (
-        <p key={index}>
-          {index + 1}.&nbsp;{og}
-        </p>
+        <li key={index}>{og}</li>
       ))}
-    </>
+    </ol>
   ),
   "Gold Awardees": (
-    <>
+    <ol>
       {goldAwardees.map((og, index) => (
-        <p key={index}>
-          {index + 1}.&nbsp;{og}
-        </p>
+        <li key={index}>{og}</li>
       ))}
-    </>
+    </ol>
   ),
 };
 
@@ -215,6 +209,30 @@ export const AwardScheme23to24: React.FC = () => {
   const buttonTwoMap: Record<string, React.ReactNode> = {
     "Junior Professional Sub-group": (
       <div className={isPC ? "" : "overflow-x-auto"}>
+        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Name
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Position
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Nominating Testing and Certification Body
+          </div>
+        </div>
+
         {juniorGroup.map((og, index) => (
           <div
             key={index}
@@ -224,7 +242,7 @@ export const AwardScheme23to24: React.FC = () => {
               <p
                 key={key}
                 className={`py-[15px] px-[10px] flex items-center ${
-                  isPC ? "h-[102px]" : "min-w-[120px]"
+                  isPC ? "h-[102px]" : "min-w-[160px]"
                 }`}
               >
                 {c}
@@ -235,7 +253,30 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
     ),
     "Senior Professional Sub-group": (
-      <div>
+      <div className={isPC ? "" : "overflow-x-auto"}>
+        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Name
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Position
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            Nominating Testing and Certification Body
+          </div>
+        </div>
         {seniorGroup.map((og, index) => (
           <div
             key={index}
@@ -255,194 +296,20 @@ export const AwardScheme23to24: React.FC = () => {
     ),
   };
 
-  const supportingOrg: Array<{
-    title: string;
-    urlPath: string;
-  }> = [
-    {
-      title: "ACML",
-      urlPath: "ACML.png",
-    },
-    {
-      title: "BEAM",
-      urlPath: "BEAM.png",
-    },
-    {
-      title: "DoC",
-      urlPath: "DoC.png",
-    },
-    {
-      title: "Consumer_Council",
-      urlPath: "Consumer_Council.png",
-    },
-    {
-      title: "GEMMAS",
-      urlPath: "GEMMAS.png",
-    },
-    {
-      title: "HKTIC",
-      urlPath: "HKTIC.png",
-    },
-    {
-      title: "HKAML",
-      urlPath: "HKAML.png",
-    },
-    {
-      title: "HKICA",
-      urlPath: "HKICA.png",
-    },
-    {
-      title: "HKIE",
-      urlPath: "HKIE.png",
-    },
-    {
-      title: "HKMU",
-      urlPath: "HKMU.png",
-    },
-    {
-      title: "DABCT",
-      urlPath: "DABCT.png",
-    },
-    {
-      title: "HKSQ",
-      urlPath: "HKSQ.png",
-    },
-    {
-      title: "HKTDC",
-      urlPath: "HKTDC.png",
-    },
-    {
-      title: "QF",
-      urlPath: "QF.png",
-    },
-    {
-      title: "VTC",
-      urlPath: "VTC.png",
-    },
-  ];
-
-  const timeLine: Array<{ date: string; event: string }> = [
-    {
-      date: "2 May 2023",
-      event: "Application open",
-    },
-    {
-      date: "11:59 pm, 31 Jul 2023",
-      event: "Application close",
-    },
-    {
-      date: "Aug - Oct 2023",
-      event: "Application checking and assessment",
-    },
-    {
-      date: "Sep 2023",
-      event: "Interviews with applicants of Excellent T&C Professional Award",
-    },
-    {
-      date: "Oct 2023",
-      event: "Announcement of award results",
-    },
-    {
-      date: "Dec 2023",
-      event: "Award presentation ceremony",
-    },
-  ];
-
-  const applicationData: Array<{
-    title: string;
-    link: string;
-  }> = [
-    {
-      title: "Guidance Notes",
-      link: "/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf",
-    },
-    {
-      title:
-        "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
-      link: "/en/event/mpaward/doc/mpaward-2023-24-Form_TC_MP01_Eng.pdf",
-    },
-    {
-      title:
-        "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
-      link: "/en/event/mpaward/doc/mpaward-2023-24-Form_TC_MP02_Eng.pdf",
-    },
-  ];
-
-  const publicationData: MediaTemplateWithDialogProps[] = [
-    {
-      title: "Pamphlet",
-      maskIcon: "PDF.png",
-      date: "",
-      mediaType: MEDIA_TYPE.PDF,
-      mediaLink: "/en/event/mpaward/pamphlet-2023-24.pdf",
-      mediaDomain: "hkctc",
-    },
-    {
-      title: "Media Coverage",
-      maskIcon: "PRESS.png",
-      imagePath: "press_release.png",
-
-      date: "",
-      mediaType: MEDIA_TYPE.NEW_PAGE,
-      mediaLink: "https://www.hkctc.gov.hk/en/event/mpaward/media_2023-24.html",
-    },
-    {
-      title: "Infographic video",
-      maskIcon: "VIDEO.png",
-      date: "",
-      mediaType: MEDIA_TYPE.VIDEO,
-      mediaLink: "/videos/en/mpaward-2023-24-infographic-video-en.mp4 ",
-      mediaDomain: "hkctc",
-    },
-    {
-      title: "Commemorative publication",
-      maskIcon: "PDF.png",
-      date: "",
-      mediaType: MEDIA_TYPE.PDF,
-      mediaLink:
-        "/en/event/mpaward/doc/TC-Manpower-Development-Award-Scheme-2023-24_Commemorative-Publication.pdf",
-      mediaDomain: "hkctc",
-    },
-    {
-      title: "Press Release",
-      maskIcon: "PRESS.png",
-      date: "4 December 2023",
-      imagePath: "press_realease_1.png",
-      mediaType: MEDIA_TYPE.NEW_PAGE,
-      mediaLink:
-        "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
-    },
-  ];
-
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
     {
-      id: "introduction",
-      title: "Introduction",
+      id: "testing-awardees",
+      title:
+        "Testing and Certification Manpower Development Corporate Awardees",
     },
 
     {
-      id: "supporting_organizations",
-      title: "Supporting Organizations",
+      id: "excellent-awardees",
+      title: "Excellent Testing and Certification Professional Awardees",
     },
     {
-      id: "awardees",
-      title: "Awardees",
-    },
-    {
-      id: "award_presentation_ceremony",
-      title: "Award Presentation Ceremony",
-    },
-    {
-      id: "timeline",
-      title: "Timeline",
-    },
-    {
-      id: "application",
-      title: "Application",
-    },
-    {
-      id: "publications",
-      title: "Publications",
+      id: "award-ceremony",
+      title: "Award Ceremony",
     },
   ];
 
@@ -474,7 +341,7 @@ export const AwardScheme23to24: React.FC = () => {
                 setLocateAnchor(index);
                 scrollElement.scrollIntoView({
                   behavior: "smooth",
-                  block: "center",
+                  block: "start",
                 });
               }
             }}
@@ -568,7 +435,7 @@ export const AwardScheme23to24: React.FC = () => {
                       setLocateAnchor(index);
                       scrollElement.scrollIntoView({
                         behavior: "smooth",
-                        block: "center",
+                        block: "start",
                       });
                     }
                   }}
@@ -584,78 +451,42 @@ export const AwardScheme23to24: React.FC = () => {
   );
   const content = (
     <>
-      <SquareTitle title="T&C Manpower Development Award Scheme 2023-2024" />
-      <p className="text-highlight-l text-[#666666] mt-[24px]">
-        [Results announced on 4 December 2023]
-      </p>
-      <p className="text-heading-l mt-[24px]" id="introduction">
-        Introduction
-      </p>
-      <p className="text-body-m mt-[24px]">
-        With a view to encouraging the testing and certification (T&C) bodies to
-        invest in talent training and development, while also commending those
-        T&C practitioners who has striven for continuous learning and
-        professional development, and/or contributed to service quality
-        improvement, the Hong Kong Council for Testing and Certification (HKCTC)
-        launched the first “Testing and Certification Manpower Development Award
-        Scheme” in 2021. Having regard to the favourable feedback from the T&C
-        sector, HKCTC organised in 2023 again the Award Scheme (the 2023 - 24
-        Award Scheme).
-      </p>
-      <p className="text-heading-l my-[24px]" id="supporting_organizations">
-        Supporting Organizations
-      </p>
-      <div className="grid grid-cols-3 gap-[48px] p-[24px]">
-        {supportingOrg.map((org, index) => {
-          const { title, urlPath } = org;
-          return (
-            <div
-              key={index}
-              className={`${isPC ? "w-[200px] h-[70px]" : "w-full h-auto"}`}
-            >
-              <img
-                className="object-contain"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/eventsLanding/awardScheme/" +
-                  urlPath
-                }
-                alt={title}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <SquareTitle title="List of Awardees/ Award Ceremony 2023-2024" />
+
       <p className="text-heading-l my-[24px]" id="awardees">
         Awardees
       </p>
-      <Accordion
-        title="Testing and Certification Manpower Development Corporate Awardees"
-        details={
-          <div>
-            <div className="flex flex-wrap gap-[8px] mb-[16px]">
-              {["Platinum Awardees", "Gold Awardees"].map((b, i) => {
-                const isActivated = activeButtonOne === b;
-                return (
-                  <button
-                    key={i}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActiveButtonOne(b);
-                    }}
-                  >
-                    {b}
-                  </button>
-                );
-              })}
+      <div id="testing-awardees">
+        <Accordion
+          title="Testing and Certification Manpower Development Corporate Awardees"
+          details={
+            <div>
+              <div className="flex flex-wrap gap-[8px] mb-[16px]">
+                {["Platinum Awardees", "Gold Awardees"].map((b, i) => {
+                  const isActivated = activeButtonOne === b;
+                  return (
+                    <button
+                      key={i}
+                      style={
+                        isActivated ? activatedButtonStyle : normalButtonStyle
+                      }
+                      onClick={() => {
+                        setActiveButtonOne(b);
+                      }}
+                    >
+                      {b}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="text-body-m ml-[12px]">
+                {buttonOneMap[activeButtonOne]}
+              </div>
             </div>
-            <div className="text-body-m">{buttonOneMap[activeButtonOne]}</div>
-          </div>
-        }
-      />
-      <div className="mt-[24px]">
+          }
+        />
+      </div>
+      <div className="mt-[24px]" id="excellent-awardees">
         <Accordion
           title="Excellent Testing and Certification Professional Awardees"
           details={
@@ -686,7 +517,7 @@ export const AwardScheme23to24: React.FC = () => {
           }
         />
       </div>
-      <p className="text-heading-l my-[24px]" id="award_presentation_ceremony">
+      <p className="text-heading-l my-[24px]" id="award-ceremony">
         Award Presentation Ceremony
       </p>
       {/* Ceremony1 */}
@@ -853,84 +684,7 @@ export const AwardScheme23to24: React.FC = () => {
           Corporate Award"
         </p>
       </div>
-      <p className="text-heading-l my-[24px]" id="timeline">
-        Timeline
-      </p>
-      <div className="w-full grid grid-cols-2 border-2 border-[#E0E0E0]">
-        {/* 表头 */}
-        <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          Date
-        </div>
-        <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          Event
-        </div>
-        {/* 数据行 */}
-        {timeLine.map((item, index) => {
-          const { date, event } = item;
-          return (
-            <React.Fragment key={index}>
-              <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {date}
-              </div>
-              <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {event}
-              </div>
-            </React.Fragment>
-          );
-        })}
-      </div>
-      <hr className="my-[24px]" />
-      <p className="text-heading-l" id="application">
-        Application
-      </p>
-      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-        {applicationData.map((item, index) => {
-          const { title, link } = item;
-          return (
-            <div key={index} className="w-full flex flex-row gap-[24px]">
-              <MediaTemplateWithDialog
-                title={title}
-                maskIcon={"PDF.png"}
-                date={""}
-                mediaLink={link}
-                mediaType={MEDIA_TYPE.PDF}
-                mediaDomain={"hkctc"}
-                direction={"row"}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <p className="text-heading-l my-[24px]" id="publications">
-        Publications
-      </p>
-      <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
-        {publicationData.map((item, index) => {
-          const {
-            title,
-            imagePath,
-            date = "",
-            maskIcon,
-            mediaType,
-            mediaLink,
-            mediaDomain,
-          } = item;
-          return (
-            <div key={index} className="w-full flex flex-row gap-[24px]">
-              <MediaTemplateWithDialog
-                title={title}
-                maskIcon={maskIcon}
-                date={date}
-                mediaLink={mediaLink}
-                mediaType={mediaType}
-                mediaDomain={mediaDomain}
-                direction={"row"}
-                imagePath={"eventsLanding/awardScheme/" + imagePath}
-              />
-            </div>
-          );
-        })}
-      </div>
+
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/events-promotion?section=${navItemEnum.award_scheme}`}

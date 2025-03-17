@@ -37,6 +37,20 @@ ol {
   unicode-bidi: isolate;
 }
 
+.al {
+  display: flex !important;
+  flex-direction: column !important;
+  padding-left: 0px !important;
+  list-style: lower-roman !important;
+  list-style-type: lower-roman !important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
 li {
   display: list-item !important;
   text-align: -webkit-match-parent;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { MEDIA_TYPE, navItemEnum } from "../../../../const";
+import { Drawer } from "@mui/material";
+import { navItemEnum } from "../../../../const";
 import {
   Accordion,
   fullContainer,
@@ -9,13 +10,10 @@ import {
   SquareTitle,
   activatedButtonStyle,
   normalButtonStyle,
-  MediaTemplateWithDialog,
-  type MediaTemplateWithDialogProps,
   InternalBackButton,
   maxMobileContainer,
 } from "../../../../components";
 import { useSettings } from "../../../../context";
-import { Drawer } from "@mui/material";
 
 const manpowerDevelopmentAwardees = [
   "Accredited Certification International Limited",
@@ -46,34 +44,6 @@ const manpowerDevelopmentAwardees = [
   "TÜV Rheinland Hong Kong Limited",
   "TUV SUD Hong Kong Limited",
   "Xcelom Limited",
-];
-
-const timeLine: Array<{ date: string; event: string }> = [
-  {
-    date: "7 Jun 2021",
-    event: "Application open",
-  },
-  {
-    date: "31 Aug 2021, 6:00 pm",
-    event: "Application close",
-  },
-  {
-    date: "Sep - Nov 2021",
-    event: "Application Assessment",
-  },
-  {
-    date: "Oct 2021",
-    event:
-      "Notification for interviews to Excellent T&C Professional Award shortlisted applicants",
-  },
-  {
-    date: "Nov 2021",
-    event: "Announcement of award results",
-  },
-  {
-    date: "Dec 2021",
-    event: "Award presentation ceremony",
-  },
 ];
 
 const juniorGroup: Array<{ one: string; two: string; three: string }> = [
@@ -189,62 +159,6 @@ const seniorGroup: Array<{ one: string; two: string; three: string }> = [
   },
 ];
 
-const applicationData: Array<{
-  title: string;
-  link: string;
-}> = [
-  {
-    title: "Guidance Notes",
-    link: "/en/event/mpaward/GuidanceNotes.pdf",
-  },
-  {
-    title:
-      "Application Form - Testing and Certification Manpower Development Corporate Award (Form T&C MP01)",
-    link: "/en/event/mpaward/MP01.pdf",
-  },
-  {
-    title:
-      "Application Form - Excellent Testing and Certification Professional Award (Form T&C MP02)",
-    link: "/en/event/mpaward/MP02.pdf",
-  },
-];
-
-const publicationData: MediaTemplateWithDialogProps[] = [
-  {
-    title: "Pamphlet",
-    maskIcon: "PDF.png",
-    date: "",
-    mediaType: MEDIA_TYPE.PDF,
-    mediaLink: "/en/event/mpaward/pamphlet.pdf",
-    mediaDomain: "hkctc",
-  },
-  {
-    title: "Congratulatory Messages for the Award Scheme",
-    maskIcon: "VIDEO.png",
-    date: "",
-    mediaType: MEDIA_TYPE.VIDEO,
-    mediaLink: "/videos/en/MPAward_Congratulatory_Video-EN.mp4",
-    mediaDomain: "hkctc",
-  },
-  {
-    title: "Highlights of the Ceremony",
-    maskIcon: "VIDEO.png",
-    date: "",
-    mediaType: MEDIA_TYPE.VIDEO,
-    mediaLink: "/videos/tc/MPAward_Highlight.mp4",
-    mediaDomain: "hkctc",
-  },
-  {
-    title: "Press Release",
-    maskIcon: "PRESS.png",
-    date: "22 December 2021",
-    imagePath: "press_release.png",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaLink:
-      "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
-  },
-];
-
 export const AwardScheme21to22: React.FC = () => {
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
   const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
@@ -305,69 +219,24 @@ export const AwardScheme21to22: React.FC = () => {
       label: "T&C Manpower Development Award Scheme",
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
-    { label: "T&C Manpower Development Award Scheme 2021-2022" },
+    { label: "List of Awardees/ Award Ceremony 2021-2022" },
   ];
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
     {
-      id: "introduction",
-      title: "Introduction",
+      id: "testing_testing_2122",
+      title: "Testing and Certification Manpower Development Corporate Testing",
     },
     {
-      id: "supporting_organizations",
-      title: "Supporting Organizations",
+      id: "excellent_awardees_2122",
+      title: "Excellent Testing and Certification Professional Awardees",
     },
     {
-      id: "awardees",
-      title: "Awardees",
-    },
-    {
-      id: "award_presentation_ceremony",
-      title: "Award Presentation Ceremony",
-    },
-    {
-      id: "timeline",
-      title: "Timeline",
-    },
-    {
-      id: "application",
-      title: "Application",
-    },
-    {
-      id: "publications",
-      title: "Publications",
+      id: "award_ceremony_2122",
+      title: "Award Ceremony",
     },
   ];
 
-  const supportingOrg: Array<{
-    title: string;
-    urlPath: string;
-  }> = [
-    {
-      title: "ACML",
-      urlPath: "ACML.png",
-    },
-    {
-      title: "HKICA",
-      urlPath: "HKICA.png",
-    },
-    {
-      title: "HKIE",
-      urlPath: "HKIE.png",
-    },
-    {
-      title: "HKTIC",
-      urlPath: "HKTIC.png",
-    },
-    {
-      title: "HKAML",
-      urlPath: "HKAML.png",
-    },
-    {
-      title: "QF",
-      urlPath: "QF.png",
-    },
-  ];
   const pcSidebar = (
     <div id="sticky-container" className="flex flex-col sticky top-[20px]">
       {directoryAnchorIds.map((anchor, index) => {
@@ -396,7 +265,7 @@ export const AwardScheme21to22: React.FC = () => {
                 setLocateAnchor(index);
                 scrollElement.scrollIntoView({
                   behavior: "smooth",
-                  block: "center",
+                  block: "start",
                 });
               }
             }}
@@ -491,7 +360,7 @@ export const AwardScheme21to22: React.FC = () => {
                       setLocateAnchor(index);
                       scrollElement.scrollIntoView({
                         behavior: "smooth",
-                        block: "center",
+                        block: "start",
                       });
                     }
                   }}
@@ -508,104 +377,95 @@ export const AwardScheme21to22: React.FC = () => {
   const content = (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title="T&C Manpower Development Award Scheme 2021-2022" />
-      <p className="text-highlight-l text-[#666666]">
-        [Results announced on 22 December 2021]
-      </p>
-      <p className="text-heading-l" id="introduction">
-        Introduction
-      </p>
-      <p className="text-body-m">
-        HKCTC launches the first “Testing and Certification Manpower Development
-        Award Scheme” (the Award Scheme) in 2021 to recognise testing and
-        certification (T&C) bodies which attach great importance to talent
-        training and manpower development, as well as to encourage T&C
-        practitioners to strive for improvement and professional development.
-      </p>
-      <p className="text-heading-l" id="supporting_organizations">
-        Supporting Organizations
-      </p>
-      <div className={`grid grid-cols-${isPC ? 3 : 2} gap-[48px] p-[24px]`}>
-        {supportingOrg.map((org, index) => {
-          const { title, urlPath } = org;
-          return (
-            <div
-              key={index}
-              className={`${isPC ? "w-[200px] h-[70px]" : "w-full h-auto"}`}
-            >
-              <img
-                className="object-contain"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/eventsLanding/awardScheme/" +
-                  urlPath
-                }
-                alt={title}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <p className="text-heading-l" id="awardees">
+      <p className="text-heading-l" id="testing_testing_2122">
         Awardees
       </p>
-      <Accordion
-        title="Testing and Certification Manpower Development Corporate Awardees"
-        details={
-          <div>
-            {manpowerDevelopmentAwardees.map((a, i) => {
-              return (
-                <div key={i} className="w-full">
-                  <span className="w-[50%] text-right">{`${i + 1}. `}</span>
-                  {a}
-                </div>
-              );
-            })}
-            <br />
-            <p className="text-[#4B4746]">
-              Corporate Awardees Receiving Special Commendation for Their
-              Commitment to Testing and Certification Practitioners’ Training
-              and Development
-            </p>
-            <br />
-            <p>
-              1. The Hong Kong Jockey Club – Racing Laboratory <br />
-              2. UL International Limited
-            </p>
-          </div>
-        }
-      />
-
-      <Accordion
-        title="Excellent Testing and Certification Professional Awardees"
-        details={
-          <>
-            <div className="flex flex-wrap gap-[8px] mb-[16px]">
-              {[
-                "Junior Professional Sub-group",
-                "Senior Professional Sub-group",
-              ].map((b, i) => {
-                const isActivated = activeButtonTwo === b;
-                return (
-                  <button
-                    key={i}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActiveButtonTwo(b);
-                    }}
-                  >
-                    {b}
-                  </button>
-                );
-              })}
+      <div>
+        <Accordion
+          title="Testing and Certification Manpower Development Corporate Awardees"
+          details={
+            <div>
+              <ol className="ml-[12px]">
+                {manpowerDevelopmentAwardees.map((a, i) => {
+                  return (
+                    <li key={i} className="w-full">
+                      {a}
+                    </li>
+                  );
+                })}
+              </ol>
+              <br />
+              <p className="text-[#4B4746]">
+                Corporate Awardees Receiving Special Commendation for Their
+                Commitment to Testing and Certification Practitioners’ Training
+                and Development
+              </p>
+              <br />
+              <ol>
+                <li>The Hong Kong Jockey Club - Racing Laboratory</li>
+                <li>UL International Limited</li>
+              </ol>
             </div>
-            <div className="text-body-m">{buttonTwoMap[activeButtonTwo]}</div>
-          </>
-        }
-      />
-
-      <p className="text-heading-l" id="award_presentation_ceremony">
+          }
+        />
+      </div>
+      <div id="excellent_awardees_2122">
+        <Accordion
+          title="Excellent Testing and Certification Professional Awardees"
+          details={
+            <>
+              <div className="flex flex-wrap gap-[8px] mb-[16px]">
+                {[
+                  "Junior Professional Sub-group",
+                  "Senior Professional Sub-group",
+                ].map((b, i) => {
+                  const isActivated = activeButtonTwo === b;
+                  return (
+                    <button
+                      key={i}
+                      style={
+                        isActivated ? activatedButtonStyle : normalButtonStyle
+                      }
+                      onClick={() => {
+                        setActiveButtonTwo(b);
+                      }}
+                    >
+                      {b}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="text-body-m">
+                <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+                  <div
+                    className={`px-[10px] flex items-center ${
+                      isPC ? "" : "min-w-[140px]"
+                    }`}
+                  >
+                    Name
+                  </div>
+                  <div
+                    className={`px-[10px] flex items-center ${
+                      isPC ? "" : "min-w-[140px]"
+                    }`}
+                  >
+                    Position
+                  </div>
+                  <div
+                    className={`px-[10px] flex items-center ${
+                      isPC ? "" : "min-w-[140px]"
+                    }`}
+                  >
+                    Nominating Testing and Certification Body
+                  </div>
+                </div>
+                {buttonTwoMap[activeButtonTwo]}
+              </div>
+            </>
+          }
+        />
+      </div>
+      <p className="text-heading-l" id="award_ceremony_2122">
         Award Presentation Ceremony
       </p>
       <div className="flex items-center">
@@ -815,91 +675,12 @@ export const AwardScheme21to22: React.FC = () => {
           />
         </div>
         <div />
-        <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
+        <p className="text-italic-s text-grey italic mt-[16px]">
           Awardees of “Excellent Testing and Certification Professional Award”
           shared their experience and insights at the ceremony
         </p>
       </div>
 
-      <p className="text-heading-l" id="timeline">
-        Timeline
-      </p>
-      <div className="w-full grid grid-cols-2 border-2 border-[#E0E0E0]">
-        {/* 表头 */}
-        <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          Date
-        </div>
-        <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          Event
-        </div>
-        {/* 数据行 */}
-        {timeLine.map((item, index) => {
-          const { date, event } = item;
-          return (
-            <React.Fragment key={index}>
-              <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {date}
-              </div>
-              <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {event}
-              </div>
-            </React.Fragment>
-          );
-        })}
-      </div>
-
-      <p className="text-heading-l" id="application">
-        Application
-      </p>
-
-      <div className="w-full flex flex-col gap-[24px]">
-        {applicationData.map((item, index) => {
-          const { title, link } = item;
-          return (
-            <div key={index} className="w-full flex flex-row gap-[24px]">
-              <MediaTemplateWithDialog
-                title={title}
-                maskIcon={"PDF.png"}
-                date={""}
-                mediaLink={link}
-                mediaType={MEDIA_TYPE.PDF}
-                mediaDomain={"hkctc"}
-                direction={"row"}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <p className="text-heading-l" id="publications">
-        Publications
-      </p>
-      <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
-        {publicationData.map((item, index) => {
-          const {
-            title,
-            imagePath,
-            date = "",
-            maskIcon,
-            mediaType,
-            mediaLink,
-            mediaDomain,
-          } = item;
-          return (
-            <div key={index} className="w-full flex flex-row gap-[24px]">
-              <MediaTemplateWithDialog
-                title={title}
-                maskIcon={maskIcon}
-                date={date}
-                mediaLink={mediaLink}
-                mediaType={mediaType}
-                mediaDomain={mediaDomain}
-                direction={"row"}
-                imagePath={"eventsLanding/awardScheme/" + imagePath}
-              />
-            </div>
-          );
-        })}
-      </div>
       <hr />
       <InternalBackButton
         targetUrl={`/events-promotion?section=${navItemEnum.award_scheme}`}
