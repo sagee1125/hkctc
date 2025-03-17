@@ -55,7 +55,7 @@ export const AboutHKCTC: React.FC = () => {
         "為提高行業的專業地位，加強公眾對行業的認識，而須採取的措施。",
       ],
       heading:
-        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on the overall development strategy of the testing and certification sector. Members of the Council include practitioners from the testing and certification sector, business sector, professional organisations as well as the relevant public bodies and government departments. The Innovation and Technology Commission provides support to the Council.",
+        "香港檢測和認證局於2009年9月成立，就行業的整體發展策略向政府提供意見。成員包括業界從業員，以及商界、專業團體、相關公營機構和政府部門的代表。",
       membership: "成員",
       chairman: "主席",
       prof_WWT: "黃永德教授",
