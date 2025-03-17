@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { Language, useSettings } from "../../context";
 
 export const HeaderSocialMedia: React.FC = () => {
   return (
@@ -27,6 +28,8 @@ export const HeaderSocialMedia: React.FC = () => {
 
 export const Header: React.FC = () => {
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
+
+  const { handleChangeLang, language } = useSettings();
 
   const formik = useFormik<{ search: string }>({
     initialValues: {
@@ -97,7 +100,13 @@ export const Header: React.FC = () => {
             />
             <Icon
               icon="ci:globe"
-              className="h-6 w-6 text-[#333333] flex-shrink-0"
+              className="h-6 w-6 text-[#333333] flex-shrink-0 cursor-pointer"
+              onClick={() => {
+                // TODO
+                handleChangeLang(
+                  language === Language.EN ? Language.ZH_TW : Language.EN
+                );
+              }}
             />
             <div
               style={{

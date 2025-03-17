@@ -3,13 +3,19 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import { useMediaQuery } from "@mui/material";
 
+export const enum Language {
+  ZH_CN = "zh-CN",
+  ZH_TW = "zh-TW",
+  EN = "en",
+}
+
 type SettingsContextType = {
   isLoading: boolean;
   fontSize: "small" | "medium" | "large";
-  language: "zh-CN" | "zh-TW" | "en";
+  language: Language;
   isPC: boolean;
   pdfjsLib: typeof pdfjsLib;
-  setLanguage: (language: "zh-CN" | "zh-TW" | "en") => void;
+  handleChangeLang: (role: Language) => void;
   setFontSize: (fontSize: "small" | "medium" | "large") => void;
   setIsLoading: (isLoading: boolean) => void;
   withLoading: (callback: () => Promise<void>) => Promise<void>;
@@ -29,8 +35,16 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   const [fontSize, setFontSize] = useState<"small" | "medium" | "large">(
     "medium"
   );
-  const [language, setLanguage] = useState<"zh-CN" | "zh-TW" | "en">("zh-TW");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [language, setLanguage] = useState<Language>(() => {
+    const memoLang = (localStorage.getItem("lang") as Language) ?? Language.EN;
+    return memoLang;
+  });
+
+  const handleChangeLang = (lang: Language): void => {
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+  };
 
   const withLoading = async (callback: () => Promise<void>) => {
     try {
@@ -49,7 +63,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         isLoading,
         isPC,
         setFontSize,
-        setLanguage,
+        handleChangeLang,
         setIsLoading,
         withLoading,
         pdfjsLib,
