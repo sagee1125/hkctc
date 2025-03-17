@@ -86,76 +86,63 @@ const juniorGroup: Array<{ one: string; two: string; three: string }> = [
   },
 ];
 
-const seniorGroup: Array<{ one: string; two: string; three: string }> = [
+const middleGroup: Array<{ one: string; two: string; three: string }> = [
   {
-    one: "Mr CHAN Kang-chiu",
-    two: "Assistant Manager",
-    three: "Fugro Technical Services Limited",
+    one: "Dr IP Bui Kar",
+    two: "Associate Medical Technologist",
+    three: "Hong Kong Sanatorium & Hospital - Department of Pathology",
   },
   {
-    one: "Ms CHOW Hoi-yi",
-    two: "Assistant Manager",
-    three: "The Hong Kong Standards and Testing Centre Ltd",
+    one: "Mr KWOK Chi Wa",
+    two: "Technical Manager",
+    three: "Material Tech Company Limited",
   },
   {
-    one: "Dr KWOK Ying",
-    two: "Senior Chemist",
-    three: "The Hong Kong Jockey Club - Racing Laboratory",
+    one: "Mr KWOK Yin Ho, Eric",
+    two: "Senior Laboratory and Technical Development Manager",
+    three: "SGS Hong Kong Limited",
   },
   {
-    one: "Ms LAU Hazel",
-    two: "Lead Project Engineer",
+    one: "Dr LAW Yuen Chi",
+    two: "Chemist",
+    three:
+      "Drainage Services Department - Sewage Services Branch Operation Section Laboratory",
+  },
+  {
+    one: "Mr LEE Kwong Sang",
+    two: "Microbiology Laboratory Manager",
+    three: "China Dragon Inspection & Certification (HK) Ltd",
+  },
+  {
+    one: "Mr MA Chung Hang, Adrian",
+    two: "Technical Manager",
+    three: "Castco Testing Centre Limited",
+  },
+  {
+    one: "Mr PUN Chi Kit, Patrick",
+    two: "Scientific Officer (Medical)",
+    three:
+      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory",
+  },
+  {
+    one: "Miss TAM Ka Ming",
+    two: "Principal Engineer",
     three: "UL International Limited",
   },
   {
-    one: "Ms MAK Chui-wan, Cherie",
-    two: "Senior Certification Officer",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Ms NG Carmen",
-    two: "Assistant Technical Services Manager",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Miss NG Hoi-ying",
-    two: "Assistant Technical Services Manager",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Mr NIP Ming-fung, Melvin",
-    two: "Manager",
-    three: "Intertek Testing Services Hong Kong Limited",
-  },
-  {
-    one: "Dr TAN Tung-fai, Tony",
+    one: "Mr WONG Chi",
     two: "Chief Inspector, Forensic Fingerprint Laboratory",
     three: "Hong Kong Police Force - Identification Bureau",
   },
   {
     one: "Dr TAN Tung-fai, Tony",
-    two: "Chief Inspector, Forensic Fingerprint Laboratory",
-    three: "Hong Kong Police Force - Identification Bureau",
+    two: "Deputy General Manager	",
+    three: "China Inspection Medical Laboratories Limited",
   },
   {
-    one: "Mr TANG Pak-yau",
-    two: "Assistant Laboratory Manager",
-    three: "Chow Sang Sang Precious Metal Laboratory",
-  },
-  {
-    one: "Mr TANG Pak-yau",
-    two: "Assistant Laboratory Manager",
-    three: "Chow Sang Sang Precious Metal Laboratory",
-  },
-  {
-    one: "Dr WONG Kin-sing",
-    two: "Biochemist",
-    three: "The Hong Kong Jockey Club - Racing Laboratory",
-  },
-  {
-    one: "Mr YU Shing-lun, Gary",
-    two: "Senior Manager",
-    three: "Intertek Testing Services Hong Kong Limited",
+    one: "Mr WONG Sun Leong, John",
+    two: "Technical Services Manager",
+    three: "SGS Hong Kong Limited",
   },
 ];
 
@@ -188,9 +175,9 @@ export const AwardScheme21to22: React.FC = () => {
         ))}
       </div>
     ),
-    "Senior Professional Sub-group": (
+    "Middle Management Sub-group": (
       <div className={isPC ? "" : "overflow-x-auto"}>
-        {seniorGroup.map((og, index) => (
+        {middleGroup.map((og, index) => (
           <div
             key={index}
             className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
@@ -417,7 +404,7 @@ export const AwardScheme21to22: React.FC = () => {
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
                 {[
                   "Junior Professional Sub-group",
-                  "Senior Professional Sub-group",
+                  "Middle Management Sub-group",
                 ].map((b, i) => {
                   const isActivated = activeButtonTwo === b;
                   return (
