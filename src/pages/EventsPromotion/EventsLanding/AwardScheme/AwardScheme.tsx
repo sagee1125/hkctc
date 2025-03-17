@@ -483,7 +483,7 @@ export const AwardScheme: React.FC = () => {
         <br />
         The Hong Kong Council for Testing and Certification (HKCTC) launched the
         first “Testing and Certification Manpower Development Award Scheme” in
-        2021. Having regard to the favourable feedback from the T&C sector,
+        2021. Having regard to the favourable feedback from the T&C industry,
         HKCTC organised in 2023 again the Award Scheme (the 2023 - 24 Award
         Scheme).
       </p>
@@ -580,7 +580,7 @@ export const AwardScheme: React.FC = () => {
         <li>
           Pursuing continuous learning and professional development by acquiring
           new skills, capabilities as well as relevant academic and professional
-          qualifications after joining the T&C sector;
+          qualifications after joining the T&C industry;
         </li>
         <li>
           Making outstanding contributions to improving service quality or

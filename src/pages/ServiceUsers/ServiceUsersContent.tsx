@@ -165,7 +165,7 @@ export const ServiceUsersContent: React.FC = () => {
                   {/* Icon */}
                   <img
                     className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
-                    src={`${process.env.PUBLIC_URL}/assets/icons/PRESS.png`}
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="Share"
                   />
                 </div>

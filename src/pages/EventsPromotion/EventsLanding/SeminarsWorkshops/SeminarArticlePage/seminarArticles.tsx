@@ -189,7 +189,7 @@ export const seminarsAndWorkshopsList = [
         competitive edges.
         <br />
         <br />
-        This seminar shared with practitioners and stakeholders of T&C sector
+        This seminar shared with practitioners and stakeholders of T&C industry
         advice on the anti-corruption regulations and integrity management, as
         well as insights on the professional development in the area of carbon
         auditing in Environmental, Social and Governance (ESG).
@@ -1079,7 +1079,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         This seminar covered various topics including the latest developments of
         Hong Kong as a Smart City, new technologies which could be adopted by
-        the T&C sector, and updates on measurement standards. The seminar also
+        the T&C industry, and updates on measurement standards. The seminar also
         shared the potential needs for T&C services to cater for new types of
         smart products, and introduced some funding schemes that could support
         the adoption of technology. This seminar was an opportunity for testing
@@ -1160,7 +1160,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         Local research institutes have also paid much efforts in safeguarding
         food safety through developing food technology. Through collaboration
-        amongst the food trade, T&C sector and research institutes, the ever
+        amongst the food trade, T&C industry and research institutes, the ever
         increasing public demand for safer, higher quality food products could
         be better met by applying these cutting-edge technologies.
         <br />
@@ -2009,7 +2009,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         Professionalism and integrity are foundation of good business. They also
         form part of the core value of Hong Kong's testing and certification
-        (T&C) industry. Corporations in the T&C sector are encouraged to adopt
+        (T&C) industry. Corporations in the T&C industry are encouraged to adopt
         good practice to safeguard these competitive edges. Industry
         practitioners can also participate in various professional development
         schemes to enhance their capability.

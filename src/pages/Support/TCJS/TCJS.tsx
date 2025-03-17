@@ -16,7 +16,7 @@ const Aim: React.FC = () => {
     {
       question: "What is the aim of TCJS?",
       answer:
-        "The Scheme aims to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C sector, so as to enrich Hong Kong’s T&C talent pool.",
+        "The Scheme aims to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong’s T&C talent pool.",
     },
     {
       question: "Which organisations are eligible for TCJS?",
@@ -379,7 +379,7 @@ export const TCJS: React.FC = () => {
       <p className="text-body-m mb-[24px]">
         The Scheme aims to encourage private testing and certification (T&C)
         organisations to create more job opportunities, and attract people to
-        join the T&C sector, so as to enrich Hong Kong’s T&C talent pool.
+        join the T&C industry, so as to enrich Hong Kong’s T&C talent pool.
       </p>
       <div className="border py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">

@@ -37,7 +37,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-20"}>
-                Profile & Role of T&C Sector
+                Profile & Role of T&C Industry
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l text-white z-20"}>
-                Profile & Role of T&C Sector
+                Profile & Role of T&C Industry
               </p>
             </div>
           </div>

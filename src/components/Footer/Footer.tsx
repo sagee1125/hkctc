@@ -86,11 +86,11 @@ export const Footer: React.FC = () => {
       ],
     },
     {
-      title: "About T&C Sector",
+      title: "About T&C Industry",
       link: "/tc-sector",
       subs: [
         {
-          label: "Profile and Role of T&C Sector",
+          label: "Profile and Role of T&C Industry",
           link: `/tc-sector?section=${navItemEnum.profile_and_role}`,
         },
         {

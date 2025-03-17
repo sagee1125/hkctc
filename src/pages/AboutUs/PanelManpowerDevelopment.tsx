@@ -28,11 +28,11 @@ export const PanelManpowerDevelopment: React.FC = () => {
           </li>
           <li>
             To promote cooperation among stakeholders to nurture the manpower
-            needed by the T&C sector;
+            needed by the T&C industry;
           </li>
           <li>
             To consider ways to strengthen the manpower resource to support the
-            T&C sector; and
+            T&C industry; and
           </li>
           <li>
             To promote awareness of professional development of T&C personnel.
