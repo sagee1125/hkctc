@@ -89,7 +89,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
   } = page_text;
 
   return (
-    <div className="w-full mb-[48px]">
+    <div className="w-full">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mb-[24px]">
         <p className="text-heading-m">{terms_of_ref}</p>
         <ul className="text-body-m mt-[16px]">
@@ -112,7 +112,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
         </p>
       ))}
       <p className="mt-[24px] text-heading-m mb-[8px]">{official_members}</p>
-      <div className="text-highlight-extra mb-[48px]">
+      <div className="text-highlight-extra">
         {official_member_name.map((m, index) => (
           <p key={index}>{m}</p>
         ))}

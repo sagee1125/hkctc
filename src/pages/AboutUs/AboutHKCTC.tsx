@@ -105,7 +105,7 @@ export const AboutHKCTC: React.FC = () => {
     non_official_member_name,
   } = page_text;
   return (
-    <div className="w-full mb-[48px] text-justify">
+    <div className="w-full text-justify">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px]">
         <p className="text-heading-m">{terms_of_ref}</p>
         <div className="text-body-m mt-[16px]">

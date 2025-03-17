@@ -47,6 +47,19 @@ export const Header: React.FC = () => {
     },
   });
 
+  const multilingual = {
+    en: {
+      HKCTC: "The Hong Kong Council for Testing and Certification",
+    },
+    cn: {
+      HKCTC: "香港檢測和認證局",
+    },
+  };
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const { HKCTC } = page_text;
+
   return (
     <>
       <header className="w-full">
@@ -56,9 +69,7 @@ export const Header: React.FC = () => {
             ...headerStyle,
           }}
         >
-          <p className="pl-4 items-center text-body-s">
-            The Hong Kong Council for Testing and Certification
-          </p>
+          <p className="pl-4 items-center text-body-s">{HKCTC}</p>
           <div className="flex flex-row gap-4 items-center pr-4">
             <div
               className="cursor-pointer"
