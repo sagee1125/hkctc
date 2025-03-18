@@ -30,7 +30,7 @@ const specificCommitments: React.ReactNode[] = [
   <p>
     To allow contractual service providers employed by Hong Kong service
     suppliers, in the mode of movement of natural persons, to provide services
-    under this sector or sub-sector in the Mainland.&nbsp;
+    under this industry or sub-industry in the Mainland.&nbsp;
     <a
       className="underline text-[#00E] !text-italic-s italic"
       target="_blank"

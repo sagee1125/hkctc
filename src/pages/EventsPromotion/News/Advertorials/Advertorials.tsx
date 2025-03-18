@@ -134,7 +134,7 @@ export const Advertorials: React.FC = () => {
       <SquareTitle title="Advertorials" />
       <div>
         <NormalAccordion
-          title="About the testing and certification sector"
+          title="About the testing and certification industry"
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(aboutTestingSector).map((name, index) => {
@@ -162,7 +162,7 @@ export const Advertorials: React.FC = () => {
 
       <div>
         <NormalAccordion
-          title="Services offered by the testing and certification sector"
+          title="Services offered by the testing and certification industry"
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(certificateSector).map((name, index) => {

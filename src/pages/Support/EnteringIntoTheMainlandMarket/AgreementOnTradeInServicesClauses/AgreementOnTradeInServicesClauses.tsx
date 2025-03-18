@@ -34,7 +34,7 @@ const specificCommitments = [
   },
   {
     comments:
-      "To allow contractual service providers employed by Hong Kong service suppliers, in the mode of movement of natural persons, to provide services under this sector or sub-sector on the Mainland.",
+      "To allow contractual service providers employed by Hong Kong service suppliers, in the mode of movement of natural persons, to provide services under this industry or sub-industry on the Mainland.",
     implementation: "See Implementation Guide promulgated in Jul 2015",
   },
 ];

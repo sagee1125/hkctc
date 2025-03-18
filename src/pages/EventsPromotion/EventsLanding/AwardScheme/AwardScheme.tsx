@@ -686,7 +686,7 @@ export const AwardScheme: React.FC = () => {
           i. Commitment to continuous learning and professional development by
           acquiring new skills, capabilities as well as relevant academic and
           professional qualifications after joining the testing and
-          certification sector;
+          certification industry;
           <br />
           <br />
           ii. Impact/significance of contributions made to improving service
@@ -747,7 +747,7 @@ export const AwardScheme: React.FC = () => {
         improvement, the Hong Kong Council for Testing and Certification (HKCTC)
         launched the first “Testing and Certification Manpower Development Award
         Scheme” in 2021. Having regard to the favourable feedback from the T&C
-        sector, HKCTC organised in 2023 again the Award Scheme (the 2023 - 24
+        industry, HKCTC organised in 2023 again the Award Scheme (the 2023 - 24
         Award Scheme).
       </p>
       <hr />

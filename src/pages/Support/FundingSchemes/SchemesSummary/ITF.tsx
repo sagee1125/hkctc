@@ -12,7 +12,7 @@ const rows = [
   {
     schemeName: "Enterprise Support Scheme (ESS)",
     schemeNameHyperLink: "https://www.itf.gov.hk/l-eng/ESS.asp",
-    objective: "Encourage private sector investment in R&D",
+    objective: "Encourage private industry investment in R&D",
     targetAudience: "Private companies",
     fundingAmount: "Up to HK$10 million",
   },

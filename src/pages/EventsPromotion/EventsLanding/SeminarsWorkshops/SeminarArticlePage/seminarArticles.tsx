@@ -76,7 +76,7 @@ export const seminarsAndWorkshopsList = [
         The rapid development of innovation and technology and the
         implementation of various initiatives of developing Hong Kong into a
         smart city have created opportunities for the testing and certification
-        (T&C) sector, including enhancing the service quality and operation
+        (T&C) industry, including enhancing the service quality and operation
         efficiency through digitilisation and automation in relation to
         construction testing.
         <br />
@@ -183,7 +183,7 @@ export const seminarsAndWorkshopsList = [
       <p>
         Professionalism and integrity are foundation of good business. They also
         form part of the core value of Hong Kong’s testing and certification
-        (T&C) industry. To sustain the sector’s good reputation and to develop
+        (T&C) industry. To sustain the industry’s good reputation and to develop
         further, it is imperative for the T&C organisations and practitioners to
         enhance their professionalism and adopt good practice to safeguard these
         competitive edges.
@@ -308,8 +308,8 @@ export const seminarsAndWorkshopsList = [
     content: (
       <p>
         One of key strengths of the Hong Kong’s testing and certification (T&C)
-        sector is the high level of integrity and credibility, which gives
-        confidence to users of T&C services. To sustain the sector’s good
+        industry is the high level of integrity and credibility, which gives
+        confidence to users of T&C services. To sustain the industry’s good
         reputation, it is imperative for the T&C organisations to maintain a
         high level of integrity and adopt good practices in their business and
         operations.
@@ -389,7 +389,7 @@ export const seminarsAndWorkshopsList = [
         and organisations demonstrate their commitment to corporate
         responsibility and sustainable development. This webinar shared the
         insights in making use of the services offered by the testing and
-        certification sector in Hong Kong in taking forward various ESG and
+        certification industry in Hong Kong in taking forward various ESG and
         sustainability initiatives.
         <br />
         <br />
@@ -576,8 +576,8 @@ export const seminarsAndWorkshopsList = [
     content: (
       <p>
         Integrity and credibility form part of the core value of Hong Kong’s
-        testing and certification (T&C) sector, and are an important aspect of
-        our competitive edge. To sustain the sector’s good reputation, it is
+        testing and certification (T&C) industry, and are an important aspect of
+        our competitive edge. To sustain the industry’s good reputation, it is
         imperative for the T&C organisations to maintain a high standard of
         integrity and adopt good practices in their business and operations.
         <br />
@@ -765,8 +765,8 @@ export const seminarsAndWorkshopsList = [
     content: (
       <p>
         One of the key strengths of Hong Kong’s testing and certification (T&C)
-        sector is its high level of integrity and credibility, which gives
-        confidence to users of T&C services. To sustain the sector’s good
+        industry is its high level of integrity and credibility, which gives
+        confidence to users of T&C services. To sustain the industry’s good
         reputation, it is imperative for the T&C organisations to maintain a
         high standard of integrity and adopt good practices in their business
         and operations.
@@ -1005,8 +1005,8 @@ export const seminarsAndWorkshopsList = [
         <br />
         Integrity and credibility are foundation of good business. They also
         form part of the core value of Hong Kong’s testing and certification
-        (T&C) sector and are an important aspect of our competitive edge. To
-        sustain the sector’s good reputation, it is imperative for the T&C
+        (T&C) industry and are an important aspect of our competitive edge. To
+        sustain the industry’s good reputation, it is imperative for the T&C
         organisations to maintain a high standard of integrity and adopt good
         practices in their business and operations.
         <br />
@@ -1069,7 +1069,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         The rapid development of technology, together with Hong Kong's
         transformation into a smart city, is creating new opportunities for the
-        testing and certification (T&C) sector. On the one hand, T&C bodies
+        testing and certification (T&C) industry. On the one hand, T&C bodies
         could adopt new technologies such as robotics, automation, artificial
         intelligence, data analytics, blockchain, etc. to enhance operation
         efficiency and improve customer service. On the other, the emergence of
@@ -1107,7 +1107,7 @@ export const seminarsAndWorkshopsList = [
       {
         thumbnail: "", // if this pdf is from https://www.hkctc.gov.hk, no need to store the thumbnail, we can fetch the first page; otherwise we should save the img to file: seminarsAndWorkshopsThumbnails
         title:
-          "Adoption of New Technologies for the Testing and Certification Sector",
+          "Adoption of New Technologies for the Testing and Certification Industry",
         type: "pdf",
         pdfLink:
           "https://www.hkctc.gov.hk/en/doc/190318_Presentation_for_Seminar_on_New_Opportunities_for_Testing_and_Certification_Sector.pdf",
@@ -1152,7 +1152,7 @@ export const seminarsAndWorkshopsList = [
         protect public health, the Government, food suppliers and catering
         establishments all play an important role in ensuring food sold in Hong
         Kong is safe and fit for consumption. The testing and certification
-        (T&C) sector also serves as a gatekeeper, helping the food trade in
+        (T&C) industry also serves as a gatekeeper, helping the food trade in
         ensuring their hygiene standards and meeting local regulations. It also
         helps the catering industry in enhancing consumers' confidence over food
         safety and hygiene through food certification..
@@ -2299,7 +2299,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         Small and medium enterprises (SMEs) are an important pillar of Hong
         Kong's economy. They form the majority of enterprises in Hong Kong and
-        employ half of the private-sector workforce. It would be beneficial to
+        employ half of the private-industry workforce. It would be beneficial to
         the whole economy if SMEs are able to enhance their global
         competitiveness through using testing and certification (T&C) services.
         <br />
@@ -2662,7 +2662,7 @@ export const seminarsAndWorkshopsList = [
         Quality and Competence.
         <br />
         <br />
-        Medical laboratories provide essential support to the medical sector.
+        Medical laboratories provide essential support to the medical industry.
         Accurate and reliable laboratory services are crucial for proper
         clinical diagnosis and treatment. Accreditation provides formal
         third-party recognition to competent medical laboratories. The
@@ -3226,7 +3226,7 @@ export const seminarsAndWorkshopsList = [
         or specific requirements.
         <br />
         <br />
-        The seminar aimed to introduce to the construction sector about product
+        The seminar aimed to introduce to the construction industry about product
         certification. Participants took this opportunity to know more about
         product certification of construction materials/products and how it
         helps to ensure quality from the very beginning when the products are
@@ -3307,7 +3307,7 @@ export const seminarsAndWorkshopsList = [
         Hospital Authority. The Seminar aimed to promote the research and
         development (R&D) of Chinese medicines in Hong Kong and to facilitate
         communication and foster potential opportunities for collaboration among
-        stakeholders in the Chinese medicine sector.
+        stakeholders in the Chinese medicine industry.
         <br />
         <br />
         The Seminar covered a wide range of topics, including the current status
@@ -3686,7 +3686,7 @@ export const seminarsAndWorkshopsList = [
         the seminar discussed the accurate measurement of light through
         photometry, radiometry and photonics. As for accreditation, the focus
         was on enhancing assurance of service quality in the health and social
-        care sector through accreditation. The last but not least facet of the
+        care industry through accreditation. The last but not least facet of the
         seminar spoke to participants on how standards act as a common language
         among people, machines, parts, products, and more.
         <br />

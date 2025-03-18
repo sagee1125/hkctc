@@ -44,7 +44,7 @@ export const QualificationsFramework: React.FC = () => {
               Established in 2010 under QF, the Industry Training Advisory
               Committee of the Testing, Inspection and Certification Industry
               has completed the Specification of Competency Standards (SCS) for
-              the sector and released it in July 2014. The SCS consists of 242
+              the industry and released it in July 2014. The SCS consists of 242
               Units of Competency (UoCs) which are distributed in 7 major
               functional areas at various levels. It sets out the skills,
               knowledge and competency standards required of practitioners to

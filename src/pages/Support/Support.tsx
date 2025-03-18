@@ -77,7 +77,7 @@ const returnComponent = (
       topBanner: "support/funding_schemes_banner.png",
       component: <FundingSchemes />,
     },
-    // Testing and Certification Sector Job Creation Scheme (TCJS)
+    // Testing and Certification Industry Job Creation Scheme (TCJS)
     [navItemEnum.tcjs]: {
       topBanner: "support/support_3.png",
       component: <TCJS />,

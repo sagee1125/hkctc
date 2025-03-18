@@ -202,22 +202,22 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={"Testing and Certification Sector Job Creation Scheme (TCJS)"}
+          title={"Testing and Certification Industry Job Creation Scheme (TCJS)"}
           details={
             <div>
               <p className="!text-body-m">
                 The Innovation and Technology Commission (ITC) launched the
-                Testing and Certification Sector Job Creation Scheme (the
+                Testing and Certification Industry Job Creation Scheme (the
                 Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August
                 2022.
               </p>
               <br />
               <p className="mb-[16px] !text-body-m">
                 The Scheme was the first job creation scheme dedicated to the
-                testing and certification (T&C) sector. It aimed to encourage
+                testing and certification (T&C) industry. It aimed to encourage
                 private testing and certification (T&C) organisations to create
                 more job opportunities, and attract people to join the T&C
-                sector, so as to enrich Hong Kong’s T&C talent pool.
+                industry, so as to enrich Hong Kong’s T&C talent pool.
               </p>
               <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
                 <div className="flex flex-row gap-[24px] items-center w-full">

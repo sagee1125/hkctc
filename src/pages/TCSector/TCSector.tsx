@@ -80,7 +80,7 @@ export const TCSector: React.FC = () => {
     )?.items.find(
       (subNav: NavItems) =>
         subNav.name ===
-        "Introducing the Testing and Certificate sector, and what service we can provide"
+        "Introducing the Testing and Certification industry, and what service we can provide"
     )?.subItems ?? [];
   const { isPC } = useSettings();
   const location = useLocation();

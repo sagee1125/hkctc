@@ -270,7 +270,7 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <p>
           ISO 50001 is applicable to any organisations - whatever their size,
-          sector or geographical location.
+          industry or geographical location.
         </p>
       ),
     },

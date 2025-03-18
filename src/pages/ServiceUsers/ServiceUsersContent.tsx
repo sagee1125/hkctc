@@ -41,14 +41,14 @@ export const ServiceUsersContent: React.FC = () => {
     {
       title: "Services Provided by T&C Industry",
       description:
-        "In general, the testing and certification (T&C) sector provides three types of services - Testing, Inspection and Certification.",
+        "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
       imagePath: "serviceUsers/Services_Provided_TC.png",
       link: "/tc-sector?section=services_provided",
     },
     {
       title: "Services for Business Areas",
       description:
-        "The testing and certification sector offers services covering a wide range of areas...",
+        "The testing and certification industry offers services covering a wide range of areas...",
       imagePath: "serviceUsers/service_1.png",
       link: "/tc-sector?section=different_business_areas",
     },

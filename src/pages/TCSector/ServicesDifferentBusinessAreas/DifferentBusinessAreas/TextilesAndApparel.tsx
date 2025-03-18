@@ -139,9 +139,9 @@ export const TextilesAndApparel: React.FC = () => {
         Testing & Certification Services for Toys
       </p>
       <p className="text-body-m my-[24px]">
-        Hong Kong's testing and certification sector provides valuable support
+        Hong Kong's testing and certification industry provides valuable support
         on various stages of the supply chain. Apart from testing, certification
-        and inspection services, the sector also provides advisory services in
+        and inspection services, the industry also provides advisory services in
         relation to international/national regulatory requirements, as well as
         standards on raw materials and finished products.
       </p>
