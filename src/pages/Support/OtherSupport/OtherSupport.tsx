@@ -115,7 +115,7 @@ export const OtherSupport: React.FC = () => {
             alt={"calender"}
           />
           <p className="text-highlight-m flex-grow min-w-0">
-            To meet the needs of the testing and inspection sector, ECIC offers
+            To meet the needs of the testing and inspection industry, ECIC offers
             the tailor-made&nbsp;
             <a
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
@@ -156,9 +156,9 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m my-[24px]">
         Other benefits of TISP include credit management, receivable management
         and facilitating trade finance. ECIC's insurance cover can thus enhance
-        the credit management practice and competitiveness of the sector for
+        the credit management practice and competitiveness of the industry for
         developing new markets and clients and is vital for the promotion of
-        Hong Kong's testing and certification sector overseas.
+        Hong Kong's testing and certification industry overseas.
       </p>
       {/* TODO hyperlink */}
       <p className="text-body-m">

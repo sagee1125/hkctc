@@ -214,13 +214,13 @@ export const ProfileAndRole: React.FC = () => {
   return (
     <div className="w-full flex">
       <div className="flex-1 text-justify">
-        <SquareTitle title="Profile of the Sector" />
+        <SquareTitle title="Profile of the Industry" />
 
         <div className="bg-[#EEEEEA] my-[24px]">
           <div className="px-[42px] py-[36px]">
             <p className="text-body-m">
               The total business receipts of the private independent
-              establishments in the testing and certification (T&C) sector were
+              establishments in the testing and certification (T&C) industry were
               $24.9 billion.
             </p>
             <p
@@ -246,7 +246,7 @@ export const ProfileAndRole: React.FC = () => {
           establishments in the T&C industry. The vast majority (around 94% or 800
           establishments) of these were small and medium enterprises engaging
           less than 50 persons. They accounted for 37% of the total persons
-          engaged and 30% of the total business receipts in the sector.
+          engaged and 30% of the total business receipts in the industry.
         </p>
         <div className="flex flex-wrap gap-[8px] mb-[24px]">
           {chartsArray.map((chartInfo, index) => {
@@ -296,14 +296,14 @@ export const ProfileAndRole: React.FC = () => {
           Note: Number of institutions and number of employees engaged in
           testing and certification activities from 2009 to 2022 #The figure
           includes the amount of subsidy in relation to anti-epidemic measures
-          received by the sector in 2022.
+          received by the industry in 2022.
         </p> */}
         <hr className="my-[24px]" />
 
-        <SquareTitle title="Role of the Sector" />
+        <SquareTitle title="Role of the Industry" />
 
         <p className="text-body-m my-[24px]">
-          In additional to its direct economic contribution, the sector also
+          In additional to its direct economic contribution, the industry also
           supports the manufacturing, export and supply chain.
         </p>
         <div
@@ -328,21 +328,21 @@ export const ProfileAndRole: React.FC = () => {
         <p className="text-body-m">
           Locally, the T&C industry plays an important role in daily life of the
           Hong Kong community. For example, medical laboratories provide
-          essential support to medical sector in the diagnosis of illnesses.
+          essential support to medical industry in the diagnosis of illnesses.
           Private laboratories have been playing an increasing role in
           supporting the food industry for quality assurance and the Government
           in testing of food. The construction materials laboratories and
           inspection bodies also contribute to ensuring the building safety.
           <br />
           <br />
-          In support of Hong Kong's external trade, the sector has been
+          In support of Hong Kong's external trade, the industry has been
           providing high volume of testing and inspection services for consumer
           products manufactured in Hong Kong and the Pearl River Delta Region,
           in particular toys, electrical and electronic goods, textiles and
-          garments and footwear. The sector also provides quality management
+          garments and footwear. The industry also provides quality management
           system certification service for businesses. Through providing
           assurance to overseas buyers on the quality and safety of products,
-          the sector has played an important part in the economic development of
+          the industry has played an important part in the economic development of
           Hong Kong as well as Pearl River Delta Region.
           <br />
           <br />

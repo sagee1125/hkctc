@@ -203,7 +203,7 @@ export const ChineseMedicines: React.FC = () => {
         genuine, not misprocessed (such as bleached), and are free from
         adulteration and contamination, testing and certification is
         indispensable. Hong Kong has an efficient and competent testing and
-        certification sector to provide the relevant support
+        certification industry to provide the relevant support
         <br />
         <br />
         Testing and certification of Chinese medicines can bring about many
@@ -235,7 +235,7 @@ export const ChineseMedicines: React.FC = () => {
           <li>
             <span className="text-highlight-m">Hong Kong:</span>
             &nbsp;It can promote the further development of the testing and
-            certification sector and reinforce the position and strategic
+            certification industry and reinforce the position and strategic
             advantage of Hong Kong as a testing and certification hub of Chinese
             medicines. This in turn will sustain the economic growth of Hong
             Kong in the long run.

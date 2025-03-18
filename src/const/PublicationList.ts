@@ -611,7 +611,7 @@ export const pamphletsList: PublicationType[] = [
     category: [CATEGORIES.PUBLICATIONS],
   },
   {
-    title: "Career Development in Testing and Certificate Sector",
+    title: "Career Development in Testing and Certification Industry",
     date: "",
     link: "/en/doc/pamphlet_a.pdf",
     mediaType: MEDIA_TYPE.PDF,

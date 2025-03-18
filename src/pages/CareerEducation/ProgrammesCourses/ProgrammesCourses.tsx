@@ -124,9 +124,9 @@ export const ProgrammesCourses: React.FC = () => {
       <SquareTitle title="Programmes and Courses" />
 
       <p className="text-body-m mt-[24px]">
-        Academic programmes related to the testing and certification sector
+        Academic programmes related to the testing and certification industry
         include science, applied science, engineering, fashion and textiles,
-        etc. The tertiary education sector in Hong Kong has been offering more
+        etc. The tertiary education industry in Hong Kong has been offering more
         academic programmes dedicated to testing and certification, ranging from
         the sub-degree to postgraduate levels.
         <br />

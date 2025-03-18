@@ -8,7 +8,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
     en: {
       terms_of_ref: "Terms of Reference",
       refs: [
-        "To serve as a platform for stakeholders to exchange views on the manpower development need of the testing and certification (T&C) sector;",
+        "To serve as a platform for stakeholders to exchange views on the manpower development need of the testing and certification (T&C) industry;",
         "To promote cooperation among stakeholders to nurture the manpower needed by the T&C industry;",
         "To consider ways to strengthen the manpower resource to support the T&C industry; and",
         "To promote awareness of professional development of T&C personnel.",

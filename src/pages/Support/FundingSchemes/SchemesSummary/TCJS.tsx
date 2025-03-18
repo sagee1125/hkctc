@@ -3,7 +3,7 @@ import { FundingSchemesTable } from "./FundingSchemesTable";
 
 const rows = [
   {
-    schemeName: "Testing and Certification Sector Job Creation Scheme (TCJS)",
+    schemeName: "Testing and Certification Industry Job Creation Scheme (TCJS)",
     schemeNameHyperLink: "https://www.hkctc.gov.hk/en/tcjs/",
     objective: "Subsidize job creation in the T&C industry",
     targetAudience: "Local private T&C organizations",

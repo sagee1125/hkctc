@@ -16,17 +16,17 @@ export const CareerDevelopment: React.FC = () => {
 
   const careerDev: RelatedLinks[] = [
     {
-      title: "Profile and Role of Testing and Certification Sector",
+      title: "Profile and Role of Testing and Certification Industry",
       imgUrl: "Profile_and_Role.png",
       nav: `/tc-sector?section=${navItemEnum.profile_and_role}`,
     },
     {
-      title: "Strengths of Hong Kong's Testing and Certification Sector",
+      title: "Strengths of Hong Kong's Testing and Certification Industry",
       imgUrl: "Strengths.png",
       nav: `/tc-sector?section=${navItemEnum.tc_sector_strengths}`,
     },
     {
-      title: "Services Provided by Testing and Certification Sector",
+      title: "Services Provided by Testing and Certification Industry",
       imgUrl: "Services_Provided.png",
       nav: `/tc-sector?section=${navItemEnum.services_provided}`,
     },
@@ -92,7 +92,7 @@ export const CareerDevelopment: React.FC = () => {
       link: "/tc/doc/brochure_d.pdf",
     },
     {
-      title: "Career Development in Testing and Certification Sector",
+      title: "Career Development in Testing and Certification Industry",
       imgUrl: "defaultCover.png",
       iconPath: "PDF.png",
       mediaType: MEDIA_TYPE.PDF,

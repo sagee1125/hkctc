@@ -14,7 +14,7 @@ export const AboutHKCTC: React.FC = () => {
         "measures needed to raise the professional standing and community awareness of the industry.",
       ],
       heading:
-        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on the overall development strategy of the testing and certification sector. Members of the Council include practitioners from the testing and certification sector, business sector, professional organisations as well as the relevant public bodies and government departments. The Innovation and Technology Commission provides support to the Council.",
+        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on the overall development strategy of the testing and certification industry. Members of the Council include practitioners from the testing and certification industry, business industry, professional organisations as well as the relevant public bodies and government departments. The Innovation and Technology Commission provides support to the Council.",
       membership: "Membership",
       chairman: "Chairman",
       prof_WWT: "Professor WONG Wing-tak",

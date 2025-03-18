@@ -445,13 +445,13 @@ export const AwardScheme21to22Preview: React.FC = () => {
           <li>
             <span className="!text-highlight-m">Junior Professional:</span>
             &nbsp;Testing and certification (T&C) practitioners who have joined
-            the T&C sector for at least 1 year and are appointed in a
+            the T&C industry for at least 1 year and are appointed in a
             junior/entry rank position in an accredited T&C body; and
           </li>
           <br />
           <li>
             <span className="!text-highlight-m">Middle Management:</span>
-            &nbsp;T&C practitioners who have joined the T&C sector for at least
+            &nbsp;T&C practitioners who have joined the T&C industry for at least
             5 years and are appointed in a managerial position in an accredited
             T&C body.
           </li>
@@ -469,7 +469,7 @@ export const AwardScheme21to22Preview: React.FC = () => {
             Commitment to continuous learning and professional development by
             acquiring new skills, capabilities as well as relevant academic and
             professional qualifications after joining the testing and
-            certification sector;
+            certification industry;
           </li>
           <br />
           <li>
@@ -626,7 +626,7 @@ export const AwardScheme21to22Preview: React.FC = () => {
           <li>
             Pursuing continuous learning and professional development by
             acquiring new skills, capabilities as well as relevant academic and
-            professional qualifications after joining the T&C sector;
+            professional qualifications after joining the T&C industry;
           </li>
           <li>
             Making outstanding contribution s to improving service quality or

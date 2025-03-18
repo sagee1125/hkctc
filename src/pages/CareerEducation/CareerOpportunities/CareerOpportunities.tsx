@@ -10,7 +10,7 @@ export const CareerOpportunities: React.FC = () => {
         <p className="text-body-m flex-grow min-w-0">
           The nurture of young talent is essential to support the development of
           the T&C industry. HKCTC has been putting much effort to assist the
-          sector to attract new blood through arranging a wide range of
+          industry to attract new blood through arranging a wide range of
           activities for students.
         </p>
       </div>
@@ -42,21 +42,21 @@ export const CareerOpportunities: React.FC = () => {
             HKCTC has been organising career talks for secondary school and
             university students, and participating in career fairs in local
             post-secondary educational institutes to promote the career
-            prospects of the testing and certification sector to students.
+            prospects of the testing and certification industry to students.
             <br />
             <br />
             In career talks, representatives from the Hong Kong Accreditation
             Service will introduce the basic concepts and overview of the
-            testing and certification sector. Practitioners from the testing and
-            certification sector will also talk about the job nature,
-            requirements and career prospects of the sector, and share their
-            experience in working in the sector.
+            testing and certification industry. Practitioners from the testing and
+            certification industry will also talk about the job nature,
+            requirements and career prospects of the industry, and share their
+            experience in working in the industry.
           </p>
         </div>
         <div className="py-[16px] px-[24px]">
           <p>
             To enhance the students' understanding of the work of the testing
-            and certification sector, HKCTC has been organising visits to
+            and certification industry, HKCTC has been organising visits to
             commercial testing laboratories in Hong Kong for secondary school
             and university students.
             <br />
@@ -87,7 +87,7 @@ export const CareerOpportunities: React.FC = () => {
       <p className="text-heading-l mb-[24px]">Summer Internship</p>
       <p className="text-body-m">
         Internship programme provides a good channel for students to understand
-        more about the testing and certification sector and its career
+        more about the testing and certification industry and its career
         opportunities.
         <br />
         <br />

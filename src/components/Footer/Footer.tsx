@@ -167,7 +167,7 @@ export const Footer: React.FC = () => {
           link: `/tc-sector?section=${navItemEnum.funding_schemes}`,
         },
         {
-          label: "Testing and Certification Sector Job Creation Scheme (TCJS)",
+          label: "Testing and Certification Industry Job Creation Scheme (TCJS)",
           link: `/tc-sector?section=${navItemEnum.tcjs}`,
         },
         {

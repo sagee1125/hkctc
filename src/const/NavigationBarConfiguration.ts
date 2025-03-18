@@ -121,7 +121,7 @@ export const NavigationBarConfiguration: NavData[] = [
     showSidebar: true,
     items: [
       {
-        name: "Introducing the Testing and Certificate sector, and what service we can provide",
+        name: "Introducing the Testing and Certification industry, and what service we can provide",
         subItems: [
           {
             enum: navItemEnum.profile_and_role,
@@ -180,7 +180,7 @@ export const NavigationBarConfiguration: NavData[] = [
           // {
           //   enum: navItemEnum.tcjs,
           //   subTitle:
-          //     "Testing and Certification Sector Job Creation Scheme (TCJS)",
+          //     "Testing and Certification Industry Job Creation Scheme (TCJS)",
           //   imgUrl: "tcjs.png",
           //   navUrl: `/support?section=${navItemEnum.tcjs}`,
           // },

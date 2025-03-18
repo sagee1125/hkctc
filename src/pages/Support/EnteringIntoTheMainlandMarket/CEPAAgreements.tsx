@@ -402,7 +402,7 @@ export const CEPAAgreements: React.FC = () => {
                 Moreover, with respect to the mode of commercial presence,
                 except for those inconsistent/inapplicable measures reserved as
                 well as the horizontal management measures, the Guangdong
-                Agreement offers local testing and certification sector same
+                Agreement offers local testing and certification industry same
                 treatment as the Mainland enterprises in terms of market access
                 requirement in Guangdong Province.
               </p>

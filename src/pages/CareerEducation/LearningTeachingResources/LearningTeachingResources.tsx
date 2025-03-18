@@ -117,7 +117,7 @@ export const LearningTeachingResources: React.FC = () => {
         created by testing and certification. To this end, HKCTC has produced
         different learning and teaching materials to help youngsters to acquire
         the knowledge of testing and certification and arouse their interest to
-        the sector.
+        the industry.
       </p>
 
       <div id="STEM_Teaching_Kit" className="mb-[24px]">

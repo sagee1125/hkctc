@@ -9,9 +9,9 @@ const Aim: React.FC = () => {
   const aimQuestion: Array<{ question: string; answer: React.ReactNode }> = [
     {
       question:
-        "What is the Testing and Certification Sector Job Creation Scheme (TCJS)?",
+        "What is the Testing and Certification Industry Job Creation Scheme (TCJS)?",
       answer:
-        "The Testing and Certification Sector Job Creation Scheme, launched by the Innovation and Technology Commission (ITC), is the first job creation scheme dedicated to the testing and certification (T&C) industry under the Hong Kong Special Administrative Region Government. Under the Scheme, each local private T&C organisation with valid accreditation status given by the Hong Kong Accreditation Service may apply for a monthly subsidy for up to five eligible job positions.",
+        "The Testing and Certification Industry Job Creation Scheme, launched by the Innovation and Technology Commission (ITC), is the first job creation scheme dedicated to the testing and certification (T&C) industry under the Hong Kong Special Administrative Region Government. Under the Scheme, each local private T&C organisation with valid accreditation status given by the Hong Kong Accreditation Service may apply for a monthly subsidy for up to five eligible job positions.",
     },
     {
       question: "What is the aim of TCJS?",
@@ -367,12 +367,12 @@ export const TCJS: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SquareTitle title="Testing and Certification Sector Job Creation Scheme (TCJS)" />
+      <SquareTitle title="Testing and Certification Industry Job Creation Scheme (TCJS)" />
       <p className="text-body-m mt-[24px]">
         To relieve the unemployment situation due to the epidemic and as part of
         the anti-epidemic measures, the Anti-Epidemic Fund (AEF) 6.0 will
-        allocate resources to create time-limited jobs in the private sector.
-        The Testing and Certification Sector Job Creation Scheme (the Scheme) is
+        allocate resources to create time-limited jobs in the private industry.
+        The Testing and Certification Industry Job Creation Scheme (the Scheme) is
         launched under the AEF.
       </p>
       <br />
