@@ -4,38 +4,23 @@
     { "source": "/static/(.*)", "destination": "/static/$1" },
     {
       "source": "/hkctc-proxy/:path*",
-      "destination": "https://www.hkctc.gov.hk/:path*",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "https://www.hkctc.gov.hk/:path*"
     },
     {
       "source": "/cpas-icac-proxy/:path*",
-      "destination": "https://cpas.icac.hk/:path*",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "https://cpas.icac.hk/:path*"
     },
     {
       "source": "/hkbedc-proxy/:path*",
-      "destination": "https://www.hkbedc.icac.hk/:path*",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "https://www.hkbedc.icac.hk/:path*"
     },
     {
       "source": "/takungpao-proxy/:path*",
-      "destination": "http://paper.takungpao.com/:path*",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "http://paper.takungpao.com/:path*"
     },
     {
       "source": "/hkcd-proxy/:path*",
-      "destination": "https://www.hkcd.com.hk/:path*",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "https://www.hkcd.com.hk/:path*"
     }
   ]
 }
