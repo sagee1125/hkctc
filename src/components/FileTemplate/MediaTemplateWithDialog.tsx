@@ -239,10 +239,19 @@ export const MediaTemplateWithDialog: React.FC<
           className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
           onClick={handleOnClick}
         >
-          <div className="overflow-hidden flex-shrink-0 relative border-1">
+          <div
+            className="overflow-hidden flex-shrink-0 relative border-r-[2px] border-inherit"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+              overflow: "hidden",
+            }}
+          >
             {loading && (
               <div
-                className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
+                className="absolute flex items-center justify-center bg-white"
                 style={{
                   zIndex: "10",
                   width: "100%",
@@ -260,8 +269,10 @@ export const MediaTemplateWithDialog: React.FC<
                   style={{
                     objectFit: "contain",
                     zIndex: 1,
-                    width: "100%",
-                    height: "max-content",
+
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    aspectRatio: "auto",
                   }}
                 />
               )}
@@ -406,6 +417,10 @@ export const MediaTemplateWithDialog: React.FC<
                     style={{
                       objectFit: "contain",
                       zIndex: 1,
+
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      aspectRatio: "auto",
                       ...(isPC
                         ? {}
                         : {
