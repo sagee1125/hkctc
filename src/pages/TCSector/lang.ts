@@ -65,6 +65,7 @@ export const TC_SECTOR_STRENGTH_TEXT = {
       PERSONALITY_CONTENT: `The good business ethics of establishments in the testing and certification industry in Hong Kong and the high professional integrity of their staff are competitive edge that Hong Kong enjoys. `,
     },
   },
+  CN: {},
 };
 
 export const TC_SERVICE_PROVIDED_TEXT = {

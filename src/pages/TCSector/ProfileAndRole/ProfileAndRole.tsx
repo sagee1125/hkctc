@@ -3,16 +3,151 @@ import { Icon } from "@iconify/react";
 import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
+const multilingual = {
+  en: {
+    profile_of_the_Sector: "Profile of the Sector",
+    the_total:
+      "The total business receipts of the private independent establishments in the testing and certification (T&C) sector were $24.9 billion.",
+    the_total_italic:
+      "(according to the latest statistics provided by the Census and Statistics Department for 2022)",
+
+    the_economic:
+      "The economic contribution to Hong Kong's GDP was $10.9 billion. As for employment, the total number of persons engaged in these private independent establishments was about 15 060.",
+    in_the_same_year:
+      "In the same year, there were about 850 private independent establishments in the T&C industry. The vast majority (around 94% or 800 establishments) of these were small and medium enterprises engaging less than 50 persons. They accounted for 37% of the total persons engaged and 30% of the total business receipts in the sector.",
+    tabs: [
+      "Establishment and persons engaged",
+      "Number of Establishments",
+      "Number of Persons Engaged",
+      "Business Receipts",
+      "Industry Value Added",
+    ],
+    establishment_engaged_chart: {
+      title:
+        "Number of Establishment engaged in testing and certification activities",
+      years: "from 2009 to 2022#",
+    },
+    number_of_persons_engaged_chart: {
+      title:
+        "Number of persons engaged in testing and certification activities",
+      years: "from 2009 to 2022",
+      bottom_text:
+        "#Including private independent establishments, in-house laboratories in large manufacturers and exporters, and laboratories in Government departments / public organisations.",
+    },
+    number_of_establishment_chart: {
+      title: "Total Number of Establishments (Category A, B and C)",
+    },
+    total_number_of_persons_engaged_chart: {
+      title: "Total Number of Persons Engaged (Category A, B and C)",
+    },
+    business_receipts_chart: {
+      title: "Business Receipts (HK$ million) of Category A Establishments",
+    },
+    industry_value_added_chart: {
+      title: "Industry value added (HK$ million) of Category A Establishments",
+    },
+
+    role_of_the_sector: "Role of the Sector",
+    in_additional_to:
+      "In additional to its direct economic contribution, the sector also supports the manufacturing, export and supply chain.",
+    locally:
+      "Locally, the T&C industry plays an important role in daily life of the Hong Kong community. For example, medical laboratories provide essential support to medical sector in the diagnosis of illnesses. Private laboratories have been playing an increasing role in supporting the food industry for quality assurance and the Government in testing of food. The construction materials laboratories and inspection bodies also contribute to ensuring the building safety.",
+    in_support_of:
+      "In support of Hong Kong's external trade, the sector has been providing high volume of testing and inspection services for consumer products manufactured in Hong Kong and the Pearl River Delta Region, in particular toys, electrical and electronic goods, textiles and garments and footwear. The sector also provides quality management system certification service for businesses. Through providing assurance to overseas buyers on the quality and safety of products, the sector has played an important part in the economic development of Hong Kong as well as Pearl River Delta Region.",
+    from_wider_perspective:
+      "From a wider perspective, the T&C industry has also contributed to the development of Hong Kong as a business services centre. Coupled with other advantages including a sound legal system, a business-friendly environment and world class infrastructure, the availability of credible T&C services has enhanced attraction for multinational companies to set up buying offices and even regional headquarters in Hong Kong.",
+    statistics_data: "Statistics & Data",
+    data: [
+      "Latest Statistics of Testing and Certification Activities in Hong Kong",
+      "Key Data available for 2009 - 2022",
+    ],
+  },
+  cn: {
+    profile_of_the_Sector: "行業概況",
+    the_total: "在2022年，檢測和認證業中私營獨立機構的業務收益總額逹249億元。",
+    the_total_italic: "(根據2022年最新的政府統計處數據)",
+
+    the_economic:
+      "香港本地生產總值（GDP）帶來的貢獻為109億元。就業方面，在這些私營獨立機構內的總就業人數約為15 060人。",
+    in_the_same_year:
+      "同年，檢測和認證業內約有850家私營獨立機構，大部份為人數不足50人的中小型企業（約為94%，即800間）。這些機構聘用的人手佔總就業人數約37%，它們取得的業務收益佔總額約30%。",
+    tabs: [
+      "機構單位就業人數",
+      "機構單位的數目",
+      "就業人數",
+      "業務收益",
+      "行業增加價值",
+    ],
+    establishment_engaged_chart: {
+      title: "從事檢測及認證活動機構單位的數目",
+      years: "2009年至2022年#",
+    },
+    number_of_persons_engaged_chart: {
+      title: "從事檢測及認證活動的就業人數",
+      years: "2009年至2022年#",
+      bottom_text:
+        "#包括私營獨立機構，大型製造商及出口商內部實驗所及政府部門／公共機構內的實驗所。",
+    },
+    number_of_establishment_chart: {
+      title: "機構單位數目 (類別 A, B 及 C)",
+    },
+    total_number_of_persons_engaged_chart: {
+      title: "就業人數 (類別 A, B 及 C)",
+    },
+    business_receipts_chart: {
+      title: "類別A機構單位的業務收益(百萬港元)",
+    },
+    industry_value_added_chart: {
+      title: "類別A機構單位的行業增加價值(百萬港元)",
+    },
+
+    role_of_the_sector: "行業角色",
+    in_additional_to:
+      "除了直接經濟貢獻外，檢測和認證業亦支援了製造業、出口業和其他服務業，是整個供應鏈不可或缺的一環。",
+    locally:
+      "檢測和認證業在香港社會的日常生活中擔當重要角色，例如，醫務化驗所在診斷病症方面，為醫學界提供了重要的支援。在支援食品業的品質保證和為政府測試食品方面，私營實驗所扮演的角色也日趨重要；而建築材料實驗所和檢驗機構，亦對確保樓宇安全作出貢獻。",
+    in_support_of:
+      "在支援對外貿易方面，本地的檢測和認證業為香港和珠江三角洲地區製造的消費品，提供了大量測試和檢驗服務，特別是玩具、電氣和電子貨品、紡織、成衣和鞋履。檢測和認證業亦為業務機構提供品質管理系統認證服務。透過為海外買家提供產品／服務的品質和安全保證，行業對本港以至珠江三角洲地區的經濟發展作出了重要貢獻。",
+    from_wider_perspective:
+      "從宏觀角度分析，檢測和認證業對香港發展為商業服務中心亦發揮了支持作用。香港具備各種優勢，例如健全的法制、有利營商的環境和世界級的基建，加上可靠的檢測和認證服務，令香港更能吸引跨國公司前來設立採購辦事處以至地區總部。",
+    statistics_data: "統計數據",
+    data: ["香港檢測及認證活動統計數字", "2009 - 2022年主要數據"],
+  },
+};
 export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const {
+    profile_of_the_Sector,
+    the_total,
+    the_total_italic,
+    the_economic,
+    in_the_same_year,
+    tabs,
+    establishment_engaged_chart,
+    number_of_persons_engaged_chart,
+    number_of_establishment_chart,
+    total_number_of_persons_engaged_chart,
+    business_receipts_chart,
+    industry_value_added_chart,
+    role_of_the_sector,
+    in_additional_to,
+    locally,
+    in_support_of,
+    from_wider_perspective,
+    statistics_data,
+    data,
+  } = page_text;
   const chartsArray = [
     {
-      label: "Establishment and persons engaged",
+      label: tabs[0],
       charts: [
         {
           title: (
@@ -21,10 +156,9 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Number of Establishment engaged in testing and certification
-              activities
+              {establishment_engaged_chart.title}
               <br />
-              from 2009 to 2022#
+              {establishment_engaged_chart.years}
             </p>
           ),
           elementId: "institutions",
@@ -58,10 +192,9 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Number of persons engaged in testing and certification
-              activities
+              {number_of_persons_engaged_chart.title}
               <br />
-              from 2009 to 2022
+              {number_of_persons_engaged_chart.years}
             </p>
           ),
           elementId: "employees",
@@ -90,11 +223,10 @@ export const ProfileAndRole: React.FC = () => {
           seriesItemColor: "rgba(20, 123, 62, 0.60)",
         },
       ],
-      otherInfo:
-        "#Including private independent establishments, in-house laboratories in large manufacturers and exporters, and laboratories in Government departments / public organisations.",
+      otherInfo: number_of_persons_engaged_chart.bottom_text,
     },
     {
-      label: "Number of Establishments",
+      label: tabs[1],
       charts: [
         {
           title: (
@@ -103,7 +235,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Total Number of Establishments (Category A, B and C)
+              {number_of_establishment_chart.title}
               <br />
             </p>
           ),
@@ -117,7 +249,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: "Number of Persons Engaged",
+      label: tabs[2],
       charts: [
         {
           title: (
@@ -126,7 +258,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Total Number of Persons Engaged (Category A, B and C)
+              {total_number_of_persons_engaged_chart.title}
               <br />
             </p>
           ),
@@ -140,7 +272,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: "Business Receipts",
+      label: tabs[3],
       charts: [
         {
           title: (
@@ -149,7 +281,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Business Receipts (HK$ million) of Category A Establishments
+              {business_receipts_chart.title}
               <br />
             </p>
           ),
@@ -163,7 +295,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: "Industry Value Added",
+      label: tabs[4],
       charts: [
         {
           title: (
@@ -172,7 +304,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              Industry value added (HK$ million) of Category A Establishments
+              {industry_value_added_chart.title}
               <br />
             </p>
           ),
@@ -197,13 +329,12 @@ export const ProfileAndRole: React.FC = () => {
     link: string;
   }> = [
     {
-      title:
-        "Latest Statistics of Testing and Certification Activities in Hong Kong",
+      title: data[0],
       imagePath: "Statistics.png",
       link: "/en/doc/HKCTC_StatPresentation_English.pdf",
     },
     {
-      title: "Key Data available for 2009 - 2022",
+      title: data[1],
       imagePath: "KeyData.png",
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
     },
@@ -214,15 +345,11 @@ export const ProfileAndRole: React.FC = () => {
   return (
     <div className="w-full flex">
       <div className="flex-1 text-justify">
-        <SquareTitle title="Profile of the Industry" />
+        <SquareTitle title={profile_of_the_Sector} />
 
         <div className="bg-[#EEEEEA] my-[24px]">
           <div className="px-[42px] py-[36px]">
-            <p className="text-body-m">
-              The total business receipts of the private independent
-              establishments in the testing and certification (T&C) industry were
-              $24.9 billion.
-            </p>
+            <p className="text-body-m">{the_total}</p>
             <p
               className="italic mt-[16px]"
               style={{
@@ -231,22 +358,15 @@ export const ProfileAndRole: React.FC = () => {
                 fontWeight: 400,
               }}
             >
-              (according to the latest statistics provided by the Census and
-              Statistics Department for 2022)
+              {the_total_italic}
             </p>
           </div>
         </div>
         <p className="text-body-m mb-[24px]">
-          The economic contribution to Hong Kong's GDP was $10.9 billion. As for
-          employment, the total number of persons engaged in these private
-          independent establishments was about 15 060.
+          {the_economic}
           <br />
           <br />
-          In the same year, there were about 850 private independent
-          establishments in the T&C industry. The vast majority (around 94% or 800
-          establishments) of these were small and medium enterprises engaging
-          less than 50 persons. They accounted for 37% of the total persons
-          engaged and 30% of the total business receipts in the industry.
+          {in_the_same_year}
         </p>
         <div className="flex flex-wrap gap-[8px] mb-[24px]">
           {chartsArray.map((chartInfo, index) => {
@@ -300,12 +420,9 @@ export const ProfileAndRole: React.FC = () => {
         </p> */}
         <hr className="my-[24px]" />
 
-        <SquareTitle title="Role of the Industry" />
+        <SquareTitle title={role_of_the_sector} />
 
-        <p className="text-body-m my-[24px]">
-          In additional to its direct economic contribution, the industry also
-          supports the manufacturing, export and supply chain.
-        </p>
+        <p className="text-body-m my-[24px]">{in_additional_to}</p>
         <div
           className={`grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full`}
         >
@@ -326,36 +443,16 @@ export const ProfileAndRole: React.FC = () => {
         </div>
 
         <p className="text-body-m">
-          Locally, the T&C industry plays an important role in daily life of the
-          Hong Kong community. For example, medical laboratories provide
-          essential support to medical industry in the diagnosis of illnesses.
-          Private laboratories have been playing an increasing role in
-          supporting the food industry for quality assurance and the Government
-          in testing of food. The construction materials laboratories and
-          inspection bodies also contribute to ensuring the building safety.
+          {locally}
           <br />
           <br />
-          In support of Hong Kong's external trade, the industry has been
-          providing high volume of testing and inspection services for consumer
-          products manufactured in Hong Kong and the Pearl River Delta Region,
-          in particular toys, electrical and electronic goods, textiles and
-          garments and footwear. The industry also provides quality management
-          system certification service for businesses. Through providing
-          assurance to overseas buyers on the quality and safety of products,
-          the industry has played an important part in the economic development of
-          Hong Kong as well as Pearl River Delta Region.
+          {in_support_of}
           <br />
           <br />
-          From a wider perspective, the T&C industry has also contributed to the
-          development of Hong Kong as a business services centre. Coupled with
-          other advantages including a sound legal system, a business-friendly
-          environment and world class infrastructure, the availability of
-          credible T&C services has enhanced attraction for multinational
-          companies to set up buying offices and even regional headquarters in
-          Hong Kong.
+          {from_wider_perspective}
         </p>
         <hr className="my-[24px]" />
-        <p className="text-heading-l mb-[24px]">Statistics & Data</p>
+        <p className="text-heading-l mb-[24px]">{statistics_data}</p>
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
             const { title, imagePath, date, link } = item;
@@ -374,7 +471,7 @@ export const ProfileAndRole: React.FC = () => {
                       window.open("https://www.hkctc.gov.hk" + link, "_blank");
                     }
                   }}
-                  style={{ flexShrink: 0 }} // 确保左边不会被压缩
+                  style={{ flexShrink: 0 }}
                 >
                   <img
                     className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
