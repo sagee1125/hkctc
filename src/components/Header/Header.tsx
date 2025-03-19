@@ -105,10 +105,10 @@ export const Header: React.FC = () => {
                 />
               </form>
             )}
-            <Icon
+            {/* <Icon
               icon="mingcute:font-line"
               className="h-6 w-6 text-[#333333] flex-shrink-0"
-            />
+            /> */}
             <Icon
               icon="ci:globe"
               className="h-6 w-6 text-[#333333] flex-shrink-0 cursor-pointer"
