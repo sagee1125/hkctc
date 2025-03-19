@@ -40,6 +40,7 @@ import { RegistrationBox } from "./EventsLanding/SeminarsWorkshops/RegistrationB
 import { AwardScheme21to22Preview } from "./EventsLanding/AwardScheme/AwardScheme21to22Preview";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 import { useSettings } from "../../context";
+import { AssessmentPanel2122 } from "./EventsLanding/AwardScheme/AssessmentPanel2122";
 
 const directoryItems: DirectorySidebarItems[] = [
   {
@@ -52,29 +53,88 @@ const directoryItems: DirectorySidebarItems[] = [
   },
 ];
 
-const profileAndRoleRec: Record<string, React.ReactNode> = {
-  "2324": <AwardScheme />,
-  "2122": <AwardScheme21to22Preview />,
-};
-
+const validSideBarKeys: navItemEnum[] = [
+  navItemEnum.award_scheme,
+  navItemEnum.seminar_workshop,
+  navItemEnum.student_competition,
+  navItemEnum.hkctc_newsletter,
+  navItemEnum.pamphlets_booklets,
+  navItemEnum.comics,
+  navItemEnum.corruption_prevention,
+  navItemEnum.useful_information,
+  navItemEnum.hkctc_reports,
+  navItemEnum.council_papers,
+  navItemEnum.press_releases,
+  navItemEnum.advertorials,
+  navItemEnum.videos,
+  navItemEnum.seminar_article,
+];
 export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const { isPC } = useSettings();
+
+  const initialSection = queryParams.get("section") ?? "";
+
+  const initialParam: navItemEnum = validSideBarKeys.includes(
+    initialSection as navItemEnum
+  )
+    ? (initialSection as navItemEnum)
+    : navItemEnum.award_scheme;
+
+  const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
+
+  // 21-22 assessment panel, 1 or 0
+  const onAssessmentPanel = queryParams.get("on_panel_detail") === "1";
+
   const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
-    useState<string>("2324");
+    useState<string>(
+      onAssessmentPanel && activeItem === navItemEnum.award_scheme
+        ? "2122"
+        : "2324"
+    );
+
+  useEffect(() => {
+    const hashValue = window.location.hash.replace("#", "");
+    if (initialParam !== activeItem) {
+      setActiveItem(initialParam);
+      if (hashValue) {
+        navigate(`?section=${initialParam}#${hashValue}`);
+      } else {
+        navigate(`?section=${initialParam}`);
+      }
+    }
+  }, [initialParam, activeItem, navigate]);
+
   const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
   const seminarArticleTitle =
     seminarsAndWorkshopsList[seminarArticleIndex]?.title;
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
     setActivatedDirectorySidebarItems(activatedItems);
+    navigate(`?section=${initialParam}&on_panel_detail=0`);
 
     const element = document.getElementById("breadcrumb");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+  const handleOpenAssessmentPanel = (): void => {
+    navigate(`?section=${navItemEnum.award_scheme}&on_panel_detail=1`);
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const profileAndRoleRec: Record<string, React.ReactNode> = {
+    "2324": <AwardScheme />,
+    "2122": (
+      <AwardScheme21to22Preview
+        handleOpenAssessmentPanel={handleOpenAssessmentPanel}
+      />
+    ),
   };
 
   const sidebarComponent: Partial<
@@ -176,32 +236,6 @@ export const EventsPromotion: React.FC = () => {
     },
   };
 
-  const sidebarKeys = Object.keys(
-    sidebarComponent
-  ) as (keyof typeof sidebarComponent)[];
-
-  const initialSection = queryParams.get("section") ?? "";
-
-  const initialParam: navItemEnum = sidebarKeys.includes(
-    initialSection as navItemEnum
-  )
-    ? (initialSection as navItemEnum)
-    : navItemEnum.award_scheme;
-
-  const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
-
-  useEffect(() => {
-    const hashValue = window.location.hash.replace("#", "");
-    if (initialParam !== activeItem) {
-      setActiveItem(initialParam);
-      if (hashValue) {
-        navigate(`?section=${initialParam}#${hashValue}`);
-      } else {
-        navigate(`?section=${initialParam}`);
-      }
-    }
-  }, [initialParam, activeItem, navigate]);
-
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
       (nav: NavData) => nav.title === "Events & Promotions"
@@ -271,7 +305,11 @@ export const EventsPromotion: React.FC = () => {
     navigate(`?section=${item}`);
   };
 
-  const component = sidebarComponent[activeItem]?.component;
+  const component = onAssessmentPanel ? (
+    <AssessmentPanel2122 />
+  ) : (
+    sidebarComponent[activeItem]?.component
+  );
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
   const subComponent = sidebarComponent[activeItem]?.subComponent;
   const otherPath = sidebarComponent[activeItem]?.path ?? []; // only used for seminars
@@ -308,7 +346,7 @@ export const EventsPromotion: React.FC = () => {
       : []),
   ];
 
-  const multipleSidebars = (
+  const multipleSidebars = !onAssessmentPanel && (
     <MultipleSidebars
       sidebars={sidebarData}
       activatedItems={activeItem}
