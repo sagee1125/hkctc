@@ -389,7 +389,7 @@ export const TCJS: React.FC = () => {
             alt={"rocket"}
           />
           <p className="text-highlight-m flex-grow min-w-0">
-            Local private T&C organizations with valid Hong Kong Accreditation
+            Local private T&C organisations with valid Hong Kong Accreditation
             Service status can apply for a monthly subsidy for up to five
             eligible positions
           </p>

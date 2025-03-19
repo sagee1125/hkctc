@@ -19,12 +19,12 @@ export const SupplementVIItoCEPAClauses: React.FC = () => {
       </p>
       <p className="my-[24px] text-heading-m">Specific commitments</p>
       <p className="text-body-m">
-        To allow testing organizations in Hong Kong to cooperate with designated
-        Mainland organizations to undertake testing of products for the China
+        To allow testing organisations in Hong Kong to cooperate with designated
+        Mainland organisations to undertake testing of products for the China
         Compulsory Certification (CCC) System on a pilot basis, for selected
         products listed in the CCC Catalogue and processed in Hong Kong (i.e.
         the processing facilities are located in Hong Kong). These testing
-        organizations have to be accredited by the accreditation body of the
+        organisations have to be accredited by the accreditation body of the
         Government of Hong Kong Special Administrative Region (i.e. the Hong
         Kong Accreditation Service) to be capable of performing testing for the
         relevant products under the CCC System. Cooperation arrangements should

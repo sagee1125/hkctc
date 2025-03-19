@@ -57,7 +57,7 @@ export const seminarsAndWorkshopsList = [
       {
         thumbnail: "",
         title:
-          "How the TIC industry helps organizations to achieve and demonstrate Carbon Neutrality",
+          "How the TIC industry helps organisations to achieve and demonstrate Carbon Neutrality",
         type: "pdf",
         pdfLink:
           "https://www.hkctc.gov.hk/en/doc/240411_how_TIC_industry_help.pdf",
@@ -552,7 +552,7 @@ export const seminarsAndWorkshopsList = [
       },
       {
         thumbnail: "", // if this pdf is from https://www.hkctc.gov.hk, no need to store the thumbnail, we can fetch the first page; otherwise we should save the img to file: seminarsAndWorkshopsThumbnails
-        title: "What is the Value of ISO 27001 to an Internal Organization?",
+        title: "What is the Value of ISO 27001 to an Internal Organisation?",
         type: "pdf",
         pdfLink:
           "https://www.hkctc.gov.hk/en/doc/210728_What_is_the_Value_of_ISO_27001_to_an_Internal_Organization.pdf",
@@ -1978,7 +1978,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         <br />
         This seminar included plenary lectures and parallel sessions covering
-        various important topics, such as on testing and standardization of
+        various important topics, such as on testing and standardisation of
         Chinese medicines, as well as recent trends in research and clinical
         practice of Chinese medicine in managing degenerative diseases.
       </p>
@@ -3164,7 +3164,7 @@ export const seminarsAndWorkshopsList = [
         <br />
         To ensure that the standard remains relevant to today's business
         environment, Technical Committee 176 (TC 176) of the International
-        Oragnization for Standardization (ISO) regularly review and update the
+        Oragnization for Standardisation (ISO) regularly review and update the
         international standard. The latest version ISO 9001:2015 has been
         released in September 2015.
       </p>

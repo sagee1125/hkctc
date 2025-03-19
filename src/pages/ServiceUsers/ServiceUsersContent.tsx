@@ -145,7 +145,7 @@ export const ServiceUsersContent: React.FC = () => {
         <p className="py-[24px] text-body-m">
           Discover accredited laboratories, certification bodies, and inspection
           bodies under HKAS. Access information about HOKLAS, HKCAS, and HKIAS,
-          as well as a full directory of accredited organizations.
+          as well as a full directory of accredited organisations.
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {

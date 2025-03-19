@@ -158,7 +158,7 @@ export const CareerDevelopment: React.FC = () => {
           <br />
           The demand for quality products and services has never been higher.
           Given the growing need for testing and certification services, the
-          testing and certification sector has a keen demand for talent.
+          testing and certification industry has a keen demand for talent.
           Pursuing a career in testing and certification will bring you a wide
           range of opportunities!
         </p>

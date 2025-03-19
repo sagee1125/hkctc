@@ -47,7 +47,7 @@ export const seminarsAndWorkshopsList = [
       },
       {
         thumbnail: "",
-        title: "How the TIC industry helps organizations to achieve...",
+        title: "How the TIC industry helps organisations to achieve...",
         type: "pdf",
       },
     ],

@@ -76,7 +76,7 @@ const multilingual = {
   en: {
     services_for_diff_business_areas: "Services for Different Business Areas",
     the_testing_and_certification:
-      "The testing and certification sector offers services covering a wide range of areas, some major ones are set out below.",
+      "The testing and certification industry offers services covering a wide range of areas, some major ones are set out below.",
   },
   cn: {
     services_for_diff_business_areas: "為不同業務範疇提供的服務",

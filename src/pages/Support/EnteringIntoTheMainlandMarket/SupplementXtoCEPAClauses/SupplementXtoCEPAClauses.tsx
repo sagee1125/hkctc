@@ -3,7 +3,7 @@ import { InternalBackButton, SquareTitle } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 
 const specificCommitments: React.ReactNode[] = [
-  "To expand, on a pilot basis in Guangdong Province, the scope of testing services for the purpose of certification that can be undertaken by Hong Kong testing organizations from food to other areas of voluntary product certification.",
+  "To expand, on a pilot basis in Guangdong Province, the scope of testing services for the purpose of certification that can be undertaken by Hong Kong testing organisations from food to other areas of voluntary product certification.",
   <>
     <p>
       To accord to certification bodies, inspection bodies and laboratories
@@ -26,7 +26,7 @@ const specificCommitments: React.ReactNode[] = [
       .)
     </p>
   </>,
-  "On the basis of mutual trust and mutual benefit, to allow testing and certification organizations in Hong Kong to cooperate with the Mainland testing and certification organizations in respect of acceptance of testing data (results). Specific cooperation arrangements are subject to further discussion.",
+  "On the basis of mutual trust and mutual benefit, to allow testing and certification organisations in Hong Kong to cooperate with the Mainland testing and certification organisations in respect of acceptance of testing data (results). Specific cooperation arrangements are subject to further discussion.",
   <p>
     To allow contractual service providers employed by Hong Kong service
     suppliers, in the mode of movement of natural persons, to provide services
@@ -81,8 +81,8 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <p className="text-body-m">
         The two sides agreed to further strengthen cooperation in the areas of
         commodity inspection and quarantine, food safety and quality and
-        standardization. Accordingly, the following is added to Article 5.2.4 of
-        Annex 6 to "CEPA" - Certification, accreditation and standardization
+        standardisation. Accordingly, the following is added to Article 5.2.4 of
+        Annex 6 to "CEPA" - Certification, accreditation and standardisation
         Management:
         <br />
         <br />
