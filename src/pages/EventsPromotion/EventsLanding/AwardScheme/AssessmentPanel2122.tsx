@@ -19,7 +19,7 @@ export const AssessmentPanel2122: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle
-        title={"Membership of Assessment Panel of Testing and Certification "}
+        title={"Membership of Assessment Panel of Testing and Certification"}
       />
       <p className="text-heading-l">
         Manpower Development Award Scheme 2021-22

@@ -16,6 +16,7 @@ import {
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { useSettings } from "../../../../context";
+import { useNavigate } from "react-router-dom";
 
 const platinumAwardees: string[] = [
   "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
@@ -200,6 +201,7 @@ export const AwardScheme23to24: React.FC = () => {
   ];
   const { isPC } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
   const [activeButtonOne, setActiveButtonOne] =
@@ -208,15 +210,6 @@ export const AwardScheme23to24: React.FC = () => {
     "Junior Professional Sub-group"
   );
   const mediaData: MediaTemplateWithDialogProps[] = [
-    {
-      title: "Media Coverage",
-      maskIcon: "PRESS.png",
-      imagePath: "press_release.png",
-      date: "",
-      mediaType: MEDIA_TYPE.NEW_PAGE,
-      mediaLink: "https://www.hkctc.gov.hk/en/event/mpaward/media_2023-24.html",
-    },
-
     {
       title: "Press Release",
       maskIcon: "PRESS.png",
@@ -708,9 +701,55 @@ export const AwardScheme23to24: React.FC = () => {
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">Media</p>
+      <p className="text-heading-l mb-[24px]">Media</p>
 
-      <div className={`w-full flex flex-col gap-[24px] my-[24px]`}>
+      <div
+        className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer mb-[24px]"
+        onClick={() => {
+          navigate(
+            `/events-promotion?section=${navItemEnum.award_scheme}&year=2324&on_detail=1`
+          );
+          window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        <img
+          className="w-[160px] h-full object-cover flex-shrink-0"
+          src={process.env.PUBLIC_URL + "/assets/eventsLanding/2023-2024.png"}
+          alt={"2023-2024"}
+        />
+        <div
+          className={`text-black py-[8px] ${
+            isPC ? "pr-[16px] text-highlight-m" : "text-highlight-s"
+          }`}
+        >
+          Media Coverage
+        </div>
+        <svg
+          className="flex-shrink-0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <g clipPath="url(#clip0_2682_55750)">
+            <path
+              d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
+              fill="black"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_2682_55750">
+              <rect width="16" height="16" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+
+      <div className={`w-full flex flex-col gap-[24px] mb-[24px]`}>
         {mediaData.map((item, index) => {
           const {
             title,

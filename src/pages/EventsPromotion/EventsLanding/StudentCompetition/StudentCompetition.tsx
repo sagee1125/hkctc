@@ -140,7 +140,7 @@ export const StudentCompetition: React.FC = () => {
                     viewBox="0 0 17 17"
                     fill="none"
                   >
-                    <g clip-path="url(#clip0_3271_24860)">
+                    <g clipPath="url(#clip0_3271_24860)">
                       <path
                         d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
                         fill="black"

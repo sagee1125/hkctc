@@ -331,7 +331,7 @@ export const EnvironmentalProtection: React.FC = () => {
                         viewBox="0 0 21 21"
                         fill="none"
                       >
-                        <g clip-path="url(#clip0_2939_67250)">
+                        <g clipPath="url(#clip0_2939_67250)">
                           <path
                             d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
                             fill="#233F55"

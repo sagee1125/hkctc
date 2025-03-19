@@ -46,4 +46,32 @@ module.exports = function (app) {
     })
   );
 
+  app.use(
+    '/takungpao-proxy',
+    createProxyMiddleware({
+      target: 'http://paper.takungpao.com',
+      changeOrigin: true,
+      secure: false,
+      timeout: 10000,  
+      proxyTimeout: 10000, 
+      pathRewrite: {
+        '^/takungpao-proxy': '',
+      },
+    })
+  );
+
+  app.use(
+    '/hkcd-proxy',
+    createProxyMiddleware({
+      target: 'https://www.hkcd.com.hk',
+      changeOrigin: true,
+      secure: false,
+      timeout: 10000,  
+      proxyTimeout: 10000, 
+      pathRewrite: {
+        '^/hkcd-proxy': '',
+      },
+    })
+  );
+
 };

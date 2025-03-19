@@ -758,13 +758,13 @@ export const AwardScheme21to22Preview: React.FC<{
         }}
       >
         <img
-          className="w-[130px] h-full object-contain"
+          className="w-[130px] h-full object-contain flex-shrink-0"
           src={process.env.PUBLIC_URL + "/assets/eventsLanding/2021-2022.png"}
           alt={"2023-2024"}
         />
         <div
-          className={`text-highlight-m text-black py-[8px] ${
-            isPC ? "pr-[16px]" : ""
+          className={`text-black py-[8px] ${
+            isPC ? "pr-[16px] text-highlight-m" : "text-highlight-s"
           }`}
         >
           List of Awardees/ Award Ceremony
@@ -777,7 +777,7 @@ export const AwardScheme21to22Preview: React.FC<{
           viewBox="0 0 16 16"
           fill="none"
         >
-          <g clip-path="url(#clip0_2682_55750)">
+          <g clipPath="url(#clip0_2682_55750)">
             <path
               d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
               fill="black"

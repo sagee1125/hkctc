@@ -4,6 +4,14 @@ import { MediaDialog } from "./MediaDialog";
 import { MEDIA_TYPE } from "../../const";
 import { useSettings } from "../../context";
 
+export type ProxyDomain =
+  | "hkctc"
+  | "youtube"
+  | "cpas-icac"
+  | "hkbedc"
+  | "takungpao"
+  | "hkcd";
+
 export type MediaTemplateWithDialogProps = {
   title: string;
   maskIcon?: string;
@@ -11,10 +19,30 @@ export type MediaTemplateWithDialogProps = {
   imagePath?: string;
   mediaLink: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "hkbedc";
+  mediaDomain?: ProxyDomain;
   direction?: "column" | "row" | "full";
+  titleUnderline?: boolean;
 };
+export const handleGetPDFUrl = (
+  domain: ProxyDomain,
+  mediaLink: string
+): string => {
+  switch (domain) {
+    case "hkctc":
+      return "/hkctc-proxy" + mediaLink;
+    case "cpas-icac":
+      return "/cpas-icac-proxy" + mediaLink;
+    case "hkbedc":
+      return "/hkbedc-proxy" + mediaLink;
+    case "takungpao":
+      return "/takungpao-proxy" + mediaLink;
+    case "hkcd":
+      return "/hkcd-proxy" + mediaLink;
 
+    default:
+      return "/hkctc-proxy" + mediaLink;
+  }
+};
 //   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
 export const MediaTemplateWithDialog: React.FC<
   MediaTemplateWithDialogProps
@@ -27,6 +55,7 @@ export const MediaTemplateWithDialog: React.FC<
   mediaType,
   mediaDomain = "hkctc",
   direction = "column",
+  titleUnderline = false,
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const { isPC, pdfjsLib } = useSettings();
@@ -44,18 +73,11 @@ export const MediaTemplateWithDialog: React.FC<
     let isCancelled = false;
 
     const fetchAndRenderPdf = async () => {
-      const pdfUrl =
-        mediaDomain === "hkctc"
-          ? "/hkctc-proxy" + mediaLink
-          : mediaDomain === "cpas-icac"
-          ? "/cpas-icac-proxy" + mediaLink
-          : "/hkbedc-proxy" + mediaLink;
-
+      const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
       setLoading(true);
-
       try {
         // Force to render file
-        const response = await fetch(pdfUrl);
+        const response = await fetch(pdfUrl, { cache: "no-store" });
         const arrayBuffer = await response.arrayBuffer();
 
         const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
@@ -327,17 +349,23 @@ export const MediaTemplateWithDialog: React.FC<
               )}
 
               {mediaType === MEDIA_TYPE.NEW_PAGE && (
-                <img
-                  alt="img"
-                  src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
-                  style={{
-                    objectFit: "cover",
+                <>
+                  {!!imagePath ? (
+                    <img
+                      alt="img"
+                      src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                      style={{
+                        objectFit: "cover",
 
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 0,
-                  }}
-                />
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#F4F4F4]" />
+                  )}
+                </>
               )}
             </>
           </div>
@@ -358,7 +386,7 @@ export const MediaTemplateWithDialog: React.FC<
                   viewBox="0 0 17 17"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_3271_24860)">
+                  <g clipPath="url(#clip0_3271_24860)">
                     <path
                       d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
                       fill="black"
@@ -501,17 +529,23 @@ export const MediaTemplateWithDialog: React.FC<
                 )}
 
                 {mediaType === MEDIA_TYPE.NEW_PAGE && (
-                  <img
-                    alt="img"
-                    src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
-                    style={{
-                      objectFit: "cover",
+                  <>
+                    {!!imagePath ? (
+                      <img
+                        alt="img"
+                        src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                        style={{
+                          objectFit: "cover",
 
-                      width: "100%",
-                      height: "100%",
-                      zIndex: 0,
-                    }}
-                  />
+                          width: "100%",
+                          height: "100%",
+                          zIndex: 0,
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#F4F4F4]" />
+                    )}
+                  </>
                 )}
               </>
 
@@ -540,7 +574,13 @@ export const MediaTemplateWithDialog: React.FC<
                 direction === "column" ? "between" : "center"
               } h-full w-full`}
             >
-              <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
+              <p
+                className={`text-highlight-${isPC ? "l" : "xs"} ${
+                  titleUnderline ? "underline" : ""
+                }`}
+              >
+                {title}
+              </p>
 
               {date ? (
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
@@ -551,7 +591,7 @@ export const MediaTemplateWithDialog: React.FC<
                     viewBox="0 0 17 17"
                     fill="none"
                   >
-                    <g clip-path="url(#clip0_3271_24860)">
+                    <g clipPath="url(#clip0_3271_24860)">
                       <path
                         d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
                         fill="black"
