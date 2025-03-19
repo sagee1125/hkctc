@@ -7,7 +7,7 @@ type MediaDialogProps = {
   title: string;
   link: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "others";
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "hkbedc" | "others";
 };
 
 export const MediaDialog: React.FC<MediaDialogProps> = ({
@@ -26,7 +26,11 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     await withLoading(async () => {
       try {
         const proxyHead =
-          mediaDomain === "hkctc" ? "/hkctc-proxy" : "/cpas-icac-proxy";
+          mediaDomain === "hkctc"
+            ? "/hkctc-proxy"
+            : mediaDomain === "cpas-icac"
+            ? "/cpas-icac-proxy"
+            : "/hkbedc-proxy";
         const response = await fetch(proxyHead + link);
         const pdfBlob = await response.blob();
         const pdfHyperlink = document.createElement("a");

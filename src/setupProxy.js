@@ -30,5 +30,20 @@ module.exports = function (app) {
       },
     })
   );
-  
+
+
+  app.use(
+    '/hkbedc-proxy',
+    createProxyMiddleware({
+      target: 'https://www.hkbedc.icac.hk',
+      changeOrigin: true,
+      secure: false,
+      timeout: 10000,  
+      proxyTimeout: 10000, 
+      pathRewrite: {
+        '^/hkbedc-proxy': '',
+      },
+    })
+  );
+
 };

@@ -9,6 +9,10 @@
     {
       "source": "/cpas-icac-proxy/:path*",
       "destination": "https://cpas.icac.hk/:path*"
+    },
+    {
+      "source": "/hkbedc-proxy/:path*",
+      "destination": "https://www.hkbedc.icac.hk/:path*"
     }
   ]
 }

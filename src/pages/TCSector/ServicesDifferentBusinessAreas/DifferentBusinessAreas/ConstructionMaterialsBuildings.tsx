@@ -709,8 +709,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
 
       <p className="text-body-m">
         Details of the laboratories providing the public with accredited
-        electrical and electronic product (EEP) testing services are available
-        at&nbsp;
+        construction materials testing services are available at&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"

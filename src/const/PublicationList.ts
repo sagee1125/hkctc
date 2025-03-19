@@ -50,7 +50,7 @@ export type PublicationType = {
   mediaType: MEDIA_TYPE;
   yearRange?: number[];
   category: CATEGORIES[];
-  mediaDomain?: "hkctc" | "youtube" | "cpas-icac";
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "hkbedc";
 };
 
 export type CoursesType = Omit<PublicationType, "date" | "mediaType"> & {
@@ -851,9 +851,10 @@ export const corruptionGuideList: PublicationType[] = [
   {
     title:
       "Pamphlet for Frontline Materials Testing Staff (Chinese Version Only)",
-    link: "http://www.hkbedc.icac.hk/tc_chi/files/publications/PamphletforFrontlineMaterialsTestingStaff.pdf",
+    link: "/tc_chi/files/publications/PamphletforFrontlineMaterialsTestingStaff.pdf", // https://www.hkbedc.icac.hk
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    mediaDomain: "hkbedc",
   },
 ];
 

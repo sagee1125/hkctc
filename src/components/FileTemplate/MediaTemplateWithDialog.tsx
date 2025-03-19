@@ -11,7 +11,7 @@ export type MediaTemplateWithDialogProps = {
   imagePath?: string;
   mediaLink: string;
   mediaType: MEDIA_TYPE;
-  mediaDomain?: "hkctc" | "youtube" | "cpas-icac";
+  mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "hkbedc";
   direction?: "column" | "row" | "full";
 };
 
@@ -47,7 +47,9 @@ export const MediaTemplateWithDialog: React.FC<
       const pdfUrl =
         mediaDomain === "hkctc"
           ? "/hkctc-proxy" + mediaLink
-          : "/cpas-icac-proxy" + mediaLink;
+          : mediaDomain === "cpas-icac"
+          ? "/cpas-icac-proxy" + mediaLink
+          : "/hkbedc-proxy" + mediaLink;
 
       setLoading(true);
 
@@ -573,7 +575,7 @@ export const MediaTemplateWithDialog: React.FC<
           </div>
         </>
       )}
-      ;
+
       {isPreviewOpen && (
         <MediaDialog
           mediaType={mediaType}
