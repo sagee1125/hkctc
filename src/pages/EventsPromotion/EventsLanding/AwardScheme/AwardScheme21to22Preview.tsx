@@ -258,15 +258,15 @@ const publicationData: MediaTemplateWithDialogProps[] = [
     mediaLink: "/videos/tc/MPAward_Highlight.mp4",
     mediaDomain: "hkctc",
   },
-  {
-    title: "Press Release",
-    maskIcon: "PRESS.png",
-    date: "22 December 2021",
-    imagePath: "press_release.png",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaLink:
-      "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
-  },
+  // {
+  //   title: "Press Release",
+  //   maskIcon: "PRESS.png",
+  //   date: "22 December 2021",
+  //   imagePath: "press_release.png",
+  //   mediaType: MEDIA_TYPE.NEW_PAGE,
+  //   mediaLink:
+  //     "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+  // },
 ];
 
 export const AwardScheme21to22Preview: React.FC<{

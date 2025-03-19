@@ -535,7 +535,11 @@ export const MediaTemplateWithDialog: React.FC<
               cursor: "pointer",
             }}
           >
-            <div className="flex flex-col items-start justify-between h-full w-full">
+            <div
+              className={`flex flex-col items-start justify-${
+                direction === "column" ? "between" : "center"
+              } h-full w-full`}
+            >
               <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
 
               {date ? (
@@ -569,7 +573,7 @@ export const MediaTemplateWithDialog: React.FC<
                   </p>
                 </div>
               ) : (
-                <div />
+                direction === "column" && <div />
               )}
             </div>
           </div>

@@ -56,6 +56,12 @@ li {
   text-align: -webkit-match-parent;
   unicode-bidi: isolate;
   line-height: 22px;
+
+}
+
+.al li {
+  text-indent: -12px !important;
+  padding-left: 12px !important;
 }
 
 

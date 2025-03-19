@@ -5,6 +5,8 @@ import {
   Accordion,
   Breadcrumb,
   InternalBackButton,
+  MediaTemplateWithDialog,
+  type MediaTemplateWithDialogProps,
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
@@ -12,7 +14,7 @@ import {
   maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { useSettings } from "../../../../context";
 
 const platinumAwardees: string[] = [
@@ -205,7 +207,26 @@ export const AwardScheme23to24: React.FC = () => {
   const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
     "Junior Professional Sub-group"
   );
+  const mediaData: MediaTemplateWithDialogProps[] = [
+    {
+      title: "Media Coverage",
+      maskIcon: "PRESS.png",
+      imagePath: "press_release.png",
+      date: "",
+      mediaType: MEDIA_TYPE.NEW_PAGE,
+      mediaLink: "https://www.hkctc.gov.hk/en/event/mpaward/media_2023-24.html",
+    },
 
+    {
+      title: "Press Release",
+      maskIcon: "PRESS.png",
+      date: "4 December 2023",
+      imagePath: "press_realease_1.png",
+      mediaType: MEDIA_TYPE.NEW_PAGE,
+      mediaLink:
+        "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+    },
+  ];
   const buttonTwoMap: Record<string, React.ReactNode> = {
     "Junior Professional Sub-group": (
       <div className={isPC ? "" : "overflow-x-auto"}>
@@ -518,7 +539,7 @@ export const AwardScheme23to24: React.FC = () => {
         />
       </div>
       <p className="text-heading-l my-[24px]" id="award-ceremony">
-        Award Presentation Ceremony
+        Award Ceremony
       </p>
       {/* Ceremony1 */}
       <div className="flex items-center">
@@ -686,6 +707,38 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
+
+      <p className="text-heading-l">Media</p>
+
+      <div className={`w-full flex flex-col gap-[24px] my-[24px]`}>
+        {mediaData.map((item, index) => {
+          const {
+            title,
+            imagePath,
+            date = "",
+            maskIcon,
+            mediaType,
+            mediaLink,
+            mediaDomain,
+          } = item;
+          return (
+            <div key={index} className="w-full flex flex-row gap-[24px]">
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={date}
+                mediaLink={mediaLink}
+                mediaType={mediaType}
+                mediaDomain={mediaDomain}
+                direction={"row"}
+                imagePath={"eventsLanding/awardScheme/" + imagePath}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <hr className="mb-[24px]" />
+
       <InternalBackButton
         targetUrl={`/events-promotion?section=${navItemEnum.award_scheme}`}
       />
