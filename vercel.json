@@ -16,7 +16,7 @@
     },
     {
       "source": "/takungpao-proxy/:path*",
-      "destination": "http://paper.takungpao.com/:path*"
+      "destination": "https://paper.takungpao.com/:path*"
     },
     {
       "source": "/hkcd-proxy/:path*",

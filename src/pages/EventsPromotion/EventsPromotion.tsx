@@ -405,6 +405,7 @@ export const EventsPromotion: React.FC = () => {
           </div>
         ) : (
           <div className="p-[24px] flex flex-col gap-[24px]">
+            {subComponent && <div className="mb-[24px]">{subComponent}</div>}
             <div>{multipleSidebars}</div>
             <div>{component}</div>
           </div>

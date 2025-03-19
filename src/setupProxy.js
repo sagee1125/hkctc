@@ -49,7 +49,7 @@ module.exports = function (app) {
   app.use(
     '/takungpao-proxy',
     createProxyMiddleware({
-      target: 'http://paper.takungpao.com',
+      target: 'https://paper.takungpao.com',
       changeOrigin: true,
       secure: false,
       timeout: 10000,  

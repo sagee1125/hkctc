@@ -32,7 +32,7 @@ export const handleGetWholePDFUrl = (
     case "hkbedc":
       return `https://www.hkbedc.icac.hk` + link;
     case "takungpao":
-      return `http://paper.takungpao.com` + link;
+      return `https://paper.takungpao.com` + link;
     case "hkcd":
       return `https://www.hkcd.com.hk` + link;
 
