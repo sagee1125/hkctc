@@ -501,18 +501,18 @@ export const MediaTemplateWithDialog: React.FC<
         </div>
       </div>
       <div
-        className={`flex flex-col items-start h-full justify-${
-          direction === "column" ? "center max-w-[252px]" : "start"
+        className={`flex flex-col items-start h-full w-full justify-${
+          direction === "column" ? "center" : "start"
         } `}
         onClick={handleOnClick}
         style={{
           cursor: "pointer",
         }}
       >
-        <div className="flex flex-col items-start justify-center h-full">
+        <div className="flex flex-col items-start justify-between h-full w-full">
           <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
 
-          {date && (
+          {date ? (
             <div className="flex flex-row gap-[8px] mt-[8px] items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -542,6 +542,8 @@ export const MediaTemplateWithDialog: React.FC<
                 {date}
               </p>
             </div>
+          ) : (
+            <div />
           )}
         </div>
       </div>
