@@ -50,7 +50,7 @@ export const Food: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. Food Testing Services in Hong Kong",
+      title: "Food Testing Services in Hong Kong",
       content: (
         <>
           <p>
@@ -89,7 +89,7 @@ export const Food: React.FC = () => {
       ),
     },
     {
-      title: "b. Food Related Certification Services in Hong Kong",
+      title: "Food Related Certification Services in Hong Kong",
       content: (
         <>
           <p>
@@ -129,7 +129,7 @@ export const Food: React.FC = () => {
       ),
     },
     {
-      title: "c. Selection of Accredited Testing and Certification Services",
+      title: "Selection of Accredited Testing and Certification Services",
       content: (
         <p>
           Hong Kong Accreditation Service (HKAS) offers accreditation services
@@ -165,7 +165,7 @@ export const Food: React.FC = () => {
       ),
     },
     {
-      title: "d. Food Ordinances in Hong Kong",
+      title: "Food Ordinances in Hong Kong",
       content: (
         <p>
           The basic food law in Hong Kong is laid down in&nbsp;

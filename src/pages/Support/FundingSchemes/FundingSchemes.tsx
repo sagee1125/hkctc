@@ -19,6 +19,29 @@ import {
 } from "./TIDFundingSchemes";
 import { useSettings } from "../../../context";
 
+const multilingual = {
+  en: {
+    funding_schemes: "Funding Schemes",
+    ITF: {
+      title: "Innovation and Technology Fund (ITF)",
+      ITF_aims_to:
+        "ITF aims to increase the added value, productivity and competitiveness of Hong Kong's economic activities. The Government hopes that, through the ITF, Hong Kong companies could be encouraged and assisted to upgrade their technological level and introduce innovative ideas to their business.",
+      ITF_is_administered:
+        "ITF is administered by Innovation and Technology Commission (ITC) and is open to application from all sectors. Apart from funding research and development (R&D) activities, ITF also supports non-R&D projects like conferences, surveys, training and the like that promote innovation and technology.",
+      tabs: [
+        "Summary",
+        "Enterprise Support Scheme (ESS)",
+        "Innovation and Technology Support Programme (ITSP)",
+        "Partnership Research Programme (PRP)",
+        "Research and Development Cash Rebate Scheme",
+        "General Support Programme (GSP)",
+        "New Industrialisation and Technology Training Programme (NITTP)",
+      ],
+    },
+  },
+  cn: {},
+};
+
 const tidMap: Record<string, React.ReactNode> = {
   Summary: <TID />,
   "BUD Fund (Enterprise Support Programme)": <BUD />,
@@ -202,7 +225,9 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={"Testing and Certification Industry Job Creation Scheme (TCJS)"}
+          title={
+            "Testing and Certification Industry Job Creation Scheme (TCJS)"
+          }
           details={
             <div>
               <p className="!text-body-m">
