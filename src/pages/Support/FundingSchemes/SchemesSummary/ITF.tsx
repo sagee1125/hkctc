@@ -2,13 +2,6 @@ import * as React from "react";
 import { FundingSchemesTable } from "./FundingSchemesTable";
 
 const rows = [
-  // {
-  //   schemeName: "Technology Voucher Programme (TVP)",
-  //   schemeNameHyperLink: "https://www.itf.gov.hk/l-eng/ESS.asp",
-  //   objective: "Improve productivity and transform business processes",
-  //   targetAudience: "Non-listed local enterprises",
-  //   fundingAmount: "Up to HK$600,000",
-  // },
   {
     schemeName: "Enterprise Support Scheme (ESS)",
     schemeNameHyperLink: "https://www.itf.gov.hk/l-eng/ESS.asp",

@@ -21,14 +21,16 @@ import { useSettings } from "../../../../context";
 const timeLineData: Array<{
   text: string;
   fontColor: string;
+  bgColor?: string;
 }> = [
   {
     text: "Define the scope, boundary and policy of ISMS",
-    fontColor: "white",
+    fontColor: "black",
   },
   {
     text: "Define the risk assessment approcah of the organisation",
     fontColor: "black",
+    bgColor: "[#EAEAE5]",
   },
   {
     text: "Identify and evaluate risk and options for the relevant treatment",
@@ -38,16 +40,17 @@ const timeLineData: Array<{
   {
     text: "Select appropriate control objectives and controls for the treatment for risks",
     fontColor: "newPrimary",
+    bgColor: "[#EAEAE5]",
   },
 
   {
     text: "Obtain management approval of the proposed residual risks",
-
     fontColor: "black",
   },
   {
     text: "Obtain management authorisation to implement and operate the ISMS",
     fontColor: "newPrimary",
+    bgColor: "[#EAEAE5]",
   },
 
   {
@@ -66,7 +69,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "a. What is Information Security Management System (ISMS)?",
+      title: "What is Information Security Management System (ISMS)?",
       content: (
         <ul>
           <li>
@@ -102,13 +105,13 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
       ),
     },
     {
-      title: "b. Who should Implement ISMS?",
+      title: "Who should Implement ISMS?",
       content:
         "Information Security Management System (ISMS) is applicable to organisations of all sizes and in all business sectors. In particular, organisations storing and/or handling information that is personally sensitive, or information that is of a commercially sensitive nature and value (e.g. product design) or information that is business critical (i.e. information that needs to be accurate and its integrity assured). The processing of such information will benefit from implementing ISMS.",
     },
     {
       title:
-        "c. What are the Major Steps of Establishing and Implementing ISMS to ISO/IEC 27001?",
+        "What are the Major Steps of Establishing and Implementing ISMS to ISO/IEC 27001?",
       content: (
         <>
           <p>
@@ -130,11 +133,9 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
                   />
                 </div>
                 <div
-                  className={`text-highlight-s p-[16px] border-[1px] justify-start content-center mb-[16px] w-full ${
-                    index === 0
-                      ? "text-white bg-newPrimary"
-                      : "border-[#E0E0E0]"
-                  } text-${item.fontColor}`}
+                  className={`text-highlight-s p-[16px] border-[1px] justify-start content-center mb-[16px] w-full border-[#E0E0E0] text-${
+                    item.fontColor
+                  } bg-${item.bgColor ?? "white"}`}
                 >
                   <p>{item.text}</p>
                 </div>
@@ -146,7 +147,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     },
 
     {
-      title: "d. What are the Benefits of Getting ISMS Certification?",
+      title: "What are the Benefits of Getting ISMS Certification?",
       content: (
         <ul>
           <li>
@@ -175,7 +176,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
       ),
     },
     {
-      title: "e. Where can I Obtain ISMS Certification Services?",
+      title: "Where can I Obtain ISMS Certification Services?",
       content: (
         <ul>
           <li>

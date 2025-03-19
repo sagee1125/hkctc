@@ -372,8 +372,8 @@ export const TCJS: React.FC = () => {
         To relieve the unemployment situation due to the epidemic and as part of
         the anti-epidemic measures, the Anti-Epidemic Fund (AEF) 6.0 will
         allocate resources to create time-limited jobs in the private industry.
-        The Testing and Certification Industry Job Creation Scheme (the Scheme) is
-        launched under the AEF.
+        The Testing and Certification Industry Job Creation Scheme (the Scheme)
+        is launched under the AEF.
       </p>
       <br />
       <p className="text-body-m mb-[24px]">
@@ -403,7 +403,7 @@ export const TCJS: React.FC = () => {
             alt={"money"}
           />
           <p className="text-highlight-m flex-grow min-w-0">
-            For each approved position, the applicant employer will receive a
+            For each approved position, the applicant employer would receive a
             monthly subsidy of HK$10,000 or 50% of the salary of the position,
             whichever is lower, for 12 months
           </p>

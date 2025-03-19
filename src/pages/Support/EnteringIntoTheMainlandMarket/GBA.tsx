@@ -129,6 +129,8 @@ export const GBA: React.FC = () => {
         <br />
 
         <p className="font-bold">Formulation of GBA Standards</p>
+        <br />
+
         <p>
           The GBA Standardization Research Center accepts applications for
           formulating GBA Standards all year round. Trade associations,
