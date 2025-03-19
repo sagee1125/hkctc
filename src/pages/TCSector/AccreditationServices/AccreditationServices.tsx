@@ -20,19 +20,20 @@ const multilingual = {
     HKAS: `HKAS's website`,
   },
   cn: {
-    accreditation_services: "Accreditation Services",
-    whats_accreditation: "What is Accreditation?",
+    accreditation_services: "認可服務",
+    whats_accreditation: "何謂認可？",
     accreditation_def: {
-      accreditation_is: "Accreditation is the",
-      third_party: "third-party attestation",
+      accreditation_is:
+        "認可是由第三方發出證明，承認一間合格評定機構勝任進行特定的合格評定工作。實驗所、檢驗機構和認證機構均為常見的合格評定機構。",
+      third_party: "第三方",
       related_to:
         "related to a conformity assessment body conveying formal demonstration of its competence to carry out specific conformity assessment tasks. Laboratories, inspection bodies and certification bodies are common types of conformity assessment bodies.",
     },
     accreditation_is_open:
-      "Accreditation is open and voluntary in Hong Kong. It is currently provided by Hong Kong Accreditation Service (HKAS) under Innovation and Technology Commission in Hong Kong. HKAS operates three accreditation schemes:",
+      "在香港，申請認可資格是公開和自願性質的，目前由創新科技署轄下的香港認可處提供認可資格。該處負責推行三個認可計劃，包括：",
     this_full_list:
       "*This full list is for the purpose of searching specific conformity assessment activity and will only be updated weekly. For most up-to-date scope of accreditation, please visit",
-    HKAS: `HKAS's website`,
+    HKAS: `香港認可處網頁`,
   },
 };
 export const AccreditationServices: React.FC = () => {
@@ -65,14 +66,15 @@ export const AccreditationServices: React.FC = () => {
 
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, imagePath, link } = item;
+            const { title, titleCN, imagePath, link } = item;
+            const displayTitle = language === Language.EN ? title : titleCN;
             return (
               <div
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center"
               >
                 <MediaTemplateWithDialog
-                  title={title}
+                  title={displayTitle}
                   imagePath={imagePath}
                   mediaLink={link}
                   direction="row"
