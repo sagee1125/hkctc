@@ -47,22 +47,6 @@ const stagesGridOne = [
       "Independent Assessment Panel will consider and, shortlisting as the circumstances require, interview applicants with a view to selecting the awardees",
   },
 ];
-const stagesGridTwo = [
-  {
-    title: "Stage 1",
-    content:
-      "HKCTC Secretariat will conduct an initial screening on the applications",
-  },
-  {
-    title: "Stage 2",
-    content: (
-      <>
-        <span className="underline">Assessment Panel</span>&nbsp;will shortlist
-        and interview applicant practitioners, and select the awardees
-      </>
-    ),
-  },
-];
 
 const questionCategoriesMap: Record<
   string,
@@ -285,9 +269,34 @@ const publicationData: MediaTemplateWithDialogProps[] = [
   },
 ];
 
-export const AwardScheme21to22Preview: React.FC = () => {
+export const AwardScheme21to22Preview: React.FC<{
+  handleOpenAssessmentPanel: () => void;
+}> = ({ handleOpenAssessmentPanel }) => {
   const navigate = useNavigate();
   const { isPC } = useSettings();
+
+  const stagesGridTwo = [
+    {
+      title: "Stage 1",
+      content:
+        "HKCTC Secretariat will conduct an initial screening on the applications",
+    },
+    {
+      title: "Stage 2",
+      content: (
+        <>
+          <span
+            className="underline cursor-pointer"
+            onClick={handleOpenAssessmentPanel}
+          >
+            Assessment Panel
+          </span>
+          &nbsp;will shortlist and interview applicant practitioners, and select
+          the awardees
+        </>
+      ),
+    },
+  ];
 
   const awardMapOne: Record<string, React.ReactNode> = {
     Benefits: (
@@ -451,9 +460,9 @@ export const AwardScheme21to22Preview: React.FC = () => {
           <br />
           <li>
             <span className="!text-highlight-m">Middle Management:</span>
-            &nbsp;T&C practitioners who have joined the T&C industry for at least
-            5 years and are appointed in a managerial position in an accredited
-            T&C body.
+            &nbsp;T&C practitioners who have joined the T&C industry for at
+            least 5 years and are appointed in a managerial position in an
+            accredited T&C body.
           </li>
         </div>
       </>
