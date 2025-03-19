@@ -14,21 +14,25 @@ type IndustryData = {
 
 export const accreditationService: Array<{
   title: string;
+  titleCN: string;
   imagePath: string;
   link: string;
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
+    titleCN: "",
     imagePath: "serviceUsers/HOKLAS_1.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
   },
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
+    titleCN: "",
     imagePath: "serviceUsers/HOKLAS_2.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html",
   },
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
+    titleCN: "",
     imagePath: "serviceUsers/HOKLAS_3.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkias.html",
   },
