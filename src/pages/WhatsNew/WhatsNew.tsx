@@ -69,7 +69,7 @@ export const WhatsNew: React.FC = () => {
       <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
         <p className="text-heading-l">HKCTC Newsletters</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
-          const { title, date, link } = item;
+          const { title, link } = item;
           return (
             <div
               className="flex flex-row gap-[24px] cursor-pointer"
@@ -88,17 +88,7 @@ export const WhatsNew: React.FC = () => {
                 src={`${process.env.PUBLIC_URL}/assets/whatsNew/Reports.png`}
                 alt={"Report.png"}
               />
-              <div className="flex flex-col">
-                <div className="text-highlight-m">{title}</div>
-                <div className="flex flex-row items-center">
-                  <img
-                    className="w-[16px] h-[16px]"
-                    src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                    alt={"calendar"}
-                  />
-                  <span className="text-grey ml-[8px]">{date}</span>
-                </div>
-              </div>
+              <div className="text-highlight-m">{title}</div>
             </div>
           );
         })}

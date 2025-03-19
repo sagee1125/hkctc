@@ -47,8 +47,8 @@ export const CareerOpportunities: React.FC = () => {
             <br />
             In career talks, representatives from the Hong Kong Accreditation
             Service will introduce the basic concepts and overview of the
-            testing and certification industry. Practitioners from the testing and
-            certification industry will also talk about the job nature,
+            testing and certification industry. Practitioners from the testing
+            and certification industry will also talk about the job nature,
             requirements and career prospects of the industry, and share their
             experience in working in the industry.
           </p>
@@ -75,7 +75,7 @@ export const CareerOpportunities: React.FC = () => {
 
       <div className="mt-[24px]">
         <FileTemplate
-          title={"Events Application Form"}
+          title={"Application Form"}
           imagePath={"assets/careerEducation/EventsApplicationForm.png"}
           iconPath={"PDF.png"}
           pdfHyperlink={"/en/doc/CareerTalk_or_Lab_visit_ReplyForm.pdf"}

@@ -331,12 +331,14 @@ export const OverviewIOnCEPA: React.FC = () => {
     date: string;
     event: React.ReactNode;
     scroll_id: CEPAAgreements_ids;
+    serviceTab: string;
   }> = [
     {
       date: "Oct 2024",
       event:
         "Second Agreement Concerning Amendment to the Agreement on Trade in Services",
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
+      serviceTab: "0",
     },
     {
       date: "Nov 2019",
@@ -349,6 +351,7 @@ export const OverviewIOnCEPA: React.FC = () => {
         </>
       ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
+      serviceTab: "2",
     },
     {
       date: "Dec 2018",
@@ -358,6 +361,17 @@ export const OverviewIOnCEPA: React.FC = () => {
         </span>
       ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_goods,
+      serviceTab: "0",
+    },
+    {
+      date: "Dec 2018",
+      event: (
+        <span className="underline text-newPrimary">
+          Agreement on Trade in Services
+        </span>
+      ),
+      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
+      serviceTab: "3",
     },
     {
       date: "Jun 2017",
@@ -368,12 +382,13 @@ export const OverviewIOnCEPA: React.FC = () => {
       ),
       scroll_id:
         CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation,
+      serviceTab: "0",
     },
     {
       date: "Nov 2015",
-      event:
-        "Agreement on Trade in Services (Revised by way of Exchange of Letters in Dec 2018)",
+      event: "Agreement on Trade in Services",
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
+      serviceTab: "0",
     },
   ];
 
@@ -444,7 +459,7 @@ export const OverviewIOnCEPA: React.FC = () => {
               }`}
                 onClick={() => {
                   navigate(
-                    `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
+                    `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}&serviceTab=${item.serviceTab}#1`
                   );
                 }}
               >

@@ -185,8 +185,11 @@ export const CEPAAgreements: React.FC = () => {
       </>
     ),
   };
+  const serviceTab = Number(
+    new URLSearchParams(window.location.search).get("serviceTab") ?? 0
+  );
   const [agreementType, setAgreementType] = useState<string>(
-    Object.keys(agreementMap)[0]
+    Object.keys(agreementMap)[serviceTab]
   );
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
 
