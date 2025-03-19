@@ -41,6 +41,7 @@ import { AwardScheme21to22Preview } from "./EventsLanding/AwardScheme/AwardSchem
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
 import { useSettings } from "../../context";
 import { AssessmentPanel2122 } from "./EventsLanding/AwardScheme/AssessmentPanel2122";
+import { MediaCoverage2324 } from "./EventsLanding/AwardScheme/MediaCoverage2324";
 
 const directoryItems: DirectorySidebarItems[] = [
   {
@@ -69,6 +70,16 @@ const validSideBarKeys: navItemEnum[] = [
   navItemEnum.videos,
   navItemEnum.seminar_article,
 ];
+
+const getYear = (param: string): "2122" | "2324" | undefined => {
+  switch (param) {
+    case "2122":
+    case "2324":
+      return param;
+    default:
+      return undefined;
+  }
+};
 export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -85,15 +96,20 @@ export const EventsPromotion: React.FC = () => {
 
   const [activeItem, setActiveItem] = useState<navItemEnum>(initialParam);
 
-  // 21-22 assessment panel, 1 or 0
-  const onAssessmentPanel = queryParams.get("on_panel_detail") === "1";
+  const onYear = queryParams.get("year") ?? "";
+
+  // 23-24 media coverage
+  // 21-22 assessment panel
+  const onDetail =
+    !!onYear &&
+    queryParams.get("on_detail") === "1" &&
+    activeItem === navItemEnum.award_scheme;
 
   const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
-    useState<string>(
-      onAssessmentPanel && activeItem === navItemEnum.award_scheme
-        ? "2122"
-        : "2324"
-    );
+    useState<string>(getYear(onYear) ?? "2324");
+
+  // const [onYearDetail, setOnYearDetail] =
+  //   useState<boolean>(onDetail);
 
   useEffect(() => {
     const hashValue = window.location.hash.replace("#", "");
@@ -113,7 +129,7 @@ export const EventsPromotion: React.FC = () => {
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
     setActivatedDirectorySidebarItems(activatedItems);
-    navigate(`?section=${initialParam}&on_panel_detail=0`);
+    navigate(`?section=${initialParam}&year=${activatedItems}`);
 
     const element = document.getElementById("breadcrumb");
     if (element) {
@@ -121,20 +137,26 @@ export const EventsPromotion: React.FC = () => {
     }
   };
   const handleOpenAssessmentPanel = (): void => {
-    navigate(`?section=${navItemEnum.award_scheme}&on_panel_detail=1`);
+    navigate(`?section=${navItemEnum.award_scheme}&year=2122&on_detail=1`);
     const element = document.getElementById("breadcrumb");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const profileAndRoleRec: Record<string, React.ReactNode> = {
-    "2324": <AwardScheme />,
-    "2122": (
-      <AwardScheme21to22Preview
-        handleOpenAssessmentPanel={handleOpenAssessmentPanel}
-      />
-    ),
+  const profileAndRoleRec: Record<
+    string,
+    { main: React.ReactNode; detail: React.ReactNode }
+  > = {
+    "2324": { main: <AwardScheme />, detail: <MediaCoverage2324 /> },
+    "2122": {
+      main: (
+        <AwardScheme21to22Preview
+          handleOpenAssessmentPanel={handleOpenAssessmentPanel}
+        />
+      ),
+      detail: <AssessmentPanel2122 />,
+    },
   };
 
   const sidebarComponent: Partial<
@@ -151,7 +173,7 @@ export const EventsPromotion: React.FC = () => {
     // events
     [navItemEnum.award_scheme]: {
       bannerImage: "eventsLanding/banner_bg_1.png",
-      component: profileAndRoleRec[activatedDirectorySidebarItems],
+      component: profileAndRoleRec[activatedDirectorySidebarItems].main,
       subComponent: (
         <DirectorySidebar
           directorySidebarItems={directoryItems}
@@ -305,11 +327,10 @@ export const EventsPromotion: React.FC = () => {
     navigate(`?section=${item}`);
   };
 
-  const component = onAssessmentPanel ? (
-    <AssessmentPanel2122 />
-  ) : (
-    sidebarComponent[activeItem]?.component
-  );
+  const component = onDetail
+    ? profileAndRoleRec[activatedDirectorySidebarItems].detail
+    : sidebarComponent[activeItem]?.component;
+
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
   const subComponent = sidebarComponent[activeItem]?.subComponent;
   const otherPath = sidebarComponent[activeItem]?.path ?? []; // only used for seminars
@@ -341,12 +362,19 @@ export const EventsPromotion: React.FC = () => {
             label: directoryItems.find(
               (i) => i.value === activatedDirectorySidebarItems
             )?.label,
+            href:
+              onDetail && activatedDirectorySidebarItems === "2324"
+                ? `/events-promotion?section=${navItemEnum.award_scheme}`
+                : undefined,
           },
+          ...(onDetail && activatedDirectorySidebarItems === "2324"
+            ? [{ label: "Media Coverage" }]
+            : []),
         ]
       : []),
   ];
 
-  const multipleSidebars = !onAssessmentPanel && (
+  const multipleSidebars = !onDetail && (
     <MultipleSidebars
       sidebars={sidebarData}
       activatedItems={activeItem}

@@ -13,6 +13,14 @@
     {
       "source": "/hkbedc-proxy/:path*",
       "destination": "https://www.hkbedc.icac.hk/:path*"
+    },
+    {
+      "source": "/takungpao-proxy/:path*",
+      "destination": "http://paper.takungpao.com/:path*"
+    },
+    {
+      "source": "/hkcd-proxy/:path*",
+      "destination": "https://www.hkcd.com.hk/:path*"
     }
   ]
 }

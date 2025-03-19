@@ -946,13 +946,13 @@ export const AwardScheme: React.FC = () => {
         onClick={() => {
           navigate("/events-promotion/award-scheme2324");
           window.scroll({
-            top: 100,
+            top: 0,
             behavior: "smooth",
           });
         }}
       >
         <img
-          className="w-[130px] h-full object-contain"
+          className="w-[160px] h-full max-w-[160px] object-cover"
           src={process.env.PUBLIC_URL + "/assets/eventsLanding/2023-2024.png"}
           alt={"2023-2024"}
         />
@@ -973,7 +973,7 @@ export const AwardScheme: React.FC = () => {
           viewBox="0 0 16 16"
           fill="none"
         >
-          <g clip-path="url(#clip0_2682_55750)">
+          <g clipPath="url(#clip0_2682_55750)">
             <path
               d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
               fill="black"

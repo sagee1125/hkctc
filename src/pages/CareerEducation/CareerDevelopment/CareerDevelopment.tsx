@@ -200,7 +200,7 @@ export const CareerDevelopment: React.FC = () => {
                 viewBox="0 0 16 16"
                 fill="none"
               >
-                <g clip-path="url(#clip0_2682_55750)">
+                <g clipPath="url(#clip0_2682_55750)">
                   <path
                     d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
                     fill="black"
@@ -315,7 +315,7 @@ export const CareerDevelopment: React.FC = () => {
                 viewBox="0 0 16 16"
                 fill="none"
               >
-                <g clip-path="url(#clip0_2682_55750)">
+                <g clipPath="url(#clip0_2682_55750)">
                   <path
                     d="M4.70996 16L12.71 8L4.70996 0L3.28996 1.42L9.86996 8L3.28996 14.58L4.70996 16Z"
                     fill="black"
