@@ -859,7 +859,7 @@ export const corruptionGuideList: PublicationType[] = [
 
 export const otherInformationList: PublicationType[] = [
   {
-    title: "Hong Kong: The Facts – Testing and Certification",
+    title: "Hong Kong: The Facts - Testing and Certification",
     link: "/en/doc/Testing_and_Certification_EN.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],

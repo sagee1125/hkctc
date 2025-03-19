@@ -30,7 +30,6 @@ export const MediaTemplateWithDialog: React.FC<
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const { isPC, pdfjsLib } = useSettings();
-
   const [loading, setLoading] = useState(false);
   const [isIMGLoaded, setIsIMGLoaded] = useState(false);
 
@@ -233,213 +232,223 @@ export const MediaTemplateWithDialog: React.FC<
       }
     }
   };
-  return direction === "full" ? (
-    <div
-      className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
-      onClick={handleOnClick}
-    >
-      <div className="overflow-hidden flex-shrink-0 relative border-1">
-        {loading && (
-          <div
-            className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
-            style={{
-              zIndex: "10",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CircularProgress />
-          </div>
-        )}
-        <>
-          {mediaType === MEDIA_TYPE.PDF && (
-            <canvas
-              key={mediaLink}
-              ref={canvasRef}
-              style={{
-                objectFit: "contain",
-                zIndex: 1,
-                width: "100%",
-                height: "max-content",
-              }}
-            />
-          )}
-
-          {mediaType === MEDIA_TYPE.VIDEO && (
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                cursor: "pointer",
-                zIndex: 1,
-              }}
-              onMouseEnter={handleMouseEnter}
-            >
-              {/*  video, play when mouse enter */}
-              {mediaDomain === "hkctc" && (
-                <video
-                  ref={videoRef as React.RefObject<HTMLVideoElement>}
+  return (
+    <>
+      {direction === "full" ? (
+        <div
+          className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
+          onClick={handleOnClick}
+        >
+          <div className="overflow-hidden flex-shrink-0 relative border-1">
+            {loading && (
+              <div
+                className="absolute flex items-center justify-center bg-white border-2 border-solid border-inherit"
+                style={{
+                  zIndex: "10",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <CircularProgress />
+              </div>
+            )}
+            <>
+              {mediaType === MEDIA_TYPE.PDF && (
+                <canvas
+                  key={mediaLink}
+                  ref={canvasRef}
                   style={{
                     objectFit: "contain",
-                    width: "100%",
-                    height: "100%",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
                     zIndex: 1,
+                    width: "100%",
+                    height: "max-content",
                   }}
-                >
-                  <source src={"/hkctc-proxy" + mediaLink} type="video/mp4" />
-                </video>
+                />
               )}
 
-              <img
-                ref={imageRef}
-                alt="Video"
-                style={{
-                  objectFit: "contain",
-                  width: "100%",
-                  height: "100%",
-                  zIndex: 0,
-                  opacity: isIMGLoaded ? 1 : 0,
-                }}
-                onLoad={handleImageLoad}
-              />
-            </div>
-          )}
-
-          {mediaType === MEDIA_TYPE.NEW_PAGE && (
-            <img
-              alt="img"
-              src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
-              style={{
-                objectFit: "cover",
-
-                width: "100%",
-                height: "100%",
-                zIndex: 0,
-              }}
-            />
-          )}
-        </>
-      </div>
-      <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
-        <div
-          className={`text-heading-${
-            isPC ? "m" : "xs"
-          } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
-        >
-          {title}
-        </div>
-        {date && (
-          <div className="flex flex-row gap-[8px] items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-            >
-              <g clip-path="url(#clip0_3271_24860)">
-                <path
-                  d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
-                  fill="black"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_3271_24860">
-                  <rect
-                    width="16"
-                    height="16"
-                    fill="white"
-                    transform="translate(0.5 0.859375)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-            <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>{date}</p>
-          </div>
-        )}
-      </div>
-    </div>
-  ) : (
-    <>
-      <div
-        className={`flex-shrink-0 relative 
-          ${direction === "column" ? "w-full h-[190px]" : "w-[160px] h-[90px]"} 
-          ${
-            isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
-          } cursor-pointer`}
-        onClick={handleOnClick}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: direction,
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-            overflow: "hidden",
-          }}
-          className="border-[1px] border-inherit"
-        >
-          {loading && (
-            <div
-              className="absolute flex flex-shrink-0 items-center justify-center bg-white border-2 border-inherit"
-              style={{ zIndex: "10", width: "100%", height: "100%" }}
-            >
-              <CircularProgress />
-            </div>
-          )}
-          <>
-            {mediaType === MEDIA_TYPE.PDF && (
-              <canvas
-                key={mediaLink}
-                ref={canvasRef}
-                style={{
-                  objectFit: "contain",
-                  zIndex: 1,
-                  ...(isPC
-                    ? {}
-                    : {
+              {mediaType === MEDIA_TYPE.VIDEO && (
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    cursor: "pointer",
+                    zIndex: 1,
+                  }}
+                  onMouseEnter={handleMouseEnter}
+                >
+                  {/*  video, play when mouse enter */}
+                  {mediaDomain === "hkctc" && (
+                    <video
+                      ref={videoRef as React.RefObject<HTMLVideoElement>}
+                      style={{
+                        objectFit: "contain",
                         width: "100%",
-                        height: "auto",
-                      }),
-                }}
-              />
-            )}
+                        height: "100%",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        zIndex: 1,
+                      }}
+                    >
+                      <source
+                        src={"/hkctc-proxy" + mediaLink}
+                        type="video/mp4"
+                      />
+                    </video>
+                  )}
 
-            {mediaType === MEDIA_TYPE.VIDEO && (
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "100%",
-                  cursor: "pointer",
-                  zIndex: 1,
-                }}
-                onMouseEnter={handleMouseEnter}
-              >
-                {/*  video, play when mouse enter */}
-                {mediaDomain === "hkctc" && (
-                  <video
-                    ref={videoRef as React.RefObject<HTMLVideoElement>}
+                  <img
+                    ref={imageRef}
+                    alt="Video"
                     style={{
                       objectFit: "contain",
                       width: "100%",
                       height: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      zIndex: 1,
+                      zIndex: 0,
+                      opacity: isIMGLoaded ? 1 : 0,
                     }}
-                  >
-                    <source src={"/hkctc-proxy" + mediaLink} type="video/mp4" />
-                  </video>
+                    onLoad={handleImageLoad}
+                  />
+                </div>
+              )}
+
+              {mediaType === MEDIA_TYPE.NEW_PAGE && (
+                <img
+                  alt="img"
+                  src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                  style={{
+                    objectFit: "cover",
+
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 0,
+                  }}
+                />
+              )}
+            </>
+          </div>
+          <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
+            <div
+              className={`text-heading-${
+                isPC ? "m" : "xs"
+              } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
+            >
+              {title}
+            </div>
+            {date && (
+              <div className="flex flex-row gap-[8px] items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 17 17"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_3271_24860)">
+                    <path
+                      d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3271_24860">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="white"
+                        transform="translate(0.5 0.859375)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
+                  {date}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div
+            className={`flex-shrink-0 relative 
+          ${direction === "column" ? "w-full h-[190px]" : "w-[160px] h-[90px]"} 
+          ${
+            isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
+          } cursor-pointer`}
+            onClick={handleOnClick}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: direction,
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+                overflow: "hidden",
+              }}
+              className="border-[1px] border-inherit"
+            >
+              {loading && (
+                <div
+                  className="absolute flex flex-shrink-0 items-center justify-center bg-white border-2 border-inherit"
+                  style={{ zIndex: "10", width: "100%", height: "100%" }}
+                >
+                  <CircularProgress />
+                </div>
+              )}
+              <>
+                {mediaType === MEDIA_TYPE.PDF && (
+                  <canvas
+                    key={mediaLink}
+                    ref={canvasRef}
+                    style={{
+                      objectFit: "contain",
+                      zIndex: 1,
+                      ...(isPC
+                        ? {}
+                        : {
+                            width: "100%",
+                            height: "auto",
+                          }),
+                    }}
+                  />
                 )}
 
-                {/* {mediaDomain === "youtube" &&
+                {mediaType === MEDIA_TYPE.VIDEO && (
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                      cursor: "pointer",
+                      zIndex: 1,
+                    }}
+                    onMouseEnter={handleMouseEnter}
+                  >
+                    {/*  video, play when mouse enter */}
+                    {mediaDomain === "hkctc" && (
+                      <video
+                        ref={videoRef as React.RefObject<HTMLVideoElement>}
+                        style={{
+                          objectFit: "contain",
+                          width: "100%",
+                          height: "100%",
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          zIndex: 1,
+                        }}
+                      >
+                        <source
+                          src={"/hkctc-proxy" + mediaLink}
+                          type="video/mp4"
+                        />
+                      </video>
+                    )}
+
+                    {/* {mediaDomain === "youtube" &&
                     isHoveringYTBVideo &&
                     videoRef && (
                       <iframe
@@ -459,95 +468,97 @@ export const MediaTemplateWithDialog: React.FC<
                       />
                     )} */}
 
-                <img
-                  ref={imageRef}
-                  alt="Video"
-                  style={{
-                    objectFit: "contain",
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 0,
-                    opacity: isIMGLoaded ? 1 : 0,
-                  }}
-                  onLoad={handleImageLoad}
-                />
-              </div>
-            )}
+                    <img
+                      ref={imageRef}
+                      alt="Video"
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                        opacity: isIMGLoaded ? 1 : 0,
+                      }}
+                      onLoad={handleImageLoad}
+                    />
+                  </div>
+                )}
 
-            {mediaType === MEDIA_TYPE.NEW_PAGE && (
+                {mediaType === MEDIA_TYPE.NEW_PAGE && (
+                  <img
+                    alt="img"
+                    src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                    style={{
+                      objectFit: "cover",
+
+                      width: "100%",
+                      height: "100%",
+                      zIndex: 0,
+                    }}
+                  />
+                )}
+              </>
+
+              {/* Icon */}
               <img
-                alt="img"
-                src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+                src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
+                alt="PDF Icon"
                 style={{
-                  objectFit: "cover",
-
-                  width: "100%",
-                  height: "100%",
-                  zIndex: 0,
+                  zIndex: 3,
                 }}
               />
-            )}
-          </>
-
-          {/* Icon */}
-          <img
-            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-            src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-            alt="PDF Icon"
-            style={{
-              zIndex: 3,
-            }}
-          />
-        </div>
-      </div>
-      <div
-        className={`flex flex-col items-start h-full w-full justify-${
-          direction === "column" ? "center" : "start"
-        } `}
-        onClick={handleOnClick}
-        style={{
-          cursor: "pointer",
-        }}
-      >
-        <div className="flex flex-col items-start justify-between h-full w-full">
-          <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
-
-          {date ? (
-            <div className="flex flex-row gap-[8px] mt-[8px] items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-              >
-                <g clip-path="url(#clip0_3271_24860)">
-                  <path
-                    d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
-                    fill="black"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_3271_24860">
-                    <rect
-                      width="16"
-                      height="16"
-                      fill="white"
-                      transform="translate(0.5 0.859375)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
-                {date}
-              </p>
             </div>
-          ) : (
-            <div />
-          )}
-        </div>
-      </div>
+          </div>
+          <div
+            className={`flex flex-col items-start h-full w-full justify-${
+              direction === "column" ? "center" : "start"
+            } `}
+            onClick={handleOnClick}
+            style={{
+              cursor: "pointer",
+            }}
+          >
+            <div className="flex flex-col items-start justify-between h-full w-full">
+              <p className={`text-highlight-${isPC ? "l" : "xs"}`}>{title}</p>
 
+              {date ? (
+                <div className="flex flex-row gap-[8px] mt-[8px] items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_3271_24860)">
+                      <path
+                        d="M14.5 2.19281H12.5V0.859375H10.5V2.19281H6.5V0.859375H4.5V2.19281H2.5C1.39531 2.19281 0.5 3.08812 0.5 4.19281V16.8594H16.5V4.19281C16.5 3.08812 15.6047 2.19281 14.5 2.19281ZM2.5 14.8594V7.52594H14.5V14.8594H2.5Z"
+                        fill="black"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_3271_24860">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="white"
+                          transform="translate(0.5 0.859375)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p className={`text-body-${isPC ? "s" : "xs"} text-grey`}>
+                    {date}
+                  </p>
+                </div>
+              ) : (
+                <div />
+              )}
+            </div>
+          </div>
+        </>
+      )}
+      ;
       {isPreviewOpen && (
         <MediaDialog
           mediaType={mediaType}

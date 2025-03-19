@@ -22,6 +22,7 @@ export const OtherInformation: React.FC = () => {
               date={date as string}
               mediaLink={link}
               mediaType={mediaType}
+              mediaDomain={"hkctc"}
               direction={isPC ? "full" : "column"}
             />
           );
