@@ -14,7 +14,7 @@ const rows = [
     schemeNameHyperLink:
       "https://www.smefund.tid.gov.hk/english/tsf/tsf_objective.html",
     objective: "Enhance SME competitiveness through projects",
-    targetAudience: "Non-profit organizations",
+    targetAudience: "Non-profit organisations",
     fundingAmount: `Up to HK$5 million or 90% of project cost`,
   },
   {

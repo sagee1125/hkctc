@@ -297,7 +297,7 @@ export const RegistrationForm: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-highlight-m mb-[8px]">Organization 機構</div>
+              <div className="text-highlight-m mb-[8px]">Organisation 機構</div>
               <TextField
                 name="organization"
                 required

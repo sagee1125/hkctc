@@ -83,7 +83,7 @@ export const GBA: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SquareTitle title="(GBA) Standards" />
+      <SquareTitle title="Guangdong-Hong Kong-Macao Greater Bay Area (GBA) Standards" />
 
       <div className="text-body-m my-[24px]">
         <p>
@@ -115,7 +115,7 @@ export const GBA: React.FC = () => {
         <p>
           Information about GBA Standards can be found on the Guangdong-Hong
           Kong-Macao Greater Bay Area Standard Information Public Service
-          Platform managed by the GBA Standardization Research Center.
+          Platform managed by the GBA Standardisation Research Center.
         </p>
         <br />
         <p>
@@ -132,13 +132,13 @@ export const GBA: React.FC = () => {
         <br />
 
         <p>
-          The GBA Standardization Research Center accepts applications for
+          The GBA Standardisation Research Center accepts applications for
           formulating GBA Standards all year round. Trade associations,
           enterprises or organisations of Guangdong, Hong Kong and Macao are
           welcome to jointly draw up GBA Standards in accordance with the
           specific requirements set out in the "Guidelines on Applications for
           GBA Standards"(in Chinese only), and submit applications to the GBA
-          Standardization Research Center.
+          Standardisation Research Center.
         </p>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />

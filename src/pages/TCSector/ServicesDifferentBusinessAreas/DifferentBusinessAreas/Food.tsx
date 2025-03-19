@@ -134,13 +134,13 @@ export const Food: React.FC = () => {
         <p>
           Hong Kong Accreditation Service (HKAS) offers accreditation services
           to laboratories and certification bodies in Hong Kong. Technical
-          competence and operation of accredited organizations have been
+          competence and operation of accredited organisations have been
           rigorously assessed by HKAS and independent experts. Accreditation
           criteria are based on internationally recognized standards. The
-          reliability of results produced by HKAS-accredited organizations can
+          reliability of results produced by HKAS-accredited organisations can
           be assured. Moreover, HKAS, through participation in Multilateral
           Mutual Recognition Arrangements, enables conformity assessments
-          results issued by HKAS-accredited organizations be widely recognised
+          results issued by HKAS-accredited organisations be widely recognised
           by accreditation bodies in other economies.
           <br />
           <br />

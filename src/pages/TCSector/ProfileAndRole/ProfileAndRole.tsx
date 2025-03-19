@@ -9,7 +9,7 @@ const multilingual = {
   en: {
     profile_of_the_Sector: "Profile of the Sector",
     the_total:
-      "The total business receipts of the private independent establishments in the testing and certification (T&C) sector were $24.9 billion.",
+      "The total business receipts of the private independent establishments in the testing and certification (T&C) industry were $24.9 billion.",
     the_total_italic:
       "(according to the latest statistics provided by the Census and Statistics Department for 2022)",
 
@@ -51,11 +51,11 @@ const multilingual = {
 
     role_of_the_sector: "Role of the Sector",
     in_additional_to:
-      "In additional to its direct economic contribution, the sector also supports the manufacturing, export and supply chain.",
+      "In additional to its direct economic contribution, the industry also supports the manufacturing, export and supply chain.",
     locally:
-      "Locally, the T&C industry plays an important role in daily life of the Hong Kong community. For example, medical laboratories provide essential support to medical sector in the diagnosis of illnesses. Private laboratories have been playing an increasing role in supporting the food industry for quality assurance and the Government in testing of food. The construction materials laboratories and inspection bodies also contribute to ensuring the building safety.",
+      "Locally, the T&C industry plays an important role in daily life of the Hong Kong community. For example, medical laboratories provide essential support to medical industry in the diagnosis of illnesses. Private laboratories have been playing an increasing role in supporting the food industry for quality assurance and the Government in testing of food. The construction materials laboratories and inspection bodies also contribute to ensuring the building safety.",
     in_support_of:
-      "In support of Hong Kong's external trade, the sector has been providing high volume of testing and inspection services for consumer products manufactured in Hong Kong and the Pearl River Delta Region, in particular toys, electrical and electronic goods, textiles and garments and footwear. The sector also provides quality management system certification service for businesses. Through providing assurance to overseas buyers on the quality and safety of products, the sector has played an important part in the economic development of Hong Kong as well as Pearl River Delta Region.",
+      "In support of Hong Kong's external trade, the industry has been providing high volume of testing and inspection services for consumer products manufactured in Hong Kong and the Pearl River Delta Region, in particular toys, electrical and electronic goods, textiles and garments and footwear. The industry also provides quality management system certification service for businesses. Through providing assurance to overseas buyers on the quality and safety of products, the industry has played an important part in the economic development of Hong Kong as well as Pearl River Delta Region.",
     from_wider_perspective:
       "From a wider perspective, the T&C industry has also contributed to the development of Hong Kong as a business services centre. Coupled with other advantages including a sound legal system, a business-friendly environment and world class infrastructure, the availability of credible T&C services has enhanced attraction for multinational companies to set up buying offices and even regional headquarters in Hong Kong.",
     statistics_data: "Statistics & Data",

@@ -132,65 +132,65 @@ const EnterpriseRun: React.FC = () => {
             (available in Simplified Chinese only) -
           </p>
           <br />
-
+          <ul>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                CNCA PN No. 34 of 2015 —
+                《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》;
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                CNCA PN No. 1 of 2017 —
+                《國家認監委關於進一步深化汽車強制性產品認證改革的公告》
+              </a>
+              ;&nbsp;and&nbsp;
+            </li>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                CNCA PN No. 28 of 2017 —
+                《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》.
+              </a>
+            </li>
+          </ul>
+          <p>Enquiries should be addressed to CNCA -</p>
+          <br />
+          <p>Electrical and Electronic Products</p>
+          <p>Contact person: Mr. QIU Lei</p>
+          <p>Phone number: +86-10-82262779</p>
           <p>
-            <a
-              href="Incorrect hyperlink : https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              CNCA PN No. 34 of 2015 —
-              《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》;
+            Email address:&nbsp;
+            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+              qiul@cnca.gov.cn
             </a>
           </p>
+          <br />
+          <p>Non- Electrical and Electronic Products</p>
+          <p>Contact person: Mr. GUAN Jun-wen</p>
+          <p>Phone number: +86-10-82262674</p>
           <p>
+            Email address:&nbsp;
             <a
-              href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
-              CNCA PN No. 1 of 2017 —
-              《國家認監委關於進一步深化汽車強制性產品認證改革的公告》
+              guanjw@cnca.gov.cn
             </a>
-            ;&nbsp;and&nbsp;
-            <a
-              href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              CNCA PN No. 28 of 2017 —
-              《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》.
-            </a>
-            <p>Enquiries should be addressed to CNCA -</p>
-            <br />
-            <p>Electrical and Electronic Products</p>
-            <p>Contact person: Mr. QIU Lei</p>
-            <p>Phone number: +86-10-82262779</p>
-            <p>
-              Email address:&nbsp;
-              <a
-                href="mailto:qiul@cnca.gov.cn"
-                className="underline text-[#00E]"
-              >
-                qiul@cnca.gov.cn
-              </a>
-            </p>
-            <br />
-            <p>Non- Electrical and Electronic Products</p>
-            <p>Contact person: Mr. GUAN Jun-wen</p>
-            <p>Phone number: +86-10-82262674</p>
-            <p>
-              Email address:&nbsp;
-              <a
-                href="mailto:guanjw@cnca.gov.cn"
-                className="underline text-[#00E]"
-              >
-                guanjw@cnca.gov.cn
-              </a>
-            </p>
           </p>
         </>
       ),
@@ -315,7 +315,7 @@ const EnterpriseRun: React.FC = () => {
 
 const faqMap: Record<string, React.ReactNode> = {
   "Agreement on Trade in Services": <Agreement />,
-  "Hong Kong enterprise-run organizations in the Mainland designated under the China Compulsory Certification (CCC) system":
+  "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system":
     <EnterpriseRun />,
 };
 

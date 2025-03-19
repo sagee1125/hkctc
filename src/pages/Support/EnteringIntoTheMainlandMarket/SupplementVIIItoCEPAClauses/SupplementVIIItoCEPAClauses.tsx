@@ -20,10 +20,10 @@ export const SupplementVIIItoCEPAClauses: React.FC = () => {
       <p className="my-[24px] text-heading-m">Specific commitments</p>
       <p className="text-body-m">
         To expand, on the basis of Supplement VII to the CEPA, the scope of
-        product testing that can be undertaken by testing organizations in Hong
+        product testing that can be undertaken by testing organisations in Hong
         Kong for the China Compulsory Certification (CCC) System to all existing
         products processed in Hong Kong that require CCC. These testing
-        organizations have to be accredited by the accreditation body of the
+        organisations have to be accredited by the accreditation body of the
         Government of Hong Kong Special Administrative Region (i.e. the Hong
         Kong Accreditation Service) to be capable of performing testing for the
         relevant products under the CCC System.

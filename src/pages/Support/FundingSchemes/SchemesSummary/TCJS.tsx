@@ -6,7 +6,7 @@ const rows = [
     schemeName: "Testing and Certification Industry Job Creation Scheme (TCJS)",
     schemeNameHyperLink: "https://www.hkctc.gov.hk/en/tcjs/",
     objective: "Subsidize job creation in the T&C industry",
-    targetAudience: "Local private T&C organizations",
+    targetAudience: "Local private T&C organisations",
     fundingAmount: `HK$10,000 per position/month for 12 months`,
   },
 ];

@@ -21,7 +21,7 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
       <p className="text-body-m">
         To expand, on a pilot basis in Guangdong Province, the scope of
         certification services that can be undertaken by Hong Kong testing
-        organizations to cover food. (See&nbsp;
+        organisations to cover food. (See&nbsp;
         <a
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
