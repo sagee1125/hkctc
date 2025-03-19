@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { TC_SECTOR_STRENGTH_TEXT } from "../lang";
 import { SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
+import { Language, useSettings } from "../../../context";
 
-const pageText = TC_SECTOR_STRENGTH_TEXT.EN;
 export const Strength: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
+  const { language } = useSettings();
+
+  const pageText =
+    language === Language.EN
+      ? TC_SECTOR_STRENGTH_TEXT.EN
+      : TC_SECTOR_STRENGTH_TEXT.CN;
 
   const strengthContent = [
     {
