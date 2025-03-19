@@ -107,12 +107,12 @@ export const PanelManpowerDevelopment: React.FC = () => {
 
       <p className="text-heading-m mt-[32px] mb-[8px]">{members}</p>
       {member_names.map((name, index) => (
-        <p key={index} className="text-highlight-extra">
+        <p key={index} className="text-body-m">
           {name}
         </p>
       ))}
       <p className="mt-[24px] text-heading-m mb-[8px]">{official_members}</p>
-      <div className="text-highlight-extra">
+      <div className="text-body-m">
         {official_member_name.map((m, index) => (
           <p key={index}>{m}</p>
         ))}

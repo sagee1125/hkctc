@@ -14,7 +14,7 @@ export const AboutHKCTC: React.FC = () => {
         "measures needed to raise the professional standing and community awareness of the industry.",
       ],
       heading:
-        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on the overall development strategy of the testing and certification industry. Members of the Council include practitioners from the testing and certification industry, business industry, professional organisations as well as the relevant public bodies and government departments. The Innovation and Technology Commission provides support to the Council.",
+        "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on the overall development strategy of the testing and certification industry. Members of the Council include practitioners from the testing and certification industry, business industry, professional organisations as well as representatives of the relevant public bodies and government departments. The Innovation and Technology Commission provides support to the Council.",
       membership: "Membership",
       chairman: "Chairman",
       prof_WWT: "Professor WONG Wing-tak",
@@ -110,17 +110,11 @@ export const AboutHKCTC: React.FC = () => {
         <p className="text-heading-m">{terms_of_ref}</p>
         <div className="text-body-m mt-[16px]">
           <p>{to_advise}</p>
-          <div className="ml-1">
+          <ul className="ml-1">
             {refs.map((r, index) => (
-              <div key={index} className="flex flex-row gap-[8px]">
-                <div>
-                  <div className="w-[6px] h-[6px] bg-black rounded-full mt-2" />
-                </div>
-
-                <div className="flex flex-wrap">{r}</div>
-              </div>
+              <li className="flex flex-wrap">{r}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
       <p className="my-[24px] text-body-m">{heading}</p>
@@ -134,7 +128,7 @@ export const AboutHKCTC: React.FC = () => {
         <div>
           <p className="text-heading-m mb-[8px]">{members}</p>
           {member_names.map((name, index) => (
-            <p key={index} className="text-highlight-extra">
+            <p key={index} className="text-body-m">
               {name}
             </p>
           ))}
@@ -144,7 +138,7 @@ export const AboutHKCTC: React.FC = () => {
         {non_official_members}
       </p>
       {non_official_member_name.map((name, index) => (
-        <p key={index} className="text-highlight-extra">
+        <p key={index} className="text-body-m">
           {name}
         </p>
       ))}

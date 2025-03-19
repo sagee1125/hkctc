@@ -112,8 +112,8 @@ export const LearningTeachingResources: React.FC = () => {
       <SquareTitle title="Learning and Teaching Resources" />
 
       <p className="text-body-m my-[24px]">
-        HKCTC attach importance to promoting testing and certification to
-        youngsters and students, and enhance their awareness of the value
+        HKCTC attaches importance to promoting testing and certification to
+        youngsters and students, and enhancing their awareness of the value
         created by testing and certification. To this end, HKCTC has produced
         different learning and teaching materials to help youngsters to acquire
         the knowledge of testing and certification and arouse their interest to
@@ -156,7 +156,7 @@ export const LearningTeachingResources: React.FC = () => {
                       src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                       alt={"file icon"}
                     />
-                    <p className="text-highlight-l">{down.title}</p>
+                    <p className="text-highlight-l text-left">{down.title}</p>
                   </div>
                 ))}
               </div>
@@ -249,7 +249,7 @@ export const LearningTeachingResources: React.FC = () => {
                       src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                       alt={"file icon"}
                     />
-                    <p className="text-highlight-l">{down.title}</p>
+                    <p className="text-highlight-l text-left">{down.title}</p>
                   </div>
                 ))}
               </div>
