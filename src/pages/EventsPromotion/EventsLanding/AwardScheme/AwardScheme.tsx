@@ -286,15 +286,6 @@ const publicationData: MediaTemplateWithDialogProps[] = [
     mediaDomain: "hkctc",
   },
   {
-    title: "Media Coverage",
-    maskIcon: "PRESS.png",
-    imagePath: "press_release.png",
-
-    date: "",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaLink: "https://www.hkctc.gov.hk/en/event/mpaward/media_2023-24.html",
-  },
-  {
     title: "Infographic video",
     maskIcon: "VIDEO.png",
     date: "",
@@ -310,15 +301,6 @@ const publicationData: MediaTemplateWithDialogProps[] = [
     mediaLink:
       "/en/event/mpaward/doc/TC-Manpower-Development-Award-Scheme-2023-24_Commemorative-Publication.pdf",
     mediaDomain: "hkctc",
-  },
-  {
-    title: "Press Release",
-    maskIcon: "PRESS.png",
-    date: "4 December 2023",
-    imagePath: "press_realease_1.png",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaLink:
-      "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
   },
 ];
 export const AwardScheme: React.FC = () => {

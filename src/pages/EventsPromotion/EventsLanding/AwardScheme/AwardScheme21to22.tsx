@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Drawer } from "@mui/material";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import {
   Accordion,
   fullContainer,
@@ -12,6 +12,8 @@ import {
   normalButtonStyle,
   InternalBackButton,
   maxMobileContainer,
+  type MediaTemplateWithDialogProps,
+  MediaTemplateWithDialog,
 } from "../../../../components";
 import { useSettings } from "../../../../context";
 
@@ -153,6 +155,19 @@ export const AwardScheme21to22: React.FC = () => {
   );
   const { isPC } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
+
+  const mediaData: MediaTemplateWithDialogProps[] = [
+    {
+      title: "Press Release",
+      maskIcon: "PRESS.png",
+      date: "22 December 2021",
+      imagePath: "press_release.png",
+      mediaType: MEDIA_TYPE.NEW_PAGE,
+      mediaLink:
+        "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+    },
+  ];
+
   const buttonTwoMap: Record<string, React.ReactNode> = {
     "Junior Professional Sub-group": (
       <div className={isPC ? "" : "overflow-x-auto"}>
@@ -453,7 +468,7 @@ export const AwardScheme21to22: React.FC = () => {
         />
       </div>
       <p className="text-heading-l" id="award_ceremony_2122">
-        Award Presentation Ceremony
+        Award Ceremony
       </p>
       <div className="flex items-center">
         <img
@@ -668,6 +683,37 @@ export const AwardScheme21to22: React.FC = () => {
         </p>
       </div>
 
+      <hr />
+
+      <p className="text-heading-l">Media</p>
+
+      <div className={`w-full flex flex-col gap-[24px]`}>
+        {mediaData.map((item, index) => {
+          const {
+            title,
+            imagePath,
+            date = "",
+            maskIcon,
+            mediaType,
+            mediaLink,
+            mediaDomain,
+          } = item;
+          return (
+            <div key={index} className="w-full flex flex-row gap-[24px]">
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={date}
+                mediaLink={mediaLink}
+                mediaType={mediaType}
+                mediaDomain={mediaDomain}
+                direction={"row"}
+                imagePath={"eventsLanding/awardScheme/" + imagePath}
+              />
+            </div>
+          );
+        })}
+      </div>
       <hr />
       <InternalBackButton
         targetUrl={`/events-promotion?section=${navItemEnum.award_scheme}`}
