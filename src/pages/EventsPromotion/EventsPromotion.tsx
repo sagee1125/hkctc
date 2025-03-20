@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  AwardScheme,
-  AwardScheme21to22,
-  SeminarsWorkshops,
-} from "./EventsLanding";
+import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
 import { seminarsAndWorkshopsList } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/seminarArticles";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
 import { PressReleases } from "./News";

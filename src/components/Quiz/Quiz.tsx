@@ -125,11 +125,13 @@ export const Quiz: React.FC = () => {
                   </div>
 
                   <div
-                    className={`absolute right-0 bottom-0 cursor-pointer pb-6 pt-4 pl-4 pr-6`}
+                    className={`absolute right-0 bottom-0 pb-6 pt-4 pl-4 pr-6`}
                     style={{
                       backgroundColor: quizData.theme,
+                      cursor: !currentAnswer ? "not-allowed" : "pointer",
                     }}
                     onClick={() => {
+                      if (!currentAnswer) return;
                       setQuizStage(
                         currentAnswer === quizData.correctAnser
                           ? QuizStage.ANSWER_CORRECT
