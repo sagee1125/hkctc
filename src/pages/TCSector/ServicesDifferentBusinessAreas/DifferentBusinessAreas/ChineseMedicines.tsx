@@ -150,7 +150,7 @@ export const ChineseMedicines: React.FC = () => {
               <p className="text-body-m">
                 1. Testing according to the&nbsp;
                 <a
-                  href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+                  href="https://www.cmro.gov.hk/html/eng/useful_information/hkcmms/volumes.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"

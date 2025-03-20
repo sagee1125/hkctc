@@ -213,12 +213,17 @@ const EnterpriseRun: React.FC = () => {
           <p>
             The relevant application regime, requirements and procedures are set
             out on the website of the State Administration for Market Regulation
-            -{" "}
-            <span className="underline text-[#00E]">
-              《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》
-            </span>
+            -&nbsp;
+            <a
+              className="underline text-[#00E]"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.gov.cn/zhengce/2022-10/08/content_5723509.htm"
+            >
+              《強制性產品認證機構和實驗室管理辦法》
+            </a>
             (available in Simplified Chinese only). Applicants may also refer to
-            CNCA's{" "}
+            CNCA's&nbsp;
             <a
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
               target="_blank"
@@ -226,8 +231,8 @@ const EnterpriseRun: React.FC = () => {
               className="underline text-[#00E]"
             >
               CCC Column
-            </a>{" "}
-            for more information (available in Simplified Chinese only).
+            </a>
+            &nbsp; for more information (available in Simplified Chinese only).
           </p>
         </>
       ),

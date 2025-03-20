@@ -201,12 +201,8 @@ export const NilWaiverFee: React.FC = () => {
         "How can I find out the land use zoning within which my industrial building falls?",
       answer: (
         <span>
-          Please refer to the list of Outline Zoning Plans at &nbsp;
-          <Link outerLink="https://www.tpb.gov.hk/en/list_of_plans/list_of_plans.html">
-            www.info.gov.hk/tpb/en/list_of_plans/list_of_plans.html
-          </Link>
-          . Details of the Outline Zoning Plans can be browsed at the Statutory
-          Planning Portal&nbsp;(
+          Please refer to the Outline Zoning Plans at the Statutory Planning
+          Portal&nbsp;(
           <Link outerLink="https://www.ozp.tpb.gov.hk/">
             www.ozp.tpb.gov.hk
           </Link>
