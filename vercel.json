@@ -19,8 +19,8 @@
       "destination": "https://paper.takungpao.com/:path*"
     },
     {
-      "source": "/hkcd-proxy/:path*",
-      "destination": "https://www.hkcd.com.hk/:path*"
+      "source": "/devb-proxy/:path*",
+      "destination": "https://www.devb.gov.hk/:path*"
     }
   ]
 }

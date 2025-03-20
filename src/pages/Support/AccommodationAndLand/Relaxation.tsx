@@ -1,33 +1,34 @@
 import * as React from "react";
-import { SquareTitle } from "../../../components";
+import {
+  MediaTemplateWithDialog,
+  MediaTemplateWithDialogProps,
+  SquareTitle,
+} from "../../../components";
 import { useSettings } from "../../../context";
+import { MEDIA_TYPE } from "../../../const";
 
 export const Relaxation: React.FC = () => {
   const { isPC } = useSettings();
 
-  const fileList: Array<{
-    title: string;
-    date: string;
-    maskIcon: string;
-    imgUrl: string;
-    hyperlink: string;
-  }> = [
+  const fileList: MediaTemplateWithDialogProps[] = [
     {
       title:
         "Announcement: Relaxation of Waiver Application for Existing Industrial Buildings ",
       date: "1 February 2019",
       maskIcon: "PDF.png",
-      imgUrl: "relaxation.png",
-      hyperlink:
-        "https://www.devb.gov.hk/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
+      mediaType: MEDIA_TYPE.PDF,
+      mediaDomain: "devb",
+      mediaLink:
+        "/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
     },
     {
       title:
         "Press Release: Extending Effective Period of Relaxation of Waiver Application for Existing Industrial Buildings",
       date: "26 January 2024",
       maskIcon: "PRESS.png",
-      imgUrl: "extending.png",
-      hyperlink:
+      mediaType: MEDIA_TYPE.NEW_PAGE,
+      imagePath: "extending.png",
+      mediaLink:
         "https://www.info.gov.hk/gia/general/202401/26/P2024012600321.htm",
     },
     {
@@ -35,8 +36,9 @@ export const Relaxation: React.FC = () => {
         "Work Focuses of Development Bureau in the Chief Executive’s 2024 Policy Address",
       date: "16 October 2024",
       maskIcon: "PRESS.png",
-      imgUrl: "Work_Focuses.png",
-      hyperlink:
+      mediaType: MEDIA_TYPE.NEW_PAGE,
+      imagePath: "Work_Focuses.png",
+      mediaLink:
         "https://www.devb.gov.hk/en/about_us/policy/2024-policy-address-supplement/policy-address-initiatives/index.html",
     },
   ];
@@ -152,55 +154,34 @@ export const Relaxation: React.FC = () => {
       </p>
       <div className="w-full">
         {fileList.map((item, index) => {
-          const { title, date, maskIcon, imgUrl, hyperlink } = item;
-          const onClick = (): void => {
-            window.open(hyperlink, "_blank");
-          };
+          const {
+            title,
+            imagePath,
+            mediaLink,
+            mediaType,
+            mediaDomain,
+            maskIcon,
+            date,
+          } = item;
           return (
             <div
               key={index}
-              className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
+              className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center"
             >
-              <div
-                className="relative w-[130px] h-full cursor-pointer"
-                onClick={onClick}
-                style={{ flexShrink: 0 }}
-              >
-                <img
-                  className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
-                  src={`${process.env.PUBLIC_URL}/assets/support/${imgUrl}`}
-                  alt={imgUrl}
-                />
-                {/* Icon */}
-                <img
-                  className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
-                  src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-                  alt="maskIcon"
-                />
-              </div>
-              <div className="flex flex-col justify-between">
-                <div
-                  className="text-highlight-m text-black cursor-pointer"
-                  onClick={onClick}
-                >
-                  {title.length > 60 && !isPC
-                    ? title.slice(0, 60) + "..."
-                    : title}
-                </div>
-                {date && (
-                  <div
-                    className="text-body-s text-[#666666] flex flex-wrap gap-[8px] cursor-pointer"
-                    onClick={onClick}
-                  >
-                    <img
-                      className="w-[16px] h-[16px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                      alt="calendar"
-                    />
-                    {date}
-                  </div>
-                )}
-              </div>
+              <MediaTemplateWithDialog
+                title={
+                  title.length > 58 && !isPC
+                    ? title.slice(0, 58) + "..."
+                    : title
+                }
+                imagePath={"support/" + imagePath}
+                mediaLink={mediaLink}
+                direction="row"
+                maskIcon={maskIcon}
+                date={date}
+                mediaType={mediaType}
+                mediaDomain={mediaDomain}
+              />
             </div>
           );
         })}

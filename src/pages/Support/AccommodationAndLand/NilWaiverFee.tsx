@@ -5,8 +5,10 @@ import {
   normalButtonStyle,
   activatedButtonStyle,
   Link,
+  MediaTemplateWithDialog,
 } from "../../../components";
 import { useSettings } from "../../../context";
+import { MEDIA_TYPE } from "../../../const";
 
 export const NilWaiverFee: React.FC = () => {
   const [activeButton, setActiveButton] = React.useState(0);
@@ -387,40 +389,19 @@ export const NilWaiverFee: React.FC = () => {
         of polystyrene plastics, manufacture and storage of chlorine, hydrogen
         and textile chemicals, etc.
       </p>
-      <div className="flex flex-row gap-[24px]">
-        <div
-          className="flex-shrink-0 relative w-[130px] h-[90px] cursor-pointer"
-          onClick={() => {
-            window.open(
-              "https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
-            );
-          }}
-        >
-          <img
-            className="w-auto h-[89px] flex-shrink-0"
-            src={`${process.env.PUBLIC_URL}/assets/support/brief_pdf.png`}
-            alt={"pdf"}
-          />
-          {/* Icon */}
-          <img
-            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-            src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-            alt={"file icon"}
-          />
-        </div>
-        <div>
-          <span
-            className="text-heading-m cursor-pointer"
-            onClick={() => {
-              window.open(
-                "https://www.hkctc.gov.hk/en/doc/itc-hkctc-17-7-1c-e.pdf"
-              );
-            }}
-          >
-            Legislative Council Brief
-          </span>
-        </div>
+
+      <div className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center">
+        <MediaTemplateWithDialog
+          title={"Legislative Council Brief"}
+          mediaLink={"/en/doc/itc-hkctc-17-7-1c-e.pdf"}
+          direction="row"
+          maskIcon={"PDF.png"}
+          date={""}
+          mediaType={MEDIA_TYPE.PDF}
+          mediaDomain={"hkctc"}
+        />
       </div>
+
       <p className="text-body-m mt-[24px]">
         To learn more about the measure, please see&nbsp;
         <span className="text-newPrimary">FAQs</span>&nbsp;below .

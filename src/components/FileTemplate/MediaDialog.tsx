@@ -15,7 +15,7 @@ export const proxyHeadMapping: Record<ProxyDomain, string> = {
   hkctc: "/hkctc-proxy",
   "cpas-icac": "/cpas-icac-proxy",
   hkbedc: "/hkbedc-proxy",
-  hkcd: "/hkcd-proxy",
+  devb: "/devb-proxy",
   takungpao: "/takungpao-proxy",
   youtube: "/",
 };
@@ -33,8 +33,8 @@ export const handleGetWholePDFUrl = (
       return `https://www.hkbedc.icac.hk` + link;
     case "takungpao":
       return `https://paper.takungpao.com` + link;
-    case "hkcd":
-      return `https://www.hkcd.com.hk` + link;
+    case "devb":
+      return `https://www.devb.gov.hk` + link;
 
     default:
       return link;

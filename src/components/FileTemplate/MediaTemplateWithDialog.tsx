@@ -10,7 +10,7 @@ export type ProxyDomain =
   | "cpas-icac"
   | "hkbedc"
   | "takungpao"
-  | "hkcd";
+  | "devb";
 
 export type MediaTemplateWithDialogProps = {
   title: string;
@@ -37,8 +37,8 @@ export const handleGetPDFUrl = (
       return "/hkbedc-proxy" + mediaLink;
     case "takungpao":
       return "/takungpao-proxy" + mediaLink;
-    case "hkcd":
-      return "/hkcd-proxy" + mediaLink;
+    case "devb":
+      return "/devb-proxy" + mediaLink;
 
     default:
       return "/hkctc-proxy" + mediaLink;
@@ -76,6 +76,7 @@ export const MediaTemplateWithDialog: React.FC<
 
     const fetchAndRenderPdf = async () => {
       const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
+      console.log("pdfUrl", pdfUrl);
       setLoading(true);
       try {
         // Force to render file

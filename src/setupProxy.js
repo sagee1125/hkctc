@@ -61,15 +61,15 @@ module.exports = function (app) {
   );
 
   app.use(
-    '/hkcd-proxy',
+    '/devb-proxy',
     createProxyMiddleware({
-      target: 'https://www.hkcd.com.hk',
+      target: 'https://www.devb.gov.hk',
       changeOrigin: true,
       secure: false,
-      timeout: 10000,  
-      proxyTimeout: 10000, 
+      timeout: 20000,  
+      proxyTimeout: 20000, 
       pathRewrite: {
-        '^/hkcd-proxy': '',
+        '^/devb-proxy': '',
       },
     })
   );
