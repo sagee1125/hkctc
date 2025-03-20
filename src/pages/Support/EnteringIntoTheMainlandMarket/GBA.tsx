@@ -185,10 +185,10 @@ export const GBA: React.FC = () => {
         <p>
           Information about GBA Certification is available on the&nbsp;
           <a
-            href={`/support?section=${navItemEnum.entering_into_the_mainland_market}#3`}
+            href={`https://gbacpc.org.cn/bayareacertification/index`}
             target="_blank"
             rel="noopener noreferrer"
-            className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+            className="text-[#00E] underline"
           >
             GBA Certification Public Service Platform
           </a>

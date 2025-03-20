@@ -152,7 +152,7 @@ export const Relaxation: React.FC = () => {
         2019 and the press release of the extension on 26 January 2024, and the
         2024 Policy Address for further details:
       </p>
-      <div className="w-full">
+      <div className="w-full flex flex-col gap-[24px]">
         {fileList.map((item, index) => {
           const {
             title,
