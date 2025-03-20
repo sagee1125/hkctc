@@ -12,7 +12,7 @@ const mediaCoverageList = [
   {
     title: "檢測認證 衣食住行 專業把關",
     date: "15 Mar 2024",
-    link: "https://www.recruihttps://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038t.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
+    link: "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
   {
@@ -47,7 +47,7 @@ const mediaCoverageList = [
   {
     title: "「2023-24年度檢測認證人力發展嘉許計劃」頒獎典禮",
     date: "8 Dec 2023",
-    link: "https://www.hkcd.com.hk/hkcdweb/content/2023/12/08/content_8613613.html",
+    link: "https://today.line.me/hk/v2/article/wJGjVrw",
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
   {
@@ -97,13 +97,13 @@ const mediaCoverageList = [
   {
     title: "「2023-24年度檢測認證人力發展嘉許計劃」公布得獎結果",
     date: "4 Dec 2023",
-    link: "「2023-24年度檢測認證人力發展嘉許計劃」公布得獎結果",
+    link: "https://portal.sina.com.hk/finance/gia-info-gov-hk/2023/12/04/655455/%e3%80%8c2023-24%e5%b9%b4%e5%ba%a6%e6%aa%a2%e6%b8%ac%e8%aa%8d%e8%ad%89%e4%ba%ba%e5%8a%9b%e7%99%bc%e5%b1%95%e5%98%89%e8%a8%b1%e8%a8%88%e5%8a%83%e3%80%8d%e5%85%ac%e5%b8%83%e5%be%97%e7%8d%8e%e7%b5%90/",
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
   {
     title: "香港2023-24年度檢測認證人力發展嘉許計劃结果公布",
     date: "4 Dec 2023",
-    link: "香港2023-24年度檢測認證人力發展嘉許計劃结果公布",
+    link: "https://www.hkcna.hk/docDetail.jsp?id=100538552&channel=4372",
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
 ];
