@@ -75,9 +75,11 @@ export const Pamphlets: React.FC = () => {
         } `}
       >
         {currentPageData.map((item, index) => {
-          const { title, mediaType, date, link } = item;
+          const { title, mediaType, date, link, thumbnail } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
+          console.log("thumbnail", thumbnail);
+          const cover = !!thumbnail ? "pamphlets/" + thumbnail : "";
           return (
             <div
               key={index}
@@ -91,6 +93,7 @@ export const Pamphlets: React.FC = () => {
                 date={date}
                 mediaLink={link}
                 mediaType={mediaType}
+                thumbnail={cover}
               />
             </div>
           );

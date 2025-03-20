@@ -50,6 +50,7 @@ export type PublicationType = {
   mediaType: MEDIA_TYPE;
   yearRange?: number[];
   category: CATEGORIES[];
+  thumbnail?: string;
   mediaDomain?: "hkctc" | "youtube" | "cpas-icac" | "hkbedc";
 };
 
@@ -537,6 +538,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/Tested_in_Hong_Kong_Certified_in_Hong_Kong_en_tc.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "Tested_in_Hong_Kong_Certified_in_Hong_Kong_en_tc.png",
   },
   {
     title: "Product Certification - An Upstream Quality Control",
@@ -544,6 +546,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/HKCTC_Leaflet_construction_product_certification.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "HKCTC_Leaflet_construction_product_certification.png",
   },
   {
     title:
@@ -552,6 +555,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/HKCTC_Leaflet_Building_inspection.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "HKCTC_Leaflet_Building_inspection.png",
   },
   {
     title: "What you Need to Know about Medical Testing",
@@ -559,6 +563,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/quality/hkas/doc/pamphlets/HKAS_PB004.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "HKAS_PB004.png",
   },
   {
     title: "Food Testing and Certification",
@@ -566,6 +571,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/Food_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "Food_Pamphlet_2018.png",
   },
   {
     title: "Chinese Medicines Testing",
@@ -573,6 +579,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/Chinese_Medicines_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "Chinese_Medicines_Pamphlet_2018.png",
   },
   {
     title: "Testing of Fei Cui and Diamond in Hong Kong",
@@ -580,6 +587,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.png",
   },
   {
     title: "Diamond Testing Services in Hong Kong",
@@ -587,6 +595,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "HKCTC_Diamond_Testing_Services_in_HK.png",
   },
   {
     title:
@@ -595,6 +604,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/ISMS_Flyer_Communications_5.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "ISMS_Flyer_Communications_5.png",
   },
   {
     title: "Greenhouse Gas (GHG) Quantification, Validation and Verification",
@@ -602,6 +612,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/2017_ITC_Leaflet_ISO14064.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "2017_ITC_Leaflet_ISO14064.png",
   },
   {
     title: "ISO 50001 Energy Management System Certification",
@@ -609,6 +620,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/2017_ITC_Leaflet_ISO50001.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "2017_ITC_Leaflet_ISO50001.png",
   },
   {
     title: "Career Development in Testing and Certification Industry",
@@ -616,6 +628,7 @@ export const pamphletsList: PublicationType[] = [
     link: "/en/doc/pamphlet_a.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
+    thumbnail: "pamphlet_a.png",
   },
 ];
 

@@ -22,6 +22,7 @@ export type MediaTemplateWithDialogProps = {
   mediaDomain?: ProxyDomain;
   direction?: "column" | "row" | "full";
   titleUnderline?: boolean;
+  thumbnail?: string;
 };
 export const handleGetPDFUrl = (
   domain: ProxyDomain,
@@ -56,6 +57,7 @@ export const MediaTemplateWithDialog: React.FC<
   mediaDomain = "hkctc",
   direction = "column",
   titleUnderline = false,
+  thumbnail = "",
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const { isPC, pdfjsLib } = useSettings();
@@ -191,7 +193,7 @@ export const MediaTemplateWithDialog: React.FC<
       setLoading(false);
     };
 
-    if (mediaType === MEDIA_TYPE.PDF) {
+    if (mediaType === MEDIA_TYPE.PDF && !thumbnail) {
       fetchAndRenderPdf();
     } else if (mediaType === MEDIA_TYPE.VIDEO) {
       if (mediaDomain === "hkctc") fetchVideoPoster();
@@ -441,24 +443,41 @@ export const MediaTemplateWithDialog: React.FC<
               )}
               <>
                 {mediaType === MEDIA_TYPE.PDF && (
-                  <canvas
-                    key={mediaLink}
-                    ref={canvasRef}
-                    style={{
-                      objectFit: "contain",
-                      zIndex: 1,
+                  <>
+                    {!!thumbnail ? (
+                      <img
+                        alt="img"
+                        src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
+                        style={{
+                          objectFit: "cover",
 
-                      maxWidth: "100%",
-                      maxHeight: "100%",
-                      aspectRatio: "auto",
-                      ...(isPC
-                        ? {}
-                        : {
-                            width: "100%",
-                            height: "auto",
-                          }),
-                    }}
-                  />
+                          width: "100%",
+                          height: "100%",
+                          zIndex: 1,
+                          aspectRatio: "auto",
+                        }}
+                      />
+                    ) : (
+                      <canvas
+                        key={mediaLink}
+                        ref={canvasRef}
+                        style={{
+                          objectFit: "contain",
+                          zIndex: 1,
+
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          aspectRatio: "auto",
+                          ...(isPC
+                            ? {}
+                            : {
+                                width: "100%",
+                                height: "auto",
+                              }),
+                        }}
+                      />
+                    )}
+                  </>
                 )}
 
                 {mediaType === MEDIA_TYPE.VIDEO && (
