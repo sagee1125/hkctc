@@ -289,18 +289,35 @@ export const MediaTemplateWithDialog: React.FC<
             )}
             <>
               {mediaType === MEDIA_TYPE.PDF && (
-                <canvas
-                  key={mediaLink}
-                  ref={canvasRef}
-                  style={{
-                    objectFit: "contain",
-                    zIndex: 1,
+                <>
+                  {!!thumbnail ? (
+                    <img
+                      alt="img"
+                      src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
+                      style={{
+                        objectFit: "cover",
 
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    aspectRatio: "auto",
-                  }}
-                />
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 2,
+                        aspectRatio: "auto",
+                      }}
+                    />
+                  ) : (
+                    <canvas
+                      key={mediaLink}
+                      ref={canvasRef}
+                      style={{
+                        objectFit: "contain",
+                        zIndex: 1,
+
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        aspectRatio: "auto",
+                      }}
+                    />
+                  )}
+                </>
               )}
 
               {mediaType === MEDIA_TYPE.VIDEO && (
@@ -455,7 +472,7 @@ export const MediaTemplateWithDialog: React.FC<
 
                           width: "100%",
                           height: "100%",
-                          zIndex: 1,
+                          zIndex: 2,
                           aspectRatio: "auto",
                         }}
                       />

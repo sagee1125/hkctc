@@ -11,14 +11,14 @@ export const CorruptionGuide: React.FC = () => {
       <SquareTitle title="Corruption Prevention Guide for T&C Industry" />
       <div className={`pt-[24px] flex flex-col ${isPC ? "" : "gap-[24px]"}`}>
         {corruptionGuideList.map((item, index) => {
-          const { title, mediaType, date, link, mediaDomain } = item;
+          const { title, mediaType, date, link, mediaDomain, thumbnail } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
             <div
               key={index}
               style={{
-                marginTop: index === 0 ? "" : "-2px",
+                marginTop: index === 0 ? "" : "24px",
               }}
               className={`flex flex-col gap-[24px] ${isPC ? "" : "pb-[24px]"}`}
             >
@@ -30,6 +30,7 @@ export const CorruptionGuide: React.FC = () => {
                 mediaType={mediaType}
                 direction={isPC ? "full" : "column"}
                 mediaDomain={mediaDomain}
+                thumbnail={thumbnail}
               />
             </div>
           );

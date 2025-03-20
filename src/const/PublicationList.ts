@@ -860,14 +860,16 @@ export const corruptionGuideList: PublicationType[] = [
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
     mediaDomain: "cpas-icac",
+    thumbnail: "pamphlets/f0cf22b8-ca79-403e-9682-16b6a2166abe.png",
   },
   {
     title:
       "Pamphlet for Frontline Materials Testing Staff (Chinese Version Only)",
-    link: "/tc_chi/files/publications/PamphletforFrontlineMaterialsTestingStaff.pdf", // https://www.hkbedc.icac.hk
+    link: "/Upload/guides/57/pdf/68a7ed5f2da24f17930d7bbb8c66a8ca.pdf", // https://www.hkbedc.icac.hk
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
     mediaDomain: "hkbedc",
+    thumbnail: "pamphlets/68a7ed5f2da24f17930d7bbb8c66a8ca.png",
   },
 ];
 

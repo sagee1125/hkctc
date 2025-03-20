@@ -38,10 +38,15 @@ module.exports = function (app) {
       target: 'https://www.hkbedc.icac.hk',
       changeOrigin: true,
       secure: false,
-      timeout: 10000,  
-      proxyTimeout: 10000, 
+      timeout: 20000,  
+      proxyTimeout: 20000, 
       pathRewrite: {
         '^/hkbedc-proxy': '',
+      },
+      onProxyRes: (proxyRes, req, res) => {
+        proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+        proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
+        proxyRes.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
       },
     })
   );
@@ -52,8 +57,8 @@ module.exports = function (app) {
       target: 'https://paper.takungpao.com',
       changeOrigin: true,
       secure: false,
-      timeout: 10000,  
-      proxyTimeout: 10000, 
+      timeout: 20000,  
+      proxyTimeout: 20000, 
       pathRewrite: {
         '^/takungpao-proxy': '',
       },
