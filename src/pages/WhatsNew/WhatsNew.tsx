@@ -6,8 +6,13 @@ import {
   maxPCContainer,
   MediaDialog,
   maxMobileContainer,
+  MediaTemplateWithDialog,
 } from "../../components";
-import { WhatsNewConfiguration, hkctcNewsletterList } from "../../const";
+import {
+  MEDIA_TYPE,
+  WhatsNewConfiguration,
+  hkctcNewsletterList,
+} from "../../const";
 import { useSettings } from "../../context";
 
 export const WhatsNew: React.FC = () => {
@@ -66,29 +71,25 @@ export const WhatsNew: React.FC = () => {
   );
   const rightContent = (
     <div>
-      <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
+      <div className="border-2 border-inherit p-[24px] flex flex-col">
         <p className="text-heading-l">HKCTC Newsletters</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
-          const { title, link } = item;
+          const { title, date = "", mediaType, link } = item;
+          const isPDF = mediaType === MEDIA_TYPE.PDF;
+          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
             <div
-              className="flex flex-row gap-[24px] cursor-pointer"
               key={index}
-              onClick={() => {
-                if (isPC) {
-                  setActiveReport(index);
-                  setIsPreviewOpen(true);
-                } else {
-                  window.open("https://www.hkctc.gov.hk" + link, "_blank");
-                }
-              }}
+              className={`w-full h-auto object-cover flex flex-row gap-[14px] mt-[24px]`}
             >
-              <img
-                className="border-2 border-inherit w-[160px] h-full object-cover"
-                src={`${process.env.PUBLIC_URL}/assets/whatsNew/Reports.png`}
-                alt={"Report.png"}
+              <MediaTemplateWithDialog
+                title={title}
+                maskIcon={maskIcon}
+                date={date}
+                mediaLink={link}
+                mediaType={mediaType}
+                direction="row"
               />
-              <div className="text-highlight-m">{title}</div>
             </div>
           );
         })}
