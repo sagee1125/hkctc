@@ -153,7 +153,9 @@ export const SeminarsWorkshops: React.FC = () => {
             >
               <div className="flex flex-col w-full justify-center">
                 <div className="text-heading-m underline-offset-4 mb-[16px]">
-                  <Link linkColor="#203136">{title}</Link>
+                  <Link linkColor="#203136" breakAll={false}>
+                    {title}
+                  </Link>
                 </div>
                 <div className="flex flex-row items-center">
                   <img

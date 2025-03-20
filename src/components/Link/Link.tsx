@@ -16,6 +16,7 @@ type LinkProps = {
   underline?: boolean;
   innerLink?: string;
   outerLink?: string;
+  breakAll?: boolean;
 };
 
 export const Link: React.FC<LinkProps> = (props: LinkProps) => {
@@ -26,6 +27,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
     innerLink,
     linkColor = "default",
     underline = true,
+    breakAll = true,
   } = props;
 
   const handleOpenOuterLink = () => {
@@ -37,8 +39,8 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
       href={outerLink}
       target="_blank"
       rel="noreferrer"
-      className={`cursor-pointer ${
-        underline && "underline underline-offset-4 break-all"
+      className={`cursor-pointer ${breakAll ? "break-all" : "text-justify"} ${
+        underline && "underline underline-offset-4"
       } text-[${colorMapping[linkColor as LinkColor] ?? linkColor}]`}
       onClick={handleOpenOuterLink}
     >
