@@ -37,7 +37,7 @@ export const GeneralPublicContent: React.FC = () => {
   // Updated at 19/01/2025
   const whatsNew = [
     {
-      title: 'The Twelfth "HKCTC Newsletter" has been issued',
+      title: 'Twelfth "HKCTC Newsletter" has been issued',
       date: "29 May 2024",
       imagePath: "material_2.png",
       link: "/events-promotion?section=hkctc_newsletter",

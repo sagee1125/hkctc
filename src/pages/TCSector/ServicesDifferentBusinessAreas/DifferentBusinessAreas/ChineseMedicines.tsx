@@ -196,14 +196,14 @@ export const ChineseMedicines: React.FC = () => {
         Benefits of Chinese Medicines Testing & Certification
       </p>
 
-      <div>
+      <div className="text-body-m">
         Hong Kong is an international trading hub of Chinese medicines. Chinese
         herbal medicines and proprietary Chinese medicines (pCm) sold in Hong
         Kong are generally with good quality. To ensure that products are
         genuine, not misprocessed (such as bleached), and are free from
         adulteration and contamination, testing and certification is
         indispensable. Hong Kong has an efficient and competent testing and
-        certification industry to provide the relevant support
+        certification industry to provide the relevant support.
         <br />
         <br />
         Testing and certification of Chinese medicines can bring about many
@@ -242,8 +242,8 @@ export const ChineseMedicines: React.FC = () => {
           </li>
         </ol>
       </div>
-      <hr className="my-[24px]" />
-      <div className="w-full flex flex-col gap-[24px]">
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
         {servicesForChineseMedicine.map((item, index) => (
           <Accordion
             key={index}

@@ -80,7 +80,7 @@ export const Jewellery: React.FC = () => {
       <p className="text-heading-l">
         Testing Services for Fei Cui (Jadeite Jade) and Diamond
       </p>
-      <ol className="mt-[24px]">
+      <ol className="mt-[24px] text-body-m">
         <li>
           Authentication of natural Fei Cui (Jadeite Jade) and diamond is
           carried out by Hong Kong laboratories using scientific methods.
@@ -105,8 +105,8 @@ export const Jewellery: React.FC = () => {
           test.
         </li>
       </ol>
-      <hr className="my-[24px]" />
-      <div className="w-full flex flex-col gap-[24px]">
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
         {acc.map((item, index) => (
           <Accordion
             key={index}
@@ -122,44 +122,43 @@ export const Jewellery: React.FC = () => {
         Laboratories Accredited by HKAS Providing Testing Services on Jewellery
       </p>
 
-      <div>
-        <p>
-          Accredited laboratories in Hong Kong adopt the&nbsp;
-          <a
-            href="http://www.gahk.org/en/gemtest.asp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            Standard Methods for Testing Fei Cui (Jadeite Jade) for Hong Kong
-          </a>
-          &nbsp;and&nbsp;
-          <a
-            href="http://www.gahk.org/en/gemtest.asp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            Standard Methods for Testing Diamond for Hong Kong
-          </a>
-          , formulated by The Gemmological Association of Hong Kong, for
-          identification purpose.
-          <br />
-          <br />
-          The laboratories providing accredited testing services on Jewellery
-          are available at&nbsp;
-          <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            HKAS's website
-          </a>
-          . (Please choose the test category, "Physical and Mechanical Testing",
-          under "Services" to search the relevant laboratories.)
-        </p>
-      </div>
+      <p className="text-body-m">
+        Accredited laboratories in Hong Kong adopt the&nbsp;
+        <a
+          href="http://www.gahk.org/en/gemtest.asp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Standard Methods for Testing Fei Cui (Jadeite Jade) for Hong Kong
+        </a>
+        &nbsp;and&nbsp;
+        <a
+          href="http://www.gahk.org/en/gemtest.asp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Standard Methods for Testing Diamond for Hong Kong
+        </a>
+        , formulated by The Gemmological Association of Hong Kong, for
+        identification purpose.
+        <br />
+        <br />
+        The laboratories providing accredited testing services on Jewellery are
+        available at&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        . (Please choose the test category, "Physical and Mechanical Testing",
+        under "Services" to search the relevant laboratories.)
+      </p>
+
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
