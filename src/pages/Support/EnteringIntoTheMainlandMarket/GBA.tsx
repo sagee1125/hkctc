@@ -1,5 +1,6 @@
 import * as React from "react";
-import { SquareTitle } from "../../../components";
+import { Link, SquareTitle } from "../../../components";
+import { navItemEnum } from "../../../const";
 // import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 
 export const GBA: React.FC = () => {
@@ -113,9 +114,17 @@ export const GBA: React.FC = () => {
 
         <br />
         <p>
-          Information about GBA Standards can be found on the Guangdong-Hong
-          Kong-Macao Greater Bay Area Standard Information Public Service
-          Platform managed by the GBA Standardisation Research Center.
+          Information about GBA Standards can be found on the&nbsp;
+          <a
+            href="https://www.gbsrc.org.cn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#00E] underline"
+          >
+            Guangdong-Hong Kong-Macao Greater Bay Area Standard Information
+            Public Service Platform
+          </a>
+          &nbsp;managed by the GBA Standardisation Research Center.
         </p>
         <br />
         <p>
@@ -123,7 +132,16 @@ export const GBA: React.FC = () => {
           co-ordinating the participation of the Government of the Hong Kong
           Special Administrative Region (HKSARG) in the work on the GBA
           Standards. The TID also disseminates information about GBA Standards
-          to the trades through issuing Commercial Information Circulars.
+          to the trades through issuing&nbsp;
+          <a
+            href="ttps://www.tid.gov.hk/english/trade_relations/mainland/cic_gbastandards.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#00E] underline"
+          >
+            Commercial Information Circulars
+          </a>
+          .
         </p>
 
         <br />
@@ -165,10 +183,18 @@ export const GBA: React.FC = () => {
 
         <br />
         <p>
-          Information about GBA Certification is available on the GBA
-          Certification Public Service Platform. Enterprises interested in the
-          GBA Certification schemes are welcome to contact the Guangdong-Hong
-          Kong-Macao Greater Bay Area Certification Promotion Center.{" "}
+          Information about GBA Certification is available on the&nbsp;
+          <a
+            href={`/support?section=${navItemEnum.entering_into_the_mainland_market}#3`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          >
+            GBA Certification Public Service Platform
+          </a>
+          . Enterprises interested in the GBA Certification schemes are welcome
+          to contact the Guangdong-Hong Kong-Macao Greater Bay Area
+          Certification Promotion Center.
         </p>
         {/* Updated at 16/03/2025 according to the docs  */}
         {/* <div className="flex flex-wrap gap-[8px] my-[24px]">

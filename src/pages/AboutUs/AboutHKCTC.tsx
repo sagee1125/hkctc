@@ -119,7 +119,16 @@ export const AboutHKCTC: React.FC = () => {
       </div>
       <p className="my-[24px] text-body-m">{heading}</p>
       <p className="text-heading-l">{membership}</p>
-      <p className="text-italic-s italic mt-[8px]">2024-2025</p>
+      <p
+        className="mt-[8px]"
+        style={{
+          fontSize: "18px",
+          fontWeight: "600",
+          lineHeight: "20px",
+        }}
+      >
+        2024-2025
+      </p>
       <div className={`flex flex-col gap-[24px] mt-[22px]`}>
         <div>
           <p className="text-heading-m">{chairman}</p>

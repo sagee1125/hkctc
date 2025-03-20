@@ -99,7 +99,16 @@ export const PanelManpowerDevelopment: React.FC = () => {
         </ul>
       </div>
       <p className="text-heading-l">{membership}</p>
-      <p className="text-italic-s italic mt-[8px]">2024-2025</p>
+      <p
+        className="mt-[8px]"
+        style={{
+          fontSize: "18px",
+          fontWeight: "600",
+          lineHeight: "20px",
+        }}
+      >
+        2024-2025
+      </p>
       <div className="mt-[28px]">
         <p className="text-heading-m">{convener}</p>
         <p className="text-highlight-l mt-[8px]">{dr_WNM}</p>
