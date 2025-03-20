@@ -40,9 +40,9 @@ const mediaCoverageList = [
     title:
       "2023-24年度檢測認證人力發展嘉許計劃 鼓勵機構投入人才培育 表揚從業員力臻專業發展",
     date: "8 Dec 2023",
-    link: "/hkcdweb/content/2023/12/08/content_8613613.html",
-    mediaType: MEDIA_TYPE.NEW_PAGE,
-    mediaDomain: "hkcd",
+    link: "/en/doc/20231208-HKET-ceremony_tcmpaward_2023-24.pdf",
+    mediaType: MEDIA_TYPE.PDF,
+    mediaDomain: "hkctc",
   },
   {
     title: "「2023-24年度檢測認證人力發展嘉許計劃」頒獎典禮",
@@ -139,7 +139,6 @@ export const MediaCoverage2324: React.FC = () => {
                 mediaDomain={mediaDomain as ProxyDomain}
                 imagePath={undefined}
                 mediaLink={link}
-                titleUnderline
                 mediaType={mediaType}
               />
             </div>
