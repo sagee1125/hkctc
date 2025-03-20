@@ -34,7 +34,7 @@ export const Comics: React.FC = () => {
         alt="PDF Icon"
       />
 
-      <div>
+      <div className="text-body-m">
         Testing and certification (T&C) play a crucial role in our daily life.
         For instance, they help ensuring toy safety, examining energy efficiency
         level and ascertaining the functionality of clothings. In Hong Kong, a
@@ -43,7 +43,7 @@ export const Comics: React.FC = () => {
         services.
       </div>
 
-      <div>
+      <div className="text-body-m">
         This comic series (in Chinese version only) showcase the importance of
         T&C in our daily life. Hope you enjoy reading these interesting stories!
       </div>

@@ -141,16 +141,14 @@ const CertificateService: React.FC = () => {
         <Accordion
           title="(ii) Product certification, e.g. certification of a supplier's competence in producing a mobile phone to regulatory requirements"
           details={
-            <div className="flex flex-col gap-[24px]">
-              <div>
-                Product certification can improve stakeholders' confidence in
-                the products supplied by a certified supplier. It can bring
-                benefits to manufacturers (better business opportunities),
-                regulatory authorities (less monitoring effort) and end-users
-                (more reliable products). Product certification schemes adopted
-                by accredited certification bodies in Hong Kong are related to
-                construction materials, consumer products and food.
-              </div>
+            <div className="flex flex-col gap-[24px] !text-body-m">
+              Product certification can improve stakeholders' confidence in the
+              products supplied by a certified supplier. It can bring benefits
+              to manufacturers (better business opportunities), regulatory
+              authorities (less monitoring effort) and end-users (more reliable
+              products). Product certification schemes adopted by accredited
+              certification bodies in Hong Kong are related to construction
+              materials, consumer products and food.
             </div>
           }
         />
@@ -160,7 +158,7 @@ const CertificateService: React.FC = () => {
         <Accordion
           title="(iii) Balidation and verification, e.g. validation and/or verification of greenhouse gas assertions to ISO 14064-1, ISO 14064-2 or ISO/TS 14067"
           details={
-            <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[24px] !text-body-m">
               <div>
                 To tackle climate changes, many organisations around the world
                 are implementing various initiatives to limit greenhouse gas

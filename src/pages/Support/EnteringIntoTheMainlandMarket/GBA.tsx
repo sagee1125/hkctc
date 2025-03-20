@@ -161,7 +161,7 @@ export const GBA: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <SquareTitle title="GBA Certification" />
-      <div className="mt-[24px]">
+      <div className="mt-[24px] text-body-m">
         <p>
           With the support and coordination of the governments of Guangdong,
           Hong Kong and Macao, certification bodies of the three places jointly

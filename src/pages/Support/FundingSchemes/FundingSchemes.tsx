@@ -78,7 +78,7 @@ export const FundingSchemes: React.FC = () => {
         <Accordion
           title={"Innovation and Technology Fund (ITF)"}
           details={
-            <div>
+            <div className="text-body-m">
               <p>
                 ITF aims to increase the added value, productivity and
                 competitiveness of Hong Kong's economic activities. The
