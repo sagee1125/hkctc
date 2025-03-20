@@ -6,27 +6,27 @@ const specificCommitments = [
   {
     comments:
       "To allow testing organisations in Hong Kong to cooperate with designated Mainland organisations to undertake testing of products for the China Compulsory Certification (CCC) System on all products that require CCC. These testing organisations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region to be competent of performing testing of the relevant products under the CCC System. Cooperation arrangements should comply with relevant requirements in the Regulations on Certification and Accreditation of the People's Republic of China.",
-    implementation: "See Implementation Guide promulgated in May 2020",
+    implementation: "(See Implementation Guide promulgated in May 2020)",
   },
   {
     comments:
       "To allow certification bodies in Hong Kong to cooperate with Mainland CCC certification bodies on CCC factory inspection through assigning inspectors to carry out such inspection of factories manufacturing CCC products. These certification bodies have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region to be competent of performing certification of relevant products under the CCC System.",
-    implementation: "See Implementation Guide promulgated in May 2020",
+    implementation: "(See Implementation Guide promulgated in May 2020)",
   },
   {
     comments:
       "To allow certification bodies in Hong Kong to cooperate with Mainland CCC certification bodies to select post-certification test samples at factories manufacturing CCC products. These certification bodies have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region to be competent of performing certification of relevant products under the CCC System.",
-    implementation: "See Implementation Guide promulgated in May 2020",
+    implementation: "(See Implementation Guide promulgated in May 2020)",
   },
   {
     comments:
       "In the area of voluntary certification, to allow testing organisations in Hong Kong to cooperate with Mainland certification bodies to undertake testing of products manufactured or processed in Hong Kong or the Mainland. These testing organisations have to be accredited by the accreditation body of the Government of the Hong Kong Special Administrative Region to be competent in performing testing of the relevant products.",
-    implementation: "See Implementation Guide promulgated in Apr 2015",
+    implementation: "(See Implementation Guide promulgated in Apr 2015)",
   },
   {
     comments:
       'To implement, on a pilot basis, a mutual recognition arrangement of certification and relevant testing business among Guangdong, Hong Kong and Macao in the China (Guangdong) Pilot Free Trade Zone, with a view to carry out "certified once, tested once, and results accepted by three places. "',
-    implementation: "See Implementation Guide promulgated in Sep 2017",
+    implementation: "(See Implementation Guide promulgated in Sep 2017)",
   },
   {
     comments:
@@ -35,7 +35,7 @@ const specificCommitments = [
   {
     comments:
       "To allow contractual service providers employed by Hong Kong service suppliers, in the mode of movement of natural persons, to provide services under this industry or sub-industry on the Mainland.",
-    implementation: "See Implementation Guide promulgated in Jul 2015",
+    implementation: "(See Implementation Guide promulgated in Jul 2015)",
   },
 ];
 

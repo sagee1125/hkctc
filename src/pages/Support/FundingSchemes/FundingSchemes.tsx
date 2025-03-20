@@ -266,7 +266,7 @@ export const FundingSchemes: React.FC = () => {
                     alt={"money"}
                   />
                   <p className="text-body-m flex-grow min-w-0">
-                    For each approved position, the applicant employer will
+                    For each approved position, the applicant employer would
                     receive&nbsp;
                     <span className="text-newPrimary font-semibold">
                       a monthly subsidy of HK$10,000 or 50% of the salary&nbsp;

@@ -225,7 +225,7 @@ export const EnvironmentalProtection: React.FC = () => {
             For the list of HKAS-accredited validation/verification bodies,
             please visit&nbsp;
             <a
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

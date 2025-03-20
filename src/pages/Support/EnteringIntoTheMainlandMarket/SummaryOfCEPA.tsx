@@ -43,7 +43,9 @@ export const SummaryOfCEPA: React.FC = () => {
             </a>
           </li>
         </ul>
-        <p>(promulgated in Sep 2017)</p>
+        <p className="italic mt-[24px]" style={{ fontSize: "14px" }}>
+          (promulgated in Sep 2017)
+        </p>
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <>
@@ -60,7 +62,11 @@ export const SummaryOfCEPA: React.FC = () => {
                   testing
                 </a>
               </li>
-              <p>(promulgated in Feb 2019)</p>
+            </ul>
+            <p className="italic mt-[24px]" style={{ fontSize: "14px" }}>
+              (promulgated in Feb 2019)
+            </p>
+            <ul>
               <br />
               <li className="text-body-m">
                 <a
@@ -75,7 +81,11 @@ export const SummaryOfCEPA: React.FC = () => {
                   product testing
                 </a>
               </li>
-              <p>(promulgated in May 2020)</p>
+            </ul>
+            <p className="italic mt-[24px]" style={{ fontSize: "14px" }}>
+              (promulgated in May 2020)
+            </p>
+            <ul>
               <br />
               <li className="text-body-m">
                 Further liberalisation measures on CCC factory inspection and
@@ -156,7 +166,9 @@ export const SummaryOfCEPA: React.FC = () => {
           </a>
         </p>
         <br />
-        <p className="italic">promulgated in Apr 2015</p>
+        <p className="italic" style={{ fontSize: "14px" }}>
+          (promulgated in Apr 2015)
+        </p>
       </>,
     ],
     [
@@ -198,7 +210,9 @@ export const SummaryOfCEPA: React.FC = () => {
           </li>
         </ul>
         <br />
-        <p className="italic">promulgated in Jul 2015</p>
+        <p className="italic" style={{ fontSize: "14px" }}>
+          (promulgated in Jul 2015)
+        </p>
       </>,
     ],
     [
@@ -225,7 +239,9 @@ export const SummaryOfCEPA: React.FC = () => {
         </p>
 
         <br />
-        <p className="italic">promulgated in Jan 2013</p>
+        <p className="italic" style={{ fontSize: "14px" }}>
+          (promulgated in Jan 2013)
+        </p>
       </>,
     ],
     [
