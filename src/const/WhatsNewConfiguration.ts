@@ -40,7 +40,7 @@ export type WhatsNewData = {
 
 export const WhatsNewConfiguration: WhatsNewData[] = [
   {
-    title: 'The Twelfth "HKCTC Newsletter" has been issued',
+    title: 'Twelfth "HKCTC Newsletter" has been issued',
     date: "23 Dec 2024",
     imagePath: "whatsnew_3.png",
     imagePathSwitch: "Testing_1.png",

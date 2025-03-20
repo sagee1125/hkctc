@@ -25,37 +25,36 @@ const timeLineData: Array<{
 }> = [
   {
     text: "Define the scope, boundary and policy of ISMS",
-    fontColor: "black",
+    fontColor: "[#000000]",
   },
   {
     text: "Define the risk assessment approcah of the organisation",
-    fontColor: "black",
+    fontColor: "[#000000]",
     bgColor: "[#EAEAE5]",
   },
   {
     text: "Identify and evaluate risk and options for the relevant treatment",
-
-    fontColor: "newPrimary",
+    fontColor: "[#000000]",
   },
   {
     text: "Select appropriate control objectives and controls for the treatment for risks",
-    fontColor: "newPrimary",
+    fontColor: "[#000000]",
     bgColor: "[#EAEAE5]",
   },
 
   {
     text: "Obtain management approval of the proposed residual risks",
-    fontColor: "black",
+    fontColor: "[#000000]",
   },
   {
     text: "Obtain management authorisation to implement and operate the ISMS",
-    fontColor: "newPrimary",
+    fontColor: "[#000000]",
     bgColor: "[#EAEAE5]",
   },
 
   {
     text: "Monitor, review, maintain and improve the ISMS continuously",
-    fontColor: "newPrimary",
+    fontColor: "[#000000]",
   },
 ];
 

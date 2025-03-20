@@ -14,7 +14,7 @@ export const Relaxation: React.FC = () => {
   }> = [
     {
       title:
-        "Announcement: Relaxation of Waiver Application  for Existing Industrial Buildings ",
+        "Announcement: Relaxation of Waiver Application for Existing Industrial Buildings ",
       date: "1 February 2019",
       maskIcon: "PDF.png",
       imgUrl: "relaxation.png",

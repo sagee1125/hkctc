@@ -186,8 +186,15 @@ export const ServiceUsersContent: React.FC = () => {
         <p className="text-italic-s italic mt-[24px]">
           *This full list is for the purpose of searching specific conformity
           assessment activity and will only be updated weekly. For most
-          up-to-date scope of accreditation, please search by "Organisations",
-          "Registration No." or "Services"
+          up-to-date scope of accreditation, please visit&nbsp;
+          <a
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            HKAS’s website
+          </a>
         </p>
       </div>
       {/* Others & Enquires */}

@@ -40,7 +40,7 @@ const TestingService: React.FC = () => {
 const InspectionService: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px]">
-      <div>
+      <div className="text-body-m">
         Inspection may include the examination of materials, products,
         installations, plants, processes, work procedures or services and
         determination of their conformity with requirements and the subsequent
@@ -70,7 +70,7 @@ const InspectionService: React.FC = () => {
         </span>
       </div>
 
-      <div>
+      <div className="text-body-m">
         On local demand, one example of inspection service is the inspection of
         indoor air quality at premises according to the Environmental Protection
         Department's "
@@ -80,7 +80,7 @@ const InspectionService: React.FC = () => {
         "
       </div>
 
-      <div>
+      <div className="text-body-m">
         On external demand, the need for inspection arises from international
         trade. It is a common practice for overseas buyers to arrange inspection
         of goods at the factory by an independent inspection body to confirm the
@@ -93,7 +93,7 @@ const InspectionService: React.FC = () => {
 const CertificateService: React.FC = () => {
   return (
     <div className="flex flex-col gap-[24px]">
-      <div>
+      <div className="text-body-m">
         Certification is a third-party attestation related to products,
         processes, systems or persons. Certification activities in Hong Kong can
         be broadly divided into three categories:

@@ -16,7 +16,7 @@ type AccordionProps = {
 export const Accordion: React.FC<AccordionProps> = ({
   title,
   details,
-  defaultExpanded = true,
+  defaultExpanded = false, // All the menu should be collapsed initially
 }) => {
   const { isPC } = useSettings();
 
