@@ -9,13 +9,43 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import {
-  advertorialsList,
+  advertorialsList as unsortedAdvertorialsList,
   ADVERTORIALS_SECTOR,
   MEDIA_TYPE,
 } from "../../../../const";
 import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
+
+function parseTitleToDate(title: string): Date {
+  const months: { [key: string]: number } = {
+    Jan: 0,
+    Feb: 1,
+    Mar: 2,
+    Apr: 3,
+    May: 4,
+    Jun: 5,
+    Jul: 6,
+    Aug: 7,
+    Sep: 8,
+    Oct: 9,
+    Nov: 10,
+    Dec: 11,
+  };
+
+  const parts = title.split(" ");
+  if (parts.length === 2) {
+    // eg. `Mar 2021` without `day`
+    const [month, year] = parts;
+    return new Date(parseInt(year), months[month]);
+  } else if (parts.length === 3) {
+    // eg. "4 Oct 2018"
+    const [day, month, year] = parts;
+    return new Date(parseInt(year), months[month], parseInt(day));
+  }
+  return new Date(0); // a default earliest date
+}
+
 export const Advertorials: React.FC = () => {
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
@@ -28,6 +58,12 @@ export const Advertorials: React.FC = () => {
     ADVERTORIALS_SECTOR.METROLOGY,
     ADVERTORIALS_SECTOR.TC_SUPPORT,
   ];
+  // sorted AdvertorialsList
+  const advertorialsList = unsortedAdvertorialsList.sort((a, b) => {
+    const dateA = parseTitleToDate(a.title);
+    const dateB = parseTitleToDate(b.title);
+    return dateB.getTime() - dateA.getTime();
+  });
 
   const aboutTestingSector: Record<string, any[]> = {
     All: advertorialsList.filter((item) =>
