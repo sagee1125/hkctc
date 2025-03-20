@@ -29,53 +29,59 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p className="text-body-m">Implementation Guides on -</p>
         <br />
-        <li className="text-body-m">
-          <a
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            Measure on the mutual recognition arrangement of certification and
-            relevant testing business among Guangdong, Hong Kong and Macao in
-            the China (Guangdong) Pilot Free Trade Zone
-          </a>
-        </li>
+        <ul>
+          <li className="text-body-m">
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Measure on the mutual recognition arrangement of certification and
+              relevant testing business among Guangdong, Hong Kong and Macao in
+              the China (Guangdong) Pilot Free Trade Zone
+            </a>
+          </li>
+        </ul>
         <p>(promulgated in Sep 2017)</p>
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <>
             <br />
-            <li className="text-body-m">
-              <a
-                href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-[#00E]"
-              >
-                Measure on China Compulsory Certification (CCC) product testing
-              </a>
-            </li>
-            <p>(promulgated in Feb 2019)</p>
-            <br />
-            <li className="text-body-m">
-              <a
-                href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-[#00E]"
-              >
-                Further liberalisation measures on CCC product testing, factory
-                inspection and selection of post-certification test samples
-                Measure on China Compulsory Certification (CCC) product testing
-              </a>
-            </li>
-            <p>(promulgated in May 2020)</p>
-            <br />
-            <li className="text-body-m">
-              Further liberalisation measures on CCC factory inspection and
-              selection of post-certification test samples
-            </li>
+            <ul>
+              <li className="text-body-m">
+                <a
+                  href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  Measure on China Compulsory Certification (CCC) product
+                  testing
+                </a>
+              </li>
+              <p>(promulgated in Feb 2019)</p>
+              <br />
+              <li className="text-body-m">
+                <a
+                  href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  Further liberalisation measures on CCC product testing,
+                  factory inspection and selection of post-certification test
+                  samples Measure on China Compulsory Certification (CCC)
+                  product testing
+                </a>
+              </li>
+              <p>(promulgated in May 2020)</p>
+              <br />
+              <li className="text-body-m">
+                Further liberalisation measures on CCC factory inspection and
+                selection of post-certification test samples
+              </li>
+            </ul>
             <p className="text-body-m">(To be promulgated)</p>
           </>
         </Collapse>
@@ -168,27 +174,29 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p className="text-body-m">Implementation Guides on -</p>
         <br />
-        <li className="text-body-m">
-          <a
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            Measure on the movement of natural persons
-          </a>
-        </li>
-        <br />
-        <li className="text-body-m">
-          <a
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            Other measures
-          </a>
-        </li>
+        <ul>
+          <li className="text-body-m">
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Measure on the movement of natural persons
+            </a>
+          </li>
+          <br />
+          <li className="text-body-m">
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              Other measures
+            </a>
+          </li>
+        </ul>
         <br />
         <p className="italic">promulgated in Jul 2015</p>
       </>,

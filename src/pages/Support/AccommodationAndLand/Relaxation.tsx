@@ -90,57 +90,60 @@ export const Relaxation: React.FC = () => {
           alt="Professor WONG Wing-tak"
         />
       </div>
-      <li className="text-body-m">
-        As the Development Bureau announced on 1 February 2019, the Government
-        would permit five non-industrial uses in premises within IBs on a
-        time-limited basis. The prerequisite is that such uses are always
-        permitted under the relevant statutory plan, and do not involve direct
-        provision of services or goods attracting visiting members of the
-        public. Under the arrangement, an owner of part(s) of an existing IB
-        does&nbsp;<span className="text-newPrimary !text-highlight-m">not</span>
-        &nbsp;need to apply for a temporary waiver from LandsD, and does&nbsp;
-        <span className="text-newPrimary !text-highlight-m">not</span>&nbsp;need
-        to pay a waiver fee and an administrative fee which would otherwise be
-        payable, for putting the relevant IB premises to such permitted
-        non-industrial uses during the effective period.&nbsp;
-        <span className="text-newPrimary !text-highlight-m">
-          The effective period of the arrangement
-        </span>
-        &nbsp;was initially set for five years, followed by an extension to 31
-        January 2025 announced on 26 January 2024, and a&nbsp;
-        <span className="text-newPrimary !text-highlight-m">
-          further extension to the end of 2027
-        </span>
-        &nbsp;announced in the 2024 Policy Address.
-      </li>
-      <br />
-      <li className="text-body-m">
-        "Research, Design and Development Centre" is one of the five permitted
-        uses. According to the Definition of Terms published by the Town
-        Planning Board, testing laboratories are covered by “Laboratory,
-        Inspection and Testing Centre” which is subsumed under the use of
-        “Research, Design and Development Centre”. As such, testing laboratories
-        in industrial premises in compliance with the above prerequisites can
-        benefit from the relaxation of waiver application arrangement. In
-        determining whether the use of a premise has involved non-compliant uses
-        outside the scope of the permission, LandsD will seek advice from the
-        Innovation and Technology Commission and the decision of which shall be
-        final.
-      </li>
-      <br />
-      <li className="text-body-m">
-        For any processed/processing temporary waiver application submitted in
-        accordance with&nbsp;
-        <a
-          href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          Practice Note No. 1/2016
-        </a>
-        &nbsp;issued by LandsD, no administrative fee will be refunded.
-      </li>
+      <ul>
+        <li className="!text-body-m">
+          As the Development Bureau announced on 1 February 2019, the Government
+          would permit five non-industrial uses in premises within IBs on a
+          time-limited basis. The prerequisite is that such uses are always
+          permitted under the relevant statutory plan, and do not involve direct
+          provision of services or goods attracting visiting members of the
+          public. Under the arrangement, an owner of part(s) of an existing IB
+          does&nbsp;
+          <span className="text-newPrimary !text-highlight-m">not</span>
+          &nbsp;need to apply for a temporary waiver from LandsD, and does&nbsp;
+          <span className="text-newPrimary !text-highlight-m">not</span>
+          &nbsp;need to pay a waiver fee and an administrative fee which would
+          otherwise be payable, for putting the relevant IB premises to such
+          permitted non-industrial uses during the effective period.&nbsp;
+          <span className="text-newPrimary !text-highlight-m">
+            The effective period of the arrangement
+          </span>
+          &nbsp;was initially set for five years, followed by an extension to 31
+          January 2025 announced on 26 January 2024, and a&nbsp;
+          <span className="text-newPrimary !text-highlight-m">
+            further extension to the end of 2027
+          </span>
+          &nbsp;announced in the 2024 Policy Address.
+        </li>
+        <br />
+        <li className="text-body-m">
+          "Research, Design and Development Centre" is one of the five permitted
+          uses. According to the Definition of Terms published by the Town
+          Planning Board, testing laboratories are covered by “Laboratory,
+          Inspection and Testing Centre” which is subsumed under the use of
+          “Research, Design and Development Centre”. As such, testing
+          laboratories in industrial premises in compliance with the above
+          prerequisites can benefit from the relaxation of waiver application
+          arrangement. In determining whether the use of a premise has involved
+          non-compliant uses outside the scope of the permission, LandsD will
+          seek advice from the Innovation and Technology Commission and the
+          decision of which shall be final.
+        </li>
+        <br />
+        <li className="text-body-m">
+          For any processed/processing temporary waiver application submitted in
+          accordance with&nbsp;
+          <a
+            href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            Practice Note No. 1/2016
+          </a>
+          &nbsp;issued by LandsD, no administrative fee will be refunded.
+        </li>
+      </ul>
       <br />
       <p className="text-body-m">
         Please refer to the announcement of Development Bureau on 1 February

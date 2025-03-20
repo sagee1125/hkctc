@@ -26,36 +26,39 @@ export const CEPAAgreements: React.FC = () => {
           out the following further liberalisation measures:
         </p>
         <br />
-        <li className="text-body-m">
-          On the geographical coverage of&nbsp;
-          <span className="text-newPrimary !text-highlight-m">
-            CCC factory inspection
-          </span>
-          &nbsp;that can be undertaken by qualified certification bodies in Hong
-          Kong in collaboration with designated Mainland organisations: To
-          expand from manufacturers located in the whole Mainland&nbsp;
-          <span className="text-newPrimary !text-highlight-m">
-            to manufacturers in any place (including places outside Mainland
-            China)
-          </span>
-          ;
-        </li>
-        <br />
-        <li className="text-body-m">
-          On the geographical coverage of&nbsp;
-          <span className="text-newPrimary !text-highlight-m">
-            selection of CCC post-certification test samples
-          </span>
-          &nbsp;that can be undertaken by qualified certification bodies in Hong
-          Kong in collaboration with designated Mainland organisations: To&nbsp;
-          <span className="text-newPrimary text-body-m">expand</span>&nbsp;from
-          manufacturers located in the whole Mainland&nbsp;
-          <span className="text-newPrimary !text-highlight-m">
-            to manufacturers in any place (including places outside Mainland
-            China)
-          </span>
-          .
-        </li>
+        <ul>
+          <li className="text-body-m">
+            On the geographical coverage of&nbsp;
+            <span className="text-newPrimary !text-highlight-m">
+              CCC factory inspection
+            </span>
+            &nbsp;that can be undertaken by qualified certification bodies in
+            Hong Kong in collaboration with designated Mainland organisations:
+            To expand from manufacturers located in the whole Mainland&nbsp;
+            <span className="text-newPrimary !text-highlight-m">
+              to manufacturers in any place (including places outside Mainland
+              China)
+            </span>
+            ;
+          </li>
+          <br />
+          <li className="text-body-m">
+            On the geographical coverage of&nbsp;
+            <span className="text-newPrimary !text-highlight-m">
+              selection of CCC post-certification test samples
+            </span>
+            &nbsp;that can be undertaken by qualified certification bodies in
+            Hong Kong in collaboration with designated Mainland organisations:
+            To&nbsp;
+            <span className="text-newPrimary text-body-m">expand</span>
+            &nbsp;from manufacturers located in the whole Mainland&nbsp;
+            <span className="text-newPrimary !text-highlight-m">
+              to manufacturers in any place (including places outside Mainland
+              China)
+            </span>
+            .
+          </li>
+        </ul>
         <br />
         <p className="text-body-m">
           The above measures will come into effect on 1 March 2025. The State
@@ -113,25 +116,27 @@ export const CEPAAgreements: React.FC = () => {
           measures:
         </p>
         <br />
-        <li className="text-body-m">
-          On the scope of testing of CCC products that can be undertaken by
-          qualified Hong Kong testing organisations in collaboration with
-          designated Mainland organisations: To expand from products processed
-          or manufactured in the Mainland or processed in Hong Kong to products
-          processed or manufactured in any place (including places outside
-          China).
-        </li>
-        <br />
-        <li className="text-body-m">
-          On the geographical coverage of CCC factory inspection that can be
-          undertaken by qualified certification bodies in Hong Kong in
-          collaboration with designated Mainland organisations: To expand from
-          manufacturers located in the China (Guangdong) Pilot Free Trade Zone
-          to manufacturers in the whole Mainland; and to add a new task that can
-          be undertaken by qualified certification bodies in Hong Kong, i.e. the
-          selection of post-certification test samples at factories
-          manufacturing CCC products in the whole Mainland.
-        </li>
+        <ul>
+          <li className="text-body-m">
+            On the scope of testing of CCC products that can be undertaken by
+            qualified Hong Kong testing organisations in collaboration with
+            designated Mainland organisations: To expand from products processed
+            or manufactured in the Mainland or processed in Hong Kong to
+            products processed or manufactured in any place (including places
+            outside China).
+          </li>
+          <br />
+          <li className="text-body-m">
+            On the geographical coverage of CCC factory inspection that can be
+            undertaken by qualified certification bodies in Hong Kong in
+            collaboration with designated Mainland organisations: To expand from
+            manufacturers located in the China (Guangdong) Pilot Free Trade Zone
+            to manufacturers in the whole Mainland; and to add a new task that
+            can be undertaken by qualified certification bodies in Hong Kong,
+            i.e. the selection of post-certification test samples at factories
+            manufacturing CCC products in the whole Mainland.
+          </li>
+        </ul>
         <br />
         <p className="text-body-m">
           The above measures came into effect on 1 June 2020. The Certification

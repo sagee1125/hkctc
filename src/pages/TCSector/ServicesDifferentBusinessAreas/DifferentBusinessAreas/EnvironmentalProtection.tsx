@@ -188,20 +188,22 @@ export const EnvironmentalProtection: React.FC = () => {
         <>
           <p>GHG Validation and Verification can:</p>
           <br />
-          <div className="flex flex-col gap-[12px]">
+          <ul>
             <li>
               enhance the consistency, credibility and transparency of your GHG
               quantification, monitoring and reporting
             </li>
+            <br />
             <li>
               help develop and implement your organisation's GHG management
               plans or GHG projects
             </li>
+            <br />
             <li>
               facilitate your tracking of the performance and progress in the
               reduction of GHG emissions and increase in GHG removals
             </li>
-          </div>
+          </ul>
         </>
       ),
     },
@@ -279,28 +281,30 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <p>
-            Implementation of an ISO 50001-based EnMS can help your organisation
-            :
+            Implementation of an ISO 50001-based EnMS can help your
+            organisation:
           </p>
           <br />
-          <li>
-            ascertain your current energy use status in order to devise
-            corresponding measures to promote efficient energy use
-          </li>
-          <br />
-          <li>
-            formulate a clear framework to promote continual improvement in
-            energy management
-          </li>
-          <br />
+          <ul>
+            <li>
+              ascertain your current energy use status in order to devise
+              corresponding measures to promote efficient energy use
+            </li>
+            <br />
+            <li>
+              formulate a clear framework to promote continual improvement in
+              energy management
+            </li>
+            <br />
 
-          <li>raise staff awareness on energy efficiency and conservation</li>
-          <br />
+            <li>raise staff awareness on energy efficiency and conservation</li>
+            <br />
 
-          <li>
-            increase financial savings as a result of energy saving and cost
-            reduction
-          </li>
+            <li>
+              increase financial savings as a result of energy saving and cost
+              reduction
+            </li>
+          </ul>
         </>
       ),
     },
@@ -366,15 +370,17 @@ export const EnvironmentalProtection: React.FC = () => {
             can:
           </p>
           <br />
-          <li>
-            enhance the confidence of relevant stakeholders (e.g. clients,
-            business partners) in the quality of your EnMS
-          </li>
-          <br />
-          <li>
-            enhance reputation by demonstrating ongoing commitment to
-            implementing an EnMS in compliance with international standard
-          </li>
+          <ul>
+            <li>
+              enhance the confidence of relevant stakeholders (e.g. clients,
+              business partners) in the quality of your EnMS
+            </li>
+            <br />
+            <li>
+              enhance reputation by demonstrating ongoing commitment to
+              implementing an EnMS in compliance with international standard
+            </li>
+          </ul>
         </>
       ),
     },
