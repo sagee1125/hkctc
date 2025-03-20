@@ -272,7 +272,6 @@ export const MediaTemplateWithDialog: React.FC<
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              height: "100%",
               overflow: "hidden",
             }}
           >
@@ -417,7 +416,9 @@ export const MediaTemplateWithDialog: React.FC<
         <>
           <div
             className={`flex-shrink-0 relative 
-          ${direction === "column" ? "w-full h-[190px]" : "w-[160px] h-[90px]"} 
+          ${
+            direction === "column" ? "w-full h-[190px]" : "w-[160px] h-[110px]"
+          } 
           ${
             isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
           } cursor-pointer`}
