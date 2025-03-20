@@ -78,7 +78,7 @@ export const StudentCompetition: React.FC = () => {
         Schools
       </p>
 
-      <div>
+      <div className="text-body-m">
         To raise students' awareness of the importance of testing and
         certification service, HKCTC and Hong Kong Association for Science and
         Mathematics Education (HKASME) have been co-organising the
@@ -86,7 +86,7 @@ export const StudentCompetition: React.FC = () => {
         Schools since 2016.
       </div>
 
-      <div>
+      <div className="text-body-m">
         Participating students need to produce a 2-minute video and a report on
         the experimental ideas relevant to the theme of the year.
       </div>
