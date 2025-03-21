@@ -1,122 +1,190 @@
 import * as React from "react";
 import { SquareTitle } from "../../../components";
+import { Language, useSettings } from "../../../context";
+
+const multilingual = {
+  en: {
+    other_support: "Other Support",
+    info_on_standards: {
+      title: "Information on Standards",
+      concent: `You may purchase original standards, guides, publications or handbooks issued by different standard publishers through Innovation and Technology Commission (ITC). For more information on the standard-related services provided by ITC, please visit its`,
+      website: "website",
+    },
+    measurement_traceability: {
+      title: "Measurement Traceability",
+      para_1: `Traceability means that the result of a measurement can be related to a national or international measurement standard. In addition, the measuring instrument must be calibrated with a measurement standard that is itself traceable. The concept of traceability is important because it makes possible the comparison of the accuracy of measurements worldwide according to a standardised procedure. Metrology is the study of measurement and there are two major fields, viz. physical metrology and chemical metrology.`,
+      para_2: `The Standards and Calibration Laboratory (SCL) maintains the reference standards of physical measurement traceable to the International System of Units for Hong Kong, promotes the international acceptance of these standards, and provides traceable calibration services and proficiency testing services to serve the local economy. For more information on the services provided by SCL, please visit its`,
+      para_3: `Government Laboratory provides chemical metrology support to the community through providing proficiency testing service, developing standard methods and producing reference material. For more information on the services provided by Government Laboratory, please visit its`,
+      website: "website",
+    },
+    support_and_consultation_centre: {
+      title:
+        "Support and Consultation Centre for SMEs run by the Trade and Industry Department",
+      content: `The Support and Consultation Centre for SMEs (SUCCESS) provides free and practical business information and consultation services for SMEs including business start-ups. For details of the location, information and services provided by SUCCESS, please visit its`,
+      website: "website",
+    },
+    hk_export_credit_insurance_corporation: {
+      title: `Hong Kong Export Credit Insurance Corporation`,
+      para_1: `The Hong Kong Export Credit Insurance Corporation (ECIC) was created by statute with the aim of encouraging and supporting the export trade by providing Hong Kong exporters with insurance protection against non-payment risks arising from commercial and political events.`,
+      para_2: `Its capital is wholly owned by the Government, which also guarantees its contingent liability, with the statutory maximum liability currently standing at HK$55 billion. ECIC has been providing a wide range of insurance facilities for Hong Kong exporters of services:`,
+      para_3: `Other benefits of TISP include credit management, receivable management and facilitating trade finance. ECIC's insurance cover can thus enhance the credit management practice and competitiveness of the industry for developing new markets and clients and is vital for the promotion of Hong Kong's testing and certification industry overseas.`,
+      for_more: `For more details, please refer to its website or email to info@hkecic.com.`,
+      to_meet_the_needs: `To meet the needs of the testing and inspection industry, ECIC offers the tailor-made Testing and Inspection Services Policy (TISP) to cover credit risks for services provided to overseas clients with credit periods of up to 180 days post-service completion.`,
+      TISP_covers:
+        "TISP covers losses from commercial risks (insolvency, payment default) and country risks (currency blockage, payment delays, war, riots, or natural disasters), with an indemnity ratio of up to 90%.",
+    },
+  },
+  cn: {
+    other_support: "Other Support",
+    info_on_standards: {
+      title: "Information on Standards",
+      concent: `You may purchase original standards, guides, publications or handbooks issued by different standard publishers through Innovation and Technology Commission (ITC). For more information on the standard-related services provided by ITC, please visit its`,
+      website: "website",
+    },
+    measurement_traceability: {
+      title: "Measurement Traceability",
+      para_1: `Traceability means that the result of a measurement can be related to a national or international measurement standard. In addition, the measuring instrument must be calibrated with a measurement standard that is itself traceable. The concept of traceability is important because it makes possible the comparison of the accuracy of measurements worldwide according to a standardised procedure. Metrology is the study of measurement and there are two major fields, viz. physical metrology and chemical metrology.`,
+      para_2: `The Standards and Calibration Laboratory (SCL) maintains the reference standards of physical measurement traceable to the International System of Units for Hong Kong, promotes the international acceptance of these standards, and provides traceable calibration services and proficiency testing services to serve the local economy. For more information on the services provided by SCL, please visit its`,
+      para_3: `Government Laboratory provides chemical metrology support to the community through providing proficiency testing service, developing standard methods and producing reference material. For more information on the services provided by Government Laboratory, please visit its`,
+      website: "website",
+    },
+    support_and_consultation_centre: {
+      title:
+        "Support and Consultation Centre for SMEs run by the Trade and Industry Department",
+      content: `The Support and Consultation Centre for SMEs (SUCCESS) provides free and practical business information and consultation services for SMEs including business start-ups. For details of the location, information and services provided by SUCCESS, please visit its`,
+      website: "website",
+    },
+    hk_export_credit_insurance_corporation: {
+      title: `Hong Kong Export Credit Insurance Corporation`,
+      para_1: `The Hong Kong Export Credit Insurance Corporation (ECIC) was created by statute with the aim of encouraging and supporting the export trade by providing Hong Kong exporters with insurance protection against non-payment risks arising from commercial and political events.`,
+      para_2: `Its capital is wholly owned by the Government, which also guarantees its contingent liability, with the statutory maximum liability currently standing at HK$55 billion. ECIC has been providing a wide range of insurance facilities for Hong Kong exporters of services:`,
+      para_3: `Other benefits of TISP include credit management, receivable management and facilitating trade finance. ECIC's insurance cover can thus enhance the credit management practice and competitiveness of the industry for developing new markets and clients and is vital for the promotion of Hong Kong's testing and certification industry overseas.`,
+      for_more: `For more details, please refer to its website or email to info@hkecic.com.`,
+      to_meet_the_needs: `To meet the needs of the testing and inspection industry, ECIC offers the tailor-made Testing and Inspection Services Policy (TISP) to cover credit risks for services provided to overseas clients with credit periods of up to 180 days post-service completion.`,
+      TISP_covers:
+        "TISP covers losses from commercial risks (insolvency, payment default) and country risks (currency blockage, payment delays, war, riots, or natural disasters), with an indemnity ratio of up to 90%.",
+    },
+  },
+};
 
 export const OtherSupport: React.FC = () => {
+  const { language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    other_support,
+    info_on_standards,
+    measurement_traceability,
+    support_and_consultation_centre,
+    hk_export_credit_insurance_corporation,
+  } = page_text;
+
   return (
     <div className="w-full pb-[48px]">
-      <SquareTitle title="Other Support" />
-      <p className="text-heading-l my-[24px]">Information on Standards</p>
-      <p className="text-body-m">
-        You may purchase original standards, guides, publications or handbooks
-        issued by different standard publishers through Innovation and
-        Technology Commission (ITC). For more information on the
-        standard-related services provided by ITC, please visit its&nbsp;
+      <SquareTitle title={other_support} />
+      <p className="text-heading-l my-[24px]">{info_on_standards.title}</p>
+      <p className="text-body-m text-justify">
+        {info_on_standards.concent}&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          website
+          {info_on_standards.website}
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">Measurement Traceability</p>
-      <p className="mt-[24px] text-body-m">
-        Traceability means that the result of a measurement can be related to a
-        national or international measurement standard. In addition, the
-        measuring instrument must be calibrated with a measurement standard that
-        is itself traceable. The concept of traceability is important because it
-        makes possible the comparison of the accuracy of measurements worldwide
-        according to a standardised procedure. Metrology is the study of
-        measurement and there are two major fields, viz. physical metrology and
-        chemical metrology.
+      <p className="text-heading-l">{measurement_traceability.title}</p>
+      <p className="mt-[24px] text-body-m text-justify">
+        {measurement_traceability.para_1}
       </p>
       <br />
-      <p className="text-body-m">
-        The Standards and Calibration Laboratory (SCL) maintains the reference
-        standards of physical measurement traceable to the International System
-        of Units for Hong Kong, promotes the international acceptance of these
-        standards, and provides traceable calibration services and proficiency
-        testing services to serve the local economy. For more information on the
-        services provided by SCL, please visit its&nbsp;
+      <p className="text-body-m text-justify">
+        {measurement_traceability.para_2}&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/scl/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          website
+          {measurement_traceability.website}
         </a>
         .
       </p>
       <br />
-      <p className="text-body-m">
-        Government Laboratory provides chemical metrology support to the
-        community through providing proficiency testing service, developing
-        standard methods and producing reference material. For more information
-        on the services provided by Government Laboratory, please visit
-        its&nbsp;
+      <p className="text-body-m text-justify">
+        {measurement_traceability.para_3}&nbsp;
         <a
           href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          website
+          {measurement_traceability.website}
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l mb-[24px]">
-        Support and Consultation Centre for SMEs run by the Trade and Industry
-        Department
+        {support_and_consultation_centre.title}
       </p>
 
-      <p className="text-body-m">
-        The Support and Consultation Centre for SMEs (SUCCESS) provides free and
-        practical business information and consultation services for SMEs
-        including business start-ups. For details of the location, information
-        and services provided by SUCCESS, please visit its&nbsp;
+      <p className="text-body-m text-justify">
+        {support_and_consultation_centre.content}&nbsp;
         <a
           href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          website
+          {support_and_consultation_centre.website}
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l">
-        Hong Kong Export Credit Insurance Corporation
+        {hk_export_credit_insurance_corporation.title}
       </p>
-      <p className="text-body-m mt-[24px]">
-        The Hong Kong Export Credit Insurance Corporation (ECIC) was created by
-        statute with the aim of encouraging and supporting the export trade by
-        providing Hong Kong exporters with insurance protection against
-        non-payment risks arising from commercial and political events.
+      <p className="text-body-m mt-[24px] text-justify">
+        {hk_export_credit_insurance_corporation.para_1}
       </p>
       <br />
-      <p className="text-body-m mb-[24px]">
-        Its capital is wholly owned by the Government, which also guarantees its
-        contingent liability, with the statutory maximum liability currently
-        standing at HK$55 billion. ECIC has been providing a wide range of
-        insurance facilities for Hong Kong exporters of services:
+      <p className="text-body-m mb-[24px] text-justify">
+        {hk_export_credit_insurance_corporation.para_2}
       </p>
 
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
-          <img
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
             className="w-[32px] h-[32px] flex-shrink-0"
-            src={`${process.env.PUBLIC_URL}/assets/icons/calender_2.svg`}
-            alt={"calender"}
-          />
+          >
+            <path
+              d="M12.0814 15.8175H13.7412V23.7819H11.8059V17.4688H11.7812L10.1461 18.1954L9.81765 16.7944L12.0849 15.814L12.0814 15.8175ZM16.563 22.659L17.6684 21.7273C19.5367 20.1734 20.4478 19.28 20.4725 18.3483C20.4725 17.6948 20.0523 17.1803 19.0634 17.1803C18.3288 17.1803 17.6826 17.5209 17.2341 17.8408L16.669 16.5093C17.3152 16.0574 18.3147 15.6889 19.4766 15.6889C21.4119 15.6889 22.4785 16.7422 22.4785 18.1884C22.4785 19.5199 21.4367 20.5871 20.2006 21.6196L19.4095 22.2314V22.2523H22.6374V23.7854H16.5665V22.659H16.563ZM5.31836 25.819H26.7023V12.4941H5.31836V25.819Z"
+              fill="#233F55"
+            />
+            <path
+              d="M23.5347 7.17878C24.1951 7.17878 24.732 6.60518 24.732 5.89948V4.46722H22.334V5.89948C22.334 6.60866 22.8708 7.17878 23.5312 7.17878H23.5347Z"
+              fill="#233F55"
+            />
+            <path
+              d="M8.48242 7.17878C9.14284 7.17878 9.67961 6.60518 9.67961 5.89948V4.46722H7.28516V5.89948C7.28516 6.60866 7.82201 7.17878 8.48242 7.17878Z"
+              fill="#233F55"
+            />
+            <path
+              d="M28.0481 26.4865C28.0481 26.855 27.748 27.147 27.3772 27.147H4.64405C4.27323 27.147 3.96954 26.855 3.96954 26.4865V11.8336C3.96954 11.4651 4.2697 11.1731 4.64405 11.1731H27.3772C27.748 11.1731 28.0481 11.4651 28.0481 11.8336V26.4865ZM5.94022 4.46714H7.2857V2.60728C7.2857 1.90158 7.82255 1.32798 8.48297 1.32798C9.14338 1.32798 9.68015 1.90158 9.68015 2.60728V4.46714H11.0257V5.8994C11.0257 7.33862 9.88502 8.50668 8.47943 8.50668C7.07385 8.50668 5.93315 7.33862 5.93315 5.8994V4.46714H5.94022ZM20.9884 4.46714H22.3375V2.60728C22.3375 1.90158 22.8743 1.32798 23.5347 1.32798C24.1951 1.32798 24.732 1.90158 24.732 2.60728V4.46714H26.081V5.8994C26.081 7.33862 24.9368 8.50668 23.5347 8.50668C22.1327 8.50668 20.9884 7.33862 20.9884 5.8994V4.46714ZM28.0164 4.30722H26.0775V2.60728C26.0775 1.17501 24.9332 0 23.5312 0C22.1291 0 20.9849 1.17501 20.9849 2.60728V4.30722H11.0257V2.60728C11.0257 1.17501 9.88502 0 8.47943 0C7.07385 0 5.93315 1.17501 5.93315 2.60728V4.30722H3.99075C1.79055 4.30722 0 5.97241 0 8.02694V28.2803C0 30.3348 1.79055 32 3.99075 32H28.0093C30.2095 32 32 30.3313 32 28.2803V8.02694C32 5.97241 30.2095 4.30722 28.0093 4.30722H28.0164Z"
+              fill="#233F55"
+            />
+          </svg>
           <p className="text-highlight-m flex-grow min-w-0">
-            To meet the needs of the testing and inspection industry, ECIC offers
-            the tailor-made&nbsp;
+            To meet the needs of the testing and inspection industry, ECIC
+            offers the tailor-made&nbsp;
             <a
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
@@ -137,11 +205,19 @@ export const OtherSupport: React.FC = () => {
 
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
-          <img
+          <svg
             className="w-[32px] h-[32px] flex-shrink-0"
-            src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
-            alt={"money"}
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <path
+              d="M14.7672 9.92338C12.7916 10.2623 11.6978 11.3341 11.6978 11.9485C11.6978 12.5629 12.7916 13.6347 14.7672 13.9709L15.0867 14.0287V9.87104L14.7672 9.92338ZM16.941 22.9806L17.2606 22.9283C19.2362 22.5894 20.33 21.5176 20.33 20.9059C20.33 20.2942 19.2362 19.2197 17.2606 18.8835L16.941 18.8312V22.9834V22.9806ZM15.084 29.1083V27.6976L14.836 27.6728C10.3532 27.2485 7.08541 24.4712 7 21.0409H11.7115C11.8548 21.6636 12.9266 22.6169 14.7644 22.9283L15.084 22.9806V18.743L14.836 18.721C10.2954 18.2884 7 15.4394 7 11.9485C7 8.45757 10.2954 5.60863 14.836 5.17881L15.084 5.15676V3.74606H16.941V5.15676L17.189 5.17881C21.6635 5.60312 24.9396 8.38594 25.025 11.8163H20.3135C20.1702 11.1881 19.0984 10.243 17.2606 9.92614L16.941 9.87379V14.1169L17.189 14.1389C21.7297 14.566 25.0278 17.415 25.0278 20.9087C25.0278 24.4023 21.7324 27.2485 17.189 27.6784L16.941 27.7032V29.1139H15.084V29.1083Z"
+              fill="#233F55"
+            />
+          </svg>
           <p className="text-highlight-m flex-grow min-w-0">
             TISP covers losses from commercial risks (insolvency, payment
             default) and country risks (currency blockage, payment delays, war,
@@ -153,14 +229,9 @@ export const OtherSupport: React.FC = () => {
           </p>
         </div>
       </div>
-      <p className="text-body-m my-[24px]">
-        Other benefits of TISP include credit management, receivable management
-        and facilitating trade finance. ECIC's insurance cover can thus enhance
-        the credit management practice and competitiveness of the industry for
-        developing new markets and clients and is vital for the promotion of
-        Hong Kong's testing and certification industry overseas.
+      <p className="text-body-m my-[24px] text-justify">
+        {hk_export_credit_insurance_corporation.para_3}
       </p>
-      {/* TODO hyperlink */}
       <p className="text-body-m">
         For more details, please refer to its&nbsp;
         <a
