@@ -112,12 +112,12 @@ export const AboutHKCTC: React.FC = () => {
           <p>{to_advise}</p>
           <ul className="ml-1">
             {refs.map((r, index) => (
-              <li className="flex flex-wrap">{r}</li>
+              <li className="flex flex-wrap text-justify">{r}</li>
             ))}
           </ul>
         </div>
       </div>
-      <p className="my-[24px] text-body-m">{heading}</p>
+      <p className="my-[24px] text-body-m text-justify">{heading}</p>
       <p className="text-heading-l">{membership}</p>
       <p
         className="mt-[8px]"

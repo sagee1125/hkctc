@@ -182,7 +182,7 @@ export const OtherSupport: React.FC = () => {
               fill="#233F55"
             />
           </svg>
-          <p className="text-highlight-m flex-grow min-w-0">
+          <p className="text-highlight-m flex-grow min-w-0 text-justify">
             To meet the needs of the testing and inspection industry, ECIC
             offers the tailor-made&nbsp;
             <a
@@ -204,7 +204,7 @@ export const OtherSupport: React.FC = () => {
       </div>
 
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
-        <div className="flex flex-row gap-[24px] items-center w-full">
+        <div className="flex flex-row gap-[24px] items-center w-full text-justify">
           <svg
             className="w-[32px] h-[32px] flex-shrink-0"
             xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +232,7 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m my-[24px] text-justify">
         {hk_export_credit_insurance_corporation.para_3}
       </p>
-      <p className="text-body-m">
+      <p className="text-body-m text-justify">
         For more details, please refer to its&nbsp;
         <a
           href="https://www.hkecic.com/en/"

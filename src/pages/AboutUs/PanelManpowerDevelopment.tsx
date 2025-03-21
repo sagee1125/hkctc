@@ -94,7 +94,9 @@ export const PanelManpowerDevelopment: React.FC = () => {
         <p className="text-heading-m">{terms_of_ref}</p>
         <ul className="text-body-m mt-[16px]">
           {refs.map((r, index) => (
-            <li key={index}>{r}</li>
+            <li key={index} className="text-justify">
+              {r}
+            </li>
           ))}
         </ul>
       </div>

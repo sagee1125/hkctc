@@ -54,7 +54,7 @@ export const AccreditationServices: React.FC = () => {
         <SquareTitle title={accreditation_services} />
         <div className="bg-[#EEEEEA] my-[24px] py-[36px] px-[42px]">
           <p className="text-heading-m">{whats_accreditation}</p>
-          <p className="text-body-m mt-[16px]">
+          <p className="text-body-m mt-[16px] text-justify">
             {accreditation_def.accreditation_is}&nbsp;
             <span className="text-highlight-m text-newPrimary">
               {accreditation_def.third_party}
@@ -62,7 +62,9 @@ export const AccreditationServices: React.FC = () => {
             &nbsp;{accreditation_def.related_to}
           </p>
         </div>
-        <p className="text-body-m mt-[24px]">{accreditation_is_open}</p>
+        <p className="text-body-m mt-[24px] text-justify">
+          {accreditation_is_open}
+        </p>
 
         <div className="w-full">
           {accreditationService.map((item, index) => {
@@ -86,7 +88,7 @@ export const AccreditationServices: React.FC = () => {
           })}
         </div>
 
-        <p className="text-italic-s mt-[24px]">
+        <p className="text-italic-s mt-[24px] text-justify">
           {this_full_list}&nbsp;
           <a
             href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"

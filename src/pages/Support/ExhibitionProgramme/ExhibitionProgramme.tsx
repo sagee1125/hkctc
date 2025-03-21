@@ -29,7 +29,7 @@ export const ExhibitionProgramme: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle title={hkctc_exhibition_programme} />
-      <p className="mt-[24px] text-body-m">
+      <p className="mt-[24px] text-body-m text-justify">
         {hkctc_sets_up}
         <br />
         <br />

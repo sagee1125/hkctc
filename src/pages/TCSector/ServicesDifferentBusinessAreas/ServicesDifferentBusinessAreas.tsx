@@ -96,7 +96,9 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
     <div className="w-full">
       <div className="flex-1">
         <SquareTitle title={services_for_diff_business_areas} />
-        <p className="text-body-m my-[24px]">{the_testing_and_certification}</p>
+        <p className="text-body-m my-[24px] text-justify">
+          {the_testing_and_certification}
+        </p>
         <div className={`flex ${isPC ? "flex-wrap" : "flex-col"} gap-[24px]`}>
           {displayBusinessAreas.map((item, index) => {
             const { img, title, titleCN, nav } = item;
