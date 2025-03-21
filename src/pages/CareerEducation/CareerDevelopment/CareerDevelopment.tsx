@@ -105,7 +105,7 @@ export const CareerDevelopment: React.FC = () => {
       iconPath: "VIDEO.png",
       mediaType: MEDIA_TYPE.VIDEO,
       mediaDomain: "youtube",
-      link: "/embed/GDuq9I9J9IU",
+      link: "https://www.youtube.com/embed/GDuq9I9J9IU",
     },
     {
       title: "Young Testing and Certification Practitioners Talks",
@@ -113,7 +113,7 @@ export const CareerDevelopment: React.FC = () => {
       iconPath: "VIDEO.png",
       mediaType: MEDIA_TYPE.VIDEO,
       mediaDomain: "youtube",
-      link: "/embed/_baqA4hraQc",
+      link: "https://www.youtube.com/embed/_baqA4hraQc",
     },
 
     {
@@ -123,7 +123,7 @@ export const CareerDevelopment: React.FC = () => {
       iconPath: "VIDEO.png",
       mediaType: MEDIA_TYPE.VIDEO,
       mediaDomain: "youtube",
-      link: "/embed/ly4dgf0K6Gc",
+      link: "https://www.youtube.com/embed/ly4dgf0K6Gc",
     },
     {
       title:
@@ -132,7 +132,7 @@ export const CareerDevelopment: React.FC = () => {
       iconPath: "VIDEO.png",
       mediaType: MEDIA_TYPE.VIDEO,
       mediaDomain: "youtube",
-      link: "/embed/2P9Vbmh4Wok",
+      link: "https://www.youtube.com/embed/2P9Vbmh4Wok",
     },
     {
       title:
@@ -141,7 +141,7 @@ export const CareerDevelopment: React.FC = () => {
       iconPath: "VIDEO.png",
       mediaType: MEDIA_TYPE.VIDEO,
       mediaDomain: "youtube",
-      link: "/embed/lph2_v1FTwU",
+      link: "https://www.youtube.com/embed/lph2_v1FTwU",
     },
   ];
 
