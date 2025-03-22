@@ -45,21 +45,29 @@ const showMobileExploreBarOutsideLink = [
   "/industry",
   "/service-users",
 ];
-export const exploreOption: Array<{ title: string; nav: string }> = [
+export const exploreOption: Array<{
+  title: string;
+  titleCN: string;
+  nav: string;
+}> = [
   {
     title: "General Public",
+    titleCN: "公眾人士",
     nav: "general-public",
   },
   {
     title: "Educators & Students",
+    titleCN: "老師與學生",
     nav: "educators-students",
   },
   {
     title: "T&C Bodies & Practitioners",
+    titleCN: "老師與學生",
     nav: "industry",
   },
   {
     title: "T&C Service Users",
+    titleCN: "檢測認證服務使用者",
     nav: "service-users",
   },
 ];
@@ -746,7 +754,9 @@ export const Navigator: React.FC = () => {
                                         : "text-gray-700"
                                     }`}
                                   >
-                                    {item.title}
+                                    {language === Language.EN
+                                      ? item.title
+                                      : item.titleCN}
                                   </button>
                                 )}
                               </Menu.Item>

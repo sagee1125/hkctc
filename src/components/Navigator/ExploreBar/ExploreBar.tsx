@@ -2,10 +2,12 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
+import { Language, useSettings } from "../../../context";
 
 type ExploreBarData = {
   iconName: string;
   title: string;
+  titleCN: string;
   hoverColor: string;
   onClick: () => void;
 };
@@ -27,6 +29,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { language } = useSettings();
   const currentPath = location.pathname;
 
   const paths: string[] = [
@@ -39,6 +42,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   const exploreBarData: ExploreBarData[] = [
     {
       title: "General Public",
+      titleCN: "公眾人士",
       iconName: "entypo:globe",
       hoverColor:
         currentPath === "/general-public"
@@ -52,6 +56,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
     },
     {
       title: "Educators & Students",
+      titleCN: "老師與學生",
       iconName: "fa-solid:book-reader",
       hoverColor:
         currentPath === "/educators-students"
@@ -65,6 +70,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
     },
     {
       title: "T&C Service Users",
+      titleCN: "檢測認證服務使用者",
       iconName: "mdi:user",
       hoverColor:
         currentPath === "/service-users"
@@ -78,6 +84,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
     },
     {
       title: "T&C Bodies & Practitioners",
+      titleCN: "檢測認證機構及從業員",
       iconName: "majesticons:test-tube-filled",
       hoverColor:
         currentPath === "/industry"
@@ -107,7 +114,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
           />
           <div className="flex flex-row gap-[24px]">
             {exploreBarData.map((item, index) => {
-              const { iconName, title, hoverColor, onClick } = item;
+              const { iconName, title, titleCN, hoverColor, onClick } = item;
               return (
                 <div
                   key={index}
@@ -120,7 +127,9 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                     height={20}
                     className={hoverColor}
                   />
-                  <p className={hoverColor}>{title}</p>
+                  <p className={hoverColor}>
+                    {language === Language.EN ? title : titleCN}
+                  </p>
                 </div>
               );
             })}
