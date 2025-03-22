@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Drawer } from "@mui/material";
+import { award2324_list_multilingual as multilingual } from "./lang";
 import {
   Accordion,
   Breadcrumb,
@@ -15,315 +16,169 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 import { useNavigate } from "react-router-dom";
 
-const platinumAwardees: string[] = [
-  "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
-  "ALS Technichem (HK) Pty Limited",
-  "Bureau Veritas Hong Kong Limited",
-  "Chan & Hou Medical Laboratories Limited",
-  "Civil Engineering and Development Department - Public Works Laboratories",
-  "CMA Industrial Development Foundation Limited",
-  "Department of Health - Government Chinese Medicines Testing Institute",
-  "Government Laboratory",
-  "Hong Kong Police Force - Identification Bureau",
-  "Hong Kong Productivity Council - Green Living Laboratory",
-  "Hospital Authority - Medical Equipment Calibration Laboratory",
-  "Housing Department - Materials Testing Laboratory",
-  "Innovation and Technology Commission - Standards and Calibration Laboratory",
-  "Intertek Testing Services Hong Kong Ltd.",
-  "SGS Hong Kong Limited",
-  "The Hong Kong Jockey Club - Racing Laboratory",
-  "The Hong Kong Standards and Testing Centre Limited, The Hong Kong Certification Centre Limited and The Hong Kong Inspection Company Limited",
-  "The Lab (Asia) Limited",
-  "TÜV SÜD Hong Kong Limited",
-  "UL International Limited",
-];
-
-const goldAwardees: string[] = [
-  "Accredited Certification International Limited",
-  "Castco Testing Centre Limited",
-  "Chow Sang Sang Precious Metal Laboratory",
-  "Drainage Services Department - Shatin Central Laboratory and Sewage Services Branch Operation Section Laboratory",
-  "Fugro Technical Services Limited",
-  "Geotechnics & Concrete Engineering (Hong Kong) Ltd.",
-  "Gilson China Limited - Gilson Hong Kong Laboratory",
-  "Hong Kong Baptist University - Chemical Testing Services",
-  "Material Tech Company Limited",
-  "MINSEN Testing (Hong Kong) Limited and MINSEN Certification (Asia) Limited",
-  "QIMA Testing (HK) Limited and QIMA Limited",
-  "Quality Pro Test-Consult Limited",
-  "Sunrise Diagnostic Centre Limited",
-  "TÜV Rheinland Hong Kong Limited",
-  "Xcelom Limited",
-];
-
-const buttonOneMap: Record<string, React.ReactNode> = {
-  "Platinum Awardees": (
-    <ol>
-      {platinumAwardees.map((og, index) => (
-        <li key={index}>{og}</li>
-      ))}
-    </ol>
-  ),
-  "Gold Awardees": (
-    <ol>
-      {goldAwardees.map((og, index) => (
-        <li key={index}>{og}</li>
-      ))}
-    </ol>
-  ),
-};
-
-const juniorGroup: Array<{ one: string; two: string; three: string }> = [
-  {
-    one: "Miss LAW Tsz-yen",
-    two: "Associate Veterinary Technologist",
-    three:
-      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
-  },
-  {
-    one: "Miss LIN Yuet-ching",
-    two: "Chemical Analyst I",
-    three: "The Hong Kong Jockey Club - Racing Laboratory",
-  },
-  {
-    one: "Miss LO Man-Ki",
-    two: "Associate Veterinary Technologist",
-    three:
-      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
-  },
-  {
-    one: "Mr MAK Tsz-shing, Stephen",
-    two: "Chemist",
-    three: "Bureau Veritas Hong Kong Limited",
-  },
-  {
-    one: "Mr WONG Chi-ho",
-    two: "Assistant Technical Executive",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Dr WONG Fai, George",
-    two: "Chemist",
-    three: "Government Laboratory",
-  },
-  {
-    one: "Miss WONG Hoi-ki",
-    two: "Senior Technical Officer",
-    three: "Castco Testing Centre Limited",
-  },
-];
-const seniorGroup: Array<{ one: string; two: string; three: string }> = [
-  {
-    one: "Mr CHAN Kang-chiu",
-    two: "Assistant Manager",
-    three: "Fugro Technical Services Limited",
-  },
-  {
-    one: "Ms CHOW Hoi-yi",
-    two: "Assistant Manager",
-    three: "The Hong Kong Standards and Testing Centre Ltd",
-  },
-  {
-    one: "Dr KWOK Ying",
-    two: "Senior Chemist",
-    three: "The Hong Kong Jockey Club - Racing Laboratory",
-  },
-  {
-    one: "Ms LAU Hazel",
-    two: "Lead Project Engineer",
-    three: "UL International Limited",
-  },
-  {
-    one: "Ms MAK Chui-wan, Cherie",
-    two: "Senior Certification Officer",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Ms NG Carmen",
-    two: "Assistant Technical Services Manager",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Miss NG Hoi-ying",
-    two: "Assistant Technical Services Manager",
-    three: "SGS Hong Kong Limited",
-  },
-  {
-    one: "Mr NIP Ming-fung, Melvin",
-    two: "Manager",
-    three: "Intertek Testing Services Hong Kong Limited",
-  },
-  {
-    one: "Dr TAN Tung-fai, Tony",
-    two: "Chief Inspector, Forensic Fingerprint Laboratory",
-    three: "Hong Kong Police Force - Identification Bureau",
-  },
-  {
-    one: "Dr TAN Tung-fai, Tony",
-    two: "Chief Inspector, Forensic Fingerprint Laboratory",
-    three: "Hong Kong Police Force - Identification Bureau",
-  },
-  {
-    one: "Mr TANG Pak-yau",
-    two: "Assistant Laboratory Manager",
-    three: "Chow Sang Sang Precious Metal Laboratory",
-  },
-  {
-    one: "Mr TANG Pak-yau",
-    two: "Assistant Laboratory Manager",
-    three: "Chow Sang Sang Precious Metal Laboratory",
-  },
-  {
-    one: "Dr WONG Kin-sing",
-    two: "Biochemist",
-    three: "The Hong Kong Jockey Club - Racing Laboratory",
-  },
-  {
-    one: "Mr YU Shing-lun, Gary",
-    two: "Senior Manager",
-    three: "Intertek Testing Services Hong Kong Limited",
-  },
-];
-
 export const AwardScheme23to24: React.FC = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "Events & Promotions", href: "/events-promotion" },
-    { label: "Events", href: "/events-promotion" },
-    {
-      label: "T&C Manpower Development Award Scheme",
-      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
-    },
-    { label: "T&C Manpower Development Award Scheme 2023-2024" },
-  ];
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const breadcrumbItems = [
+    { label: page_text.breadcrumb[0], href: "/hkctc" },
+    { label: page_text.breadcrumb[1], href: "/events-promotion" },
+    { label: page_text.breadcrumb[2], href: "/events-promotion" },
+    {
+      label: page_text.breadcrumb[3],
+      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
+    },
+    { label: page_text.breadcrumb[4] },
+  ];
+
+  const tcAwardeesBtn = page_text.tc_awardees_btn;
+  const buttonOneMap: Record<string, React.ReactNode> = {
+    [tcAwardeesBtn[0]]: (
+      <ol>
+        {page_text.tc_awardees_content.platinumAwardees.map((og, index) => (
+          <li key={index}>{og}</li>
+        ))}
+      </ol>
+    ),
+    [tcAwardeesBtn[1]]: (
+      <ol>
+        {page_text.tc_awardees_content.goldAwardees.map((og, index) => (
+          <li key={index}>{og}</li>
+        ))}
+      </ol>
+    ),
+  };
+
+  const tcProfessionBtn = page_text.tc_profession_awardees_btn;
+  const buttonTwoMap: Record<string, React.ReactNode> = {
+    [tcProfessionBtn[0]]: (
+      <div className={isPC ? "" : "overflow-x-auto"}>
+        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.name}
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.position}
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.nominating_body}
+          </div>
+        </div>
+
+        {page_text.tc_profession_awardees_content.juniorGroup.map(
+          (og, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+            >
+              {[og.one, og.two, og.three].map((c, key) => (
+                <p
+                  key={key}
+                  className={`py-[15px] px-[10px] flex items-center ${
+                    isPC ? "h-[102px]" : "min-w-[160px]"
+                  }`}
+                >
+                  {c}
+                </p>
+              ))}
+            </div>
+          )
+        )}
+      </div>
+    ),
+    [tcProfessionBtn[1]]: (
+      <div className={isPC ? "" : "overflow-x-auto"}>
+        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.name}
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.position}
+          </div>
+          <div
+            className={`px-[10px] flex items-center ${
+              isPC ? "" : "min-w-[140px]"
+            }`}
+          >
+            {page_text.tc_profession_awardees_content.nominating_body}
+          </div>
+        </div>
+        {page_text.tc_profession_awardees_content.seniorGroup.map(
+          (og, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+            >
+              {[og.one, og.two, og.three].map((c, key) => (
+                <p
+                  key={key}
+                  className="py-[15px] px-[10px] flex items-center h-[102px]"
+                >
+                  {c}
+                </p>
+              ))}
+            </div>
+          )
+        )}
+      </div>
+    ),
+  };
 
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
-  const [activeButtonOne, setActiveButtonOne] =
-    useState<string>("Platinum Awardees");
-  const [activeButtonTwo, setActiveButtonTwo] = useState<string>(
-    "Junior Professional Sub-group"
-  );
+  const [activeButtonOne, setActiveButtonOne] = useState<number>(0);
+  const [activeButtonTwo, setActiveButtonTwo] = useState<number>(0);
+
   const mediaData: MediaTemplateWithDialogProps[] = [
     {
-      title: "Press Release",
+      title: page_text.media_data.title,
       maskIcon: "PRESS.png",
-      date: "4 December 2023",
+      date: page_text.media_data.date,
       imagePath: "press_realease_1.png",
       mediaType: MEDIA_TYPE.NEW_PAGE,
       mediaLink:
         "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
     },
   ];
-  const buttonTwoMap: Record<string, React.ReactNode> = {
-    "Junior Professional Sub-group": (
-      <div className={isPC ? "" : "overflow-x-auto"}>
-        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Name
-          </div>
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Position
-          </div>
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Nominating Testing and Certification Body
-          </div>
-        </div>
-
-        {juniorGroup.map((og, index) => (
-          <div
-            key={index}
-            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
-          >
-            {[og.one, og.two, og.three].map((c, key) => (
-              <p
-                key={key}
-                className={`py-[15px] px-[10px] flex items-center ${
-                  isPC ? "h-[102px]" : "min-w-[160px]"
-                }`}
-              >
-                {c}
-              </p>
-            ))}
-          </div>
-        ))}
-      </div>
-    ),
-    "Senior Professional Sub-group": (
-      <div className={isPC ? "" : "overflow-x-auto"}>
-        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Name
-          </div>
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Position
-          </div>
-          <div
-            className={`px-[10px] flex items-center ${
-              isPC ? "" : "min-w-[140px]"
-            }`}
-          >
-            Nominating Testing and Certification Body
-          </div>
-        </div>
-        {seniorGroup.map((og, index) => (
-          <div
-            key={index}
-            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
-          >
-            {[og.one, og.two, og.three].map((c, key) => (
-              <p
-                key={key}
-                className="py-[15px] px-[10px] flex items-center h-[102px]"
-              >
-                {c}
-              </p>
-            ))}
-          </div>
-        ))}
-      </div>
-    ),
-  };
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
     {
       id: "testing-awardees",
-      title:
-        "Testing and Certification Manpower Development Corporate Awardees",
+      title: page_text.tc_manpower_awardees,
     },
 
     {
       id: "excellent-awardees",
-      title: "Excellent Testing and Certification Professional Awardees",
+      title: page_text.tc_profession_awardees,
     },
     {
       id: "award-ceremony",
-      title: "Award Ceremony",
+      title: page_text.award_ceremony,
     },
   ];
 
@@ -383,7 +238,7 @@ export const AwardScheme23to24: React.FC = () => {
           setIsOpen(true);
         }}
       >
-        Content List
+        {page_text.mobile_sidebar.content_list}
       </button>
 
       <Drawer
@@ -402,7 +257,9 @@ export const AwardScheme23to24: React.FC = () => {
       >
         <div className="flex flex-col w-full">
           <div className="w-full flex flex-row justify-between items-center pb-[24px]">
-            <p className="text-heading-m text-newPrimary">Content List</p>
+            <p className="text-heading-m text-newPrimary">
+              {page_text.mobile_sidebar.content_list}
+            </p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -463,21 +320,22 @@ export const AwardScheme23to24: React.FC = () => {
       </Drawer>
     </>
   );
+
   const content = (
     <>
-      <SquareTitle title="List of Awardees/ Award Ceremony 2023-2024" />
+      <SquareTitle title={page_text.title} />
 
       <p className="text-heading-l my-[24px]" id="awardees">
-        Awardees
+        {page_text.awardees}
       </p>
       <div id="testing-awardees">
         <Accordion
-          title="Testing and Certification Manpower Development Corporate Awardees"
+          title={page_text.tc_manpower_awardees}
           details={
             <div>
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
-                {["Platinum Awardees", "Gold Awardees"].map((b, i) => {
-                  const isActivated = activeButtonOne === b;
+                {tcAwardeesBtn.map((b, i) => {
+                  const isActivated = activeButtonOne === i;
                   return (
                     <button
                       key={i}
@@ -485,7 +343,7 @@ export const AwardScheme23to24: React.FC = () => {
                         isActivated ? activatedButtonStyle : normalButtonStyle
                       }
                       onClick={() => {
-                        setActiveButtonOne(b);
+                        setActiveButtonOne(i);
                       }}
                     >
                       {b}
@@ -493,8 +351,8 @@ export const AwardScheme23to24: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="text-body-m ml-[12px]">
-                {buttonOneMap[activeButtonOne]}
+              <div className="text-body-m ml-[12px] text-justify">
+                {buttonOneMap[tcAwardeesBtn[activeButtonOne]]}
               </div>
             </div>
           }
@@ -502,15 +360,12 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
       <div className="mt-[24px]" id="excellent-awardees">
         <Accordion
-          title="Excellent Testing and Certification Professional Awardees"
+          title={page_text.tc_profession_awardees}
           details={
             <>
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
-                {[
-                  "Junior Professional Sub-group",
-                  "Senior Professional Sub-group",
-                ].map((b, i) => {
-                  const isActivated = activeButtonTwo === b;
+                {tcProfessionBtn.map((b, i) => {
+                  const isActivated = activeButtonTwo === i;
                   return (
                     <button
                       key={i}
@@ -518,7 +373,7 @@ export const AwardScheme23to24: React.FC = () => {
                         isActivated ? activatedButtonStyle : normalButtonStyle
                       }
                       onClick={() => {
-                        setActiveButtonTwo(b);
+                        setActiveButtonTwo(i);
                       }}
                     >
                       {b}
@@ -526,13 +381,15 @@ export const AwardScheme23to24: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="text-body-m">{buttonTwoMap[activeButtonTwo]}</div>
+              <div className="text-body-m text-justify">
+                {buttonTwoMap[tcProfessionBtn[activeButtonTwo]]}
+              </div>
             </>
           }
         />
       </div>
       <p className="text-heading-l my-[24px]" id="award-ceremony">
-        Award Ceremony
+        {page_text.award_ceremony}
       </p>
       {/* Ceremony1 */}
       <div className="flex items-center">
@@ -572,15 +429,8 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
       <div className="w-full flex flex-row gap-[16px] py-[24px]">
         <div className="w-[32px] bg-[#333333]" />
-        <p className="text-body-m">
-          The award presentation ceremony of the “Testing and Manpower
-          Development Award Scheme 2023-24”, was successfully held on 4 December
-          2023 at the Hong Kong Convention and Exhibition Centre. The ceremony
-          had the privilege to have the officiating Guest of Honour, Professor
-          Sun Dong, Secretary for Innovation, Technology and Industry. Over 200
-          guests and awardees attended the ceremony to recognise the
-          achievements of testing and certification (T&C) practitioners and
-          their contribution to the T&C industry.
+        <p className="text-body-m text-justify">
+          {page_text.award_presentation}
         </p>
       </div>
       <div className={`grid grid-cols-2 gap-x-[24px]`}>
@@ -607,23 +457,15 @@ export const AwardScheme23to24: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          Prof. WONG Wing-tak, HKCTC Chairman, delivers the Welcome Speech.
+          {page_text.wong_wing_tak_speech}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          The Secretary for Innovation and Technology, Prof. Sun Dong, JP,
-          delivers the Opening Remarks.
+          {page_text.sun_dong_deliver}
         </p>
       </div>
       <div className="w-full flex flex-row gap-[16px] py-[24px]">
         <div className="w-[32px] bg-[#333333]" />
-        <p className="text-body-m">
-          20 T&C bodies and 15 ones received the Platinum Award and Gold Award
-          respectively for the Testing and Certification Manpower Development
-          Corporate Award at the ceremony. As regards the Excellent Testing and
-          Certification Professional Award, there was a total of 19 awardees in
-          the two sub-groups - including 7 Junior Professionals and 12 Senior
-          Professionals.
-        </p>
+        <p className="text-body-m text-justify">{page_text.tc_bodies}</p>
       </div>
       <div className="grid grid-cols-2 gap-x-[24px]">
         {/* left img */}
@@ -649,15 +491,10 @@ export const AwardScheme23to24: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          Group photo of Secretary for Innovation, Technology and Industry,
-          Commissioner for Innovation & Technology, Chairman of the Hong Kong
-          Council for Testing & Certification (HKCTC) and Assessment Panel
+          {page_text.innovation_group_photo}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          Group photo of Secretary for Innovation, Technology and Industry,
-          Commissioner for Innovation & Technology, Chairman of the Hong Kong
-          Council for Testing & Certification (HKCTC), list of HKCTC member with
-          Awardees of "Excellent Testing and Certification Professional Award"
+          {page_text.innovation_group_photo_awardees}
         </p>
       </div>
       <div className="grid grid-cols-2 gap-x-[24px] mt-[24px]">
@@ -684,24 +521,16 @@ export const AwardScheme23to24: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          Group photo of Secretary for Innovation, Technology and Industry,
-          Commissioner for Innovation & Technology, Chairman of the Hong Kong
-          Council for Testing & Certification (HKCTC), list of HKCTC member with
-          Gold Awardees of "Testing and Certification Manpower Development
-          Corporate Award"
+          {page_text.member_with_gold_awardees_photo}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          Group photo of Secretary for Innovation, Technology and Industry,
-          Commissioner for Innovation & Technology, Chairman of the Hong Kong
-          Council for Testing & Certification (HKCTC), list of HKCTC member with
-          Platinum Awardees of "Testing and Certification Manpower Development
-          Corporate Award"
+          {page_text.member_with_platinum_awardees_photo}
         </p>
       </div>
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">Media</p>
+      <p className="text-heading-l mb-[24px]">{page_text.media}</p>
 
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer mb-[24px]"
@@ -725,7 +554,7 @@ export const AwardScheme23to24: React.FC = () => {
             isPC ? "pr-[16px] text-highlight-m" : "text-highlight-s"
           }`}
         >
-          Media Coverage
+          {page_text.media_coverage}
         </div>
         <svg
           className="flex-shrink-0"
