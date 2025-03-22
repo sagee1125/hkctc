@@ -38,6 +38,33 @@ const multilingual = {
         "New Industrialisation and Technology Training Programme (NITTP)",
       ],
     },
+    PASS: {
+      title: "Professional Services Advancement Support Scheme (PASS)",
+      the_pass_launched_by: `The PASS, launched by the Commerce and Economic Development Bureau (CEDB), provides funding support for non-profit-making projects aimed at increasing the exchanges and co-operation of Hong Kong's professional services with their counterparts in external markets, promoting relevant publicity activities, and enhancing the standards and external competitiveness of professional services in Hong Kong.`,
+      a_wide_range_of: `A wide range of professional services sectors, including "technical testing and analysis services", are eligible for funding under PASS. Non-profit-distributing organisations operating as support organisations, trade and industry organisations, professional bodies or research institutes can apply.`,
+      no_particular_restrictions: `There are no particular restrictions on the types of projects eligible under PASS`,
+      each_approved_project: `Each approved project will be funded for up to 90% of the total eligible project cost, or $3 million, whichever is lower`,
+    },
+    TID: {
+      title: `TID's Funding Schemes`,
+      the_trade_and_industry_department: `The Trade and Industry Department (TID) has launched various funding schemes to assist enterprises, including small-and-medium enterprises (SMEs), in enhancing their competitiveness.`,
+      tabs: [
+        "Summary",
+        "BUD Fund (Enterprise Support Programme)",
+        "Trade and Industrial Organisation Support Fund (TSF)",
+        "SME Export Marketing Fund",
+        "SME Loan Guarantee Scheme",
+      ],
+    },
+    TCJS: {
+      title: "Testing and Certification Industry Job Creation Scheme (TCJS)",
+      the_innovation_and_technology_commission:
+        "The Innovation and Technology Commission (ITC) launched the Testing and Certification Industry Job Creation Scheme (the Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August 2022.",
+      the_scheme_was: `The Scheme was the first job creation scheme dedicated to the testing and certification (T&C) industry. It aimed to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong’s T&C talent pool.`,
+      each_local: `Each local private T&C organisation with valid accreditation status given by the Hong Kong Accreditation Service could apply for a monthly subsidy for up to five eligible job positions.`,
+      for_each_approve: `For each approved position, the applicant employer would receive a monthly subsidy of HK$10,000 or 50% of the salary of the position, whichever is lower, for 12 months.`,
+      the_application: `The application period closed on 31 July 2023. 54 organisations have participated and collectively created over170 job positions. The total funding involved exceeded HK$16 million. The Scheme has been successfully completed, with all subsidies disbursed by 31 August 2024.`,
+    },
   },
   cn: {},
 };
@@ -78,7 +105,7 @@ export const FundingSchemes: React.FC = () => {
         <Accordion
           title={"Innovation and Technology Fund (ITF)"}
           details={
-            <div className="text-body-m">
+            <div className="text-body-m !text-justify w-full">
               <p>
                 ITF aims to increase the added value, productivity and
                 competitiveness of Hong Kong's economic activities. The
@@ -87,7 +114,7 @@ export const FundingSchemes: React.FC = () => {
                 level and introduce innovative ideas to their business.
               </p>
               <br />
-              <p className="mb-[24px]">
+              <p className="mb-[24px] text-justify">
                 ITF is administered by Innovation and Technology Commission
                 (ITC) and is open to application from all sectors. Apart from
                 funding research and development (R&D) activities, ITF also
@@ -128,7 +155,7 @@ export const FundingSchemes: React.FC = () => {
           details={
             <div>
               <p className="text-body-m mb-[16px]">
-                The{" "}
+                The&nbsp;
                 <Link outerLink="https://www.pass.gov.hk/index.html">PASS</Link>
                 , launched by the Commerce and Economic Development Bureau
                 (CEDB), provides funding support for non-profit-making projects

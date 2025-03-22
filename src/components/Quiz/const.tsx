@@ -22,7 +22,7 @@ export const quizInteractionMap: Record<QUIZ, QuizData> = {
     quizAnswers: {
       A: "Yes, they are the same.",
       B: "No, the time that runs at the top of Tai Mo Shan is faster than the time that runs at the Avenue of Stars.",
-      C: " No, the time that runs at the top of Tai Mo Shan is slower than the time that runs at the Avenue of Stars.",
+      C: "No, the time that runs at the top of Tai Mo Shan is slower than the time that runs at the Avenue of Stars.",
     },
     correctAnser: "B",
     explanation: [
@@ -92,7 +92,7 @@ export const quizInteractionMap: Record<QUIZ, QuizData> = {
     correctAnser: "B",
     explanation: [
       `Humidity refers to the amount of water vapour present in the air. Air has a limited capacity to hold water vapour, which is defined by the saturation vapour pressure. Relative humidity is the ratio of the actual vapour pressure in an air sample to the saturation vapour pressure, expressed as a percentage. It is important to note that saturation vapour pressure varies with air temperature. As temperature increases, the saturation vapour pressure also increases.`,
-      ` Therefore, even if two air samples have the same relative humidity (e.g., 50% relative humidity), the actual amount of water vapour in each sample can differ significantly. `,
+      `Therefore, even if two air samples have the same relative humidity (e.g., 50% relative humidity), the actual amount of water vapour in each sample can differ significantly. `,
     ],
   },
 
