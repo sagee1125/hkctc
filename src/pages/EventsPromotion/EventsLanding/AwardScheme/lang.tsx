@@ -616,3 +616,456 @@ export const award2324_multilingual = {
     tc_manpower_mb: "T&C Manpower Development Award Scheme...",
   },
 };
+
+export const award2324_list_multilingual = {
+  en: {
+    breadcrumb: [
+      "Home",
+      "Events & Promotions",
+      "Events",
+      "T&C Manpower Development Award Scheme",
+      "T&C Manpower Development Award Scheme 2023-2024",
+    ],
+    title: "List of Awardees/ Award Ceremony 2023-2024",
+    awardees: "Awardees",
+    tc_manpower_awardees:
+      "Testing and Certification Manpower Development Corporate Awardees",
+    tc_profession_awardees:
+      "Excellent Testing and Certification Professional Awardees",
+    award_ceremony: "Award Ceremony",
+    tc_awardees_btn: ["Platinum Awardees", "Gold Awardees"],
+    tc_awardees_content: {
+      platinumAwardees: [
+        "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        "ALS Technichem (HK) Pty Limited",
+        "Bureau Veritas Hong Kong Limited",
+        "Chan & Hou Medical Laboratories Limited",
+        "Civil Engineering and Development Department - Public Works Laboratories",
+        "CMA Industrial Development Foundation Limited",
+        "Department of Health - Government Chinese Medicines Testing Institute",
+        "Government Laboratory",
+        "Hong Kong Police Force - Identification Bureau",
+        "Hong Kong Productivity Council - Green Living Laboratory",
+        "Hospital Authority - Medical Equipment Calibration Laboratory",
+        "Housing Department - Materials Testing Laboratory",
+        "Innovation and Technology Commission - Standards and Calibration Laboratory",
+        "Intertek Testing Services Hong Kong Ltd.",
+        "SGS Hong Kong Limited",
+        "The Hong Kong Jockey Club - Racing Laboratory",
+        "The Hong Kong Standards and Testing Centre Limited, The Hong Kong Certification Centre Limited and The Hong Kong Inspection Company Limited",
+        "The Lab (Asia) Limited",
+        "TÜV SÜD Hong Kong Limited",
+        "UL International Limited",
+      ],
+      goldAwardees: [
+        "Accredited Certification International Limited",
+        "Castco Testing Centre Limited",
+        "Chow Sang Sang Precious Metal Laboratory",
+        "Drainage Services Department - Shatin Central Laboratory and Sewage Services Branch Operation Section Laboratory",
+        "Fugro Technical Services Limited",
+        "Geotechnics & Concrete Engineering (Hong Kong) Ltd.",
+        "Gilson China Limited - Gilson Hong Kong Laboratory",
+        "Hong Kong Baptist University - Chemical Testing Services",
+        "Material Tech Company Limited",
+        "MINSEN Testing (Hong Kong) Limited and MINSEN Certification (Asia) Limited",
+        "QIMA Testing (HK) Limited and QIMA Limited",
+        "Quality Pro Test-Consult Limited",
+        "Sunrise Diagnostic Centre Limited",
+        "TÜV Rheinland Hong Kong Limited",
+        "Xcelom Limited",
+      ],
+    },
+    tc_profession_awardees_btn: [
+      "Junior Professional Sub-group",
+      "Senior Professional Sub-group",
+    ],
+    tc_profession_awardees_content: {
+      name: "Name",
+      position: "Position",
+      nominating_body: "Nominating Testing and Certification Body",
+      juniorGroup: [
+        {
+          one: "Miss LAW Tsz-yen",
+          two: "Associate Veterinary Technologist",
+          three:
+            "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        },
+        {
+          one: "Miss LIN Yuet-ching",
+          two: "Chemical Analyst I",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Miss LO Man-Ki",
+          two: "Associate Veterinary Technologist",
+          three:
+            "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        },
+        {
+          one: "Mr MAK Tsz-shing, Stephen",
+          two: "Chemist",
+          three: "Bureau Veritas Hong Kong Limited",
+        },
+        {
+          one: "Mr WONG Chi-ho",
+          two: "Assistant Technical Executive",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Dr WONG Fai, George",
+          two: "Chemist",
+          three: "Government Laboratory",
+        },
+        {
+          one: "Miss WONG Hoi-ki",
+          two: "Senior Technical Officer",
+          three: "Castco Testing Centre Limited",
+        },
+      ],
+      seniorGroup: [
+        {
+          one: "Mr CHAN Kang-chiu",
+          two: "Assistant Manager",
+          three: "Fugro Technical Services Limited",
+        },
+        {
+          one: "Ms CHOW Hoi-yi",
+          two: "Assistant Manager",
+          three: "The Hong Kong Standards and Testing Centre Ltd",
+        },
+        {
+          one: "Dr KWOK Ying",
+          two: "Senior Chemist",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Ms LAU Hazel",
+          two: "Lead Project Engineer",
+          three: "UL International Limited",
+        },
+        {
+          one: "Ms MAK Chui-wan, Cherie",
+          two: "Senior Certification Officer",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Ms NG Carmen",
+          two: "Assistant Technical Services Manager",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Miss NG Hoi-ying",
+          two: "Assistant Technical Services Manager",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Mr NIP Ming-fung, Melvin",
+          two: "Manager",
+          three: "Intertek Testing Services Hong Kong Limited",
+        },
+        {
+          one: "Dr TAN Tung-fai, Tony",
+          two: "Chief Inspector, Forensic Fingerprint Laboratory",
+          three: "Hong Kong Police Force - Identification Bureau",
+        },
+        {
+          one: "Dr TAN Tung-fai, Tony",
+          two: "Chief Inspector, Forensic Fingerprint Laboratory",
+          three: "Hong Kong Police Force - Identification Bureau",
+        },
+        {
+          one: "Mr TANG Pak-yau",
+          two: "Assistant Laboratory Manager",
+          three: "Chow Sang Sang Precious Metal Laboratory",
+        },
+        {
+          one: "Mr TANG Pak-yau",
+          two: "Assistant Laboratory Manager",
+          three: "Chow Sang Sang Precious Metal Laboratory",
+        },
+        {
+          one: "Dr WONG Kin-sing",
+          two: "Biochemist",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Mr YU Shing-lun, Gary",
+          two: "Senior Manager",
+          three: "Intertek Testing Services Hong Kong Limited",
+        },
+      ],
+    },
+
+    award_presentation: `The award presentation ceremony of the “Testing and Manpower
+          Development Award Scheme 2023-24”, was successfully held on 4 December
+          2023 at the Hong Kong Convention and Exhibition Centre. The ceremony
+          had the privilege to have the officiating Guest of Honour, Professor
+          Sun Dong, Secretary for Innovation, Technology and Industry. Over 200
+          guests and awardees attended the ceremony to recognise the
+          achievements of testing and certification (T&C) practitioners and
+          their contribution to the T&C industry.`,
+    wong_wing_tak_speech:
+      "Prof. WONG Wing-tak, HKCTC Chairman, delivers the Welcome Speech.",
+    sun_dong_deliver:
+      "The Secretary for Innovation and Technology, Prof. Sun Dong, JP, delivers the Opening Remarks.",
+    tc_bodies: `20 T&C bodies and 15 ones received the Platinum Award and Gold Award
+          respectively for the Testing and Certification Manpower Development
+          Corporate Award at the ceremony. As regards the Excellent Testing and
+          Certification Professional Award, there was a total of 19 awardees in
+          the two sub-groups - including 7 Junior Professionals and 12 Senior
+          Professionals.`,
+    innovation_group_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC) and Assessment Panel`,
+    innovation_group_photo_awardees: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Awardees of "Excellent Testing and Certification Professional Award"`,
+    member_with_gold_awardees_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Gold Awardees of "Testing and Certification Manpower Development
+          Corporate Award"`,
+    member_with_platinum_awardees_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Platinum Awardees of "Testing and Certification Manpower Development
+          Corporate Award"`,
+
+    media: "Media",
+    media_coverage: "Media Coverage",
+    media_data: {
+      title: "Press Release",
+      date: "4 December 2023",
+    },
+
+    mobile_sidebar: {
+      content_list: "Content List",
+    },
+  },
+  cn: {
+    breadcrumb: [
+      "Home",
+      "Events & Promotions",
+      "Events",
+      "T&C Manpower Development Award Scheme",
+      "T&C Manpower Development Award Scheme 2023-2024",
+    ],
+    title: "List of Awardees/ Award Ceremony 2023-2024",
+    awardees: "Awardees",
+    tc_manpower_awardees:
+      "Testing and Certification Manpower Development Corporate Awardees",
+    tc_profession_awardees:
+      "Excellent Testing and Certification Professional Awardees",
+    award_ceremony: "Award Ceremony",
+    tc_awardees_btn: ["Platinum Awardees", "Gold Awardees"],
+    tc_awardees_content: {
+      platinumAwardees: [
+        "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        "ALS Technichem (HK) Pty Limited",
+        "Bureau Veritas Hong Kong Limited",
+        "Chan & Hou Medical Laboratories Limited",
+        "Civil Engineering and Development Department - Public Works Laboratories",
+        "CMA Industrial Development Foundation Limited",
+        "Department of Health - Government Chinese Medicines Testing Institute",
+        "Government Laboratory",
+        "Hong Kong Police Force - Identification Bureau",
+        "Hong Kong Productivity Council - Green Living Laboratory",
+        "Hospital Authority - Medical Equipment Calibration Laboratory",
+        "Housing Department - Materials Testing Laboratory",
+        "Innovation and Technology Commission - Standards and Calibration Laboratory",
+        "Intertek Testing Services Hong Kong Ltd.",
+        "SGS Hong Kong Limited",
+        "The Hong Kong Jockey Club - Racing Laboratory",
+        "The Hong Kong Standards and Testing Centre Limited, The Hong Kong Certification Centre Limited and The Hong Kong Inspection Company Limited",
+        "The Lab (Asia) Limited",
+        "TÜV SÜD Hong Kong Limited",
+        "UL International Limited",
+      ],
+      goldAwardees: [
+        "Accredited Certification International Limited",
+        "Castco Testing Centre Limited",
+        "Chow Sang Sang Precious Metal Laboratory",
+        "Drainage Services Department - Shatin Central Laboratory and Sewage Services Branch Operation Section Laboratory",
+        "Fugro Technical Services Limited",
+        "Geotechnics & Concrete Engineering (Hong Kong) Ltd.",
+        "Gilson China Limited - Gilson Hong Kong Laboratory",
+        "Hong Kong Baptist University - Chemical Testing Services",
+        "Material Tech Company Limited",
+        "MINSEN Testing (Hong Kong) Limited and MINSEN Certification (Asia) Limited",
+        "QIMA Testing (HK) Limited and QIMA Limited",
+        "Quality Pro Test-Consult Limited",
+        "Sunrise Diagnostic Centre Limited",
+        "TÜV Rheinland Hong Kong Limited",
+        "Xcelom Limited",
+      ],
+    },
+    tc_profession_awardees_btn: [
+      "Junior Professional Sub-group",
+      "Senior Professional Sub-group",
+    ],
+    tc_profession_awardees_content: {
+      name: "Name",
+      position: "Position",
+      nominating_body: "Nominating Testing and Certification Body",
+      juniorGroup: [
+        {
+          one: "Miss LAW Tsz-yen",
+          two: "Associate Veterinary Technologist",
+          three:
+            "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        },
+        {
+          one: "Miss LIN Yuet-ching",
+          two: "Chemical Analyst I",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Miss LO Man-Ki",
+          two: "Associate Veterinary Technologist",
+          three:
+            "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        },
+        {
+          one: "Mr MAK Tsz-shing, Stephen",
+          two: "Chemist",
+          three: "Bureau Veritas Hong Kong Limited",
+        },
+        {
+          one: "Mr WONG Chi-ho",
+          two: "Assistant Technical Executive",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Dr WONG Fai, George",
+          two: "Chemist",
+          three: "Government Laboratory",
+        },
+        {
+          one: "Miss WONG Hoi-ki",
+          two: "Senior Technical Officer",
+          three: "Castco Testing Centre Limited",
+        },
+      ],
+      seniorGroup: [
+        {
+          one: "Mr CHAN Kang-chiu",
+          two: "Assistant Manager",
+          three: "Fugro Technical Services Limited",
+        },
+        {
+          one: "Ms CHOW Hoi-yi",
+          two: "Assistant Manager",
+          three: "The Hong Kong Standards and Testing Centre Ltd",
+        },
+        {
+          one: "Dr KWOK Ying",
+          two: "Senior Chemist",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Ms LAU Hazel",
+          two: "Lead Project Engineer",
+          three: "UL International Limited",
+        },
+        {
+          one: "Ms MAK Chui-wan, Cherie",
+          two: "Senior Certification Officer",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Ms NG Carmen",
+          two: "Assistant Technical Services Manager",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Miss NG Hoi-ying",
+          two: "Assistant Technical Services Manager",
+          three: "SGS Hong Kong Limited",
+        },
+        {
+          one: "Mr NIP Ming-fung, Melvin",
+          two: "Manager",
+          three: "Intertek Testing Services Hong Kong Limited",
+        },
+        {
+          one: "Dr TAN Tung-fai, Tony",
+          two: "Chief Inspector, Forensic Fingerprint Laboratory",
+          three: "Hong Kong Police Force - Identification Bureau",
+        },
+        {
+          one: "Dr TAN Tung-fai, Tony",
+          two: "Chief Inspector, Forensic Fingerprint Laboratory",
+          three: "Hong Kong Police Force - Identification Bureau",
+        },
+        {
+          one: "Mr TANG Pak-yau",
+          two: "Assistant Laboratory Manager",
+          three: "Chow Sang Sang Precious Metal Laboratory",
+        },
+        {
+          one: "Mr TANG Pak-yau",
+          two: "Assistant Laboratory Manager",
+          three: "Chow Sang Sang Precious Metal Laboratory",
+        },
+        {
+          one: "Dr WONG Kin-sing",
+          two: "Biochemist",
+          three: "The Hong Kong Jockey Club - Racing Laboratory",
+        },
+        {
+          one: "Mr YU Shing-lun, Gary",
+          two: "Senior Manager",
+          three: "Intertek Testing Services Hong Kong Limited",
+        },
+      ],
+    },
+
+    award_presentation: `The award presentation ceremony of the “Testing and Manpower
+          Development Award Scheme 2023-24”, was successfully held on 4 December
+          2023 at the Hong Kong Convention and Exhibition Centre. The ceremony
+          had the privilege to have the officiating Guest of Honour, Professor
+          Sun Dong, Secretary for Innovation, Technology and Industry. Over 200
+          guests and awardees attended the ceremony to recognise the
+          achievements of testing and certification (T&C) practitioners and
+          their contribution to the T&C industry.`,
+    wong_wing_tak_speech:
+      "Prof. WONG Wing-tak, HKCTC Chairman, delivers the Welcome Speech.",
+    sun_dong_deliver:
+      "The Secretary for Innovation and Technology, Prof. Sun Dong, JP, delivers the Opening Remarks.",
+    tc_bodies: `20 T&C bodies and 15 ones received the Platinum Award and Gold Award
+          respectively for the Testing and Certification Manpower Development
+          Corporate Award at the ceremony. As regards the Excellent Testing and
+          Certification Professional Award, there was a total of 19 awardees in
+          the two sub-groups - including 7 Junior Professionals and 12 Senior
+          Professionals.`,
+    innovation_group_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC) and Assessment Panel`,
+    innovation_group_photo_awardees: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Awardees of "Excellent Testing and Certification Professional Award"`,
+    member_with_gold_awardees_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Gold Awardees of "Testing and Certification Manpower Development
+          Corporate Award"`,
+    member_with_platinum_awardees_photo: `Group photo of Secretary for Innovation, Technology and Industry,
+          Commissioner for Innovation & Technology, Chairman of the Hong Kong
+          Council for Testing & Certification (HKCTC), list of HKCTC member with
+          Platinum Awardees of "Testing and Certification Manpower Development
+          Corporate Award"`,
+
+    media: "Media",
+    media_coverage: "Media Coverage",
+    media_data: {
+      title: "Press Release",
+      date: "4 December 2023",
+    },
+
+    mobile_sidebar: {
+      content_list: "Content List",
+    },
+  },
+};
