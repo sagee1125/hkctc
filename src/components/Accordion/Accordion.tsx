@@ -65,6 +65,7 @@ export const Accordion: React.FC<AccordionProps> = ({
           sx={{
             padding: "16px 24px 24px 24px !important",
           }}
+          className="text-justify"
         >
           {details}
         </AccordionDetails>
