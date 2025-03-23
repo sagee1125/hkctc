@@ -8,21 +8,38 @@ import {
 import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { GeneralPublicContent } from "./GeneralPublicContent";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
+
+const multilingual = {
+  en: {
+    home: `Home`,
+    general_public: "General Public",
+    desc: "Learn about us and explore our resources to ensure quality and safety across sectors.",
+  },
+  cn: {
+    home: `主頁`,
+    general_public: "公眾人士",
+    desc: "Learn about us and explore our resources to ensure quality and safety across sectors.",
+  },
+};
 
 export const GeneralPublic: React.FC = () => {
+  const { isPC, language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { home, general_public, desc } = page_text;
+
   const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "General Public" },
+    { label: home, href: "/hkctc" },
+    { label: general_public },
   ];
-  const { isPC } = useSettings();
 
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
-        title="General Public"
+        title={general_public}
         titleTheme="elegancePurple"
-        description="Learn about us and explore our resources to ensure quality and safety across sectors."
+        description={desc}
         barBackgroundImg="generalPublic/banner_bg.png"
       />
 

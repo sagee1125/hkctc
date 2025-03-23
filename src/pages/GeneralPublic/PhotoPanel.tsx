@@ -1,8 +1,12 @@
 import React from "react";
 import { useSettings } from "../../context";
+import { useNavigate } from "react-router-dom";
+import { navItemEnum } from "../../const";
 
 export const PhotoPanel: React.FC = () => {
   const { isPC } = useSettings();
+  const navigate = useNavigate();
+
   if (isPC)
     return (
       <div className={`w-full h-full grid grid-cols-2 gap-[24px] p-[24px]`}>
@@ -14,7 +18,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
             }}
             onClick={() => {
-              window.open("/about-us");
+              navigate(`/about-us`);
             }}
           >
             <div style={overlayStyle} />
@@ -27,7 +31,7 @@ export const PhotoPanel: React.FC = () => {
           <div
             className="cursor-pointer"
             onClick={() => {
-              window.open("/tc-sector?section=profile_and_role");
+              navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
             }}
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
@@ -49,7 +53,7 @@ export const PhotoPanel: React.FC = () => {
             }}
             className="cursor-pointer"
             onClick={() => {
-              window.open("/tc-sector?section=tc_sector_strengths");
+              navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
           >
             <div style={overlayStyle} />
@@ -68,7 +72,7 @@ export const PhotoPanel: React.FC = () => {
           }}
           className="cursor-pointer"
           onClick={() => {
-            window.open("/tc-sector?section=services_provided");
+            navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
           }}
         >
           <div style={overlayStyle} />
@@ -95,7 +99,7 @@ export const PhotoPanel: React.FC = () => {
               position: "relative",
             }}
             onClick={() => {
-              window.open("/about-us");
+              navigate("/about-us");
             }}
           >
             <div
@@ -118,7 +122,7 @@ export const PhotoPanel: React.FC = () => {
           <div
             className="cursor-pointer"
             onClick={() => {
-              window.open("/tc-sector?section=profile_and_role");
+              navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
             }}
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
@@ -160,7 +164,7 @@ export const PhotoPanel: React.FC = () => {
             }}
             className="cursor-pointer"
             onClick={() => {
-              window.open("/tc-sector?section=tc_sector_strengths");
+              navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
           >
             <div
@@ -194,7 +198,7 @@ export const PhotoPanel: React.FC = () => {
           }}
           className="cursor-pointer"
           onClick={() => {
-            window.open("/tc-sector?section=services_provided");
+            navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
           }}
         >
           <div

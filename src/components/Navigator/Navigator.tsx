@@ -62,7 +62,7 @@ export const exploreOption: Array<{
   },
   {
     title: "T&C Bodies & Practitioners",
-    titleCN: "老師與學生",
+    titleCN: "檢測認證機構及從業員",
     nav: "industry",
   },
   {
