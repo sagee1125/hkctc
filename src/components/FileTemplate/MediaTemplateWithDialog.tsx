@@ -14,6 +14,7 @@ export type ProxyDomain =
 
 export type MediaTemplateWithDialogProps = {
   title: string;
+  titleCN?: string;
   maskIcon?: string;
   date: string;
   imagePath?: string;

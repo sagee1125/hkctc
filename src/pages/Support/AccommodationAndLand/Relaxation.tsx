@@ -4,16 +4,43 @@ import {
   MediaTemplateWithDialogProps,
   SquareTitle,
 } from "../../../components";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 import { MEDIA_TYPE } from "../../../const";
 
+const multilingual = {
+  en: {
+    title: "Relaxation of Waiver Application for Existing Industrial Buildings",
+    according_to: `According to the revitalisation scheme for industrial buildings (“IBs”), one of the measures is to relax the waiver application policy to permit uses for a number of sectors in existing IBs. Testing laboratories may benefit from this measure.`,
+    background: "Background",
+    as_per_the: `As per the executed land leases, the uses of most IBs are restricted to industrial uses. Under the existing land administration arrangement, if an IB owner wishes to put its premises into always-permitted1 non-industrial use under the relevant statutory plan, the owner (or an authorised person) is supposed to submit a temporary waiver application to the Lands Department (LandsD) for temporarily waiving the lease restrictions for the specific premises.`,
+    note: `Note 1: It refers to uses permitted under the land use zoning of the sites concerned on the relevant Outline Zoning Plans as “Column 1” uses.`,
+    details_of_relaxation: {
+      title: `Details of the Relaxation of Waiver Application Arrangement`,
+      para_1: `As the Development Bureau announced on 1 February 2019, the Government would permit five non-industrial uses in premises within IBs on a time-limited basis. The prerequisite is that such uses are always permitted under the relevant statutory plan, and do not involve direct provision of services or goods attracting visiting members of the public. Under the arrangement, an owner of part(s) of an existing IB does not need to apply for a temporary waiver from LandsD, and does not need to pay a waiver fee and an administrative fee which would otherwise be payable, for putting the relevant IB premises to such permitted non-industrial uses during the effective period. The effective period of the arrangement was initially set for five years, followed by an extension to 31 January 2025 announced on 26 January 2024, and a further extension to the end of 2027 announced in the 2024 Policy Address.`,
+      para_2: `"Research, Design and Development Centre" is one of the five permitted uses. According to the Definition of Terms published by the Town Planning Board, testing laboratories are covered by “Laboratory, Inspection and Testing Centre” which is subsumed under the use of “Research, Design and Development Centre”. As such, testing laboratories in industrial premises in compliance with the above prerequisites can benefit from the relaxation of waiver application arrangement. In determining whether the use of a premise has involved non-compliant uses outside the scope of the permission, LandsD will seek advice from the Innovation and Technology Commission and the decision of which shall be final.`,
+      para_3: `For any processed/processing temporary waiver application submitted in accordance with Practice Note No. 1/2016 issued by LandsD, no administrative fee will be refunded.`,
+      please_refer: `Please refer to the announcement of Development Bureau on 1 February 2019 and the press release of the extension on 26 January 2024, and the 2024 Policy Address for further details:`,
+    },
+    enquiries: `Enquiries`,
+    enquiries_about: `Enquiries about how this measure will impact on individual IBs should be addressed to the relevant District Lands Office of LandsD. The contact information can be found at`,
+    information_regarding: `Information regarding the zoning of an IB and the “Column 1” always-permitted uses specified in the relevant OZP is available on the website of the Town Planning Board`,
+  },
+  cn: {
+    title: "Relaxation of Waiver Application for Existing Industrial Buildings",
+  },
+};
+
 export const Relaxation: React.FC = () => {
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
 
   const fileList: MediaTemplateWithDialogProps[] = [
     {
       title:
         "Announcement: Relaxation of Waiver Application for Existing Industrial Buildings ",
+      titleCN: ``,
       date: "1 February 2019",
       maskIcon: "PDF.png",
       mediaType: MEDIA_TYPE.PDF,
@@ -24,6 +51,7 @@ export const Relaxation: React.FC = () => {
     {
       title:
         "Press Release: Extending Effective Period of Relaxation of Waiver Application for Existing Industrial Buildings",
+      titleCN: ``,
       date: "26 January 2024",
       maskIcon: "PRESS.png",
       mediaType: MEDIA_TYPE.NEW_PAGE,
@@ -34,6 +62,7 @@ export const Relaxation: React.FC = () => {
     {
       title:
         "Work Focuses of Development Bureau in the Chief Executive’s 2024 Policy Address",
+      titleCN: ``,
       date: "16 October 2024",
       maskIcon: "PRESS.png",
       mediaType: MEDIA_TYPE.NEW_PAGE,
@@ -46,9 +75,9 @@ export const Relaxation: React.FC = () => {
   return (
     <div className="w-full">
       <div className="mb-[24px]">
-        <SquareTitle title="Relaxation of Waiver Application for Existing Industrial Buildings" />
+        <SquareTitle title={title} />
       </div>
-      <p className="mt-[24px] text-body-m">
+      <p className="mt-[24px] text-body-m text-justify">
         According to the revitalisation scheme for industrial buildings (“IBs”),
         one of the measures is to relax the waiver application policy to permit
         uses for a number of sectors in existing IBs. Testing laboratories may
@@ -56,7 +85,7 @@ export const Relaxation: React.FC = () => {
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l">Background</p>
-      <p className="text-body-m mt-[24px]">
+      <p className="text-body-m mt-[24px] text-justify">
         As per the executed land leases, the uses of most IBs are restricted to
         industrial uses. Under the existing land administration arrangement, if
         an IB owner wishes to put its premises into always-permitted1
@@ -66,7 +95,7 @@ export const Relaxation: React.FC = () => {
         restrictions for the specific premises.
       </p>
       <br />
-      <p className="text-body-m">
+      <p className="text-body-m text-justify">
         Note 1: It refers to uses permitted under the land use zoning of the
         sites concerned on the relevant Outline Zoning Plans as “Column 1” uses.
       </p>

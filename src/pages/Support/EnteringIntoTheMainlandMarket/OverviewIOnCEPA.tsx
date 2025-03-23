@@ -318,10 +318,37 @@ const EnterpriseRun: React.FC = () => {
   );
 };
 
-const faqMap: Record<string, React.ReactNode> = {
-  "Agreement on Trade in Services": <Agreement />,
-  "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system":
-    <EnterpriseRun />,
+const faqMap: Record<
+  string,
+  { label: string; labelCN: string; content: React.ReactNode }
+> = {
+  tradeInServices: {
+    label: "Agreement on Trade in Services",
+    labelCN: "Agreement on Trade in Services",
+    content: <Agreement />,
+  },
+  CCC: {
+    label:
+      "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system",
+    labelCN:
+      "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system",
+    content: <EnterpriseRun />,
+  },
+};
+
+const multilingual = {
+  en: {
+    title: `Overview on CEPA`,
+    since_the_signing: `Since the signing of Supplement VII to the Mainland and Hong Kong Closer Economic Partnership Arrangement (CEPA), the Mainland has been gradually opening up its testing and certification market to Hong Kong.`,
+    time_line_title: "CEPA Agreements Timeline",
+    show_all: "Show All",
+    hide: "Hide",
+    faq: "Frequently Asked Questions",
+  },
+
+  cn: {
+    title: ``,
+  },
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
@@ -399,34 +426,45 @@ export const OverviewIOnCEPA: React.FC = () => {
 
   const timeLineDataCollapsed: Array<{
     date: string;
+    dateCN: string;
     event: string;
+    eventCN: string;
     scroll_id: CEPAAgreements_ids;
   }> = [
     {
       date: "Dec 2014",
       event:
         "Agreement between the Mainland and Hong Kong on Achieving Basic Liberalisation of Trade in Services in Guangdong",
+      dateCN: "",
+      eventCN: "",
       scroll_id: CEPAAgreements_ids.mainland_and_hong_kong_agreement,
     },
-
     {
       date: "Aug 2013",
       event: "Supplement X to CEPA",
+      dateCN: "",
+      eventCN: "",
       scroll_id: CEPAAgreements_ids.supplement_X_to_CEPA,
     },
     {
       date: "Jun 2012",
       event: "Supplement IX to CEPA",
+      dateCN: "",
+      eventCN: "",
       scroll_id: CEPAAgreements_ids.supplement_IX_to_CEPA,
     },
     {
       date: "Dec 2011",
       event: "Supplement VIII to CEPA",
+      dateCN: "",
+      eventCN: "",
       scroll_id: CEPAAgreements_ids.supplement_VIII_to_CEPA,
     },
     {
       date: "May 2010",
       event: "Supplement VII to CEPA",
+      dateCN: "",
+      eventCN: "",
       scroll_id: CEPAAgreements_ids.supplement_VII_to_CEPA,
     },
   ];
@@ -535,6 +573,7 @@ export const OverviewIOnCEPA: React.FC = () => {
         <div className="flex flex-wrap gap-[8px] my-[24px]">
           {Object.keys(faqMap).map((btn, index) => {
             const isActivated = btn === activeFAQType;
+            const label = faqMap[activeFAQType].label;
             return (
               <button
                 key={index}
@@ -544,13 +583,17 @@ export const OverviewIOnCEPA: React.FC = () => {
                 }}
               >
                 <p className="text-highlight-xs">
-                  {btn.length > 48 && !isPC ? btn.slice(0, 48) + "..." : btn}
+                  {label.length > 48 && !isPC
+                    ? label.slice(0, 48) + "..."
+                    : label}
                 </p>
               </button>
             );
           })}
         </div>
-        <div className="mt-[16px] text-body-m">{faqMap[activeFAQType]}</div>
+        <div className="mt-[16px] text-body-m">
+          {faqMap[activeFAQType].content}
+        </div>
       </div>
     </div>
   );
