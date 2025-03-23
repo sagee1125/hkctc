@@ -220,7 +220,14 @@ const planningQues = [
       <span>
         Please refer to the Outline Zoning Plans at the Statutory Planning
         Portal&nbsp;(
-        <Link outerLink="https://www.ozp.tpb.gov.hk/">www.ozp.tpb.gov.hk</Link>
+        <a
+          href="https://www.ozp.tpb.gov.hk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          www.ozp.tpb.gov.hk
+        </a>
         ).
       </span>
     ),
