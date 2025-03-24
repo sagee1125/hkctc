@@ -19,7 +19,7 @@ const multilingual = {
     correct: `正確!`,
     false_answer: "錯誤",
     pls_try_again: `請再試一次！`,
-    quick_quiz: ``,
+    quick_quiz: `快速測驗`,
   },
 };
 
