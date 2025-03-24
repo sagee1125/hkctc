@@ -80,7 +80,7 @@ export const Navigator: React.FC = () => {
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(getCurrentTitle(currentPath));
-
+  const showEn = language === Language.EN;
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
   const anchorRef = useRef(null); // mobile drop drown icon
@@ -178,7 +178,7 @@ export const Navigator: React.FC = () => {
                         }}
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
-                        {item.title}
+                        {showEn ? item.title : item.titleCN}
                       </button>
                     )}
                   </Menu.Item>
@@ -227,8 +227,9 @@ export const Navigator: React.FC = () => {
                 <div className="pl-[32px]">
                   <div className="flex flex-row gap-[26px] h-full">
                     {NavigationBarConfiguration.map((nav, ncIndex) => {
-                      const { title, items, navUrl } = nav;
+                      const { title, titleCN, items, navUrl } = nav;
                       const ifHideArrow: boolean = !items.length;
+                      const displayTitle = showEn ? title : titleCN;
                       return (
                         <div
                           key={ncIndex}
@@ -253,7 +254,7 @@ export const Navigator: React.FC = () => {
                                   : "#AAAAAA",
                             }}
                           >
-                            {title}
+                            {displayTitle}
                           </p>
                           <Icon
                             icon="oui:arrow-down"
@@ -432,8 +433,13 @@ export const Navigator: React.FC = () => {
                               <div className="flex flex-col gap-[24px]">
                                 {NavigationBarConfiguration.map(
                                   (nav, index) => {
-                                    const { title, items, navUrl } = nav;
+                                    const { title, titleCN, items, navUrl } =
+                                      nav;
                                     const ifHideArrow: boolean = !items.length;
+                                    const displayTitle = showEn
+                                      ? title
+                                      : titleCN;
+
                                     return (
                                       <div
                                         key={index}
@@ -460,7 +466,7 @@ export const Navigator: React.FC = () => {
                                             fontWeight: 600,
                                           }}
                                         >
-                                          {title}
+                                          {displayTitle}
                                         </p>
                                         <Icon
                                           icon="icon-park-outline:right"
@@ -490,17 +496,18 @@ export const Navigator: React.FC = () => {
                                     className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
                                   />
                                   <p className="text-highlight-extra">
-                                    {
-                                      NavigationBarConfiguration[activeIndex]
-                                        .title
-                                    }
+                                    {showEn
+                                      ? NavigationBarConfiguration[activeIndex]
+                                          .title
+                                      : NavigationBarConfiguration[activeIndex]
+                                          .titleCN}
                                   </p>
                                 </div>
                                 {navItems.map((sideItems, index) => {
                                   if (activeSubItem !== sideItems.name)
                                     return <></>;
-                                  const { name: currentSideName, subItems } =
-                                    sideItems;
+                                  const { subItems } = sideItems;
+
                                   return (
                                     <div key={index}>
                                       {/* sidebar */}
@@ -524,7 +531,9 @@ export const Navigator: React.FC = () => {
                                                       fontWeight: 600,
                                                     }}
                                                   >
-                                                    {navItems[0].name}
+                                                    {showEn
+                                                      ? navItems[0].name
+                                                      : navItems[0].nameCN}
                                                   </div>
                                                 </div>
 
@@ -553,7 +562,9 @@ export const Navigator: React.FC = () => {
                                                             }}
                                                           >
                                                             <div className="text-body-m">
-                                                              {subTitle}
+                                                              {showEn
+                                                                ? subTitle
+                                                                : sub.subTitleCN}
                                                             </div>
                                                           </div>
                                                         );
@@ -570,7 +581,7 @@ export const Navigator: React.FC = () => {
                                                       sideItem;
                                                     const clicked =
                                                       sideName ===
-                                                      currentSideName;
+                                                      sideItems.name;
 
                                                     return (
                                                       <div key={idx}>
@@ -592,7 +603,9 @@ export const Navigator: React.FC = () => {
                                                               fontWeight: 600,
                                                             }}
                                                           >
-                                                            {sideName}
+                                                            {showEn
+                                                              ? sideName
+                                                              : sideItem.nameCN}
                                                           </p>
 
                                                           <ChevronDownIcon
@@ -641,9 +654,9 @@ export const Navigator: React.FC = () => {
                                                                       }}
                                                                     >
                                                                       <div className="text-body-m">
-                                                                        {
-                                                                          subTitle
-                                                                        }
+                                                                        {showEn
+                                                                          ? subTitle
+                                                                          : sub.subTitleCN}
                                                                       </div>
                                                                     </div>
                                                                   );
@@ -682,7 +695,9 @@ export const Navigator: React.FC = () => {
                                                       }}
                                                     >
                                                       <div className="text-body-m">
-                                                        {subTitle}
+                                                        {showEn
+                                                          ? subTitle
+                                                          : sub.subTitleCN}
                                                       </div>
                                                     </div>
                                                   );
@@ -792,7 +807,7 @@ export const Navigator: React.FC = () => {
               <div className="w-full">
                 {navItems.map((sideItems, nvIndex) => {
                   if (activeSubItem !== sideItems.name) return <></>;
-                  const { name: currentSideName, subItems } = sideItems;
+                  const { nameCN, subItems } = sideItems;
 
                   return (
                     <div
@@ -814,14 +829,16 @@ export const Navigator: React.FC = () => {
                                   }}
                                 />
                                 <div className="text-highlight-s">
-                                  {navItems[0].name}
+                                  {showEn
+                                    ? navItems[0].name
+                                    : navItems[0].nameCN}
                                 </div>
                               </div>
                             ) : (
                               <>
                                 {navItems.map((sideItem, i) => {
-                                  const { name: sideName } = sideItem;
-                                  const clicked = sideName === currentSideName;
+                                  const { name: sideName, nameCN } = sideItem;
+                                  const clicked = sideName === sideItems.name;
                                   return (
                                     <div
                                       key={i}
@@ -834,7 +851,7 @@ export const Navigator: React.FC = () => {
                                         setActiveSubItem(sideName);
                                       }}
                                     >
-                                      {sideName}
+                                      {showEn ? sideName : nameCN}
                                     </div>
                                   );
                                 })}
@@ -869,7 +886,7 @@ export const Navigator: React.FC = () => {
                               </div>
                             )}
                             <div className="w-full text-left text-body-s">
-                              {subTitle}
+                              {showEn ? subTitle : sub.subTitleCN}
                             </div>
                           </div>
                         );

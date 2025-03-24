@@ -62,10 +62,16 @@ export const AboutUs: React.FC = () => {
   );
 
   const mbSidebarItems: SubItems[] = [
-    { enum: navItemEnum.about_HKCTC, subTitle: about_hkctc, imgUrl: "" },
+    {
+      enum: navItemEnum.about_HKCTC,
+      subTitle: about_hkctc,
+      subTitleCN: about_hkctc,
+      imgUrl: "",
+    },
     {
       enum: navItemEnum.panel_on_manpower_development,
       subTitle: panel,
+      subTitleCN: panel,
       imgUrl: "",
     },
   ];
