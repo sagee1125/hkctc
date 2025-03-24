@@ -1,8 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { ArrowForwardIos } from "@mui/icons-material";
 import { QUIZ, QuizStage, type QuizAnswers } from "./types";
-import { quizInteractionMap } from "./const";
-import { useSettings } from "../../context";
+import { quizInteractionCNMap, quizInteractionMap } from "./const";
+import { Language, useSettings } from "../../context";
+
+const multilingual = {
+  en: {
+    next_question: "NEXT QUESTION",
+    try_again: "TRY AGAIN",
+    correct: `Correct!`,
+    false_answer: "False",
+    pls_try_again: `Please try again!`,
+    quick_quiz: `QUICK QUIZ`,
+  },
+  cn: {
+    next_question: "下一題",
+    try_again: `再試一次`,
+    correct: `正確!`,
+    false_answer: "錯誤",
+    pls_try_again: `請再試一次！`,
+    quick_quiz: ``,
+  },
+};
 
 export const Quiz: React.FC = () => {
   // show random quiz
@@ -11,8 +30,11 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { next_question, try_again, correct, false_answer, pls_try_again } =
+    page_text;
   // State to track whether quizInteractionMap has been loaded
   const [isLoaded, setIsLoaded] = useState(false);
   const [quizStage, setQuizStage] = useState<QuizStage>(
@@ -21,8 +43,12 @@ export const Quiz: React.FC = () => {
 
   const [explanationPage, setExplanationPage] = useState<0 | 1>(0);
 
-  const quizData = quizInteractionMap[quiz];
+  const quizData =
+    language === Language.EN
+      ? quizInteractionMap[quiz]
+      : quizInteractionCNMap[quiz];
   const showPaginator = quizData.explanation.length > 1;
+
   useEffect(() => {
     // Check if quizInteractionMap is ready (assuming it is static in your case,
     // but if it's async, you might want to check for async loading completion)
@@ -171,7 +197,7 @@ export const Quiz: React.FC = () => {
                         </svg>
                       </div>
                       <p className={`text-[${quizData.theme}] text-heading-l`}>
-                        Correct!
+                        {correct}
                       </p>
                     </div>
                     <div className="py-[8px] text-highlight-s h-[260px] overflow-hidden">
@@ -262,7 +288,7 @@ export const Quiz: React.FC = () => {
                           setQuizStage(QuizStage.QUESTION_DISPLAY);
                         }}
                       >
-                        NEXT QUESTION
+                        {next_question}
                       </div>
                       <div
                         className="w-full py-auto flex flex-row gap-[8px] justify-center items-center cursor-pointer"
@@ -287,7 +313,7 @@ export const Quiz: React.FC = () => {
                             fill="white"
                           />
                         </svg>
-                        <p>TRY AGAIN</p>
+                        <p>{try_again}</p>
                       </div>
                     </div>
                   </div>
@@ -328,11 +354,11 @@ export const Quiz: React.FC = () => {
                       </svg>
                     </div>
                     <p className={`text-[${quizData.theme}] text-heading-l`}>
-                      False
+                      {false_answer}
                     </p>
                   </div>
                   <div className="py-[8px] text-highlight-s">
-                    Please try again!
+                    {pls_try_again}
                   </div>
 
                   <div
@@ -351,7 +377,7 @@ export const Quiz: React.FC = () => {
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
                       }}
                     >
-                      NEXT QUESTION
+                      {next_question}
                     </div>
                     <div
                       className="w-full py-auto flex flex-row gap-[8px] justify-center items-center cursor-pointer"
@@ -376,7 +402,7 @@ export const Quiz: React.FC = () => {
                           fill="white"
                         />
                       </svg>
-                      <p>TRY AGAIN</p>
+                      <p>{try_again}</p>
                     </div>
                   </div>
                 </div>

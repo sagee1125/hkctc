@@ -8,7 +8,7 @@ import {
   GSP,
   NITTP,
 } from "./InnovationAndTechnologyFund";
-import { Accordion, SquareTitle, Link } from "../../../components";
+import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import {
   BUD,
@@ -43,8 +43,15 @@ const multilingual = {
       the_pass_launched_by: (
         <p className="text-body-m mb-[16px]">
           The&nbsp;
-          <Link outerLink="https://www.pass.gov.hk/index.html">PASS</Link>,
-          launched by the Commerce and Economic Development Bureau (CEDB),
+          <a
+            href="https://www.pass.gov.hk/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            PASS
+          </a>
+          , launched by the Commerce and Economic Development Bureau (CEDB),
           provides funding support for non-profit-making projects aimed at
           increasing the exchanges and co-operation of Hong Kong's professional
           services with their counterparts in external markets, promoting
@@ -124,9 +131,14 @@ const multilingual = {
       title: "專業服務協進支援計劃",
       the_pass_launched_by: (
         <p className="text-body-m mb-[16px]">
-          <Link outerLink="https://www.pass.gov.hk/index.html">
+          <a
+            href="https://www.pass.gov.hk/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
             商務及經濟發展局推出專業服務協進支援計劃
-          </Link>
+          </a>
           ，旨在資助非牟利項目以加強本港專業服務行業與境外市場相類行業的交流和合作，並且透過推動相關的推廣活動，提高本港專業服務水平和對外競爭力。
         </p>
       ),
