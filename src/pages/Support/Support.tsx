@@ -26,7 +26,7 @@ import {
   OverviewIOnCEPA,
   SummaryOfCEPA,
 } from "./EnteringIntoTheMainlandMarket";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 export const directorySidebarItemsMap: Partial<
   Record<navItemEnum, Record<string, React.ReactNode>>
@@ -115,11 +115,25 @@ const leftComponentMapKeys = [
   navItemEnum.other_support,
 ];
 
+const multilingual = {
+  en: {
+    home: "Home",
+    support: `Support`,
+  },
+
+  cn: {
+    home: "主頁",
+    support: `支援`,
+  },
+};
+
 export const Support: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { home, support } = page_text;
   const queryParams = new URLSearchParams(location.search);
   const initialSection = queryParams.get("section") ?? "";
   const initialParam: navItemEnum = leftComponentMapKeys.includes(
@@ -141,9 +155,10 @@ export const Support: React.FC = () => {
   const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
     useState<string>("");
 
+  const { subTitle, subTitleCN } =
+    eventItems.find((item) => item.enum === activeSidebarItems) ?? {};
   const activeSidebarItemsLabel =
-    eventItems.find((item) => item.enum === activeSidebarItems)?.subTitle ??
-    navItemEnum.exhibition_programme;
+    (isEn ? subTitle : subTitleCN) ?? navItemEnum.exhibition_programme;
 
   const dramaticComponent = returnComponent(
     activeSidebarItems as navItemEnum,
@@ -200,9 +215,9 @@ export const Support: React.FC = () => {
   };
 
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "Support",
+      label: support,
       href: `/support?section=${navItemEnum.exhibition_programme}`, // default to activate the first one
     },
     {
