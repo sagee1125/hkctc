@@ -28,41 +28,55 @@ const multilingual = {
       para_1: `The Hong Kong Export Credit Insurance Corporation (ECIC) was created by statute with the aim of encouraging and supporting the export trade by providing Hong Kong exporters with insurance protection against non-payment risks arising from commercial and political events.`,
       para_2: `Its capital is wholly owned by the Government, which also guarantees its contingent liability, with the statutory maximum liability currently standing at HK$55 billion. ECIC has been providing a wide range of insurance facilities for Hong Kong exporters of services:`,
       para_3: `Other benefits of TISP include credit management, receivable management and facilitating trade finance. ECIC's insurance cover can thus enhance the credit management practice and competitiveness of the industry for developing new markets and clients and is vital for the promotion of Hong Kong's testing and certification industry overseas.`,
-      for_more: `For more details, please refer to its website or email to info@hkecic.com.`,
-      to_meet_the_needs: `To meet the needs of the testing and inspection industry, ECIC offers the tailor-made Testing and Inspection Services Policy (TISP) to cover credit risks for services provided to overseas clients with credit periods of up to 180 days post-service completion.`,
+      for_more_1: `For more details, please refer to its`,
+      website: "website",
+      for_more_2: `or email to`,
+      dot: ".",
+
+      to_meet_the_needs: `To meet the needs of the testing and inspection industry, ECIC offers the `,
+      TISP: `tailor-made Testing and Inspection Services Policy (TISP) `,
+      to_cover: `to cover credit risks for services provided to overseas clients with credit periods of `,
+      up_to: "up to 180 days post-service completion",
       TISP_covers:
-        "TISP covers losses from commercial risks (insolvency, payment default) and country risks (currency blockage, payment delays, war, riots, or natural disasters), with an indemnity ratio of up to 90%.",
+        "TISP covers losses from commercial risks (insolvency, payment default) and country risks (currency blockage, payment delays, war, riots, or natural disasters), with ",
+      indemnity: "an indemnity ratio of up to 90%.",
     },
   },
   cn: {
-    other_support: "Other Support",
+    other_support: "其他支援",
     info_on_standards: {
-      title: "Information on Standards",
-      concent: `You may purchase original standards, guides, publications or handbooks issued by different standard publishers through Innovation and Technology Commission (ITC). For more information on the standard-related services provided by ITC, please visit its`,
-      website: "website",
+      title: "標準資料",
+      concent: `你可透過創新科技署購買不同出版機構的標準、指引、刊物或手冊。如欲得知更多有關創新科技署所提供與標準相關的服務，請瀏覽`,
+      website: "網頁",
     },
     measurement_traceability: {
-      title: "Measurement Traceability",
-      para_1: `Traceability means that the result of a measurement can be related to a national or international measurement standard. In addition, the measuring instrument must be calibrated with a measurement standard that is itself traceable. The concept of traceability is important because it makes possible the comparison of the accuracy of measurements worldwide according to a standardised procedure. Metrology is the study of measurement and there are two major fields, viz. physical metrology and chemical metrology.`,
-      para_2: `The Standards and Calibration Laboratory (SCL) maintains the reference standards of physical measurement traceable to the International System of Units for Hong Kong, promotes the international acceptance of these standards, and provides traceable calibration services and proficiency testing services to serve the local economy. For more information on the services provided by SCL, please visit its`,
-      para_3: `Government Laboratory provides chemical metrology support to the community through providing proficiency testing service, developing standard methods and producing reference material. For more information on the services provided by Government Laboratory, please visit its`,
-      website: "website",
+      title: "測量可溯源性",
+      para_1: `可溯源性指測量的結果可以與國家或國際的測量標準相關聯。此外，測量儀器必須以測量標準校正，而這個標準本身亦是可溯源的。可溯源性的概念十分重要，因爲它能讓大家根據標準程序，比較在世界各地進行的測量的準確性。計量是測量的科技，包括兩個主要範疇，即物理計量和化學計量。`,
+      para_2: `標準及校正實驗所負責為香港保存可溯源至國際單位制的物理測量參考標準，推動國際接納這些標準，並為本地企業提供可溯源的校正服務及能力驗證服務。如欲得知更多有關標準及校正實驗所所提供的服務，請瀏覽`,
+      para_3: `政府化驗所提供能力驗證計劃、制定標準方法及生產標準物質，為社會提供化學計量的支援。如欲得知更多有關政府化驗所所提供的服務，請瀏覽`,
+      website: "網頁",
     },
     support_and_consultation_centre: {
-      title:
-        "Support and Consultation Centre for SMEs run by the Trade and Industry Department",
-      content: `The Support and Consultation Centre for SMEs (SUCCESS) provides free and practical business information and consultation services for SMEs including business start-ups. For details of the location, information and services provided by SUCCESS, please visit its`,
-      website: "website",
+      title: "由工業貿易署營辦的中小企業支援與諮詢中心",
+      content: `中小企業支援與諮詢中心專為中小企業(包括創業人士)免費提供實用的營商資訊和諮詢服務。有關該中心地址、提供的資訊及服務詳情，請瀏覽`,
+      website: "網頁",
     },
     hk_export_credit_insurance_corporation: {
-      title: `Hong Kong Export Credit Insurance Corporation`,
-      para_1: `The Hong Kong Export Credit Insurance Corporation (ECIC) was created by statute with the aim of encouraging and supporting the export trade by providing Hong Kong exporters with insurance protection against non-payment risks arising from commercial and political events.`,
-      para_2: `Its capital is wholly owned by the Government, which also guarantees its contingent liability, with the statutory maximum liability currently standing at HK$55 billion. ECIC has been providing a wide range of insurance facilities for Hong Kong exporters of services:`,
-      para_3: `Other benefits of TISP include credit management, receivable management and facilitating trade finance. ECIC's insurance cover can thus enhance the credit management practice and competitiveness of the industry for developing new markets and clients and is vital for the promotion of Hong Kong's testing and certification industry overseas.`,
-      for_more: `For more details, please refer to its website or email to info@hkecic.com.`,
-      to_meet_the_needs: `To meet the needs of the testing and inspection industry, ECIC offers the tailor-made Testing and Inspection Services Policy (TISP) to cover credit risks for services provided to overseas clients with credit periods of up to 180 days post-service completion.`,
+      title: `香港出口信用保險局`,
+      para_1: `香港出口信用保險局透過提供出口信用保險服務，保障出口商因商業或政治事故，未能收回款項的風險，從而鼓勵及支持香港出口貿易。香港出口信用保險局由政府全資擁有，獲特區政府保證承擔全部債項。現時的法定最高負責額為550億港元。`,
+      para_2: `香港出口信用保險局由政府全資擁有，獲特區政府保證承擔全部債項。現時的法定最高負責額為550億港元。香港出口信用保險局為香港服務出口商提供一系列出口信用保險服務:`,
+      para_3: `測試及檢定服務保單」的其他優點包括信貸管理、應收帳管理及促進貿易融資。香港出口信用保險局的保險保障協助業界實踐信貸管理，提升業界拓展新市場及客戶的競爭力，並有助向海外推廣香港的測試及檢定服務業。`,
+      for_more_1: `如欲了解詳情，請瀏覽或電郵至`,
+      website: "香港出口信用保險局網頁",
+      for_more_2: `或電郵至`,
+      dot: "。",
+      to_meet_the_needs: `為了配合測試及檢定服務業的個別需要，香港出口信用保險局為業界度身訂造了`,
+      TISP: `「測試及檢定服務保單」`,
+      to_cover: "，保障業界向海外客戶提供服務時所面對的放帳風險，放帳期不超過",
+      up_to: `提供服務後的一百八十天均可受保`,
       TISP_covers:
-        "TISP covers losses from commercial risks (insolvency, payment default) and country risks (currency blockage, payment delays, war, riots, or natural disasters), with an indemnity ratio of up to 90%.",
+        "「測試及檢定服務保單」承保商業風險（無力償還欠款及客戶拖欠服務費用）以及國家風險（外匯禁制或阻延、延遲償還外債、戰爭、革命、暴動或天災），",
+      indemnity: "賠償率高達百分之九十。",
     },
   },
 };
@@ -183,22 +197,20 @@ export const OtherSupport: React.FC = () => {
             />
           </svg>
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
-            To meet the needs of the testing and inspection industry, ECIC
-            offers the tailor-made&nbsp;
+            {hk_export_credit_insurance_corporation.to_meet_the_needs}&nbsp;
             <a
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              Testing and Inspection Services Policy (TISP)
+              {hk_export_credit_insurance_corporation.TISP}
             </a>
-            &nbsp;to cover credit risks for services provided to overseas
-            clients with credit periods of&nbsp;
+            {hk_export_credit_insurance_corporation.to_cover}
             <span className="text-newPrimary">
-              up to 180 days post-service completion
+              {hk_export_credit_insurance_corporation.up_to}
             </span>
-            .
+            {hk_export_credit_insurance_corporation.dot}
           </p>
         </div>
       </div>
@@ -219,11 +231,9 @@ export const OtherSupport: React.FC = () => {
             />
           </svg>
           <p className="text-highlight-m flex-grow min-w-0">
-            TISP covers losses from commercial risks (insolvency, payment
-            default) and country risks (currency blockage, payment delays, war,
-            riots, or natural disasters), with&nbsp;
+            {hk_export_credit_insurance_corporation.TISP_covers}&nbsp;
             <span className="text-newPrimary">
-              an indemnity ratio of up to 90%
+              {hk_export_credit_insurance_corporation.indemnity}
             </span>
             .
           </p>
@@ -233,24 +243,25 @@ export const OtherSupport: React.FC = () => {
         {hk_export_credit_insurance_corporation.para_3}
       </p>
       <p className="text-body-m text-justify">
-        For more details, please refer to its&nbsp;
+        {hk_export_credit_insurance_corporation.for_more_1}&nbsp;
         <a
           href="https://www.hkecic.com/en/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
         >
-          website
+          {hk_export_credit_insurance_corporation.website}
         </a>
-        &nbsp; or email to&nbsp;
+        &nbsp;{hk_export_credit_insurance_corporation.for_more_2}&nbsp;
         <a
           href="mailto:info@hkecic.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
         >
-          info@hkecic.com.
+          info@hkecic.com
         </a>
+        {hk_export_credit_insurance_corporation.dot}
       </p>
     </div>
   );

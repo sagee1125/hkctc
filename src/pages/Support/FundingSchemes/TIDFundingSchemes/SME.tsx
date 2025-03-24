@@ -64,9 +64,9 @@ export const SMELoanGuaranteeScheme: React.FC = () => {
       maximum: `The maximum amount of loan guarantee for each SME The is $6 million and the guarantee period is up to 5 years.`,
     },
     cn: {
-      title: `SME Loan Guarantee Scheme`,
-      this_scheme_aims_to: `This scheme aims to help SMEs secure loans from the participating lending institutions (PLIs) for business installations and equipment and working capital. Under the scheme, the Government acts as a guarantor for up to 50% of the loans approved by the PLIs.`,
-      maximum: `The maximum amount of loan guarantee for each SME The is $6 million and the guarantee period is up to 5 years.`,
+      title: `中小企業信貸保證基金`,
+      this_scheme_aims_to: `中小企業信貸保證基金旨在協助中小企業向參與計劃的貸款機構(參與貸款機構)取得貸款，用作購置營運設備及器材，或一般業務用途的營運資金。`,
+      maximum: `根據這項計劃，政府為參與貸款機構批出的貸款提供最多50%的信貸保證。每家中小企業可獲的信貸保證上限為600萬元，保證期最長可達五年。`,
     },
   };
   const page_text =

@@ -23,11 +23,10 @@ const multilingual = {
     accreditation_services: "認可服務",
     whats_accreditation: "何謂認可？",
     accreditation_def: {
-      accreditation_is:
-        "認可是由第三方發出證明，承認一間合格評定機構勝任進行特定的合格評定工作。實驗所、檢驗機構和認證機構均為常見的合格評定機構。",
+      accreditation_is: "認可是由",
       third_party: "第三方",
       related_to:
-        "related to a conformity assessment body conveying formal demonstration of its competence to carry out specific conformity assessment tasks. Laboratories, inspection bodies and certification bodies are common types of conformity assessment bodies.",
+        "發出證明，承認一間合格評定機構勝任進行特定的合格評定工作。實驗所、檢驗機構和認證機構均為常見的合格評定機構。",
     },
     accreditation_is_open:
       "在香港，申請認可資格是公開和自願性質的，目前由創新科技署轄下的香港認可處提供認可資格。該處負責推行三個認可計劃，包括：",
