@@ -14,17 +14,34 @@ import {
   type VideoListData,
 } from "../../../../const/VideoList";
 import { MEDIA_TYPE } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
+
+const multilingual = {
+  en: {
+    title: "Videos",
+    types: "Types",
+  },
+  cn: {
+    title: "短片",
+    types: "類型",
+  },
+};
+
 export const Videos: React.FC = () => {
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { title, types } = page_text;
+
   const [activeButton, setActiveButton] = useState<number>(0);
-  const filterButtons = [
-    "All",
-    "HKCTC Reports",
-    "T&C services",
-    "Career development",
-  ];
+  const filterButtons: Record<string, string> = {
+    All: "全部",
+    "HKCTC Reports": "香港檢測和認證局報告",
+    "T&C services": "香港檢測和認證服務",
+    "Career development": "香港檢測和認證業職業發展",
+  };
 
   const filterList: Record<string, VideoListData[]> = {
     All: videoList,
@@ -39,8 +56,7 @@ export const Videos: React.FC = () => {
     ),
   };
 
-  const filteredArticles = filterList[filterButtons[activeButton]];
-  const { isPC } = useSettings();
+  const filteredArticles = filterList[Object.keys(filterButtons)[activeButton]];
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
@@ -58,13 +74,13 @@ export const Videos: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="Videos" />
+      <SquareTitle title={title} />
       <div>
         <NormalAccordion
-          title="Types"
+          title={types}
           details={
             <div className="flex flex-wrap gap-[8px]">
-              {filterButtons.map((name, index) => {
+              {Object.keys(filterButtons).map((name, index) => {
                 const isActivated = activeButton === index;
                 return (
                   <button
@@ -76,7 +92,9 @@ export const Videos: React.FC = () => {
                       setActiveButton(index);
                     }}
                   >
-                    <p className="text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs">
+                      {isEn ? name : filterButtons[name]}
+                    </p>
                   </button>
                 );
               })}
@@ -93,7 +111,7 @@ export const Videos: React.FC = () => {
         }`}
       >
         {currentPageData.map((item, index) => {
-          const { title, link, domain } = item;
+          const { title, titleCN, link, domain } = item;
           const maskIcon = "VIDEO.png";
           return (
             <div
@@ -103,7 +121,7 @@ export const Videos: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={isEn ? title : titleCN}
                 maskIcon={maskIcon}
                 date={""}
                 mediaLink={link}
