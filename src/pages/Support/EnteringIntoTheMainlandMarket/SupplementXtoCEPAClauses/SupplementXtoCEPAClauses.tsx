@@ -195,7 +195,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <hr className="my-[24px]" />
       <p className="text-heading-l mb-[24px]">{measures_in}</p>
       <p className="text-heading-m mb-[24px]">{trade_and_investment}</p>
-      <p className="text-body-m">
+      <p className="text-body-m text-justify">
         {the_two_side}
         <br />
         <br />
