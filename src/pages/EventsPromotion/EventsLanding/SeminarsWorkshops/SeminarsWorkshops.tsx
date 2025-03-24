@@ -10,56 +10,106 @@ import {
   Paginator,
   handleGetPaginatorProp,
 } from "../../../../components";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 import { RegistrationBox } from "./RegistrationBox";
 
-const topicArray = [
-  "All",
-  "CEPA & Mainland Opportunities",
-  "Chinese medicines",
-  "Construction materials",
-  "Consumer Products",
-  "Environmental protection",
-  "Food",
-  "General Support",
-  "Information & Communication Technologies",
-  "Inspection",
-  "Integrity &Professional Development",
-  "Jewellery",
-  "Medical",
-  "Metrology, Accreditation & Standards",
-  "Quality Management",
-];
+const multilingual = {
+  en: {
+    title: "Seminars and Workshops",
+    topics: "Topics",
+    years: "Years",
 
-const yearArray = [
-  "All",
-  "2024",
-  "2023",
-  "2022",
-  "2021",
-  "2020",
-  "2019",
-  "2018",
-  "2017",
-  "2016",
-  "2015",
-];
+    yearArray: [
+      "All",
+      "2024",
+      "2023",
+      "2022",
+      "2021",
+      "2020",
+      "2019",
+      "2018",
+      "2017",
+      "2016",
+      "2015",
+    ],
+  },
+  cn: {
+    title: "研討會與工作坊",
+    topics: "主題類別",
+    years: "年份",
+    // topicArray: [
+    //   "全部",
+    //   "CEPA 及在內地的發展機遇",
+    //   "中藥",
+    //   "建築材料",
+    //   "消費品",
+    //   "環保",
+    //   "食品",
+    //   "一般支援",
+    //   "資訊及通訊科技",
+    //   "檢驗",
+    //   "誠信及專業發展",
+    //   "珠寶",
+    //   "醫務化驗",
+    //   "計量學、認可服務及標準",
+    //   "品質管理",
+    // ],
+
+    yearArray: [
+      "全部",
+      "2024",
+      "2023",
+      "2022",
+      "2021",
+      "2020",
+      "2019",
+      "2018",
+      "2017",
+      "2016",
+      "2015",
+    ],
+  },
+};
 
 const itemsPerPage = 9;
+
+const topicArray: Record<string, string> = {
+  All: "全部",
+  "CEPA & Mainland Opportunities": "CEPA 及在內地的發展機遇",
+  "Chinese medicines": "中藥",
+  "Construction materials": "建築材料",
+  "Consumer Products": "消費品",
+  "Environmental protection": "環保",
+  Food: "食品",
+  "General Support": "一般支援",
+  "Information & Communication Technologies": "資訊及通訊科技",
+  Inspection: "檢驗",
+  "Integrity &Professional Development": "誠信及專業發展",
+  Jewellery: "珠寶",
+  Medical: "醫務化驗",
+  "Metrology, Accreditation & Standards": "計量學、認可服務及標準",
+  "Quality Management": "品質管理",
+};
+
 export const SeminarsWorkshops: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { isPC } = useSettings();
-
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const navigate = useNavigate();
+  const { yearArray, title, topics, years } = page_text;
 
   const displaySeminars = seminarsData.filter((item) => {
-    const activeYear = yearArray[activeYearButton];
-    const activeTopic = topicArray[activeTopicButton];
+    const activeYear = Object.keys(topicArray)[activeYearButton];
+    const activeTopic = Object.keys(topicArray)[activeTopicButton];
 
     // Check if the item matches the active year
-    const yearMatch = activeYear === "All" || String(item.year) === activeYear;
+    const yearMatch =
+      activeYear === "All" ||
+      activeYear === "全部" ||
+      String(item.year) === activeYear;
 
     // Check if the item matches the active topic
     const topicMatch = activeTopic === "All" || item.tag === activeTopic;
@@ -76,14 +126,14 @@ export const SeminarsWorkshops: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-[24px]">
-      <SquareTitle title="Seminars and Workshops" />
+      <SquareTitle title={title} />
       {!isPC && <RegistrationBox />}
       <div>
         <NormalAccordion
-          title="Topics"
+          title={topics}
           details={
             <div className="flex flex-wrap gap-[8px]">
-              {topicArray.map((btn, index) => {
+              {Object.keys(topicArray).map((btn, index) => {
                 const isActivated = index === activeTopicButton;
                 return (
                   <button
@@ -96,7 +146,7 @@ export const SeminarsWorkshops: React.FC = () => {
                       setCurrentPage(0);
                     }}
                   >
-                    {btn}
+                    {isEn ? btn : topicArray[btn]}
                   </button>
                 );
               })}
@@ -107,7 +157,7 @@ export const SeminarsWorkshops: React.FC = () => {
 
       <div>
         <NormalAccordion
-          title="Years"
+          title={years}
           details={
             <div className="w-full flex flex-wrap gap-[8px]">
               {yearArray.map((btn, index) => {
