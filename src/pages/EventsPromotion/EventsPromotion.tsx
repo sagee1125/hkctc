@@ -104,9 +104,6 @@ export const EventsPromotion: React.FC = () => {
   const [activatedDirectorySidebarItems, setActivatedDirectorySidebarItems] =
     useState<string>(getYear(onYear) ?? "2324");
 
-  // const [onYearDetail, setOnYearDetail] =
-  //   useState<boolean>(onDetail);
-
   useEffect(() => {
     const hashValue = window.location.hash.replace("#", "");
     if (initialParam !== activeItem) {

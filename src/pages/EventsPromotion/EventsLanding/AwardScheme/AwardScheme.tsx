@@ -93,7 +93,7 @@ export const AwardScheme: React.FC = () => {
           isPC ? "2 h-[218px]" : "1 h-auto"
         } gap-[24px] `}
       >
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
+        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] !text-left">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ export const AwardScheme: React.FC = () => {
             {page_text.awardMap_one.platinum_content}
           </p>
         </div>
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
+        <div className="!text-left border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +177,7 @@ export const AwardScheme: React.FC = () => {
           {page_text.awardMap_one.assessmentCriteriaGrid.map((item, index) => (
             <div
               key={index}
-              className={`border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-${
+              className={`!text-left border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-${
                 isPC ? "[216px]" : "auto"
               }`}
             >
@@ -217,7 +217,7 @@ export const AwardScheme: React.FC = () => {
             key={index}
             className={`bg-${
               index !== 0 ? "newPrimary" : "white"
-            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
+            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px] !text-left`}
           >
             <p
               className={`text-${
@@ -245,7 +245,7 @@ export const AwardScheme: React.FC = () => {
           isPC ? "2 h-[218px]" : "1 h-auto"
         } gap-[24px]`}
       >
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
+        <div className="!text-left border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +310,7 @@ export const AwardScheme: React.FC = () => {
             {page_text.awardMap_two.open_to_practitioners}
           </p>
         </div>
-        <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
+        <div className="!text-left border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -421,7 +421,7 @@ export const AwardScheme: React.FC = () => {
             key={index}
             className={`bg-${
               index !== 0 ? "newPrimary" : "white"
-            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
+            } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px] !text-left`}
           >
             <p
               className={`text-${
@@ -510,7 +510,7 @@ export const AwardScheme: React.FC = () => {
       <p className="text-highlight-l my-[24px] text-[#666]">
         {page_text.result_announce}
       </p>
-      <p className="text-body-m mb-[24px]">{page_text.intro}</p>
+      <p className="text-body-m mb-[24px] text-justify">{page_text.intro}</p>
       <hr />
 
       <p className="text-heading-l my-[24px]" id="supporting_organizations">
@@ -565,7 +565,9 @@ export const AwardScheme: React.FC = () => {
       </div>
 
       <p className="text-heading-l">{page_text.test_cert_award}</p>
-      <p className="text-body-m mt-[24px]">{page_text.test_cert_award_intro}</p>
+      <p className="text-body-m mt-[24px] txt-justify">
+        {page_text.test_cert_award_intro}
+      </p>
 
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {AwardOneButtonList.map((btn, index) => {
@@ -584,12 +586,12 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
 
-      <div className="pb-[24px] text-body-m">
+      <div className="pb-[24px] text-body-m text-justify">
         {awardMapOne[AwardOneButtonList[activeAwardOneButton]]}
       </div>
 
       <p className="text-heading-l">{page_text.excellent_award}</p>
-      <p className="text-body-m mt-[24px]">
+      <p className="text-body-m mt-[24px] text-justify">
         {page_text.award_commends_individual}
         <br />
         <ul>
@@ -615,7 +617,7 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
 
-      <div className="mb-[24px] text-body-m">
+      <div className="mb-[24px] text-body-m text-justify">
         {awardMapTwo[AwardTwoButtonList[activeAwardTwoButton]]}
       </div>
 
