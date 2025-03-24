@@ -277,17 +277,6 @@ export const StudentCompetition: React.FC = () => {
         {since_2016}
         <Link outerLink="https://stic.newgen.org.hk/">{hkngca_website}</Link>.
       </div>
-
-      <hr />
-
-      <div className="flex flex-row items-center gap-[24px] text-newPrimary">
-        <img
-          className="w-[20px] h-[20px]"
-          src={`${process.env.PUBLIC_URL}/assets/icons/share.svg`}
-          alt="Share Icon"
-        />
-        {share}
-      </div>
     </div>
   );
 };

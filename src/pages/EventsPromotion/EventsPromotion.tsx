@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AwardScheme, SeminarsWorkshops } from "./EventsLanding";
-import { seminarsAndWorkshopsList } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/seminarArticles";
+import {
+  seminarsAndWorkshopsList,
+  seminarsAndWorkshopsList_CN,
+} from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/seminarArticles";
 import { StudentCompetition } from "./EventsLanding/StudentCompetition/StudentCompetition";
 import { PressReleases } from "./News";
 import { Advertorials } from "./News/Advertorials/Advertorials";
@@ -56,10 +59,16 @@ const multilingual = {
   en: {
     home: "Home",
     event_promotion: "Events & Promotions",
+    seminar_workshop: "Seminars and Workshops",
+    events: "Events",
+    media_coverage: "Media Coverage",
   },
   cn: {
     home: "主頁",
     event_promotion: "活動與宣傳",
+    seminar_workshop: "研討會與工作坊",
+    events: "活動",
+    media_coverage: "媒體報道",
   },
 };
 
@@ -96,7 +105,8 @@ export const EventsPromotion: React.FC = () => {
   const { isPC, language } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
-  const { home, event_promotion } = page_text;
+  const { home, event_promotion, seminar_workshop, events, media_coverage } =
+    page_text;
 
   const initialSection = queryParams.get("section") ?? "";
 
@@ -136,8 +146,9 @@ export const EventsPromotion: React.FC = () => {
   }, [initialParam, activeItem, navigate]);
 
   const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
-  const seminarArticleTitle =
-    seminarsAndWorkshopsList[seminarArticleIndex]?.title;
+  const seminarArticleTitle = isEn
+    ? seminarsAndWorkshopsList[seminarArticleIndex]?.title
+    : seminarsAndWorkshopsList_CN[seminarArticleIndex]?.title;
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
     setActivatedDirectorySidebarItems(activatedItems);
@@ -256,11 +267,11 @@ export const EventsPromotion: React.FC = () => {
       component: <SeminarArticlePage />,
       path: [
         {
-          label: "Events",
+          label: events,
           href: `/events-promotion?section=${navItemEnum.tc_sector_strengths}`,
         },
         {
-          label: "Seminars and Workshops",
+          label: seminar_workshop,
           href: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
         },
         {
@@ -392,7 +403,7 @@ export const EventsPromotion: React.FC = () => {
                 : undefined,
           },
           ...(onDetail && activatedDirectorySidebarItems === "2324"
-            ? [{ label: "Media Coverage" }]
+            ? [{ label: media_coverage }]
             : []),
         ]
       : []),
