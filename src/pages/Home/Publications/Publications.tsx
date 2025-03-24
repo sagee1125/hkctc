@@ -12,7 +12,7 @@ import styled, { css, keyframes } from "styled-components";
 import { EmailBox, Quiz, SquareTitle } from "../../../components";
 import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { CATEGORIES, navItemEnum } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 type ResourcesData = {
   title: string;
@@ -42,6 +42,16 @@ enum Category {
 }
 const categoryValues = Object.values(Category);
 
+const multilingual = {
+  en: {
+    title: `What do you know about T&C`,
+  },
+
+  cn: {
+    title: `What do you know about T&C`,
+  },
+};
+
 export const Publications: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>(
     Category.Competitions
@@ -50,8 +60,11 @@ export const Publications: React.FC = () => {
     Category.Events
   );
   const navigate = useNavigate();
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
 
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
   const slideContainerRef = useRef<HTMLDivElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -322,7 +335,7 @@ export const Publications: React.FC = () => {
           }  w-full`}
         >
           <div className={isPC ? "w-1/2" : "w-full"}>
-            <SquareTitle title="What do you know about T&C" />
+            <SquareTitle title={title} />
           </div>
           {isPC && (
             <div className="w-1/2 justify-start" ref={containerRef}>

@@ -50,179 +50,346 @@ export const CEPAAgreements: React.FC = () => {
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
 
-  const agreementMap: Record<string, React.ReactNode> = {
-    "Latest development": (
-      <>
-        <p className="text-body-m">
-          On 9 October 2024, the Second Agreement Concerning Amendment to the
-          Agreement on Trade in Services (“the Amendment Agreement II”) was
-          signed between the Mainland and HKSAR. The Amendment Agreement II sets
-          out the following further liberalisation measures:
-        </p>
-        <br />
-        <ul>
-          <li className="text-body-m">
-            On the geographical coverage of&nbsp;
-            <span className="text-newPrimary !text-highlight-m">
-              CCC factory inspection
-            </span>
-            &nbsp;that can be undertaken by qualified certification bodies in
-            Hong Kong in collaboration with designated Mainland organisations:
-            To expand from manufacturers located in the whole Mainland&nbsp;
-            <span className="text-newPrimary !text-highlight-m">
-              to manufacturers in any place (including places outside Mainland
-              China)
-            </span>
-            ;
-          </li>
+  const agreementMap: Record<
+    string,
+    {
+      tab: string;
+      tabCN: string;
+      content: React.ReactNode;
+      contentCN: React.ReactNode;
+    }
+  > = {
+    latestDevelopment: {
+      tab: "Latest development",
+      tabCN: "最新發展",
+      content: (
+        <>
+          <p className="text-body-m">
+            On 9 October 2024, the Second Agreement Concerning Amendment to the
+            Agreement on Trade in Services (“the Amendment Agreement II”) was
+            signed between the Mainland and HKSAR. The Amendment Agreement II
+            sets out the following further liberalisation measures:
+          </p>
           <br />
-          <li className="text-body-m">
-            On the geographical coverage of&nbsp;
-            <span className="text-newPrimary !text-highlight-m">
-              selection of CCC post-certification test samples
-            </span>
-            &nbsp;that can be undertaken by qualified certification bodies in
-            Hong Kong in collaboration with designated Mainland organisations:
-            To&nbsp;
-            <span className="text-newPrimary text-body-m">expand</span>
-            &nbsp;from manufacturers located in the whole Mainland&nbsp;
-            <span className="text-newPrimary !text-highlight-m">
-              to manufacturers in any place (including places outside Mainland
-              China)
-            </span>
-            .
-          </li>
-        </ul>
-        <br />
-        <p className="text-body-m">
-          The above measures will come into effect on 1 March 2025. The State
-          Administration for Market Regulation will promulgate the
-          implementation guide in due course.
-        </p>
-      </>
-    ),
-    "November 2020": (
-      <>
-        <p className="text-body-m">
-          On 4 November 2020, the State Administration for Market Regulation
-          published&nbsp;
-          <a
-            className="underline text-[#00E] text-[16px]"
-            href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            an announcement
-          </a>
-          &nbsp;relating to the implementation of the&nbsp;
-          <a
-            className="underline text-[#00E] text-[16px]"
-            href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            State Council’s notice
-          </a>
-          &nbsp;on the cancellation of licensing work for designation of
-          inspection bodies related to CCC. The announcement clearly stated that
-          since 13 September 2020, the State Administration for Market
-          Regulation has stopped accepting, examining and approving licensing
-          applications for designation of inspection bodies related to CCC.
-        </p>
-        <br />
-        <p className="text-body-m">
-          For applications already accepted for further processing, the
-          administrative approval procedures will be ceased in accordance with
-          the law. After the cancellation, designated CCC certification bodies
-          may conduct CCC factory inspections themselves or entrust competent
-          inspection bodies to do the job, and are responsible for the factory
-          inspection results. Liberalisation measures relating to CCC testing
-          are not affected by the above changes.
-        </p>
-      </>
-    ),
-    "November 2019": (
-      <>
-        <p className="text-body-m">
-          On 21 November 2019, an Agreement ("Amendment Agreement") was signed
-          between the Mainland and HKSAR to amend the Services Agreement. The
-          Amendment Agreement sets out the following further liberalisation
-          measures:
-        </p>
-        <br />
-        <ul>
-          <li className="text-body-m">
-            On the scope of testing of CCC products that can be undertaken by
-            qualified Hong Kong testing organisations in collaboration with
-            designated Mainland organisations: To expand from products processed
-            or manufactured in the Mainland or processed in Hong Kong to
-            products processed or manufactured in any place (including places
-            outside China).
-          </li>
+          <ul>
+            <li className="text-body-m">
+              On the geographical coverage of&nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                CCC factory inspection
+              </span>
+              &nbsp;that can be undertaken by qualified certification bodies in
+              Hong Kong in collaboration with designated Mainland organisations:
+              To expand from manufacturers located in the whole Mainland&nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                to manufacturers in any place (including places outside Mainland
+                China)
+              </span>
+              ;
+            </li>
+            <br />
+            <li className="text-body-m">
+              On the geographical coverage of&nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                selection of CCC post-certification test samples
+              </span>
+              &nbsp;that can be undertaken by qualified certification bodies in
+              Hong Kong in collaboration with designated Mainland organisations:
+              To&nbsp;
+              <span className="text-newPrimary text-body-m">expand</span>
+              &nbsp;from manufacturers located in the whole Mainland&nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                to manufacturers in any place (including places outside Mainland
+                China)
+              </span>
+              .
+            </li>
+          </ul>
           <br />
-          <li className="text-body-m">
-            On the geographical coverage of CCC factory inspection that can be
-            undertaken by qualified certification bodies in Hong Kong in
-            collaboration with designated Mainland organisations: To expand from
-            manufacturers located in the China (Guangdong) Pilot Free Trade Zone
-            to manufacturers in the whole Mainland; and to add a new task that
-            can be undertaken by qualified certification bodies in Hong Kong,
-            i.e. the selection of post-certification test samples at factories
-            manufacturing CCC products in the whole Mainland.
-          </li>
-        </ul>
-        <br />
-        <p className="text-body-m">
-          The above measures came into effect on 1 June 2020. The Certification
-          and Accreditation Administration of the People’s Republic of China
-          (“CNCA”) has promulgated the&nbsp;
-          <a
-            href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E] text-[16px]"
-          >
-            Implementation Guide
-          </a>
-          &nbsp;on the revised and new liberalisation measures.
-        </p>
-      </>
-    ),
-    "December 2018": (
-      <>
-        <p className="text-body-m">
-          In December 2018, by way of Exchange of Letters, the Mainland revised
-          the Services Agreement, with a view to further opening up the China
-          Compulsory Certification (“CCC”) market to Hong Kong. The new measure
-          allows Hong Kong testing organisations to cooperate with designated
-          Mainland certification bodies to undertake&nbsp;
-          <span
-            className="!text-highlight-m underline text-newPrimary cursor-pointer"
-            onClick={() => {
-              navigate("/support/CCC_testing");
-              window.scroll({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            CCC testing
-          </span>
-          &nbsp;on all products that are processed or manufactured in the
-          Mainland requiring CCC. The&nbsp;
-          <a
-            href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E] text-[16px]"
-          >
-            Implementation Guide
-          </a>
-          &nbsp;of this measure, which came into effect on 1 March 2019, has
-          been promulgated.
-        </p>
-      </>
-    ),
+          <p className="text-body-m">
+            The above measures will come into effect on 1 March 2025. The State
+            Administration for Market Regulation will promulgate the&nbsp;
+            <a
+              href="https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              implementation guide
+            </a>
+            &nbsp;in due course.
+          </p>
+        </>
+      ),
+      contentCN: (
+        <>
+          <p className="text-body-m">
+            中國內地與香港特區於二○二四年十月九日簽署關於修訂《服務貿易協議》的協議二（“《修訂協議二》”）。《修訂協議二》訂下了以下的進一步開放措施：–
+          </p>
+          <br />
+          <ul>
+            <li className="text-body-m">
+              符合條件的香港認證機構可與內地指定機構開展合作進行
+              <span className="text-newPrimary !text-highlight-m">
+                CCC工廠檢查
+              </span>
+              ，範圍從現時內地全境內的CCC產品生產廠，
+              <span className="text-newPrimary !text-highlight-m">
+                擴展至任何地區（包括中國內地以外）的CCC產品生產廠
+              </span>
+              ；
+            </li>
+            <br />
+            <li className="text-body-m">
+              符合條件的香港認證機構可與內地指定機構開展合作進行的
+              <span className="text-newPrimary !text-highlight-m">
+                獲證後於工廠選取CCC測試樣本
+              </span>
+              ，範圍從現時在內地全境內的CCC產品生產廠，
+              <span className="text-newPrimary text-body-m">
+                擴展至任何地區（包括中國內地以外）的CCC產品生產廠
+              </span>
+              。
+            </li>
+          </ul>
+          <br />
+          <p className="text-body-m">
+            以上措施於二○二五年三月一日起實施。詳細實施安排已載於國家認監委發布的
+            <a
+              href="https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              實施指南
+            </a>
+            。
+          </p>
+        </>
+      ),
+    },
+    nov2020: {
+      tab: "November 2020",
+      tabCN: "2020 十一月",
+      content: (
+        <>
+          <p className="text-body-m">
+            On 4 November 2020, the State Administration for Market Regulation
+            published&nbsp;
+            <a
+              className="underline text-[#00E] text-[16px]"
+              href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              an announcement
+            </a>
+            &nbsp;relating to the implementation of the&nbsp;
+            <a
+              className="underline text-[#00E] text-[16px]"
+              href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              State Council’s notice
+            </a>
+            &nbsp;on the cancellation of licensing work for designation of
+            inspection bodies related to CCC. The announcement clearly stated
+            that since 13 September 2020, the State Administration for Market
+            Regulation has stopped accepting, examining and approving licensing
+            applications for designation of inspection bodies related to CCC.
+          </p>
+          <br />
+          <p className="text-body-m">
+            For applications already accepted for further processing, the
+            administrative approval procedures will be ceased in accordance with
+            the law. After the cancellation, designated CCC certification bodies
+            may conduct CCC factory inspections themselves or entrust competent
+            inspection bodies to do the job, and are responsible for the factory
+            inspection results. Liberalisation measures relating to CCC testing
+            are not affected by the above changes.
+          </p>
+        </>
+      ),
+      contentCN: (
+        <>
+          <p className="text-body-m">
+            為落實
+            <a
+              className="underline text-[#00E] text-[16px]"
+              href="http://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              《國務院關於取消和下放一批行政許可事項的決定》
+            </a>
+            中，有關取消「與強制性認證有關的檢查機構指定」許可工作，國家市場監督管理總局於2020年11月4日發佈
+            <a
+              className="underline text-[#00E] text-[16px]"
+              href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              《市場監管總局關於貫徹落實〈國務院關於取消和下放一批行政許可事項的決定〉有關事項的公告》（2020年第48號）
+            </a>
+            。該公告明確指出自2020年9月13日起，國家市場監督管理總局停止「與強制性認證有關的檢查機構指定」許可事項的受理、審查和審批。
+          </p>
+          <br />
+          <p className="text-body-m">
+            對於已經受理的申請，依法終止行政許可程序。許可取消後，強制性產品認證（CCC）指定認證機構自行或委託有能力的檢查機構實施CCC認證工廠檢查，並對工廠檢查結論負責。以上改動並不影響有關CCC檢測的開放措施。
+          </p>
+        </>
+      ),
+    },
+    nov2019: {
+      tab: "November 2019",
+      tabCN: "2019 十一月",
+      content: (
+        <>
+          <p className="text-body-m">
+            On 21 November 2019, an Agreement ("Amendment Agreement") was signed
+            between the Mainland and HKSAR to amend the Services Agreement. The
+            Amendment Agreement sets out the following further liberalisation
+            measures:
+          </p>
+          <br />
+          <ul>
+            <li className="text-body-m">
+              On the scope of testing of CCC products that can be undertaken by
+              qualified Hong Kong testing organisations in collaboration with
+              designated Mainland organisations: To expand from products
+              processed or manufactured in the Mainland or processed in Hong
+              Kong to products processed or manufactured in any place (including
+              places outside China).
+            </li>
+            <br />
+            <li className="text-body-m">
+              On the geographical coverage of CCC factory inspection that can be
+              undertaken by qualified certification bodies in Hong Kong in
+              collaboration with designated Mainland organisations: To expand
+              from manufacturers located in the China (Guangdong) Pilot Free
+              Trade Zone to manufacturers in the whole Mainland; and to add a
+              new task that can be undertaken by qualified certification bodies
+              in Hong Kong, i.e. the selection of post-certification test
+              samples at factories manufacturing CCC products in the whole
+              Mainland.
+            </li>
+          </ul>
+          <br />
+          <p className="text-body-m">
+            The above measures came into effect on 1 June 2020. The
+            Certification and Accreditation Administration of the People’s
+            Republic of China (“CNCA”) has promulgated the&nbsp;
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E] text-[16px]"
+            >
+              Implementation Guide
+            </a>
+            &nbsp;on the revised and new liberalisation measures.
+          </p>
+        </>
+      ),
+      contentCN: (
+        <>
+          <p className="text-body-m">
+            二○一九年十一月二十一日，中國內地與香港特區簽署關於修訂《服務貿易協議》的協議（“《修訂協議》”）。《修訂協議》訂下了以下的進一步開放措施：–
+          </p>
+          <br />
+          <ul>
+            <li className="text-body-m">
+              符合條件的香港檢測機構可與內地指定機構開展合作進行CCC產品檢測，範圍從現時在內地加工或生產、或在香港加工的CCC產品，擴展至在任何地區（包括中國以外）加工或生產的CCC產品。
+            </li>
+            <br />
+            <li className="text-body-m">
+              符合條件的香港認證機構可與內地指定機構開展合作進行CCC工廠檢查，範圍從現時在中國（廣東）自由貿易試驗區內的CCC產品生產廠，擴展至內地全境內的CCC產品生產廠。符合條件的香港認證機構也可承擔新增任務，即內地全境內獲證後於工廠選取測試樣本。
+            </li>
+          </ul>
+          <br />
+          <p className="text-body-m">
+            以上措施已於二○二○年六月一日起實施。國家認證認可監督管理委員會（“認監委”）已公布獲修訂和新增措施的
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E] text-[16px]"
+            >
+              實施指南
+            </a>
+            。
+          </p>
+        </>
+      ),
+    },
+    dec2018: {
+      tab: "December 2018",
+      tabCN: "2018 12月",
+      content: (
+        <>
+          <p className="text-body-m">
+            In December 2018, by way of Exchange of Letters, the Mainland
+            revised the Services Agreement, with a view to further opening up
+            the China Compulsory Certification (“CCC”) market to Hong Kong. The
+            new measure allows Hong Kong testing organisations to cooperate with
+            designated Mainland certification bodies to undertake&nbsp;
+            <span
+              className="!text-highlight-m underline text-newPrimary cursor-pointer"
+              onClick={() => {
+                navigate("/support/CCC_testing");
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              CCC testing
+            </span>
+            &nbsp;on all products that are processed or manufactured in the
+            Mainland requiring CCC. The&nbsp;
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E] text-[16px]"
+            >
+              Implementation Guide
+            </a>
+            &nbsp;of this measure, which came into effect on 1 March 2019, has
+            been promulgated.
+          </p>
+        </>
+      ),
+      contentCN: (
+        <>
+          <p className="text-body-m">
+            二○一八年十二月，內地透過換文修訂《服務貿易協議》，以進一步擴大中國強制性產品認證（"CCC"）市場的對港開放範圍。新措施允許香港的檢測機構與內地指定認證機構展開合作，承擔在內地加工或生產的CCC目錄內所有產品的{" "}
+            <span
+              className="!text-highlight-m underline text-newPrimary cursor-pointer"
+              onClick={() => {
+                navigate("/support/CCC_testing");
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              CCC檢測
+            </span>
+            工作。此措施已於二○一九年三月一日起實施，相關
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E] text-[16px]"
+            >
+              實施指南
+            </a>
+            亦已公布。
+          </p>
+        </>
+      ),
+    },
   };
   const serviceTab = Number(
     new URLSearchParams(window.location.search).get("serviceTab") ?? 0
@@ -920,6 +1087,10 @@ export const CEPAAgreements: React.FC = () => {
                 <div className="flex flex-wrap gap-[8px]">
                   {Object.keys(agreementMap).map((btn, index) => {
                     const isActivated = btn === agreementType;
+                    const displayLabel =
+                      language === Language.EN
+                        ? agreementMap[btn].tab
+                        : agreementMap[btn].tabCN;
                     return (
                       <button
                         key={index}
@@ -930,12 +1101,16 @@ export const CEPAAgreements: React.FC = () => {
                           setAgreementType(btn);
                         }}
                       >
-                        <p className="text-highlight-xs">{btn}</p>
+                        <p className="text-highlight-xs">{displayLabel}</p>
                       </button>
                     );
                   })}
                 </div>
-                <div className="mt-[16px]">{agreementMap[agreementType]}</div>
+                <div className="mt-[16px]">
+                  {language === Language.EN
+                    ? agreementMap[agreementType].content
+                    : agreementMap[agreementType].contentCN}
+                </div>
               </div>
             </div>
           }

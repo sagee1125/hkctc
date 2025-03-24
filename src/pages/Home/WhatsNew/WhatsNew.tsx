@@ -4,15 +4,30 @@ import "./style.css";
 import { WhatsNewConfiguration } from "../../../const";
 import { SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
+
+const multilingual = {
+  en: {
+    title: `What’s New`,
+  },
+
+  cn: {
+    title: `最新消息`,
+  },
+};
+
 export const WhatsNew: React.FC = () => {
+  const navigate = useNavigate();
+
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
   const changingEffectOn = false;
-  const navigate = useNavigate();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
   useEffect(() => {
     if (changingEffectOn) {
       const intervalId = setInterval(() => {
@@ -52,7 +67,7 @@ export const WhatsNew: React.FC = () => {
 
   return (
     <div className="w-full px-[24px]">
-      <SquareTitle title="What’s New" showArrowIcon redirectTo="/whats-new" />
+      <SquareTitle title={title} showArrowIcon redirectTo="/whats-new" />
 
       <div
         className={`pt-[24px] w-full`}
