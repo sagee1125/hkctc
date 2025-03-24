@@ -44,6 +44,7 @@ export enum ADVERTORIALS_SECTOR {
 
 export type PublicationType = {
   title: string;
+  titleCN?: string;
   date?: string;
   link: string;
   sector?: ADVERTORIALS_SECTOR[];
@@ -856,6 +857,7 @@ export const comicsList: PublicationType[] = [
 export const corruptionGuideList: PublicationType[] = [
   {
     title: "Corruption Prevention Guide for Testing and Certification Industry",
+    titleCN: "檢測和認證業防貪指引",
     link: "/UPloadImages/InfoFile/cate_43/2016/f0cf22b8-ca79-403e-9682-16b6a2166abe.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -865,6 +867,7 @@ export const corruptionGuideList: PublicationType[] = [
   {
     title:
       "Pamphlet for Frontline Materials Testing Staff (Chinese Version Only)",
+    titleCN: "物料檢測人員防貪小貼士",
     link: "/Upload/guides/57/pdf/68a7ed5f2da24f17930d7bbb8c66a8ca.pdf", // https://www.hkbedc.icac.hk
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -876,6 +879,7 @@ export const corruptionGuideList: PublicationType[] = [
 export const otherInformationList: PublicationType[] = [
   {
     title: "Hong Kong: The Facts - Testing and Certification",
+    titleCN: "香港便覽–檢測和認證",
     link: "/en/doc/Testing_and_Certification_EN.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
