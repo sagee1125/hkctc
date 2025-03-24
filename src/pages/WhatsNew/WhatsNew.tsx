@@ -13,17 +13,29 @@ import {
   WhatsNewConfiguration,
   hkctcNewsletterList,
 } from "../../const";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
+
+const multilingual = {
+  en: {
+    title: "What’s New",
+  },
+  cn: {
+    title: "最新消息",
+  },
+};
 
 export const WhatsNew: React.FC = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
   const currentReport = hkctcNewsletterList[activeReport];
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
 
   const leftContent = (
     <div className="w-full flex flex-col gap-[24px]">
-      <SquareTitle title={"What’s New"} />
+      <SquareTitle title={title} />
       {WhatsNewConfiguration.map((item, index) => {
         const { imagePath, title, date, redirectTo } = item;
         return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Language, useSettings } from "../../context";
 
 type InternalBackButtonProps = {
   targetUrl: string;
@@ -9,7 +10,8 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
   targetUrl,
 }) => {
   const navigate = useNavigate();
-
+  const { language } = useSettings();
+  const isEn = language === Language.EN;
   return (
     <div className="flex flex-row gap-[8px] items-center">
       <img
@@ -28,7 +30,7 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
           navigate(targetUrl);
         }}
       >
-        Back
+        {isEn ? "Back" : "返回"}
       </p>
     </div>
   );
