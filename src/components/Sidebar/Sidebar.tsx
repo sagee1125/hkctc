@@ -3,7 +3,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { Collapse } from "@mui/material";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { type SubItems } from "../../const";
 
 type SidebarProps = {
@@ -19,7 +19,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activatedItems,
   setActivatedItems,
 }) => {
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
 
   if (isPC)
     return (
@@ -28,7 +29,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="w-full flex flex-col gap-[24px] py-[24px]">
           <div className="w-full flex flex-col gap-[24px]">
             {sidebarItems.map((item, index) => {
-              const { subTitle, imgUrl, enum: navItemEnum } = item;
+              const { subTitle, subTitleCN, imgUrl, enum: navItemEnum } = item;
               if (subTitle === "") return null;
 
               const isActivated = activatedItems === navItemEnum;
@@ -55,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       />
                     </div>
                     <div className="text-highlight-m text-black w-[252px]">
-                      {subTitle}
+                      {isEn ? subTitle : subTitleCN}
                     </div>
                   </div>
                 </div>
@@ -73,10 +74,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
                 <p className="!text-heading-xs w-full text-left">
-                  {
-                    sidebarItems.find((i) => i.enum === activatedItems)
-                      ?.subTitle
-                  }
+                  {isEn
+                    ? sidebarItems.find((i) => i.enum === activatedItems)
+                        ?.subTitle
+                    : sidebarItems.find((i) => i.enum === activatedItems)
+                        ?.subTitleCN}
                 </p>
                 <ChevronDownIcon
                   className={`h-5 w-5 text-black transform transition-transform ${
@@ -96,7 +98,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               >
                 <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {sidebarItems.map((item, index) => {
-                    const { subTitle, enum: navItemEnum } = item;
+                    const { subTitle, subTitleCN, enum: navItemEnum } = item;
                     if (subTitle === "") return null;
 
                     return (
@@ -112,7 +114,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 : "text-gray-700"
                             }`}
                           >
-                            {subTitle}
+                            {isEn ? subTitle : subTitleCN}
                           </button>
                         )}
                       </Menu.Item>

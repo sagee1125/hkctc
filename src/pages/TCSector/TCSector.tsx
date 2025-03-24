@@ -20,7 +20,7 @@ import {
   SubItems,
 } from "../../const";
 import { ServicesDifferentBusinessAreas } from "./ServicesDifferentBusinessAreas";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 const returnComponent = (
   navItem: navItemEnum
@@ -73,16 +73,32 @@ const leftComponentMapKeys = [
   navItemEnum.accreditation_services,
 ];
 
+const multilingual = {
+  en: {
+    about_tc_sector: `About T&C Industry`,
+    home: "Home",
+  },
+
+  cn: {
+    about_tc_sector: `關於檢測認證業`,
+    home: "主頁",
+  },
+};
+
 export const TCSector: React.FC = () => {
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { about_tc_sector, home } = page_text;
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
-      (nav: NavData) => nav.title === "About T&C Industry"
+      (nav: NavData) => nav.title === multilingual.en.about_tc_sector
     )?.items.find(
       (subNav: NavItems) =>
         subNav.name ===
         "Introducing the Testing and Certification industry, and what service we can provide"
     )?.subItems ?? [];
-  const { isPC } = useSettings();
+
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -100,9 +116,12 @@ export const TCSector: React.FC = () => {
   const [activeSidebarItems, setActiveSidebarItems] =
     useState<navItemEnum>(initialParam);
 
+  const { subTitle, subTitleCN } =
+    eventItems.find((item) => item.enum === activeSidebarItems) ?? {};
+
   const activeSidebarItemsLabel =
-    eventItems.find((item) => item.enum === activeSidebarItems)?.subTitle ??
-    navItemEnum.profile_and_role;
+    (isEn ? subTitle : subTitleCN) ?? navItemEnum.profile_and_role;
+
   const component = returnComponent(
     activeSidebarItems as navItemEnum
   )?.component;
@@ -130,9 +149,9 @@ export const TCSector: React.FC = () => {
   }, [initialParam, initialHashIndex, activeSidebarItems, navigate]);
 
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "About T&C Industry",
+      label: about_tc_sector,
       href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
     },
     {
@@ -143,7 +162,7 @@ export const TCSector: React.FC = () => {
   const sidebar = (
     <div className="sticky top-[20px]">
       <Sidebar
-        title={"About T&C Industry"}
+        title={about_tc_sector}
         sidebarItems={eventItems}
         activatedItems={activeSidebarItems}
         setActivatedItems={handleChangeSidebar}
