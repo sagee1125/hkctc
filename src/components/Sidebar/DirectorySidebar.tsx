@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Drawer } from "@mui/material";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 export type DirectorySidebarItems = {
   label: string;
+  labelCN?: string;
   value: string;
 };
 type DirectorySidebarProps = {
@@ -20,8 +21,9 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
   activatedItems,
   setActivatedItems,
 }) => {
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
+  const isEn = language === Language.EN;
   const sidebarContent = (
     <>
       <div className="flex flex-col gap-[0] w-full">
@@ -63,7 +65,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               key={index}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
-                {typeof item === "string" ? item : item.label}
+                {typeof item === "string"
+                  ? item
+                  : isEn
+                  ? item.label
+                  : item.labelCN}
               </p>
 
               {isActivated ? (

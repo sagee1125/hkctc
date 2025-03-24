@@ -595,15 +595,23 @@ const multilingual = {
   },
 
   cn: {
-    title: ``,
+    title: `CEPA概覽`,
+    since_the_signing: `自簽署《內地與香港關於建立更緊密經貿關係的安排（CEPA）補充協議七》起，中國內地逐步向香港開放其檢測和認證市場。`,
+    time_line_title: "CEPA協議簽訂時間",
+    show_all: "顯示全部",
+    hide: "隱藏",
+    faq: "常見問題",
+    faq_tabs: [
+      "《服務貿易協議》",
+      "香港企業在內地開設的機構成為中國強制性產品認證（“CCC”）制度的指定機構",
+    ],
   },
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
   const { isPC, language } = useSettings();
-
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
   );
@@ -613,18 +621,23 @@ export const OverviewIOnCEPA: React.FC = () => {
   const timeLineData: Array<{
     date: string;
     event: React.ReactNode;
+    dateCN: string;
+    eventCN: React.ReactNode;
     scroll_id: CEPAAgreements_ids;
     serviceTab: string;
   }> = [
     {
       date: "Oct 2024",
+      dateCN: "2024年10月",
       event:
         "Second Agreement Concerning Amendment to the Agreement on Trade in Services",
+      eventCN: `修訂《服務貿易協議》的協議二`,
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
       serviceTab: "0",
     },
     {
       date: "Nov 2019",
+      dateCN: "2019年11月",
       event: (
         <>
           Agreement concerning Amendment to the&nbsp;
@@ -633,35 +646,40 @@ export const OverviewIOnCEPA: React.FC = () => {
           </span>
         </>
       ),
+      eventCN: (
+        <>
+          修訂
+          <span className="underline text-newPrimary">《服務貿易協議》</span>
+          的協議
+        </>
+      ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
       serviceTab: "2",
     },
     {
       date: "Dec 2018",
+      dateCN: "2018年12月",
       event: (
         <span className="underline text-newPrimary">
           Agreement on Trade in Goods
         </span>
       ),
+      eventCN: (
+        <span className="underline text-newPrimary">《貨物貿易協議》</span>
+      ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_goods,
       serviceTab: "0",
     },
     {
-      date: "Dec 2018",
-      event: (
-        <span className="underline text-newPrimary">
-          Agreement on Trade in Services
-        </span>
-      ),
-      scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
-      serviceTab: "3",
-    },
-    {
       date: "Jun 2017",
+      dateCN: "2017年6月",
       event: (
         <span className="underline text-newPrimary">
           Agreement on Economic and Technical Cooperation
         </span>
+      ),
+      eventCN: (
+        <span className="underline text-newPrimary">《經濟技術合作協議》</span>
       ),
       scroll_id:
         CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation,
@@ -669,7 +687,14 @@ export const OverviewIOnCEPA: React.FC = () => {
     },
     {
       date: "Nov 2015",
+      dateCN: "2015年11月",
       event: "Agreement on Trade in Services",
+      eventCN: (
+        <>
+          <span className="underline text-newPrimary">《服務貿易協議》</span>
+          （曾於2018年12月透過換文修訂）
+        </>
+      ),
       scroll_id: CEPAAgreements_ids.agreement_on_trade_in_services,
       serviceTab: "0",
     },
@@ -686,49 +711,49 @@ export const OverviewIOnCEPA: React.FC = () => {
       date: "Dec 2014",
       event:
         "Agreement between the Mainland and Hong Kong on Achieving Basic Liberalisation of Trade in Services in Guangdong",
-      dateCN: "",
-      eventCN: "",
+      dateCN: "2024年12月",
+      eventCN: "《關於內地在廣東與香港基本實現服務貿易自由化的協議》",
       scroll_id: CEPAAgreements_ids.mainland_and_hong_kong_agreement,
     },
     {
       date: "Aug 2013",
       event: "Supplement X to CEPA",
-      dateCN: "",
-      eventCN: "",
+      dateCN: "2013年8月",
+      eventCN: "《CEPA補充協議十》",
       scroll_id: CEPAAgreements_ids.supplement_X_to_CEPA,
     },
     {
       date: "Jun 2012",
       event: "Supplement IX to CEPA",
-      dateCN: "",
-      eventCN: "",
+      dateCN: "2012年6月",
+      eventCN: "《CEPA補充協議九》",
       scroll_id: CEPAAgreements_ids.supplement_IX_to_CEPA,
     },
     {
       date: "Dec 2011",
       event: "Supplement VIII to CEPA",
-      dateCN: "",
-      eventCN: "",
+      dateCN: "2011年12月",
+      eventCN: "《CEPA補充協議八》",
       scroll_id: CEPAAgreements_ids.supplement_VIII_to_CEPA,
     },
     {
       date: "May 2010",
       event: "Supplement VII to CEPA",
-      dateCN: "",
-      eventCN: "",
+      dateCN: "2010年5月",
+      eventCN: "《CEPA補充協議七》",
       scroll_id: CEPAAgreements_ids.supplement_VII_to_CEPA,
     },
   ];
+  const { title, since_the_signing, time_line_title, show_all, hide, faq } =
+    page_text;
   return (
     <div className="w-full">
-      <SquareTitle title="Overview on CEPA" />
+      <SquareTitle title={title} />
 
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m mt-[24px]">
-        Since the signing of Supplement VII to the Mainland and Hong Kong Closer
-        Economic Partnership Arrangement (CEPA), the Mainland has been gradually
-        opening up its testing and certification market to Hong Kong.
+        {since_the_signing}
       </div>
-      <p className="text-heading-l my-[24px]">CEPA Agreements Timeline</p>
+      <p className="text-heading-l my-[24px]">{time_line_title}</p>
       <div>
         <div className="w-full flex flex-col">
           {timeLineData.map((item, index) => (
@@ -757,8 +782,8 @@ export const OverviewIOnCEPA: React.FC = () => {
                   );
                 }}
               >
-                <p>{item.date}</p>
-                <div>{item.event}</div>
+                <p>{isEn ? item.date : item.dateCN}</p>
+                <div>{isEn ? item.event : item.eventCN}</div>
               </div>
             </div>
           ))}
@@ -790,8 +815,10 @@ export const OverviewIOnCEPA: React.FC = () => {
                     );
                   }}
                 >
-                  <p>{item.date}</p>
-                  <p className="underline text-newPrimary">{item.event}</p>
+                  <p>{isEn ? item.date : item.dateCN}</p>
+                  <p className="underline text-newPrimary">
+                    {isEn ? item.event : item.eventCN}
+                  </p>
                 </div>
               </div>
             ))}
@@ -804,7 +831,7 @@ export const OverviewIOnCEPA: React.FC = () => {
               setTimelineCollapsed(!timelineCollapsed);
             }}
           >
-            {timelineCollapsed ? "Show All" : "Hide"}
+            {timelineCollapsed ? show_all : hide}
             <ExpandMoreIcon
               sx={{
                 transform: !timelineCollapsed
@@ -818,7 +845,7 @@ export const OverviewIOnCEPA: React.FC = () => {
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">Frequently Asked Questions</p>
+      <p className="text-heading-l">{faq}</p>
 
       <div>
         <div className="flex flex-wrap gap-[8px] my-[24px]">

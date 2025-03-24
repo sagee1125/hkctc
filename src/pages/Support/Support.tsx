@@ -8,6 +8,7 @@ import {
   BannerPhotoBox,
   Breadcrumb,
   DirectorySidebar,
+  type DirectorySidebarItems,
   Sidebar,
   fullContainer,
   maxMobileContainer,
@@ -29,23 +30,46 @@ import {
 import { Language, useSettings } from "../../context";
 
 export const directorySidebarItemsMap: Partial<
-  Record<navItemEnum, Record<string, React.ReactNode>>
+  Record<
+    navItemEnum,
+    Record<string, { label: string; labelCN: string; content: React.ReactNode }>
+  >
 > = {
   [navItemEnum.accommodation_and_land]: {
-    "Relaxation of Waiver Application for Existing Industrial Buildings": (
-      <Relaxation />
-    ),
-    "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings": (
-      <NilWaiverFee />
-    ),
+    relaxation: {
+      label:
+        "Relaxation of Waiver Application for Existing Industrial Buildings",
+      labelCN: "放寬現有工業大廈地契豁免書申請",
+      content: <Relaxation />,
+    },
+    nil: {
+      label:
+        "“Nil Waiver Fee” for Testing Labs Operating in Industrial Buildings",
+      labelCN: "在工業大廈營運的測試實驗所「免繳豁免書費用」安排",
+      content: <NilWaiverFee />,
+    },
   },
   [navItemEnum.entering_into_the_mainland_market]: {
-    "Overview On CEPA": <OverviewIOnCEPA />,
-    "CEPA Agreements": <CEPAAgreements />,
-    "Summary of CEPA Clauses Relating to Testing and Certification": (
-      <SummaryOfCEPA />
-    ),
-    "GBA Standard and Certification": <GBA />,
+    overviewIOnCEPA: {
+      label: "Overview On CEPA",
+      labelCN: "CEPA概覽",
+      content: <OverviewIOnCEPA />,
+    },
+    CEPAAgreements: {
+      label: "CEPA Agreements",
+      labelCN: "CEPA協議",
+      content: <CEPAAgreements />,
+    },
+    summaryOfCEPA: {
+      label: "Summary of CEPA Clauses Relating to Testing and Certification",
+      labelCN: "CEPA下檢測認證相關條文摘要",
+      content: <SummaryOfCEPA />,
+    },
+    GBA: {
+      label: "GBA Standard and Certification",
+      labelCN: "灣區標準",
+      content: <GBA />,
+    },
   },
 };
 
@@ -54,10 +78,10 @@ const returnComponent = (
   activatedDirectorySidebarItems: string
 ): {
   topBanner: string;
-  directoryItems: string[];
+  directoryItemsKeys: string[];
   component: React.ReactNode | null;
 } => {
-  const directoryItems =
+  const directoryItemsKeys =
     Object.keys(directorySidebarItemsMap[navItem] ?? {}) ?? [];
 
   const rightComponentMap: Partial<
@@ -85,13 +109,15 @@ const returnComponent = (
     [navItemEnum.accommodation_and_land]: {
       topBanner: "support/support_4.png",
       component:
-        directorySidebarItemsMap[navItem]?.[activatedDirectorySidebarItems],
+        directorySidebarItemsMap[navItem]?.[activatedDirectorySidebarItems]
+          ?.content,
     },
     // Entering into the Mainland Market
     [navItemEnum.entering_into_the_mainland_market]: {
       topBanner: "support/support_5.png",
       component:
-        directorySidebarItemsMap[navItem]?.[activatedDirectorySidebarItems],
+        directorySidebarItemsMap[navItem]?.[activatedDirectorySidebarItems]
+          ?.content,
     },
     // other Support
     [navItemEnum.other_support]: {
@@ -102,7 +128,7 @@ const returnComponent = (
   return {
     topBanner: rightComponentMap[navItem]?.topBanner ?? "support/support_1.png",
     component: rightComponentMap[navItem]?.component,
-    directoryItems,
+    directoryItemsKeys,
   };
 };
 
@@ -164,14 +190,14 @@ export const Support: React.FC = () => {
     activeSidebarItems as navItemEnum,
     activatedDirectorySidebarItems
   );
-  const { directoryItems, topBanner, component } = dramaticComponent;
+  const { directoryItemsKeys, topBanner, component } = dramaticComponent;
 
   useEffect(() => {
     if (initialParam !== activeSidebarItems) {
       if (!initialHashIndex) navigate(`?section=${initialParam}`);
       else {
         navigate(`?section=${initialParam}#${initialHashIndex}`);
-        setActivatedDirectorySidebarItems(directoryItems[initialHashIndex]);
+        setActivatedDirectorySidebarItems(directoryItemsKeys[initialHashIndex]);
       }
       setActiveSidebarItems(initialParam);
     }
@@ -179,17 +205,19 @@ export const Support: React.FC = () => {
     activeSidebarItems,
     initialHash,
     initialHashIndex,
-    directoryItems,
+    directoryItemsKeys,
     initialParam,
     navigate,
   ]);
 
   useEffect(() => {
-    if (directoryItems.length !== 0) {
-      setActivatedDirectorySidebarItems(directoryItems[initialHashIndex ?? 0]);
+    if (directoryItemsKeys.length !== 0) {
+      setActivatedDirectorySidebarItems(
+        directoryItemsKeys[initialHashIndex ?? 0]
+      );
       window.location.hash = `${initialHashIndex ?? 0}`;
     }
-  }, [activeSidebarItems, initialHash, initialHashIndex, directoryItems]);
+  }, [activeSidebarItems, initialHash, initialHashIndex, directoryItemsKeys]);
 
   const handleChangeSidebar = (activatedItemEnum: string): void => {
     setActiveSidebarItems(activatedItemEnum as navItemEnum);
@@ -201,7 +229,7 @@ export const Support: React.FC = () => {
   };
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
-    const hashIndex = directoryItems.findIndex(
+    const hashIndex = directoryItemsKeys.findIndex(
       (item) => item === activatedItems
     );
     setActivatedDirectorySidebarItems(activatedItems);
@@ -222,22 +250,43 @@ export const Support: React.FC = () => {
     },
     {
       label: activeSidebarItemsLabel,
-      ...(directoryItems.length === 0
+      ...(directoryItemsKeys.length === 0
         ? {}
         : {
             href: `/support?section=${activeSidebarItems}#0`,
           }),
     },
-    ...(directoryItems.length === 0
+    ...(directoryItemsKeys.length === 0
       ? []
-      : [{ label: activatedDirectorySidebarItems }]),
+      : [
+          {
+            label:
+              (isEn
+                ? directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
+                    activatedDirectorySidebarItems
+                  ]?.label
+                : directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
+                    activatedDirectorySidebarItems
+                  ]?.labelCN) ?? "",
+          },
+        ]),
   ];
 
+  const processedDirectoryItemsKeys: DirectorySidebarItems[] =
+    directoryItemsKeys.map((k) => ({
+      label:
+        directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[k]
+          ?.label ?? "",
+      labelCN:
+        directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[k]
+          ?.labelCN ?? "",
+      value: k,
+    }));
   const sidebar = (
     <>
-      {directoryItems.length > 0 && (
+      {directoryItemsKeys.length > 0 && (
         <DirectorySidebar
-          directorySidebarItems={directoryItems}
+          directorySidebarItems={processedDirectoryItemsKeys}
           activatedItems={activatedDirectorySidebarItems}
           setActivatedItems={handleChangeDirectorySidebarItems}
         />

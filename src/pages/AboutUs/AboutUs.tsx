@@ -47,10 +47,12 @@ export const AboutUs: React.FC = () => {
   const directorySidebarItems: DirectorySidebarItems[] = [
     {
       label: about_hkctc,
+      labelCN: about_hkctc,
       value: navItemEnum.about_HKCTC,
     },
     {
       label: panel,
+      labelCN: panel,
       value: navItemEnum.panel_on_manpower_development,
     },
   ];
