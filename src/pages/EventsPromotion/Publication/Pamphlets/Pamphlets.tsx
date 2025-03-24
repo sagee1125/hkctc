@@ -34,8 +34,8 @@ export const Pamphlets: React.FC = () => {
     2: bookletsList, // Booklets
   };
   const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const { pamphlets, types, filterButtons } = page_text;
 
   const filteredArticles = filterList[activeButton];
@@ -91,7 +91,7 @@ export const Pamphlets: React.FC = () => {
         } `}
       >
         {currentPageData?.map((item, index) => {
-          const { title, mediaType, date, link, thumbnail } = item;
+          const { title, titleCN, mediaType, date, link, thumbnail } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           const cover = !!thumbnail ? "pamphlets/" + thumbnail : "";
@@ -103,7 +103,7 @@ export const Pamphlets: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={isEn ? title : titleCN}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

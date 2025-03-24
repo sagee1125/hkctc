@@ -247,6 +247,7 @@ export const legislativeCouncilList: PublicationType[] = [
 export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 12 (Dec 2024)",
+    titleCN: "第十二期（2024年12月）",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue12.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -256,6 +257,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 11 (May 2024)",
     date: "",
+    titleCN: "第十一期（2024年5月）",
     link: "/tc/doc/hkctc_newsletter_issue11.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2023],
@@ -264,6 +266,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 10 (Dec 2023)",
     date: "",
+    titleCN: "第十期（2023年12月）",
     link: "/tc/doc/hkctc_newsletter_issue10.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2023],
@@ -272,6 +275,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 9 (May 2023)",
     date: "",
+    titleCN: "第九期（2023年5月）",
     link: "/tc/doc/hkctc_newsletter_issue9.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2023],
@@ -280,6 +284,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 8 (Aug 2022)",
     date: "",
+    titleCN: "第八期（2022年8月）",
     link: "/tc/doc/hkctc_newsletter_issue8.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2022, 2022],
@@ -288,6 +293,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 7 (Jul 2021)",
     date: "",
+    titleCN: "第七期（2021年7月）",
     link: "/tc/doc/hkctc_newsletter_issue7.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2021, 2021],
@@ -296,6 +302,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   {
     title: "No. 6 (Dec 2020)",
     date: "",
+    titleCN: "第六期（2020年12月）",
     link: "/tc/doc/hkctc_newsletter_issue6.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2020, 2020],
@@ -303,6 +310,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   },
   {
     title: "No. 5 (Jan 2020)",
+    titleCN: "第五期（2020年1月）",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue5.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -311,6 +319,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   },
   {
     title: "No. 4 (Jul 2019)",
+    titleCN: "第四期（2019年7月)",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue4.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -319,6 +328,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   },
   {
     title: "No. 3 (Oct 2018)",
+    titleCN: "第三期（2018年10月）",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue3.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -327,6 +337,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   },
   {
     title: "No. 2 (Dec 2017)",
+    titleCN: "第二期（2017年12月)",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue2.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -335,6 +346,7 @@ export const hkctcNewsletterList: PublicationType[] = [
   },
   {
     title: "No. 1 (Jul 2017)",
+    titleCN: "第一期（2017年7月）",
     date: "",
     link: "/tc/doc/hkctc_newsletter_issue1.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -535,6 +547,7 @@ export const convertedCoursesList: PublicationType[] = coursesList.map((c) => ({
 export const pamphletsList: PublicationType[] = [
   {
     title: "Tested in Hong Kong Certified in Hong Kong",
+    titleCN: "香港檢測 香港認證",
     date: "",
     link: "/en/doc/Tested_in_Hong_Kong_Certified_in_Hong_Kong_en_tc.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -544,6 +557,7 @@ export const pamphletsList: PublicationType[] = [
   {
     title: "Product Certification - An Upstream Quality Control",
     date: "",
+    titleCN: "產品認証 - 從上游監控品質",
     link: "/en/doc/HKCTC_Leaflet_construction_product_certification.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -553,6 +567,7 @@ export const pamphletsList: PublicationType[] = [
     title:
       "Testing and Inspection Services for Buildings and Construction Materials",
     date: "",
+    titleCN: "香港的樓宇及建築材料認可測試和檢驗服務",
     link: "/en/doc/HKCTC_Leaflet_Building_inspection.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -561,6 +576,7 @@ export const pamphletsList: PublicationType[] = [
   {
     title: "What you Need to Know about Medical Testing",
     date: "",
+    titleCN: "選擇醫務化驗須知",
     link: "/en/quality/hkas/doc/pamphlets/HKAS_PB004.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -568,6 +584,7 @@ export const pamphletsList: PublicationType[] = [
   },
   {
     title: "Food Testing and Certification",
+    titleCN: "食品檢測和認證",
     date: "",
     link: "/en/doc/Food_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -576,6 +593,7 @@ export const pamphletsList: PublicationType[] = [
   },
   {
     title: "Chinese Medicines Testing",
+    titleCN: "中藥測試",
     date: "",
     link: "/en/doc/Chinese_Medicines_Pamphlet_2018.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -584,6 +602,7 @@ export const pamphletsList: PublicationType[] = [
   },
   {
     title: "Testing of Fei Cui and Diamond in Hong Kong",
+    titleCN: "香港翡翠及鑽石測試",
     date: "",
     link: "/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -592,6 +611,7 @@ export const pamphletsList: PublicationType[] = [
   },
   {
     title: "Diamond Testing Services in Hong Kong",
+    titleCN: "香港的鑽石測試服務",
     date: "",
     link: "/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -602,6 +622,7 @@ export const pamphletsList: PublicationType[] = [
     title:
       "Understanding Information Security Management System (ISMS) Certification",
     date: "",
+    titleCN: "認識資訊安全管理系統認證",
     link: "/en/doc/ISMS_Flyer_Communications_5.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -610,6 +631,7 @@ export const pamphletsList: PublicationType[] = [
   {
     title: "Greenhouse Gas (GHG) Quantification, Validation and Verification",
     date: "",
+    titleCN: "溫室氣體量化、審定和核查",
     link: "/en/doc/2017_ITC_Leaflet_ISO14064.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -618,6 +640,7 @@ export const pamphletsList: PublicationType[] = [
   {
     title: "ISO 50001 Energy Management System Certification",
     date: "",
+    titleCN: "ISO 50001能源管理體系認證",
     link: "/en/doc/2017_ITC_Leaflet_ISO50001.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -626,6 +649,7 @@ export const pamphletsList: PublicationType[] = [
   {
     title: "Career Development in Testing and Certification Industry",
     date: "",
+    titleCN: "檢測認證職業發展",
     link: "/en/doc/pamphlet_a.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -637,6 +661,7 @@ export const bookletsList: PublicationType[] = [
   {
     title: "Electrical and Electronic Products",
     date: "",
+    titleCN: "電氣及電子產品",
     link: "/en/doc/EEP_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -644,12 +669,14 @@ export const bookletsList: PublicationType[] = [
   {
     title: "Textile and Apparel",
     date: "",
+    titleCN: "紡織與成衣",
     link: "/en/doc/textile_booklet_low_res_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
   },
   {
     title: "Toys",
+    titleCN: "玩具",
     date: "",
     link: "/en/doc/toys_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -658,6 +685,7 @@ export const bookletsList: PublicationType[] = [
   {
     title: "Food",
     date: "",
+    titleCN: "食品",
     link: "/en/doc/food_booklet_eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
@@ -665,6 +693,7 @@ export const bookletsList: PublicationType[] = [
   {
     title: "Testing and Certification Create Your Future",
     date: "",
+    titleCN: "檢測認證創未來",
     link: "/en/doc/brochure_e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     category: [CATEGORIES.PUBLICATIONS],
