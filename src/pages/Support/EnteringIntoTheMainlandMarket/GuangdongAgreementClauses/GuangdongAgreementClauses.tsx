@@ -38,7 +38,7 @@ const multilingual = {
   cn: {
     title:
       "《關於內地在廣東與香港基本實現服務貿易自由化的協議》（《廣東協議》） - 有關條文",
-    liberalisation: "服務貿易開放措施（節錄自《廣東協議》（附件1表2））：",
+    liberalisation: "服務貿易開放措施（節錄自《廣東協議》（附件1表2））",
     sectors: "部門或分部門",
     business_services: "商務服務",
     other_business_services: "F. 其他商務服務",
