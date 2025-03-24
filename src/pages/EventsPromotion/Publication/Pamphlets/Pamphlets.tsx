@@ -9,20 +9,36 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
+
+const multilingual = {
+  en: {
+    pamphlets: "Pamphlets And Booklets",
+    types: "Types",
+    filterButtons: ["All", "Pamphlets", "Booklets"],
+  },
+  cn: {
+    pamphlets: "宣傳單張及小冊子",
+    types: "類型",
+    filterButtons: ["全部", "宣傳單張", "小冊子"],
+  },
+};
+
 export const Pamphlets: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
-  const filterButtons = ["All", "Pamphlets", "Booklets"];
-  const filterList: Record<string, any[]> = {
-    All: [...pamphletsList, ...bookletsList],
-    Pamphlets: pamphletsList,
-    Booklets: bookletsList,
+  const filterList: Record<number, any[]> = {
+    0: [...pamphletsList, ...bookletsList], // all
+    1: pamphletsList, // Pamphlets
+    2: bookletsList, // Booklets
   };
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { pamphlets, types, filterButtons } = page_text;
 
-  const filteredArticles = filterList[filterButtons[activeButton]];
+  const filteredArticles = filterList[activeButton];
   const [currentPage, setCurrentPage] = useState<number>(0);
   const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
     currentPage,
@@ -39,10 +55,10 @@ export const Pamphlets: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="Pamphlets And Booklets" />
+      <SquareTitle title={pamphlets} />
       <div>
         <NormalAccordion
-          title="Types"
+          title={types}
           details={
             <div className="flex flex-row gap-[8px]">
               {filterButtons.map((name, index) => {
@@ -74,11 +90,10 @@ export const Pamphlets: React.FC = () => {
             : "grid-cols-1 gap-[24px]"
         } `}
       >
-        {currentPageData.map((item, index) => {
+        {currentPageData?.map((item, index) => {
           const { title, mediaType, date, link, thumbnail } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
-          console.log("thumbnail", thumbnail);
           const cover = !!thumbnail ? "pamphlets/" + thumbnail : "";
           return (
             <div

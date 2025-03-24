@@ -20,7 +20,7 @@ export const handleGetPaginatorProp = (
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   // Slice the data array based on the current page
-  const currentPageData = dataSet.slice(startIndex, endIndex);
+  const currentPageData = dataSet?.slice(startIndex, endIndex);
 
   return {
     currentPageData,
@@ -37,7 +37,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
   endIndex,
 }) => {
   // Maximum number of pages (0-based index)
-  const maxPage = Math.ceil(dataSet.length / itemsPerPage) - 1;
+  const maxPage = Math.ceil(dataSet?.length / itemsPerPage) - 1;
 
   return (
     <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
