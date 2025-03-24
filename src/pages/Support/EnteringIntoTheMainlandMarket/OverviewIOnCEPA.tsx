@@ -6,7 +6,7 @@ import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { CEPAAgreements_ids } from "./CEPAAgreements";
 import { navItemEnum } from "../../../const";
 import { useNavigate } from "react-router-dom";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 const Agreement: React.FC = () => {
   const agreementQuestion: Array<{
@@ -84,9 +84,68 @@ const Agreement: React.FC = () => {
     },
   ];
 
+  const agreementQuestionCN: Array<{
+    question: string;
+    answer: React.ReactNode;
+  }> = [
+    {
+      question:
+        "香港檢測機構參與有關中國強制性產品認證（“CCC”）目錄產品的檢測工作，申請程序為何?",
+      answer: (
+        <>
+          <p>
+            《服務貿易協議》中與檢測認證相關的條款於二○一九年十一月獲修訂。根據二○二○年五月公布的相關
+            <a
+              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              實施指南
+            </a>
+            ，擬從事CCC檢測工作的香港檢測機構必須取得香港認可處實驗所認可計劃的認可，以確認該實驗所具備進行CCC產品檢測的能力。該等檢測機構亦須與內地指定認證機構簽訂合作協議。有關對檢測機構的資質要求及申請與內地指定機構合作的程序，請見
+            <a
+              href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              香港認可處網頁
+            </a>
+            。
+          </p>
+        </>
+      ),
+    },
+    {
+      question:
+        "有關二○二五年二月公布的實施指南中CCC工廠檢查員的部份，如果該等香港認證機構的工廠檢查員，日後轉換了所屬的香港認證機構，該名工廠檢查員是否需要重新按照實施指南內列明的程序，再次向中國認證認可協會（“CCAA”）提出申請及／或通過相關訓練和考試？",
+      answer: (
+        <>
+          <p>
+            目前已經在「CCAA認證人員註冊與管理系統」中註冊過的CCC工廠檢查員，在轉換機構時，只需要在該系統中使用「轉換機構申請」功能，按照系統提示程序進行轉換機構即可。該過程不再需要向CCAA進行書面申請，也不需要進行培訓考試（「CCAA認證人員註冊與管理系統」請見CCAA的
+            <a
+              href="https://service.ccaa.org.cn/#/index"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              網頁
+            </a>
+            ）。
+          </p>
+        </>
+      ),
+    },
+  ];
+
+  const { language } = useSettings();
+
+  const questions =
+    language === Language.EN ? agreementQuestion : agreementQuestionCN;
   return (
     <div className="w-full flex flex-col gap-[8px]">
-      {agreementQuestion.map((item, index) => (
+      {questions.map((item, index) => (
         <Accordion
           key={index}
           title={`${index + 1}. ${item.question}`}
@@ -141,8 +200,9 @@ const EnterpriseRun: React.FC = () => {
                 className="underline text-[#00E]"
               >
                 CNCA PN No. 34 of 2015 —
-                《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》;
+                《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》
               </a>
+              ;
             </li>
             <li>
               <a
@@ -164,8 +224,9 @@ const EnterpriseRun: React.FC = () => {
                 className="underline text-[#00E]"
               >
                 CNCA PN No. 28 of 2017 —
-                《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》.
+                《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》
               </a>
+              .
             </li>
           </ul>
           <p>Enquiries should be addressed to CNCA -</p>
@@ -292,7 +353,7 @@ const EnterpriseRun: React.FC = () => {
           <p>Contact person: Mr. GUAN Jun-wen</p>
           <p>Phone number: +86-10-82262674</p>
           <p>
-            Email address::&nbsp;
+            Email address:&nbsp;
             <a
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
@@ -305,9 +366,188 @@ const EnterpriseRun: React.FC = () => {
     },
   ];
 
+  const agreementQuestionCN: Array<{
+    question: string;
+    answer: React.ReactNode;
+  }> = [
+    {
+      question: "香港企業在內地開設的檢測機構可以成為CCC制度的指定實驗室嗎？",
+      answer: (
+        <>
+          <p>
+            根據國家認證認可監督管理委員會（“認監委”）2015年第34號公告、2017年第1號公告和第28號公告，符合上述通告指定的條件和要求的實驗室（包括香港企業在內地開設的檢測機構），可隨時向認監委提交承擔CCC相關檢測任務的申請。
+          </p>
+          <br />
+          <p>
+            至於其他尚未包含在上述通告的產品領域，有意願承擔CCC相關檢測任務的實驗室，可於每年4月1日前向認監委提交書面需求。經評估後，認監委發佈指定計劃公告，有興趣的機構可以按公告要求申請。
+          </p>
+          <br />
+          <p>上述通告的詳情請見以下網頁：</p>
+          <br />
+          <ul>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                認監委2015年第34號公告—《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》
+              </a>
+              ；
+            </li>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                認監委2017年第1號公告—《國家認監委關於進一步深化汽車強制性產品認證改革的公告》
+              </a>
+              ；及
+            </li>
+            <li>
+              <a
+                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                認監委2017年第28號公告—《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》
+              </a>
+              。
+            </li>
+          </ul>
+          <br />
+          <p>如有進一步查詢，請聯絡：</p>
+          <br />
+          <p>國家市場監督管理總局 認證監督管理司</p>
+          <p>（中國國家認證認可監督管理委員會）</p>
+          <br />
+          <p className="underline">電子電器產品</p>
+          <p>邱磊先生</p>
+          <p>電話：&nbsp;+86-10-82262779</p>
+          <p>
+            電郵：&nbsp;
+            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+              qiul@cnca.gov.cn
+            </a>
+          </p>
+          <br />
+          <p className="underline">非電子電器產品</p>
+          <p>關鈞文先生</p>
+          <p>電話：&nbsp;+86-10-82262674</p>
+          <p>
+            電郵：&nbsp;
+            <a
+              href="mailto:guanjw@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
+              guanjw@cnca.gov.cn
+            </a>
+          </p>
+        </>
+      ),
+    },
+    {
+      question:
+        "《經濟技術合作協議》第二十三（八）條「研究符合條件的香港企業在內地開設的認證機構，申請成為中國強制性產品認證（CCC）制度的指定認證機構」的實施辦法為何？",
+      answer: (
+        <>
+          <p>
+            如其他在內地合法設立的認證機構一樣（包括國有、民營、港澳資、外資機構），符合條件的香港企業在內地開設的認證機構，可根據內地現有的申請制度，直接認監委提出申請。本條文不另設實施指南。
+          </p>
+          <br />
+          <p>
+            相關申請制度、條件和程序，已載於國家市場監督管理總局（市場監管總局）的網頁，詳見市場監管總局的
+            <a
+              className="underline text-[#00E]"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://www.samr.gov.cn/fw/wsbs/rzrkjyjc/rzjgzd/"
+            >
+              《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》
+            </a>
+            網頁。申請者亦可參考認監委的
+            <a
+              href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              「強制性產品認證專欄」
+            </a>
+            。
+          </p>
+        </>
+      ),
+    },
+    {
+      question: "符合條件的香港企業在內地開設的認證機構何時可向認監委申請？",
+      answer: (
+        <>
+          <p>
+            根據原國家質量監督檢驗檢疫總局發佈的《強制性產品認證機構、檢查機構和實驗室管理辦法》第十二條，認監委按強制性產品認證制度的具體要求和實施需要，提出指定計劃，並以公告形式在認監委的
+            <a
+              href="https://www.cnca.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              官方網頁
+            </a>
+            及微信公眾號（微信帳號：cnca_2015）對外發佈。
+          </p>
+          <br />
+          <p>
+            一般而言，認證機構可在每年4月1日前就有興趣於何等範疇成為CCC制度的指定認證機構向認監委表達意向。經評估後，認監委發佈指定計劃公告，有興趣的機構可以按公告要求申請。
+          </p>
+          <br />
+          <p>
+            符合條件的香港企業在內地開設的認證機構可在指定計劃規定的時限內向認監委提出申請。
+          </p>
+          <br />
+          <p>如有進一步查詢，請聯絡：</p>
+          <br />
+          <p>國家市場監督管理總局 認證監督管理司</p>
+          <p>（中國國家認證認可監督管理委員會）</p>
+
+          <br />
+          <p className="underline">電子電器產品</p>
+          <p>邱磊先生</p>
+
+          <p>
+            電郵：&nbsp;
+            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+              qiul@cnca.gov.cn
+            </a>
+          </p>
+          <br />
+          <p className="underline">非電子電器產品</p>
+          <p>關鈞文先生</p>
+          <p>電話：&nbsp;+86-10-82262674</p>
+          <p>
+            電郵：&nbsp;
+            <a
+              href="mailto:guanjw@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
+              guanjw@cnca.gov.cn
+            </a>
+          </p>
+        </>
+      ),
+    },
+  ];
+
+  const { language } = useSettings();
+
+  const questions =
+    language === Language.EN ? agreementQuestion : agreementQuestionCN;
   return (
     <div className="w-full flex flex-col gap-[8px]">
-      {agreementQuestion.map((item, index) => (
+      {questions.map((item, index) => (
         <Accordion
           key={index}
           title={`${index + 1}. ${item.question}`}
@@ -320,18 +560,22 @@ const EnterpriseRun: React.FC = () => {
 
 const faqMap: Record<
   string,
-  { label: string; labelCN: string; content: React.ReactNode }
+  {
+    label: string;
+    labelCN: string;
+    content: React.ReactNode;
+  }
 > = {
   tradeInServices: {
     label: "Agreement on Trade in Services",
-    labelCN: "Agreement on Trade in Services",
+    labelCN: "《服務貿易協議》",
     content: <Agreement />,
   },
   CCC: {
     label:
       "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system",
     labelCN:
-      "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system",
+      "香港企業在內地開設的機構成為中國強制性產品認證（“CCC”）制度的指定機構",
     content: <EnterpriseRun />,
   },
 };
@@ -344,6 +588,10 @@ const multilingual = {
     show_all: "Show All",
     hide: "Hide",
     faq: "Frequently Asked Questions",
+    faq_tabs: [
+      "Agreement on Trade in Services",
+      "Hong Kong enterprise-run organisations in the Mainland designated under the China Compulsory Certification (CCC) system",
+    ],
   },
 
   cn: {
@@ -352,7 +600,10 @@ const multilingual = {
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
   const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
   );
@@ -573,7 +824,11 @@ export const OverviewIOnCEPA: React.FC = () => {
         <div className="flex flex-wrap gap-[8px] my-[24px]">
           {Object.keys(faqMap).map((btn, index) => {
             const isActivated = btn === activeFAQType;
-            const label = faqMap[activeFAQType].label;
+
+            const label =
+              language === Language.EN
+                ? faqMap[btn].label
+                : faqMap[btn].labelCN;
             return (
               <button
                 key={index}
