@@ -125,38 +125,3 @@ export const TC_SECTOR_STRENGTH_TEXT = {
     },
   },
 };
-
-export const TC_SERVICE_PROVIDED_TEXT = {
-  EN: {
-    TITLE: "Services Provided by T&C Industry",
-    INTRO:
-      "In general, the testing and certification (T&C) industry provides three types of services:",
-
-    TESTING: {
-      TITLE: "Testing",
-      CONTENT_1:
-        "Testing is the determination of one or more characteristics of an object according to a procedure. Examples include:",
-      INCLUDE_LIST: [
-        "Testing of a food product to determine its heavy metal contents",
-        "Testing of blood to determine its red blood cell count",
-      ],
-      CONTENT_2:
-        "Testing activities support a variety of business areas in meeting local needs, e.g. medical , construction materials, food, Chinese medicines, Jewellery, etc.",
-      CONTENT_3:
-        "On external demand, testing activities are mostly related to testing of consumer products for export, e.g. textiles, clothing and footwear, toys and games, electrical and electronic products, etc.",
-
-      SUMMARY_TITLE:
-        "Summary Table on Testing, Inspection and Certification Services",
-    },
-    INSPECTION: {
-      TITLE: "Inspection",
-    },
-    CERTIFICATION: {
-      TITLE: "Certification",
-    },
-  },
-};
-
-// export const TC_SERVICE_PROVIDED_TEXT = {
-
-// }

@@ -1565,7 +1565,6 @@ export const award2122_list_multilingual = {
       "TUV SUD Hong Kong Limited",
       "Xcelom Limited",
     ],
-
     corporate_awardees: `Corporate Awardees Receiving Special Commendation for Their
                 Commitment to Testing and Certification Practitioners’ Training
                 and Development`,
@@ -1581,41 +1580,34 @@ export const award2122_list_multilingual = {
     nominate_test_body: "Nominating Testing and Certification Body",
     juniorGroup: [
       {
-        one: "Miss LAW Tsz-yen",
-        two: "Associate Veterinary Technologist",
-        three:
-          "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        one: "Miss KOH Wa Yan",
+        two: "Calibration Engineer",
+        three: "The Lab (Asia) Limited",
       },
       {
-        one: "Miss LIN Yuet-ching",
-        two: "Chemical Analyst I",
-        three: "The Hong Kong Jockey Club - Racing Laboratory",
-      },
-      {
-        one: "Miss LO Man-Ki",
-        two: "Associate Veterinary Technologist",
-        three:
-          "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
-      },
-      {
-        one: "Mr MAK Tsz-shing, Stephen",
-        two: "Chemist",
-        three: "Bureau Veritas Hong Kong Limited",
-      },
-      {
-        one: "Mr WONG Chi-ho",
-        two: "Assistant Technical Executive",
+        one: "Mr LAI Ka Hei, Calvin",
+        two: "Certification Officer",
         three: "SGS Hong Kong Limited",
       },
       {
-        one: "Dr WONG Fai, George",
-        two: "Chemist",
-        three: "Government Laboratory",
+        one: "Miss LAM Kong Fun",
+        two: "Technical Officer",
+        three: "The Hong Kong Standards and Testing Centre Ltd.",
       },
       {
-        one: "Miss WONG Hoi-ki",
-        two: "Senior Technical Officer",
-        three: "Castco Testing Centre Limited",
+        one: "Miss LI Cheuk Ting, Vivian",
+        two: "Test Engineer",
+        three: "TUV SUD Hong Kong Limited",
+      },
+      {
+        one: "Mr TSANG Cheuk Nam",
+        two: "Laboratory Officer",
+        three: "Hong Kong Productivity Council – Green Living Laboratory",
+      },
+      {
+        one: "Mr YAU Cheuk On",
+        two: "Senior Engineer",
+        three: "The Lab (Asia) Limited",
       },
     ],
 
@@ -1664,12 +1656,7 @@ export const award2122_list_multilingual = {
       },
       {
         one: "Mr WONG Chi",
-        two: "Chief Inspector, Forensic Fingerprint Laboratory",
-        three: "Hong Kong Police Force - Identification Bureau",
-      },
-      {
-        one: "Dr TAN Tung-fai, Tony",
-        two: "Deputy General Manager	",
+        two: "Deputy General Manager",
         three: "China Inspection Medical Laboratories Limited",
       },
       {
@@ -1724,207 +1711,161 @@ export const award2122_list_multilingual = {
   },
   cn: {
     breadcrumb: [
-      "Home",
-      "Events & Promotions",
-      "Events",
-      "T&C Manpower Development Award Scheme",
-      "List of Awardees/ Award Ceremony 2021-2022",
+      "主頁",
+      "活動及宣傳",
+      "活動",
+      "檢測認證人力發展嘉許計劃",
+      "得獎名單/ 頒獎典禮 2021-2022",
     ],
     directory_sidebar: {
-      tc_manpower:
-        "Testing and Certification Manpower Development Corporate Testing",
-      tc_profession:
-        "Excellent Testing and Certification Professional Awardees",
-      award_ceremony: "Award Ceremony",
+      tc_manpower: "檢測認證人力發展機構獎得獎者",
+      tc_profession: "卓越檢測認證專業人員獎得獎者",
+      award_ceremony: "頒獎典禮",
     },
     mobile_sidebar: {
-      content_list: "Content List",
+      content_list: "內容列表",
     },
-    awardees: "Awardees",
+    awardees: "得獎者",
     manpowerDevelopmentAwardees: [
-      "Accredited Certification International Limited",
-      "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory",
+      "國際認可認証有限公司",
+      "漁農自然護理署 – 大龍獸醫化驗所",
       "ALS Technichem (HK) Pty Limited",
-      "BSI Pacific Limited",
-      "Castco Testing Centre Limited",
-      "Civil Engineering and Development Department - Public Works Laboratories",
-      "CMA Industrial Development Foundation Ltd",
-      "Drainage Services Department - Sewage Services Branch Operation Section Laboratory and Laboratory Services Sub-division - Shatin Central Laboratory",
-      "Fugro Technical Services Limited and Fugro Certification Services Limited",
-      "Hong Kong Baptist University - Chemical Testing Services",
-      "Hong Kong Police Force - Identification Bureau",
-      "Hong Kong Productivity Council - Green Living Laboratory",
-      "Hospital Authority - Medical Equipment Calibration Laboratory",
-      "Housing Department - Materials Testing Laboratory",
-      "Innovation and Technology Commission - Standards and Calibration Laboratory",
-      "Intertek Testing Services Hong Kong Limited",
-      "Lee Kum Kee Company Limited - Testing Laboratory",
-      "Material Tech Company Limited",
-      "MINSEN Testing (Hong Kong) Limited and MINSEN Certification (Asia) Limited",
-      "PIT Limited",
-      "QIMA Limited and QIMA Testing (HK) Limited",
-      "Quality Pro Test-Consult Limited",
-      "SGS Hong Kong Limited",
-      "The Hong Kong Standards and Testing Centre Ltd. and The Hong Kong Certification Centre Ltd.",
+      "BSI太平洋有限公司",
+      "佳力高試驗中心有限公司",
+      "土木工程拓展署 – 工務試驗所",
+      "香港中華廠商聯合會工業發展基金有限公司",
+      "渠務署 – 污水處理服務科行動組實驗室及化驗室服務分部 – 沙田中央化驗室",
+      "輝固技術服務有限公司及輝固認證服務有限公司",
+      "香港浸會大學 – 化學分析中心",
+      "香港警務處 – 鑑證科",
+      "香港生產力促進局 – 綠色生活化驗室",
+      "醫院管理局 – 醫學儀器校正實驗所",
+      "房屋署 – 材料試驗所",
+      "創新科技署 – 標準及校正實驗所",
+      "天祥公證行有限公司",
+      "李錦記有限公司 – 試驗室",
+      "進科檢測有限公司",
+      "明晟檢測(香港)有限公司及明晟認證(亞洲)有限公司",
+      "高準檢驗及檢測有限公司",
+      "QIMA Limited 及 QIMA Testing (HK) Limited",
+      "專業化驗有限公司",
+      "香港通用檢測認證有限公司",
+      "香港標準及檢定中心有限公司及香港認証中心有限公司",
       "The Lab (Asia) Limited",
-      "TÜV Rheinland Hong Kong Limited",
-      "TUV SUD Hong Kong Limited",
-      "Xcelom Limited",
+      "香港德國萊茵技術監護顧問股份有限公司",
+      "南德認證檢測香港有限公司",
+      "雅士能基因科技有限公司",
     ],
+    corporate_awardees: `機構在致力推動檢測認證從業員的培訓和發展方面有特殊成就，因而獲得特別嘉許獎`,
+    hk_jockey_club: "香港賽馬會 – 賽事化驗所",
+    ul_international: "UL安全檢定國際有限公司",
+    awardee_sub_group: ["「初級專業人員」組別", "「中級管理人員」組別"],
 
-    corporate_awardees: `Corporate Awardees Receiving Special Commendation for Their
-                Commitment to Testing and Certification Practitioners’ Training
-                and Development`,
-    hk_jockey_club: "The Hong Kong Jockey Club - Racing Laboratory",
-    ul_international: "UL International Limited",
-    awardee_sub_group: [
-      "Junior Professional Sub-group",
-      "Middle Management Sub-group",
-    ],
-
-    name: "Name",
-    position: "Position",
-    nominate_test_body: "Nominating Testing and Certification Body",
+    name: "姓名",
+    position: "職位",
+    nominate_test_body: "提名檢測認證機構",
     juniorGroup: [
       {
-        one: "Miss LAW Tsz-yen",
-        two: "Associate Veterinary Technologist",
-        three:
-          "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        one: "柯驊恩小姐",
+        two: "校準工程師",
+        three: "The Lab (Asia) Limited",
       },
       {
-        one: "Miss LIN Yuet-ching",
-        two: "Chemical Analyst I",
-        three: "The Hong Kong Jockey Club - Racing Laboratory",
+        one: "黎家僖先生",
+        two: "認證主任",
+        three: "香港通用檢測認證有限公司",
       },
       {
-        one: "Miss LO Man-Ki",
-        two: "Associate Veterinary Technologist",
-        three:
-          "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory (Veterinary Laboratory Division)",
+        one: "林港歡小姐",
+        two: "技術主任",
+        three: "香港標準及檢定中心有限公司",
       },
       {
-        one: "Mr MAK Tsz-shing, Stephen",
-        two: "Chemist",
-        three: "Bureau Veritas Hong Kong Limited",
+        one: "李芍葶小姐",
+        two: "Test Engineer",
+        three: "南德認證檢測香港有限公司",
       },
       {
-        one: "Mr WONG Chi-ho",
-        two: "Assistant Technical Executive",
-        three: "SGS Hong Kong Limited",
+        one: "曾卓男先生",
+        two: "實驗室主任",
+        three: "香港生產力促進局 – 綠色生活化驗室",
       },
       {
-        one: "Dr WONG Fai, George",
-        two: "Chemist",
-        three: "Government Laboratory",
-      },
-      {
-        one: "Miss WONG Hoi-ki",
-        two: "Senior Technical Officer",
-        three: "Castco Testing Centre Limited",
+        one: "邱卓安先生",
+        two: "高級工程師",
+        three: "The Lab (Asia) Limited",
       },
     ],
 
     middleGroup: [
       {
-        one: "Dr IP Bui Kar",
-        two: "Associate Medical Technologist",
-        three: "Hong Kong Sanatorium & Hospital - Department of Pathology",
+        one: "葉貝嘉博士",
+        two: "副醫務化驗師",
+        three: "養和醫院 – 病理部",
       },
       {
-        one: "Mr KWOK Chi Wa",
-        two: "Technical Manager",
-        three: "Material Tech Company Limited",
+        one: "郭志華先生",
+        two: "技術經理",
+        three: "進科檢測有限公司",
       },
       {
-        one: "Mr KWOK Yin Ho, Eric",
-        two: "Senior Laboratory and Technical Development Manager",
-        three: "SGS Hong Kong Limited",
+        one: "郭賢豪先生",
+        two: "高級化驗及技術發展經理",
+        three: "香港通用檢測認證有限公司",
       },
       {
-        one: "Dr LAW Yuen Chi",
-        two: "Chemist",
-        three:
-          "Drainage Services Department - Sewage Services Branch Operation Section Laboratory",
+        one: "羅婉芝博士",
+        two: "化驗師",
+        three: "渠務署 – 污水處理服務科行動組實驗室",
       },
       {
-        one: "Mr LEE Kwong Sang",
-        two: "Microbiology Laboratory Manager",
-        three: "China Dragon Inspection & Certification (HK) Ltd",
+        one: "李廣生先生",
+        two: "微生物實驗室經理",
+        three: "中龍檢驗認證(香港)有限公司",
       },
       {
-        one: "Mr MA Chung Hang, Adrian",
-        two: "Technical Manager",
-        three: "Castco Testing Centre Limited",
+        one: "馬仲行先生",
+        two: "技術經理",
+        three: "佳力高試驗中心有限公司",
       },
       {
-        one: "Mr PUN Chi Kit, Patrick",
-        two: "Scientific Officer (Medical)",
-        three:
-          "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory",
+        one: "潘志傑先生",
+        two: "科學主任（醫務）",
+        three: "漁農自然護理署 – 大龍獸醫化驗所",
       },
       {
-        one: "Miss TAM Ka Ming",
-        two: "Principal Engineer",
-        three: "UL International Limited",
+        one: "譚嘉明小姐",
+        two: "首席工程師",
+        three: "UL安全檢定國際有限公司",
       },
       {
-        one: "Mr WONG Chi",
-        two: "Chief Inspector, Forensic Fingerprint Laboratory",
-        three: "Hong Kong Police Force - Identification Bureau",
+        one: "黃智先生",
+        two: "副總經理",
+        three: "中檢醫學檢驗有限公司",
       },
       {
-        one: "Dr TAN Tung-fai, Tony",
-        two: "Deputy General Manager	",
-        three: "China Inspection Medical Laboratories Limited",
-      },
-      {
-        one: "Mr WONG Sun Leong, John",
+        one: "黃新亮先生",
         two: "Technical Services Manager",
-        three: "SGS Hong Kong Limited",
+        three: "香港通用檢測認證有限公司",
       },
     ],
-    award_present_ceremony: `The award presentation ceremony of the “Testing and Manpower
-          Development Award Scheme 2021-22”, was successfully held on 22
-          December 2021 at the Hong Kong Convention and Exhibition Centre. The
-          Secretary for Innovation and Technology, Mr Alfred Sit, kindly
-          attended as the Guest of Honour. Apart from members of the HKCTC and
-          its Manpower Development Panel, the event was also attended by the
-          chairmen and members of the two assessment panels as well as
-          representatives of the supporting organisations. They all shared the
-          joy of awardees.`,
-    albert_yu: "Prof. Albert Yu, HKCTC Chairman, ",
-    deliver_speech: "delivers the Welcome Speech.",
-    secretary_innovation_tech:
-      "The Secretary for Innovation and Technology, Mr Alfred Sit, delivers the Opening Remarks.",
-    ceremony_tc_practitioners: `At the ceremony, 16 testing and certification (T&C) practitioners,
-          comprising 6 junior professionals and 10 middle management personnel,
-          were presented with the “Excellent Testing and Certification
-          Professional Award”. Besides, 30 T&C organisations received the
-          “Testing and Certification Manpower Development Corporate Award”,
-          where two of them were given special commendation for their
-          exceptional commitment to T&C practitioners’ training and development.`,
-    from_left: "(From left) ",
-    ms_pun_commissioner: `Ms Rebecca Pun, Commissioner for Innovation and Technology, Mr Alfred
-          Sit, Secretary for Innovation and Technology, and Prof. Albert Yu,
-          HKCTC Chairman, attended the ceremony to share the joy of awardees.`,
-    group_photo_members:
-      "Group photo of Members of HKCTC and Panel on Manpower Development and Officiating Guests",
-    group_photo_excellent_awardees: `Group photo of awardees of “Excellent Testing and Certification
-          Professional Award”, Chairman and Members of Assessment Panel, and
-          Officiating Guests`,
-    group_photo_tc: `Group photo of awardees of “Testing and Certification Manpower
-          Development Corporate Award”, Chairman and Members of Assessment
-          Panel, and Officiating Guests`,
-    hk_jockey_club_awarded: `The Hong Kong Jockey Club – Racing Laboratory and UL International
-          Limited were awarded the Special Commendation of “Testing and
-          Certification Manpower Development Corporate Award”`,
-    awardees_excellent_tc:
-      "Awardees of “Excellent Testing and Certification Professional Award” shared their experience and insights at the ceremony",
-    media: "Media",
+
+    award_present_ceremony: `「2021-22年度檢測認證人力發展嘉許計劃」頒獎典禮已於2021年12月22日假香港會議展覽中心順利舉行，當日活動由創新及科技局薛永恒局長擔任主禮嘉賓。除了香港檢測和認證局及其轄下人力發展小組的成員外，兩個評審小組的主席和成員，以及各支持機構的代表也有出席，一同分享得獎者的喜悅。`,
+    albert_yu: "香港檢測和認證局主席于常海教授, ",
+    deliver_speech: "致歡迎辭",
+    secretary_innovation_tech: "創新及科技局局長薛永恒為頒獎典禮致辭",
+    ceremony_tc_practitioners: `頒獎典禮上，16位檢測認證從業員，包括6位初級專業人員及10位中級管理人員，獲頒發「卓越檢測認證專業人員獎」。此外，30間檢測認證機構獲得「檢測認證人力發展機構獎」，其中兩間機構更因在致力推動從業員的培訓和發展有特殊成就，而獲得特別嘉許獎。`,
+    from_left: "（左起）",
+    ms_pun_commissioner: `創新科技署署長潘婷婷、創新及科技局局長薛永恒及香港檢測和認證局主席于常海教授出席典禮，一同分享得獎者的喜悅。`,
+    group_photo_members: "香港檢測和認證局和人力發展小組成員與主禮嘉賓合照",
+    group_photo_excellent_awardees: `「卓越檢測認證專業人員獎」得獎者、評審小組主席和成員與主禮嘉賓合照`,
+    group_photo_tc: `「檢測認證人力發展機構獎」得獎者、評審小組主席和成員與主禮嘉賓合照`,
+    hk_jockey_club_awarded: `香港賽馬會–賽事化驗所和UL安全檢定國際有限公司獲頒發「檢測認證人力發展機構獎」特別嘉許獎`,
+    awardees_excellent_tc: "「卓越檢測認證專業人員獎」得獎者分享經驗和心得",
+    media: "媒體",
     mediaData: {
-      title: "Press Release",
-      date: "22 December 2021",
+      title: "新聞公報",
+      date: "2021年12月22日",
     },
   },
 };

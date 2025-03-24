@@ -68,7 +68,7 @@ const multilingual = {
     disclaimer_content: `The information is provided by the Government for general reference only. The Government is not liable for any damages whatsoever arising out of the use of the information. The information shall not prejudice the Government in formulation of the implementation details and the Lands Department in exercising its authority and powers according to the Government land lease. The information shall not constitute any representation on the part of the Government or give rise to any expectation whatsoever and shall not be relied on as such. Each application for waiver will be considered on its own merits having regard to all factors and circumstances, which the Government at its absolute discretion considers applicable. The Government's right to add to, amend or delete the whole or any part of the information is hereby reserved.`,
   },
   cn: {
-    title: `"在工業大廈營運的測試實驗所「免繳豁免書費用」安排`,
+    title: `在工業大廈營運的測試實驗所「免繳豁免書費用」安排`,
 
     the_measure_is: (
       <>
