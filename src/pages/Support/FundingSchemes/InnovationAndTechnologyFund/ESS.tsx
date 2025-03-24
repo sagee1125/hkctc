@@ -10,13 +10,12 @@ const multilingual = {
     the_recipient: `The recipient organisation will own all intellectual property rights arising from the project.`,
   },
   cn: {
-    title: `Enterprise Support Scheme (ESS)`,
-    to_subsidise_non_listed: `To subsidise non-listed local enterprises/organisations in using technological services and solutions to improve productivity, or upgrade or transform their business processes.`,
-    funding_of: `Funding of up to $10 million to each approved project on a dollar-for-dollar matching basis`,
-    the_recipient: `The recipient organisation will own all intellectual property rights arising from the project.`,
+    title: `企業支援計劃`,
+    to_subsidise_non_listed: `企業支援計劃是創新及科技基金下主要的資助計劃，旨在鼓勵私營機構進行研發。`,
+    funding_of: `獲批資助項目的最高資助額為1,000萬港元，有關款額會以等額出資方式批出。`,
+    the_recipient: `受資助機構將會擁有項目產生的所有知識產權。`,
   },
 };
-
 export const ESS: React.FC = () => {
   const { language } = useSettings();
   const page_text =

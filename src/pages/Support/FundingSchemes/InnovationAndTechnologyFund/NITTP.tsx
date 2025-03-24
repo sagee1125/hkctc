@@ -10,10 +10,10 @@ const multilingual = {
     to_train_their_staff: `to train their staff in advanced technologies, especially those related to "New Industrialisation". The Vocational Training Council administers the NITTP and serves as its Secretariat.`,
   },
   cn: {
-    title: `New Industrialisation and Technology Training Programme (NITTP)`,
-    NITTP_subsidises: `NITTP subsidises local companies on a`,
-    matching_basis: `2(Government):1(enterprise) matching basis`,
-    to_train_their_staff: `to train their staff in advanced technologies, especially those related to "New Industrialisation". The Vocational Training Council administers the NITTP and serves as its Secretariat.`,
+    title: `新型工業化及科技培訓計劃`,
+    NITTP_subsidises: `「新型工業化及科技培訓計劃」資助本地企業以`,
+    matching_basis: `2（政府）：1（企業）的配對形式`,
+    to_train_their_staff: `讓其員工接受高端科技培訓，尤其是與「新型工業化」有關的培訓。計劃由職業訓練局管理及擔任秘書處。`,
   },
 };
 

@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { Language, useSettings } from "../../../../context";
 
 type TableBodyRow = {
   schemeName: string;
@@ -18,12 +19,12 @@ type TableBodyProps = {
 };
 
 export const FundingSchemesTable: React.FC<TableBodyProps> = ({ rows }) => {
-  const tableHeads = [
-    "Scheme Name",
-    "Objective",
-    "Target Audience",
-    "Funding Amount",
-  ];
+  const { language } = useSettings();
+
+  const tableHeads =
+    language === Language.EN
+      ? ["Scheme Name", "Objective", "Target Audience", "Funding Amount"]
+      : ["計劃名稱", "目標", "對像", "資助額"];
   return (
     <TableContainer component={"div"}>
       <Table sx={{ minWidth: 650 }}>

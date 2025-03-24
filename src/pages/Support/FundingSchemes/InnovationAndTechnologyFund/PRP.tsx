@@ -9,12 +9,11 @@ const multilingual = {
     it_provides: `It provides matching funding support for approved projects. The maximum project duration is 3 years`,
   },
   cn: {
-    title: `Partnership Research Programme (PRP)`,
-    the_programme_supports: `The Programme supports R&D projects undertaken by private companies in collaboration with local universities and public research institutions.`,
-    it_provides: `It provides matching funding support for approved projects. The maximum project duration is 3 years`,
+    title: `夥伴研究計劃`,
+    the_programme_supports: `夥伴研究計劃支持私營公司與本地大學和公營科研機構合作開展的研發項目。`,
+    it_provides: `計劃向獲批項目提供等額資助，計劃的項目期最長為三年。`,
   },
 };
-
 export const PRP: React.FC = () => {
   const { language } = useSettings();
   const page_text =

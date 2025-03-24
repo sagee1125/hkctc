@@ -8,11 +8,10 @@ const multilingual = {
     GSP_support: `GSP supports non-R&D projects that contribute to the upgrading and development of local industries, or help to foster a culture of innovation and technology. Conferences, exhibitions, seminars, workshops, promotional events, studies and surveys, etc. are within the scope of GSP.`,
   },
   cn: {
-    title: `General Support Programme (GSP)`,
-    GSP_support: `GSP supports non-R&D projects that contribute to the upgrading and development of local industries, or help to foster a culture of innovation and technology. Conferences, exhibitions, seminars, workshops, promotional events, studies and surveys, etc. are within the scope of GSP.`,
+    title: `一般支援計劃（GSP）`,
+    GSP_support: `一般支援計劃專為非研發項目而設，旨在支援有助提升本港產業和推動其發展的項目，以及有助培養創新科技風氣的項目。會議、展覽、研究和調查等都是可資助項目。`,
   },
 };
-
 export const GSP: React.FC = () => {
   const { language } = useSettings();
   const page_text =
