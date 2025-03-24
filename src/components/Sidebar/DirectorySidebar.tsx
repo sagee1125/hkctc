@@ -5,7 +5,7 @@ import { Language, useSettings } from "../../context";
 
 export type DirectorySidebarItems = {
   label: string;
-  labelCN?: string;
+  labelCN: string;
   value: string;
 };
 type DirectorySidebarProps = {

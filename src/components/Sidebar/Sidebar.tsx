@@ -132,6 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 type MultipleSidebarsProps = {
   sidebars: Array<{
     title: string;
+    titleCN: string;
     sidebarItems: SubItems[];
   }>;
   activatedItems: string;
@@ -157,7 +158,8 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
   props: MultipleSidebarsProps
 ) => {
   const { sidebars, activatedItems, setActivatedItems } = props;
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
 
   const activatedParentTitle = findParentTitle(activatedItems, sidebars);
   const [currentExpandMobile, setCurrentExpandMobile] = useState<string>(
@@ -194,7 +196,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
     return (
       <div className="border-2 border-inherit p-[24px]">
         {sidebars.map((sidebar, index) => {
-          const { title, sidebarItems } = sidebar;
+          const { title, titleCN, sidebarItems } = sidebar;
           const expand = expandStates[title];
 
           return (
@@ -203,7 +205,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 className="flex flex-row justify-between items-center cursor-pointer"
                 onClick={() => toggleExpand(title)}
               >
-                <p className="text-heading-l">{title}</p>
+                <p className="text-heading-l">{isEn ? title : titleCN}</p>
                 <ExpandMoreIcon
                   sx={{
                     fontSize: "24",
@@ -217,7 +219,12 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
               <Collapse in={expand}>
                 <div className="w-full flex flex-col gap-[24px]">
                   {sidebarItems.map((item, i) => {
-                    const { subTitle, imgUrl, enum: navItemEnum } = item;
+                    const {
+                      subTitle,
+                      subTitleCN,
+                      imgUrl,
+                      enum: navItemEnum,
+                    } = item;
                     const isActivated = activatedItems === navItemEnum;
                     return (
                       <div
@@ -244,7 +251,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                             />
                           </div>
                           <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">
-                            {subTitle}
+                            {isEn ? subTitle : subTitleCN}
                           </div>
                         </div>
                       </div>

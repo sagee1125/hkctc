@@ -42,10 +42,12 @@ import { MediaCoverage2324 } from "./EventsLanding/AwardScheme/MediaCoverage2324
 const directoryItems: DirectorySidebarItems[] = [
   {
     label: "T&C Manpower Development Award Scheme 2023-2024",
+    labelCN: `2023-24年度檢測認證人力發展嘉許計劃`,
     value: "2324",
   },
   {
     label: "T&C Manpower Development Award Scheme 2021-2022",
+    labelCN: "2021-22年度檢測認證人力發展嘉許計劃",
     value: "2122",
   },
 ];
@@ -285,18 +287,22 @@ export const EventsPromotion: React.FC = () => {
   const sidebarData = [
     {
       title: "Events",
+      titleCN: "活動",
       sidebarItems: eventItems,
     },
     {
       title: "Publications",
+      titleCN: "刊物",
       sidebarItems: publicationItem,
     },
     {
       title: "Reports",
+      titleCN: "報告",
       sidebarItems: reports,
     },
     {
       title: "News & Videos",
+      titleCN: "新聞和短片",
       sidebarItems: NewsVideos,
     },
   ];

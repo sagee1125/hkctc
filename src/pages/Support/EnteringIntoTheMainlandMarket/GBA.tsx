@@ -11,14 +11,60 @@ const multilingual = {
       `The trades are welcome to adopt GBA Standards on a voluntary basis.`,
     ],
     information_about_GBA_Standards: "Information about GBA Standards",
-    information_about_GBA_found: `Information about GBA Standards can be found on the Guangdong-Hong Kong-Macao Greater Bay Area Standard Information Public Service Platform managed by the GBA Standardisation Research Center.`,
-    the_TID: `The Trade and Industry Department (TID) is responsible for co-ordinating the participation of the Government of the Hong Kong Special Administrative Region (HKSARG) in the work on the GBA Standards. The TID also disseminates information about GBA Standards to the trades through issuing Commercial Information Circulars.`,
+    information_about_GBA_found: (
+      <>
+        Information about GBA Standards can be found on the&nbsp;
+        <a
+          href="https://www.gbsrc.org.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          Guangdong-Hong Kong-Macao Greater Bay Area Standard Information Public
+          Service Platform
+        </a>
+        &nbsp;managed by the GBA Standardisation Research Center.
+      </>
+    ),
+    the_TID: (
+      <>
+        The Trade and Industry Department (TID) is responsible for co-ordinating
+        the participation of the Government of the Hong Kong Special
+        Administrative Region (HKSARG) in the work on the GBA Standards. The TID
+        also disseminates information about GBA Standards to the trades through
+        issuing&nbsp;
+        <a
+          href="ttps://www.tid.gov.hk/english/trade_relations/mainland/cic_gbastandards.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          Commercial Information Circulars
+        </a>
+        .
+      </>
+    ),
     formulation_GBA_standards: `Formulation of GBA Standards`,
     GBA_standardisation: `The GBA Standardisation Research Center accepts applications for formulating GBA Standards all year round. Trade associations, enterprises or organisations of Guangdong, Hong Kong and Macao are welcome to jointly draw up GBA Standards in accordance with the specific requirements set out in the "Guidelines on Applications for GBA Standards"(in Chinese only), and submit applications to the GBA Standardisation Research Center.`,
     GBA_certification: `GBA Certification`,
     with_the_support: `With the support and coordination of the governments of Guangdong, Hong Kong and Macao, certification bodies of the three places jointly established the "GBA Certification Alliance" in September 2022 to take forward the market-driven voluntary certification scheme - GBA Certification. The Alliance registered an entity in Guangdong, namely the Guangdong-Hong Kong-Macao Greater Bay Area Certification Promotion Center, in September 2023 to represent it in dealing with matters relating to GBA Certification.`,
     the_first_batch: `The first batch of GBA Certification containing 15 certification schemes were announced at a ceremony held in Shenzhen on 19 December 2023. To date, over 50 schemes have been developed and over 100 certificates have been issued, covering products in various fields e.g. food, electrical appliances, construction materials, etc.`,
-    information_about_GBA_certification: `Information about GBA Certification is available on the GBA Certification Public Service Platform. Enterprises interested in the GBA Certification schemes are welcome to contact the Guangdong-Hong Kong-Macao Greater Bay Area Certification Promotion Center.`,
+    information_about_GBA_certification: (
+      <>
+        Information about GBA Certification is available on the&nbsp;
+        <a
+          href={`https://gbacpc.org.cn/bayareacertification/index`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          GBA Certification Public Service Platform
+        </a>
+        . Enterprises interested in the GBA Certification schemes are welcome to
+        contact the Guangdong-Hong Kong-Macao Greater Bay Area Certification
+        Promotion Center.
+      </>
+    ),
   },
   cn: {
     guangdong_hk: `灣區標準`,
@@ -27,15 +73,44 @@ const multilingual = {
       `現時，已制定及公布的「灣區標準」共有215項，涵蓋食品質量和安全、粵菜、預製菜、交通、機電產品，以至醫療、護理、教育、電競及環境、社會和管治等領域。`,
       `工貿署歡迎業界自願採用大灣區標準。`,
     ],
-    information_about_GBA_Standards: "Information about GBA Standards",
-    information_about_GBA_found: `Information about GBA Standards can be found on the Guangdong-Hong Kong-Macao Greater Bay Area Standard Information Public Service Platform managed by the GBA Standardisation Research Center.`,
+    information_about_GBA_Standards: "「灣區標準」資訊",
+
+    information_about_GBA_found: (
+      <>
+        關於灣區認證的相關資訊可以在&nbsp;
+        <a
+          href="https://www.gbsrc.org.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）
+        </a>
+        查閱，該平台由（灣區標準研究中心）管理。`
+      </>
+    ),
+
     the_TID: `工業貿易署（工貿署）負責協調香港特別行政區政府（特區政府）有關政策局／部門參與「灣區標準」的工作，並與廣東省及澳門有關當局保持密切聯繫。`,
+
     formulation_GBA_standards: `制訂「灣區標準」`,
     GBA_standardisation: `灣區標準研究中心正計劃在今年稍後就制定新一輪的「灣區標準」發布指引，向三地業界徵集申請。有興趣的團體和企業需按照指引列出的具體要求，透過灣區標準平台提交申請，供灣區標準研究中心進行評審。`,
     GBA_certification: `灣區認證`,
-    with_the_support: `With the support and coordination of the governments of Guangdong, Hong Kong and Macao, certification bodies of the three places jointly established the "GBA Certification Alliance" in September 2022 to take forward the market-driven voluntary certification scheme - GBA Certification. The Alliance registered an entity in Guangdong, namely the Guangdong-Hong Kong-Macao Greater Bay Area Certification Promotion Center, in September 2023 to represent it in dealing with matters relating to GBA Certification.`,
-    the_first_batch: `The first batch of GBA Certification containing 15 certification schemes were announced at a ceremony held in Shenzhen on 19 December 2023. To date, over 50 schemes have been developed and over 100 certificates have been issued, covering products in various fields e.g. food, electrical appliances, construction materials, etc.`,
-    information_about_GBA_certification: `Information about GBA Certification is available on the GBA Certification Public Service Platform. Enterprises interested in the GBA Certification schemes are welcome to contact the Guangdong-Hong Kong-Macao Greater Bay Area Certification Promotion Center.`,
+    with_the_support: `在廣東省市場監督管理局的督導和廣東省、香港和澳門三地政府的支持下，三地的認證機構在2022年9月聯合成立了「粵港澳大灣區認證聯盟」（聯盟），負責推進以市場驅動、供業界自願採用的「灣區認證」計劃。`,
+    the_first_batch: `「灣區認證」首批項目已於2023年12月19日在深圳舉行的典禮上公布，其中包括15個產品或服務的認證計劃，涵蓋建築材料、電器、衣物、食品、物業管理服務和安老服務等。`,
+    information_about_GBA_certification: (
+      <>
+        關於灣區認證的相關資訊可以在
+        <a
+          href={`https://gbacpc.org.cn/bayareacertification/index`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）
+        </a>
+        查閱。有意參與大灣區認證計畫的企業可聯絡粵港澳大灣區認證促進中心。
+      </>
+    ),
   },
 };
 
@@ -52,6 +127,9 @@ export const GBA: React.FC = () => {
     GBA_certification,
     with_the_support,
     the_first_batch,
+    the_TID,
+    information_about_GBA_certification,
+    information_about_GBA_found,
   } = page_text;
 
   return (
@@ -69,36 +147,9 @@ export const GBA: React.FC = () => {
         <p className="font-bold">{information_about_GBA_Standards}</p>
 
         <br />
-        <p>
-          Information about GBA Standards can be found on the&nbsp;
-          <a
-            href="https://www.gbsrc.org.cn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#00E] underline"
-          >
-            Guangdong-Hong Kong-Macao Greater Bay Area Standard Information
-            Public Service Platform
-          </a>
-          &nbsp;managed by the GBA Standardisation Research Center.
-        </p>
+        <p>{information_about_GBA_found}</p>
         <br />
-        <p>
-          The Trade and Industry Department (TID) is responsible for
-          co-ordinating the participation of the Government of the Hong Kong
-          Special Administrative Region (HKSARG) in the work on the GBA
-          Standards. The TID also disseminates information about GBA Standards
-          to the trades through issuing&nbsp;
-          <a
-            href="ttps://www.tid.gov.hk/english/trade_relations/mainland/cic_gbastandards.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#00E] underline"
-          >
-            Commercial Information Circulars
-          </a>
-          .
-        </p>
+        <p>{the_TID}</p>
 
         <br />
 
@@ -115,20 +166,7 @@ export const GBA: React.FC = () => {
         <p>{the_first_batch}</p>
 
         <br />
-        <p>
-          Information about GBA Certification is available on the&nbsp;
-          <a
-            href={`https://gbacpc.org.cn/bayareacertification/index`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#00E] underline"
-          >
-            GBA Certification Public Service Platform
-          </a>
-          . Enterprises interested in the GBA Certification schemes are welcome
-          to contact the Guangdong-Hong Kong-Macao Greater Bay Area
-          Certification Promotion Center.
-        </p>
+        <p>{information_about_GBA_certification}</p>
       </div>
     </div>
   );

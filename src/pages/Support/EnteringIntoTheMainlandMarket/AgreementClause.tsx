@@ -16,45 +16,91 @@ import {
   maxPCContainer,
   DirectorySidebar,
   maxMobileContainer,
+  type DirectorySidebarItems,
 } from "../../../components";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
+const multilingual = {
+  en: {
+    home: "Home",
+    support: `Support`,
+    entering_into_the_mainland_market: "Entering into the Mainland Market",
+    summary_of_CEPA:
+      "Summary of CEPA Clauses Relating to Testing and Certification",
+  },
+
+  cn: {
+    home: "主頁",
+    support: `支援`,
+    entering_into_the_mainland_market: "進入內地市場",
+    summary_of_CEPA: "CEPA下檢測認證相關條文摘要",
+  },
+};
+const sidebarItems: DirectorySidebarItems[] = [
+  {
+    label: "Agreement on Trade in Services - Clauses",
+    labelCN: "《服務貿易協議》 - 有關條文",
+    value: `trade_in_services`,
+  },
+  {
+    label: "Agreement on Trade in Goods - Clauses",
+    labelCN: "《貨物貿易協議》 - 有關條文",
+    value: `trade_in_good`,
+  },
+  {
+    label: "Agreement on Economic and Technical Cooperation - Clauses",
+    labelCN: "《經濟技術合作協議》 - 有關條文",
+    value: `trade_in_economic`,
+  },
+  {
+    label: "Guangdong Agreement - Clauses",
+    labelCN:
+      "《關於內地在廣東與香港基本實現服務貿易自由化的協議》（《廣東協議》） - 有關條文",
+    value: `guangdong_agreement`,
+  },
+  {
+    label: "Supplement X to CEPA - Clauses",
+    labelCN: "《CEPA補充協議十》 - 有關條文",
+    value: `X_to_CEPA`,
+  },
+  {
+    label: "Supplement IX to CEPA - Clauses",
+    labelCN: "《CEPA補充協議九》 - 有關條文",
+    value: `IX_to_CEPA`,
+  },
+  {
+    label: "Supplement VIII to CEPA - Clauses",
+    labelCN: "《CEPA補充協議八》 - 有關條文",
+    value: `VIII_to_CEPA`,
+  },
+  {
+    label: "Supplement VII to CEPA - Clauses",
+    labelCN: "《CEPA補充協議七》 - 有關條文",
+    value: `VII_to_CEPA`,
+  },
+];
 export const AgreementClause: React.FC = () => {
   const navigate = useNavigate();
   const initialHash = window.location.hash;
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(1))
     : null; // remove `#`, get index
-  const { isPC } = useSettings();
-
-  const [activeItem, setActiveItem] = useState<string>(
-    "Agreement on Trade in Services - Clauses"
-  );
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { home, support, entering_into_the_mainland_market, summary_of_CEPA } =
+    page_text;
+  const [activeItem, setActiveItem] = useState<string>(sidebarItems[0].value);
   const clauseContent: Record<string, React.ReactNode> = {
-    "Agreement on Trade in Services - Clauses": (
-      <AgreementOnTradeInServicesClauses />
-    ),
-    "Agreement on Trade in Goods - Clauses": <AgreementOnTradeInGoodsClauses />,
-    "Agreement on Economic and Technical Cooperation - Clauses": (
-      <AgreementOnEconomicTechnicalCooperationClauses />
-    ),
-    "Guangdong Agreement - Clauses": <GuangdongAgreementClauses />,
-    "Supplement X to CEPA - Clauses": <SupplementXtoCEPAClauses />,
-    "Supplement IX to CEPA - Clauses": <SupplementIXtoCEPAClauses />,
-    "Supplement VIII to CEPA - Clauses": <SupplementVIIItoCEPAClauses />,
-    "Supplement VII to CEPA - Clauses": <SupplementVIItoCEPAClauses />,
+    [sidebarItems[0].value]: <AgreementOnTradeInServicesClauses />,
+    [sidebarItems[1].value]: <AgreementOnTradeInGoodsClauses />,
+    [sidebarItems[2].value]: <AgreementOnEconomicTechnicalCooperationClauses />,
+    [sidebarItems[3].value]: <GuangdongAgreementClauses />,
+    [sidebarItems[4].value]: <SupplementXtoCEPAClauses />,
+    [sidebarItems[5].value]: <SupplementIXtoCEPAClauses />,
+    [sidebarItems[6].value]: <SupplementVIIItoCEPAClauses />,
+    [sidebarItems[7].value]: <SupplementVIItoCEPAClauses />,
   };
-
-  const sidebarItems: string[] = [
-    "Agreement on Trade in Services - Clauses",
-    "Agreement on Trade in Goods - Clauses",
-    "Agreement on Economic and Technical Cooperation - Clauses",
-    "Guangdong Agreement - Clauses",
-    "Supplement X to CEPA - Clauses",
-    "Supplement IX to CEPA - Clauses",
-    "Supplement VIII to CEPA - Clauses",
-    "Supplement VII to CEPA - Clauses",
-  ];
 
   const currentTitle = activeItem;
   const currentComponent = clauseContent?.[activeItem];
@@ -63,12 +109,14 @@ export const AgreementClause: React.FC = () => {
     if (!initialHashIndex) navigate(`/support/agreement-clause#0`);
     else {
       navigate(`/support/agreement-clause#${initialHashIndex}`);
-      setActiveItem(sidebarItems[initialHashIndex]);
+      setActiveItem(sidebarItems[initialHashIndex].value);
     }
   }, [initialHashIndex, navigate]);
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
-    const hashIndex = sidebarItems.findIndex((item) => item === activatedItems);
+    const hashIndex = sidebarItems.findIndex(
+      (item) => item.value === activatedItems
+    );
     setActiveItem(activatedItems);
 
     window.location.hash = `${hashIndex}`;
@@ -85,21 +133,24 @@ export const AgreementClause: React.FC = () => {
   };
 
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "Support",
+      label: support,
       href: `/support`,
     },
     {
-      label: "Entering into the Mainland Market",
+      label: entering_into_the_mainland_market,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     {
-      label: "Summary of CEPA Clauses Relating to Testing and Certification",
+      label: summary_of_CEPA,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     {
-      label: currentTitle,
+      label:
+        (isEn
+          ? sidebarItems.find((s) => s.value === currentTitle)?.label
+          : sidebarItems.find((s) => s.value === currentTitle)?.labelCN) ?? "",
     },
   ];
 

@@ -13,12 +13,16 @@ const multilingual = {
       "Clauses Relating to Testing and Certification",
     ],
     pre: "Previous Commitments",
+    show_all: "Show All",
+    hide: "Hide",
   },
 
   cn: {
     title: `CEPA下檢測認證相關條文摘要`,
     table_heads: ["CEPA協議", "檢測認證相關條文"],
     pre: "以往的承諾",
+    show_all: "顯示全部",
+    hide: "隱藏",
   },
 };
 
@@ -26,7 +30,7 @@ export const SummaryOfCEPA: React.FC = () => {
   const { language } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
-  const { title, table_heads, pre } = page_text;
+  const { title, table_heads, pre, show_all, hide } = page_text;
 
   const [expanded, setExpanded] = useState<boolean>(false);
 
@@ -121,7 +125,7 @@ export const SummaryOfCEPA: React.FC = () => {
               setExpanded(!expanded);
             }}
           >
-            {!expanded ? "Show All" : "Hide"}
+            {!expanded ? show_all : hide}
             <ExpandMoreIcon
               sx={{
                 transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
@@ -242,7 +246,7 @@ export const SummaryOfCEPA: React.FC = () => {
               setExpanded(!expanded);
             }}
           >
-            {!expanded ? "Show All" : "Hide"}
+            {!expanded ? show_all : hide}
             <ExpandMoreIcon
               sx={{
                 transform: expanded ? "rotate(180deg)" : "rotate(0deg)",

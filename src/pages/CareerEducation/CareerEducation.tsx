@@ -107,10 +107,12 @@ export const CareerEducation: React.FC = () => {
   const sidebarData = [
     {
       title: "Careers",
+      titleCN: "職業",
       sidebarItems: careersItems,
     },
     {
       title: "Education & Training",
+      titleCN: "教育及培訓",
       sidebarItems: educationItem,
     },
   ];
