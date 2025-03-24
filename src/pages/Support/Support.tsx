@@ -67,7 +67,7 @@ export const directorySidebarItemsMap: Partial<
     },
     GBA: {
       label: "GBA Standard and Certification",
-      labelCN: "灣區標準",
+      labelCN: "灣區標準及認證",
       content: <GBA />,
     },
   },
