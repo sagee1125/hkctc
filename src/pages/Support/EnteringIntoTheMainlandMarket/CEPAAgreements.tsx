@@ -30,7 +30,7 @@ const multilingual = {
   },
 
   cn: {
-    title: `CEPA协议`,
+    title: `CEPA協議`,
     agreement_on_trade_in_services: `《服務貿易協議》`,
     agreement_between_the_mainland_and_hk: `《關於內地在廣東與香港基本實現服務貿易自由化的協議》`,
     agreement_on_economic_and_technical_cooperation: `《經濟技術合作協議》`,
@@ -169,7 +169,7 @@ export const CEPAAgreements: React.FC = () => {
     },
     nov2020: {
       tab: "November 2020",
-      tabCN: "2020 十一月",
+      tabCN: "2020年十一月",
       content: (
         <>
           <p className="text-body-m">
@@ -242,7 +242,7 @@ export const CEPAAgreements: React.FC = () => {
     },
     nov2019: {
       tab: "November 2019",
-      tabCN: "2019 十一月",
+      tabCN: "2019年十一月",
       content: (
         <>
           <p className="text-body-m">
@@ -324,7 +324,7 @@ export const CEPAAgreements: React.FC = () => {
     },
     dec2018: {
       tab: "December 2018",
-      tabCN: "2018 12月",
+      tabCN: "2018年12月",
       content: (
         <>
           <p className="text-body-m">

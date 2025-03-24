@@ -1,6 +1,7 @@
 export const award2324_multilingual = {
   en: {
-    title: "Testing & Certification Manpower Development Award Scheme",
+    title:
+      "Testing & Certification Manpower Development Award Scheme 2023-2024",
     result_announce: "[Results announced on 4 December 2023]",
     intro: `With a view to encouraging the testing and certification (T&C) bodies to
         invest in talent training and development, while also commending those
@@ -326,7 +327,7 @@ export const award2324_multilingual = {
   },
   cn: {
     title: "2023-24年度檢測認證人力發展嘉許計劃",
-    result_announce: "得獎名單已於2023年12月4日公佈",
+    result_announce: "[得獎名單已於2023年12月4日公佈]",
     intro: `為鼓勵檢測認證機構投入人才培訓，並表揚努力不懈、持續進修，致力提升服務水平的從業員，香港檢測和認證局2021年首次推出「檢測認證人力發展嘉許計劃」。由於業界反應理想，香港檢測和認證局已於2023年再次舉辦有關嘉許計劃。`,
     supporting_organisations: "支持機構",
     timeline: "時間表",
@@ -358,7 +359,7 @@ export const award2324_multilingual = {
         event: "頒獎典禮",
       },
     ],
-    test_cert_award: "檢測認證人力發展機構獎",
+    test_cert_award: "I. 檢測認證人力發展機構獎",
     test_cert_award_intro: ``,
     awardMap_btn: ["兩級機構獎", "獎勵", "申請資格", "評審準則", "遴選程序"],
     awardMap_one: {
@@ -982,7 +983,8 @@ export const award2324_list_multilingual = {
 
 export const award2122_multilingual = {
   en: {
-    title: "Testing & Certification Manpower Development Award Scheme",
+    title:
+      "Testing & Certification Manpower Development Award Scheme 2021-2022",
     result_announce: "[Results announced on 22 December 2021]",
     hkctc_launches_first: `HKCTC launches the first “Testing and Certification Manpower Development
         Award Scheme” (the Award Scheme) in 2021 to recognise testing and

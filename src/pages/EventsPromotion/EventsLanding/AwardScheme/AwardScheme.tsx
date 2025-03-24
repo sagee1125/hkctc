@@ -81,9 +81,8 @@ const supportingOrg: Array<{
 export const AwardScheme: React.FC = () => {
   const navigate = useNavigate();
   const { isPC, language } = useSettings();
-
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
 
   const AwardOneButtonList = page_text.awardMap_btn;
   const awardMapOne: Record<string, React.ReactNode> = {
@@ -506,7 +505,6 @@ export const AwardScheme: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle title={page_text.title} />
-      <p className="text-heading-l">2023-2024</p>
       <p className="text-highlight-l my-[24px] text-[#666]">
         {page_text.result_announce}
       </p>

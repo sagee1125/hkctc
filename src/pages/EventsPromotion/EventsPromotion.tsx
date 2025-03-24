@@ -35,7 +35,7 @@ import { Videos } from "./News/Videos";
 import { RegistrationBox } from "./EventsLanding/SeminarsWorkshops/RegistrationBox";
 import { AwardScheme21to22Preview } from "./EventsLanding/AwardScheme/AwardScheme21to22Preview";
 import { SeminarArticlePage } from "./EventsLanding/SeminarsWorkshops/SeminarArticlePage/SeminarArticlePage";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { AssessmentPanel2122 } from "./EventsLanding/AwardScheme/AssessmentPanel2122";
 import { MediaCoverage2324 } from "./EventsLanding/AwardScheme/MediaCoverage2324";
 
@@ -51,6 +51,17 @@ const directoryItems: DirectorySidebarItems[] = [
     value: "2122",
   },
 ];
+
+const multilingual = {
+  en: {
+    home: "Home",
+    event_promotion: "Events & Promotions",
+  },
+  cn: {
+    home: "主頁",
+    event_promotion: "活動與宣傳",
+  },
+};
 
 const validSideBarKeys: navItemEnum[] = [
   navItemEnum.award_scheme,
@@ -82,7 +93,10 @@ export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { home, event_promotion } = page_text;
 
   const initialSection = queryParams.get("section") ?? "";
 
@@ -306,10 +320,12 @@ export const EventsPromotion: React.FC = () => {
       sidebarItems: NewsVideos,
     },
   ];
-
-  const activeSidebarItemsLabel = sidebarData.filter((section) => {
+  const findActiveSidebarItems = sidebarData.filter((section) => {
     return section.sidebarItems.find((item) => item.enum === activeItem);
-  })?.[0]?.title;
+  })?.[0];
+  const activeSidebarItemsLabel = isEn
+    ? findActiveSidebarItems?.title
+    : findActiveSidebarItems?.titleCN;
 
   const firstActiveItem = sidebarData
     .map((section) =>
@@ -318,7 +334,9 @@ export const EventsPromotion: React.FC = () => {
     .find((matchedItem) => matchedItem !== undefined);
 
   const firstActiveItemEnum = firstActiveItem?.enum;
-  const activeSidebarItemsSubLabel = firstActiveItem?.subTitle;
+  const activeSidebarItemsSubLabel = isEn
+    ? firstActiveItem?.subTitle
+    : firstActiveItem?.subTitleCN;
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -337,9 +355,9 @@ export const EventsPromotion: React.FC = () => {
   const subComponent = sidebarComponent[activeItem]?.subComponent;
   const otherPath = sidebarComponent[activeItem]?.path ?? []; // only used for seminars
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "Events & Promotions",
+      label: event_promotion,
       href: `/events-promotion`,
     },
 
@@ -361,9 +379,13 @@ export const EventsPromotion: React.FC = () => {
     ...(activeItem === navItemEnum.award_scheme
       ? [
           {
-            label: directoryItems.find(
-              (i) => i.value === activatedDirectorySidebarItems
-            )?.label,
+            label: isEn
+              ? directoryItems.find(
+                  (i) => i.value === activatedDirectorySidebarItems
+                )?.label
+              : directoryItems.find(
+                  (i) => i.value === activatedDirectorySidebarItems
+                )?.labelCN,
             href:
               onDetail && activatedDirectorySidebarItems === "2324"
                 ? `/events-promotion?section=${navItemEnum.award_scheme}`

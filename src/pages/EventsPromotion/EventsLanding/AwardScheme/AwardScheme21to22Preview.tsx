@@ -47,9 +47,8 @@ export const AwardScheme21to22Preview: React.FC<{
 }> = ({ handleOpenAssessmentPanel }) => {
   const navigate = useNavigate();
   const { isPC, language } = useSettings();
-
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
 
   const stagesGridTwo = [
     {
@@ -354,7 +353,6 @@ export const AwardScheme21to22Preview: React.FC<{
   return (
     <div className="w-full">
       <SquareTitle title={page_text.title} />
-      <p className="text-heading-l">2021-2022</p>
       <p className="text-highlight-l my-[24px] text-[#666]">
         {page_text.result_announce}
       </p>
