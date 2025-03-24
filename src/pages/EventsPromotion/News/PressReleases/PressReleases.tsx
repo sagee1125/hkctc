@@ -112,7 +112,7 @@ export const PressReleases: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="Press Releases" />
+      <SquareTitle title={isEN ? "Press Releases" : "新聞公報"} />
       {(isEN ? publicationsInfo : publicationsInfo_CN).map((item, i) => {
         const { title, link, date } = item;
         return (

@@ -106,7 +106,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             setIsOpen(true);
           }}
         >
-          Content List
+          {isEn ? `Content List` : "內容列表"}
         </button>
 
         <Drawer
@@ -125,7 +125,9 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
         >
           <div className="flex flex-col w-full">
             <div className="w-full flex flex-row justify-between items-center pb-[24px]">
-              <p className="text-heading-m text-newPrimary">Content List</p>
+              <p className="text-heading-m text-newPrimary">
+                {isEn ? `Content List` : "內容列表"}
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

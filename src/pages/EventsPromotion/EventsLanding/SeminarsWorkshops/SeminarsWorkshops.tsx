@@ -18,7 +18,6 @@ const multilingual = {
     title: "Seminars and Workshops",
     topics: "Topics",
     years: "Years",
-
     yearArray: [
       "All",
       "2024",
@@ -37,24 +36,6 @@ const multilingual = {
     title: "研討會與工作坊",
     topics: "主題類別",
     years: "年份",
-    // topicArray: [
-    //   "全部",
-    //   "CEPA 及在內地的發展機遇",
-    //   "中藥",
-    //   "建築材料",
-    //   "消費品",
-    //   "環保",
-    //   "食品",
-    //   "一般支援",
-    //   "資訊及通訊科技",
-    //   "檢驗",
-    //   "誠信及專業發展",
-    //   "珠寶",
-    //   "醫務化驗",
-    //   "計量學、認可服務及標準",
-    //   "品質管理",
-    // ],
-
     yearArray: [
       "全部",
       "2024",
