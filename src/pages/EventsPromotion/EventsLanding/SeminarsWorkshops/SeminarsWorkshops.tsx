@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { seminarsData } from "./seminarData";
+import { seminarsAndWorkshopsList_CN } from "./SeminarArticlePage/seminarArticles";
 import {
   activatedButtonStyle,
   normalButtonStyle,
@@ -81,8 +82,14 @@ export const SeminarsWorkshops: React.FC = () => {
   const page_text = isEn ? multilingual.en : multilingual.cn;
   const navigate = useNavigate();
   const { yearArray, title, topics, years } = page_text;
+  const seminarsData_cn = seminarsData.map((item, i) => ({
+    ...item,
+    title: seminarsAndWorkshopsList_CN[i].title,
+    date: seminarsAndWorkshopsList_CN[i].date,
+  }));
 
-  const displaySeminars = seminarsData.filter((item) => {
+  const seminarsProcessData = isEn ? seminarsData : seminarsData_cn;
+  const displaySeminars = seminarsProcessData.filter((item) => {
     const activeYear = Object.keys(topicArray)[activeYearButton];
     const activeTopic = Object.keys(topicArray)[activeTopicButton];
 

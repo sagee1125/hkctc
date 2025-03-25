@@ -3,7 +3,6 @@ export const seminarsData = [
     title:
       "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
     date: "11 April 2024",
-    titleCN: "",
     year: 2024,
     tag: "Environmental protection",
     id: "0",
