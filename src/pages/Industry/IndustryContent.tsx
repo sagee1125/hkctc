@@ -1,6 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 type IndustryData = {
   title: string;
@@ -9,33 +9,78 @@ type IndustryData = {
   link: string;
   onClick?: () => void;
 };
+
+const multilingual = {
+  en: {
+    accommodation_and_land: "Accommodation and Land",
+    funding_schemes: "Funding Schemes",
+    our_support: "Our Support",
+    entering_into_the_mainland_market: "Entering into the Mainland Market",
+    corruption_prevention: "Corruption Prevention Guide for T&C Industry",
+    exhibition_programme: "HKCTC Exhibition Programme",
+    hkctc_newsletter: "HKCTC Newsletters",
+    hkctc_reports: "HKCTC Reports",
+    continue_read: "Continue to Read",
+    publications: "Publications",
+    seminar_workshop: "Seminars & Workshops",
+  },
+  cn: {
+    accommodation_and_land: "工作地方及土地",
+    funding_schemes: "資助計劃",
+    our_support: "Our Support",
+    entering_into_the_mainland_market: "進入內地市場",
+    corruption_prevention: "檢測和認證業防貪指引",
+    exhibition_programme: "香港檢測和認證局展覽計劃",
+    hkctc_newsletter: "香港檢測和認證局通訊",
+    hkctc_reports: "香港檢測和認證局報告",
+    continue_read: "Continue to Read",
+    publications: "刊物",
+    seminar_workshop: "研討會與工作坊",
+  },
+};
+
 export const IndustryContent: React.FC = () => {
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    accommodation_and_land,
+    funding_schemes,
+    our_support,
+    corruption_prevention,
+    entering_into_the_mainland_market,
+    exhibition_programme,
+    hkctc_newsletter,
+    hkctc_reports,
+    continue_read,
+    publications,
+    seminar_workshop,
+  } = page_text;
 
   const industryData: IndustryData[] = [
     {
-      title: "Accommodation and Land",
+      title: accommodation_and_land,
       description:
         "According to the revitalisation scheme for industrial buildings (“IBs”), one of the measures is to relax the waiver application policy to permit uses for a ...",
       imagePath: "industry/Accommodation_Land.png",
       link: "/support?section=accommodation_and_land",
     },
     {
-      title: "Funding Schemes",
+      title: funding_schemes,
       description:
         "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
       imagePath: "generalPublic/whatsnew_4.png",
       link: "/support?section=funding_schemes",
     },
     {
-      title: "Entering into the Mainland market",
+      title: entering_into_the_mainland_market,
       description:
         "Since the signing of Supplement VII to the Mainland and Hong Kong Closer Economic Partnership Arrangement (CEPA), the Mainland has been...",
       imagePath: "industry/Entering.png",
       link: "/support?section=entering_into_the_mainland_market",
     },
     {
-      title: "HKCTC Exhibition Programme",
+      title: exhibition_programme,
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
       imagePath: "industry/support_1.png",
@@ -50,17 +95,17 @@ export const IndustryContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "Corruption Prevention Guide for T&C Industry",
+      title: corruption_prevention,
       imgUrl: "industry/Corruption.png",
       link: "/events-promotion?section=corruption_prevention",
     },
     {
-      title: "HKCTC Newsletters",
+      title: hkctc_newsletter,
       imgUrl: "generalPublic/material_2.png",
       link: "/events-promotion?section=hkctc_newsletter",
     },
     {
-      title: "HKCTC Reports",
+      title: hkctc_reports,
       imgUrl: "generalPublic/material_1.png",
       link: "/events-promotion?section=hkctc_reports",
     },
@@ -73,7 +118,7 @@ export const IndustryContent: React.FC = () => {
       } py-[48px] px-[24px] gap-[24px]`}
     >
       <div>
-        <SquareTitle title="Our Support" />
+        <SquareTitle title={our_support} />
 
         <div>
           {industryData.map((item, index) => {
@@ -110,7 +155,7 @@ export const IndustryContent: React.FC = () => {
                   </div>
                   <div className="text-body0m">{description}</div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    Continue to Read
+                    {continue_read}
                   </div>
                 </div>
               </div>
@@ -121,7 +166,7 @@ export const IndustryContent: React.FC = () => {
       {/* Publications & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Publications</p>
+          <p className="text-heading-l">{publications}</p>
 
           <div>
             {publicationData.map((item, index) => {
@@ -195,7 +240,7 @@ export const IndustryContent: React.FC = () => {
               />
               <div className="flex items-end w-full h-full pl-[24px] pb-[24px]">
                 <p className={"text-heading-l text-white z-10"}>
-                  Seminars & Workshops
+                  {seminar_workshop}
                 </p>
               </div>
             </div>

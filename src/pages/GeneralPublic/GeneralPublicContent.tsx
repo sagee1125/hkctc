@@ -1,11 +1,41 @@
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EmailBox, SquareTitle, Link } from "../../components";
-import { useSettings } from "../../context";
-
+import { Language, useSettings } from "../../context";
+import { WhatsNewConfiguration, WhatsNewConfiguration_cn } from "../../const";
+const multilingual = {
+  en: {
+    advertorials: "Advertorials",
+    pamphlets_booklets: "Pamphlets And Booklets",
+    hkctc_newsletter: "HKCTC Newsletters",
+    hkctc_reports: "HKCTC Reports",
+    seminar_workshop: "Seminars & Workshops",
+    whats_new: "What’s New",
+    materials: "Materials",
+  },
+  cn: {
+    advertorials: "特約專輯",
+    pamphlets_booklets: "宣傳單張及小冊子",
+    hkctc_newsletter: "香港檢測和認證局通訊",
+    hkctc_reports: "香港檢測和認證局報告",
+    seminar_workshop: "研討會與工作坊",
+    whats_new: "最新消息",
+    materials: "材料",
+  },
+};
 export const GeneralPublicContent: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const {
+    hkctc_newsletter,
+    hkctc_reports,
+    pamphlets_booklets,
+    advertorials,
+    seminar_workshop,
+    whats_new,
+    materials,
+  } = page_text;
   const materialsData: Array<{
     title: string;
     imgUrl: string;
@@ -13,70 +43,27 @@ export const GeneralPublicContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "HKCTC Reports",
+      title: hkctc_reports,
       imgUrl: "material_1",
       link: "/events-promotion?section=hkctc_reports",
     },
     {
-      title: "HKCTC Newsletters",
+      title: hkctc_newsletter,
       imgUrl: "material_2",
       link: "/events-promotion?section=hkctc_newsletter",
     },
     {
-      title: "Pamphlets and Booklets",
+      title: pamphlets_booklets,
       imgUrl: "material_3",
       link: "/events-promotion?section=pamphlets_booklets",
     },
     {
-      title: "Advertorials",
+      title: advertorials,
       imgUrl: "material_4",
       link: "/events-promotion?section=advertorials",
     },
   ];
-
-  // Updated at 19/01/2025
-  const whatsNew = [
-    {
-      title: 'Twelfth "HKCTC Newsletter" has been issued',
-      date: "29 May 2024",
-      imagePath: "material_2.png",
-      link: "/events-promotion?section=hkctc_newsletter",
-    },
-    {
-      title:
-        "Further liberalisation measures for testing and certification under CEPA",
-      date: "9 Oct 2024",
-      imagePath: "whatsnew_1.png",
-      link: "/support/agreement-clause",
-    },
-    {
-      title:
-        "Report of the Hong Kong Council for Testing and Certification 2023-24 has been uploaded",
-      date: "6 Aug 2024",
-      imagePath: "material_1.png",
-      link: "/events-promotion?section=hkctc_reports",
-    },
-    {
-      title:
-        "Statistics of the testing and certification activities in Hong Kong in 2022 have been uploaded",
-      date: "16 Apr 2024",
-      imagePath: "whatsnew_2.png",
-      link: "/tc-sector?section=profile_and_role",
-    },
-    {
-      title:
-        "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
-      date: "15 Mar 2024",
-      imagePath: "whatsnew_3.png",
-      link: "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
-    },
-    {
-      title: "“The BUD Fund - Easy BUD” has been launched",
-      date: "16 Jun 2023",
-      imagePath: "whatsnew_4.png",
-      link: "/support?section=funding_schemes",
-    },
-  ];
+  const whatsNewData = isEn ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
 
   return (
     <div
@@ -93,7 +80,7 @@ export const GeneralPublicContent: React.FC = () => {
               window.open("/whats-new");
             }}
           >
-            <SquareTitle title="What’s New" />
+            <SquareTitle title={whats_new} />
           </div>
           <ArrowForwardIosIcon
             sx={{
@@ -104,7 +91,7 @@ export const GeneralPublicContent: React.FC = () => {
           />
         </span>
         <>
-          {whatsNew.map((w, i) => {
+          {whatsNewData.map((w, i) => {
             const { title } = w;
             return (
               <div
@@ -117,8 +104,8 @@ export const GeneralPublicContent: React.FC = () => {
                   <div className={"text-heading-m"}>
                     <Link
                       linkColor="#203136"
-                      innerLink={w.link}
-                      outerLink={w.link}
+                      innerLink={w.redirectTo}
+                      outerLink={w.redirectTo}
                     >
                       {title}
                     </Link>
@@ -139,12 +126,9 @@ export const GeneralPublicContent: React.FC = () => {
                     isPC ? "w-[278px] h-full" : "w-full h-auto"
                   } object-cover cursor-pointer`}
                   onClick={() => {
-                    window.open(w.link);
+                    window.open(w.redirectTo);
                   }}
-                  src={
-                    process.env.PUBLIC_URL +
-                    `/assets/generalPublic/${w.imagePath}`
-                  }
+                  src={`${process.env.PUBLIC_URL}/assets/whatsNew/${w.imagePath}`}
                   alt={w.title}
                 />
               </div>
@@ -155,7 +139,7 @@ export const GeneralPublicContent: React.FC = () => {
       {/* Materials & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
-          <p className="text-heading-l">Materials</p>
+          <p className="text-heading-l">{materials}</p>
           <div className="flex flex-col gap-[24px]">
             {materialsData.map((mat, index) => {
               const { title, imgUrl, link } = mat;
@@ -211,7 +195,7 @@ export const GeneralPublicContent: React.FC = () => {
               />
               <div className="flex items-end w-full h-full pl-[24px] pb-[24px]">
                 <p className={"text-heading-l text-white z-10"}>
-                  Seminars & Workshops
+                  {seminar_workshop}
                 </p>
               </div>
             </div>

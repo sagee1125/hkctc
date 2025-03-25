@@ -1,10 +1,29 @@
 import React from "react";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { useNavigate } from "react-router-dom";
 import { navItemEnum } from "../../const";
+const multilingual = {
+  en: {
+    about: "About HKCTC",
+    profile_and_role: "Profile and Role of T&C Industry",
+    tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
+    services_provided: "Services Provided by T&C Industry",
+  },
+  cn: {
+    about: "關於我們",
+    profile_and_role: "檢測認證業的概況及角色",
+    tc_sector_strengths: "香港檢測認證業的優勢",
+    services_provided: "檢測認證業提供的服務",
+  },
+};
 
 export const PhotoPanel: React.FC = () => {
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { about, profile_and_role, tc_sector_strengths, services_provided } =
+    page_text;
+
   const navigate = useNavigate();
 
   if (isPC)
@@ -23,9 +42,7 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l-extra text-white z-20"}>
-                About HKCTC
-              </p>
+              <p className={"text-heading-l-extra text-white z-20"}>{about} </p>
             </div>
           </div>
           <div
@@ -41,7 +58,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-20"}>
-                Profile & Role of T&C Industry
+                {profile_and_role}
               </p>
             </div>
           </div>
@@ -59,7 +76,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                Strengths of Hong Kong's T&C Industry
+                {tc_sector_strengths}
               </p>
             </div>
           </div>
@@ -78,7 +95,7 @@ export const PhotoPanel: React.FC = () => {
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Services Provided by T&C Industry
+              {services_provided}
             </p>
           </div>
         </div>
@@ -116,7 +133,7 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
-              <p className={"text-heading-l text-white z-20"}>About HKCTC</p>
+              <p className={"text-heading-l text-white z-20"}>{about}</p>
             </div>
           </div>
           <div
@@ -148,7 +165,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l text-white z-20"}>
-                Profile & Role of T&C Industry
+                {profile_and_role}
               </p>
             </div>
           </div>
@@ -182,7 +199,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
               <p className={"text-heading-l text-white z-10"}>
-                Strengths of Hong Kong's T&C Industry
+                {tc_sector_strengths}
               </p>
             </div>
           </div>
@@ -216,7 +233,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Services Provided by T&C Industry
+              {services_provided}
             </p>
           </div>
         </div>

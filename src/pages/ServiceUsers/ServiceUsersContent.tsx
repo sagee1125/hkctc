@@ -1,6 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle, Link } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,30 @@ type IndustryData = {
   imagePath: string;
   link: string;
   onClick?: () => void;
+};
+
+const multilingual = {
+  en: {
+    tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
+    exhibition_programme: "HKCTC Exhibition Programme",
+    different_business_areas: "Services for Different Business Areas",
+    accreditation_services: "Accreditation Services",
+    others: "Others",
+    continue_read: "Continue to Read",
+    hkctc_reports: "HKCTC Reports",
+    seminar_workshop: "Seminars & Workshops",
+  },
+  cn: {
+    tc_sector_strengths: "香港檢測認證業的優勢",
+    different_business_areas: "為不同業務範疇提供的服務",
+    exhibition_programme: "香港檢測和認證局展覽計劃",
+    accreditation_services: "認可服務",
+    continue_read: "Continue to Read",
+    hkctc_reports: "香港檢測和認證局報告",
+    seminar_workshop: "研討會與工作坊",
+
+    others: "其他",
+  },
 };
 
 export const accreditationService: Array<{
@@ -39,25 +63,36 @@ export const accreditationService: Array<{
 ];
 
 export const ServiceUsersContent: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const {
+    tc_sector_strengths,
+    exhibition_programme,
+    different_business_areas,
+    accreditation_services,
+    others,
+    continue_read,
+    hkctc_reports,
+    seminar_workshop,
+  } = page_text;
   const industryData: IndustryData[] = [
     {
-      title: "Services Provided by T&C Industry",
+      title: tc_sector_strengths,
       description:
         "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
       imagePath: "serviceUsers/Services_Provided_TC.png",
       link: "/tc-sector?section=services_provided",
     },
     {
-      title: "Services for Business Areas",
+      title: different_business_areas,
       description:
         "The testing and certification industry offers services covering a wide range of areas...",
       imagePath: "serviceUsers/service_1.png",
       link: "/tc-sector?section=different_business_areas",
     },
     {
-      title: "HKCTC Exhibition Programme",
+      title: exhibition_programme,
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
       imagePath: "industry/support_1.png",
@@ -72,12 +107,12 @@ export const ServiceUsersContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "HKCTC Reports",
+      title: hkctc_reports,
       imgUrl: "industry/Reports.png",
       link: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
     },
     {
-      title: "Seminars & Workshops",
+      title: seminar_workshop,
       imgUrl: "images/Seminars_Workshops.png",
       link: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
@@ -132,7 +167,7 @@ export const ServiceUsersContent: React.FC = () => {
                   </div>
                   <div className="text-body0m">{description}</div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    Continue to Read
+                    {continue_read}
                   </div>
                 </div>
               </div>
@@ -140,16 +175,16 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
         <div className="pt-[48px]">
-          <SquareTitle title="Accreditation Services" />
+          <SquareTitle title={accreditation_services} />
         </div>
-        <p className="py-[24px] text-body-m">
+        <p className="pt-[24px] text-body-m">
           Discover accredited laboratories, certification bodies, and inspection
           bodies under HKAS. Access information about HOKLAS, HKCAS, and HKIAS,
           as well as a full directory of accredited organisations.
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, imagePath, link } = item;
+            const { title, titleCN, imagePath, link } = item;
             return (
               <div
                 key={index}
@@ -175,7 +210,7 @@ export const ServiceUsersContent: React.FC = () => {
                 </div>
                 <span className="!text-highlight-m h-full flex items-center">
                   <Link outerLink={link} linkColor="black">
-                    {title}
+                    {isEn ? title : titleCN}
                   </Link>
                 </span>
               </div>
@@ -200,7 +235,7 @@ export const ServiceUsersContent: React.FC = () => {
       {/* Others & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Others</p>
+          <p className="text-heading-l">{others}</p>
 
           <div className="mb-[32px]">
             {othersData.map((item, index) => {
