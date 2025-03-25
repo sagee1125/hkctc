@@ -34,12 +34,11 @@ export const WhatsNew: React.FC = () => {
   const [activeReport, setActiveReport] = useState(0);
   const currentReport = hkctcNewsletterList[activeReport];
   const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const { title, hkctc_newsletter, see_more } = page_text;
 
-  const whatsNewData =
-    language === Language.EN ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
+  const whatsNewData = isEn ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
 
   const leftContent = (
     <div className="w-full flex flex-col gap-[24px]">
@@ -94,7 +93,7 @@ export const WhatsNew: React.FC = () => {
       <div className="border-2 border-inherit p-[24px] flex flex-col">
         <p className="text-heading-l">{hkctc_newsletter}</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
-          const { title, date = "", mediaType, link } = item;
+          const { title, titleCN = "", date = "", mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
@@ -103,7 +102,7 @@ export const WhatsNew: React.FC = () => {
               className={`w-full h-auto object-cover flex flex-row gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={isEn ? title : titleCN}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

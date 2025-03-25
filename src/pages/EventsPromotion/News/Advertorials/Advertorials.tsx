@@ -46,6 +46,23 @@ function parseTitleToDate(title: string): Date {
   return new Date(0); // a default earliest date
 }
 
+function formatDateToChinese(dateStr: string): string {
+  const date = new Date(dateStr);
+
+  if (isNaN(date.getTime())) {
+    return dateStr;
+  }
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // 0-based
+  const day = date.getDate();
+
+  //  "YYYY年MM月DD日"
+  return `${year}年${month.toString().padStart(2, "0")}月${day
+    .toString()
+    .padStart(2, "0")}日`;
+}
+
 const multilingual = {
   en: {
     title: "Advertorials",
@@ -343,7 +360,7 @@ export const Advertorials: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={isEn ? title : formatDateToChinese(title)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}
