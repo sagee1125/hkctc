@@ -70,7 +70,7 @@ const multilingual = {
         Email:&nbsp;
         <a
           className="underline text-[#00E] cursor-pointer"
-          href="wmleung@itc.gov.hk"
+          href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk
         </a>
@@ -129,7 +129,7 @@ const multilingual = {
         電子郵件：
         <a
           className="underline text-[#00E] cursor-pointer"
-          href="wmleung@itc.gov.hk"
+          href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk
         </a>
