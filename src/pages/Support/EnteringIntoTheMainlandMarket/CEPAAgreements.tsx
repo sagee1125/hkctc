@@ -169,7 +169,7 @@ export const CEPAAgreements: React.FC = () => {
     },
     nov2020: {
       tab: "November 2020",
-      tabCN: "2020年十一月",
+      tabCN: "2020年11月",
       content: (
         <>
           <p className="text-body-m">
@@ -242,7 +242,7 @@ export const CEPAAgreements: React.FC = () => {
     },
     nov2019: {
       tab: "November 2019",
-      tabCN: "2019年十一月",
+      tabCN: "2019年11月",
       content: (
         <>
           <p className="text-body-m">
