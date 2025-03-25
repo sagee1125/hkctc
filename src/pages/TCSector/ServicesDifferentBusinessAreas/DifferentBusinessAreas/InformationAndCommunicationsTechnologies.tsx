@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
   handleReturnDifferentBusinessAreasBreadcrumb,
 } from "./utils";
@@ -18,52 +17,94 @@ import {
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
 
-const timeLineData: Array<{
-  text: string;
-  fontColor: string;
-  bgColor?: string;
-}> = [
-  {
-    text: "Define the scope, boundary and policy of ISMS",
-    fontColor: "[#000000]",
-  },
-  {
-    text: "Define the risk assessment approcah of the organisation",
-    fontColor: "[#000000]",
-    bgColor: "[#EAEAE5]",
-  },
-  {
-    text: "Identify and evaluate risk and options for the relevant treatment",
-    fontColor: "[#000000]",
-  },
-  {
-    text: "Select appropriate control objectives and controls for the treatment for risks",
-    fontColor: "[#000000]",
-    bgColor: "[#EAEAE5]",
-  },
+const multilingual = {
+  en: {
+    businessAreaTitle: "Information and Communications Technologies",
+    timeLineData: [
+      {
+        text: "Define the scope, boundary and policy of ISMS",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "Define the risk assessment approcah of the organisation",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
+      {
+        text: "Identify and evaluate risk and options for the relevant treatment",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "Select appropriate control objectives and controls for the treatment for risks",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
 
-  {
-    text: "Obtain management approval of the proposed residual risks",
-    fontColor: "[#000000]",
-  },
-  {
-    text: "Obtain management authorisation to implement and operate the ISMS",
-    fontColor: "[#000000]",
-    bgColor: "[#EAEAE5]",
-  },
+      {
+        text: "Obtain management approval of the proposed residual risks",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "Obtain management authorisation to implement and operate the ISMS",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
 
-  {
-    text: "Monitor, review, maintain and improve the ISMS continuously",
-    fontColor: "[#000000]",
+      {
+        text: "Monitor, review, maintain and improve the ISMS continuously",
+        fontColor: "[#000000]",
+      },
+    ],
+    mediaTitle:
+      "Understanding Information Security Management System (ISMS) Certification",
   },
-];
+  cn: {
+    businessAreaTitle: "资讯及通讯科技",
+    timeLineData: [
+      {
+        text: "确定ISMS的范围、边界和方针",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "确定机构的风险评估方法",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
+      {
+        text: "识别和评估风险及其处理方法的方案",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "S为处理风险选择合适的控制目标和控制措施",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
+
+      {
+        text: "获得管理层批准建议的残余风险",
+        fontColor: "[#000000]",
+      },
+      {
+        text: "获得管理层授权实施和运行ISMS",
+        fontColor: "[#000000]",
+        bgColor: "[#EAEAE5]",
+      },
+
+      {
+        text: "不断地监视、评审、保持和改进ISMS",
+        fontColor: "[#000000]",
+      },
+    ],
+    mediaTitle: "认识资讯安全管理系统认证",
+  },
+};
 
 export const InformationAndCommunicationsTechnologies: React.FC = () => {
-  const businessAreaTitle =
-    "Information and Communications Technologies" as BusinessAreaTitle;
   const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const data: Array<{
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const data_en: Array<{
     title: string;
     content: React.ReactNode;
   }> = [
@@ -119,7 +160,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           </p>
 
           <div className="w-full flex flex-col mt-[16px]">
-            {timeLineData.map((item, index) => (
+            {page_text.timeLineData.map((item, index) => (
               <div key={index} className="flex flex-row gap-[24px]">
                 <div className="relative flex flex-col items-center">
                   {/* ball */}
@@ -127,7 +168,9 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
                   {/* line */}
                   <div
                     className={`${
-                      timeLineData.length - 1 === index ? "h-[50px]" : "h-full"
+                      page_text.timeLineData.length - 1 === index
+                        ? "h-[50px]"
+                        : "h-full"
                     } w-[2px] bg-newPrimary absolute top-[17px]`}
                   />
                 </div>
@@ -196,19 +239,126 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
     },
   ];
 
+  const data_cn: Array<{
+    title: string;
+    content: React.ReactNode;
+  }> = [
+    {
+      title: "什么是资讯安全管理系统（ISMS）?",
+      content: (
+        <ul>
+          <li>
+            近年来，资讯保安持续备受广泛关注。资讯保安措施欠佳或不足的机构，往往客易受到黑客攻击或入侵，因而打击客户及普罗大众对他们的信心。
+          </li>
+          <br />
+          <li>
+            资讯安全管理系统（Information Security Management
+            System，简称ISMS），作为整体管理系统的一部分，是一种系统性的方法，用以建立、实施、运行、监控、审查、维护和改进信息安全。
+          </li>
+          <br />
+          <li>
+            ISO/IEC
+            27001是由国际标准化组织(ISO)和国际电工委员会(IEC)联合出版的国际标准，为ISMS的开发与运作提供规范性的要求。
+          </li>
+          <br />
+          <li>
+            实施资讯安全管理系统的目的，在于协助机构透过风险评估，因应其风险接受程度有效地应对及管理资讯保安风险，从而达到业务目标，例如提升工作效率、提高声誉，或吸引更多投资者及客户。
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: "谁应实施ISMS?",
+      content:
+        "ISMS适用于各行各业、不同规模的机构。对于需要储存或处理个人敏感资讯、敏感及具价值的商业资讯（如产品设计）、或关键性业务资讯（即需要保证其准确性和完整性的资讯）的机构而言，实施ISMS尤其有用。",
+    },
+    {
+      title: "建立和实施ISO/IEC 27001 ISMS有什么主要步骤 ?",
+      content: (
+        <>
+          <p>ISO/IEC 27001提供了建立、实施、保持和持续改进ISMS的模式：</p>
+
+          <div className="w-full flex flex-col mt-[16px]">
+            {page_text.timeLineData.map((item, index) => (
+              <div key={index} className="flex flex-row gap-[24px]">
+                <div className="relative flex flex-col items-center">
+                  {/* ball */}
+                  <div className="bg-newPrimary rounded-full h-[17px] w-[17px] relative" />
+                  {/* line */}
+                  <div
+                    className={`${
+                      page_text.timeLineData.length - 1 === index
+                        ? "h-[50px]"
+                        : "h-full"
+                    } w-[2px] bg-newPrimary absolute top-[17px]`}
+                  />
+                </div>
+                <div
+                  className={`text-highlight-s p-[16px] border-[1px] justify-start content-center mb-[16px] w-full border-[#E0E0E0] text-${
+                    item.fontColor
+                  } bg-${item.bgColor ?? "white"}`}
+                >
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ),
+    },
+
+    {
+      title: "获得ISMS认证有何好处?",
+      content: (
+        <ul>
+          <li>
+            认证是通过一个正式的合格评定程序，由第三方发出证明，表示已满足某些特定的要求（如ISO/IEC
+            27001）。
+          </li>
+          <br />
+          <li>
+            机构获取ISO/IEC
+            27001认证后，在内部方面，不但加强了内部组织架构，亦能改善公司的资讯保安管理和减低风险承担，从而减少发生事故的机会，亦相应减少用于保安事故应变的时间及金钱。
+          </li>
+          <br />
+          <li>
+            对外方面，获得ISO/IEC 27001
+            ISMS认证，可让机构更能确保本身的资讯资产受到充分保护，免受资讯保安风险影响，从而为业务伙伴、规管当局及其他相关人士带来信心。
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: "我在哪里可以取得ISMS认证服务?",
+      content: (
+        <ul>
+          <li>部分本地认证机构已开展ISO/IEC 27001 ISMS认证服务。</li>
+          <br />
+          <li>
+            香港认可处提供ISO/IEC
+            27001认证的认可服务，供认证机构自愿申请相关的认可资格。认可程序使相关的认证机构发出的证书符合国际标准的要求，确认这些机构进行ISO/IEC
+            27001认证工作的能力，令客户可安心使用其服务。
+          </li>
+        </ul>
+      ),
+    },
+  ];
+
+  const data = language === Language.EN ? data_en : data_cn;
+
   const sidebar = (
     <DifferentBusinessAreasDirectorySidebar
-      businessAreaTitle={businessAreaTitle}
+      businessAreaTitle={page_text.businessAreaTitle}
     />
   );
 
   const content = (
     <>
-      <SquareTitle title={businessAreaTitle} />
+      <SquareTitle title={page_text.businessAreaTitle} />
 
       <div className="my-[24px]">
         <MediaTemplate
-          title="Understanding Information Security Management System (ISMS) Certification"
+          title={page_text.mediaTitle}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
           mediaLink="https://www.hkctc.gov.hk/en/doc/ISMS_Flyer_Communications_5.pdf"
         />
@@ -243,7 +393,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle,
+                page_text.businessAreaTitle,
                 language
               )}
             />
