@@ -242,11 +242,3 @@ const progressBarStyle: React.CSSProperties = {
   background: "#D1E39B",
   transition: "width 0.1s ease-out",
 };
-
-const buttonStyle: React.CSSProperties = {
-  padding: "10px 20px",
-  backgroundColor: "#FFFFFF",
-  color: "#000000",
-  cursor: "pointer",
-  border: "none",
-};
