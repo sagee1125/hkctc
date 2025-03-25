@@ -9,6 +9,7 @@ import {
   fullContainer,
   maxPCContainer,
   maxMobileContainer,
+  type DirectorySidebarItems,
 } from "../../components";
 import { useSettings } from "../../context";
 
@@ -274,11 +275,27 @@ const componentMapping: Record<string, React.ReactNode> = {
   [ABOUT_SIDE_MODULE.CONTACT]: <Contact />,
 };
 
-const directoryItems = [
-  ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
-  ABOUT_SIDE_MODULE.ACCESSIBILITY,
-  ABOUT_SIDE_MODULE.PRIVACY,
-  ABOUT_SIDE_MODULE.CONTACT,
+const directoryItems: DirectorySidebarItems[] = [
+  {
+    label: ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
+    labelCN: "重要聲明",
+    value: ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
+  },
+  {
+    label: ABOUT_SIDE_MODULE.ACCESSIBILITY,
+    labelCN: "無障礙訪問",
+    value: ABOUT_SIDE_MODULE.ACCESSIBILITY,
+  },
+  {
+    label: ABOUT_SIDE_MODULE.PRIVACY,
+    labelCN: "隱私政策",
+    value: ABOUT_SIDE_MODULE.PRIVACY,
+  },
+  {
+    label: ABOUT_SIDE_MODULE.CONTACT,
+    labelCN: "聯絡我們",
+    value: ABOUT_SIDE_MODULE.CONTACT,
+  },
 ];
 
 export const AboutSite: React.FC = () => {
@@ -290,8 +307,8 @@ export const AboutSite: React.FC = () => {
 
   const initialSection = queryParams.get("section") ?? "";
 
-  const initialParam: ABOUT_SIDE_MODULE = directoryItems.includes(
-    initialSection as ABOUT_SIDE_MODULE
+  const initialParam: ABOUT_SIDE_MODULE = directoryItems.some(
+    (i) => i.value === (initialSection as ABOUT_SIDE_MODULE)
   )
     ? (initialSection as ABOUT_SIDE_MODULE)
     : ABOUT_SIDE_MODULE.IMPORTANT_NOTE;

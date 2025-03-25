@@ -10,7 +10,7 @@ export type DirectorySidebarItems = {
 };
 type DirectorySidebarProps = {
   disabled?: boolean;
-  directorySidebarItems: DirectorySidebarItems[] | string[]; // string[] to be replaced
+  directorySidebarItems: DirectorySidebarItems[];
   activatedItems: string;
   setActivatedItems: (activatedItems: string) => void;
 };
@@ -29,7 +29,6 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
       <div className="flex flex-col gap-[0] w-full">
         {directorySidebarItems.map((item, index) => {
           const isActivated =
-            item === activatedItems ||
             (item as DirectorySidebarItems).value === activatedItems ||
             (item as DirectorySidebarItems).label === activatedItems ||
             (item as DirectorySidebarItems).labelCN === activatedItems;
@@ -56,22 +55,13 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               }}
               onClick={() => {
                 if (disabled) return;
-                if (typeof item === "string") {
-                  // TO BE REPLACED
-                  setActivatedItems(item);
-                } else {
-                  setActivatedItems(item.value);
-                }
+                setActivatedItems(item.value);
                 setIsOpen(false);
               }}
               key={index}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
-                {typeof item === "string"
-                  ? item
-                  : isEn
-                  ? item.label
-                  : item.labelCN}
+                {isEn ? item.label : item.labelCN}
               </p>
 
               {isActivated ? (

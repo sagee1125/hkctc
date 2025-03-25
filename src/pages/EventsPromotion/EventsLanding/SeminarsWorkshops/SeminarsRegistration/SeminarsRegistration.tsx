@@ -8,29 +8,45 @@ import {
   Breadcrumb,
   DirectorySidebar,
   maxMobileContainer,
+  type DirectorySidebarItems,
 } from "../../../../../components";
-import { useSettings } from "../../../../../context";
-
+import { Language, useSettings } from "../../../../../context";
+const multilingual = {
+  en: {
+    home: "Home",
+    event_promotion: "Events & Promotions",
+    events: "Events",
+    seminar_workshop: "Seminars and Workshops",
+  },
+  cn: {
+    home: "主頁",
+    event_promotion: "活動與宣傳",
+    events: "活動",
+    seminar_workshop: "研討會與工作坊",
+  },
+};
 export const SeminarsRegistration: React.FC = () => {
   const navigate = useNavigate();
   const initialHash = window.location.hash;
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(0))
     : null; // remove `#`, get index
-  const { isPC } = useSettings();
-
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { home, event_promotion, events, seminar_workshop } = page_text;
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "Events & Promotions",
+      label: event_promotion,
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
-      label: "Events",
+      label: events,
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
-      label: "Seminars and Workshops",
+      label: seminar_workshop,
       href: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
     {
@@ -42,13 +58,21 @@ export const SeminarsRegistration: React.FC = () => {
     "Register for New Seminars"
   );
 
-  const sidebarItems: string[] = ["Register for New Seminars"];
+  const sidebarItems: DirectorySidebarItems[] = [
+    {
+      label: "Register for New Seminars",
+      value: "Register for New Seminars",
+      labelCN: "注冊參加研討會",
+    },
+  ];
   const sidebarContentMapping: Record<string, React.ReactNode> = {
     "Register for New Seminars": <RegistrationForm />,
   };
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
-    const hashIndex = sidebarItems.findIndex((item) => item === activatedItems);
+    const hashIndex = sidebarItems.findIndex(
+      (item) => item.value === activatedItems
+    );
     setActiveItem(activatedItems);
 
     window.location.hash = `${hashIndex}`;
@@ -63,7 +87,7 @@ export const SeminarsRegistration: React.FC = () => {
     if (!initialHashIndex) navigate(`/events-promotion/seminars-registration`);
     else {
       navigate(`/support/agreement-clause#${initialHashIndex}`);
-      setActiveItem(sidebarItems[initialHashIndex]);
+      setActiveItem(sidebarItems[initialHashIndex].value);
     }
   }, []);
 

@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { DirectorySidebar } from "../../../components";
+import {
+  DirectorySidebar,
+  type DirectorySidebarItems,
+} from "../../../components";
 import { navItemEnum } from "../../../const";
 import { directorySidebarItemsMap } from "../Support";
 
@@ -19,9 +22,16 @@ export const ClausesDirectorySidebar: React.FC = () => {
       `/support?section=${navItemEnum.entering_into_the_mainland_market}#${index}`
     );
   };
+  const directorySidebarItems: DirectorySidebarItems[] = directoryItems.map(
+    (i) => ({
+      label: directorySidebarMap?.[i]?.label ?? i,
+      labelCN: directorySidebarMap?.[i]?.labelCN ?? i,
+      value: directorySidebarMap?.[i]?.label ?? i,
+    })
+  );
   return (
     <DirectorySidebar
-      directorySidebarItems={directoryItems}
+      directorySidebarItems={directorySidebarItems}
       activatedItems={directoryItems[2]} // "Summary of CEPA Clauses Relating to Testing and Certification"
       setActivatedItems={handleBackTo}
     />
