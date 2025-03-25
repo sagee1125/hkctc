@@ -82,7 +82,7 @@ const multilingual = {
     Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議十》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
-      `1. Business Services`,
+      `1. 商業服務`,
       `F. 其他商業服務`,
       `e. 技術檢驗和分析服務（CPC8676）及（CPC749）涵蓋的貨物檢驗服務，不包括貨物檢驗服務中的法定檢驗服務`,
     ],

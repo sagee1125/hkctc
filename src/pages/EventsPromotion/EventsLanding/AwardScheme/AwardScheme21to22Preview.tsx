@@ -80,6 +80,28 @@ export const AwardScheme21to22Preview: React.FC<{
     },
   ];
 
+  const stagesGridOne = [
+    {
+      title: page_text.stagesGridOne.stage_1,
+      content: page_text.stagesGridOne.stage_1_content,
+    },
+    {
+      title: page_text.stagesGridOne.stage_2,
+      content: (
+        <>
+          <span
+            className="underline cursor-pointer"
+            onClick={handleOpenAssessmentPanel}
+          >
+            {page_text.stagesGridOne.stage_2_assessment}
+          </span>
+          &nbsp;
+          {page_text.stagesGridOne.stage_2_will_shortlist}
+        </>
+      ),
+    },
+  ];
+
   const awardOneBtn = page_text.testing_manpower_award_btn;
   const awardMapOne: Record<string, React.ReactNode> = {
     [awardOneBtn[0]]: (
@@ -159,25 +181,25 @@ export const AwardScheme21to22Preview: React.FC<{
     ),
     [awardOneBtn[3]]: (
       <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
-        {page_text.stagesGridOne.map((item, index) => (
+        {stagesGridOne.map((item, index) => (
           <div
             key={index}
             className={`bg-${
               index !== 0 ? "newPrimary" : "white"
             } border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px] h-[216px]`}
           >
-            <p
+            <div
               className={`text-${
                 index === 0 ? "newPrimary" : "white"
               } underline !text-heading-s`}
             >
               {item.title}
-            </p>
-            <p
+            </div>
+            <div
               className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
             >
               {item.content}
-            </p>
+            </div>
           </div>
         ))}
       </div>

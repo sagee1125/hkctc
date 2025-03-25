@@ -1090,18 +1090,16 @@ export const award2122_multilingual = {
           manpower and professional development of T&C practitioners in specific
           aspect may receive special commendation.`,
     },
-    stagesGridOne: [
-      {
-        title: "Stage 1",
-        content:
-          "HKCTC Secretariat will conduct an initial screening on the applications",
-      },
-      {
-        title: "Stage 2",
-        content:
-          "Independent Assessment Panel will consider and, shortlisting as the circumstances require, interview applicants with a view to selecting the awardees",
-      },
-    ],
+
+    stagesGridOne: {
+      stage_1: "Stage 1",
+      stage_1_content:
+        "HKCTC Secretariat will conduct an initial screening on the applications",
+      stage_2: "Stage 2",
+      stage_2_assessment: "Independent Assessment Panel",
+      stage_2_will_shortlist:
+        "will consider and, shortlisting as the circumstances require, interview applicants with a view to selecting the awardees",
+    },
 
     testing_profession_award:
       "II. Excellent Testing and Certification Professional Award",
@@ -1151,7 +1149,7 @@ export const award2122_multilingual = {
         stage_1_content:
           "HKCTC Secretariat will conduct an initial screening on the applications",
         stage_2: "Stage 2",
-        stage_2_assessment: "Assessment Panel",
+        stage_2_assessment: "Assessment Panel ",
         stage_2_will_shortlist:
           "will shortlist and interview applicant practitioners, and select the awardees",
       },
@@ -1363,16 +1361,13 @@ export const award2122_multilingual = {
       activity_carry_out: `在2020年1月1日至申請日期之間從事的活動和取得的成就，方會被納入有關獎項的考慮範圍。`,
       awardees_demonstrated: `如得獎機構於特定範疇上，在推動檢測認證從業員的人力和專業發展有特殊成就，評審小組可因應合適情況向其頒發特別嘉許獎。`,
     },
-    stagesGridOne: [
-      {
-        title: "第一階段",
-        content: "香港檢測和認證局秘書處檢查和核實申請及證明文件",
-      },
-      {
-        title: "第二階段",
-        content: "評審小組審核申請並考慮得獎名單",
-      },
-    ],
+    stagesGridOne: {
+      stage_1: "第一階段",
+      stage_1_content: "香港檢測和認證局秘書處檢查和核實申請及證明文件",
+      stage_2: "第二階段",
+      stage_2_assessment: "評審小組",
+      stage_2_will_shortlist: "審核申請並考慮得獎名單",
+    },
 
     testing_profession_award: "II. 卓越檢測認證專業人員獎",
     award_commends_individual: `本獎項旨在表揚於以下其中一方面表現優秀的個別檢測認證從業員：`,
