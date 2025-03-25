@@ -30,7 +30,9 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
         {directorySidebarItems.map((item, index) => {
           const isActivated =
             item === activatedItems ||
-            (item as DirectorySidebarItems).value === activatedItems;
+            (item as DirectorySidebarItems).value === activatedItems ||
+            (item as DirectorySidebarItems).label === activatedItems ||
+            (item as DirectorySidebarItems).labelCN === activatedItems;
 
           const borderStyle = isActivated
             ? "border-newPrimary z-10"
