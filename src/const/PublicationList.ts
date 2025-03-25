@@ -61,6 +61,7 @@ export type CoursesType = Omit<PublicationType, "date" | "mediaType"> & {
 };
 
 // Reports
+
 export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 2023-24",
