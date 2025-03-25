@@ -22,7 +22,7 @@ import { CareerOpportunities } from "./CareerOpportunities/CareerOpportunities";
 import { ProgrammesCourses } from "./ProgrammesCourses/ProgrammesCourses";
 import { QualificationsFramework } from "./QualificationsFramework/QualificationsFramework";
 import { LearningTeachingResources } from "./LearningTeachingResources/LearningTeachingResources";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 const sidebarComponent: Partial<
   Record<
@@ -66,12 +66,26 @@ const sidebarKeys = Object.keys(
   sidebarComponent
 ) as (keyof typeof sidebarComponent)[];
 
+const multilingual = {
+  en: {
+    home: "Home",
+    career_development: "Career & Education",
+  },
+
+  cn: {
+    home: "主頁",
+    career_development: "職業與教育",
+  },
+};
+
 export const CareerEducation: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { home, career_development } = page_text;
   const initialSection = queryParams.get("section") ?? "";
 
   const initialParam: navItemEnum = sidebarKeys.includes(
@@ -116,10 +130,10 @@ export const CareerEducation: React.FC = () => {
       sidebarItems: educationItem,
     },
   ];
-
-  const activeSidebarItemsLabel = sidebarData.filter((section) =>
+  const { title, titleCN } = sidebarData.filter((section) =>
     section.sidebarItems.find((item) => item.enum === activeItem)
-  )?.[0].title;
+  )?.[0];
+  const activeSidebarItemsLabel = isEn ? title : titleCN;
   const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
@@ -127,7 +141,9 @@ export const CareerEducation: React.FC = () => {
     .find((matchedItem) => matchedItem !== undefined);
 
   const firstActiveItemEnum = firstActiveItem?.enum;
-  const activeSidebarItemsSubLabel = firstActiveItem?.subTitle;
+  const activeSidebarItemsSubLabel = isEn
+    ? firstActiveItem?.subTitle
+    : firstActiveItem?.subTitleCN;
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -141,9 +157,9 @@ export const CareerEducation: React.FC = () => {
   const component = sidebarComponent[activeItem]?.component;
   const bannerImage = sidebarComponent[activeItem]?.bannerImage ?? "";
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
+    { label: home, href: "/" },
     {
-      label: "Career & Education",
+      label: career_development,
       href: `/career_and_education?section=${navItemEnum.career_development}`,
     },
     {
