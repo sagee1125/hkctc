@@ -6,9 +6,19 @@ import {
   handleGetPaginatorProp,
 } from "../../../components";
 import { hktctReportsList, MEDIA_TYPE } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 const itemsPerPage = 9;
+
+const multilingual = {
+  en: {
+    title: "HKCTC Reports",
+  },
+  cn: {
+    title: "香港檢測和認證局報告",
+  },
+};
+
 export const HKCTCReports: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const { currentPageData, startIndex, endIndex } = handleGetPaginatorProp(
@@ -16,7 +26,10 @@ export const HKCTCReports: React.FC = () => {
     itemsPerPage,
     hktctReportsList
   );
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
 
   useEffect(() => {
     window.scroll({
@@ -27,7 +40,7 @@ export const HKCTCReports: React.FC = () => {
 
   return (
     <div>
-      <SquareTitle title="HKCTC Reports" />
+      <SquareTitle title={title} />
       <div
         className={`w-full mt-[24px] grid ${
           isPC
@@ -36,7 +49,7 @@ export const HKCTCReports: React.FC = () => {
         }`}
       >
         {currentPageData.map((item, index) => {
-          const { title, date, mediaType, link } = item;
+          const { title, date, titleCN, mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
@@ -47,7 +60,7 @@ export const HKCTCReports: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={isEn ? title : titleCN}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

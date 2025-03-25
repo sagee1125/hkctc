@@ -12,16 +12,20 @@ import {
   MEDIA_TYPE,
   WhatsNewConfiguration,
   hkctcNewsletterList,
-  WhatsNewConfiguration_cn
+  WhatsNewConfiguration_cn,
 } from "../../const";
 import { Language, useSettings } from "../../context";
 
 const multilingual = {
   en: {
     title: "What’s New",
+    hkctc_newsletter: "HKCTC Newsletters",
+    see_more: "See more",
   },
   cn: {
     title: "最新消息",
+    hkctc_newsletter: "香港檢測和認證局通訊",
+    see_more: "查看更多",
   },
 };
 
@@ -32,10 +36,10 @@ export const WhatsNew: React.FC = () => {
   const { isPC, language } = useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
-  const { title } = page_text;
+  const { title, hkctc_newsletter, see_more } = page_text;
 
-    const whatsNewData =
-      language === Language.EN ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
+  const whatsNewData =
+    language === Language.EN ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
 
   const leftContent = (
     <div className="w-full flex flex-col gap-[24px]">
@@ -88,7 +92,7 @@ export const WhatsNew: React.FC = () => {
   const rightContent = (
     <div>
       <div className="border-2 border-inherit p-[24px] flex flex-col">
-        <p className="text-heading-l">HKCTC Newsletters</p>
+        <p className="text-heading-l">{hkctc_newsletter}</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
           const { title, date = "", mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
@@ -115,7 +119,7 @@ export const WhatsNew: React.FC = () => {
             window.open("/events-promotion?section=hkctc_newsletter");
           }}
         >
-          See more
+          {see_more}
         </div>
       </div>
     </div>

@@ -229,7 +229,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                     return (
                       <div
                         key={i}
-                        className={`transition-all duration-200 ease-in-out ${
+                        className={`transition-all duration-200 ease-in-out cursor-pointer ${
                           isActivated
                             ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
                             : "bg-transparent border-[0px] border-transparent"

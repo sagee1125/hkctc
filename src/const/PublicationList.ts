@@ -46,6 +46,7 @@ export type PublicationType = {
   title: string;
   titleCN?: string;
   date?: string;
+  dateCN?: string;
   link: string;
   sector?: ADVERTORIALS_SECTOR[];
   mediaType: MEDIA_TYPE;
@@ -64,6 +65,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 2023-24",
     date: "",
+    titleCN: `2023-2024年度香港檢測和認證局報告`,
     link: "/en/doc/HKCTCAnnualReport_2023-24.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2024],
@@ -71,6 +73,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "Report Highlights 2023-24",
+    titleCN: `2023-2024年度報告摘要`,
     date: "",
     link: "/videos/en/hkctc_report_2023-24_highlights_en.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
@@ -79,6 +82,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 22-23",
+    titleCN: `2022-2023年度香港檢測和認證局報告`,
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2022-23.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -88,6 +92,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "Report Highlights 22-23",
     date: "",
+    titleCN: `2022-2023年度報告摘要`,
     link: "/videos/en/hkctc_report_2022-23_highlights.mp4",
     mediaType: MEDIA_TYPE.VIDEO,
     yearRange: [2022, 2023],
@@ -95,6 +100,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 21-22",
+    titleCN: `2021-2022年度香港檢測和認證局報告`,
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2021-22_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -104,6 +110,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 20-21",
     date: "",
+    titleCN: `2020-2021年度香港檢測和認證局報告`,
     link: "/en/doc/HKCTCAnnualReport_2020-21_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2020, 2021],
@@ -112,6 +119,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 19-20",
     date: "",
+    titleCN: `2019-2020年度香港檢測和認證局報告`,
     link: "/en/doc/HKCTCAnnualReport_2019-20_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2019, 2020],
@@ -119,6 +127,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 18-19",
+    titleCN: `2018-2019年度香港檢測和認證局報告`,
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2018-19_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -127,6 +136,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 17-18",
+    titleCN: `2017-2018年度香港檢測和認證局報告`,
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2017-18_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -135,6 +145,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 16-17",
+    titleCN: "2016-2017年度香港檢測和認證局報告",
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2016-17_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -144,6 +155,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 15-16",
     date: "",
+    titleCN: "2015-2016年度香港檢測和認證局報告",
     link: "/en/doc/HKCTCAnnualReport_2015-16_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2015, 2016],
@@ -151,6 +163,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 14-15",
+    titleCN: "2014-2015年度香港檢測和認證局報告",
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2014-15_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -159,6 +172,7 @@ export const hktctReportsList: PublicationType[] = [
   },
   {
     title: "HKCTC Report 13-14",
+    titleCN: "2013-2014年度香港檢測和認證局報告",
     date: "",
     link: "/en/doc/HKCTCAnnualReport_2013-14_Eng_F.pdf",
     mediaType: MEDIA_TYPE.PDF,
@@ -168,6 +182,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "Report Review 13-14",
     date: "",
+    titleCN: "2013年香港檢測和認證局檢討報告",
     link: "/en/doc/HKCTC_Report_Eng(2013)LR.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2013, 2014],
@@ -176,6 +191,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 11-12",
     date: "",
+    titleCN: "2011-2012年度香港檢測和認證局報告",
     link: "/en/doc/HKCTC_annual_report_2011-12_e_final2.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2011, 2012],
@@ -184,6 +200,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report 10-11",
     date: "",
+    titleCN: "2010-2011年度香港檢測和認證局報告",
     link: "/en/doc/HKCTC_Report_2010-11_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2010, 2011],
@@ -192,6 +209,7 @@ export const hktctReportsList: PublicationType[] = [
   {
     title: "HKCTC Report",
     date: "",
+    titleCN: "香港檢測和認證局報告",
     link: "/en/doc/HKCTC_Report_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2010, 2011],
@@ -203,6 +221,8 @@ export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2023",
     date: "27 Jun 2023",
+    titleCN: "檢測和認證業的最新發展",
+    dateCN: "2023年6月27日",
     link: "/en/doc/ci20230620cb1-661-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2023, 2023],
@@ -211,6 +231,8 @@ export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2021",
     date: "19 Feb 2021",
+    titleCN: "檢測和認證業的最新發展",
+    dateCN: "2021年2月19日",
     link: "/en/doc/CIPanel_20210219_Paper_Eng.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2021, 2021],
@@ -220,6 +242,8 @@ export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2018",
     date: "27 Feb 2018",
+    titleCN: "檢測和認證業的最新發展",
+    dateCN: "2018年2月27日",
     link: "/en/doc/AdministrationPaper_ci20180227cb1-604-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2018, 2018],
@@ -228,6 +252,8 @@ export const legislativeCouncilList: PublicationType[] = [
   {
     title: "Latest Development of the T&C Industry 2015",
     date: "17 Nov 2015",
+    titleCN: "檢測和認證業的最新發展",
+    dateCN: "2015年11月17日",
     link: "/en/doc/ci20151117cb1-148-3-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2015, 2015],
@@ -237,6 +263,8 @@ export const legislativeCouncilList: PublicationType[] = [
     title:
       "Measures to Regularise and Facilitate the Operation of Testing Laboratories in Industrial Buildings",
     date: "23 Apr 2015",
+    titleCN: "有助規範和促進測試實驗所於工業大廈營運的措施",
+    dateCN: "2015年4月23日",
     link: "/en/doc/itc-hkctc-17-7-1c-e.pdf",
     mediaType: MEDIA_TYPE.PDF,
     yearRange: [2015, 2015],

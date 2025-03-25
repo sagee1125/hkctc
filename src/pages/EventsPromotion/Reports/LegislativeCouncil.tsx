@@ -1,14 +1,25 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
 import { legislativeCouncilList, MEDIA_TYPE } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
+
+const multilingual = {
+  en: {
+    title: "Legislative Council Papers",
+  },
+  cn: {
+    title: "立法會文件",
+  },
+};
 
 export const LegislativeCouncil: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { title } = page_text;
   return (
     <div>
-      <SquareTitle title="Legislative Council Papers" />
+      <SquareTitle title={title} />
       <div
         className={`w-full mt-[24px] grid ${
           isPC
@@ -17,9 +28,17 @@ export const LegislativeCouncil: React.FC = () => {
         }`}
       >
         {legislativeCouncilList.map((item, index) => {
-          const { title, date, mediaType, link } = item;
+          const {
+            title,
+            titleCN = "",
+            date = "",
+            dateCN = "",
+            mediaType,
+            link,
+          } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
+          const displayTitle = isEn ? title : titleCN;
           return (
             <div
               key={index}
@@ -28,9 +47,13 @@ export const LegislativeCouncil: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title.length > 53 ? title.slice(0, 53) + "..." : title}
+                title={
+                  displayTitle.length > 53
+                    ? displayTitle.slice(0, 53) + "..."
+                    : displayTitle
+                }
                 maskIcon={maskIcon}
-                date={date as string}
+                date={isEn ? date : dateCN}
                 mediaLink={link}
                 mediaType={mediaType}
               />
