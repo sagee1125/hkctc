@@ -252,9 +252,9 @@ export const AwardScheme21to22: React.FC = () => {
   );
   const content = (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="T&C Manpower Development Award Scheme 2021-2022" />
+      <SquareTitle title={page_text.tc_manpower_development} />
       <p className="text-heading-l" id="testing_testing_2122">
-        Awardees
+        {page_text.awardees}
       </p>
       <div>
         <Accordion

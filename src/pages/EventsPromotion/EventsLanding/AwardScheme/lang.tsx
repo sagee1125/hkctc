@@ -1512,6 +1512,8 @@ export const award2122_multilingual = {
 
 export const award2122_list_multilingual = {
   en: {
+    tc_manpower_development: "List of Awardees/ Award Ceremony 2021-2022",
+    awardees: "Awardees",
     breadcrumb: [
       "Home",
       "Events & Promotions",
@@ -1529,7 +1531,6 @@ export const award2122_list_multilingual = {
     mobile_sidebar: {
       content_list: "Content List",
     },
-    awardees: "Awardees",
     manpowerDevelopmentAwardees: [
       "Accredited Certification International Limited",
       "Agriculture, Fisheries and Conservation Department - Tai Lung Veterinary Laboratory",
@@ -1705,6 +1706,7 @@ export const award2122_list_multilingual = {
     },
   },
   cn: {
+    tc_manpower_development: "2021-2022年度得獎名單/ 頒獎典禮",
     breadcrumb: [
       "主頁",
       "活動及宣傳",
@@ -1720,7 +1722,7 @@ export const award2122_list_multilingual = {
     mobile_sidebar: {
       content_list: "內容列表",
     },
-    awardees: "得獎者",
+    awardees: "得獎名單",
     manpowerDevelopmentAwardees: [
       "國際認可認証有限公司",
       "漁農自然護理署 – 大龍獸醫化驗所",
@@ -1862,5 +1864,46 @@ export const award2122_list_multilingual = {
       title: "新聞公報",
       date: "2021年12月22日",
     },
+  },
+};
+
+export const award2122_panel_multilingual = {
+  en: {
+    assessment_panel_membership:
+      "Membership of Assessment Panel of Testing and Certification",
+    manpower_scheme_2122: "Manpower Development Award Scheme 2021-22",
+    tc_assessment_panel:
+      "I. Assessment Panel for “Testing and Certification Manpower Development Corporate Award”",
+    chairman: "Chairman",
+    joseph_mak: "Professor Joseph MAK Yiu-wing",
+    excellent_assessment_panel:
+      "II. Assessment Panel for “Excellent Testing and Certification Professional Award”",
+    chan_kin_sek: "Ir Raymond CHAN Kin-sek, BBS",
+    members: "Members",
+    members_1: [
+      "Mr Steve LAI Ying-wai",
+      "Mr Eddie LEE Pak-ling",
+      "Ms Bella HO Shiu-wun",
+      "Ms Jane LEE Sze-yan",
+    ],
+    members_2: [
+      "Dr George LAU Hing-keung",
+      "Dr Tommy LO Yiu",
+      "Mr Basil WAI Siu-bong",
+      "Ms Jane LEE Sze-yan",
+    ],
+  },
+
+  cn: {
+    assessment_panel_membership: "2021-22年度檢測認證人力發展嘉許計劃",
+    manpower_scheme_2122: "評審小組成員",
+    tc_assessment_panel: "I. 「檢測認證人力發展機構獎」評審小組”",
+    chairman: "主席",
+    joseph_mak: "麥耀榮教授",
+    excellent_assessment_panel: "II. 「卓越檢測認證專業人員獎」評審小組”",
+    chan_kin_sek: "陳健碩工程師, BBS",
+    members: "成員",
+    members_1: ["黎英偉先生", "李柏齡先生", "何筱韻女士", "李詩昕女士"],
+    members_2: ["劉慶強博士", "盧耀博士", "衞紹邦先生", "李詩昕女士"],
   },
 };
