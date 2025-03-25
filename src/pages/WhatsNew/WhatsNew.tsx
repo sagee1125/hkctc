@@ -12,6 +12,7 @@ import {
   MEDIA_TYPE,
   WhatsNewConfiguration,
   hkctcNewsletterList,
+  WhatsNewConfiguration_cn
 } from "../../const";
 import { Language, useSettings } from "../../context";
 
@@ -33,10 +34,13 @@ export const WhatsNew: React.FC = () => {
     language === Language.EN ? multilingual.en : multilingual.cn;
   const { title } = page_text;
 
+    const whatsNewData =
+      language === Language.EN ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
+
   const leftContent = (
     <div className="w-full flex flex-col gap-[24px]">
       <SquareTitle title={title} />
-      {WhatsNewConfiguration.map((item, index) => {
+      {whatsNewData.map((item, index) => {
         const { imagePath, title, date, redirectTo } = item;
         return (
           <div

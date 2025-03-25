@@ -1,11 +1,20 @@
 import React from "react";
-import { seminarsAndWorkshopsList } from "./seminarArticles";
+import {
+  seminarsAndWorkshopsList,
+  seminarsAndWorkshopsList_CN,
+} from "./seminarArticles";
 import { InternalBackButton, Link } from "../../../../../components";
+import { Language, useSettings } from "../../../../../context";
 
 export const SeminarArticlePage: React.FC = () => {
   const pageIndex = Number(window.location.hash.replace("#", ""));
+  const { language } = useSettings();
+  const isEn = language === Language.EN;
+  const seminarsData = isEn
+    ? seminarsAndWorkshopsList
+    : seminarsAndWorkshopsList_CN;
 
-  const pageContent = seminarsAndWorkshopsList[pageIndex];
+  const pageContent = seminarsData[pageIndex];
   const { img, title, date, content, topics, subContent, subTopics } =
     pageContent;
 
@@ -33,23 +42,28 @@ export const SeminarArticlePage: React.FC = () => {
       <div>{content}</div>
 
       <div className="flex flex-col gap-[24px]">
-        {topics.map((t) => {
-          const specialTopics = ["Programme", "Presentation Material", "Flyer"];
-          const removeDot = specialTopics.includes(t.title);
-          return (
-            <div className="text-linked-m flex items-start flex-row gap-[8px]">
-              {!removeDot ? "\u25CF " : ""}
+        {topics &&
+          topics.map((t) => {
+            const specialTopics = [
+              "Programme",
+              "Presentation Material",
+              "Flyer",
+            ];
+            const removeDot = specialTopics.includes(t.title);
+            return (
+              <div className="text-linked-m flex items-start flex-row gap-[8px]">
+                {!removeDot ? "\u25CF " : ""}
 
-              {t.pdfLink ? (
-                <Link linkColor="#000" outerLink={t.pdfLink}>
-                  {t.title}
-                </Link>
-              ) : (
-                <div color="#000">{t.title}</div>
-              )}
-            </div>
-          );
-        })}
+                {t.pdfLink ? (
+                  <Link linkColor="#000" outerLink={t.pdfLink}>
+                    {t.title}
+                  </Link>
+                ) : (
+                  <div color="#000">{t.title}</div>
+                )}
+              </div>
+            );
+          })}
       </div>
 
       {subContent && <div>{subContent}</div>}

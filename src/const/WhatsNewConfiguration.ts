@@ -86,3 +86,49 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     redirectTo: "/support?section=funding_schemes",
   },
 ];
+
+export const WhatsNewConfiguration_cn: WhatsNewData[] = [
+  {
+    title: "第十二期《香港檢測和認證局通訊》已經出版",
+    date: "2024年12月23日",
+    imagePath: "whatsnew_3.png",
+    imagePathSwitch: "Testing_1.png",
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
+  },
+  {
+    title: "CEPA下檢測認證相關的進一步開放措施",
+    date: "2024年10月9日",
+    imagePath: "whatsnew_1.png",
+    imagePathSwitch: "Trade_Show_1.png",
+    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
+  },
+  {
+    title: "2023-2024年度香港檢測和認證局報告已經上載",
+    date: "2024年8月6日",
+    imagePath: "whatsnew_2.png",
+    imagePathSwitch: "Mid_Autumn_1.png",
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
+  },
+
+  {
+    title: "2022年香港檢測及認證活動的統計數據已經上載",
+    date: "2024年4月16日",
+    imagePath: "whatsnew_4.png",
+    imagePathSwitch: "Belt_1.png",
+    redirectTo: `/tc-sector?section=${navItemEnum.profile_and_role}`,
+  },
+  {
+    title:
+      "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
+    date: "15 Mar 2024",
+    imagePath: "whatsnew_5.png",
+    redirectTo:
+      "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
+  },
+  {
+    title: "「BUD專項基金」——申請易經已推出",
+    date: "2023年6月16日",
+    imagePath: "whatsnew_6.png",
+    redirectTo: "/support?section=funding_schemes",
+  },
+];

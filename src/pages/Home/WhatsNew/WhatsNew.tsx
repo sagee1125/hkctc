@@ -1,7 +1,10 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
-import { WhatsNewConfiguration } from "../../../const";
+import {
+  WhatsNewConfiguration,
+  WhatsNewConfiguration_cn,
+} from "../../../const";
 import { SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
@@ -18,16 +21,19 @@ const multilingual = {
 
 export const WhatsNew: React.FC = () => {
   const navigate = useNavigate();
-
-  const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const firstFourWhatsNew = WhatsNewConfiguration.slice(0, 4);
   const { isPC, language } = useSettings();
   const changingEffectOn = false;
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
   const { title } = page_text;
+  const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const whatsNewData =
+    language === Language.EN ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
+  const firstFourWhatsNew = whatsNewData.slice(0, 4);
+
   useEffect(() => {
     if (changingEffectOn) {
       const intervalId = setInterval(() => {
@@ -107,7 +113,7 @@ export const WhatsNew: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center group cursor-pointer`}
+                className={`flex flex-col group cursor-pointer justify-between`}
                 onClick={() => {
                   if (redirectTo) {
                     window.scroll({
@@ -118,45 +124,48 @@ export const WhatsNew: React.FC = () => {
                   }
                 }}
               >
-                <div
-                  className={`relative flex justify-center items-center w-full ${
-                    isPC ? "min-w-[290px]" : ""
-                  } aspect-[16/9] overflow-hidden cursor-pointer`}
-                >
-                  {/* 上层图片 */}
-                  <img
-                    className={`absolute w-full h-auto 
+                <div>
+                  <div
+                    className={`relative flex justify-center items-center w-full ${
+                      isPC ? "min-w-[290px]" : ""
+                    } aspect-[16/9] overflow-hidden cursor-pointer`}
+                  >
+                    {/* 上层图片 */}
+                    <img
+                      className={`absolute w-full h-auto 
      ${isEven ? "fade-in" : "fade-out"} 
     transition-transform duration-900 ease-in-out group-hover:scale-110`}
-                    src={
-                      process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
-                    }
-                    alt={title}
-                  />
-                  {/* 下层图片 */}
-                  <img
-                    className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${
-                      isEven ? "opacity-0" : "opacity-100"
-                    }`}
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/whatsNew/" +
-                      imagePathSwitch
-                    }
-                    alt={title}
-                  />
-                </div>
-                <div
-                  className="text-heading-s text-left w-full mt-4 
+                      src={
+                        process.env.PUBLIC_URL + "/assets/whatsNew/" + imagePath
+                      }
+                      alt={title}
+                    />
+                    {/* 下层图片 */}
+                    <img
+                      className={`absolute w-full h-auto transition-opacity duration-1000 ease-in-out ${
+                        isEven ? "opacity-0" : "opacity-100"
+                      }`}
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/whatsNew/" +
+                        imagePathSwitch
+                      }
+                      alt={title}
+                    />
+                  </div>
+                  <div
+                    className="text-heading-s text-left w-full mt-4 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-800 ease-in-out"
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    overflow: "hidden",
-                  }}
-                >
-                  {title}
+                    style={{
+                      whiteSpace: "normal",
+                      wordWrap: "break-word",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {title}
+                  </div>
                 </div>
+
                 <div className="flex flex-row w-full mt-4 gap-2">
                   <Icon icon="material-symbols:date-range-rounded" />
                   <h2 className="text-body-m text-grey">{date}</h2>
