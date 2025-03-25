@@ -265,6 +265,7 @@ export enum ABOUT_SIDE_MODULE {
   ACCESSIBILITY = "Accessibility",
   PRIVACY = "Privacy Policy",
   CONTACT = "Contact Us",
+  RELATED_SITE = "Related Site",
 }
 
 const topBanner = "aboutSite/banner.png";
