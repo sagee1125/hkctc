@@ -1,8 +1,32 @@
 import React from "react";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
+import { navItemEnum } from "../../const";
+
+const multilingual = {
+  en: {
+    learning_teaching_resources: "Learning and Teaching Resources",
+    student_competition: "Student Competitions",
+    qualifications_framework: "Qualifications Framework",
+    programmes_and_courses: "Programmes and Courses",
+  },
+  cn: {
+    learning_teaching_resources: "學習及教學資源",
+    student_competition: "學生比賽",
+    qualifications_framework: "資歷架構",
+    programmes_and_courses: "課程資訊",
+  },
+};
 
 export const PhotoPanel: React.FC = () => {
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    learning_teaching_resources,
+    student_competition,
+    qualifications_framework,
+    programmes_and_courses,
+  } = page_text;
 
   if (isPC)
     return (
@@ -16,14 +40,14 @@ export const PhotoPanel: React.FC = () => {
           }}
           onClick={() => {
             window.open(
-              "/career_and_education?section=learning_teaching_resources"
+              `/career_and_education?section=${navItemEnum.learning_teaching_resources}`
             );
           }}
         >
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Learning and Teaching Resources
+              {learning_teaching_resources}
             </p>
           </div>
         </div>
@@ -36,13 +60,15 @@ export const PhotoPanel: React.FC = () => {
               cursor: "pointer",
             }}
             onClick={() => {
-              window.open("/events-promotion?section=student_competition");
+              window.open(
+                `/events-promotion?section=${navItemEnum.student_competition}`
+              );
             }}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                Student Competitions
+                {student_competition}
               </p>
             </div>
           </div>
@@ -54,14 +80,14 @@ export const PhotoPanel: React.FC = () => {
             }}
             onClick={() => {
               window.open(
-                "/career_and_education?section=qualifications_framework"
+                `/events-promotion?section=${navItemEnum.qualifications_framework}`
               );
             }}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                Qualifications Framework
+                {qualifications_framework}
               </p>
             </div>
           </div>
@@ -74,14 +100,14 @@ export const PhotoPanel: React.FC = () => {
             }}
             onClick={() => {
               window.open(
-                "/career_and_education?section=programmes_and_courses"
+                `/events-promotion?section=${navItemEnum.programmes_and_courses}`
               );
             }}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                Programmes and Courses
+                {programmes_and_courses}
               </p>
             </div>
           </div>
@@ -103,7 +129,7 @@ export const PhotoPanel: React.FC = () => {
           }}
           onClick={() => {
             window.open(
-              "/career_and_education?section=learning_teaching_resources"
+              `/events-promotion?section=${navItemEnum.learning_teaching_resources}`
             );
           }}
         >
@@ -122,7 +148,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Learning and Teaching Resources
+              {learning_teaching_resources}
             </p>
           </div>
         </div>
@@ -137,7 +163,9 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open("/events-promotion?section=student_competition");
+            window.open(
+              `/events-promotion?section=${navItemEnum.student_competition}`
+            );
           }}
         >
           <div
@@ -155,7 +183,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Student Competitions
+              {student_competition}
             </p>
           </div>
         </div>
@@ -171,7 +199,7 @@ export const PhotoPanel: React.FC = () => {
           }}
           onClick={() => {
             window.open(
-              "/career_and_education?section=qualifications_framework"
+              `/events-promotion?section=${navItemEnum.qualifications_framework}`
             );
           }}
         >
@@ -190,7 +218,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Qualifications Framework
+              {qualifications_framework}
             </p>
           </div>
         </div>
@@ -206,7 +234,9 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open("/career_and_education?section=programmes_and_courses");
+            window.open(
+              `/events-promotion?section=${navItemEnum.programmes_and_courses}`
+            );
           }}
         >
           <div
@@ -224,7 +254,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              Programmes and Courses
+              {programmes_and_courses}
             </p>
           </div>
         </div>

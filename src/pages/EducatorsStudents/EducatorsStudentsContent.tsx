@@ -1,6 +1,7 @@
 import React from "react";
 import { EmailBox } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
+import { navItemEnum } from "../../const";
 
 type EducationData = {
   title: string;
@@ -9,8 +10,47 @@ type EducationData = {
   link: string;
   onClick?: () => void;
 };
+
+const multilingual = {
+  en: {
+    career_opportunities: "Career Opportunities",
+    career_fairs: "Career Talks and Fairs",
+    laboratory_visits: "Laboratory Visits",
+    summer_internship: "Summer Internships",
+    tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
+    services_provided: "Services Provided by T&C Industry",
+    career_development: "Career Development",
+    about: "About HKCTC",
+    continue_read: "Continue to Read",
+  },
+  cn: {
+    career_opportunities: "就業機會",
+    career_fairs: "職業講座和展覽",
+    laboratory_visits: "實驗所參觀",
+    summer_internship: "暑期實習",
+    tc_sector_strengths: "香港檢測認證業的優勢",
+    services_provided: "檢測認證業提供的服務",
+    career_development: "職業發展",
+    about: "關於我們",
+    continue_read: "Continue to Read",
+  },
+};
+
 export const EducatorsStudentsContent: React.FC = () => {
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    career_opportunities,
+    career_fairs,
+    laboratory_visits,
+    summer_internship,
+    tc_sector_strengths,
+    services_provided,
+    career_development,
+    about,
+    continue_read,
+  } = page_text;
 
   const careerData: Array<{
     title: string;
@@ -19,17 +59,17 @@ export const EducatorsStudentsContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: "Career Talks and Fairs",
+      title: career_fairs,
       imgUrl: "Career_Talks.png",
       link: "/career_and_education?section=career_opportunities",
     },
     {
-      title: "Laboratory Visits",
+      title: laboratory_visits,
       imgUrl: "Career_Laboratory.png",
       link: "/career_and_education?section=career_opportunities",
     },
     {
-      title: "Summer Internships",
+      title: summer_internship,
       imgUrl: "Career_Internships.png",
       link: "/career_and_education?section=career_opportunities",
     },
@@ -37,28 +77,28 @@ export const EducatorsStudentsContent: React.FC = () => {
 
   const educationData: EducationData[] = [
     {
-      title: "Strengths of Hong Kong's T&C Industry",
+      title: tc_sector_strengths,
       description:
         "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
       imagePath: "tc_1.png",
-      link: "/tc-sector?section=tc_sector_strengths",
+      link: `/tc-sector?section=${navItemEnum.tc_sector_strengths}`,
     },
     {
-      title: "Services Provided by T&C Industry",
+      title: services_provided,
       description:
         "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
       imagePath: "Services.png",
-      link: "/tc-sector?section=services_provided",
+      link: `/tc-sector?section=${navItemEnum.services_provided}`,
     },
     {
-      title: "Career Development",
+      title: career_development,
       description:
         "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services...",
       imagePath: "career_1.png",
-      link: "/career_and_education?section=career_development",
+      link: `/career_and_education?section=${navItemEnum.career_development}`,
     },
     {
-      title: "About HKCTC",
+      title: about,
       description:
         "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on...",
       imagePath: "career_2.png",
@@ -114,7 +154,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   {description}
                 </div>
                 <div className="text-highlight-m text-[#A7AAAD] text-center">
-                  Continue to Read
+                  {continue_read}
                 </div>
               </div>
             </div>
@@ -126,7 +166,7 @@ export const EducatorsStudentsContent: React.FC = () => {
 
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">Career Opportunities</p>
+          <p className="text-heading-l">{career_opportunities}</p>
           <div>
             {careerData.map((item, index) => {
               const { title, imgUrl, link } = item;
