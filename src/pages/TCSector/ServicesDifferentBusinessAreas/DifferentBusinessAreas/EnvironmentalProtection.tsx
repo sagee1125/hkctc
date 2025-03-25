@@ -19,7 +19,7 @@ import {
   maxPCContainer,
   normalButtonStyle,
 } from "../../../../components";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const timeLineData: string[] = [
   "Define the scope (i.e. activities, facilities, decisions, etc. covered), boundary (e.g. a process, a site, an entire organisation) and policy of an EnMS",
@@ -94,7 +94,8 @@ export const EnvironmentalProtection: React.FC = () => {
   const businessAreaTitle = "Environmental Protection" as BusinessAreaTitle;
   const [activeBSectionButton, setActiveBSectionButton] = useState<number>(0);
   const [activeCSectionButton, setActiveCSectionButton] = useState<number>(0);
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
 
   const environmentalProtection: Array<{
     title: string;
@@ -501,7 +502,8 @@ export const EnvironmentalProtection: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

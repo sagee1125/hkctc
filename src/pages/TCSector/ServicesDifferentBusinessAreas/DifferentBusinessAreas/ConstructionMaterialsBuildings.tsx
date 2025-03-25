@@ -20,7 +20,7 @@ import {
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { Icon } from "@iconify/react";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 type HyperlinkData = {
   label: string;
@@ -108,8 +108,8 @@ const handleGenerateA = (hyperlinkData: HyperlinkData): React.ReactNode => {
 export const ConstructionMaterialsBuildings: React.FC = () => {
   const businessAreaTitle =
     "Construction Materials and Buildings" as BusinessAreaTitle;
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9;
 
@@ -737,7 +737,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

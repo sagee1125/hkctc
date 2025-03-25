@@ -19,15 +19,16 @@ import {
   maxMobileContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
 
 export const ChineseMedicines: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const businessAreaTitle = "Chinese Medicines" as BusinessAreaTitle;
   const [activeButton, setActiveButton] = useState<number>(0);
+
   const servicesForChineseMedicine: Array<{
     title: string;
     content: React.ReactNode;
@@ -291,7 +292,8 @@ export const ChineseMedicines: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

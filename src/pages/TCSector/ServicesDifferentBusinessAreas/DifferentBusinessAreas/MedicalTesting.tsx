@@ -11,18 +11,16 @@ import {
   MediaTemplate,
   SquareTitle,
   fullContainer,
-  List,
   maxPCContainer,
-  Paginator,
   handleGetPaginatorProp,
   maxMobileContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 export const MedicalTesting: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const businessAreaTitle = "Medical Testing" as BusinessAreaTitle;
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9;
@@ -508,7 +506,8 @@ export const MedicalTesting: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

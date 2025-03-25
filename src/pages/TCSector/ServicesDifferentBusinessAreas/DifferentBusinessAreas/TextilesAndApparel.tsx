@@ -17,12 +17,12 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 export const TextilesAndApparel: React.FC = () => {
   const businessAreaTitle = "Textiles and Apparel" as BusinessAreaTitle;
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const servicesForTextile: Array<{
     title: string;
     content: React.ReactNode;
@@ -191,7 +191,8 @@ export const TextilesAndApparel: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

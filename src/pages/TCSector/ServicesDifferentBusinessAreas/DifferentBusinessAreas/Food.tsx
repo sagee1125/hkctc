@@ -17,7 +17,7 @@ import {
   maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const tableRowsData = [
   [
@@ -43,8 +43,8 @@ const tableRowsData = [
 
 export const Food: React.FC = () => {
   const businessAreaTitle = "Food" as BusinessAreaTitle;
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const data: Array<{
     title: string;
     content: React.ReactNode;
@@ -281,7 +281,8 @@ export const Food: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>

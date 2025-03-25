@@ -21,7 +21,7 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const buttonArray = ["Common safety tests", "Common performance tests"];
 const testExamples_1: string[] = [
@@ -46,7 +46,8 @@ const testExamples_2: string[] = [
 export const ElectricalElectronicProducts: React.FC = () => {
   const businessAreaTitle =
     "Electrical and Electronic Products" as BusinessAreaTitle;
-  const { isPC } = useSettings();
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
   const [activeButton, setActiveButton] = useState<number>(0);
 
   const servicesForElectrical: Array<{
@@ -196,7 +197,8 @@ export const ElectricalElectronicProducts: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle
+                businessAreaTitle,
+                language
               )}
             />
           </div>
