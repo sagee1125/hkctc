@@ -23,31 +23,141 @@ import {
 import { navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
 
-const buttonArray = ["Common safety tests", "Common performance tests"];
-const testExamples_1: string[] = [
-  "Electrical hazard tests",
-  "Photobiological safety hazard tests",
-  "Thermal tests - including excessive temperature and fire hazard risks",
-  "Mechanical hazard tests",
-  "Reliability tests for safety critical components, e.g. fuses, thermostats, etc.",
-  "Electromagnetic energy exposure tests to determine whether the Specific Absorption Rate of radio frequencies (RF) is within international electromagnetic field exposure guidelines",
-  "Chemical tests, such as leaching of dangerous chemicals, screening for harmful chemicals like Bisphenol A (BPA), formaldehydes, halogens and polycyclic aromatic hydrocarbons (PAHs)",
-  "Noise and acoustic tests - especially for headphones and handsets",
-  "Transit tests to assess shock, vibration, compression and atmospheric changes that may be incurred during the transportation of goods",
-];
-
-const testExamples_2: string[] = [
-  "Electromagnetic compatibility (EMC) and radio frequency (RF) tests to determine performance reliability of an EEP when other EEPs operate in close proximity",
-  "Energy-efficiency tests",
-  "Durability tests, such as life tests of compact fluorescent lamps and LED lamps",
-  "Functionality and usability tests",
-];
+const multilingual = {
+  en: {
+    title: "Electrical and Electronic Products",
+    file: "Hong Kong's Testing and Certification Services for Electrical and Electronic Products",
+    testing: "Testing",
+    certification: "Certification",
+    inspection: "Inspection",
+    benefits_of:
+      "Benefits of Electrical and Electronic Products Testing & Certification",
+    product_certification:
+      "Product certification is sometimes required for EEPs such as China Compulsory Certification (CCC).",
+    eg_of:
+      "Examples of EEP inspection services include inspection of manufacturing processes and pre-shipment inspections at the factory to determine whether a particular batch of EEPs complies with the relevant buyer's specifications.",
+    benefits_details: [
+      "Electrical and electronic products (EEPs) are widely used in almost all aspects of daily life including audio and video equipment, children's toys, communication devices, household appliances and lighting products. EEPs are also invaluable for essential medical and public utilities. Safety and performance of EEPs are thus of paramount concern. It is vital that all EEPs sold meet stringent and performance standards to ensure they are safe and suitable for their intended use.",
+      "The EEP industry uses numerous third-party testing and certification services to ensure products comply with international/national standards or regulations specified by importing countries. Through testing and certification, the quality of EEPs can be enhanced. This helps manufacturers and traders to minimise the chance of recalls, returns and complaints, and to establish a good reputation as well as to enhance product sales.",
+    ],
+    tc_service: `Testing & Certification Services for Electrical and Electronic Products`,
+    laboratories:
+      "Laboratories Accredited by HKAS Providing Testing Services on Electrical and Electronic Products",
+    btns: ["Common safety tests", "Common performance tests"],
+    test_eg_1: [
+      "Electrical hazard tests",
+      "Photobiological safety hazard tests",
+      "Thermal tests - including excessive temperature and fire hazard risks",
+      "Mechanical hazard tests",
+      "Reliability tests for safety critical components, e.g. fuses, thermostats, etc.",
+      "Electromagnetic energy exposure tests to determine whether the Specific Absorption Rate of radio frequencies (RF) is within international electromagnetic field exposure guidelines",
+      "Chemical tests, such as leaching of dangerous chemicals, screening for harmful chemicals like Bisphenol A (BPA), formaldehydes, halogens and polycyclic aromatic hydrocarbons (PAHs)",
+      "Noise and acoustic tests - especially for headphones and handsets",
+      "Transit tests to assess shock, vibration, compression and atmospheric changes that may be incurred during the transportation of goods",
+    ],
+    test_eg_2: [
+      "Electromagnetic compatibility (EMC) and radio frequency (RF) tests to determine performance reliability of an EEP when other EEPs operate in close proximity",
+      "Energy-efficiency tests",
+      "Durability tests, such as life tests of compact fluorescent lamps and LED lamps",
+      "Functionality and usability tests",
+    ],
+    bottom: (
+      <>
+        The laboratories providing accredited testing services on Electrical and
+        Electronic Products are available att&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        .
+      </>
+    ),
+    accredited_testing: `Accredited testing and certification organisations in Hong Kong can provide professional services in electrical and electronic product (EEP) testing, inspection and certification at different stages throughout the product supply chain.`,
+    common: `EEPs are commonly tested, in accordance with standardised technical procedures, to determine if the products conform to requirements set out by importing countries.`,
+  },
+  cn: {
+    title: "電氣及電子產品",
+    file: "香港的電氣及電子產品檢測和認證服務",
+    testing: "測試",
+    inspection: "檢驗",
+    certification: "認證",
+    product_certification:
+      "電子產品有時須按進口國家／地區要求提供產品認證（如中國強制性產品認證，即CCC）。",
+    eg_of:
+      "電子產品檢驗服務的例子包括廠房檢驗和產品付運前檢驗，以確保特定批次電子產品符合買方規格。",
+    benefits_of: "電子產品檢測認證帶來的好處",
+    benefits_details: [
+      "電氣及電子產品（簡稱「電子產品」）在日常生活中被廣泛使用，當中包括音響及影像設備、兒童玩具、通訊設備、家居電器及照明產品等；它亦是主要醫療及公共事業設施不可或缺的裝置。電子產品的安全和性能因而備受關注，故此銷售的電子產品均必須符合嚴格的安全及性能標準，以確保產品安全及切合其用途。",
+      "電子產品行業利用各類由第三方提供的檢測認證服務，以確保產品符合進口國指定的國際／國家標準或法規；檢測認證有助提升質量，幫助生產商及批發商減少回收產品、退貨及遭受投訴的機會，從而建立良好商譽，提升產品銷量。",
+    ],
+    btns: ["常見安全測試", "常見性能測試"],
+    test_eg_1: [
+      "電力安全測試",
+      "光生物學安全測試",
+      "溫度測試，包括溫度過高及着火危險測試",
+      "機械安全測試",
+      "可靠性測試，主要針對關鍵零部件，如保險絲、恆溫器等",
+      "電磁輻射暴露測試，確保射頻比吸收率符合國際電磁場暴露值指引",
+      "化學測試，如危險化學物滲漏，篩選有害化學物質如雙酚A（BPA）、甲醛、鹵素和多環芳香烴",
+      "噪音及聲頻測試，特別針對耳機及手機",
+      "運輸測試，評估貨物在運輸過程中，可能承受的衝擊、振動、壓縮及大氣變化所導致的影響",
+    ],
+    test_eg_2: [
+      "電磁兼容性及射頻測試針對產品接近其他電子產品時，就其性能的可靠性進行測試，有關測試對醫療電子器材尤其重要。",
+      "能源效益測試",
+      "耐久程度測試，如慳電膽和LED燈的壽命測試",
+      "功能及可用性測試",
+    ],
+    tc_service: "電氣及電子產品認證服務",
+    laboratories: "獲香港認可處認可的電氣及電子產品測試實驗所",
+    accredited_testing: `本港獲認可的檢測認證機構在整個產品供應鏈的不同階段中，為電氣及電子產品（簡稱「電子產品」）提供專業測試、檢驗及認證服務。`,
+    bottom: (
+      <>
+        獲香港認可處認可的電氣及電子產品（簡稱「電子產品」）測試實驗所名單，請瀏覽
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港認可處網頁
+        </a>
+        。
+      </>
+    ),
+    common: "電子產品通常會按照標準技術程序進行測試，以確保符合進口國要求。",
+  },
+};
 
 export const ElectricalElectronicProducts: React.FC = () => {
-  const businessAreaTitle =
-    "Electrical and Electronic Products" as BusinessAreaTitle;
   const { isPC, language } = useSettings();
   const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+
+  const {
+    title,
+    file,
+    testing,
+    product_certification,
+    eg_of,
+    benefits_details,
+    certification,
+    inspection,
+    tc_service,
+    test_eg_1,
+    common,
+    benefits_of,
+    laboratories,
+    bottom,
+    accredited_testing,
+    btns,
+    test_eg_2,
+  } = page_text;
+  const businessAreaTitle = title as BusinessAreaTitle;
   const [activeButton, setActiveButton] = useState<number>(0);
 
   const servicesForElectrical: Array<{
@@ -55,16 +165,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "Testing",
+      title: testing,
       content: (
         <>
-          <p className="text-body-m">
-            EEPs are commonly tested, in accordance with standardised technical
-            procedures, to determine if the products conform to requirements set
-            out by importing countries.
-          </p>
+          <p className="text-body-m">{common}</p>
           <div className="flex flex-wrap gap-[8px] my-[16px]">
-            {buttonArray.map((btn, index) => {
+            {btns.map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -80,24 +186,20 @@ export const ElectricalElectronicProducts: React.FC = () => {
             })}
           </div>
           <ul className="mt-[16px] flex flex-col !gap-[12px]">
-            {(activeButton === 0 ? testExamples_1 : testExamples_2).map(
-              (item, index) => (
-                <li key={index}>{item}</li>
-              )
-            )}
+            {(activeButton === 0 ? test_eg_1 : test_eg_2).map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: "Inspection",
-      content:
-        "Examples of EEP inspection services include inspection of manufacturing processes and pre-shipment inspections at the factory to determine whether a particular batch of EEPs complies with the relevant buyer's specifications.",
+      title: inspection,
+      content: eg_of,
     },
     {
-      title: "Certification",
-      content:
-        "Product certification is sometimes required for EEPs such as China Compulsory Certification (CCC).",
+      title: certification,
+      content: product_certification,
     },
   ];
 
@@ -112,49 +214,28 @@ export const ElectricalElectronicProducts: React.FC = () => {
       <div className="my-[24px]">
         <MediaTemplate
           iconPath="VIDEO.png"
-          title="Hong Kong's Testing and Certification Services for Electrical and Electronic Products"
+          title={file}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ElectricalElectronicProducts_Video.png"
           mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
         />
       </div>
       <FileTemplate
-        title={"Electrical and Electronic Products"}
+        title={title}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/Electrical_PDF.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
       />
 
-      <p className="text-heading-l my-[24px]">
-        Benefits of Electrical and Electronic Products Testing & Certification
-      </p>
-      <p className="text-body-m">
-        Electrical and electronic products (EEPs) are widely used in almost all
-        aspects of daily life including audio and video equipment, children's
-        toys, communication devices, household appliances and lighting products.
-        EEPs are also invaluable for essential medical and public utilities.
-        Safety and performance of EEPs are thus of paramount concern. It is
-        vital that all EEPs sold meet stringent and performance standards to
-        ensure they are safe and suitable for their intended use.
+      <p className="text-heading-l my-[24px]">{benefits_of}</p>
+      <p className="text-body-m text-justify">
+        {benefits_details[0]}
         <br />
         <br />
-        The EEP industry uses numerous third-party testing and certification
-        services to ensure products comply with international/national standards
-        or regulations specified by importing countries. Through testing and
-        certification, the quality of EEPs can be enhanced. This helps
-        manufacturers and traders to minimise the chance of recalls, returns and
-        complaints, and to establish a good reputation as well as to enhance
-        product sales.
+        {benefits_details[1]}
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">
-        Testing & Certification Services for Electrical and Electronic Products
-      </p>
-      <p className="text-body-m my-[24px]">
-        Accredited testing and certification organisations in Hong Kong can
-        provide professional services in electrical and electronic product (EEP)
-        testing, inspection and certification at different stages throughout the
-        product supply chain.
-      </p>
+      <p className="text-heading-l">{tc_service} </p>
+      <p className="text-body-m my-[24px]">{accredited_testing}</p>
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForElectrical.map((item, index) => (
           <Accordion
@@ -164,23 +245,8 @@ export const ElectricalElectronicProducts: React.FC = () => {
           />
         ))}
       </div>
-      <p className="text-heading-l my-[24px]">
-        Laboratories Accredited by HKAS Providing Testing Services on Electrical
-        and Electronic Products
-      </p>
-      <p className="text-body-m">
-        The laboratories providing accredited testing services on Electrical and
-        Electronic Products are available att&nbsp;
-        <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          HKAS's website
-        </a>
-        .
-      </p>
+      <p className="text-heading-l my-[24px]">{laboratories}</p>
+      <p className="text-body-m text-justify">{bottom}</p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}
