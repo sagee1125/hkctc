@@ -43,7 +43,7 @@ const multilingual = {
   },
   cn: {
     title: "《CEPA補充協議七》 – 有關條文",
-    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議七》（附件））：`,
+    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議七》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
       `1. 商業服務`,
@@ -53,7 +53,7 @@ const multilingual = {
     ],
     specific_commitments: "具體承諾",
     to_allow_test: `在中國強制性產品認證制度（CCC）領域，允許經香港特區政府認可機構（香港認可處）認可的具備中國強制性產品認證制度相關產品檢測能力的香港檢測機構，以香港本地加工的（即產品加工場所在香港境內）CCC目錄內的部分產品為試點，與內地指定機構開展合作，承擔CCC認證檢測任務。具體合作安排按照《中華人民共和國認證認可條例》有關規定執行。`,
-    Measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議七》主體文件）：`,
+    Measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議七》主體文件）`,
     Trade_and_Investment: `三、貿易投資便利化`,
     Both_sides_agree: `（二） 雙方同意進一步加強商品檢驗檢疫、食品安全、質量標準領域的合作，並據此將《安排》[CEPA]附件6第五條第（二）款增加第5、6項，內容為 :`,
     actively_promote: `"6. 積極推動香港檢測實驗室與已加入設有國家成員機構的認證檢測國際多邊互認體系（如IECEE/CB體系）的內地認證機構開展合作，成為該互認體系所接受的檢測實驗室。"`,
@@ -95,7 +95,7 @@ export const SupplementVIItoCEPAClauses: React.FC = () => {
         {page_text.Measures_in_Facilitating}
       </p>
       <p className="text-heading-m">{page_text.Trade_and_Investment}</p>
-      <p className="text-body-m my-[24px]">
+      <p className="text-body-m my-[24px] text-justify">
         {page_text.Both_sides_agree}
         <br />
         <br />

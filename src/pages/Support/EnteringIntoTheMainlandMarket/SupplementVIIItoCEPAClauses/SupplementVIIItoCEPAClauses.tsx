@@ -27,7 +27,7 @@ const multilingual = {
   },
   cn: {
     title: "《CEPA補充協議八》 - 有關條文",
-    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議八》（附件））：`,
+    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議八》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
       `1. 商業服務`,
@@ -53,7 +53,6 @@ export const SupplementVIIItoCEPAClauses: React.FC = () => {
       </p>
       <p className="text-heading-m mb-[24px]">{page_text.subgroup_sec}</p>
 
-      <p className="text-heading-m mb-[24px]">{page_text.subgroup_sec}</p>
       <div className="text-justify">
         {page_text.sec_list.map((s, i) => {
           return (

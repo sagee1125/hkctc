@@ -79,7 +79,7 @@ const multilingual = {
   },
   cn: {
     title: "《CEPA補充協議十》 – 有關條文",
-    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議十》（附件））：`,
+    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議十》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
       `1. Business Services`,
