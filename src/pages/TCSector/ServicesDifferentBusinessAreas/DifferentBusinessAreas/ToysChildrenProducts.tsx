@@ -76,7 +76,7 @@ const multilingual = {
       "當提到玩具，安全往往是首要的考慮因素。玩具業界經常透過由第三方提供的檢測和認證服務，確保玩具產品符合國際的安全標準。",
     help_assure:
       "檢測和認證有助確保玩具的質素，因而可減低玩具供應商、批發商和零售商因回收、退回及被投訴而招致的財務風險，並有助他們建立良好聲譽及增加產品銷量，令人人受惠。",
-    certification: "Certification",
+    certification: "認證",
     tc_service: "玩具檢測和認證服務",
     common_testing: "一般的玩具測試包括：",
     testing_content: [
