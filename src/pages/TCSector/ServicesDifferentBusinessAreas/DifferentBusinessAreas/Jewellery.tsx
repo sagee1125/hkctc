@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
   handleReturnDifferentBusinessAreasBreadcrumb,
 } from "./utils";
@@ -19,109 +18,45 @@ import {
 import { navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
 
-export const Jewellery: React.FC = () => {
-  const businessAreaTitle = "Jewellery" as BusinessAreaTitle;
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const acc: Array<{
-    title: string;
-    content: React.ReactNode;
-  }> = [
-    {
-      title: "Trade Descriptions Order",
-      content: `Under the Trade Descriptions (Provision of Information on Natural Fei
-          Cui) Order and the Trade Descriptions (Provision of Information on
-          Diamond) Order of the Laws of Hong Kong, retailers are required to
-          issue to the buyers invoices or receipts showing, among others, the
-          description of any article of natural Fei Cui or diamond sold in
-          accordance with the Orders.`,
-    },
-    {
-      title: "Accreditation of Laboratories",
-      content:
-        "Application for accreditation is open and voluntary in Hong Kong. All Hong Kong Accreditation Service (HKAS) accredited laboratories meet the management and technical requirements of the international standard, ISO/IEC 17025, in the provision of high quality testing services.",
-    },
-  ];
-
-  const sidebar = (
-    <DifferentBusinessAreasDirectorySidebar
-      businessAreaTitle={businessAreaTitle}
-    />
-  );
-
-  const content = (
-    <>
-      <SquareTitle title={businessAreaTitle} />
-
-      <div className="my-[24px]">
-        <MediaTemplate
-          title="Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond"
-          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
-          iconPath={"VIDEO.png"}
-          mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
-        />
-      </div>
-      <div
-        className={`grid grid-cols-${
-          isPC ? "2" : "1"
-        } w-full gap-[24px] mb-[24px]`}
-      >
-        <FileTemplate
-          title={"Testing of Fei Cui and Diamond in Hong Kong"}
-          imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
-          pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
-        />
-        <FileTemplate
-          title={"Diamond Testing Services in Hong Kong"}
-          imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
-          pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
-        />
-      </div>
-      <p className="text-heading-l">
-        Testing Services for Fei Cui (Jadeite Jade) and Diamond
-      </p>
-      <ol className="mt-[24px] text-body-m">
-        <li>
-          Authentication of natural Fei Cui (Jadeite Jade) and diamond is
-          carried out by Hong Kong laboratories using scientific methods.
-        </li>
-        <br />
-        <li>
-          There are internationally renowned gemstone laboratories and local
+const multilingual = {
+  en: {
+    title: "Jewellery",
+    mediaTitle:
+      "Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond",
+    file_title_1: "Testing of Fei Cui and Diamond in Hong Kong",
+    file_title_2: "Diamond Testing Services in Hong Kong",
+    testing_fei_cui: "Testing Services for Fei Cui (Jadeite Jade) and Diamond",
+    Authentication_fei_cui: `Authentication of natural Fei Cui (Jadeite Jade) and diamond is
+          carried out by Hong Kong laboratories using scientific methods.`,
+    internationally_renowned: `There are internationally renowned gemstone laboratories and local
           laboratories in Hong Kong providing professional gemstone
-          identification services.
-        </li>
-        <br />
-        <li>
-          Hong Kong Accreditation Service (HKAS) assesses the technical
+          identification services.`,
+    hk_Accreditation: `Hong Kong Accreditation Service (HKAS) assesses the technical
           competence and quality system of laboratories according to the
           International Standard, ISO/IEC 17025, and provides accreditation to
-          competent laboratories.
-        </li>
-        <br />
-        <li>
-          Accredited laboratories may issue endorsed test reports bearing HKAS
+          competent laboratories.`,
+    Accredited_laboratories: `Accredited laboratories may issue endorsed test reports bearing HKAS
           accreditation symbol for Fei Cui (Jadeite Jade) and diamond after
-          test.
-        </li>
-      </ol>
-
-      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-        {acc.map((item, index) => (
-          <Accordion
-            key={index}
-            defaultExpanded={false}
-            title={item.title}
-            details={<div className="text-body-m">{item.content}</div>}
-          />
-        ))}
-      </div>
-
-      <hr className="my-[24px]" />
-      <p className="text-heading-l mb-[24px]">
-        Laboratories Accredited by HKAS Providing Testing Services on Jewellery
-      </p>
-
+          test.`,
+    acc: [
+      {
+        title: "Trade Descriptions Order",
+        content: `Under the Trade Descriptions (Provision of Information on Natural Fei
+                  Cui) Order and the Trade Descriptions (Provision of Information on
+                  Diamond) Order of the Laws of Hong Kong, retailers are required to
+                  issue to the buyers invoices or receipts showing, among others, the
+                  description of any article of natural Fei Cui or diamond sold in
+                  accordance with the Orders.`,
+      },
+      {
+        title: "Accreditation of Laboratories",
+        content:
+          "Application for accreditation is open and voluntary in Hong Kong. All Hong Kong Accreditation Service (HKAS) accredited laboratories meet the management and technical requirements of the international standard, ISO/IEC 17025, in the provision of high quality testing services.",
+      },
+    ],
+    Laboratories_Accredited:
+      "Laboratories Accredited by HKAS Providing Testing Services on Jewellery",
+    hk_accredited_lab: (
       <p className="text-body-m">
         Accredited laboratories in Hong Kong adopt the&nbsp;
         <a
@@ -158,6 +93,135 @@ export const Jewellery: React.FC = () => {
         . (Please choose the test category, "Physical and Mechanical Testing",
         under "Services" to search the relevant laboratories.)
       </p>
+    ),
+  },
+  cn: {
+    title: "珠寶",
+    mediaTitle: "香港硬玉質翡翠及鑽石測試服務",
+    file_title_1: "香港翡翠及鑽石測試",
+    file_title_2: "香港的鑽石測試服務",
+    testing_fei_cui: "硬玉質翡翠與鑽石測試服務",
+    Authentication_fei_cui: `香港實驗所利用科學方法對天然硬玉質翡翠與鑽石進行鑑定。`,
+    internationally_renowned: `香港有著名的國際寶石鑑定所和本地實驗所，提供專業的寶石鑑定服務。`,
+    hk_Accreditation: `香港認可處會按照國際標準ISO/IEC 17025評核實驗所的技術能力及品質管理體系，並給合資格的實驗所發出認可資格。`,
+    Accredited_laboratories: `獲認可的實驗所可以對經測試的硬玉質翡翠與鑽石發出有HKAS認可標認的測試報告。`,
+    acc: [
+      {
+        title: "商品說明令",
+        content: `按照香港法例《商品說明（提供關於天然翡翠的資料）令》及《商品說明（提供關於鑽石的資料）令》的規定，零售商在售賣天然翡翠或鑽石製品時，須向買家發出發票或收據，告知法令規定的資料包括該製品的說明等。`,
+      },
+      {
+        title: "實驗所認可",
+        content:
+          "在香港，申請認可資格是公開和自願性質的。獲香港認可處認可的實驗所已達到國際標準ISO/IEC 17025對管理及技術的要求，可提供高水平的檢測服務。",
+      },
+    ],
+    Laboratories_Accredited: "獲香港認可處認可的寶石測試實驗所",
+    hk_accredited_lab: (
+      <>
+        香港的認可實驗所按香港寶石學協會出版的
+        <a
+          href="http://www.gahk.org/en/gemtest.asp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          《香港標準硬玉質翡翠測試方法》
+        </a>
+        及
+        <a
+          href="http://www.gahk.org/en/gemtest.asp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          《香港標準鑽石測試方法》
+        </a>
+        進行鑑定。
+        <br />
+        <br />
+        獲香港認可處認可的珠寶測試實驗所的名單，請瀏覽
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港認可處網頁
+        </a>
+        。（請於「服務」下，選擇測試類別「物理及機械測試」，以搜尋有關實驗所。）
+      </>
+    ),
+  },
+};
+
+export const Jewellery: React.FC = () => {
+  const { isPC, language } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const sidebar = (
+    <DifferentBusinessAreasDirectorySidebar
+      businessAreaTitle={page_text.title}
+    />
+  );
+
+  const content = (
+    <>
+      <SquareTitle title={page_text.title} />
+
+      <div className="my-[24px]">
+        <MediaTemplate
+          title={page_text.mediaTitle}
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
+          iconPath={"VIDEO.png"}
+          mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
+        />
+      </div>
+      <div
+        className={`grid grid-cols-${
+          isPC ? "2" : "1"
+        } w-full gap-[24px] mb-[24px]`}
+      >
+        <FileTemplate
+          title={page_text.file_title_1}
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
+          pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
+        />
+        <FileTemplate
+          title={page_text.file_title_2}
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
+          pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
+        />
+      </div>
+      <p className="text-heading-l">{page_text.testing_fei_cui}</p>
+      <ol className="mt-[24px] text-body-m">
+        <li>{page_text.Authentication_fei_cui}</li>
+        <br />
+        <li>{page_text.internationally_renowned}</li>
+        <br />
+        <li>{page_text.hk_Accreditation}</li>
+        <br />
+        <li>{page_text.Accredited_laboratories}</li>
+      </ol>
+
+      <div className="w-full flex flex-col gap-[24px] mt-[24px]">
+        {page_text.acc.map((item, index) => (
+          <Accordion
+            key={index}
+            defaultExpanded={false}
+            title={item.title}
+            details={<div className="text-body-m">{item.content}</div>}
+          />
+        ))}
+      </div>
+
+      <hr className="my-[24px]" />
+      <p className="text-heading-l mb-[24px]">
+        {page_text.Laboratories_Accredited}
+      </p>
+
+      <p className="text-body-m">{page_text.hk_accredited_lab}</p>
 
       <hr className="my-[24px]" />
       <InternalBackButton
@@ -175,7 +239,7 @@ export const Jewellery: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle,
+                page_text.title,
                 language
               )}
             />
