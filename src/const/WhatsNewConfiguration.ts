@@ -120,7 +120,7 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
   {
     title:
       "Recruit雜誌封面故事: 檢測認證 衣食住行 專業把關 (Chinese version only)",
-    date: "15 Mar 2024",
+    date: "2024年3月15日",
     imagePath: "whatsnew_5.png",
     redirectTo:
       "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
