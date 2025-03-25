@@ -13,7 +13,7 @@ import {
   ADVERTORIALS_SECTOR,
   MEDIA_TYPE,
 } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -46,7 +46,22 @@ function parseTitleToDate(title: string): Date {
   return new Date(0); // a default earliest date
 }
 
+const multilingual = {
+  en: {
+    title: "Advertorials",
+    about_tc: "About the testing and certification industry",
+  },
+  cn: {
+    title: "特約專輯",
+    about_tc: "關於檢測和認證業",
+  },
+};
+
 export const Advertorials: React.FC = () => {
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { title, about_tc } = page_text;
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
     useState<number>(-1);
@@ -65,25 +80,52 @@ export const Advertorials: React.FC = () => {
     return dateB.getTime() - dateA.getTime();
   });
 
-  const aboutTestingSector: Record<string, any[]> = {
-    All: advertorialsList.filter((item) =>
-      item.sector?.some((s) => aboutTestingTags.includes(s))
-    ),
-    Overview: advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.OVERVIEW)
-    ),
-    "Mainland Opportunities": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY)
-    ),
-    "Manpower Development": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.MANPOWER)
-    ),
-    "Metrology, Accreditation and Standards": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
-    ),
-    "Support to T&C Industry": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
-    ),
+  const aboutTestingSector: Record<
+    string,
+    { list: any[]; label: string; labelCN: string }
+  > = {
+    All: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.some((s) => aboutTestingTags.includes(s))
+      ),
+      label: "All",
+      labelCN: "全部",
+    },
+    Overview: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.OVERVIEW)
+      ),
+      label: "Overview",
+      labelCN: "總覽",
+    },
+    "Mainland Opportunities": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY)
+      ),
+      label: "Mainland Opportunities",
+      labelCN: "在內地的發展機遇",
+    },
+    "Manpower Development": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MANPOWER)
+      ),
+      label: "Manpower Development",
+      labelCN: "人力發展",
+    },
+    "Metrology, Accreditation and Standards": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
+      ),
+      label: "Metrology, Accreditation and Standards",
+      labelCN: "計量學、認可服務和標準",
+    },
+    "Support to T&C Industry": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
+      ),
+      label: "Support to T&C Industry",
+      labelCN: "對檢測和認證業的支援",
+    },
   };
 
   const certificateTags = [
@@ -99,54 +141,105 @@ export const Advertorials: React.FC = () => {
     ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
     ADVERTORIALS_SECTOR.TOYS,
   ];
-  const certificateSector: Record<string, any[]> = {
-    All: advertorialsList.filter((item) =>
-      item?.sector?.some((s) => certificateTags.includes(s))
-    ),
-    "Management System Certification": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM)
-    ),
-    "Chinese Medicines": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.CHINESE_MEDICINE)
-    ),
-    "Construction Materials": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.CONSTRUCTION)
-    ),
-    "Electrical & Electronic Products": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS)
-    ),
-    "Environmental Protection": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION)
-    ),
-    Food: advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.FOOD)
-    ),
-    "Information and Communications Technologies": advertorialsList.filter(
-      (item) =>
+  const certificateSector: Record<
+    string,
+    { list: any[]; label: string; labelCN: string }
+  > = {
+    All: {
+      list: advertorialsList.filter((item) =>
+        item?.sector?.some((s) => certificateTags.includes(s))
+      ),
+      label: "All",
+      labelCN: "全部",
+    },
+    "Management System Certification": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM)
+      ),
+      label: "Management System Certification",
+      labelCN: "管理體系認證",
+    },
+    "Chinese Medicines": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.CHINESE_MEDICINE)
+      ),
+      label: "Chinese Medicines",
+      labelCN: "中藥",
+    },
+    "Construction Materials": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.CONSTRUCTION)
+      ),
+      label: "Construction Materials",
+      labelCN: "建築材料",
+    },
+    "Electrical & Electronic Products": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS)
+      ),
+      label: "Electrical & Electronic Products",
+      labelCN: "電氣及電子產品",
+    },
+    "Environmental Protection": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION)
+      ),
+      label: "Environmental Protection",
+      labelCN: "環保",
+    },
+    Food: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.FOOD)
+      ),
+      label: "Food",
+      labelCN: "食品",
+    },
+    "Information and Communications Technologies": {
+      list: advertorialsList.filter((item) =>
         item.sector?.includes(ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY)
-    ),
-    Jewellery: advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.JEWELLERY)
-    ),
-    "Medical testing": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.MEDICAL_TESTING)
-    ),
-    "Textile, Clothing & Footwear": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.TEXTILE_CLOTHING)
-    ),
-    "Toys & Children's Products": advertorialsList.filter((item) =>
-      item.sector?.includes(ADVERTORIALS_SECTOR.TOYS)
-    ),
+      ),
+      label: "Information and Communications Technologies",
+      labelCN: "資訊及通訊科技",
+    },
+    Jewellery: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.JEWELLERY)
+      ),
+      label: "Jewellery",
+      labelCN: "珠寶",
+    },
+    "Medical testing": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MEDICAL_TESTING)
+      ),
+      label: "Medical testing",
+      labelCN: "醫務化驗",
+    },
+    "Textile, Clothing & Footwear": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.TEXTILE_CLOTHING)
+      ),
+      label: "Textile, Clothing & Footwear",
+      labelCN: "紡織品、衣服和鞋履",
+    },
+    "Toys & Children's Products": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.TOYS)
+      ),
+      label: "Toys & Children's Products",
+      labelCN: "玩具及兒童產品",
+    },
   };
 
   const displayList = [
     ...(activeAboutSector >= 0
       ? aboutTestingSector[Object.keys(aboutTestingSector)[activeAboutSector]]
+          .list
       : []),
     ...(activeCertificateSector >= 0
       ? certificateSector[
           Object.keys(certificateSector)[activeCertificateSector]
-        ]
+        ].list
       : []),
   ];
 
@@ -156,7 +249,6 @@ export const Advertorials: React.FC = () => {
     itemsPerPage,
     displayList
   );
-  const { isPC } = useSettings();
 
   useEffect(() => {
     window.scroll({
@@ -167,10 +259,10 @@ export const Advertorials: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title="Advertorials" />
+      <SquareTitle title={title} />
       <div>
         <NormalAccordion
-          title="About the testing and certification industry"
+          title={about_tc}
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(aboutTestingSector).map((name, index) => {
@@ -187,7 +279,11 @@ export const Advertorials: React.FC = () => {
                       setCurrentPage(0);
                     }}
                   >
-                    <p className="text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs">
+                      {isEn
+                        ? aboutTestingSector[name].label
+                        : aboutTestingSector[name].labelCN}
+                    </p>
                   </button>
                 );
               })}
@@ -215,7 +311,11 @@ export const Advertorials: React.FC = () => {
                       setCurrentPage(0);
                     }}
                   >
-                    <p className="text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs">
+                      {isEn
+                        ? certificateSector[name].label
+                        : certificateSector[name].labelCN}
+                    </p>
                   </button>
                 );
               })}
