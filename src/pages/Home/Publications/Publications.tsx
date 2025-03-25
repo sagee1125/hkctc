@@ -10,12 +10,12 @@ import advertorials from "./assets/Advertorials.png";
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import { EmailBox, Quiz, SquareTitle } from "../../../components";
-import { imgBox } from "../../GeneralPublic/PhotoPanel";
 import { CATEGORIES, navItemEnum } from "../../../const";
 import { Language, useSettings } from "../../../context";
 
 type ResourcesData = {
   title: string;
+  titleCN: string;
   icon: string;
   sideColor: string;
   bgImg: string;
@@ -24,12 +24,14 @@ type ResourcesData = {
 
 type PublicationCategory = {
   title: Category;
+  titleCN: string;
   items: PublicationItems[];
   seeMore: string;
 };
 
 type PublicationItems = {
   title: string;
+  titleCN: string;
   header?: string;
   imgPath: string;
   nav: string;
@@ -45,10 +47,12 @@ const categoryValues = Object.values(Category);
 const multilingual = {
   en: {
     title: `What do you know about T&C`,
+    resources: "Resources",
   },
 
   cn: {
     title: `What do you know about T&C`,
+    resources: "資源",
   },
 };
 
@@ -61,10 +65,9 @@ export const Publications: React.FC = () => {
   );
   const navigate = useNavigate();
   const { isPC, language } = useSettings();
-
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
-  const { title } = page_text;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { title, resources } = page_text;
   const slideContainerRef = useRef<HTMLDivElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -155,6 +158,7 @@ export const Publications: React.FC = () => {
   const resourcesData: ResourcesData[] = [
     {
       title: "Reports",
+      titleCN: "報告",
       icon: "lsicon:report-outline",
       sideColor: "#D1E39B",
       bgImg: report,
@@ -162,6 +166,7 @@ export const Publications: React.FC = () => {
     },
     {
       title: "Newsletter",
+      titleCN: "通訊",
       icon: "qlementine-icons:newspaper-16",
       sideColor: "#F15A31",
       bgImg: newsletter,
@@ -169,6 +174,7 @@ export const Publications: React.FC = () => {
     },
     {
       title: "Publications",
+      titleCN: "刊物",
       icon: "lsicon:report-outline",
       sideColor: "#D9B6F6",
       bgImg: publications,
@@ -177,6 +183,7 @@ export const Publications: React.FC = () => {
 
     {
       title: "Courses",
+      titleCN: "課程",
       icon: "hugeicons:teacher",
       sideColor: "#BBC9E7",
       bgImg: courses,
@@ -184,6 +191,7 @@ export const Publications: React.FC = () => {
     },
     {
       title: "Advertorials",
+      titleCN: "特約專輯",
       icon: "fluent-mdl2:publish-course",
       sideColor: "#FFC786",
       bgImg: advertorials,
@@ -194,26 +202,31 @@ export const Publications: React.FC = () => {
   const publicationCategory: PublicationCategory[] = [
     {
       title: Category.Events,
+      titleCN: "活動",
       items: [
         {
           title: "T&C Manpower Development Award Scheme 2023-2024",
+          titleCN: `2023-24年度檢測認證人力發展嘉許計劃`,
           imgPath: "images/Manpower_Development.png",
           nav: "/events-promotion/award-scheme2324",
         },
         {
           title:
             "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
+          titleCN: "環境、社會和管治及可持續發展研討會",
           imgPath: "images/Seminar_ESG.png",
           nav: `/events-promotion?section=${navItemEnum.seminar_article}#0`,
         },
         {
           title:
             "Seminar on Construction Testing: Towards Digitalisation and ...",
+          titleCN: "建築測試研討會：建築測試邁向數碼化及自動化",
           imgPath: "images/Seminar_Construction.png",
           nav: `/events-promotion?section=${navItemEnum.seminar_article}#1`,
         },
         {
           title: "Metrology Symposium 2023",
+          titleCN: "計量學研討會 2023",
           imgPath: "images/Metrology_Symposium.png",
           nav: `/events-promotion?section=${navItemEnum.seminar_article}#2`,
         },
@@ -222,24 +235,29 @@ export const Publications: React.FC = () => {
     },
     {
       title: Category.Publications,
+      titleCN: "刊物",
       items: [
         {
           title: "HKCTC Newsletters",
+          titleCN: "香港檢測和認證局通訊",
           imgPath: "images/newsletter_small.png",
           nav: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
         },
         {
           title: "Corruption Prevention Guide for T&C Industry",
+          titleCN: "檢測和認證業防貪指引",
           imgPath: "images/corruption_small.png",
           nav: `/events-promotion?section=${navItemEnum.corruption_prevention}`,
         },
         {
           title: "Pamphlets And Booklets",
+          titleCN: "宣傳單張及小冊子",
           imgPath: "images/pamphlet_small.png",
           nav: `/events-promotion?section=${navItemEnum.comics}`,
         },
         {
           title: "Comics",
+          titleCN: "漫畫",
           imgPath: "images/comics_small.png",
           nav: `/events-promotion?section=${navItemEnum.comics}`,
         },
@@ -248,25 +266,30 @@ export const Publications: React.FC = () => {
     },
     {
       title: Category.CEPA,
+      titleCN: "CEPA",
       items: [
         {
           title: "Agreement on Trade in Services",
+          titleCN: "《服務貿易協議》",
           imgPath: "images/agreement_small.png",
           nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
         {
           title: "Agreement on Trade in Goods",
+          titleCN: "《貨物貿易協議》",
           imgPath: "images/agreement_small.png",
           nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
         {
           title:
             "Summary of CEPA Clauses Relating to Testing and Certification",
+          titleCN: "CEPA下檢測認證相關條文摘要",
           imgPath: "images/agreement_small.png",
           nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
         },
         {
           title: "GBA Standard and Certification",
+          titleCN: "灣區標準及認證",
           imgPath: "images/GBA_small.png",
           nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#3`,
         },
@@ -275,24 +298,30 @@ export const Publications: React.FC = () => {
     },
     {
       title: Category.Competitions,
+      titleCN: "比賽",
+
       items: [
         {
           title: "T&C Manpower Development Award Scheme 2023-2024",
+          titleCN: "2023-24年度檢測認證人力發展嘉許計劃",
           imgPath: "images/Manpower_Development.png",
           nav: "/events-promotion/award-scheme2324",
         },
         {
           title: `"Digi-Science" Video Production Competition for Hong Kong Secondary Schools`,
+          titleCN: `"香港中學數碼科學短片製作比賽`,
           imgPath: "images/Digi-Science.png",
           nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
         {
           title: "T&C Manpower Development Award Scheme 2021-2022",
+          titleCN: "2021-22年度檢測認證人力發展嘉許計劃",
           imgPath: "images/Manpower_Development.png",
           nav: "/events-promotion/award-scheme2122",
         },
         {
           title: "Hong Kong Youth Science and Technology Competition",
+          titleCN: "香港青少年科技創新大賽",
           imgPath: "images/Youth-Science.png",
           nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
@@ -341,7 +370,7 @@ export const Publications: React.FC = () => {
             <div className="w-1/2 justify-start" ref={containerRef}>
               <div className="flex flex-row justify-between w-full">
                 {publicationCategory.map((cate, index) => {
-                  const { title } = cate;
+                  const { title, titleCN } = cate;
                   const isActivated = title === activeCategory;
                   return (
                     <div
@@ -361,7 +390,7 @@ export const Publications: React.FC = () => {
                         }}
                         ref={(el) => (titleRefs.current[index] = el)}
                       >
-                        {title}
+                        {isEn ? title : titleCN}
                       </p>
                     </div>
                   );
@@ -415,7 +444,7 @@ export const Publications: React.FC = () => {
                 >
                   <div className="flex flex-row w-full gap-[16px]">
                     {publicationCategory.map((cate, index) => {
-                      const { title } = cate;
+                      const { title, titleCN } = cate;
                       const isActivated = title === activeCategory;
                       return (
                         <div
@@ -435,7 +464,7 @@ export const Publications: React.FC = () => {
                             }}
                             ref={(el) => (titleRefs.current[index] = el)}
                           >
-                            {title}
+                            {isEn ? title : titleCN}
                           </p>
                         </div>
                       );
@@ -468,7 +497,7 @@ export const Publications: React.FC = () => {
               }`}
             >
               {showCurrentPublicationItem.map((subItem, index) => {
-                const { title, imgPath, nav } = subItem;
+                const { title, titleCN, imgPath, nav } = subItem;
 
                 return (
                   <BannerSlide
@@ -512,7 +541,7 @@ export const Publications: React.FC = () => {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          {title}
+                          {isEn ? title : subItem.titleCN}
                         </p>
                       </div>
                     </div>
@@ -712,10 +741,10 @@ export const Publications: React.FC = () => {
               : "translate-x-full opacity-0"
           }`}
         >
-          <div className="text-heading-l">Resources</div>
+          <div className="text-heading-l">{resources}</div>
           <div>
             {resourcesData.map((item, index) => {
-              const { title, icon, sideColor, bgImg, navTo } = item;
+              const { title, titleCN, icon, sideColor, bgImg, navTo } = item;
               return (
                 <div
                   key={index}
@@ -743,7 +772,7 @@ export const Publications: React.FC = () => {
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
                     {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
                     <div className="z-20 pl-[20px] text-heading-l text-center w-full">
-                      {title}
+                      {isEn ? title : titleCN}
                     </div>
                     <div className="z-20 pr-[20px]">
                       <Icon
