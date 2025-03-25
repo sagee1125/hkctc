@@ -273,7 +273,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
         "ISMS適用於各行各業、不同規模的機構。對於需要儲存或處理個人敏感資訊、敏感及具價值的商業資訊（如產品設計）、或關鍵性業務資訊（即需要保證其準確性和完整性的資訊）的機構而言，實施ISMS尤其有用。",
     },
     {
-      title: "建立和实施ISO/IEC 27001 ISMS有什么主要步骤 ?",
+      title: "建立和實施ISO/IEC 27001 ISMS有什麽主要步驟?",
       content: (
         <>
           <p>ISO/IEC 27001提供了建立、實施、保持和持續改進ISMS的模式：</p>

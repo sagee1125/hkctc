@@ -1,10 +1,24 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import { fullContainer } from "../Container";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
+
+const multilingual = {
+  en: {
+    welcome: "Welcome to the InnoCarnival 2024",
+    innoCarnival: `The InnoCarnival 2024 (IC 2024) was held from October 26 to November 3 at the Hong Kong Science Park with the theme of "Let's Sail with Innovation and Technology".`,
+  },
+  cn: {
+    welcome: "Welcome to the InnoCarnival 2024",
+    innoCarnival: `The InnoCarnival 2024 (IC 2024) was held from October 26 to November 3 at the Hong Kong Science Park with the theme of "Let's Sail with Innovation and Technology".`,
+  },
+};
 
 export const VideoBox: React.FC = () => {
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { welcome, innoCarnival } = page_text;
 
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -146,15 +160,9 @@ export const VideoBox: React.FC = () => {
             >
               {isPC && (
                 <div className="text-white pr-[26em]">
-                  <p className="text-heading-xl">
-                    Welcome to the InnoCarnival 2024
-                  </p>
+                  <p className="text-heading-xl">{welcome}</p>
 
-                  <p className="!text-body-m py-[24px]">
-                    {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
-                November 3 at the Hong Kong Science Park with the theme of
-                "Let's Sail with Innovation and Technology".`}
-                  </p>
+                  <p className="!text-body-m py-[24px]">{innoCarnival}</p>
                 </div>
               )}
               <div className="flex flex-row">
@@ -192,13 +200,9 @@ export const VideoBox: React.FC = () => {
 
       {!isPC && (
         <div className="text-white bg-newPrimary p-[14px]">
-          <p className="text-highlight-m">Welcome to the InnoCarnival 2024</p>
+          <p className="text-highlight-m">{welcome}</p>
 
-          <p className="!text-body-xs pt-[16px]">
-            {`The InnoCarnival 2024 (IC 2024) was held from October 26 to
-                November 3 at the Hong Kong Science Park with the theme of
-                "Let's Sail with Innovation and Technology".`}
-          </p>
+          <p className="!text-body-xs pt-[16px]">{innoCarnival}</p>
         </div>
       )}
       {/* progress*/}

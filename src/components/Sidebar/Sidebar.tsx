@@ -272,12 +272,15 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
                 <p className="!text-heading-s w-full text-left">
-                  {
-                    sidebars
-                      .flatMap((item) => item.sidebarItems)
-                      .find((subItem) => subItem.enum === activatedItems)
-                      ?.subTitle
-                  }
+                  {isEn
+                    ? sidebars
+                        .flatMap((item) => item.sidebarItems)
+                        .find((subItem) => subItem.enum === activatedItems)
+                        ?.subTitle
+                    : sidebars
+                        .flatMap((item) => item.sidebarItems)
+                        .find((subItem) => subItem.enum === activatedItems)
+                        ?.subTitleCN}
                 </p>
                 <ChevronDownIcon
                   className={`h-5 w-5 text-black transform transition-transform ${
@@ -297,7 +300,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
               >
                 <Menu.Items className="absolute z-40 mt-2 pt-[8px] w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {sidebars.map((item, index) => {
-                    const { title, sidebarItems } = item;
+                    const { title, titleCN, sidebarItems } = item;
                     const expand = title === currentExpandMobile;
 
                     const activatedSub = sidebars
@@ -313,7 +316,9 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                             setCurrentExpandMobile(expand ? "" : title);
                           }}
                         >
-                          <p className="text-heading-m">{title}</p>
+                          <p className="text-heading-m">
+                            {isEn ? title : titleCN}
+                          </p>
                           <ChevronDownIcon
                             className={`h-5 w-5 text-black transform transition-transform ${
                               expand ? "rotate-180" : "rotate-0"
@@ -323,7 +328,11 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                         </div>
                         <Collapse in={expand}>
                           {sidebarItems.map((i, innerIndex) => {
-                            const { subTitle, enum: navItemEnum } = i;
+                            const {
+                              subTitle,
+                              subTitleCN,
+                              enum: navItemEnum,
+                            } = i;
                             return (
                               <Menu.Item key={innerIndex}>
                                 {({ active }) => (
@@ -337,7 +346,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                                         : "text-gray-700"
                                     }`}
                                   >
-                                    {subTitle}
+                                    {isEn ? subTitle : subTitleCN}
                                   </button>
                                 )}
                               </Menu.Item>
