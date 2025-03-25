@@ -1897,10 +1897,10 @@ export const award2122_panel_multilingual = {
   cn: {
     assessment_panel_membership: "2021-22年度檢測認證人力發展嘉許計劃",
     manpower_scheme_2122: "評審小組成員",
-    tc_assessment_panel: "I. 「檢測認證人力發展機構獎」評審小組”",
+    tc_assessment_panel: "I. 「檢測認證人力發展機構獎」評審小組",
     chairman: "主席",
     joseph_mak: "麥耀榮教授",
-    excellent_assessment_panel: "II. 「卓越檢測認證專業人員獎」評審小組”",
+    excellent_assessment_panel: "II. 「卓越檢測認證專業人員獎」評審小組",
     chan_kin_sek: "陳健碩工程師, BBS",
     members: "成員",
     members_1: ["黎英偉先生", "李柏齡先生", "何筱韻女士", "李詩昕女士"],

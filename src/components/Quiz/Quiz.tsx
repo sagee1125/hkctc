@@ -33,8 +33,14 @@ export const Quiz: React.FC = () => {
   const { isPC, language } = useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
-  const { next_question, try_again, correct, false_answer, pls_try_again } =
-    page_text;
+  const {
+    next_question,
+    try_again,
+    correct,
+    false_answer,
+    pls_try_again,
+    quick_quiz,
+  } = page_text;
   // State to track whether quizInteractionMap has been loaded
   const [isLoaded, setIsLoaded] = useState(false);
   const [quizStage, setQuizStage] = useState<QuizStage>(
@@ -96,7 +102,7 @@ export const Quiz: React.FC = () => {
                       fontWeight: 700,
                     }}
                   >
-                    QUICK QUIZ
+                    {quick_quiz}
                   </p>
                   <p className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}>
                     {quizData.question}

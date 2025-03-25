@@ -67,10 +67,12 @@ const multilingual = {
   en: {
     title: "Advertorials",
     about_tc: "About the testing and certification industry",
+    sv: "Services offered by the testing and certification industry",
   },
   cn: {
     title: "特約專輯",
     about_tc: "關於檢測和認證業",
+    sv: "檢測和認證業提供的服務",
   },
 };
 
@@ -78,7 +80,7 @@ export const Advertorials: React.FC = () => {
   const { language, isPC } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
-  const { title, about_tc } = page_text;
+  const { title, about_tc, sv } = page_text;
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
     useState<number>(-1);
@@ -311,7 +313,7 @@ export const Advertorials: React.FC = () => {
 
       <div>
         <NormalAccordion
-          title="Services offered by the testing and certification industry"
+          title={sv}
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(certificateSector).map((name, index) => {
