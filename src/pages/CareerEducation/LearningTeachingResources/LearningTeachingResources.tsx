@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Link, SquareTitle, VideoPlayer } from "../../../components";
+import { Accordion, SquareTitle, VideoPlayer } from "../../../components";
 import { Language, useSettings } from "../../../context";
 
 const multilingual = {
