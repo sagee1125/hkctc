@@ -1,8 +1,8 @@
 import React from "react";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 export const AboutHKCTC: React.FC = () => {
-  const { language } = useSettings();
+  const { getPageText } = useSettings();
 
   const multilingual = {
     en: {
@@ -88,8 +88,7 @@ export const AboutHKCTC: React.FC = () => {
       ],
     },
   };
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
 
   const {
     terms_of_ref,
@@ -111,8 +110,10 @@ export const AboutHKCTC: React.FC = () => {
         <div className="text-body-m mt-[16px]">
           <p>{to_advise}</p>
           <ul className="ml-1">
-            {refs.map((r, index) => (
-              <li className="flex flex-wrap text-justify">{r}</li>
+            {(refs as string[]).map((r, index) => (
+              <li className="flex flex-wrap text-justify" key={index}>
+                {r}
+              </li>
             ))}
           </ul>
         </div>
@@ -136,7 +137,7 @@ export const AboutHKCTC: React.FC = () => {
         </div>
         <div>
           <p className="text-heading-m mb-[8px]">{members}</p>
-          {member_names.map((name, index) => (
+          {(member_names as string[]).map((name, index) => (
             <p key={index} className="text-body-m">
               {name}
             </p>
@@ -146,7 +147,7 @@ export const AboutHKCTC: React.FC = () => {
       <p className="text-heading-m mt-[22px] mb-[8px]">
         {non_official_members}
       </p>
-      {non_official_member_name.map((name, index) => (
+      {(non_official_member_name as string[]).map((name, index) => (
         <p key={index} className="text-body-m">
           {name}
         </p>

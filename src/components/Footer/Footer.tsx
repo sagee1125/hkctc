@@ -7,6 +7,7 @@ import { Collapse } from "@mui/material";
 import { navItemEnum } from "../../const";
 import { Language, useSettings } from "../../context";
 import { ABOUT_SIDE_MODULE } from "../../pages";
+import { t2s } from "chinese-s2t";
 
 type Sub = {
   label: string;
@@ -26,18 +27,22 @@ type FooterData = {
 const multilingual = {
   en: {
     copyright_desc: `Copyright © 2024 Hong Kong Council for Testing and Certification. All Rights Reserved`,
+    sitemap: "Sitemap",
   },
   cn: {
     copyright_desc: "©2025香港檢測和認證局 版權所有",
+    sitemap: "網站地圖",
   },
 };
 
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
-  const { copyright_desc } = page_text;
+  const isSimpleCN = language === Language.ZH_CN;
+  const page_text = getPageText(multilingual);
+
+  const { copyright_desc, sitemap } = page_text;
 
   const [sitemapCollapsed, setSitemapCollapsed] = useState<boolean>(true);
 
@@ -506,7 +511,7 @@ export const Footer: React.FC = () => {
                   setSitemapCollapsed(!sitemapCollapsed);
                 }}
               >
-                <p className="text-body-s">{isEn ? "Sitemap" : "網站地圖"}</p>
+                <p className="text-body-s">{sitemap}</p>
                 <ExpandMoreIcon
                   sx={{
                     transform: !sitemapCollapsed
@@ -534,7 +539,11 @@ export const Footer: React.FC = () => {
                         }
                       }}
                     >
-                      {isEn ? col.title : col.titleCN}
+                      {isEn
+                        ? col.title
+                        : isSimpleCN
+                        ? t2s(col.titleCN)
+                        : col.titleCN}
                     </p>
                     <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
                     <div className="flex flex-col gap-[16px] text-body-m">
@@ -555,7 +564,11 @@ export const Footer: React.FC = () => {
                               }}
                             />
 
-                            {isEn ? sub.label : sub.labelCN}
+                            {isEn
+                              ? sub.label
+                              : isSimpleCN
+                              ? t2s(sub.labelCN)
+                              : sub.labelCN}
                           </div>
                           {sub.items && (
                             <div className="flex flex-col gap-[16px] pl-[16px]">
@@ -573,7 +586,11 @@ export const Footer: React.FC = () => {
                                     }
                                   }}
                                 >
-                                  {isEn ? item.label : item.labelCN}
+                                  {isEn
+                                    ? item.label
+                                    : isSimpleCN
+                                    ? t2s(item.labelCN)
+                                    : item.labelCN}
                                 </li>
                               ))}
                             </div>
@@ -587,7 +604,11 @@ export const Footer: React.FC = () => {
                         {(col.secSubs ?? []).map((sec, index) => (
                           <div key={index} className="mt-[42px] flex flex-col">
                             <p className="text-heading-l">
-                              {isEn ? sec.title : sec.titleCN}
+                              {isEn
+                                ? sec.title
+                                : isSimpleCN
+                                ? t2s(sec.titleCN)
+                                : sec.titleCN}
                             </p>
                             <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
 
@@ -611,7 +632,11 @@ export const Footer: React.FC = () => {
                                       className="h-full w-[10px] text-white"
                                     />
 
-                                    {isEn ? sub.label : sub.labelCN}
+                                    {isEn
+                                      ? sub.label
+                                      : isSimpleCN
+                                      ? t2s(sub.labelCN)
+                                      : sub.labelCN}
                                   </div>
                                   {sub.items && (
                                     <div className="flex flex-col gap-[16px] pl-[16px]">
@@ -629,7 +654,11 @@ export const Footer: React.FC = () => {
                                             }
                                           }}
                                         >
-                                          {isEn ? item.label : item.labelCN}
+                                          {isEn
+                                            ? item.label
+                                            : isSimpleCN
+                                            ? t2s(item.labelCN)
+                                            : item.labelCN}
                                         </li>
                                       ))}
                                     </div>
@@ -663,7 +692,11 @@ export const Footer: React.FC = () => {
                     }
                   }}
                 >
-                  {isEn ? item.label : item.labelCN}
+                  {isEn
+                    ? item.label
+                    : isSimpleCN
+                    ? t2s(item.labelCN)
+                    : item.labelCN}
                 </p>
               ))}
             </div>
@@ -683,7 +716,11 @@ export const Footer: React.FC = () => {
                     }
                   }}
                 >
-                  {isEn ? item.label : item.labelCN}
+                  {isEn
+                    ? item.label
+                    : isSimpleCN
+                    ? t2s(item.labelCN)
+                    : item.labelCN}
                 </p>
               ))}
             </div>

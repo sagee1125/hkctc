@@ -1,8 +1,8 @@
 import React from "react";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 export const PanelManpowerDevelopment: React.FC = () => {
-  const { language } = useSettings();
+  const { getPageText } = useSettings();
 
   const multilingual = {
     en: {
@@ -73,8 +73,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
       ],
     },
   };
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
 
   const {
     terms_of_ref,
@@ -93,7 +92,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mb-[24px]">
         <p className="text-heading-m">{terms_of_ref}</p>
         <ul className="text-body-m mt-[16px]">
-          {refs.map((r, index) => (
+          {(refs as string[]).map((r, index) => (
             <li key={index} className="text-justify">
               {r}
             </li>
@@ -117,14 +116,14 @@ export const PanelManpowerDevelopment: React.FC = () => {
       </div>
 
       <p className="text-heading-m mt-[32px] mb-[8px]">{members}</p>
-      {member_names.map((name, index) => (
+      {(member_names as string[]).map((name, index) => (
         <p key={index} className="text-body-m">
           {name}
         </p>
       ))}
       <p className="mt-[24px] text-heading-m mb-[8px]">{official_members}</p>
       <div className="text-body-m">
-        {official_member_name.map((m, index) => (
+        {(official_member_name as string[]).map((m, index) => (
           <p key={index}>{m}</p>
         ))}
       </div>

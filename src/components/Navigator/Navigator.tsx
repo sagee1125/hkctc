@@ -83,8 +83,7 @@ const multilingual = {
 };
 
 export const Navigator: React.FC = () => {
-  const { isPC, handleChangeLang, language, convertTraditionalToSimplified } =
-    useSettings();
+  const { isPC, handleChangeLang, language, getPageText } = useSettings();
   const location = useLocation();
   const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -95,11 +94,8 @@ export const Navigator: React.FC = () => {
   const showEn = language === Language.EN;
   const isSimpleCN = language === Language.ZH_CN;
 
-  const page_text = showEn
-    ? multilingual.en
-    : isSimpleCN
-    ? convertTraditionalToSimplified(multilingual.cn)
-    : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { explore_as } = page_text;
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);

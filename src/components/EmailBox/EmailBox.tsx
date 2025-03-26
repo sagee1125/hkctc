@@ -22,9 +22,10 @@ const multilingual = {
 };
 export const EmailBox: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+
+  const page_text = getPageText(multilingual);
+
   const { enquiries, contact, name, email, write_down, send } = page_text;
   const handleButtonClick = async () => {
     setLoading(true);
@@ -65,7 +66,7 @@ export const EmailBox: React.FC = () => {
       <div className="bg-[#EAEAE5] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
         <div className="text-body-m">{contact}</div>
         <input
-          placeholder={name}
+          placeholder={name as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -74,7 +75,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <input
-          placeholder={email}
+          placeholder={email as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -83,7 +84,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <textarea
-          placeholder={write_down}
+          placeholder={write_down as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,

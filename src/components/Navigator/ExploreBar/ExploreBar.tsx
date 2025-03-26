@@ -40,7 +40,9 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { language, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const currentPath = location.pathname;
 
   const paths: string[] = [
@@ -110,12 +112,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   ];
 
   if (!isMobileView && isHidePCExploreBar) return <></>;
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+
   const { explore_as } = page_text;
   return (
     <nav>

@@ -31,13 +31,8 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
-  const { isPC, language, convertTraditionalToSimplified } = useSettings();
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const { isPC, language, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const {
     next_question,

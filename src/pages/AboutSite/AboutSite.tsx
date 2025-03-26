@@ -200,14 +200,9 @@ const multilingual = {
 };
 
 const ImportantNote: React.FC = () => {
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { getPageText } = useSettings();
 
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
 
   const {
     title,
@@ -273,14 +268,9 @@ const ImportantNote: React.FC = () => {
 };
 
 const Accessibility: React.FC = () => {
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { getPageText } = useSettings();
 
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
   const { accessibility, web_accessibility, we_are_committed, tel, email } =
     page_text;
 
@@ -299,14 +289,10 @@ const Accessibility: React.FC = () => {
 };
 
 const Privacy: React.FC = () => {
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { getPageText } = useSettings();
 
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
+
   const {
     privacy_policy,
     policy_statement,
@@ -333,14 +319,9 @@ const Privacy: React.FC = () => {
 };
 
 const Contact: React.FC = () => {
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { getPageText } = useSettings();
 
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
   const {
     contact,
     email,
@@ -420,14 +401,11 @@ const Contact: React.FC = () => {
 };
 
 const RelatedSite: React.FC = () => {
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { language, getPageText } = useSettings();
   const isEn = language === Language.EN;
   const isSimpleCN = language === Language.ZH_CN;
-  const page_text = isEn
-    ? multilingual.en
-    : language === Language.ZH_TW
-    ? multilingual.cn
-    : convertTraditionalToSimplified(multilingual.cn);
+
+  const page_text = getPageText(multilingual);
   const {
     related_site,
     gov,
@@ -677,15 +655,12 @@ const directoryItems: DirectorySidebarItems[] = [
 export const AboutSite: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isPC, language, convertTraditionalToSimplified } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const isEN = language === Language.EN;
   const isSimpleCN = language === Language.ZH_CN;
 
-  const page_text = isEN
-    ? multilingual.en
-    : language === Language.ZH_TW
-    ? multilingual.cn
-    : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
+
   const { home, about_site } = page_text;
   const queryParams = new URLSearchParams(location.search);
 

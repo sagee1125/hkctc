@@ -21,10 +21,10 @@ const multilingual = {
 
 export const WhatsNew: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const changingEffectOn = false;
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { title } = page_text;
   const [visibleWhatsNew, setVisibleWhatsNew] = useState<boolean>(false);
 

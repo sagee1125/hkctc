@@ -12,6 +12,7 @@ import styled, { css, keyframes } from "styled-components";
 import { EmailBox, Quiz, SquareTitle } from "../../../components";
 import { CATEGORIES, navItemEnum } from "../../../const";
 import { Language, useSettings } from "../../../context";
+import { t2s } from "chinese-s2t";
 
 type ResourcesData = {
   title: string;
@@ -76,9 +77,11 @@ export const Publications: React.FC = () => {
     Category.Events
   );
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     resources,
@@ -411,7 +414,7 @@ export const Publications: React.FC = () => {
                         }}
                         ref={(el) => (titleRefs.current[index] = el)}
                       >
-                        {isEn ? title : titleCN}
+                        {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
                       </p>
                     </div>
                   );
@@ -485,7 +488,7 @@ export const Publications: React.FC = () => {
                             }}
                             ref={(el) => (titleRefs.current[index] = el)}
                           >
-                            {isEn ? title : titleCN}
+                            {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
                           </p>
                         </div>
                       );
@@ -519,7 +522,10 @@ export const Publications: React.FC = () => {
             >
               {showCurrentPublicationItem.map((subItem, index) => {
                 const { title, titleCN, imgPath, nav } = subItem;
-
+                const traditionTitle =
+                  publicationCategory.find(
+                    (i) => i.title === prevActiveCategory
+                  )?.titleCN ?? "";
                 return (
                   <BannerSlide
                     key={index}
@@ -554,9 +560,9 @@ export const Publications: React.FC = () => {
                         >
                           {isEn
                             ? prevActiveCategory.toUpperCase()
-                            : publicationCategory.find(
-                                (i) => i.title === prevActiveCategory
-                              )?.titleCN}
+                            : isSimpleCN
+                            ? t2s(traditionTitle)
+                            : traditionTitle}
                         </p>
                         <p
                           style={{
@@ -566,7 +572,7 @@ export const Publications: React.FC = () => {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          {isEn ? title : titleCN}
+                          {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
                         </p>
                       </div>
                     </div>
@@ -797,7 +803,7 @@ export const Publications: React.FC = () => {
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
                     {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
                     <div className="z-20 pl-[20px] text-heading-l text-center w-full">
-                      {isEn ? title : titleCN}
+                      {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
                     </div>
                     <div className="z-20 pr-[20px]">
                       <Icon

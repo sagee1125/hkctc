@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import { fullContainer } from "../Container";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -15,13 +15,9 @@ const multilingual = {
 };
 
 export const VideoBox: React.FC = () => {
-  const { language, isPC, convertTraditionalToSimplified } = useSettings();
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { welcome, innoCarnival } = page_text;
 
   const [progress, setProgress] = useState(0);

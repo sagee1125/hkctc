@@ -13,6 +13,12 @@ import { t2s } from "chinese-s2t";
 interface LanguageResources {
   [key: string]: string | string[] | JSX.Element;
 }
+
+interface MultilingualResources {
+  en: LanguageResources;
+  cn: LanguageResources;
+}
+
 export const enum Language {
   ZH_CN = "zh-CN",
   ZH_TW = "zh-TW",
@@ -30,9 +36,8 @@ type SettingsContextType = {
   setFontSize: (fontSize: "small" | "medium" | "large") => void;
   setIsLoading: (isLoading: boolean) => void;
   withLoading: (callback: () => Promise<void>) => Promise<void>;
-  convertTraditionalToSimplified(
-    traditionalObj: LanguageResources
-  ): LanguageResources;
+  getPageText(multilingualObj: MultilingualResources): LanguageResources;
+  getSingleText(singleText: string, singleCNText: string): string;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -128,6 +133,33 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
     return simplifiedObj;
   }
 
+  function getPageText(
+    multilingualObj: MultilingualResources
+  ): LanguageResources {
+    switch (language) {
+      case Language.EN:
+        return multilingualObj.en;
+      case Language.ZH_TW:
+        return multilingualObj.cn;
+      case Language.ZH_CN:
+        return convertTraditionalToSimplified(multilingualObj.cn);
+      default:
+        return multilingualObj.en;
+    }
+  }
+
+  function getSingleText(singleText: string, singleCNText: string): string {
+    switch (language) {
+      case Language.EN:
+        return singleText;
+      case Language.ZH_TW:
+        return singleCNText;
+      case Language.ZH_CN:
+        return t2s(singleCNText);
+      default:
+        return singleText;
+    }
+  }
   return (
     <SettingsContext.Provider
       value={{
@@ -141,7 +173,8 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         setIsLoading,
         withLoading,
         pdfjsLib,
-        convertTraditionalToSimplified,
+        getPageText,
+        getSingleText,
       }}
     >
       {isLoading && (

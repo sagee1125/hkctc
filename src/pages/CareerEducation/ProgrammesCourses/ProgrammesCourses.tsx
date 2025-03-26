@@ -282,9 +282,8 @@ const multilingual = {
 
 export const ProgrammesCourses: React.FC = () => {
   const buttonArr = Object.keys(degreeMap);
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { language, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     intro,
@@ -320,7 +319,7 @@ export const ProgrammesCourses: React.FC = () => {
                 setActiveButton(b);
               }}
             >
-              {isEn ? degreeMap[b].tab : degreeMap[b].tabCN}
+              {getSingleText(degreeMap[b].tab, degreeMap[b].tabCN)}
             </button>
           );
         })}
@@ -329,7 +328,10 @@ export const ProgrammesCourses: React.FC = () => {
       <div className="flex flex-row gap-[12px] items-center text-trustfulBlue mb-[24px]">
         <div className="h-[15px] w-[15px] bg-trustfulBlue" />
         <p className="text-heading-l">
-          {isEn ? degreeMap[activeButton].tab : degreeMap[activeButton].tabCN}
+          {getSingleText(
+            degreeMap[activeButton].tab,
+            degreeMap[activeButton].tabCN
+          )}
         </p>
       </div>
       <div className="bg-[#F7F7F5] border-[1px] border-[#E0E0E0] grid grid-cols-2 text-highlight-m">
@@ -341,7 +343,7 @@ export const ProgrammesCourses: React.FC = () => {
           <React.Fragment key={index}>
             <div className="py-[16px] px-[10px] border-r-[1px] border-b-[1px] border-[#E0E0E0]">
               <p className="!text-body-m">
-                {isEn ? item.institution : item.institutionCN}
+                {getSingleText(item.institution, item.institutionCN)}
               </p>
             </div>
             <div className="py-[16px] px-[10px] border-b-[1px] border-[#E0E0E0] flex flex-col gap-[30px]">
@@ -358,7 +360,7 @@ export const ProgrammesCourses: React.FC = () => {
                     lineHeight: "22px",
                   }}
                 >
-                  {isEn ? prog.programme : prog.programmeCN}
+                  {getSingleText(prog.programme, prog.programmeCN)}
                 </a>
               ))}
             </div>

@@ -14,6 +14,7 @@ import {
   MEDIA_TYPE,
 } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
+import { t2s } from "chinese-s2t";
 
 const itemsPerPage = 9;
 
@@ -77,9 +78,11 @@ const multilingual = {
 };
 
 export const Advertorials: React.FC = () => {
-  const { language, isPC } = useSettings();
+  const { language, isPC, getPageText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+
+  const page_text = getPageText(multilingual);
   const { title, about_tc, sv } = page_text;
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
@@ -281,7 +284,7 @@ export const Advertorials: React.FC = () => {
       <SquareTitle title={title} />
       <div>
         <NormalAccordion
-          title={about_tc}
+          title={about_tc as string}
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(aboutTestingSector).map((name, index) => {
@@ -300,7 +303,9 @@ export const Advertorials: React.FC = () => {
                   >
                     <p className="text-highlight-xs">
                       {isEn
-                        ? aboutTestingSector[name].label
+                        ? isSimpleCN
+                          ? t2s(aboutTestingSector[name].label)
+                          : aboutTestingSector[name].label
                         : aboutTestingSector[name].labelCN}
                     </p>
                   </button>
@@ -313,7 +318,7 @@ export const Advertorials: React.FC = () => {
 
       <div>
         <NormalAccordion
-          title={sv}
+          title={sv as string}
           details={
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(certificateSector).map((name, index) => {
@@ -333,6 +338,8 @@ export const Advertorials: React.FC = () => {
                     <p className="text-highlight-xs">
                       {isEn
                         ? certificateSector[name].label
+                        : isSimpleCN
+                        ? t2s(certificateSector[name].labelCN)
                         : certificateSector[name].labelCN}
                     </p>
                   </button>

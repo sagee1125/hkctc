@@ -30,7 +30,7 @@ export const HeaderSocialMedia: React.FC = () => {
 export const Header: React.FC = () => {
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
 
-  const { language, convertTraditionalToSimplified } = useSettings();
+  const { getPageText } = useSettings();
 
   const formik = useFormik<{ search: string }>({
     initialValues: {
@@ -56,12 +56,7 @@ export const Header: React.FC = () => {
       HKCTC: "香港檢測和認證局",
     },
   };
-  const page_text =
-    language === Language.EN
-      ? multilingual.en
-      : language === Language.ZH_TW
-      ? multilingual.cn
-      : convertTraditionalToSimplified(multilingual.cn);
+  const page_text = getPageText(multilingual);
 
   const { HKCTC } = page_text;
 

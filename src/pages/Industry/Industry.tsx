@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Breadcrumb,
+  type BreadcrumbItem,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
@@ -24,24 +25,24 @@ const multilingual = {
 };
 
 export const Industry: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { home, industry, desc } = page_text;
 
   const breadcrumbItems = [{ label: home, href: "/" }, { label: industry }];
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
-        title={industry}
+        title={industry as string}
         titleTheme="growthfulGreen"
-        description={desc}
+        description={desc as string}
         barBackgroundImg="industry/banner_bg_2.png"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
         <IndustryContent />

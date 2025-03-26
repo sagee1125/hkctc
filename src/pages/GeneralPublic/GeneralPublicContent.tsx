@@ -20,7 +20,7 @@ const multilingual = {
     hkctc_reports: "香港檢測和認證局報告",
     seminar_workshop: "研討會與工作坊",
     whats_new: "最新消息",
-    materials: "材料",
+    materials: "資源",
   },
 };
 export const GeneralPublicContent: React.FC = () => {

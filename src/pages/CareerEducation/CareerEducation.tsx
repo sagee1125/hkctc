@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   BannerPhotoBox,
   Breadcrumb,
+  type BreadcrumbItem,
   MultipleSidebars,
   fullContainer,
   maxMobileContainer,
@@ -82,9 +83,10 @@ export const CareerEducation: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+
+  const page_text = getPageText(multilingual);
+
   const { home, career_development } = page_text;
   const initialSection = queryParams.get("section") ?? "";
 
@@ -133,7 +135,7 @@ export const CareerEducation: React.FC = () => {
   const { title, titleCN } = sidebarData.filter((section) =>
     section.sidebarItems.find((item) => item.enum === activeItem)
   )?.[0];
-  const activeSidebarItemsLabel = isEn ? title : titleCN;
+  const activeSidebarItemsLabel = getSingleText(title, titleCN);
   const firstActiveItem = sidebarData
     .map((section) =>
       section.sidebarItems.find((item) => item.enum === activeItem)
@@ -141,9 +143,10 @@ export const CareerEducation: React.FC = () => {
     .find((matchedItem) => matchedItem !== undefined);
 
   const firstActiveItemEnum = firstActiveItem?.enum;
-  const activeSidebarItemsSubLabel = isEn
-    ? firstActiveItem?.subTitle
-    : firstActiveItem?.subTitleCN;
+  const activeSidebarItemsSubLabel = getSingleText(
+    firstActiveItem?.subTitle ?? "",
+    firstActiveItem?.subTitleCN ?? ""
+  );
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -185,7 +188,7 @@ export const CareerEducation: React.FC = () => {
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
 

@@ -4,6 +4,7 @@ import { PanelManpowerDevelopment } from "./PanelManpowerDevelopment";
 import {
   BannerPhotoBox,
   Breadcrumb,
+  type BreadcrumbItem,
   DirectorySidebar,
   DirectorySidebarItems,
   fullContainer,
@@ -33,9 +34,9 @@ const multilingual = {
 };
 
 export const AboutUs: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { home, about_hkctc, panel } = page_text;
   const breadcrumbItems = [{ label: home, href: "/" }, { label: about_hkctc }];
 
@@ -46,13 +47,13 @@ export const AboutUs: React.FC = () => {
 
   const directorySidebarItems: DirectorySidebarItems[] = [
     {
-      label: about_hkctc,
-      labelCN: about_hkctc,
+      label: about_hkctc as string,
+      labelCN: about_hkctc as string,
       value: navItemEnum.about_HKCTC,
     },
     {
-      label: panel,
-      labelCN: panel,
+      label: panel as string,
+      labelCN: panel as string,
       value: navItemEnum.panel_on_manpower_development,
     },
   ];
@@ -66,14 +67,14 @@ export const AboutUs: React.FC = () => {
   const mbSidebarItems: SubItems[] = [
     {
       enum: navItemEnum.about_HKCTC,
-      subTitle: about_hkctc,
-      subTitleCN: about_hkctc,
+      subTitle: about_hkctc as string,
+      subTitleCN: about_hkctc as string,
       imgUrl: "",
     },
     {
       enum: navItemEnum.panel_on_manpower_development,
-      subTitle: panel,
-      subTitleCN: panel,
+      subTitle: panel as string,
+      subTitleCN: panel as string,
       imgUrl: "",
     },
   ];
@@ -84,7 +85,7 @@ export const AboutUs: React.FC = () => {
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
 
