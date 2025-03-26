@@ -122,9 +122,9 @@ const multilingual = {
 };
 
 export const MedicalTesting: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, language, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     file,
@@ -444,12 +444,14 @@ export const MedicalTesting: React.FC = () => {
 
       <div className="mt-[24px]">
         <MediaTemplate
-          title={file}
+          title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/medicalTestingEvent.png"
           mediaLink="https://www.hkctc.gov.hk/en/doc/HKCTC_Leaflet_Medical.pdf"
         />
       </div>
-      <p className="text-heading-l my-[24px]">{benefits_of}</p>
+      <p className="text-heading-l my-[24px]">
+        {benefits_of as React.ReactNode}
+      </p>
 
       <img
         className="w-full h-auto"
@@ -458,14 +460,16 @@ export const MedicalTesting: React.FC = () => {
       />
 
       <p className="text-body-m mt-[24px] text-justify">
-        {reliable_test}
+        {reliable_test as React.ReactNode}
         <br />
         <br />
-        {accreditation_is}
+        {accreditation_is as React.ReactNode}
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{why_should_we_use}</p>
+      <p className="text-heading-l mb-[24px]">
+        {why_should_we_use as React.ReactNode}
+      </p>
 
       <img
         className="w-full h-auto"
@@ -473,9 +477,9 @@ export const MedicalTesting: React.FC = () => {
         alt="Accredited Medical Testing Service"
       />
       <p className="text-body-m mt-[24px] text-justify">
-        {the_accreditation_criteria}
+        {the_accreditation_criteria as React.ReactNode}
         <br /> <br />
-        {to_get_accreditation}
+        {to_get_accreditation as React.ReactNode}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       {/* <>
@@ -555,8 +559,8 @@ export const MedicalTesting: React.FC = () => {
         </div>
       </> */}
 
-      <p className="text-heading-l">{laboratories}</p>
-      <p className="text-body-m pt-[24px]">{bottom}</p>
+      <p className="text-heading-l">{laboratories as React.ReactNode}</p>
+      <p className="text-body-m pt-[24px]">{bottom as React.ReactNode}</p>
       <hr className="my-[24px]" />
 
       <InternalBackButton

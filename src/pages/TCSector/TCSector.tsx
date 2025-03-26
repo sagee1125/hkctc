@@ -20,7 +20,7 @@ import {
   SubItems,
 } from "../../const";
 import { ServicesDifferentBusinessAreas } from "./ServicesDifferentBusinessAreas";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const returnComponent = (
   navItem: navItemEnum

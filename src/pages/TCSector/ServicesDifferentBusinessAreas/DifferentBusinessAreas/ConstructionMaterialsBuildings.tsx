@@ -567,11 +567,12 @@ const schemeOwnerCol: HyperlinkData[] = [
 
 const itemsPerPage = 9;
 export const ConstructionMaterialsBuildings: React.FC = () => {
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const isEn = language === Language.EN;
   const [currentPage, setCurrentPage] = useState(0);
 
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     file,
@@ -653,8 +654,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     );
   };
   const tableRowsData: Array<React.ReactNode[]> = [
-    col_one,
-    col_two,
+    col_one as React.ReactNode[],
+    col_two as React.ReactNode[],
     schemeOwnerColArray,
     [
       <>
@@ -725,32 +726,34 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: whats_pc,
+      title: whats_pc as string,
       content: (
         <ul>
-          <li>{pc_def[0]}</li>
+          <li>{(pc_def as React.ReactNode[])[0]}</li>
           <br />
-          <li>{pc_def[1]}</li>
+          <li>{(pc_def as React.ReactNode[])[1]}</li>
         </ul>
       ),
     },
     {
-      title: whats_benefits_of_pc,
+      title: whats_benefits_of_pc as string,
       content: (
         <>
           <ul>
-            <li>{whats_benefits_of_pc_detail[0]}</li>
+            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[0]}</li>
             <br />
-            <li>{whats_benefits_of_pc_detail[1]}</li>
+            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[1]}</li>
 
             <br />
-            <li>{whats_benefits_of_pc_detail[2]}</li>
+            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[2]}</li>
 
             <br />
-            <li className="mb-[16px]">{whats_benefits_of_pc_detail[3]}</li>
+            <li className="mb-[16px]">
+              {(whats_benefits_of_pc_detail as React.ReactNode[])[3]}
+            </li>
           </ul>
           <FileTemplate
-            title={whats_benefits_of_pc_detail[4]}
+            title={(whats_benefits_of_pc_detail as string[])[4]}
             imagePath="assets/tcSector/servicesDifferentBusinessAreas/FeatureArticlePDF.png"
             pdfHyperlink="/en/doc/hkctc_newsletter_issue2.pdf"
           />
@@ -758,10 +761,10 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       ),
     },
     {
-      title: local_prod,
+      title: local_prod as string,
       content: (
         <>
-          <p>{the_following_prod}</p>
+          <p>{the_following_prod as React.ReactNode}</p>
           <div>
             {/* Pagination Controls */}
             <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
@@ -807,7 +810,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             </div>
             <div style={{ overflowX: "auto" }}>
               <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E] min-w-[900px]">
-                {table_headers.map((head, index) => (
+                {(table_headers as React.ReactNode[]).map((head, index) => (
                   <p key={index}>{head}</p>
                 ))}
               </div>
@@ -849,45 +852,45 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       ),
     },
     {
-      title: use_of_prod_HA,
+      title: use_of_prod_HA as string,
       content: (
         <ul className="text-justify">
-          <li>{use_of_prod_HA_detail}</li>
+          <li>{use_of_prod_HA_detail as React.ReactNode}</li>
         </ul>
       ),
     },
     {
-      title: use_of_prod_ASD,
+      title: use_of_prod_ASD as string,
       content: (
         <ul>
-          <li>{use_of_prod_ASD_detail_1}</li>
+          <li>{use_of_prod_ASD_detail_1 as React.ReactNode}</li>
           <br />
-          <li>{use_of_prod_ASD_detail_2}</li>
+          <li>{use_of_prod_ASD_detail_2 as React.ReactNode}</li>
         </ul>
       ),
     },
     {
-      title: use_of_prod_BEAM,
+      title: use_of_prod_BEAM as string,
       content: (
         <ul className="text-justify">
-          <li>{use_of_prod_BEAM_detail_1}</li>
+          <li>{use_of_prod_BEAM_detail_1 as React.ReactNode}</li>
           <br />
-          <li>{use_of_prod_BEAM_detail_2}</li>
+          <li>{use_of_prod_BEAM_detail_2 as React.ReactNode}</li>
         </ul>
       ),
     },
     {
-      title: how_manufacturer,
+      title: how_manufacturer as string,
       content: (
         <ul className="text-justify">
-          <li>{how_manufacturer_ways[0]}</li>
+          <li>{(how_manufacturer_ways as React.ReactNode[])[0]}</li>
 
           <br />
-          <li>{how_manufacturer_ways[1]}</li>
+          <li>{(how_manufacturer_ways as React.ReactNode[])[1]}</li>
           <br />
-          <li>{how_manufacturer_ways[2]}</li>
+          <li>{(how_manufacturer_ways as React.ReactNode[])[2]}</li>
           <br />
-          <li>{how_manufacturer_ways[3]}</li>
+          <li>{(how_manufacturer_ways as React.ReactNode[])[3]}</li>
         </ul>
       ),
     },
@@ -901,35 +904,37 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: laboratory_and_on_site,
-      descriptionTitle: services_below,
-      description: services_below_desc,
-      contentTitle: building_diagnostic,
+      title: laboratory_and_on_site as string,
+      descriptionTitle: services_below as string,
+      description: services_below_desc as string[],
+      contentTitle: building_diagnostic as string,
       content: (
         <>
-          <p>{to_facilitate}</p>
+          <p>{to_facilitate as string}</p>
           <br />
-          {to_facilitate_ways.map((item, index) => (
+          {(to_facilitate_ways as React.ReactNode[]).map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </>
       ),
     },
     {
-      title: inspection_services,
-      description: inspection_services_desc,
-      contentTitle: indoor_air,
+      title: inspection_services as string,
+      description: inspection_services_desc as string[],
+      contentTitle: indoor_air as string,
       content: (
         <div className="text-justify">
-          <p>{to_improve_indoor_air}</p>
+          <p>{to_improve_indoor_air as string}</p>
           <br />
           <ul>
-            {to_improve_indoor_air_ways.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+            {(to_improve_indoor_air_ways as React.ReactNode[]).map(
+              (item, index) => (
+                <li key={index}>{item}</li>
+              )
+            )}
           </ul>
           <br />
-          <p>{more_info}</p>
+          <p>{more_info as React.ReactNode}</p>
         </div>
       ),
     },
@@ -947,14 +952,16 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       <div className="my-[24px]">
         <MediaTemplate
           iconPath="VIDEO.png"
-          title={file}
+          title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
           mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
         />
       </div>
-      <p className="text-heading-l mb-[24px]">{benefits_of}</p>
+      <p className="text-heading-l mb-[24px]">
+        {benefits_of as React.ReactNode}
+      </p>
       <FileTemplate
-        title={prod_cert}
+        title={prod_cert as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
       />
@@ -971,10 +978,12 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l my-[24px]">{testing_and_inspection}</p>
+      <p className="text-heading-l my-[24px]">
+        {testing_and_inspection as React.ReactNode}
+      </p>
 
       <FileTemplate
-        title={testing_and_inspection}
+        title={testing_and_inspection as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF_testing.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_Building_inspection.pdf"
       />
@@ -1008,8 +1017,10 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         ))}
       </div>
 
-      <p className="text-heading-l my-[24px]">{laboratories}</p>
-      <p className="text-body-m text-justify">{bottom}</p>
+      <p className="text-heading-l my-[24px]">
+        {laboratories as React.ReactNode}
+      </p>
+      <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
       <hr className="my-[24px]" />
 
       <InternalBackButton

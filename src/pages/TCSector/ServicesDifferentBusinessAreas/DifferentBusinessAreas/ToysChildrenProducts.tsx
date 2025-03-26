@@ -112,9 +112,8 @@ const multilingual = {
 };
 
 export const ToysChildrenProducts: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, language } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     file,
@@ -141,13 +140,13 @@ export const ToysChildrenProducts: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: testing,
+      title: testing as string,
       content: (
         <>
-          <p>{common_testing}</p>
+          <p>{common_testing as string}</p>
           <br />
           <ul>
-            {testing_content.map((content, i) => (
+            {(testing_content as string[]).map((content, i) => (
               <li key={i}>{content}</li>
             ))}
           </ul>
@@ -155,12 +154,12 @@ export const ToysChildrenProducts: React.FC = () => {
       ),
     },
     {
-      title: inspection,
-      content: examples_of,
+      title: inspection as string,
+      content: examples_of as string,
     },
     {
-      title: certification,
-      content: product_certification,
+      title: certification as string,
+      content: product_certification as string,
     },
   ];
 
@@ -176,7 +175,7 @@ export const ToysChildrenProducts: React.FC = () => {
 
       <div className="my-[24px]">
         <MediaTemplate
-          title={file}
+          title={file as string}
           iconPath="VIDEO.png"
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ToysAndChildren_Video.png"
           mediaLink="https://www.youtube.com/embed/fKkwNRX0i6c"
@@ -184,20 +183,24 @@ export const ToysChildrenProducts: React.FC = () => {
       </div>
 
       <FileTemplate
-        title={toys}
+        title={toys as string as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
         pdfHyperlink="/en/doc/toys_booklet_eng.pdf"
       />
-      <p className="text-heading-l my-[24px]">{benefits_of_toys} </p>
+      <p className="text-heading-l my-[24px]">
+        {benefits_of_toys as string as string}{" "}
+      </p>
       <p className="text-body-m text-justify">
-        {when_it_comes}
+        {when_it_comes as string as string}
         <br />
         <br />
-        {help_assure}
+        {help_assure as string as string}
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{tc_service}</p>
+      <p className="text-heading-l mb-[24px]">
+        {tc_service as string as string}
+      </p>
 
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForToys.map((item, index) => (
@@ -210,8 +213,8 @@ export const ToysChildrenProducts: React.FC = () => {
       </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{laboratories}</p>
-      <p className="text-body-m text-justify">{bottom}</p>
+      <p className="text-heading-l mb-[24px]">{laboratories as string}</p>
+      <p className="text-body-m text-justify">{bottom as string}</p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

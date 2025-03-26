@@ -17,7 +17,7 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -153,10 +153,8 @@ const multilingual = {
 };
 
 export const TextilesAndApparel: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, language } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     file,
@@ -183,21 +181,21 @@ export const TextilesAndApparel: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: testing,
+      title: testing as string,
       content: (
         <>
-          <p>{eg_of_testing_1}</p>
+          <p>{eg_of_testing_1 as string}</p>
           <br />
           <ul>
-            {testing_content_1.map((c, i) => (
+            {(testing_content_1 as string[]).map((c, i) => (
               <li key={i}>{c}</li>
             ))}
           </ul>
           <br />
-          <p>{eg_of_testing_2}</p>
+          <p>{eg_of_testing_2 as string}</p>
           <br />
           <ul>
-            {testing_content_2.map((c, i) => (
+            {(testing_content_2 as string[]).map((c, i) => (
               <li key={i}>{c}</li>
             ))}
           </ul>
@@ -205,12 +203,12 @@ export const TextilesAndApparel: React.FC = () => {
       ),
     },
     {
-      title: inspection,
-      content: eg_include,
+      title: inspection as string,
+      content: eg_include as React.ReactNode,
     },
     {
-      title: certification,
-      content: certification_related,
+      title: certification as string,
+      content: certification_related as React.ReactNode,
     },
   ];
 
@@ -222,28 +220,34 @@ export const TextilesAndApparel: React.FC = () => {
 
   const content = (
     <>
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div className="my-[24px]">
         <MediaTemplate
           iconPath="VIDEO.png"
-          title={file}
+          title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/Textiles_Garment.png"
           mediaLink="https://www.youtube.com/embed/JL54Sx8IFF0"
         />
       </div>
 
       <FileTemplate
-        title={title}
+        title={title as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
         pdfHyperlink="/en/doc/textile_booklet_low_res_eng.pdf"
       />
-      <p className="text-heading-l my-[24px]">{benefits_of}</p>
-      <p className="text-body-m text-justify">{benefit_detail}</p>
+      <p className="text-heading-l my-[24px]">
+        {benefits_of as React.ReactNode}
+      </p>
+      <p className="text-body-m text-justify">
+        {benefit_detail as React.ReactNode}
+      </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{tc_service}</p>
-      <p className="text-body-m my-[24px] text-justify">{hk_tc}</p>
+      <p className="text-heading-l">{tc_service as React.ReactNode}</p>
+      <p className="text-body-m my-[24px] text-justify">
+        {hk_tc as React.ReactNode}
+      </p>
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForTextile.map((item, index) => (
           <Accordion
@@ -255,8 +259,12 @@ export const TextilesAndApparel: React.FC = () => {
       </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mt-[24px]">{laboratories}</p>
-      <p className="text-body-m pt-[24px] text-justify">{bottom}</p>
+      <p className="text-heading-l mt-[24px]">
+        {laboratories as React.ReactNode}
+      </p>
+      <p className="text-body-m pt-[24px] text-justify">
+        {bottom as React.ReactNode}
+      </p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

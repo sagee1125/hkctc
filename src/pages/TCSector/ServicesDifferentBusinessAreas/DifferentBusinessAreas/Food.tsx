@@ -17,102 +17,90 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
+import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
     title: "Food",
-    photos: [
-      {
-        title: "Food Testing and Certification",
-        img: "food_1",
-        link: "https://www.hkctc.gov.hk/en/doc/Food_Pamphlet_2018.pdf",
-      },
-      {
-        title: "Food",
-        img: "food_2",
-        link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
-      },
-      {
-        title: "Hong Kong's Testing and Certification for Food",
-        img: "food_3",
-        link: "https://www.youtube.com/embed/oGRho-M6kEg",
-        icon: "VIDEO.png",
-      },
-    ],
-    tableRowsData: [
-      [
-        "Chemical composition analysis for nutritional labeling",
-        "Energy, Protein, Total Fat, Sodium, Sugars, Carbohydrates, Saturated fatty acids, Trans fatty acids",
-      ],
-      [
-        "Microbiological examination",
-        "Microbial indicators, Food borne pathogens",
-      ],
-      [
-        "Contaminants",
-        "Pesticide residues, Veterinary drug residues, Metalic contaminants, Other harmful substances e.g. melamine, and phthalates",
-      ],
-
-      ["Natural toxins", "Marine toxins, Mycotoxins"],
-
-      [
-        "Additives",
-        "Sweeteners, Antioxidant, Colouring matters, Preservatives",
-      ],
-      ["Food contact materials", "Leachable metals, Extractives"],
-      ["Food authentication", "Species identification by DNA methods"],
-      [
-        "Genetically modified food",
-        "Qualitative and quantitative analysis by DNA method, Genetically modified traits identification",
-      ],
-    ],
   },
   cn: {
     title: "食品",
-    photos: [
-      {
-        title: "食品檢測和認證",
-        img: "food_1",
-        link: "https://www.hkctc.gov.hk/en/doc/Food_Pamphlet_2018.pdf",
-      },
-      {
-        title: "食品",
-        img: "food_2",
-        link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
-      },
-      {
-        title: "香港的食品檢測和認證服務",
-        img: "food_3",
-        link: "https://www.youtube.com/embed/oGRho-M6kEg",
-        icon: "VIDEO.png",
-      },
-    ],
-    tableRowsData: [
-      [
-        "營養標籤的化學成分",
-        "能量、蛋白質、總脂肪、鈉、糖、碳水化合物、飽和脂肪酸、反式脂肪酸",
-      ],
-      ["微生物測試", "微生物指標、食源性致病菌"],
-      [
-        "污染物",
-        "農藥殘留、獸藥殘留、金屬污染物，其他有害物質如三聚氰胺、塑化劑等",
-      ],
-
-      ["天然毒素", "海洋毒素、霉菌毒素"],
-
-      ["添加劑", "S甜味劑、抗氧化劑、染色料、防腐劑"],
-      ["食物接觸物料", "可濾取金屬、粹取物"],
-      ["食品鑒別", "以DNA技術作物種鑑別"],
-      ["基因改造食物", "以DNA技術作定性及定量分析、轉基因性狀鑑定"],
-    ],
   },
 };
 
 export const Food: React.FC = () => {
-  const { isPC, language } = useSettings();
+  const { isPC, language, getSingleText, getSingleNode } = useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+  const photo = [
+    {
+      title: "Food Testing and Certification",
+      titleCN: "食品檢測和認證",
+      img: "food_1",
+      link: "https://www.hkctc.gov.hk/en/doc/Food_Pamphlet_2018.pdf",
+    },
+    {
+      title: "Food",
+      titleCN: "食品",
+      img: "food_2",
+      link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
+    },
+    {
+      title: "Hong Kong's Testing and Certification for Food",
+      img: "food_3",
+      titleCN: "香港的食品檢測和認證服務",
+      link: "https://www.youtube.com/embed/oGRho-M6kEg",
+      icon: "VIDEO.png",
+    },
+  ];
 
+  const tableRowsDataEN = [
+    [
+      "Chemical composition analysis for nutritional labeling",
+      "Energy, Protein, Total Fat, Sodium, Sugars, Carbohydrates, Saturated fatty acids, Trans fatty acids",
+    ],
+    [
+      "Microbiological examination",
+      "Microbial indicators, Food borne pathogens",
+    ],
+    [
+      "Contaminants",
+      "Pesticide residues, Veterinary drug residues, Metalic contaminants, Other harmful substances e.g. melamine, and phthalates",
+    ],
+
+    ["Natural toxins", "Marine toxins, Mycotoxins"],
+
+    ["Additives", "Sweeteners, Antioxidant, Colouring matters, Preservatives"],
+    ["Food contact materials", "Leachable metals, Extractives"],
+    ["Food authentication", "Species identification by DNA methods"],
+    [
+      "Genetically modified food",
+      "Qualitative and quantitative analysis by DNA method, Genetically modified traits identification",
+    ],
+  ];
+
+  const tableRowsDataCN = [
+    [
+      "營養標籤的化學成分",
+      "能量、蛋白質、總脂肪、鈉、糖、碳水化合物、飽和脂肪酸、反式脂肪酸",
+    ],
+    ["微生物測試", "微生物指標、食源性致病菌"],
+    [
+      "污染物",
+      "農藥殘留、獸藥殘留、金屬污染物，其他有害物質如三聚氰胺、塑化劑等",
+    ],
+
+    ["天然毒素", "海洋毒素、霉菌毒素"],
+
+    ["添加劑", "S甜味劑、抗氧化劑、染色料、防腐劑"],
+    ["食物接觸物料", "可濾取金屬、粹取物"],
+    ["食品鑒別", "以DNA技術作物種鑑別"],
+    ["基因改造食物", "以DNA技術作定性及定量分析、轉基因性狀鑑定"],
+  ];
+
+  const tableRowsData =
+    language === Language.EN ? tableRowsDataEN : tableRowsDataCN;
   const data_cn: Array<{
     title: string;
     content: React.ReactNode;
@@ -134,7 +122,7 @@ export const Food: React.FC = () => {
               borderTop: "2px solid #2F2F2F",
             }}
           >
-            {page_text.tableRowsData.map((row, index) => (
+            {tableRowsData.map((row, index) => (
               <div
                 key={index}
                 className="grid grid-cols-[1fr,2fr] gap-[24px] py-[16px] px-[10px]"
@@ -142,8 +130,8 @@ export const Food: React.FC = () => {
                   borderBottom: "1px dashed #C8CFD6",
                 }}
               >
-                <p>{row[0]}</p>
-                <p>{row[1]}</p>
+                <p>{isSimpleCN ? t2s(row[0]) : row[0]}</p>
+                <p>{isSimpleCN ? t2s(row[1]) : row[1]}</p>
               </div>
             ))}
           </div>
@@ -261,7 +249,7 @@ export const Food: React.FC = () => {
               borderTop: "2px solid #2F2F2F",
             }}
           >
-            {page_text.tableRowsData.map((row, index) => (
+            {tableRowsData.map((row, index) => (
               <div
                 key={index}
                 className="grid grid-cols-[1fr,2fr] gap-[24px] py-[16px] px-[10px]"
@@ -269,8 +257,8 @@ export const Food: React.FC = () => {
                   borderBottom: "1px dashed #C8CFD6",
                 }}
               >
-                <p>{row[0]}</p>
-                <p>{row[1]}</p>
+                <p>{isSimpleCN ? t2s(row[0]) : row[0]}</p>
+                <p>{isSimpleCN ? t2s(row[1]) : row[1]}</p>
               </div>
             ))}
           </div>
@@ -404,14 +392,14 @@ export const Food: React.FC = () => {
 
       <div
         className={`my-[24px] grid grid-cols-${
-          isPC ? page_text.photos.length : 1
+          isPC ? photo.length : 1
         } gap-[24px]`}
       >
-        {page_text.photos.map((item, index) => (
+        {photo.map((item, index) => (
           <div key={index} className="w-full">
             <MediaTemplate
               direction={"vertical"}
-              title={item.title}
+              title={getSingleText(item.title, item.titleCN)}
               iconPath={item.icon}
               imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
               mediaLink={item.link}
@@ -424,8 +412,14 @@ export const Food: React.FC = () => {
         {data.map((item, index) => (
           <Accordion
             key={index}
-            title={item.title}
-            details={<div className="text-body-m">{item.content}</div>}
+            title={isSimpleCN ? t2s(item.title) : item.title}
+            details={
+              <div className="text-body-m">
+                {isSimpleCN
+                  ? getSingleNode(item.content, item.content)
+                  : item.content}
+              </div>
+            }
           />
         ))}
       </div>

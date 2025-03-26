@@ -20,6 +20,7 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
+import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
@@ -44,44 +45,6 @@ const multilingual = {
       "ISO 14064-1 details the principles and requirements for designing, developing, managing and reporting an organisation-level GHG inventory. A GHG inventory refers to an organisation's physical units and processes that release and remove GHG into/from the atmosphere, and its GHG emissions and removals.",
       `ISO 14064-2 focuses on projects that aim to reduce GHG emissions and/or increase GHG removals ("GHG projects"). The standard includes principles and requirements for determining project baseline scenarios and for monitoring, quantifying and reporting project performance relative to the baseline scenarios.`,
       "ISO/TS 14067 specifies principles, requirements and guidelines for the quantification and communication of the carbon footprint of a product (CFP). CFP refers to the sum of GHG emissions and removals involved in the life cycle of a product.",
-    ],
-
-    cSectionMap: [
-      {
-        component: (
-          <p>
-            For an organisation, "GHG verification" is to confirm a GHG
-            inventory quantified and reported by that organisation.
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_1.png",
-      },
-      {
-        component: (
-          <p>
-            <span className="!text-highlight-m">For a GHG project</span>, "GHG
-            validation" is to evaluate the GHG project plan before implementing
-            that project. "GHG verification" is to confirm the reported GHG
-            emission reductions and/or GHG removal enhancements that occur as a
-            result of the project.
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_2.png",
-      },
-      {
-        component: (
-          <p>
-            <span className="!text-highlight-m">
-              For the carbon footprint of a product (CFP)
-            </span>
-            , "CFP verification" is to confirm the CFP study report.
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_3.png",
-      },
     ],
 
     bSectionButtonArray: [
@@ -118,39 +81,6 @@ const multilingual = {
       "ISO/TS 14067詳細指明產品碳足跡（CFP）量化和溝通的原則、要求和指引。CFP是指某產品在其生命週期中所涉及的溫室氣體排放量和移除量之總和。",
     ],
 
-    cSectionMap: [
-      {
-        component: (
-          <p>
-            <span className="!text-highlight-m">就機構而言，</span>
-            「溫室氣體核查」旨在確定該機構所量化和報告的溫室氣體清單。
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_1.png",
-      },
-      {
-        component: (
-          <p>
-            <span className="!text-highlight-m">就溫室氣體項目而言，</span>
-            「溫室氣體審定」旨在於推行該項目前評估項目計劃，而「溫室氣體核查」則旨在確定該項目推行後所報告的溫室氣體減排量及/或增加溫室氣體移除量。
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_2.png",
-      },
-      {
-        component: (
-          <p>
-            <span className="!text-highlight-m">就產品碳足跡而言，</span>｢
-            產品碳足跡核查 ｣ 旨在確定產品碳足跡研究報告。
-          </p>
-        ),
-
-        imgUrl: "Environmental_c_3.png",
-      },
-    ],
-
     bSectionButtonArray: [
       "機構層面：ISO 14064-1",
       "項目層面：ISO 14064-2",
@@ -161,11 +91,81 @@ const multilingual = {
   },
 };
 
-export const EnvironmentalProtection: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+const cSectionMap_EN = [
+  {
+    component: (
+      <p>
+        For an organisation, "GHG verification" is to confirm a GHG inventory
+        quantified and reported by that organisation.
+      </p>
+    ),
 
+    imgUrl: "Environmental_c_1.png",
+  },
+  {
+    component: (
+      <p>
+        <span className="!text-highlight-m">For a GHG project</span>, "GHG
+        validation" is to evaluate the GHG project plan before implementing that
+        project. "GHG verification" is to confirm the reported GHG emission
+        reductions and/or GHG removal enhancements that occur as a result of the
+        project.
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_2.png",
+  },
+  {
+    component: (
+      <p>
+        <span className="!text-highlight-m">
+          For the carbon footprint of a product (CFP)
+        </span>
+        , "CFP verification" is to confirm the CFP study report.
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_3.png",
+  },
+];
+const cSectionMap_CN = [
+  {
+    component: (
+      <p>
+        <span className="!text-highlight-m">就機構而言，</span>
+        「溫室氣體核查」旨在確定該機構所量化和報告的溫室氣體清單。
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_1.png",
+  },
+  {
+    component: (
+      <p>
+        <span className="!text-highlight-m">就溫室氣體項目而言，</span>
+        「溫室氣體審定」旨在於推行該項目前評估項目計劃，而「溫室氣體核查」則旨在確定該項目推行後所報告的溫室氣體減排量及/或增加溫室氣體移除量。
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_2.png",
+  },
+  {
+    component: (
+      <p>
+        <span className="!text-highlight-m">就產品碳足跡而言，</span>｢
+        產品碳足跡核查 ｣ 旨在確定產品碳足跡研究報告。
+      </p>
+    ),
+
+    imgUrl: "Environmental_c_3.png",
+  },
+];
+export const EnvironmentalProtection: React.FC = () => {
+  const { isPC, language, getPageText, getSingleNode } = useSettings();
+  const page_text = getPageText(multilingual);
+  const isSimpleCN = language === Language.ZH_CN;
+  const cSectionMap =
+    language === Language.EN ? cSectionMap_EN : cSectionMap_CN;
   const businessAreaTitle = page_text.title as BusinessAreaTitle;
   const [activeBSectionButton, setActiveBSectionButton] = useState<number>(0);
   const [activeCSectionButton, setActiveCSectionButton] = useState<number>(0);
@@ -197,22 +197,28 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.bSectionButtonArray.map((btn, index) => {
-              const isActivated = index === activeBSectionButton;
-              return (
-                <button
-                  key={index}
-                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
-                  onClick={() => {
-                    setActiveBSectionButton(index);
-                  }}
-                >
-                  {btn}
-                </button>
-              );
-            })}
+            {(page_text.bSectionButtonArray as React.ReactNode[]).map(
+              (btn, index) => {
+                const isActivated = index === activeBSectionButton;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveBSectionButton(index);
+                    }}
+                  >
+                    {btn}
+                  </button>
+                );
+              }
+            )}
           </div>
-          <div>{page_text.bSectionMap[activeBSectionButton]}</div>
+          <div>
+            {(page_text.bSectionMap as React.ReactNode[])[activeBSectionButton]}
+          </div>
         </>
       ),
     },
@@ -221,22 +227,33 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.cSectionButtonArray.map((btn, index) => {
-              const isActivated = index === activeCSectionButton;
-              return (
-                <button
-                  key={index}
-                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
-                  onClick={() => {
-                    setActiveCSectionButton(index);
-                  }}
-                >
-                  {btn}
-                </button>
-              );
-            })}
+            {(page_text.cSectionButtonArray as React.ReactNode[]).map(
+              (btn, index) => {
+                const isActivated = index === activeCSectionButton;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveCSectionButton(index);
+                    }}
+                  >
+                    {btn}
+                  </button>
+                );
+              }
+            )}
           </div>
-          <div>{page_text.cSectionMap[activeCSectionButton].component}</div>
+          <div>
+            {isSimpleCN
+              ? getSingleNode(
+                  cSectionMap[activeCSectionButton].component,
+                  cSectionMap[activeCSectionButton].component
+                )
+              : cSectionMap[activeCSectionButton].component}
+          </div>
           <div
             className={`overflow-hidden ${
               isPC ? "w-[500px]" : "w-full"
@@ -247,9 +264,9 @@ export const EnvironmentalProtection: React.FC = () => {
               src={
                 process.env.PUBLIC_URL +
                 "/assets/tcSector/servicesDifferentBusinessAreas/" +
-                page_text.cSectionMap[activeCSectionButton].imgUrl
+                cSectionMap[activeCSectionButton].imgUrl
               }
-              alt={page_text.cSectionMap[activeCSectionButton].imgUrl}
+              alt={cSectionMap[activeCSectionButton].imgUrl}
             />
           </div>
         </>
@@ -334,22 +351,28 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.bSectionButtonArray.map((btn, index) => {
-              const isActivated = index === activeBSectionButton;
-              return (
-                <button
-                  key={index}
-                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
-                  onClick={() => {
-                    setActiveBSectionButton(index);
-                  }}
-                >
-                  {btn}
-                </button>
-              );
-            })}
+            {(page_text.bSectionButtonArray as React.ReactNode[]).map(
+              (btn, index) => {
+                const isActivated = index === activeBSectionButton;
+                return (
+                  <button
+                    key={index}
+                    style={
+                      isActivated ? activatedButtonStyle : normalButtonStyle
+                    }
+                    onClick={() => {
+                      setActiveBSectionButton(index);
+                    }}
+                  >
+                    {btn}
+                  </button>
+                );
+              }
+            )}
           </div>
-          <div>{page_text.bSectionMap[activeBSectionButton]}</div>
+          <div>
+            {(page_text.bSectionMap as React.ReactNode[])[activeBSectionButton]}
+          </div>
         </>
       ),
     },
@@ -358,7 +381,7 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.cSectionButtonArray.map((btn, index) => {
+            {(page_text.cSectionButtonArray as string[]).map((btn, index) => {
               const isActivated = index === activeCSectionButton;
               return (
                 <button
@@ -368,12 +391,19 @@ export const EnvironmentalProtection: React.FC = () => {
                     setActiveCSectionButton(index);
                   }}
                 >
-                  {btn}
+                  {isSimpleCN ? t2s(btn) : btn}
                 </button>
               );
             })}
           </div>
-          <div>{page_text.cSectionMap[activeCSectionButton].component}</div>
+          <div>
+            {isSimpleCN
+              ? getSingleNode(
+                  cSectionMap[activeCSectionButton].component,
+                  cSectionMap[activeCSectionButton].component
+                )
+              : cSectionMap[activeCSectionButton].component}
+          </div>
           <div
             className={`overflow-hidden ${
               isPC ? "w-[500px]" : "w-full"
@@ -384,9 +414,9 @@ export const EnvironmentalProtection: React.FC = () => {
               src={
                 process.env.PUBLIC_URL +
                 "/assets/tcSector/servicesDifferentBusinessAreas/" +
-                page_text.cSectionMap[activeCSectionButton].imgUrl
+                cSectionMap[activeCSectionButton].imgUrl
               }
-              alt={page_text.cSectionMap[activeCSectionButton].imgUrl}
+              alt={cSectionMap[activeCSectionButton].imgUrl}
             />
           </div>
         </>
@@ -490,47 +520,50 @@ export const EnvironmentalProtection: React.FC = () => {
         <>
           <div className="mb-[16px]">
             <div className="w-full flex flex-col">
-              {page_text.timeLineData.map((item, index) => (
-                <div key={index} className="flex flex-col">
-                  <div
-                    className={`text-highlight-s p-[16px] border-[1px] justify-start content-center w-full ${
-                      index % 2 === 0
-                        ? "border-[#E0E0E0]"
-                        : "border-[#E0E0E0] bg-[#E0E0E0]"
-                    }`}
-                  >
-                    <p>{item}</p>
-                  </div>
-                  {index + 1 !== page_text.timeLineData.length && (
-                    <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="21"
-                        height="21"
-                        viewBox="0 0 21 21"
-                        fill="none"
-                      >
-                        <g clipPath="url(#clip0_2939_67250)">
-                          <path
-                            d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
-                            fill="#233F55"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_2939_67250">
-                            <rect
-                              width="20"
-                              height="20"
-                              fill="white"
-                              transform="translate(0.515625 0.523438)"
-                            />
-                          </clipPath>
-                        </defs>
-                      </svg>
+              {(page_text.timeLineData as React.ReactNode[]).map(
+                (item, index) => (
+                  <div key={index} className="flex flex-col">
+                    <div
+                      className={`text-highlight-s p-[16px] border-[1px] justify-start content-center w-full ${
+                        index % 2 === 0
+                          ? "border-[#E0E0E0]"
+                          : "border-[#E0E0E0] bg-[#E0E0E0]"
+                      }`}
+                    >
+                      <p>{item}</p>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {index + 1 !==
+                      (page_text.timeLineData as React.ReactNode[]).length && (
+                      <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="21"
+                          height="21"
+                          viewBox="0 0 21 21"
+                          fill="none"
+                        >
+                          <g clipPath="url(#clip0_2939_67250)">
+                            <path
+                              d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
+                              fill="#233F55"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_2939_67250">
+                              <rect
+                                width="20"
+                                height="20"
+                                fill="white"
+                                transform="translate(0.515625 0.523438)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </>
@@ -660,47 +693,50 @@ export const EnvironmentalProtection: React.FC = () => {
         <>
           <div className="mb-[16px]">
             <div className="w-full flex flex-col">
-              {page_text.timeLineData.map((item, index) => (
-                <div key={index} className="flex flex-col">
-                  <div
-                    className={`text-highlight-s p-[16px] border-[1px] justify-start content-center w-full ${
-                      index % 2 === 0
-                        ? "border-[#E0E0E0]"
-                        : "border-[#E0E0E0] bg-[#E0E0E0]"
-                    }`}
-                  >
-                    <p>{item}</p>
-                  </div>
-                  {index + 1 !== page_text.timeLineData.length && (
-                    <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="21"
-                        height="21"
-                        viewBox="0 0 21 21"
-                        fill="none"
-                      >
-                        <g clipPath="url(#clip0_2939_67250)">
-                          <path
-                            d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
-                            fill="#233F55"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_2939_67250">
-                            <rect
-                              width="20"
-                              height="20"
-                              fill="white"
-                              transform="translate(0.515625 0.523438)"
-                            />
-                          </clipPath>
-                        </defs>
-                      </svg>
+              {(page_text.timeLineData as React.ReactNode[]).map(
+                (item, index) => (
+                  <div key={index} className="flex flex-col">
+                    <div
+                      className={`text-highlight-s p-[16px] border-[1px] justify-start content-center w-full ${
+                        index % 2 === 0
+                          ? "border-[#E0E0E0]"
+                          : "border-[#E0E0E0] bg-[#E0E0E0]"
+                      }`}
+                    >
+                      <p>{item}</p>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {index + 1 !==
+                      (page_text.timeLineData as React.ReactNode[]).length && (
+                      <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="21"
+                          height="21"
+                          viewBox="0 0 21 21"
+                          fill="none"
+                        >
+                          <g clipPath="url(#clip0_2939_67250)">
+                            <path
+                              d="M7.09323 0.826172H14.366V10.5231H20.2326L10.7296 20.0262L1.22656 10.5231H7.09323V0.826172Z"
+                              fill="#233F55"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_2939_67250">
+                              <rect
+                                width="20"
+                                height="20"
+                                fill="white"
+                                transform="translate(0.515625 0.523438)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </>
@@ -785,15 +821,17 @@ export const EnvironmentalProtection: React.FC = () => {
 
       <div className="my-[24px]">
         <MediaTemplate
-          title={page_text.mediaTitle}
+          title={page_text.mediaTitle as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/environmental_protection_pdf.png"
           mediaLink="https://www.youtube.com/embed/5ncIXAbe9mI"
           iconPath="VIDEO.png"
         />
       </div>
-      <p className="text-heading-l mb-[24px]">{page_text.greenhouse}</p>
+      <p className="text-heading-l mb-[24px]">
+        {page_text.greenhouse as React.ReactNode[]}
+      </p>
       <FileTemplate
-        title={page_text.greenhouse}
+        title={page_text.greenhouse as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
         pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO14064.pdf"
       />
@@ -802,18 +840,26 @@ export const EnvironmentalProtection: React.FC = () => {
         {environmentalData.map((item, index) => (
           <Accordion
             key={index}
-            title={item.title}
+            title={isSimpleCN ? t2s(item.title) : item.title}
             defaultExpanded={false}
-            details={<div className="text-body-m">{item.content}</div>}
+            details={
+              <div className="text-body-m">
+                {isSimpleCN
+                  ? getSingleNode(item.content, item.content)
+                  : item.content}
+              </div>
+            }
           />
         ))}
       </div>
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{page_text.iso_energy}</p>
+      <p className="text-heading-l mb-[24px]">
+        {page_text.iso_energy as React.ReactNode[]}
+      </p>
       <FileTemplate
-        title={page_text.iso_energy}
+        title={page_text.iso_energy as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"
       />
 
@@ -821,9 +867,15 @@ export const EnvironmentalProtection: React.FC = () => {
         {EnMsData.map((item, index) => (
           <Accordion
             key={index}
-            title={item.title}
+            title={isSimpleCN ? t2s(item.title) : item.title}
             defaultExpanded={false}
-            details={<div className="text-body-m">{item.content}</div>}
+            details={
+              <div className="text-body-m">
+                {isSimpleCN
+                  ? getSingleNode(item.content, item.content)
+                  : item.content}
+              </div>
+            }
           />
         ))}
       </div>

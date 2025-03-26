@@ -134,9 +134,8 @@ const multilingual = {
 };
 
 export const ElectricalElectronicProducts: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, language, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const {
     title,
@@ -165,12 +164,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: testing,
+      title: testing as string,
       content: (
         <>
-          <p className="text-body-m">{common}</p>
+          <p className="text-body-m">{common as string}</p>
           <div className="flex flex-wrap gap-[8px] my-[16px]">
-            {btns.map((btn, index) => {
+            {(btns as string[]).map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -186,20 +185,22 @@ export const ElectricalElectronicProducts: React.FC = () => {
             })}
           </div>
           <ul className="mt-[16px] flex flex-col !gap-[12px]">
-            {(activeButton === 0 ? test_eg_1 : test_eg_2).map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+            {((activeButton === 0 ? test_eg_1 : test_eg_2) as string[]).map(
+              (item, index) => (
+                <li key={index}>{item}</li>
+              )
+            )}
           </ul>
         </>
       ),
     },
     {
-      title: inspection,
-      content: eg_of,
+      title: inspection as string,
+      content: eg_of as React.ReactNode,
     },
     {
-      title: certification,
-      content: product_certification,
+      title: certification as string,
+      content: product_certification as React.ReactNode,
     },
   ];
 
@@ -214,28 +215,32 @@ export const ElectricalElectronicProducts: React.FC = () => {
       <div className="my-[24px]">
         <MediaTemplate
           iconPath="VIDEO.png"
-          title={file}
+          title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ElectricalElectronicProducts_Video.png"
           mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
         />
       </div>
       <FileTemplate
-        title={title}
+        title={title as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/Electrical_PDF.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
       />
 
-      <p className="text-heading-l my-[24px]">{benefits_of}</p>
+      <p className="text-heading-l my-[24px]">
+        {benefits_of as React.ReactNode}
+      </p>
       <p className="text-body-m text-justify">
-        {benefits_details[0]}
+        {(benefits_details as React.ReactNode[])[0]}
         <br />
         <br />
-        {benefits_details[1]}
+        {(benefits_details as React.ReactNode[])[1]}
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{tc_service} </p>
-      <p className="text-body-m my-[24px]">{accredited_testing}</p>
+      <p className="text-heading-l">{tc_service as React.ReactNode} </p>
+      <p className="text-body-m my-[24px]">
+        {accredited_testing as React.ReactNode}
+      </p>
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForElectrical.map((item, index) => (
           <Accordion
@@ -245,8 +250,10 @@ export const ElectricalElectronicProducts: React.FC = () => {
           />
         ))}
       </div>
-      <p className="text-heading-l my-[24px]">{laboratories}</p>
-      <p className="text-body-m text-justify">{bottom}</p>
+      <p className="text-heading-l my-[24px]">
+        {laboratories as React.ReactNode}
+      </p>
+      <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

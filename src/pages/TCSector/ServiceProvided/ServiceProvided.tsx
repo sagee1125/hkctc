@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import {
-  Accordion,
-  SquareTitle,
-  SummaryTable,
-  Link,
-} from "../../../components";
+import { Accordion, SquareTitle, SummaryTable } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import {
+  Language,
+  type LanguageResources,
+  useSettings,
+} from "../../../context";
 
 const TC_SERVICE_PROVIDED_TEXT = {
-  EN: {
+  en: {
     TITLE: "Services Provided by T&C Industry",
     INTRO:
       "In general, the testing and certification (T&C) industry provides three types of services:",
@@ -66,7 +65,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
     },
   },
 
-  CN: {
+  cn: {
     TITLE: "檢測認證業提供的服務",
     INTRO: "一般而言，檢測和認證業提供三種服務：",
     SERVICE_HEAD: ["服務", "對象", "適用時間", "	成品"],
@@ -113,44 +112,41 @@ const TC_SERVICE_PROVIDED_TEXT = {
 };
 
 const TestingService: React.FC = () => {
-  const { language } = useSettings();
-  const pageText =
-    language === Language.EN
-      ? TC_SERVICE_PROVIDED_TEXT.EN
-      : TC_SERVICE_PROVIDED_TEXT.CN;
+  const { getPageText } = useSettings();
+  const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
 
   return (
     <div className="flex flex-col gap-[24px] text-body-m">
-      <div>{pageText.TESTING.CONTENT_1}</div>
-      {pageText.TESTING.INCLUDE_LIST.map((item, index) => {
-        return (
-          <div
-            className="border-2 py-[24px] flex flex-row items-center px-[36px]"
-            key={index}
-          >
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/icons/test.svg`}
-              alt="testIcon"
-            />
-            <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
-              {item}
-            </span>
-          </div>
-        );
-      })}
+      <div>{(pageText.TESTING as LanguageResources)?.CONTENT_1 as string}</div>
+      {((pageText.TESTING as LanguageResources).INCLUDE_LIST as string[]).map(
+        (item, index) => {
+          return (
+            <div
+              className="border-2 py-[24px] flex flex-row items-center px-[36px]"
+              key={index}
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/icons/test.svg`}
+                alt="testIcon"
+              />
+              <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
+                {item}
+              </span>
+            </div>
+          );
+        }
+      )}
 
-      <div>{pageText.TESTING.CONTENT_2}</div>
-      <div>{pageText.TESTING.CONTENT_3}</div>
+      <div>{(pageText.TESTING as LanguageResources)?.CONTENT_2 as string}</div>
+      <div>{(pageText.TESTING as LanguageResources)?.CONTENT_3 as string}</div>
     </div>
   );
 };
 
 const InspectionService: React.FC = () => {
-  const { language } = useSettings();
-  const pageText =
-    language === Language.EN
-      ? TC_SERVICE_PROVIDED_TEXT.EN.INSPECTION
-      : TC_SERVICE_PROVIDED_TEXT.CN.INSPECTION;
+  const { getPageText } = useSettings();
+  const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
+
   const {
     INSPECTION_MAY,
     INSPECTION_OF_BATCH,
@@ -160,7 +156,7 @@ const InspectionService: React.FC = () => {
   } = pageText;
   return (
     <div className="w-full flex flex-col gap-[24px]">
-      <div className="text-body-m">{INSPECTION_MAY}</div>
+      <div className="text-body-m">{INSPECTION_MAY as string}</div>
 
       <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
@@ -168,7 +164,7 @@ const InspectionService: React.FC = () => {
           alt="testIcon"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
-          {INSPECTION_OF_BATCH}
+          {INSPECTION_OF_BATCH as string}
         </span>
       </div>
 
@@ -178,23 +174,20 @@ const InspectionService: React.FC = () => {
           alt="testIcon"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
-          {INSPECTION_OF_STRUCTURAL}
+          {INSPECTION_OF_STRUCTURAL as string}
         </span>
       </div>
 
-      <div className="text-body-m">{ON_LOCAL}</div>
+      <div className="text-body-m">{ON_LOCAL as string}</div>
 
-      <div className="text-body-m">{ON_EXTERNAL}</div>
+      <div className="text-body-m">{ON_EXTERNAL as string}</div>
     </div>
   );
 };
 
 const CertificateService: React.FC = () => {
-  const { language } = useSettings();
-  const isEN = language === Language.EN;
-  const pageText = isEN
-    ? TC_SERVICE_PROVIDED_TEXT.EN.CERTIFICATION
-    : TC_SERVICE_PROVIDED_TEXT.CN.CERTIFICATION;
+  const { getPageText, getSingleText, getSingleNode } = useSettings();
+  const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
   const { INTRO } = pageText;
 
   const accordionMap = [
@@ -310,13 +303,13 @@ const CertificateService: React.FC = () => {
   ];
   return (
     <div className="flex flex-col gap-[24px]">
-      <div className="text-body-m">{INTRO}</div>
+      <div className="text-body-m">{INTRO as string}</div>
 
       {accordionMap.map((a, i) => (
         <Accordion
           key={i}
-          title={isEN ? a.title : a.titleCN}
-          details={isEN ? a.content : a.contentCN}
+          title={getSingleText(a.title, a.titleCN)}
+          details={getSingleNode(a.content, a.contentCN)}
         />
       ))}
     </div>
@@ -324,25 +317,23 @@ const CertificateService: React.FC = () => {
 };
 
 export const ServiceProvided: React.FC = () => {
-  const { language } = useSettings();
+  const { getPageText, getSingleNode, language } = useSettings();
   const isEn = language === Language.EN;
-  const pageText = isEn
-    ? TC_SERVICE_PROVIDED_TEXT.EN
-    : TC_SERVICE_PROVIDED_TEXT.CN;
+  const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
   const { TITLE, SERVICE_HEAD } = pageText;
 
   const [activeButton, setActiveButton] = useState<number>(0);
   const serviceProvidedInfo = [
     {
-      label: pageText.TESTING.TITLE,
+      label: (pageText.TESTING as LanguageResources)?.TITLE,
       component: <TestingService />,
     },
     {
-      label: pageText.INSPECTION.TITLE,
+      label: (pageText.INSPECTION as LanguageResources)?.TITLE,
       component: <InspectionService />,
     },
     {
-      label: pageText.CERTIFICATION.TITLE,
+      label: (pageText.CERTIFICATION as LanguageResources)?.TITLE,
       component: <CertificateService />,
     },
   ];
@@ -423,9 +414,9 @@ export const ServiceProvided: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px] text-justify">
       <div className="flex-1">
-        <SquareTitle title={TITLE} />
+        <SquareTitle title={TITLE as string} />
       </div>
-      <p className="text-body-m">{pageText.INTRO}</p>
+      <p className="text-body-m">{pageText.INTRO as string}</p>
 
       <div className="flex flex-wrap gap-[8px]">
         {serviceProvidedInfo.map((service, index) => {
@@ -438,17 +429,19 @@ export const ServiceProvided: React.FC = () => {
                 setActiveButton(index);
               }}
             >
-              <p className="text-highlight-xs">{service.label}</p>
+              <p className="text-highlight-xs">{service.label as string}</p>
             </button>
           );
         })}
       </div>
       <div>{serviceProvidedInfo[activeButton].component}</div>
       <hr />
-      <div className="text-heading-l">{pageText.TESTING.SUMMARY_TITLE}</div>
+      <div className="text-heading-l">
+        {(pageText.TESTING as LanguageResources).SUMMARY_TITLE as string}
+      </div>
       <div className="mb-[48px]">
         <SummaryTable
-          tableHeads={SERVICE_HEAD}
+          tableHeads={SERVICE_HEAD as string[]}
           tableRows={isEn ? servicesTableRowsData : servicesTableRowsData_CN}
         />
       </div>

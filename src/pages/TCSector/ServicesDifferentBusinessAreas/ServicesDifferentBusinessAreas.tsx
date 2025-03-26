@@ -2,7 +2,7 @@ import React from "react";
 
 import { SquareTitle } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 export const displayBusinessAreas: Array<{
   title: string;
@@ -86,18 +86,17 @@ const multilingual = {
 };
 export const ServicesDifferentBusinessAreas: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getSingleText, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const { services_for_diff_business_areas, the_testing_and_certification } =
     page_text;
   return (
     <div className="w-full">
       <div className="flex-1">
-        <SquareTitle title={services_for_diff_business_areas} />
+        <SquareTitle title={services_for_diff_business_areas as string} />
         <p className="text-body-m my-[24px] text-justify">
-          {the_testing_and_certification}
+          {the_testing_and_certification as string}
         </p>
         <div className={`flex ${isPC ? "flex-wrap" : "flex-col"} gap-[24px]`}>
           {displayBusinessAreas.map((item, index) => {
@@ -110,7 +109,7 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
 
               navigate(nav);
             };
-            const displayTitle = language === Language.EN ? title : titleCN;
+            const displayTitle = getSingleText(title, titleCN);
 
             return (
               <div

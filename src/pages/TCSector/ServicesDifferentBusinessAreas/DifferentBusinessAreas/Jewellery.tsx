@@ -16,7 +16,7 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { LanguageResources, useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -38,22 +38,21 @@ const multilingual = {
     Accredited_laboratories: `Accredited laboratories may issue endorsed test reports bearing HKAS
           accreditation symbol for Fei Cui (Jadeite Jade) and diamond after
           test.`,
-    acc: [
-      {
-        title: "Trade Descriptions Order",
-        content: `Under the Trade Descriptions (Provision of Information on Natural Fei
+    acc_1: {
+      title: "Trade Descriptions Order",
+      content: `Under the Trade Descriptions (Provision of Information on Natural Fei
                   Cui) Order and the Trade Descriptions (Provision of Information on
                   Diamond) Order of the Laws of Hong Kong, retailers are required to
                   issue to the buyers invoices or receipts showing, among others, the
                   description of any article of natural Fei Cui or diamond sold in
                   accordance with the Orders.`,
-      },
-      {
-        title: "Accreditation of Laboratories",
-        content:
-          "Application for accreditation is open and voluntary in Hong Kong. All Hong Kong Accreditation Service (HKAS) accredited laboratories meet the management and technical requirements of the international standard, ISO/IEC 17025, in the provision of high quality testing services.",
-      },
-    ],
+    },
+    acc_2: {
+      title: "Accreditation of Laboratories",
+      content:
+        "Application for accreditation is open and voluntary in Hong Kong. All Hong Kong Accreditation Service (HKAS) accredited laboratories meet the management and technical requirements of the international standard, ISO/IEC 17025, in the provision of high quality testing services.",
+    },
+
     Laboratories_Accredited:
       "Laboratories Accredited by HKAS Providing Testing Services on Jewellery",
     hk_accredited_lab: (
@@ -105,17 +104,16 @@ const multilingual = {
     internationally_renowned: `香港有著名的國際寶石鑑定所和本地實驗所，提供專業的寶石鑑定服務。`,
     hk_Accreditation: `香港認可處會按照國際標準ISO/IEC 17025評核實驗所的技術能力及品質管理體系，並給合資格的實驗所發出認可資格。`,
     Accredited_laboratories: `獲認可的實驗所可以對經測試的硬玉質翡翠與鑽石發出有HKAS認可標認的測試報告。`,
-    acc: [
-      {
-        title: "商品說明令",
-        content: `按照香港法例《商品說明（提供關於天然翡翠的資料）令》及《商品說明（提供關於鑽石的資料）令》的規定，零售商在售賣天然翡翠或鑽石製品時，須向買家發出發票或收據，告知法令規定的資料包括該製品的說明等。`,
-      },
-      {
-        title: "實驗所認可",
-        content:
-          "在香港，申請認可資格是公開和自願性質的。獲香港認可處認可的實驗所已達到國際標準ISO/IEC 17025對管理及技術的要求，可提供高水平的檢測服務。",
-      },
-    ],
+    acc_1: {
+      title: "商品說明令",
+      content: `按照香港法例《商品說明（提供關於天然翡翠的資料）令》及《商品說明（提供關於鑽石的資料）令》的規定，零售商在售賣天然翡翠或鑽石製品時，須向買家發出發票或收據，告知法令規定的資料包括該製品的說明等。`,
+    },
+    acc_2: {
+      title: "實驗所認可",
+      content:
+        "在香港，申請認可資格是公開和自願性質的。獲香港認可處認可的實驗所已達到國際標準ISO/IEC 17025對管理及技術的要求，可提供高水平的檢測服務。",
+    },
+
     Laboratories_Accredited: "獲香港認可處認可的寶石測試實驗所",
     hk_accredited_lab: (
       <>
@@ -156,23 +154,22 @@ const multilingual = {
 };
 
 export const Jewellery: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
-
+  const { isPC, language, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+  const { title } = page_text;
   const sidebar = (
     <DifferentBusinessAreasDirectorySidebar
-      businessAreaTitle={page_text.title}
+      businessAreaTitle={page_text.title as string}
     />
   );
 
   const content = (
     <>
-      <SquareTitle title={page_text.title} />
+      <SquareTitle title={page_text.title as string} />
 
       <div className="my-[24px]">
         <MediaTemplate
-          title={page_text.mediaTitle}
+          title={page_text.mediaTitle as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
           iconPath={"VIDEO.png"}
           mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
@@ -184,44 +181,54 @@ export const Jewellery: React.FC = () => {
         } w-full gap-[24px] mb-[24px]`}
       >
         <FileTemplate
-          title={page_text.file_title_1}
+          title={page_text.file_title_1 as string}
           imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
           pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
         />
         <FileTemplate
-          title={page_text.file_title_2}
+          title={page_text.file_title_2 as string}
           imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
           pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
         />
       </div>
-      <p className="text-heading-l">{page_text.testing_fei_cui}</p>
+      <p className="text-heading-l">
+        {page_text.testing_fei_cui as React.ReactNode}
+      </p>
       <ol className="mt-[24px] text-body-m">
-        <li>{page_text.Authentication_fei_cui}</li>
+        <li>{page_text.Authentication_fei_cui as React.ReactNode}</li>
         <br />
-        <li>{page_text.internationally_renowned}</li>
+        <li>{page_text.internationally_renowned as React.ReactNode}</li>
         <br />
-        <li>{page_text.hk_Accreditation}</li>
+        <li>{page_text.hk_Accreditation as React.ReactNode}</li>
         <br />
-        <li>{page_text.Accredited_laboratories}</li>
+        <li>{page_text.Accredited_laboratories as React.ReactNode}</li>
       </ol>
 
       <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-        {page_text.acc.map((item, index) => (
-          <Accordion
-            key={index}
-            defaultExpanded={false}
-            title={item.title}
-            details={<div className="text-body-m">{item.content}</div>}
-          />
-        ))}
+        {([page_text.acc_1, page_text.acc_2] as LanguageResources[])?.map(
+          (item, index) => (
+            <Accordion
+              key={index}
+              defaultExpanded={false}
+              title={(item as LanguageResources)?.title as string}
+              details={
+                <div className="text-body-m">
+                  {item.content as React.ReactNode}
+                </div>
+              }
+            />
+          )
+        )}
       </div>
 
       <hr className="my-[24px]" />
       <p className="text-heading-l mb-[24px]">
-        {page_text.Laboratories_Accredited}
+        {page_text.Laboratories_Accredited as React.ReactNode}
       </p>
 
-      <p className="text-body-m">{page_text.hk_accredited_lab}</p>
+      <p className="text-body-m">
+        {page_text.hk_accredited_lab as React.ReactNode}
+      </p>
 
       <hr className="my-[24px]" />
       <InternalBackButton
@@ -239,7 +246,7 @@ export const Jewellery: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                page_text.title,
+                title as string,
                 language
               )}
             />

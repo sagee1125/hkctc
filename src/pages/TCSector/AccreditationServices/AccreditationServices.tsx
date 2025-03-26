@@ -2,7 +2,7 @@ import React from "react";
 import { MediaTemplateWithDialog, SquareTitle } from "../../../components";
 import { accreditationService } from "../../ServiceUsers";
 import { MEDIA_TYPE } from "../../../const";
-import { Language, useSettings } from "../../../context";
+import { Language, LanguageResources, useSettings } from "../../../context";
 const multilingual = {
   en: {
     accreditation_services: "Accreditation Services",
@@ -36,9 +36,8 @@ const multilingual = {
   },
 };
 export const AccreditationServices: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     accreditation_services,
     whats_accreditation,
@@ -50,25 +49,30 @@ export const AccreditationServices: React.FC = () => {
   return (
     <div className="w-full">
       <div className="flex-1">
-        <SquareTitle title={accreditation_services} />
+        <SquareTitle title={accreditation_services as string} />
         <div className="bg-[#EEEEEA] my-[24px] py-[36px] px-[42px]">
-          <p className="text-heading-m">{whats_accreditation}</p>
+          <p className="text-heading-m">{whats_accreditation as string}</p>
           <p className="text-body-m mt-[16px] text-justify">
-            {accreditation_def.accreditation_is}&nbsp;
+            {
+              (accreditation_def as LanguageResources)
+                ?.accreditation_is as string
+            }
+            &nbsp;
             <span className="text-highlight-m text-newPrimary">
-              {accreditation_def.third_party}
+              {(accreditation_def as LanguageResources)?.third_party as string}
             </span>
-            &nbsp;{accreditation_def.related_to}
+            &nbsp;
+            {(accreditation_def as LanguageResources)?.related_to as string}
           </p>
         </div>
         <p className="text-body-m mt-[24px] text-justify">
-          {accreditation_is_open}
+          {accreditation_is_open as string}
         </p>
 
         <div className="w-full">
           {accreditationService.map((item, index) => {
             const { title, titleCN, imagePath, link } = item;
-            const displayTitle = language === Language.EN ? title : titleCN;
+            const displayTitle = getSingleText(title, titleCN);
             return (
               <div
                 key={index}
@@ -88,14 +92,14 @@ export const AccreditationServices: React.FC = () => {
         </div>
 
         <p className="text-italic-s mt-[24px] text-justify">
-          {this_full_list}&nbsp;
+          {this_full_list as string}&nbsp;
           <a
             href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            {HKAS}
+            {HKAS as string}
           </a>
           .
         </p>

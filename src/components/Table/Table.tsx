@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { Language, useSettings } from "../../context";
 
 type TableBodyProps = {
   tableHeads: string[];
@@ -15,6 +16,9 @@ export const SummaryTable: React.FC<TableBodyProps> = ({
   tableHeads,
   tableRows,
 }) => {
+  const { getSingleNode, language } = useSettings();
+  const isSimpleCN = language === Language.ZH_CN;
+
   return (
     <TableContainer
       component={"div"}
@@ -69,7 +73,9 @@ export const SummaryTable: React.FC<TableBodyProps> = ({
                     verticalAlign: "top",
                   }}
                 >
-                  <p className="text-body-m">{cell}</p>
+                  <div className="text-body-m">
+                    {isSimpleCN ? getSingleNode(cell, cell) : cell}
+                  </div>
                 </TableCell>
               ))}
             </TableRow>

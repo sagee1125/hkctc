@@ -16,94 +16,100 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
+import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
     businessAreaTitle: "Information and Communications Technologies",
-    timeLineData: [
-      {
-        text: "Define the scope, boundary and policy of ISMS",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "Define the risk assessment approcah of the organisation",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
-      {
-        text: "Identify and evaluate risk and options for the relevant treatment",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "Select appropriate control objectives and controls for the treatment for risks",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
-
-      {
-        text: "Obtain management approval of the proposed residual risks",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "Obtain management authorisation to implement and operate the ISMS",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
-
-      {
-        text: "Monitor, review, maintain and improve the ISMS continuously",
-        fontColor: "[#000000]",
-      },
-    ],
     mediaTitle:
       "Understanding Information Security Management System (ISMS) Certification",
   },
   cn: {
     businessAreaTitle: "資訊及通訊科技",
-    timeLineData: [
-      {
-        text: "確定ISMS的範圍、邊界和方針",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "確定機構的風險評估方法",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
-      {
-        text: "識別和評估風險及其處理方法的方案",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "為處理風險選擇合適的控制目標和控制措施",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
 
-      {
-        text: "獲得管理層批准建議的殘餘風險",
-        fontColor: "[#000000]",
-      },
-      {
-        text: "獲得管理層授權實施和運行ISMS",
-        fontColor: "[#000000]",
-        bgColor: "[#EAEAE5]",
-      },
-
-      {
-        text: "不斷地監視、評審、保持和改進ISMS",
-        fontColor: "[#000000]",
-      },
-    ],
     mediaTitle: "認識資訊安全管理系統認證",
   },
 };
 
 export const InformationAndCommunicationsTechnologies: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, language, getPageText, getSingleNode } = useSettings();
+  const page_text = getPageText(multilingual);
+  const isEn = language === Language.EN;
+  const isSimpleCN = language === Language.ZH_CN;
 
+  const timeLineDataEN = [
+    {
+      text: "Define the scope, boundary and policy of ISMS",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "Define the risk assessment approcah of the organisation",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+    {
+      text: "Identify and evaluate risk and options for the relevant treatment",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "Select appropriate control objectives and controls for the treatment for risks",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+
+    {
+      text: "Obtain management approval of the proposed residual risks",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "Obtain management authorisation to implement and operate the ISMS",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+
+    {
+      text: "Monitor, review, maintain and improve the ISMS continuously",
+      fontColor: "[#000000]",
+    },
+  ];
+
+  const timeLineDataCN = [
+    {
+      text: "確定ISMS的範圍、邊界和方針",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "確定機構的風險評估方法",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+    {
+      text: "識別和評估風險及其處理方法的方案",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "為處理風險選擇合適的控制目標和控制措施",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+
+    {
+      text: "獲得管理層批准建議的殘餘風險",
+      fontColor: "[#000000]",
+    },
+    {
+      text: "獲得管理層授權實施和運行ISMS",
+      fontColor: "[#000000]",
+      bgColor: "[#EAEAE5]",
+    },
+
+    {
+      text: "不斷地監視、評審、保持和改進ISMS",
+      fontColor: "[#000000]",
+    },
+  ];
+
+  const timeLineData = isEn ? timeLineDataEN : timeLineDataCN;
   const data_en: Array<{
     title: string;
     content: React.ReactNode;
@@ -160,7 +166,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           </p>
 
           <div className="w-full flex flex-col mt-[16px]">
-            {page_text.timeLineData.map((item, index) => (
+            {timeLineData.map((item, index) => (
               <div key={index} className="flex flex-row gap-[24px]">
                 <div className="relative flex flex-col items-center">
                   {/* ball */}
@@ -168,9 +174,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
                   {/* line */}
                   <div
                     className={`${
-                      page_text.timeLineData.length - 1 === index
-                        ? "h-[50px]"
-                        : "h-full"
+                      timeLineData.length - 1 === index ? "h-[50px]" : "h-full"
                     } w-[2px] bg-newPrimary absolute top-[17px]`}
                   />
                 </div>
@@ -179,7 +183,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
                     item.fontColor
                   } bg-${item.bgColor ?? "white"}`}
                 >
-                  <p>{item.text}</p>
+                  <p>{isSimpleCN ? t2s(item.text) : item.text}</p>
                 </div>
               </div>
             ))}
@@ -279,7 +283,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           <p>ISO/IEC 27001提供了建立、實施、保持和持續改進ISMS的模式：</p>
 
           <div className="w-full flex flex-col mt-[16px]">
-            {page_text.timeLineData.map((item, index) => (
+            {timeLineData.map((item, index) => (
               <div key={index} className="flex flex-row gap-[24px]">
                 <div className="relative flex flex-col items-center">
                   {/* ball */}
@@ -287,9 +291,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
                   {/* line */}
                   <div
                     className={`${
-                      page_text.timeLineData.length - 1 === index
-                        ? "h-[50px]"
-                        : "h-full"
+                      timeLineData.length - 1 === index ? "h-[50px]" : "h-full"
                     } w-[2px] bg-newPrimary absolute top-[17px]`}
                   />
                 </div>
@@ -348,17 +350,17 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
 
   const sidebar = (
     <DifferentBusinessAreasDirectorySidebar
-      businessAreaTitle={page_text.businessAreaTitle}
+      businessAreaTitle={page_text.businessAreaTitle as string}
     />
   );
 
   const content = (
     <>
-      <SquareTitle title={page_text.businessAreaTitle} />
+      <SquareTitle title={page_text.businessAreaTitle as string} />
 
       <div className="my-[24px]">
         <MediaTemplate
-          title={page_text.mediaTitle}
+          title={page_text.mediaTitle as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ISMS_PDF.png"
           mediaLink="https://www.hkctc.gov.hk/en/doc/ISMS_Flyer_Communications_5.pdf"
         />
@@ -368,8 +370,14 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
         {data.map((item, index) => (
           <Accordion
             key={index}
-            title={item.title}
-            details={<div className="text-body-m">{item.content}</div>}
+            title={isSimpleCN ? t2s(item.title) : item.title}
+            details={
+              <div className="text-body-m">
+                {isSimpleCN
+                  ? getSingleNode(item.content, item.content)
+                  : item.content}
+              </div>
+            }
           />
         ))}
       </div>
@@ -393,7 +401,7 @@ export const InformationAndCommunicationsTechnologies: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                page_text.businessAreaTitle,
+                page_text.businessAreaTitle as string,
                 language
               )}
             />

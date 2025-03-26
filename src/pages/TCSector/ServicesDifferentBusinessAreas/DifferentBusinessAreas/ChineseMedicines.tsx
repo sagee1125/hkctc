@@ -19,6 +19,7 @@ import {
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
+import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
@@ -138,10 +139,9 @@ const multilingual = {
 };
 
 export const ChineseMedicines: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
-
+  const { isPC, language, getPageText, getSingleNode } = useSettings();
+  const page_text = getPageText(multilingual);
+  const isSimpleCN = language === Language.ZH_CN;
   const businessAreaTitle = page_text.title;
   const [activeButton, setActiveButton] = useState<number>(0);
 
@@ -198,7 +198,7 @@ export const ChineseMedicines: React.FC = () => {
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.buttonArray.map((btn, index) => {
+            {(page_text.buttonArray as React.ReactNode[]).map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -337,7 +337,7 @@ export const ChineseMedicines: React.FC = () => {
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {page_text.buttonArray.map((btn, index) => {
+            {(page_text.buttonArray as React.ReactNode[]).map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -427,17 +427,17 @@ export const ChineseMedicines: React.FC = () => {
 
   const sidebar = (
     <DifferentBusinessAreasDirectorySidebar
-      businessAreaTitle={businessAreaTitle}
+      businessAreaTitle={businessAreaTitle as string}
     />
   );
 
   const content = (
     <>
-      <SquareTitle title={businessAreaTitle} />
+      <SquareTitle title={businessAreaTitle as string} />
 
       <div className="my-[24px]">
         <MediaTemplate
-          title={page_text.mediaTitle}
+          title={page_text.mediaTitle as string}
           iconPath={"VIDEO.png"}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
           mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
@@ -445,38 +445,46 @@ export const ChineseMedicines: React.FC = () => {
       </div>
 
       <FileTemplate
-        title={page_text.fileTitle}
+        title={page_text.fileTitle as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
         pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
       />
 
       <p className="text-heading-l my-[24px]">
-        {page_text.Benefits_Chinese_Medicines}
+        {page_text.Benefits_Chinese_Medicines as React.ReactNode}
       </p>
 
       <div className="text-body-m text-justify">
-        {page_text.hk_international_trade}
+        {page_text.hk_international_trade as React.ReactNode}
         <br />
         <br />
-        {page_text.tc_chinese_medicine}
+        {page_text.tc_chinese_medicine as React.ReactNode}
         <br />
         <br />
-        {page_text.user}
+        {page_text.user as React.ReactNode}
       </div>
 
       <div className="w-full flex flex-col gap-[24px] mt-[24px]">
         {servicesForChineseMedicine.map((item, index) => (
           <Accordion
             key={index}
-            title={item.title}
+            title={isSimpleCN ? t2s(item.title) : item.title}
             defaultExpanded={false}
-            details={<div className="text-body-m">{item.content}</div>}
+            details={
+              <div className="text-body-m">
+                {isSimpleCN
+                  ? getSingleNode(item.content, item.content)
+                  : item.content}
+              </div>
+            }
           />
         ))}
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l">{page_text.Laboratories_Accredited}</p>
+      <p className="text-heading-l">
+        {page_text.Laboratories_Accredited as React.ReactNode}
+      </p>
       {page_text.HKAS_website}
       <hr className="mb-[24px]" />
 
@@ -497,7 +505,7 @@ export const ChineseMedicines: React.FC = () => {
           <div id="breadcrumb">
             <Breadcrumb
               items={handleReturnDifferentBusinessAreasBreadcrumb(
-                businessAreaTitle,
+                businessAreaTitle as string,
                 language
               )}
             />
