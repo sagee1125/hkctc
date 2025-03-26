@@ -48,11 +48,23 @@ const multilingual = {
   en: {
     title: `What do you know about T&C`,
     resources: "Resources",
+    explore_more: "Explore more",
+    learning_corner: "Learning Corner",
+    stem_kit: "STEM Teaching Kit",
+    junior: "for Junior Secondary Students",
+    senior: "for Senior Secondary Curriculum",
+    chemical_kit: "Chemical Testing Teaching Kit",
   },
 
   cn: {
-    title: `What do you know about T&C`,
+    title: `你對檢測和認證了解多少`,
     resources: "資源",
+    explore_more: "探索更多",
+    learning_corner: "學習專區",
+    stem_kit: "STEM教學組件",
+    junior: "初中學生",
+    chemical_kit: "化學測試教學組件",
+    senior: "高中化學科課程",
   },
 };
 
@@ -67,7 +79,16 @@ export const Publications: React.FC = () => {
   const { isPC, language } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
-  const { title, resources } = page_text;
+  const {
+    title,
+    resources,
+    learning_corner,
+    explore_more,
+    stem_kit,
+    junior,
+    senior,
+    chemical_kit,
+  } = page_text;
   const slideContainerRef = useRef<HTMLDivElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -531,7 +552,11 @@ export const Publications: React.FC = () => {
                             isPC ? "s" : "xs"
                           } text-[#7B8C99]`}
                         >
-                          {prevActiveCategory.toUpperCase()}
+                          {isEn
+                            ? prevActiveCategory.toUpperCase()
+                            : publicationCategory.find(
+                                (i) => i.title === prevActiveCategory
+                              )?.titleCN}
                         </p>
                         <p
                           style={{
@@ -541,7 +566,7 @@ export const Publications: React.FC = () => {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          {isEn ? title : subItem.titleCN}
+                          {isEn ? title : titleCN}
                         </p>
                       </div>
                     </div>
@@ -565,7 +590,7 @@ export const Publications: React.FC = () => {
                   }}
                   className="cursor-pointer"
                 >
-                  Explore more
+                  {explore_more}
                 </p>
               </div>
             </Container>
@@ -578,7 +603,7 @@ export const Publications: React.FC = () => {
           }}
         >
           <SquareTitle
-            title="Learning Corner"
+            title={learning_corner}
             showArrowIcon
             redirectTo={`/career_and_education?section=${navItemEnum.learning_teaching_resources}`}
           />
@@ -642,7 +667,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "24px",
                       }}
                     >
-                      STEM Teaching Kit
+                      {stem_kit}
                     </p>
                     <p
                       className={"text-white z-10"}
@@ -652,7 +677,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "22px",
                       }}
                     >
-                      for Junior Secondary Students
+                      {junior}
                     </p>
                   </div>
                 </div>
@@ -712,7 +737,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "24px",
                       }}
                     >
-                      Chemical Testing Teaching Kit
+                      {chemical_kit}
                     </p>
                     <p
                       className={"text-white z-10"}
@@ -722,7 +747,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "22px",
                       }}
                     >
-                      for Senior Secondary Curriculum
+                      {senior}
                     </p>
                   </div>
                 </div>

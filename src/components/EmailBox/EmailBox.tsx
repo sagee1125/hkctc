@@ -1,9 +1,31 @@
 import { CircularProgress } from "@mui/material";
 import React, { useState } from "react";
+import { Language, useSettings } from "../../context";
+const multilingual = {
+  en: {
+    enquiries: `Enquiries`,
+    contact: "Contact us to know more about Testing and Certification.",
+    name: "Your name",
+    email: "Email address",
+    write_down: "Write down your message",
+    send: "Send now",
+  },
 
+  cn: {
+    enquiries: `查詢`,
+    contact: "聯係我們以了解有關測試和認證的更多信息",
+    name: "姓名",
+    email: "電子郵件",
+    write_down: "寫下你的訊息",
+    send: "立即發送",
+  },
+};
 export const EmailBox: React.FC = () => {
   const [loading, setLoading] = useState(false);
-
+  const { language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { enquiries, contact, name, email, write_down, send } = page_text;
   const handleButtonClick = async () => {
     setLoading(true);
 
@@ -39,13 +61,11 @@ export const EmailBox: React.FC = () => {
 
   return (
     <div>
-      <div className="text-heading-l pb-[16px]">Enquiries</div>
+      <div className="text-heading-l pb-[16px]">{enquiries}</div>
       <div className="bg-[#EAEAE5] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
-        <div className="text-body-m">
-          Contact us to know more about Testing and Certification.
-        </div>
+        <div className="text-body-m">{contact}</div>
         <input
-          placeholder="Your name"
+          placeholder={name}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -54,7 +74,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <input
-          placeholder="Email address"
+          placeholder={email}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -63,7 +83,7 @@ export const EmailBox: React.FC = () => {
           }}
         />
         <textarea
-          placeholder="Write down your message"
+          placeholder={write_down}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,
@@ -79,7 +99,7 @@ export const EmailBox: React.FC = () => {
           disabled={loading}
           onClick={handleButtonClick}
         >
-          {loading ? <CircularProgress size="28px" /> : "Send now"}
+          {loading ? <CircularProgress size="28px" /> : send}
         </button>
       </div>
     </div>

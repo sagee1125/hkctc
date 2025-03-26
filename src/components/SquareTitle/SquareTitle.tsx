@@ -42,7 +42,7 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
           height="24"
           viewBox="0 0 16 24"
           fill="none"
-          className={`${isPC ? "" : "mt-[4px]"}`}
+          className={`${isPC ? "mt-[2px]" : "mt-[4px]"}`}
         >
           <path
             d="M0.938498 2.124L3.0625 0L15.0625 12L3.0625 24L0.938498 21.876L10.8145 12L0.938498 2.124Z"
