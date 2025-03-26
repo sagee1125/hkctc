@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
   handleReturnDifferentBusinessAreasBreadcrumb,
 } from "./utils";
@@ -21,15 +20,132 @@ import {
 import { navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
 
-const buttonArray = ["Proprietary Chinese medicines", "Chinese Materia Medica"];
+const multilingual = {
+  en: {
+    title: "Chinese Medicines",
+    mediaTitle: "Hong Kong's Testing Services for Chinese Medicines",
+    buttonArray: ["Proprietary Chinese medicines", "Chinese Materia Medica"],
+    fileTitle: "Chinese Medicines Testing",
+    Benefits_Chinese_Medicines:
+      "Benefits of Chinese Medicines Testing & Certification",
+    hk_international_trade: `Hong Kong is an international trading hub of Chinese medicines. Chinese
+        herbal medicines and proprietary Chinese medicines (pCm) sold in Hong
+        Kong are generally with good quality. To ensure that products are
+        genuine, not misprocessed (such as bleached), and are free from
+        adulteration and contamination, testing and certification is
+        indispensable. Hong Kong has an efficient and competent testing and
+        certification industry to provide the relevant support.`,
+    tc_chinese_medicine:
+      "Testing and certification of Chinese medicines can bring about many benefits to:",
+    user: (
+      <ol>
+        <li>
+          <span className="text-highlight-m">Users:</span>
+          &nbsp;It can help users to identify genuine products, reduces the
+          chance of buying fake, misprocessed (such as bleached), adulterated or
+          contaminated products.
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">Manufacturers and Traders:</span>
+          &nbsp;It can help enhance customer confidence and satisfaction,
+          increase sales, and reduce the risk of costly recalls and lawsuits.
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">
+            Chinese Medicine Practitioners:
+          </span>
+          &nbsp;It can ensure that prescriptions are filled with genuine and
+          quality medicinal herbs.
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">Hong Kong:</span>
+          &nbsp;It can promote the further development of the testing and
+          certification industry and reinforce the position and strategic
+          advantage of Hong Kong as a testing and certification hub of Chinese
+          medicines. This in turn will sustain the economic growth of Hong Kong
+          in the long run.
+        </li>
+      </ol>
+    ),
+    Laboratories_Accredited: `Laboratories Accredited by HKAS Providing Testing Services on Chinese
+        Medicines`,
+    HKAS_website: (
+      <p className="text-body-m py-[24px] text-justify">
+        The laboratories providing accredited testing services on Chinese
+        Medicines are available at&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        .
+      </p>
+    ),
+  },
+  cn: {
+    title: "中藥",
+    mediaTitle: "香港的中藥測試服務",
+    buttonArray: ["中成藥", "中藥材"],
+    fileTitle: "中藥測試",
+    Benefits_Chinese_Medicines: "中藥測試的好處",
+    hk_international_trade: `香港是一個主要的中藥國際貿易中心。在香港銷售的中藥材一般都具良好的質量。為確保產品的真偽、沒有處理不當（例如漂染）以及沒有摻雜其他成份和受污染，檢測和認證是一個重要的方法，而香港則擁有具備效率和能力的檢測和認證業，以提供相關支援。`,
+    tc_chinese_medicine: "中藥測試和認證可帶來很多好處 :",
+    user: (
+      <ol>
+        <li>
+          <span className="text-highlight-m">對中藥使用者-</span>
+          可讓他們辨別產品的真偽，減低他們購入一些造假、處理不當（例如漂染）、摻雜其他成份和受污染等產品的機會。
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">對中藥生產商及貿易商-</span>
+          有助加強顧客的信心及滿意程度，增加產品的銷量，及減低產品因不達有關中藥規管的法例要求而須回收及招致訴訟。
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">對中醫師-</span>
+          可確保他們使用的中藥是真的及具質量保證。
+        </li>
+        <br />
+        <li>
+          <span className="text-highlight-m">對香港-</span>
+          可促進檢測和認證業進一步的發展，以及鞏固香港作為一個中藥檢測和認證中心的地位。長遠而言，有助保持香港經濟的發展。
+        </li>
+      </ol>
+    ),
+    Laboratories_Accredited: `獲香港認可處認可的中藥測試實驗所`,
+    HKAS_website: (
+      <p className="text-body-m py-[24px] text-justify">
+        為公眾提供一項或多項獲認可的中藥測試服務詳情請瀏覽
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港認可處網頁
+        </a>
+        。
+      </p>
+    ),
+  },
+};
 
 export const ChineseMedicines: React.FC = () => {
   const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const businessAreaTitle = "Chinese Medicines" as BusinessAreaTitle;
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+
+  const businessAreaTitle = page_text.title;
   const [activeButton, setActiveButton] = useState<number>(0);
 
-  const servicesForChineseMedicine: Array<{
+  const servicesForChineseMedicine_en: Array<{
     title: string;
     content: React.ReactNode;
   }> = [
@@ -82,7 +198,7 @@ export const ChineseMedicines: React.FC = () => {
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {buttonArray.map((btn, index) => {
+            {page_text.buttonArray.map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -168,6 +284,147 @@ export const ChineseMedicines: React.FC = () => {
     },
   ];
 
+  const servicesForChineseMedicine_cn: Array<{
+    title: string;
+    content: React.ReactNode;
+  }> = [
+    {
+      title: "中藥材測試",
+      content: (
+        <p>
+          根據《中醫藥條例》（香港法例第549章），自2003年起中成藥在註冊時須進行重金屬及有毒元素含量、農藥殘留量及微生物限度等安全性測試，以證明符合有關的安全要求。詳情請瀏覽
+          <a
+            href="https://www.cmchk.org.hk/index_en.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            香港中醫藥管理委員會網頁
+          </a>
+          。
+        </p>
+      ),
+    },
+    {
+      title: "中藥材測試",
+      content: (
+        <p>
+          現時，很多中藥材可按
+          <a
+            href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            《香港中藥材標準》
+          </a>
+          或《中國藥典》等標準進行測試。
+          <a
+            href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            《香港中藥材標準》
+          </a>
+          為相關中藥材在安全及品質測試方面，提供了一套標準，對中藥測試非常重要。由於中藥材是中成藥的原材料，測試有助確保相關中成藥的質量。
+        </p>
+      ),
+    },
+
+    {
+      title: "香港實驗所提供的中藥測試",
+      content: (
+        <div>
+          <div className="flex flex-wrap gap-[8px] mb-[16px]">
+            {page_text.buttonArray.map((btn, index) => {
+              const isActivated = index === activeButton;
+              return (
+                <button
+                  key={index}
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveButton(index);
+                  }}
+                >
+                  {btn}
+                </button>
+              );
+            })}
+          </div>
+          {activeButton === 0 ? (
+            <>
+              <p className="text-highlight-m">安全測試</p>
+              <br />
+              <p className="text-body-m">
+                1. 重金屬及有毒元素
+                <br />
+                <br />
+                2. 農藥殘留
+                <br />
+                <br />
+                3. 微生物檢查
+              </p>
+              <br />
+              <p className="text-highlight-m">品質及其他測試</p>
+              <br />
+              <p className="text-body-m">
+                1. 品質標準化驗
+                <br />
+                <br />
+                2. 穩定性試驗
+                <br />
+                <br />
+                3. 按《中國藥典》進行的其他測試，如 :
+                水份、重量差異、裝量差異及崩解時限
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-highlight-m">真偽測試</p>
+              <br />
+              <p className="text-body-m">
+                1. 透過外觀、顯微鑒別及指紋圖譜以判斷真偽
+              </p>
+              <br />
+              <p className="text-highlight-m">安全測試</p>
+              <br />
+              <p className="text-body-m">
+                1. 重金屬及有毒元素
+                <br />
+                <br />
+                2. 農藥殘留
+                <br />
+                <br />
+                3. 黃曲霉毒素
+              </p>
+              <br />
+              <p className="text-highlight-m">品質及其他測試</p>
+              <br />
+              <p className="text-body-m">
+                1. 按
+                <a
+                  href="https://www.cmro.gov.hk/html/eng/useful_information/hkcmms/volumes.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  《香港中藥材標準》
+                </a>
+                或《中國藥典》進行的品質測試，如 : 含量測定、灰分、水份及浸出物
+              </p>
+            </>
+          )}
+        </div>
+      ),
+    },
+  ];
+
+  const servicesForChineseMedicine =
+    language === Language.EN
+      ? servicesForChineseMedicine_en
+      : servicesForChineseMedicine_cn;
+
   const sidebar = (
     <DifferentBusinessAreasDirectorySidebar
       businessAreaTitle={businessAreaTitle}
@@ -180,7 +437,7 @@ export const ChineseMedicines: React.FC = () => {
 
       <div className="my-[24px]">
         <MediaTemplate
-          title="Hong Kong's Testing Services for Chinese Medicines"
+          title={page_text.mediaTitle}
           iconPath={"VIDEO.png"}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
           mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
@@ -188,60 +445,23 @@ export const ChineseMedicines: React.FC = () => {
       </div>
 
       <FileTemplate
-        title={"Chinese Medicines Testing"}
+        title={page_text.fileTitle}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/MedicalTestingPDF.png"
         pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
       />
 
       <p className="text-heading-l my-[24px]">
-        Benefits of Chinese Medicines Testing & Certification
+        {page_text.Benefits_Chinese_Medicines}
       </p>
 
-      <div className="text-body-m">
-        Hong Kong is an international trading hub of Chinese medicines. Chinese
-        herbal medicines and proprietary Chinese medicines (pCm) sold in Hong
-        Kong are generally with good quality. To ensure that products are
-        genuine, not misprocessed (such as bleached), and are free from
-        adulteration and contamination, testing and certification is
-        indispensable. Hong Kong has an efficient and competent testing and
-        certification industry to provide the relevant support.
+      <div className="text-body-m text-justify">
+        {page_text.hk_international_trade}
         <br />
         <br />
-        Testing and certification of Chinese medicines can bring about many
-        benefits to:
+        {page_text.tc_chinese_medicine}
         <br />
         <br />
-        <ol>
-          <li>
-            <span className="text-highlight-m">Users:</span>
-            &nbsp;It can help users to identify genuine products, reduces the
-            chance of buying fake, misprocessed (such as bleached), adulterated
-            or contaminated products.
-          </li>
-          <br />
-          <li>
-            <span className="text-highlight-m">Manufacturers and Traders:</span>
-            &nbsp;It can help enhance customer confidence and satisfaction,
-            increase sales, and reduce the risk of costly recalls and lawsuits.
-          </li>
-          <br />
-          <li>
-            <span className="text-highlight-m">
-              Chinese Medicine Practitioners:
-            </span>
-            &nbsp;It can ensure that prescriptions are filled with genuine and
-            quality medicinal herbs.
-          </li>
-          <br />
-          <li>
-            <span className="text-highlight-m">Hong Kong:</span>
-            &nbsp;It can promote the further development of the testing and
-            certification industry and reinforce the position and strategic
-            advantage of Hong Kong as a testing and certification hub of Chinese
-            medicines. This in turn will sustain the economic growth of Hong
-            Kong in the long run.
-          </li>
-        </ol>
+        {page_text.user}
       </div>
 
       <div className="w-full flex flex-col gap-[24px] mt-[24px]">
@@ -256,23 +476,8 @@ export const ChineseMedicines: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l">
-        Laboratories Accredited by HKAS Providing Testing Services on Chinese
-        Medicines
-      </p>
-      <p className="text-body-m py-[24px]">
-        The laboratories providing accredited testing services on Chinese
-        Medicines are available at&nbsp;
-        <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          HKAS's website
-        </a>
-        .
-      </p>
+      <p className="text-heading-l">{page_text.Laboratories_Accredited}</p>
+      {page_text.HKAS_website}
       <hr className="mb-[24px]" />
 
       <InternalBackButton
