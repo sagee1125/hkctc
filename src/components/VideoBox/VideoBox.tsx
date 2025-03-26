@@ -9,8 +9,8 @@ const multilingual = {
     innoCarnival: `The InnoCarnival 2024 (IC 2024) was held from October 26 to November 3 at the Hong Kong Science Park with the theme of "Let's Sail with Innovation and Technology".`,
   },
   cn: {
-    welcome: "Welcome to the InnoCarnival 2024",
-    innoCarnival: `The InnoCarnival 2024 (IC 2024) was held from October 26 to November 3 at the Hong Kong Science Park with the theme of "Let's Sail with Innovation and Technology".`,
+    welcome: "歡迎來到「創新科技嘉年華2024」",
+    innoCarnival: ` 「創新科技嘉年華2024」於十月二十六日至十一月三日在香港科學園舉行。活動以「科技引路　創新啟航」為主題。`,
   },
 };
 

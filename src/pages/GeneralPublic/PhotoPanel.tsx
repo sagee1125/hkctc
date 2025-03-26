@@ -11,7 +11,7 @@ const multilingual = {
   },
   cn: {
     about: "關於我們",
-    profile_and_role: "檢測認證業的概況及角色",
+    profile_and_role: "檢測認證業的概況",
     tc_sector_strengths: "香港檢測認證業的優勢",
     services_provided: "檢測認證業提供的服務",
   },
