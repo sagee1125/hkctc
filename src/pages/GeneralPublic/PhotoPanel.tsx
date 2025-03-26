@@ -1,5 +1,5 @@
 import React from "react";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { useNavigate } from "react-router-dom";
 import { navItemEnum } from "../../const";
 const multilingual = {
@@ -11,16 +11,22 @@ const multilingual = {
   },
   cn: {
     about: "關於我們",
-    profile_and_role: "檢測認證業的概況",
+    profile_and_role: (
+      <>
+        檢測認證業的概況
+        <br />
+        及角色
+      </>
+    ),
     tc_sector_strengths: "香港檢測認證業的優勢",
     services_provided: "檢測認證業提供的服務",
   },
 };
 
 export const PhotoPanel: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { about, profile_and_role, tc_sector_strengths, services_provided } =
     page_text;
 
@@ -42,7 +48,9 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l-extra text-white z-20"}>{about} </p>
+              <p className={"text-heading-l-extra text-white z-20"}>
+                {about as string}{" "}
+              </p>
             </div>
           </div>
           <div
@@ -58,7 +66,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-20"}>
-                {profile_and_role}
+                {profile_and_role as string}
               </p>
             </div>
           </div>
@@ -76,7 +84,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                {tc_sector_strengths}
+                {tc_sector_strengths as string}
               </p>
             </div>
           </div>
@@ -95,7 +103,7 @@ export const PhotoPanel: React.FC = () => {
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {services_provided}
+              {services_provided as string}
             </p>
           </div>
         </div>
@@ -133,7 +141,9 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
-              <p className={"text-heading-l text-white z-20"}>{about}</p>
+              <p className={"text-heading-l text-white z-20"}>
+                {about as string}
+              </p>
             </div>
           </div>
           <div
@@ -165,7 +175,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l text-white z-20"}>
-                {profile_and_role}
+                {profile_and_role as string}
               </p>
             </div>
           </div>
@@ -199,7 +209,7 @@ export const PhotoPanel: React.FC = () => {
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
               <p className={"text-heading-l text-white z-10"}>
-                {tc_sector_strengths}
+                {tc_sector_strengths as string}
               </p>
             </div>
           </div>
@@ -233,7 +243,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {services_provided}
+              {services_provided as string}
             </p>
           </div>
         </div>

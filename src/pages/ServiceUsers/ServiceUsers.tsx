@@ -1,13 +1,14 @@
 import React from "react";
 import {
   Breadcrumb,
+  type BreadcrumbItem,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
 } from "../../components";
 import { ExploreDetailBar } from "../../components/Navigator";
 import { ServiceUsersContent } from "./ServiceUsersContent";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -23,9 +24,9 @@ const multilingual = {
 };
 
 export const ServiceUsers: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { home, service_users, desc } = page_text;
 
   const breadcrumbItems = [
@@ -36,15 +37,15 @@ export const ServiceUsers: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
-        title={service_users}
+        title={service_users as string}
         titleTheme="energeticOrange"
-        description={desc}
+        description={desc as string}
         barBackgroundImg="serviceUsers/Service_Users_banner_bg.png"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
         <ServiceUsersContent />

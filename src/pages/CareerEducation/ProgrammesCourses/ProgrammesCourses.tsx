@@ -4,7 +4,7 @@ import {
   normalButtonStyle,
   SquareTitle,
 } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 type CertList = {
   institution: string;
@@ -282,7 +282,7 @@ const multilingual = {
 
 export const ProgrammesCourses: React.FC = () => {
   const buttonArr = Object.keys(degreeMap);
-  const { language, getPageText, getSingleText } = useSettings();
+  const { getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
   const {
     title,

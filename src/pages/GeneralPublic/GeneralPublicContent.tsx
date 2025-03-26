@@ -3,6 +3,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { Language, useSettings } from "../../context";
 import { WhatsNewConfiguration, WhatsNewConfiguration_cn } from "../../const";
+import { t2s } from "chinese-s2t";
 const multilingual = {
   en: {
     advertorials: "Advertorials",
@@ -24,9 +25,11 @@ const multilingual = {
   },
 };
 export const GeneralPublicContent: React.FC = () => {
-  const { language, isPC } = useSettings();
+  const { getPageText, isPC, language } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+  const page_text = getPageText(multilingual);
+
   const {
     hkctc_newsletter,
     hkctc_reports,
@@ -43,22 +46,22 @@ export const GeneralPublicContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: hkctc_reports,
+      title: hkctc_reports as string,
       imgUrl: "material_1",
       link: "/events-promotion?section=hkctc_reports",
     },
     {
-      title: hkctc_newsletter,
+      title: hkctc_newsletter as string,
       imgUrl: "material_2",
       link: "/events-promotion?section=hkctc_newsletter",
     },
     {
-      title: pamphlets_booklets,
+      title: pamphlets_booklets as string,
       imgUrl: "material_3",
       link: "/events-promotion?section=pamphlets_booklets",
     },
     {
-      title: advertorials,
+      title: advertorials as string,
       imgUrl: "material_4",
       link: "/events-promotion?section=advertorials",
     },
@@ -80,7 +83,7 @@ export const GeneralPublicContent: React.FC = () => {
               window.open("/whats-new");
             }}
           >
-            <SquareTitle title={whats_new} />
+            <SquareTitle title={whats_new as string} />
           </div>
           <ArrowForwardIosIcon
             sx={{
@@ -107,7 +110,7 @@ export const GeneralPublicContent: React.FC = () => {
                       innerLink={w.redirectTo}
                       outerLink={w.redirectTo}
                     >
-                      {title}
+                      {isSimpleCN ? t2s(title) : title}
                     </Link>
                   </div>
                   <div className="flex flex-row items-center gap-[8px] text-body-s">
@@ -139,7 +142,7 @@ export const GeneralPublicContent: React.FC = () => {
       {/* Materials & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
-          <p className="text-heading-l">{materials}</p>
+          <p className="text-heading-l">{materials as string}</p>
           <div className="flex flex-col gap-[24px]">
             {materialsData.map((mat, index) => {
               const { title, imgUrl, link } = mat;
@@ -195,7 +198,7 @@ export const GeneralPublicContent: React.FC = () => {
               />
               <div className="flex items-end w-full h-full pl-[24px] pb-[24px]">
                 <p className={"text-heading-l text-white z-10"}>
-                  {seminar_workshop}
+                  {seminar_workshop as string}
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { EmailBox } from "../../components";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 
 const multilingual = {
@@ -29,9 +29,8 @@ const multilingual = {
 };
 
 export const EducatorsStudentsContent: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     career_opportunities,
     career_fairs,
@@ -51,17 +50,17 @@ export const EducatorsStudentsContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: career_fairs,
+      title: career_fairs as string,
       imgUrl: "Career_Talks.png",
       link: "/career_and_education?section=career_opportunities",
     },
     {
-      title: laboratory_visits,
+      title: laboratory_visits as string,
       imgUrl: "Career_Laboratory.png",
       link: "/career_and_education?section=career_opportunities",
     },
     {
-      title: summer_internship,
+      title: summer_internship as string,
       imgUrl: "Career_Internships.png",
       link: "/career_and_education?section=career_opportunities",
     },
@@ -133,7 +132,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                     "/assets/educatorsStudents/" +
                     imagePath
                   }
-                  alt={title}
+                  alt={title as string}
                 />
               </div>
               <div className="flex flex-col justify-center py-[24px] px-[16px] gap-[24px]">
@@ -141,7 +140,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   className="text-heading-m text-center w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                 >
-                  {title}
+                  {title as string}
                 </div>
                 <hr />
                 <div
@@ -153,10 +152,10 @@ export const EducatorsStudentsContent: React.FC = () => {
                     paddingBottom: "24px",
                   }}
                 >
-                  {isEn ? description : descriptionCN}
+                  {getSingleText(description, descriptionCN)}
                 </div>
                 <div className="text-highlight-m text-[#A7AAAD] text-center">
-                  {continue_read}
+                  {continue_read as string}
                 </div>
               </div>
             </div>
@@ -168,7 +167,7 @@ export const EducatorsStudentsContent: React.FC = () => {
 
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{career_opportunities}</p>
+          <p className="text-heading-l">{career_opportunities as string}</p>
           <div>
             {careerData.map((item, index) => {
               const { title, imgUrl, link } = item;

@@ -2,84 +2,112 @@ import React, { useState } from "react";
 import { TC_SECTOR_STRENGTH_TEXT } from "../lang";
 import { SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { type LanguageResources, useSettings } from "../../../context";
 
 export const Strength: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
-  const { language } = useSettings();
-
-  const pageText =
-    language === Language.EN
-      ? TC_SECTOR_STRENGTH_TEXT.EN
-      : TC_SECTOR_STRENGTH_TEXT.CN;
+  const { getPageText } = useSettings();
+  const pageText = getPageText(TC_SECTOR_STRENGTH_TEXT);
 
   const strengthContent = [
     {
-      title: pageText.FROM_MACRO_ANGLE.TITLE,
+      title: (pageText.FROM_MACRO_ANGLE as LanguageResources).TITLE,
       contents: [
         {
-          label: pageText.FROM_MACRO_ANGLE.PROXIMITY_TITLE,
-          value: [pageText.FROM_MACRO_ANGLE.PROXIMITY_CONTENT],
-        },
-        {
-          label: pageText.FROM_MACRO_ANGLE.HIGH_INTEGRITY_TITLE,
+          label: (pageText.FROM_MACRO_ANGLE as LanguageResources)
+            .PROXIMITY_TITLE,
           value: [
-            pageText.FROM_MACRO_ANGLE.HIGH_INTEGRITY_CONTENT_1,
-            pageText.FROM_MACRO_ANGLE.HIGH_INTEGRITY_CONTENT_2,
+            (pageText.FROM_MACRO_ANGLE as LanguageResources).PROXIMITY_CONTENT,
           ],
         },
         {
-          label: pageText.FROM_MACRO_ANGLE.GOOD_LOGISTICS_TITLE,
+          label: (pageText.FROM_MACRO_ANGLE as LanguageResources)
+            .HIGH_INTEGRITY_TITLE,
           value: [
-            pageText.FROM_MACRO_ANGLE.GOOD_LOGISTICS_CONTENT_1,
-            pageText.FROM_MACRO_ANGLE.GOOD_LOGISTICS_CONTENT_2,
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .HIGH_INTEGRITY_CONTENT_1,
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .HIGH_INTEGRITY_CONTENT_2,
           ],
         },
         {
-          label: pageText.FROM_MACRO_ANGLE.COMPETITIVE_EDGE,
-          value: [pageText.FROM_MACRO_ANGLE.COMPETITIVE_EDGE_CONTENT],
+          label: (pageText.FROM_MACRO_ANGLE as LanguageResources)
+            .GOOD_LOGISTICS_TITLE,
+          value: [
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .GOOD_LOGISTICS_CONTENT_1,
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .GOOD_LOGISTICS_CONTENT_2,
+          ],
         },
         {
-          label: pageText.FROM_MACRO_ANGLE.WELL_EDUCATION_TITLE,
-          value: [pageText.FROM_MACRO_ANGLE.WELL_EDUCATION_CONTENT],
+          label: (pageText.FROM_MACRO_ANGLE as LanguageResources)
+            .COMPETITIVE_EDGE,
+          value: [
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .COMPETITIVE_EDGE_CONTENT,
+          ],
+        },
+        {
+          label: (pageText.FROM_MACRO_ANGLE as LanguageResources)
+            .WELL_EDUCATION_TITLE,
+          value: [
+            (pageText.FROM_MACRO_ANGLE as LanguageResources)
+              .WELL_EDUCATION_CONTENT,
+          ],
         },
       ],
     },
     {
-      title: pageText.ROBUST.TITLE,
+      title: (pageText.ROBUST as LanguageResources).TITLE,
       contents: [
         {
-          label: pageText.ROBUST.ACCREDITATION_TITLE,
-          value: [pageText.ROBUST.ACCREDITATION_CONTENT],
+          label: (pageText.ROBUST as LanguageResources).ACCREDITATION_TITLE,
+          value: [(pageText.ROBUST as LanguageResources).ACCREDITATION_CONTENT],
         },
         {
-          label: pageText.ROBUST.INDEPENDENT_SYSTEM_TITLE,
-          value: [pageText.ROBUST.INDEPENDENT_SYSTEM_CONTENT],
+          label: (pageText.ROBUST as LanguageResources)
+            .INDEPENDENT_SYSTEM_TITLE,
+          value: [
+            (pageText.ROBUST as LanguageResources).INDEPENDENT_SYSTEM_CONTENT,
+          ],
         },
         {
-          label: pageText.ROBUST.SYSTEM_INTERNATIONAL_TITLE,
-          value: [pageText.ROBUST.SYSTEM_INTERNATIONAL_CONTENT],
+          label: (pageText.ROBUST as LanguageResources)
+            .SYSTEM_INTERNATIONAL_TITLE,
+          value: [
+            (pageText.ROBUST as LanguageResources).SYSTEM_INTERNATIONAL_CONTENT,
+          ],
         },
         {
-          label: pageText.ROBUST.QUICK_RESPONSE_TITLE,
-          value: [pageText.ROBUST.QUICK_RESPONSE_CONTENT],
+          label: (pageText.ROBUST as LanguageResources).QUICK_RESPONSE_TITLE,
+          value: [
+            (pageText.ROBUST as LanguageResources).QUICK_RESPONSE_CONTENT,
+          ],
         },
       ],
     },
     {
-      title: pageText.LOCAL_TESTING.TITLE,
+      title: (pageText.LOCAL_TESTING as LanguageResources).TITLE,
       contents: [
         {
-          label: pageText.LOCAL_TESTING.CORPORATE_TITLE,
-          value: [pageText.LOCAL_TESTING.CORPORATE_CONTENT],
+          label: (pageText.LOCAL_TESTING as LanguageResources).CORPORATE_TITLE,
+          value: [
+            (pageText.LOCAL_TESTING as LanguageResources).CORPORATE_CONTENT,
+          ],
         },
         {
-          label: pageText.LOCAL_TESTING.COMPETENCE_TITLE,
-          value: [pageText.LOCAL_TESTING.COMPETENCE_CONTENT],
+          label: (pageText.LOCAL_TESTING as LanguageResources).COMPETENCE_TITLE,
+          value: [
+            (pageText.LOCAL_TESTING as LanguageResources).COMPETENCE_CONTENT,
+          ],
         },
         {
-          label: pageText.LOCAL_TESTING.PERSONALITY_TITLE,
-          value: [pageText.LOCAL_TESTING.PERSONALITY_CONTENT],
+          label: (pageText.LOCAL_TESTING as LanguageResources)
+            .PERSONALITY_TITLE,
+          value: [
+            (pageText.LOCAL_TESTING as LanguageResources).PERSONALITY_CONTENT,
+          ],
         },
       ],
     },
@@ -87,11 +115,13 @@ export const Strength: React.FC = () => {
   return (
     <div className="w-full flex gap-[24px] text-justify">
       <div className="flex-1">
-        <SquareTitle title={pageText.TITLE} />
+        <SquareTitle title={pageText.TITLE as string} />
         <div className="bg-[#EEEEEA] my-[24px]">
           <div className="px-[42px] py-[36px]">
-            <p className="text-body-m">{pageText.SERVICE_INTRO_1}</p>
-            <p className="mt-[16px] text-body-m">{pageText.SERVICE_INTRO_2}</p>
+            <p className="text-body-m">{pageText.SERVICE_INTRO_1 as string}</p>
+            <p className="mt-[16px] text-body-m">
+              {pageText.SERVICE_INTRO_2 as string}
+            </p>
           </div>
         </div>
 
@@ -99,6 +129,7 @@ export const Strength: React.FC = () => {
         <div className="flex flex-wrap gap-[8px] mb-[24px]">
           {strengthContent.map((strengthInfo, index) => {
             const isActivated = index === activeTopicButton;
+            const title: string = strengthInfo?.title as string;
             return (
               <button
                 key={index}
@@ -109,9 +140,7 @@ export const Strength: React.FC = () => {
                 }}
               >
                 <p className="text-highlight-xs">
-                  {strengthInfo.title.length > 52
-                    ? strengthInfo.title.slice(0, 52) + "..."
-                    : strengthInfo.title}
+                  {title.length > 52 ? title.slice(0, 52) + "..." : title}
                 </p>
               </button>
             );
@@ -122,7 +151,9 @@ export const Strength: React.FC = () => {
         <div className="flex flex-col gap-[8px] mb-[48px]">
           {strengthContent[activeTopicButton].contents.map((content, index) => (
             <div key={index}>
-              <div className="text-heading-m mb-[24px]">{content.label}</div>
+              <div className="text-heading-m mb-[24px]">
+                {content.label as string}
+              </div>
               <div>
                 {content.value.map((value, index) => (
                   <div

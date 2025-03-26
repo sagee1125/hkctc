@@ -1,6 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle } from "../../components";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -32,9 +32,9 @@ const multilingual = {
 };
 
 export const IndustryContent: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     accommodation_and_land,
     funding_schemes,
@@ -95,17 +95,17 @@ export const IndustryContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: corruption_prevention,
+      title: corruption_prevention as string,
       imgUrl: "industry/Corruption.png",
       link: "/events-promotion?section=corruption_prevention",
     },
     {
-      title: hkctc_newsletter,
+      title: hkctc_newsletter as string,
       imgUrl: "generalPublic/material_2.png",
       link: "/events-promotion?section=hkctc_newsletter",
     },
     {
-      title: hkctc_reports,
+      title: hkctc_reports as string,
       imgUrl: "generalPublic/material_1.png",
       link: "/events-promotion?section=hkctc_reports",
     },
@@ -118,7 +118,7 @@ export const IndustryContent: React.FC = () => {
       } py-[48px] px-[24px] gap-[24px]`}
     >
       <div>
-        <SquareTitle title={our_support} />
+        <SquareTitle title={our_support as string} />
 
         <div>
           {industryData.map((item, index) => {
@@ -137,7 +137,7 @@ export const IndustryContent: React.FC = () => {
                   <img
                     className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={process.env.PUBLIC_URL + "/assets/" + imagePath}
-                    alt={title}
+                    alt={title as string}
                   />
                 </div>
                 <div
@@ -151,13 +151,13 @@ export const IndustryContent: React.FC = () => {
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                   >
-                    {title}
+                    {title as string}
                   </div>
                   <div className="text-body0m">
-                    {isEn ? description : descriptionCN}
+                    {getSingleText(description, descriptionCN)}
                   </div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    {continue_read}
+                    {continue_read as string}
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export const IndustryContent: React.FC = () => {
       {/* Publications & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{publications}</p>
+          <p className="text-heading-l">{publications as string}</p>
 
           <div>
             {publicationData.map((item, index) => {
@@ -242,7 +242,7 @@ export const IndustryContent: React.FC = () => {
               />
               <div className="flex items-end w-full h-full pl-[24px] pb-[24px]">
                 <p className={"text-heading-l text-white z-10"}>
-                  {seminar_workshop}
+                  {seminar_workshop as string}
                 </p>
               </div>
             </div>

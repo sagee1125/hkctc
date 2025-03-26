@@ -19,8 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activatedItems,
   setActivatedItems,
 }) => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, getSingleText } = useSettings();
 
   if (isPC)
     return (
@@ -56,7 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       />
                     </div>
                     <div className="text-highlight-m text-black w-[252px]">
-                      {isEn ? subTitle : subTitleCN}
+                      {getSingleText(subTitle, subTitleCN)}
                     </div>
                   </div>
                 </div>
@@ -74,11 +73,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
                 <p className="!text-heading-xs w-full text-left">
-                  {isEn
-                    ? sidebarItems.find((i) => i.enum === activatedItems)
-                        ?.subTitle
-                    : sidebarItems.find((i) => i.enum === activatedItems)
-                        ?.subTitleCN}
+                  {getSingleText(
+                    sidebarItems.find((i) => i.enum === activatedItems)
+                      ?.subTitle ?? "",
+                    sidebarItems.find((i) => i.enum === activatedItems)
+                      ?.subTitleCN ?? ""
+                  )}
                 </p>
                 <ChevronDownIcon
                   className={`h-5 w-5 text-black transform transition-transform ${
@@ -114,7 +114,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 : "text-gray-700"
                             }`}
                           >
-                            {isEn ? subTitle : subTitleCN}
+                            {getSingleText(subTitle, subTitleCN)}
                           </button>
                         )}
                       </Menu.Item>

@@ -86,9 +86,8 @@ const multilingual = {
 };
 
 export const TCSector: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { about_tc_sector, home } = page_text;
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find(
@@ -120,7 +119,8 @@ export const TCSector: React.FC = () => {
     eventItems.find((item) => item.enum === activeSidebarItems) ?? {};
 
   const activeSidebarItemsLabel =
-    (isEn ? subTitle : subTitleCN) ?? navItemEnum.profile_and_role;
+    getSingleText(subTitle ?? "", subTitleCN ?? "") ??
+    navItemEnum.profile_and_role;
 
   const component = returnComponent(
     activeSidebarItems as navItemEnum
@@ -149,9 +149,9 @@ export const TCSector: React.FC = () => {
   }, [initialParam, initialHashIndex, activeSidebarItems, navigate]);
 
   const breadcrumbItems = [
-    { label: home, href: "/" },
+    { label: home as string, href: "/" },
     {
-      label: about_tc_sector,
+      label: about_tc_sector as string,
       href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
     },
     {
@@ -162,7 +162,7 @@ export const TCSector: React.FC = () => {
   const sidebar = (
     <div className="sticky top-[20px]">
       <Sidebar
-        title={about_tc_sector}
+        title={about_tc_sector as string}
         sidebarItems={eventItems}
         activatedItems={activeSidebarItems}
         setActivatedItems={handleChangeSidebar}

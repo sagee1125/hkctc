@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Breadcrumb,
+  type BreadcrumbItem,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
@@ -24,9 +25,9 @@ const multilingual = {
 };
 
 export const EducatorsStudents: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { home, educator_student, desc } = page_text;
 
   const breadcrumbItems = [
@@ -36,15 +37,15 @@ export const EducatorsStudents: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
-        title={educator_student}
+        title={educator_student as string}
         titleTheme="trustfulBlue"
-        description={desc}
+        description={desc as string}
         barBackgroundImg="educatorsStudents/banner_bg.png"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
         <PhotoPanel />

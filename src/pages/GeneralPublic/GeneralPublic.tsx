@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Breadcrumb,
+  type BreadcrumbItem,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
@@ -8,7 +9,7 @@ import {
 import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { GeneralPublicContent } from "./GeneralPublicContent";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -24,9 +25,9 @@ const multilingual = {
 };
 
 export const GeneralPublic: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { home, general_public, desc } = page_text;
 
   const breadcrumbItems = [
@@ -37,16 +38,16 @@ export const GeneralPublic: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
-        title={general_public}
+        title={general_public as string}
         titleTheme="elegancePurple"
-        description={desc}
+        description={desc as string}
         barBackgroundImg="generalPublic/banner_bg.png"
       />
 
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
         <PhotoPanel />

@@ -18,9 +18,9 @@ const multilingual = {
 };
 
 export const PhotoPanel: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     learning_teaching_resources,
     student_competition,
@@ -47,7 +47,7 @@ export const PhotoPanel: React.FC = () => {
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {learning_teaching_resources}
+              {learning_teaching_resources as string}
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                {student_competition}
+                {student_competition as string}
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                {qualifications_framework}
+                {qualifications_framework as string}
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ export const PhotoPanel: React.FC = () => {
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <p className={"text-heading-l-extra text-white z-10"}>
-                {programmes_and_courses}
+                {programmes_and_courses as string}
               </p>
             </div>
           </div>
@@ -148,7 +148,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {learning_teaching_resources}
+              {learning_teaching_resources as string}
             </p>
           </div>
         </div>
@@ -183,7 +183,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {student_competition}
+              {student_competition as string}
             </p>
           </div>
         </div>
@@ -218,7 +218,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {qualifications_framework}
+              {qualifications_framework as string}
             </p>
           </div>
         </div>
@@ -254,7 +254,7 @@ export const PhotoPanel: React.FC = () => {
           />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <p className={"text-heading-l-extra text-white z-10"}>
-              {programmes_and_courses}
+              {programmes_and_courses as string}
             </p>
           </div>
         </div>

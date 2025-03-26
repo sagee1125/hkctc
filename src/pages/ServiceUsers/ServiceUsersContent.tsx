@@ -1,6 +1,6 @@
 import React from "react";
 import { EmailBox, SquareTitle, Link } from "../../components";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 import { useNavigate } from "react-router-dom";
 
@@ -90,9 +90,8 @@ export const accreditationService: Array<{
 ];
 
 export const ServiceUsersContent: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     tc_sector_strengths,
     exhibition_programme,
@@ -141,12 +140,12 @@ export const ServiceUsersContent: React.FC = () => {
     onClick?: () => void;
   }> = [
     {
-      title: hkctc_reports,
+      title: hkctc_reports as string,
       imgUrl: "industry/Reports.png",
       link: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
     },
     {
-      title: seminar_workshop,
+      title: seminar_workshop as string,
       imgUrl: "images/Seminars_Workshops.png",
       link: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
@@ -160,7 +159,7 @@ export const ServiceUsersContent: React.FC = () => {
       } py-[48px] px-[24px] gap-[24px]`}
     >
       <div>
-        <SquareTitle title={our_support} />
+        <SquareTitle title={our_support as string} />
 
         <div>
           {industryData.map((item, index) => {
@@ -183,7 +182,7 @@ export const ServiceUsersContent: React.FC = () => {
                   <img
                     className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={process.env.PUBLIC_URL + "/assets/" + imagePath}
-                    alt={title}
+                    alt={title as string}
                   />
                 </div>
                 <div
@@ -197,13 +196,13 @@ export const ServiceUsersContent: React.FC = () => {
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                   >
-                    {title}
+                    {title as string}
                   </div>
                   <div className="text-body0m">
-                    {isEn ? description : descriptionCN}
+                    {getSingleText(description, descriptionCN)}
                   </div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
-                    {continue_read}
+                    {continue_read as string}
                   </div>
                 </div>
               </div>
@@ -211,10 +210,10 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
         <div className="pt-[48px]">
-          <SquareTitle title={accreditation_services} />
+          <SquareTitle title={accreditation_services as string} />
         </div>
         <p className="pt-[24px] text-body-m text-justify">
-          {accreditation_is_open}
+          {accreditation_is_open as string}
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {
@@ -244,7 +243,7 @@ export const ServiceUsersContent: React.FC = () => {
                 </div>
                 <span className="!text-highlight-m h-full flex items-center">
                   <Link outerLink={link} linkColor="black">
-                    {isEn ? title : titleCN}
+                    {getSingleText(title, titleCN)}
                   </Link>
                 </span>
               </div>
@@ -253,13 +252,13 @@ export const ServiceUsersContent: React.FC = () => {
         </div>
 
         <p className="text-italic-s italic mt-[24px] text-justify">
-          {full_list}
+          {full_list as string}
         </p>
       </div>
       {/* Others & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{others}</p>
+          <p className="text-heading-l">{others as string}</p>
 
           <div className="mb-[32px]">
             {othersData.map((item, index) => {

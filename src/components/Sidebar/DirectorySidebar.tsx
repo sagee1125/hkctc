@@ -22,10 +22,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
   activatedItems,
   setActivatedItems,
 }) => {
-  const { isPC, language } = useSettings();
+  const { isPC, getSingleText } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
-  const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
 
   const sidebarContent = (
     <>
@@ -64,11 +62,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               key={index}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
-                {isEn
-                  ? item.label
-                  : isSimpleCN
-                  ? t2s(item.labelCN)
-                  : item.labelCN}
+                {getSingleText(item.label, item.labelCN)}
               </p>
 
               {isActivated ? (
@@ -86,11 +80,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
       </div>
     </>
   );
-  const content_list = isEn
-    ? `Content List`
-    : isSimpleCN
-    ? t2s("內容列表")
-    : "內容列表";
+  const content_list = getSingleText(`Content List`, "內容列表");
+
   if (isPC) return <>{sidebarContent}</>;
   else
     return (

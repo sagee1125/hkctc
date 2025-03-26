@@ -1,5 +1,5 @@
 export const TC_SECTOR_STRENGTH_TEXT = {
-  EN: {
+  en: {
     TITLE: "Strengths of Hong Kong's T&C Industry",
     SERVICE_INTRO_1:
       "Hong Kong leverages its strategic location, infrastructure, and strong legal and accreditation systems to ensure product quality, attract global businesses, and support intellectual property protection.",
@@ -65,7 +65,7 @@ export const TC_SECTOR_STRENGTH_TEXT = {
       PERSONALITY_CONTENT: `The good business ethics of establishments in the testing and certification industry in Hong Kong and the high professional integrity of their staff are competitive edge that Hong Kong enjoys. `,
     },
   },
-  CN: {
+  cn: {
     TITLE: "香港檢測認證業的優勢",
     SERVICE_INTRO_1:
       "香港憑藉其戰略位置、基礎設施，以及健全的法律和認證系統，確保產品品質，吸引全球企業，並支持知識產權保護。",
