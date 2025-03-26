@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
 import { Language, useSettings } from "../../../context";
+import { t2s } from "chinese-s2t";
 
 type ExploreBarData = {
   iconName: string;
@@ -39,7 +40,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
   const currentPath = location.pathname;
 
   const paths: string[] = [
@@ -110,7 +111,11 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 
   if (!isMobileView && isHidePCExploreBar) return <></>;
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
   const { explore_as } = page_text;
   return (
     <nav>
@@ -140,7 +145,11 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                     className={hoverColor}
                   />
                   <p className={hoverColor}>
-                    {language === Language.EN ? title : titleCN}
+                    {language === Language.EN
+                      ? title
+                      : language === Language.ZH_CN
+                      ? t2s(titleCN)
+                      : titleCN}
                   </p>
                 </div>
               );

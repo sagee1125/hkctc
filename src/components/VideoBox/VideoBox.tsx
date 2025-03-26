@@ -15,9 +15,13 @@ const multilingual = {
 };
 
 export const VideoBox: React.FC = () => {
-  const { language, isPC } = useSettings();
+  const { language, isPC, convertTraditionalToSimplified } = useSettings();
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
   const { welcome, innoCarnival } = page_text;
 
   const [progress, setProgress] = useState(0);
