@@ -2,14 +2,6 @@ import React from "react";
 import { EmailBox, SquareTitle } from "../../components";
 import { Language, useSettings } from "../../context";
 
-type IndustryData = {
-  title: string;
-  description: string;
-  imagePath: string;
-  link: string;
-  onClick?: () => void;
-};
-
 const multilingual = {
   en: {
     accommodation_and_land: "Accommodation and Land",
@@ -41,8 +33,8 @@ const multilingual = {
 
 export const IndustryContent: React.FC = () => {
   const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const {
     accommodation_and_land,
     funding_schemes,
@@ -57,11 +49,13 @@ export const IndustryContent: React.FC = () => {
     seminar_workshop,
   } = page_text;
 
-  const industryData: IndustryData[] = [
+  const industryData = [
     {
       title: accommodation_and_land,
       description:
         "According to the revitalisation scheme for industrial buildings (“IBs”), one of the measures is to relax the waiver application policy to permit uses for a ...",
+      descriptionCN: `根據活化工業大廈（工廈）計劃，其中一項措施是放寛豁免書申請安排，以准許現有工廈用作若干用途。測試實驗所可受惠於此措施。`,
+
       imagePath: "industry/Accommodation_Land.png",
       link: "/support?section=accommodation_and_land",
     },
@@ -69,6 +63,9 @@ export const IndustryContent: React.FC = () => {
       title: funding_schemes,
       description:
         "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
+      descriptionCN:
+        "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
+
       imagePath: "generalPublic/whatsnew_4.png",
       link: "/support?section=funding_schemes",
     },
@@ -76,6 +73,8 @@ export const IndustryContent: React.FC = () => {
       title: entering_into_the_mainland_market,
       description:
         "Since the signing of Supplement VII to the Mainland and Hong Kong Closer Economic Partnership Arrangement (CEPA), the Mainland has been...",
+      descriptionCN: `自簽署《內地與香港關於建立更緊密經貿關係的安排（CEPA）補充協議七》起，中國內地逐步向香港開放其檢測和認證市場。`,
+
       imagePath: "industry/Entering.png",
       link: "/support?section=entering_into_the_mainland_market",
     },
@@ -83,6 +82,8 @@ export const IndustryContent: React.FC = () => {
       title: exhibition_programme,
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
+      descriptionCN:
+        "香港檢測和認證局在本港、內地及海外的主要貿易展覽會設置攤位，向全球的買家、供應商和貿易商推廣香港檢測認證服務的優勢。",
       imagePath: "industry/support_1.png",
       link: "/support?section=exhibition_programme",
     },
@@ -122,7 +123,7 @@ export const IndustryContent: React.FC = () => {
 
         <div>
           {industryData.map((item, index) => {
-            const { title, imagePath, description, link } = item;
+            const { title, imagePath, description, descriptionCN, link } = item;
             return (
               <div
                 key={index}
@@ -153,7 +154,9 @@ export const IndustryContent: React.FC = () => {
                   >
                     {title}
                   </div>
-                  <div className="text-body0m">{description}</div>
+                  <div className="text-body0m">
+                    {isEn ? description : descriptionCN}
+                  </div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
                     {continue_read}
                   </div>

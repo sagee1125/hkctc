@@ -208,7 +208,7 @@ export const EventsPromotion: React.FC = () => {
     [navItemEnum.seminar_workshop]: {
       bannerImage: "eventsLanding/banner_bg_2.png",
       component: <SeminarsWorkshops />,
-      subComponent: <RegistrationBox />,
+      subComponent: isPC && <RegistrationBox />,
     },
     [navItemEnum.student_competition]: {
       bannerImage: "eventsLanding/banner_bg_3.png",

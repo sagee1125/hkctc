@@ -4,14 +4,6 @@ import { Language, useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 import { useNavigate } from "react-router-dom";
 
-type IndustryData = {
-  title: string;
-  description: string;
-  imagePath: string;
-  link: string;
-  onClick?: () => void;
-};
-
 const multilingual = {
   en: {
     tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
@@ -114,18 +106,20 @@ export const ServiceUsersContent: React.FC = () => {
     full_list,
     our_support,
   } = page_text;
-  const industryData: IndustryData[] = [
+  const industryData = [
     {
       title: tc_sector_strengths,
       description:
         "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
+      descriptionCN: "一般而言，檢測和認證業提供三種服務：測試、檢驗、認證。",
       imagePath: "serviceUsers/Services_Provided_TC.png",
-      link: "/tc-sector?section=services_provided",
+      link: `/tc-sector?section=${navItemEnum.services_provided}`,
     },
     {
       title: different_business_areas,
       description:
         "The testing and certification industry offers services covering a wide range of areas...",
+      descriptionCN: "檢測和認證業為多個範疇提供服務",
       imagePath: "serviceUsers/service_1.png",
       link: "/tc-sector?section=different_business_areas",
     },
@@ -133,6 +127,8 @@ export const ServiceUsersContent: React.FC = () => {
       title: exhibition_programme,
       description:
         "HKCTC sets up booths at major trade shows in Hong Kong, Mainland and overseas to promote Hong Kong's testing and certification (T&C) services...",
+      descriptionCN:
+        "香港檢測和認證局在本港、內地及海外的主要貿易展覽會設置攤位，向全球的買家、供應商和貿易商推廣香港檢測認證服務的優勢。",
       imagePath: "industry/support_1.png",
       link: "/support?section=exhibition_programme",
     },
@@ -168,7 +164,7 @@ export const ServiceUsersContent: React.FC = () => {
 
         <div>
           {industryData.map((item, index) => {
-            const { title, imagePath, description, link } = item;
+            const { title, imagePath, description, descriptionCN, link } = item;
             return (
               <div
                 key={index}
@@ -203,7 +199,9 @@ export const ServiceUsersContent: React.FC = () => {
                   >
                     {title}
                   </div>
-                  <div className="text-body0m">{description}</div>
+                  <div className="text-body0m">
+                    {isEn ? description : descriptionCN}
+                  </div>
                   <div className="text-highlight-m text-[#A7AAAD] text-start">
                     {continue_read}
                   </div>

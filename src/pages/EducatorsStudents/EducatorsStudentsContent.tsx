@@ -3,14 +3,6 @@ import { EmailBox } from "../../components";
 import { Language, useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 
-type EducationData = {
-  title: string;
-  description: string;
-  imagePath: string;
-  link: string;
-  onClick?: () => void;
-};
-
 const multilingual = {
   en: {
     career_opportunities: "Career Opportunities",
@@ -38,8 +30,8 @@ const multilingual = {
 
 export const EducatorsStudentsContent: React.FC = () => {
   const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
   const {
     career_opportunities,
     career_fairs,
@@ -75,11 +67,14 @@ export const EducatorsStudentsContent: React.FC = () => {
     },
   ];
 
-  const educationData: EducationData[] = [
+  const educationData = [
     {
       title: tc_sector_strengths,
       description:
         "Hong Kong's sound legal system, low tax rate and simple tax system, good law and order, and good language skills in general help foreign...",
+      descriptionCN:
+        "香港有健全的法制、低稅率和簡單稅制、良好的治安及良好的語文水平，這些都是香港能吸引外國...",
+
       imagePath: "tc_1.png",
       link: `/tc-sector?section=${navItemEnum.tc_sector_strengths}`,
     },
@@ -87,6 +82,7 @@ export const EducatorsStudentsContent: React.FC = () => {
       title: services_provided,
       description:
         "In general, the testing and certification (T&C) industry provides three types of services - Testing, Inspection and Certification.",
+      descriptionCN: "一般而言，檢測和認證業提供三種服務：測試、檢驗、認證。",
       imagePath: "Services.png",
       link: `/tc-sector?section=${navItemEnum.services_provided}`,
     },
@@ -94,6 +90,9 @@ export const EducatorsStudentsContent: React.FC = () => {
       title: career_development,
       description:
         "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services...",
+      descriptionCN:
+        "檢測和認證服務與日常生活息息相關，為各行各業的產品和服務提供安全和品質保證。",
+
       imagePath: "career_1.png",
       link: `/career_and_education?section=${navItemEnum.career_development}`,
     },
@@ -101,6 +100,9 @@ export const EducatorsStudentsContent: React.FC = () => {
       title: about,
       description:
         "The Hong Kong Council for Testing and Certification (HKCTC) was established in September 2009 to advise the Government on...",
+      descriptionCN:
+        "香港檢測和認證局於2009年9月成立，就行業的整體發展策略向政府提供意見。",
+
       imagePath: "career_2.png",
       link: "/about-us",
     },
@@ -114,7 +116,7 @@ export const EducatorsStudentsContent: React.FC = () => {
     >
       <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] `}>
         {educationData.map((item, index) => {
-          const { title, imagePath, description, link } = item;
+          const { title, imagePath, description, descriptionCN, link } = item;
           return (
             <div
               key={index}
@@ -151,7 +153,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                     paddingBottom: "24px",
                   }}
                 >
-                  {description}
+                  {isEn ? description : descriptionCN}
                 </div>
                 <div className="text-highlight-m text-[#A7AAAD] text-center">
                   {continue_read}
