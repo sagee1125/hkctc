@@ -6,15 +6,20 @@ import {
   maxMobileContainer,
   maxPCContainer,
 } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
 export const ResourcesReports: React.FC = () => {
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
 
-  const breadcrumbItems = [
+  const breadcrumbItems_en = [
     { label: "Home", href: "/" },
     { label: "Resources " },
   ];
+
+  const breadcrumbItems_cn = [{ label: "主頁", href: "/" }, { label: "資源 " }];
+
+  const breadcrumbItems = isEn ? breadcrumbItems_en : breadcrumbItems_cn;
 
   return (
     <div style={fullContainer}>
