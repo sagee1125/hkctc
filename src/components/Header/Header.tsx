@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { object, string } from "yup";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Language, useSettings } from "../../context";
+import LanguageSelect from "../languageSelection";
 
 export const HeaderSocialMedia: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ export const HeaderSocialMedia: React.FC = () => {
 export const Header: React.FC = () => {
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
 
-  const { handleChangeLang, language } = useSettings();
+  const { language } = useSettings();
 
   const formik = useFormik<{ search: string }>({
     initialValues: {
@@ -109,16 +110,7 @@ export const Header: React.FC = () => {
               icon="mingcute:font-line"
               className="h-6 w-6 text-[#333333] flex-shrink-0"
             /> */}
-            <Icon
-              icon="ci:globe"
-              className="h-6 w-6 text-[#333333] flex-shrink-0 cursor-pointer"
-              onClick={() => {
-                // TODO
-                handleChangeLang(
-                  language === Language.EN ? Language.ZH_TW : Language.EN
-                );
-              }}
-            />
+            <LanguageSelect />
             <div
               style={{
                 width: "1.5px",

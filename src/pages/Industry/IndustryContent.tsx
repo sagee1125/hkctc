@@ -64,8 +64,7 @@ export const IndustryContent: React.FC = () => {
       description:
         "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
       descriptionCN:
-        "ITF is established by the Government with the aim of increasing the added value, productivity and competitiveness of Hong Kong's economic...",
-
+        "政府設立創新及科技基金，旨在提升本地經濟活動的增值力、生產力及競爭力。",
       imagePath: "generalPublic/whatsnew_4.png",
       link: "/support?section=funding_schemes",
     },
