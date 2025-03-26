@@ -104,12 +104,22 @@ const multilingual = {
     tel_short: "Tel:",
     mon_to_fri: "Monday to Friday",
     time: ["8:45 am - 12:30 pm", "1:30 pm - 6:00 pm"],
+    related_site: "Related Site",
+    gov: "Government",
+    public_org: "Public Organisations",
+    ITC: "Innovation and Technology Commission",
+    HKAS: "Hong Kong Accreditation Service (HKAS)",
+    SCL: "Standards and Calibration Laboratory (SCL)",
+    standard_related: "Standard-related Services",
+    gov_lab: "Government Laboratory",
+    trade_associations: "Trade Associations / Professional Bodies",
+    mainland_org: "Mainland Organisations",
   },
 
   cn: {
     title: "重要聲明",
     home: `主頁`,
-    about_site: "About the Site",
+    about_site: "關於本網站",
     intro:
       "本網站由香港特別行政區創新科技署(下稱「本署」)、香港檢測和認證局負責製作及管理。",
     desc: (
@@ -189,6 +199,17 @@ const multilingual = {
     tel_short: "電話：",
     mon_to_fri: "星期一至五",
     time: ["上午8時45分至下午12時30分", "下午1時30分至6時正"],
+    related_site: "相關網址",
+    gov: "政府",
+    public_org: "公共機構",
+
+    ITC: "創新科技署",
+    HKAS: "香港認可處",
+    SCL: "標準及校正實驗所",
+    standard_related: "標準相關服務",
+    gov_lab: "政府化驗所",
+    trade_associations: "行業協會/專業團體",
+    mainland_org: "內地機構",
   },
 };
 
@@ -392,6 +413,211 @@ const Contact: React.FC = () => {
   );
 };
 
+const RelatedSite: React.FC = () => {
+  const { language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const {
+    related_site,
+    gov,
+    ITC,
+    HKAS,
+    SCL,
+    standard_related,
+    gov_lab,
+    public_org,
+    trade_associations,
+    mainland_org,
+  } = page_text;
+
+  const publicOrgMap = [
+    {
+      title: "Hong Kong Productivity Council",
+      titleCN: "香港生產力促進局",
+      href: "https://www.hkpc.org/zh-HK",
+    },
+    {
+      title: "Hong Kong Trade Development Council",
+      titleCN: "香港貿易發展局",
+      href: "https://hkservices.hktdc.com/tc/industry/testing-certification",
+    },
+    {
+      title: "Hong Kong Export Credit Insurance Corporation",
+      titleCN: "香港出口信用保險局",
+      href: "https://www.hkecic.com/tc/",
+    },
+    {
+      title: "Vocational Training Council (Testing and Certification Portal)",
+      titleCN: "職業訓練局(檢測和認證行業網站)",
+      href: "http://va.vtc.edu.hk/tcert",
+    },
+  ];
+  const tradeAssociationsMap = [
+    {
+      title: "Hong Kong Association for Testing, Inspection and Certification",
+      titleCN: "香港測檢認證協會",
+      href: "https://www.hktic.org/en",
+    },
+    {
+      title: "Hong Kong Association of Medical Laboratories",
+      titleCN: "香港醫務化驗所總會",
+      href: "https://www.hkaml.org/",
+    },
+    {
+      title: "Hong Kong Institution of Certified Auditors",
+      titleCN: "香港專業審核師學會",
+      href: "https://www.hkica.org/",
+    },
+    {
+      title: "Hong Kong Society for Quality",
+      titleCN: "香港品質學會",
+      href: "https://hksq.org/",
+    },
+  ];
+  const mainlandOrgMap = [
+    {
+      title: "State Administration for Market Regulation (Chinese only)",
+      titleCN: "國家市場監督管理總局",
+      href: "https://www.samr.gov.cn/",
+    },
+    {
+      title:
+        "Certification and Accreditation Administration of the People's Republic of China (Chinese)",
+      titleCN: "中國國家認證認可監督管理委員會",
+      href: "https://www.cnca.gov.cn/",
+    },
+    {
+      title:
+        "Market Supervision Administration of Guangdong Province (Chinese only)",
+      titleCN: "廣東省市場監督管理局",
+      href: "http://amr.gd.gov.cn/",
+    },
+    {
+      title:
+        "Market Supervision Administration of Shenzhen Municipality (Chinese only)",
+      titleCN: "深圳市市場監督管理局",
+      href: "https://amr.sz.gov.cn/",
+    },
+  ];
+  return (
+    <div className="w-full pr-[24px]">
+      <SquareTitle title={related_site} />
+      <div className="text-heading-l mt-[24px]">{gov}</div>
+      <div className="my-[24px]">
+        <ul className="!text-linked-m mb-[8px]">
+          <li>
+            <a
+              href="https://www.itc.gov.hk/en/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              {ITC}
+            </a>
+          </li>
+        </ul>
+        <ul className="!flex !flex-col !gap-[8px] ml-[16px] !text-linked-m">
+          <li>
+            <a
+              href="http://www.itc.gov.hk/en/quality/hkas/about.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              {HKAS}
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://www.itc.gov.hk/en/quality/hkas/about.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              {SCL}
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-[#00E]"
+            >
+              {standard_related}
+            </a>
+          </li>
+        </ul>
+        <ul className="!text-linked-m">
+          <li className="underline text-[#00E] mt-[8px]">
+            <a
+              href="https://www.govtlab.gov.hk/tc/home/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {gov_lab}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="text-heading-l mt-[24px]">{public_org}</div>
+
+      <div className="my-[24px]">
+        <ul className="!text-linked-m gap-[8px]">
+          {publicOrgMap.map((pb, index) => (
+            <li key={index}>
+              <a
+                href={pb.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                {isEn ? pb.title : pb.titleCN}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="text-heading-l mt-[24px]">{trade_associations}</div>
+      <div className="my-[24px]">
+        <ul className="!text-linked-m gap-[8px]">
+          {tradeAssociationsMap.map((pb, index) => (
+            <li key={index}>
+              <a
+                href={pb.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                {isEn ? pb.title : pb.titleCN}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="text-heading-l mt-[24px]">{mainland_org}</div>
+      <div className="my-[24px]">
+        <ul className="!text-linked-m gap-[8px]">
+          {mainlandOrgMap.map((pb, index) => (
+            <li key={index}>
+              <a
+                href={pb.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#00E]"
+              >
+                {isEn ? pb.title : pb.titleCN}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
 export enum ABOUT_SIDE_MODULE {
   IMPORTANT_NOTE = "Important Notices",
   ACCESSIBILITY = "Accessibility",
@@ -401,11 +627,12 @@ export enum ABOUT_SIDE_MODULE {
 }
 
 const topBanner = "aboutSite/banner.png";
-const componentMapping: Record<string, React.ReactNode> = {
+const componentMapping: Record<ABOUT_SIDE_MODULE, React.ReactNode> = {
   [ABOUT_SIDE_MODULE.IMPORTANT_NOTE]: <ImportantNote />,
   [ABOUT_SIDE_MODULE.ACCESSIBILITY]: <Accessibility />,
   [ABOUT_SIDE_MODULE.PRIVACY]: <Privacy />,
   [ABOUT_SIDE_MODULE.CONTACT]: <Contact />,
+  [ABOUT_SIDE_MODULE.RELATED_SITE]: <RelatedSite />,
 };
 
 const directoryItems: DirectorySidebarItems[] = [
@@ -428,6 +655,11 @@ const directoryItems: DirectorySidebarItems[] = [
     label: ABOUT_SIDE_MODULE.CONTACT,
     labelCN: "聯絡我們",
     value: ABOUT_SIDE_MODULE.CONTACT,
+  },
+  {
+    label: ABOUT_SIDE_MODULE.RELATED_SITE,
+    labelCN: "相關網址",
+    value: ABOUT_SIDE_MODULE.RELATED_SITE,
   },
 ];
 

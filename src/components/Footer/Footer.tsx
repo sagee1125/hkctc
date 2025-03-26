@@ -23,10 +23,22 @@ type FooterData = {
   secSubs?: FooterData[];
 };
 
+const multilingual = {
+  en: {
+    copyright_desc: `Copyright © 2024 Hong Kong Council for Testing and Certification. All Rights Reserved`,
+  },
+  cn: {
+    copyright_desc: "©2025香港檢測和認證局 版權所有",
+  },
+};
+
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
   const { isPC, language } = useSettings();
   const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { copyright_desc } = page_text;
+
   const [sitemapCollapsed, setSitemapCollapsed] = useState<boolean>(true);
 
   const commonDate: Sub[] = [
@@ -700,10 +712,7 @@ export const Footer: React.FC = () => {
         ))}
       </div>
       <div className="bg-[#333333] h-[50px] flex px-[24px] items-center">
-        <p className="text-white text-body-s">
-          {`Copyright © 2024 Hong Kong Council for Testing and Certification. All
-          Rights Reserved`}
-        </p>
+        <p className="text-white text-body-s">{copyright_desc}</p>
       </div>
     </footer>
   );

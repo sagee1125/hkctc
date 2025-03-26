@@ -18,21 +18,56 @@ const multilingual = {
     exhibition_programme: "HKCTC Exhibition Programme",
     different_business_areas: "Services for Different Business Areas",
     accreditation_services: "Accreditation Services",
+    our_support: "Our Support",
+    accreditation_is_open:
+      "Accreditation is open and voluntary in Hong Kong. It is currently provided by Hong Kong Accreditation Service (HKAS) under Innovation and Technology Commission in Hong Kong. HKAS operates three accreditation schemes:",
     others: "Others",
     continue_read: "Continue to Read",
     hkctc_reports: "HKCTC Reports",
     seminar_workshop: "Seminars & Workshops",
+    full_list: (
+      <>
+        *This full list is for the purpose of searching specific conformity
+        assessment activity and will only be updated weekly. For most up-to-date
+        scope of accreditation, please visit&nbsp;
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS’s website
+        </a>
+      </>
+    ),
   },
   cn: {
     tc_sector_strengths: "香港檢測認證業的優勢",
     different_business_areas: "為不同業務範疇提供的服務",
     exhibition_programme: "香港檢測和認證局展覽計劃",
     accreditation_services: "認可服務",
-    continue_read: "Continue to Read",
+    our_support: "我們的支援",
+
+    continue_read: "查看更多",
     hkctc_reports: "香港檢測和認證局報告",
     seminar_workshop: "研討會與工作坊",
-
+    accreditation_is_open:
+      "在香港，申請認可資格是公開和自願性質的，目前由創新科技署轄下的香港認可處提供認可資格。該處負責推行三個認可計劃，包括：",
     others: "其他",
+    full_list: (
+      <>
+        此完整清單僅用於搜尋特定的合格評定活動，並且每週更新一次。如欲了解最新的認可範圍，請造訪
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港認可處網站
+        </a>
+        。
+      </>
+    ),
   },
 };
 
@@ -71,10 +106,13 @@ export const ServiceUsersContent: React.FC = () => {
     exhibition_programme,
     different_business_areas,
     accreditation_services,
+    accreditation_is_open,
     others,
     continue_read,
     hkctc_reports,
     seminar_workshop,
+    full_list,
+    our_support,
   } = page_text;
   const industryData: IndustryData[] = [
     {
@@ -126,7 +164,7 @@ export const ServiceUsersContent: React.FC = () => {
       } py-[48px] px-[24px] gap-[24px]`}
     >
       <div>
-        <SquareTitle title="Our Support" />
+        <SquareTitle title={our_support} />
 
         <div>
           {industryData.map((item, index) => {
@@ -177,10 +215,8 @@ export const ServiceUsersContent: React.FC = () => {
         <div className="pt-[48px]">
           <SquareTitle title={accreditation_services} />
         </div>
-        <p className="pt-[24px] text-body-m">
-          Discover accredited laboratories, certification bodies, and inspection
-          bodies under HKAS. Access information about HOKLAS, HKCAS, and HKIAS,
-          as well as a full directory of accredited organisations.
+        <p className="pt-[24px] text-body-m text-justify">
+          {accreditation_is_open}
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {
@@ -218,18 +254,8 @@ export const ServiceUsersContent: React.FC = () => {
           })}
         </div>
 
-        <p className="text-italic-s italic mt-[24px]">
-          *This full list is for the purpose of searching specific conformity
-          assessment activity and will only be updated weekly. For most
-          up-to-date scope of accreditation, please visit&nbsp;
-          <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            HKAS’s website
-          </a>
+        <p className="text-italic-s italic mt-[24px] text-justify">
+          {full_list}
         </p>
       </div>
       {/* Others & Enquires */}

@@ -32,7 +32,7 @@ const multilingual = {
     services_provided: "檢測認證業提供的服務",
     career_development: "職業發展",
     about: "關於我們",
-    continue_read: "Continue to Read",
+    continue_read: "查看更多",
   },
 };
 

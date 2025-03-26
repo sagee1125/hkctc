@@ -17,7 +17,7 @@ const mediaCoverageList = [
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
   {
-    title: "檢測認證人力發展嘉許計劃 冀青年加入 促業界發展’",
+    title: "檢測認證人力發展嘉許計劃 冀青年加入 促業界發展",
     date: "16 Dec 2023",
     link: "/resfile/PDF/20231216/PDF/b6_screen.pdf",
     mediaType: MEDIA_TYPE.PDF,
