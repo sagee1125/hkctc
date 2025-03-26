@@ -6,7 +6,7 @@ import {
   SquareTitle,
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const mediaCoverageList = [
   {
@@ -107,13 +107,22 @@ const mediaCoverageList = [
     mediaType: MEDIA_TYPE.NEW_PAGE,
   },
 ];
-
+const multilingual = {
+  en: {
+    media_coverage: "Media Coverage",
+  },
+  cn: {
+    media_coverage: "媒體報道",
+  },
+};
 export const MediaCoverage2324: React.FC = () => {
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { media_coverage } = page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={"Media Coverage"} />
+      <SquareTitle title={media_coverage} />
       <div
         className={`w-full mt-[24px] grid ${
           isPC

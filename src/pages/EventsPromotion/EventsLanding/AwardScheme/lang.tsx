@@ -564,7 +564,7 @@ export const award2324_multilingual = {
     publication_data: ["小冊子", "影片", "紀念場刊"],
 
     ceremony_list: "得獎名單/ 頒獎典禮",
-    tc_manpower_pc: "2023-24年度檢測認證人力發展嘉許計劃",
+    tc_manpower_pc: "2023-2024年度得獎名單/ 頒獎典禮",
     tc_manpower_mb: "2023-2024年度得獎名單/ 頒獎典禮",
   },
 };
