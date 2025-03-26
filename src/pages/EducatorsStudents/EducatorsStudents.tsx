@@ -19,7 +19,7 @@ const multilingual = {
   cn: {
     home: `主頁`,
     educator_student: "老師與學生",
-    desc: "Know more about testing and certification in education, and how to become part of us.",
+    desc: "了解檢測與認證的教育，以及如何成爲我們的一員。",
   },
 };
 

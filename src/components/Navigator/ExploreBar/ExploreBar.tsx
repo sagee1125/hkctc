@@ -106,7 +106,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
         <></>
       ) : (
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
-          <p className="text-highlight-s">Explore as</p>
+          <p className="text-highlight-s"></p>
           <img
             className="w-[12px] h-[12px] ml-[8px] mr-[16px]"
             src={process.env.PUBLIC_URL + "/assets/icons/arrow_right.svg"}

@@ -19,7 +19,7 @@ const multilingual = {
   cn: {
     home: `主頁`,
     general_public: "公眾人士",
-    desc: "Learn about us and explore our resources to ensure quality and safety across sectors.",
+    desc: "了解我們並探索我們的資源如何確保各行各業的品質與安全。",
   },
 };
 

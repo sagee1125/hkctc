@@ -18,7 +18,7 @@ const multilingual = {
   cn: {
     home: `主頁`,
     service_users: "檢測認證服務使用者",
-    desc: "Learn how testing and certification services support businesses and build trust.",
+    desc: "了解檢測與認證服務如何支持企業並建立信任。",
   },
 };
 

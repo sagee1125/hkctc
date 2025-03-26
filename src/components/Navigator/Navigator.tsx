@@ -71,6 +71,16 @@ export const exploreOption: Array<{
     nav: "service-users",
   },
 ];
+
+const multilingual = {
+  en: {
+    explore_as: "Explore as",
+  },
+  cn: {
+    explore_as: "探索為",
+  },
+};
+
 export const Navigator: React.FC = () => {
   const { isPC, handleChangeLang, language } = useSettings();
   const location = useLocation();
@@ -81,6 +91,8 @@ export const Navigator: React.FC = () => {
     string | null
   >(getCurrentTitle(currentPath));
   const showEn = language === Language.EN;
+  const page_text = showEn ? multilingual.en : multilingual.cn;
+  const { explore_as } = page_text;
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
   const anchorRef = useRef(null); // mobile drop drown icon
@@ -146,7 +158,7 @@ export const Navigator: React.FC = () => {
           <>
             <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
               <p className="!text-body-s flex items-center justify-start">
-                {selectedExploreOption ?? "Explore as"}
+                {selectedExploreOption ?? explore_as}
               </p>
               <ChevronDownIcon
                 className={`h-[16px] w-[16px] text-[#666666] text-white transform transition-transform ${
@@ -735,7 +747,7 @@ export const Navigator: React.FC = () => {
                       <>
                         <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
                           <p className="!text-body-s">
-                            {selectedExploreOption ?? "Explore as"}
+                            {selectedExploreOption ?? explore_as}
                           </p>
                           <ChevronDownIcon
                             className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${

@@ -19,7 +19,7 @@ const multilingual = {
   cn: {
     home: `主頁`,
     industry: "檢測認證機構及從業員",
-    desc: "Discover resources and support to help testing and certification professionals thrive.",
+    desc: "探索資源與支援，助檢測與認證專業人士蓬勃發展。",
   },
 };
 

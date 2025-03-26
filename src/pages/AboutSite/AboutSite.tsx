@@ -11,26 +11,17 @@ import {
   maxMobileContainer,
   type DirectorySidebarItems,
 } from "../../components";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
-const ImportantNote: React.FC = () => {
-  return (
-    <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <div className="flex-1">
-        <SquareTitle title="Important Notices" />
-      </div>
-      <div className="bg-[#F7F7F5]">
-        <div className="px-[42px] py-[36px]">
-          <p className="text-body-m">
-            This web site is produced and maintained by the Hong Kong Council
-            for Testing and Certification (HKCTC), the Innovation and Technology
-            Commission (the Commission) of the Hong Kong Special Administrative
-            Region Government of the People's Republic of China.
-          </p>
-        </div>
-      </div>
-
-      <div>
+const multilingual = {
+  en: {
+    home: `Home`,
+    about_site: "About the Site",
+    title: "Important Notices",
+    intro:
+      "This web site is produced and maintained by the Hong Kong Council for Testing and Certification (HKCTC), the Innovation and Technology Commission (the Commission) of the Hong Kong Special Administrative Region Government of the People's Republic of China.",
+    desc: (
+      <>
         The webpages on HKCTC are viewable on most modern browsers. HKCTC
         follows the HTML5 standard and does not make use of browser-specific
         features. However, each computer system displays fonts slightly
@@ -38,65 +29,143 @@ const ImportantNote: React.FC = () => {
         screen resolution on their computers. As a result, the webpages on HKCTC
         may be displayed differently on computer systems with different
         configurations.
-      </div>
-
-      <div>
+        <br />
+        <br />
         The webpages on HKCTC are best viewed with the latest version of Edge,
         Mozilla Firefox, Safari or Google Chrome. To update your browsers,
         please visit one of the websites listed below:
+      </>
+    ),
+    edge: "Edge Product Home Page",
+    safari: "Safari Product Home Page",
+    mozilla: "Mozilla Firefox Product Home Page",
+    copyright: "Copyright Notice",
+    google: "Google Chrome Product Home Page",
+    copyright_desc:
+      "The content available on this website, including but not limited to all text, graphics, drawings, diagrams, photographs and compilation of data or other materials are protected by copyright. The Government of the Hong Kong Special Administrative Region is the owner of all copyright works contained in this website. The information or part of it may be re-disseminated or reproduced, provided the source of the information is acknowledged and that the re-dissemination or reproduction is for a non-commercial purpose.",
+    disclaimer: "Disclaimer",
+    disclaimer_desc:
+      "Although extreme care has been taken to ensure that the information provided on our website is accurate and up-to-date, the HKCTC does not warrant that all information or any part thereof provided is accurate in all respects. The HKCTC shall not be held liable for any loss or damage suffered as a result of any use or reliance on any of the information provided in its website.",
+    please_download: (
+      <div>
+        Please download the latest version of&nbsp;
+        <a
+          href="https://helpx.adobe.com/support.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Acrobat Reader
+        </a>
+        &nbsp; to view and print the documents which are in Portable Document
+        Format (PDF).
       </div>
+    ),
+  },
+  cn: {
+    title: "重要聲明",
+    home: `主頁`,
+    about_site: "About the Site",
+    intro:
+      "本網站由香港特別行政區創新科技署(下稱「本署」)、香港檢測和認證局負責製作及管理。",
+    desc: (
+      <>
+        大部分近年的瀏覽器均能用於瀏覽香港檢測和認證局網頁（下稱「本網站」）。本網站採用HTML5標準，並沒有使用只適用於某種瀏覽器的功能。不過，每部電腦所顯示的字型均有些微差異，而每位使用者或會調校不同的預設字型大小及螢幕解像度。因此，根據不同電腦系統的配置，本網站顯示或會不同。
+        <br />
+        <br />
+        以最新版本的Edge，Mozilla Firefox，Safari及Google
+        Chrome瀏覽器閱讀本網站效果最佳。若你仍然使用這些瀏覽器的舊版本，我們建議你盡快更新至最新版本。請瀏覽以下網頁以更新你的瀏覽器：
+      </>
+    ),
+    edge: "Edge產品網頁",
+    safari: "Safari產品網頁",
+    google: "Google Chrome產品網頁",
+    mozilla: "Mozilla Firefox產品網頁",
+    copyright: "版權公告",
+    copyright_desc:
+      "本網站的內容，包括但不限於所有文本、平面圖像、圖畫、圖片、照片，以及數據或其他資料的匯編，均受版權保障。香港特別行政區政府是本網站內所有版權作品的擁有人。本網站的全部或部分資料可供再行發布或複製，但再發布或複製者必須註明資料來源，而有關資料亦須用作非商業用途。",
+    disclaimer: "免責聲明",
+    disclaimer_desc:
+      "香港檢測和認證局在編製本網頁時已力求審慎，盡可能使網頁資料正確無誤及盡快更新；惟香港檢測和認證局並不保證網頁內全部資料(或任何部分)在各方面均絕對正確。對於因使用或依據本網頁內所載的任何資料而引起的任何損失或損害，香港檢測和認證局概不負責。",
+
+    please_download: (
+      <div>
+        請下載最新版本的
+        <a
+          href="https://helpx.adobe.com/support.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          Acrobat Reader
+        </a>
+        瀏覽及列印PDF格式檔案文件。
+      </div>
+    ),
+  },
+};
+
+const ImportantNote: React.FC = () => {
+  const { language } = useSettings();
+
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    title,
+    intro,
+    desc,
+    copyright,
+    disclaimer,
+    disclaimer_desc,
+    copyright_desc,
+    edge,
+    mozilla,
+    safari,
+    google,
+    please_download,
+  } = page_text;
+  return (
+    <div className="w-full flex flex-col gap-[24px] pr-[24px] text-justify">
+      <div className="flex-1">
+        <SquareTitle title={title} />
+      </div>
+      <div className="bg-[#F7F7F5]">
+        <div className="px-[42px] py-[36px]">
+          <p className="text-body-m">{intro}</p>
+        </div>
+      </div>
+
+      <div>{desc}</div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6">
         <li>
           <Link outerLink="https://www.microsoft.com/en-us/edge/?form=MA13FJ">
-            Edge Product Home Page
+            {edge}
           </Link>
         </li>
         <li>
           <Link outerLink="https://www.mozilla.org/en-US/firefox/?v=c&utm_source=www.mozilla.org&utm_medium=download_button&utm_campaign=firefox_page&utm_content=downloader_email_form_experiment_vc">
-            Mozilla Firefox Product Home Page
+            {mozilla}
           </Link>
         </li>
         <li>
-          <Link outerLink="https://www.apple.com/safari/">
-            Safari Product Home Page
-          </Link>
+          <Link outerLink="https://www.apple.com/safari/">{safari}</Link>
         </li>
         <li>
           <Link outerLink="https://www.google.com/intl/en/chrome/">
-            Google Chrome Product Home Page
+            {google}
           </Link>
         </li>
       </ul>
 
-      <div>
-        Please download the latest version of <Link>Acrobat Reader</Link> to
-        view and print the documents which are in Portable Document Format
-        (PDF).
-      </div>
+      {please_download}
       <hr />
-      <div className="text-heading-l">Copyright Notice</div>
-      <div>
-        The content available on this website, including but not limited to all
-        text, graphics, drawings, diagrams, photographs and compilation of data
-        or other materials are protected by copyright. The Government of the
-        Hong Kong Special Administrative Region is the owner of all copyright
-        works contained in this website. The information or part of it may be
-        re-disseminated or reproduced, provided the source of the information is
-        acknowledged and that the re-dissemination or reproduction is for a
-        non-commercial purpose.
-      </div>
+      <div className="text-heading-l">{copyright}</div>
+      <div>{copyright_desc}</div>
 
       <hr />
-      <div className="text-heading-l">Disclaimer</div>
-      <div>
-        Although extreme care has been taken to ensure that the information
-        provided on our website is accurate and up-to-date, the HKCTC does not
-        warrant that all information or any part thereof provided is accurate in
-        all respects. The HKCTC shall not be held liable for any loss or damage
-        suffered as a result of any use or reliance on any of the information
-        provided in its website.
-      </div>
+      <div className="text-heading-l">{disclaimer}</div>
+      <div>{disclaimer_desc}</div>
     </div>
   );
 };
@@ -302,8 +371,10 @@ const directoryItems: DirectorySidebarItems[] = [
 export const AboutSite: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isPC } = useSettings();
-
+  const { isPC, language } = useSettings();
+  const isEN = language === Language.EN;
+  const page_text = isEN ? multilingual.en : multilingual.cn;
+  const { home, about_site } = page_text;
   const queryParams = new URLSearchParams(location.search);
 
   const initialSection = queryParams.get("section") ?? "";
@@ -338,11 +409,12 @@ export const AboutSite: React.FC = () => {
     }
   }, [initialParam, navigate]);
 
+  const findObj = directoryItems.find((i) => i.value === activeItem);
   const breadcrumbItems = [
-    { label: "Home", href: "/hkctc" },
-    { label: "About the Site", href: "/about-the-site" },
+    { label: home, href: "/hkctc" },
+    { label: about_site, href: "/about-the-site" },
     {
-      label: activeItem,
+      label: (isEN ? findObj?.label : findObj?.labelCN) ?? "",
     },
   ];
 
