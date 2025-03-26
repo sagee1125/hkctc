@@ -511,7 +511,7 @@ export const Footer: React.FC = () => {
                   setSitemapCollapsed(!sitemapCollapsed);
                 }}
               >
-                <p className="text-body-s">{sitemap}</p>
+                <p className="text-body-s">{sitemap as string}</p>
                 <ExpandMoreIcon
                   sx={{
                     transform: !sitemapCollapsed
@@ -749,7 +749,7 @@ export const Footer: React.FC = () => {
         ))}
       </div>
       <div className="bg-[#333333] h-[50px] flex px-[24px] items-center">
-        <p className="text-white text-body-s">{copyright_desc}</p>
+        <p className="text-white text-body-s">{copyright_desc as string}</p>
       </div>
     </footer>
   );

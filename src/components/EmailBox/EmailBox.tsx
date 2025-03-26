@@ -62,9 +62,9 @@ export const EmailBox: React.FC = () => {
 
   return (
     <div>
-      <div className="text-heading-l pb-[16px]">{enquiries}</div>
+      <div className="text-heading-l pb-[16px]">{enquiries as string}</div>
       <div className="bg-[#EAEAE5] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
-        <div className="text-body-m">{contact}</div>
+        <div className="text-body-m">{contact as string}</div>
         <input
           placeholder={name as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
@@ -100,7 +100,16 @@ export const EmailBox: React.FC = () => {
           disabled={loading}
           onClick={handleButtonClick}
         >
-          {loading ? <CircularProgress size="28px" /> : send}
+          {loading ? (
+            <CircularProgress
+              size="28px"
+              sx={{
+                color: "white",
+              }}
+            />
+          ) : (
+            (send as string)
+          )}
         </button>
       </div>
     </div>

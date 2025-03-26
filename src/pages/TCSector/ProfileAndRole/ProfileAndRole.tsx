@@ -3,7 +3,11 @@ import { Icon } from "@iconify/react";
 import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
-import { Language, useSettings } from "../../../context";
+import {
+  Language,
+  type LanguageResources,
+  useSettings,
+} from "../../../context";
 
 const multilingual = {
   en: {
@@ -120,9 +124,8 @@ export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const {
     profile_of_the_Sector,
@@ -147,7 +150,7 @@ export const ProfileAndRole: React.FC = () => {
   } = page_text;
   const chartsArray = [
     {
-      label: tabs[0],
+      label: (tabs as string[])[0],
       charts: [
         {
           title: (
@@ -156,9 +159,15 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {establishment_engaged_chart.title}
+              {
+                (establishment_engaged_chart as LanguageResources)
+                  ?.title as string
+              }
               <br />
-              {establishment_engaged_chart.years}
+              {
+                (establishment_engaged_chart as LanguageResources)
+                  ?.years as string
+              }
             </p>
           ),
           elementId: "institutions",
@@ -192,9 +201,15 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {number_of_persons_engaged_chart.title}
+              {
+                (number_of_persons_engaged_chart as LanguageResources)
+                  ?.title as string
+              }
               <br />
-              {number_of_persons_engaged_chart.years}
+              {
+                (number_of_persons_engaged_chart as LanguageResources)
+                  ?.years as string
+              }
             </p>
           ),
           elementId: "employees",
@@ -223,10 +238,11 @@ export const ProfileAndRole: React.FC = () => {
           seriesItemColor: "rgba(20, 123, 62, 0.60)",
         },
       ],
-      otherInfo: number_of_persons_engaged_chart.bottom_text,
+      otherInfo: (number_of_persons_engaged_chart as LanguageResources)
+        ?.bottom_text,
     },
     {
-      label: tabs[1],
+      label: (tabs as string[])[1],
       charts: [
         {
           title: (
@@ -235,7 +251,10 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {number_of_establishment_chart.title}
+              {
+                (number_of_establishment_chart as LanguageResources)
+                  ?.title as string
+              }
               <br />
             </p>
           ),
@@ -249,7 +268,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: tabs[2],
+      label: (tabs as string[])[2],
       charts: [
         {
           title: (
@@ -258,7 +277,10 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {total_number_of_persons_engaged_chart.title}
+              {
+                (total_number_of_persons_engaged_chart as LanguageResources)
+                  ?.title as string
+              }
               <br />
             </p>
           ),
@@ -272,7 +294,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: tabs[3],
+      label: (tabs as string[])[3],
       charts: [
         {
           title: (
@@ -281,7 +303,7 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {business_receipts_chart.title}
+              {(business_receipts_chart as LanguageResources)?.title as string}
               <br />
             </p>
           ),
@@ -295,7 +317,7 @@ export const ProfileAndRole: React.FC = () => {
       ],
     },
     {
-      label: tabs[4],
+      label: (tabs as string[])[4],
       charts: [
         {
           title: (
@@ -304,7 +326,10 @@ export const ProfileAndRole: React.FC = () => {
                 isPC ? "m" : "xs"
               } pt-[24px] ml-[24px]`}
             >
-              {industry_value_added_chart.title}
+              {
+                (industry_value_added_chart as LanguageResources)
+                  ?.title as string
+              }
               <br />
             </p>
           ),
@@ -329,12 +354,12 @@ export const ProfileAndRole: React.FC = () => {
     link: string;
   }> = [
     {
-      title: data[0],
+      title: (data as string[])[0],
       imagePath: "Statistics.png",
       link: "/en/doc/HKCTC_StatPresentation_English.pdf",
     },
     {
-      title: data[1],
+      title: (data as string[])[1],
       imagePath: "KeyData.png",
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
     },
@@ -345,11 +370,11 @@ export const ProfileAndRole: React.FC = () => {
   return (
     <div className="w-full flex">
       <div className="flex-1 text-justify">
-        <SquareTitle title={profile_of_the_Sector} />
+        <SquareTitle title={profile_of_the_Sector as string} />
 
         <div className="bg-[#EEEEEA] my-[24px]">
           <div className="px-[42px] py-[36px]">
-            <p className="text-body-m">{the_total}</p>
+            <p className="text-body-m">{the_total as string}</p>
             <p
               className="italic mt-[16px]"
               style={{
@@ -358,15 +383,15 @@ export const ProfileAndRole: React.FC = () => {
                 fontWeight: 400,
               }}
             >
-              {the_total_italic}
+              {the_total_italic as string}
             </p>
           </div>
         </div>
         <p className="text-body-m mb-[24px]">
-          {the_economic}
+          {the_economic as string}
           <br />
           <br />
-          {in_the_same_year}
+          {in_the_same_year as string}
         </p>
         <div className="flex flex-wrap gap-[8px] mb-[24px]">
           {chartsArray.map((chartInfo, index) => {
@@ -403,7 +428,7 @@ export const ProfileAndRole: React.FC = () => {
           );
         })}
         {displayChartsNote && (
-          <p className="text-italic-s italic">{displayChartsNote}</p>
+          <p className="text-italic-s italic">{displayChartsNote as string}</p>
         )}
         {/* <p
           className="italic"
@@ -420,9 +445,9 @@ export const ProfileAndRole: React.FC = () => {
         </p> */}
         <hr className="my-[24px]" />
 
-        <SquareTitle title={role_of_the_sector} />
+        <SquareTitle title={role_of_the_sector as string} />
 
-        <p className="text-body-m my-[24px]">{in_additional_to}</p>
+        <p className="text-body-m my-[24px]">{in_additional_to as string}</p>
         <div
           className={`grid grid-flow-col auto-cols-auto gap-[24px] my-[24px] w-full`}
         >
@@ -443,16 +468,16 @@ export const ProfileAndRole: React.FC = () => {
         </div>
 
         <p className="text-body-m">
-          {locally}
+          {locally as string}
           <br />
           <br />
-          {in_support_of}
+          {in_support_of as string}
           <br />
           <br />
-          {from_wider_perspective}
+          {from_wider_perspective as string}
         </p>
         <hr className="my-[24px]" />
-        <p className="text-heading-l mb-[24px]">{statistics_data}</p>
+        <p className="text-heading-l mb-[24px]">{statistics_data as string}</p>
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
             const { title, imagePath, date, link } = item;

@@ -73,7 +73,11 @@ export const WhatsNew: React.FC = () => {
 
   return (
     <div className="w-full px-[24px]">
-      <SquareTitle title={title} showArrowIcon redirectTo="/whats-new" />
+      <SquareTitle
+        title={title as string}
+        showArrowIcon
+        redirectTo="/whats-new"
+      />
 
       <div
         className={`pt-[24px] w-full`}

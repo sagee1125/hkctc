@@ -292,7 +292,7 @@ export const Support: React.FC = () => {
         />
       )}
       <Sidebar
-        title={"Support"}
+        title={support}
         sidebarItems={eventItems}
         activatedItems={activeSidebarItems}
         setActivatedItems={handleChangeSidebar}

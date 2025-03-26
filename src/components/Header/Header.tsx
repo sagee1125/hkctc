@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
             ...headerStyle,
           }}
         >
-          <p className="pl-4 items-center text-body-s">{HKCTC}</p>
+          <p className="pl-4 items-center text-body-s">{HKCTC as string}</p>
           <div className="flex flex-row gap-4 items-center pr-4">
             <div
               className="cursor-pointer"

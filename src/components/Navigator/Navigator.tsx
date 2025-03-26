@@ -162,7 +162,7 @@ export const Navigator: React.FC = () => {
           <>
             <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
               <p className="!text-body-s flex items-center justify-start">
-                {selectedExploreOption ?? explore_as}
+                {selectedExploreOption ?? (explore_as as string)}
               </p>
               <ChevronDownIcon
                 className={`h-[16px] w-[16px] text-[#666666] text-white transform transition-transform ${
@@ -783,7 +783,7 @@ export const Navigator: React.FC = () => {
                       <>
                         <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
                           <p className="!text-body-s">
-                            {selectedExploreOption ?? explore_as}
+                            {selectedExploreOption ?? (explore_as as string)}
                           </p>
                           <ChevronDownIcon
                             className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${

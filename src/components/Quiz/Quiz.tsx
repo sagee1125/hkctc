@@ -31,7 +31,7 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
-  const { isPC, language, getPageText } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
@@ -103,10 +103,13 @@ export const Quiz: React.FC = () => {
                       fontWeight: 700,
                     }}
                   >
-                    {isSimpleCN ? t2s(quick_quiz as string) : quick_quiz}
+                    {getSingleText(quick_quiz as string, quick_quiz as string)}
                   </p>
                   <p className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}>
-                    {isSimpleCN ? t2s(quizData.question) : quizData.question}
+                    {getSingleText(
+                      quizData.question as string,
+                      quizData.question as string
+                    )}
                   </p>
                   <div className="flex flex-col">
                     {Object.entries(quizData.quizAnswers).map(
@@ -205,7 +208,7 @@ export const Quiz: React.FC = () => {
                         </svg>
                       </div>
                       <p className={`text-[${quizData.theme}] text-heading-l`}>
-                        {correct}
+                        {correct as string}
                       </p>
                     </div>
                     <div className="py-[8px] text-highlight-s h-[260px] overflow-hidden">
@@ -296,7 +299,7 @@ export const Quiz: React.FC = () => {
                           setQuizStage(QuizStage.QUESTION_DISPLAY);
                         }}
                       >
-                        {next_question}
+                        {next_question as string}
                       </div>
                       <div
                         className="w-full py-auto flex flex-row gap-[8px] justify-center items-center cursor-pointer"
@@ -321,7 +324,7 @@ export const Quiz: React.FC = () => {
                             fill="white"
                           />
                         </svg>
-                        <p>{try_again}</p>
+                        <p>{try_again as string}</p>
                       </div>
                     </div>
                   </div>
@@ -362,11 +365,11 @@ export const Quiz: React.FC = () => {
                       </svg>
                     </div>
                     <p className={`text-[${quizData.theme}] text-heading-l`}>
-                      {false_answer}
+                      {false_answer as string}
                     </p>
                   </div>
                   <div className="py-[8px] text-highlight-s">
-                    {pls_try_again}
+                    {pls_try_again as string}
                   </div>
 
                   <div
@@ -385,7 +388,7 @@ export const Quiz: React.FC = () => {
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
                       }}
                     >
-                      {next_question}
+                      {next_question as string}
                     </div>
                     <div
                       className="w-full py-auto flex flex-row gap-[8px] justify-center items-center cursor-pointer"
@@ -410,7 +413,7 @@ export const Quiz: React.FC = () => {
                           fill="white"
                         />
                       </svg>
-                      <p>{try_again}</p>
+                      <p>{try_again as string}</p>
                     </div>
                   </div>
                 </div>

@@ -301,12 +301,12 @@ export const ProgrammesCourses: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
-      <p className="text-body-m mt-[24px] text-justify">{intro}</p>
+      <p className="text-body-m mt-[24px] text-justify">{intro as string}</p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{list_tertiary}</p>
+      <p className="text-heading-l">{list_tertiary as string} </p>
 
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {buttonArr.map((b, i) => {
@@ -335,8 +335,8 @@ export const ProgrammesCourses: React.FC = () => {
         </p>
       </div>
       <div className="bg-[#F7F7F5] border-[1px] border-[#E0E0E0] grid grid-cols-2 text-highlight-m">
-        <div className="py-[16px] px-[10px]">{institution}</div>
-        <div className="py-[16px] px-[10px]">{prog_name}</div>
+        <div className="py-[16px] px-[10px]">{institution as string}</div>
+        <div className="py-[16px] px-[10px]">{prog_name as string} </div>
       </div>
       <div className="border-x-[1px] border-[#E0E0E0] grid grid-cols-2 text-body-s">
         {degreeMap[activeButton].list.map((item, index) => (
@@ -369,12 +369,16 @@ export const ProgrammesCourses: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{other_course}</p>
-      <p className="text-heading-l text-trustfulBlue my-[24px]">{VTC}</p>
-      <p className="text-body-m text-justify">{VTC_detail}</p>
+      <p className="text-heading-l">{other_course as string}</p>
+      <p className="text-heading-l text-trustfulBlue my-[24px]">
+        {VTC as string}
+      </p>
+      <p className="text-body-m text-justify">{VTC_detail as string}</p>
 
-      <p className="text-heading-l text-trustfulBlue my-[24px]">{HKPC}</p>
-      <p className="text-body-m text-justify">{HKPC_detail}</p>
+      <p className="text-heading-l text-trustfulBlue my-[24px]">
+        {HKPC as string}
+      </p>
+      <p className="text-body-m text-justify">{HKPC_detail as string}</p>
     </div>
   );
 };

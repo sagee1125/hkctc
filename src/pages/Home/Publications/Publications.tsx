@@ -388,7 +388,7 @@ export const Publications: React.FC = () => {
           }  w-full`}
         >
           <div className={isPC ? "w-1/2" : "w-full"}>
-            <SquareTitle title={title} />
+            <SquareTitle title={title as string} />
           </div>
           {isPC && (
             <div className="w-1/2 justify-start" ref={containerRef}>
@@ -596,7 +596,7 @@ export const Publications: React.FC = () => {
                   }}
                   className="cursor-pointer"
                 >
-                  {explore_more}
+                  {explore_more as string}
                 </p>
               </div>
             </Container>
@@ -609,7 +609,7 @@ export const Publications: React.FC = () => {
           }}
         >
           <SquareTitle
-            title={learning_corner}
+            title={learning_corner as string}
             showArrowIcon
             redirectTo={`/career_and_education?section=${navItemEnum.learning_teaching_resources}`}
           />
@@ -673,7 +673,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "24px",
                       }}
                     >
-                      {stem_kit}
+                      {stem_kit as string}
                     </p>
                     <p
                       className={"text-white z-10"}
@@ -683,7 +683,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "22px",
                       }}
                     >
-                      {junior}
+                      {junior as string}
                     </p>
                   </div>
                 </div>
@@ -743,7 +743,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "24px",
                       }}
                     >
-                      {chemical_kit}
+                      {chemical_kit as string}
                     </p>
                     <p
                       className={"text-white z-10"}
@@ -753,7 +753,7 @@ export const Publications: React.FC = () => {
                         lineHeight: "22px",
                       }}
                     >
-                      {senior}
+                      {senior as string}
                     </p>
                   </div>
                 </div>
@@ -772,7 +772,7 @@ export const Publications: React.FC = () => {
               : "translate-x-full opacity-0"
           }`}
         >
-          <div className="text-heading-l">{resources}</div>
+          <div className="text-heading-l">{resources as string}</div>
           <div>
             {resourcesData.map((item, index) => {
               const { title, titleCN, icon, sideColor, bgImg, navTo } = item;

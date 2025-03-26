@@ -90,7 +90,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
   return (
     <div className="w-full">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mb-[24px]">
-        <p className="text-heading-m">{terms_of_ref}</p>
+        <p className="text-heading-m">{terms_of_ref as string}</p>
         <ul className="text-body-m mt-[16px]">
           {(refs as string[]).map((r, index) => (
             <li key={index} className="text-justify">
@@ -99,7 +99,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
           ))}
         </ul>
       </div>
-      <p className="text-heading-l">{membership}</p>
+      <p className="text-heading-l">{membership as string}</p>
       <p
         className="mt-[8px]"
         style={{
@@ -111,17 +111,19 @@ export const PanelManpowerDevelopment: React.FC = () => {
         2024-2025
       </p>
       <div className="mt-[28px]">
-        <p className="text-heading-m">{convener}</p>
-        <p className="text-highlight-l mt-[8px]">{dr_WNM}</p>
+        <p className="text-heading-m">{convener as string}</p>
+        <p className="text-highlight-l mt-[8px]">{dr_WNM as string}</p>
       </div>
 
-      <p className="text-heading-m mt-[32px] mb-[8px]">{members}</p>
+      <p className="text-heading-m mt-[32px] mb-[8px]">{members as string}</p>
       {(member_names as string[]).map((name, index) => (
         <p key={index} className="text-body-m">
           {name}
         </p>
       ))}
-      <p className="mt-[24px] text-heading-m mb-[8px]">{official_members}</p>
+      <p className="mt-[24px] text-heading-m mb-[8px]">
+        {official_members as string}
+      </p>
       <div className="text-body-m">
         {(official_member_name as string[]).map((m, index) => (
           <p key={index}>{m}</p>

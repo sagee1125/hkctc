@@ -609,9 +609,9 @@ const multilingual = {
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, language, getPageText, getSingleText, getSingleNode } =
+    useSettings();
+  const page_text = getPageText(multilingual);
   const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
   );
@@ -748,12 +748,12 @@ export const OverviewIOnCEPA: React.FC = () => {
     page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m mt-[24px]">
-        {since_the_signing}
+        {since_the_signing as string}
       </div>
-      <p className="text-heading-l my-[24px]">{time_line_title}</p>
+      <p className="text-heading-l my-[24px]">{time_line_title as string}</p>
       <div>
         <div className="w-full flex flex-col">
           {timeLineData.map((item, index) => (
@@ -782,8 +782,8 @@ export const OverviewIOnCEPA: React.FC = () => {
                   );
                 }}
               >
-                <p>{isEn ? item.date : item.dateCN}</p>
-                <div>{isEn ? item.event : item.eventCN}</div>
+                <p>{getSingleText(item.date, item.dateCN)}</p>
+                <div>{getSingleNode(item.event, item.eventCN)}</div>
               </div>
             </div>
           ))}
@@ -815,9 +815,9 @@ export const OverviewIOnCEPA: React.FC = () => {
                     );
                   }}
                 >
-                  <p>{isEn ? item.date : item.dateCN}</p>
+                  <p>{getSingleText(item.date, item.dateCN)}</p>
                   <p className="underline text-newPrimary">
-                    {isEn ? item.event : item.eventCN}
+                    {getSingleText(item.event, item.eventCN)}
                   </p>
                 </div>
               </div>
@@ -831,7 +831,7 @@ export const OverviewIOnCEPA: React.FC = () => {
               setTimelineCollapsed(!timelineCollapsed);
             }}
           >
-            {timelineCollapsed ? show_all : hide}
+            {timelineCollapsed ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
               sx={{
                 transform: !timelineCollapsed
@@ -845,7 +845,7 @@ export const OverviewIOnCEPA: React.FC = () => {
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{faq}</p>
+      <p className="text-heading-l">{faq as string}</p>
 
       <div>
         <div className="flex flex-wrap gap-[8px] my-[24px]">

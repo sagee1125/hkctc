@@ -27,9 +27,11 @@ const multilingual = {
 };
 
 export const SummaryOfCEPA: React.FC = () => {
-  const { language } = useSettings();
+  const { language, getPageText, getSingleNode } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const isSimple = language === Language.ZH_CN;
+
+  const page_text = getPageText(multilingual);
   const { title, table_heads, pre, show_all, hide } = page_text;
 
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -125,7 +127,7 @@ export const SummaryOfCEPA: React.FC = () => {
               setExpanded(!expanded);
             }}
           >
-            {!expanded ? show_all : hide}
+            {!expanded ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
               sx={{
                 transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
@@ -246,7 +248,7 @@ export const SummaryOfCEPA: React.FC = () => {
               setExpanded(!expanded);
             }}
           >
-            {!expanded ? show_all : hide}
+            {!expanded ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
               sx={{
                 transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
@@ -548,20 +550,37 @@ export const SummaryOfCEPA: React.FC = () => {
       </p>,
     ],
   ];
+
+  const sumTableRowsSimpleCN: JSX.Element[][] = sumTableRowsCN.map((row) =>
+    row.map((element) => getSingleNode(element, element))
+  );
+
+  const preTableRowsSimpleCN: JSX.Element[][] = preTableRowsCN.map((row) =>
+    row.map((element) => getSingleNode(element, element))
+  );
+
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div className="mt-[24px]">
         <SummaryTable
-          tableHeads={table_heads}
-          tableRows={isEn ? sumTableRows : sumTableRowsCN}
+          tableHeads={table_heads as string[]}
+          tableRows={
+            isEn
+              ? sumTableRows
+              : isSimple
+              ? sumTableRowsSimpleCN
+              : sumTableRowsCN
+          }
         />
       </div>
 
-      <p className="my-[24px] text-heading-l">{pre}</p>
+      <p className="my-[24px] text-heading-l">{pre as string}</p>
       <SummaryTable
-        tableHeads={table_heads}
-        tableRows={isEn ? preTableRows : preTableRowsCN}
+        tableHeads={table_heads as string[]}
+        tableRows={
+          isEn ? preTableRows : isSimple ? preTableRowsSimpleCN : preTableRowsCN
+        }
       />
     </div>
   );

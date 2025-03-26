@@ -106,9 +106,9 @@ export const AboutHKCTC: React.FC = () => {
   return (
     <div className="w-full text-justify">
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px]">
-        <p className="text-heading-m">{terms_of_ref}</p>
+        <p className="text-heading-m">{terms_of_ref as string}</p>
         <div className="text-body-m mt-[16px]">
-          <p>{to_advise}</p>
+          <p>{to_advise as string}</p>
           <ul className="ml-1">
             {(refs as string[]).map((r, index) => (
               <li className="flex flex-wrap text-justify" key={index}>
@@ -118,8 +118,8 @@ export const AboutHKCTC: React.FC = () => {
           </ul>
         </div>
       </div>
-      <p className="my-[24px] text-body-m text-justify">{heading}</p>
-      <p className="text-heading-l">{membership}</p>
+      <p className="my-[24px] text-body-m text-justify">{heading as string}</p>
+      <p className="text-heading-l">{membership as string}</p>
       <p
         className="mt-[8px]"
         style={{
@@ -132,11 +132,11 @@ export const AboutHKCTC: React.FC = () => {
       </p>
       <div className={`flex flex-col gap-[24px] mt-[22px]`}>
         <div>
-          <p className="text-heading-m">{chairman}</p>
-          <p className="text-highlight-l mt-[8px]">{prof_WWT}</p>
+          <p className="text-heading-m">{chairman as string}</p>
+          <p className="text-highlight-l mt-[8px]">{prof_WWT as string}</p>
         </div>
         <div>
-          <p className="text-heading-m mb-[8px]">{members}</p>
+          <p className="text-heading-m mb-[8px]">{members as string}</p>
           {(member_names as string[]).map((name, index) => (
             <p key={index} className="text-body-m">
               {name}
@@ -145,7 +145,7 @@ export const AboutHKCTC: React.FC = () => {
         </div>
       </div>
       <p className="text-heading-m mt-[22px] mb-[8px]">
-        {non_official_members}
+        {non_official_members as string}
       </p>
       {(non_official_member_name as string[]).map((name, index) => (
         <p key={index} className="text-body-m">

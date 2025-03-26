@@ -221,11 +221,11 @@ const ImportantNote: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px] text-justify">
       <div className="flex-1">
-        <SquareTitle title={title} />
+        <SquareTitle title={title as string} />
       </div>
       <div className="bg-[#F7F7F5]">
         <div className="px-[42px] py-[36px]">
-          <p className="text-body-m">{intro}</p>
+          <p className="text-body-m">{intro as string}</p>
         </div>
       </div>
 
@@ -237,32 +237,34 @@ const ImportantNote: React.FC = () => {
       <ul className="flex flex-col gap-[24px] list-disc ml-6">
         <li>
           <Link outerLink="https://www.microsoft.com/en-us/edge/?form=MA13FJ">
-            {edge}
+            {edge as string}
           </Link>
         </li>
         <li>
           <Link outerLink="https://www.mozilla.org/en-US/firefox/?v=c&utm_source=www.mozilla.org&utm_medium=download_button&utm_campaign=firefox_page&utm_content=downloader_email_form_experiment_vc">
-            {mozilla}
+            {mozilla as string}
           </Link>
         </li>
         <li>
-          <Link outerLink="https://www.apple.com/safari/">{safari}</Link>
+          <Link outerLink="https://www.apple.com/safari/">
+            {safari as string}
+          </Link>
         </li>
         <li>
           <Link outerLink="https://www.google.com/intl/en/chrome/">
-            {google}
+            {google as string}
           </Link>
         </li>
       </ul>
 
-      {please_download}
+      {please_download as string}
       <hr />
-      <div className="text-heading-l">{copyright}</div>
-      <div>{copyright_desc}</div>
+      <div className="text-heading-l">{copyright as string}</div>
+      <div>{copyright_desc as string}</div>
 
       <hr />
-      <div className="text-heading-l">{disclaimer}</div>
-      <div>{disclaimer_desc}</div>
+      <div className="text-heading-l">{disclaimer as string}</div>
+      <div>{disclaimer_desc as string}</div>
     </div>
   );
 };
@@ -276,13 +278,16 @@ const Accessibility: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <SquareTitle title={accessibility} />
-      <div className="text-heading-l">{web_accessibility}</div>
+      <SquareTitle title={accessibility as string} />
+      <div className="text-heading-l">{web_accessibility as string}</div>
 
-      <div className="text-body-m text-justify">{we_are_committed}</div>
+      <div className="text-body-m text-justify">
+        {we_are_committed as string}
+      </div>
       <div>
-        {tel} <Link>(852) 2180 9101</Link> <br />
-        {email} <a href="mailto:enquiry@hkctc.gov.hk">enquiry@hkctc.gov.hk</a>
+        {tel as string} <Link>(852) 2180 9101</Link> <br />
+        {email as string}{" "}
+        <a href="mailto:enquiry@hkctc.gov.hk">enquiry@hkctc.gov.hk</a>
       </div>
     </div>
   );
@@ -303,17 +308,19 @@ const Privacy: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <SquareTitle title={privacy_policy} />
-      <div className="text-heading-l text-justify">{policy_statement}</div>
+      <SquareTitle title={privacy_policy as string} />
+      <div className="text-heading-l text-justify">
+        {policy_statement as string}
+      </div>
 
-      <div className="text-body-m">{policy_desc}</div>
+      <div className="text-body-m">{policy_desc as string}</div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6 text-justify">
         {[policy_items as any[]].map((item: any, index: number) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <div className="italic text-justify">{enquiry}</div>
+      <div className="italic text-justify">{enquiry as string}</div>
     </div>
   );
 };
@@ -338,14 +345,14 @@ const Contact: React.FC = () => {
   } = page_text;
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <SquareTitle title={contact} />
+      <SquareTitle title={contact as string} />
       <div className="text-heading-l flex flex-row items-center">
         <img
           className="w-[24px] h-[24px] h-auto mr-[16px]"
           src={process.env.PUBLIC_URL + `/assets/icons/Location.svg`}
           alt={"contact"}
         />
-        {location}
+        {location as string}
       </div>
 
       <div>
@@ -354,14 +361,14 @@ const Contact: React.FC = () => {
         ))}
       </div>
 
-      <div className="font-semibold">{open_hours}</div>
+      <div className="font-semibold">{open_hours as string}</div>
       <div>
-        <p className="underline">{mon_to_fri}</p>
+        <p className="underline">{mon_to_fri as string}</p>
         {[time as any[]].map((t: any, i: number) => (
           <p key={i}>{t}</p>
         ))}
       </div>
-      <div>{closed_on}</div>
+      <div>{closed_on as string}</div>
 
       <hr />
 
@@ -371,12 +378,12 @@ const Contact: React.FC = () => {
           src={process.env.PUBLIC_URL + `/assets/icons/telephone.svg`}
           alt={"contact"}
         />
-        {tel_fax}
+        {tel_fax as string}
       </div>
 
       <div>
-        {tel_short} <b>(852) 2180 9101</b> <br />
-        {fax} <b>(852) 3691 8655</b>
+        {tel_short as string} <b>(852) 2180 9101</b> <br />
+        {fax as string} <b>(852) 3691 8655</b>
       </div>
 
       <hr />
@@ -387,11 +394,11 @@ const Contact: React.FC = () => {
           src={process.env.PUBLIC_URL + `/assets/icons/mail.svg`}
           alt={"contact"}
         />
-        {email_short}
+        {email_short as string}
       </div>
 
       <div>
-        {email}{" "}
+        {email as string}{" "}
         <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
           enquiry@hkctc.gov.hk
         </a>
@@ -490,8 +497,8 @@ const RelatedSite: React.FC = () => {
   ];
   return (
     <div className="w-full pr-[24px]">
-      <SquareTitle title={related_site} />
-      <div className="text-heading-l mt-[24px]">{gov}</div>
+      <SquareTitle title={related_site as string} />
+      <div className="text-heading-l mt-[24px]">{gov as string}</div>
       <div className="my-[24px]">
         <ul className="!text-linked-m mb-[8px]">
           <li>
@@ -501,7 +508,7 @@ const RelatedSite: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              {ITC}
+              {ITC as string}
             </a>
           </li>
         </ul>
@@ -513,7 +520,7 @@ const RelatedSite: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              {HKAS}
+              {HKAS as string}
             </a>
           </li>
           <li>
@@ -523,7 +530,7 @@ const RelatedSite: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              {SCL}
+              {SCL as string}
             </a>
           </li>
           <li>
@@ -533,7 +540,7 @@ const RelatedSite: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              {standard_related}
+              {standard_related as string}
             </a>
           </li>
         </ul>
@@ -544,13 +551,13 @@ const RelatedSite: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {gov_lab}
+              {gov_lab as string}
             </a>
           </li>
         </ul>
       </div>
 
-      <div className="text-heading-l mt-[24px]">{public_org}</div>
+      <div className="text-heading-l mt-[24px]">{public_org as string}</div>
 
       <div className="my-[24px]">
         <ul className="!text-linked-m gap-[8px]">
@@ -569,7 +576,9 @@ const RelatedSite: React.FC = () => {
         </ul>
       </div>
 
-      <div className="text-heading-l mt-[24px]">{trade_associations}</div>
+      <div className="text-heading-l mt-[24px]">
+        {trade_associations as string}
+      </div>
       <div className="my-[24px]">
         <ul className="!text-linked-m gap-[8px]">
           {tradeAssociationsMap.map((pb, index) => (
@@ -587,7 +596,7 @@ const RelatedSite: React.FC = () => {
         </ul>
       </div>
 
-      <div className="text-heading-l mt-[24px]">{mainland_org}</div>
+      <div className="text-heading-l mt-[24px]">{mainland_org as string}</div>
       <div className="my-[24px]">
         <ul className="!text-linked-m gap-[8px]">
           {mainlandOrgMap.map((pb, index) => (

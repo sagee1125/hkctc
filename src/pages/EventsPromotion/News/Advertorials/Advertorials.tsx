@@ -14,7 +14,6 @@ import {
   MEDIA_TYPE,
 } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
-import { t2s } from "chinese-s2t";
 
 const itemsPerPage = 9;
 
@@ -78,9 +77,8 @@ const multilingual = {
 };
 
 export const Advertorials: React.FC = () => {
-  const { language, isPC, getPageText } = useSettings();
+  const { language, isPC, getPageText, getSingleText } = useSettings();
   const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
 
   const page_text = getPageText(multilingual);
   const { title, about_tc, sv } = page_text;
@@ -281,7 +279,7 @@ export const Advertorials: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div>
         <NormalAccordion
           title={about_tc as string}
@@ -302,11 +300,10 @@ export const Advertorials: React.FC = () => {
                     }}
                   >
                     <p className="text-highlight-xs">
-                      {isEn
-                        ? isSimpleCN
-                          ? t2s(aboutTestingSector[name].label)
-                          : aboutTestingSector[name].label
-                        : aboutTestingSector[name].labelCN}
+                      {getSingleText(
+                        aboutTestingSector[name].label,
+                        aboutTestingSector[name].labelCN
+                      )}
                     </p>
                   </button>
                 );
@@ -336,11 +333,10 @@ export const Advertorials: React.FC = () => {
                     }}
                   >
                     <p className="text-highlight-xs">
-                      {isEn
-                        ? certificateSector[name].label
-                        : isSimpleCN
-                        ? t2s(certificateSector[name].labelCN)
-                        : certificateSector[name].labelCN}
+                      {getSingleText(
+                        certificateSector[name].label,
+                        certificateSector[name].labelCN
+                      )}
                     </p>
                   </button>
                 );

@@ -10,8 +10,8 @@ import * as pdfjsLib from "pdfjs-dist";
 import { useMediaQuery } from "@mui/material";
 import { t2s } from "chinese-s2t";
 
-interface LanguageResources {
-  [key: string]: string | string[] | JSX.Element;
+export interface LanguageResources {
+  [key: string]: string | string[] | JSX.Element | LanguageResources;
 }
 
 interface MultilingualResources {
@@ -38,6 +38,7 @@ type SettingsContextType = {
   withLoading: (callback: () => Promise<void>) => Promise<void>;
   getPageText(multilingualObj: MultilingualResources): LanguageResources;
   getSingleText(singleText: string, singleCNText: string): string;
+  getSingleNode(node: React.ReactNode, nodeCN: React.ReactNode): JSX.Element;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -104,7 +105,6 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
 
     return React.cloneElement(node, newProps, children);
   }
-
   function convertTraditionalToSimplified(
     traditionalObj: LanguageResources
   ): LanguageResources {
@@ -118,12 +118,28 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
           // 處理字符串
           simplifiedObj[key] = t2s(value);
         } else if (Array.isArray(value)) {
-          // 處理數組 (可能是 string[] 或 (string | JSX.Element)[])
-          simplifiedObj[key] = value.map((item) =>
-            typeof item === "string" ? t2s(item) : item
-          );
+          // 處理數組 (可能是 string[] 或 (string | JSX.Element | LanguageResources)[])
+          simplifiedObj[key] = value.map((item) => {
+            if (typeof item === "string") {
+              return t2s(item);
+            } else if (typeof item === "object" && item !== null) {
+              if (isValidElement(item)) {
+                return convertReactNode(item) as JSX.Element;
+              } else {
+                return convertTraditionalToSimplified(
+                  item as LanguageResources
+                );
+              }
+            }
+            return item;
+          }) as string | string[] | JSX.Element | LanguageResources;
         } else if (isValidElement(value)) {
           simplifiedObj[key] = convertReactNode(value) as JSX.Element;
+        } else if (typeof value === "object" && value !== null) {
+          // 處理嵌套對象
+          simplifiedObj[key] = convertTraditionalToSimplified(
+            value as LanguageResources
+          );
         } else {
           simplifiedObj[key] = value;
         }
@@ -131,6 +147,27 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
     }
 
     return simplifiedObj;
+  }
+
+  // 辅助函数：检查是否是React元素
+  function isValidElement(value: any): value is JSX.Element {
+    return value && typeof value === "object" && "$$typeof" in value;
+  }
+
+  function getSingleNode(
+    node: React.ReactNode,
+    nodeCN: React.ReactNode
+  ): JSX.Element {
+    switch (language) {
+      case Language.EN:
+        return node as JSX.Element;
+      case Language.ZH_TW:
+        return nodeCN as JSX.Element;
+      case Language.ZH_CN:
+        return convertReactNode(node) as JSX.Element;
+      default:
+        return node as JSX.Element;
+    }
   }
 
   function getPageText(
@@ -175,6 +212,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         pdfjsLib,
         getPageText,
         getSingleText,
+        getSingleNode,
       }}
     >
       {isLoading && (

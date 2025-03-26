@@ -160,9 +160,11 @@ export const VideoBox: React.FC = () => {
             >
               {isPC && (
                 <div className="text-white pr-[26em]">
-                  <p className="text-heading-xl">{welcome}</p>
+                  <p className="text-heading-xl">{welcome as string}</p>
 
-                  <p className="!text-body-m py-[24px]">{innoCarnival}</p>
+                  <p className="!text-body-m py-[24px]">
+                    {innoCarnival as string}
+                  </p>
                 </div>
               )}
               <div className="flex flex-row">
@@ -200,9 +202,9 @@ export const VideoBox: React.FC = () => {
 
       {!isPC && (
         <div className="text-white bg-newPrimary p-[14px]">
-          <p className="text-highlight-m">{welcome}</p>
+          <p className="text-highlight-m">{welcome as string}</p>
 
-          <p className="!text-body-xs pt-[16px]">{innoCarnival}</p>
+          <p className="!text-body-xs pt-[16px]">{innoCarnival as string}</p>
         </div>
       )}
       {/* progress*/}
