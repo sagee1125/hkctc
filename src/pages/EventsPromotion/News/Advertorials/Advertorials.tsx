@@ -46,7 +46,7 @@ function parseTitleToDate(title: string): Date {
   return new Date(0); // a default earliest date
 }
 
-function formatDateToChinese(dateStr: string): string {
+export function formatDateToChinese(dateStr: string): string {
   const date = new Date(dateStr);
 
   if (isNaN(date.getTime())) {

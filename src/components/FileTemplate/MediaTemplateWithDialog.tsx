@@ -613,13 +613,13 @@ export const MediaTemplateWithDialog: React.FC<
                 direction === "column" ? "between" : "center"
               } h-full w-full`}
             >
-              <p
+              <div
                 className={`text-highlight-${isPC ? "l" : "xs"} ${
                   titleUnderline ? "underline" : ""
                 }`}
               >
                 {title}
-              </p>
+              </div>
 
               {date ? (
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">

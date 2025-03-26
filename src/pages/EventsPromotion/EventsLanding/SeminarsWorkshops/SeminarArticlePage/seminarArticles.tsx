@@ -4211,15 +4211,14 @@ export const seminarsAndWorkshopsList_CN = [
       },
       {
         thumbnail: "", // if this pdf is from https://www.hkctc.gov.hk, no need to store the thumbnail, we can fetch the first page; otherwise we should save the img to file: seminarsAndWorkshopsThumbnails
-        title:
-          "Automated System for Concrete Cube and Steel Rebar Testing – Application of Innovation and Technologies",
+        title: "自動混凝土磚及鋼筋測試系統 - 創新科技的應用（只有英文版本）",
         type: "pdf",
         pdfLink: "https://www.hkctc.gov.hk/en/doc/230228_automated_system.pdf",
       },
       {
         thumbnail: "", // if this pdf is from https://www.hkctc.gov.hk, no need to store the thumbnail, we can fetch the first page; otherwise we should save the img to file: seminarsAndWorkshopsThumbnails
         title:
-          "Electronic Test Report Submission and Revision of the Requirements on the Use of 100 mm and 150 mm Concrete Cubes",
+          "電子測試報告和修改使用100mm及150mm混凝土立方塊的規定（只有英文版本）",
         type: "pdf",
         pdfLink: "https://www.hkctc.gov.hk/en/doc/230228_electronic_test.pdf",
       },

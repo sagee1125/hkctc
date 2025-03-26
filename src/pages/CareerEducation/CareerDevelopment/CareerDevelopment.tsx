@@ -94,7 +94,7 @@ export const CareerDevelopment: React.FC = () => {
     },
     {
       title: "Professional Certification Scheme for Testing Personnel",
-      titleCN: "Professional Certification Scheme for Testing Personnel",
+      titleCN: "檢測認證從業員的專業發展",
       imgUrl: "Other_Professional_Schemes.png",
       nav: `/career_and_education?section=${navItemEnum.other_professional_schemes}`,
     },
