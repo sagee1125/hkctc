@@ -50,7 +50,6 @@ const multilingual = {
     bottom: (
       <>
         如果你也想來走一躺，並考驗你衝出迷宮的能力，請點選一下漫畫書封面。或點擊
-        read the text version &nbsp;
         <a
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
           target="_blank"

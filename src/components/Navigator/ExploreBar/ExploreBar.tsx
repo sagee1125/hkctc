@@ -23,6 +23,16 @@ export const getCurrentTitle = (currentPath: string): string | null => {
   )?.title;
   return !findTitle ? null : findTitle;
 };
+
+const multilingual = {
+  en: {
+    explore_as: "Explore as",
+  },
+  cn: {
+    explore_as: "探索為",
+  },
+};
+
 export const ExploreBar: React.FC<ExploreBarProps> = ({
   isMobileView,
   isHidePCExploreBar,
@@ -99,14 +109,16 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   ];
 
   if (!isMobileView && isHidePCExploreBar) return <></>;
-
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { explore_as } = page_text;
   return (
     <nav>
       {isMobileView ? (
         <></>
       ) : (
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
-          <p className="text-highlight-s"></p>
+          <p className="text-highlight-s">{explore_as}</p>
           <img
             className="w-[12px] h-[12px] ml-[8px] mr-[16px]"
             src={process.env.PUBLIC_URL + "/assets/icons/arrow_right.svg"}

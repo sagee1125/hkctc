@@ -13,7 +13,7 @@ const multilingual = {
 
   cn: {
     enquiries: `查詢`,
-    contact: "聯係我們以了解有關測試和認證的更多信息",
+    contact: "聯繫我們以了解有關測試和認證的更多信息",
     name: "姓名",
     email: "電子郵件",
     write_down: "寫下你的訊息",

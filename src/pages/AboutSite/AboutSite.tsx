@@ -117,7 +117,7 @@ const multilingual = {
   },
 
   cn: {
-    title: "重要聲明",
+    title: "重要告示",
     home: `主頁`,
     about_site: "關於本網站",
     intro:
@@ -638,7 +638,7 @@ const componentMapping: Record<ABOUT_SIDE_MODULE, React.ReactNode> = {
 const directoryItems: DirectorySidebarItems[] = [
   {
     label: ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
-    labelCN: "重要聲明",
+    labelCN: "重要告示",
     value: ABOUT_SIDE_MODULE.IMPORTANT_NOTE,
   },
   {
