@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowForwardIos } from "@mui/icons-material";
+import { t2s } from "chinese-s2t";
 import { QUIZ, QuizStage, type QuizAnswers } from "./types";
 import { quizInteractionCNMap, quizInteractionMap } from "./const";
 import { Language, useSettings } from "../../context";
@@ -30,9 +31,14 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
-  const { isPC, language } = useSettings();
+  const { isPC, language, convertTraditionalToSimplified } = useSettings();
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
+
   const {
     next_question,
     try_again,
@@ -54,7 +60,7 @@ export const Quiz: React.FC = () => {
       ? quizInteractionMap[quiz]
       : quizInteractionCNMap[quiz];
   const showPaginator = quizData.explanation.length > 1;
-
+  const isSimpleCN = language === Language.ZH_CN;
   useEffect(() => {
     // Check if quizInteractionMap is ready (assuming it is static in your case,
     // but if it's async, you might want to check for async loading completion)
@@ -102,10 +108,10 @@ export const Quiz: React.FC = () => {
                       fontWeight: 700,
                     }}
                   >
-                    {quick_quiz}
+                    {isSimpleCN ? t2s(quick_quiz as string) : quick_quiz}
                   </p>
                   <p className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}>
-                    {quizData.question}
+                    {isSimpleCN ? t2s(quizData.question) : quizData.question}
                   </p>
                   <div className="flex flex-col">
                     {Object.entries(quizData.quizAnswers).map(
@@ -148,7 +154,8 @@ export const Quiz: React.FC = () => {
                                 quizData.theme
                               }] text-heading-${isPC ? "s" : "xs"} w-[260px]`}
                             >
-                              {optionCharacter}.&nbsp;{answer[1]}
+                              {optionCharacter}.&nbsp;
+                              {isSimpleCN ? answer[1] : t2s(answer[1])}
                             </p>
                           </div>
                         );

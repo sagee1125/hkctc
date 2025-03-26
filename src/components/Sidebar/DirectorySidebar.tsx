@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Drawer } from "@mui/material";
 import { Language, useSettings } from "../../context";
+import { t2s } from "chinese-s2t";
 
 export type DirectorySidebarItems = {
   label: string;
@@ -24,6 +25,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
   const { isPC, language } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const isEn = language === Language.EN;
+  const isSimpleCN = language === Language.ZH_CN;
+
   const sidebarContent = (
     <>
       <div className="flex flex-col gap-[0] w-full">
@@ -61,7 +64,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               key={index}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
-                {isEn ? item.label : item.labelCN}
+                {isEn
+                  ? item.label
+                  : isSimpleCN
+                  ? t2s(item.labelCN)
+                  : item.labelCN}
               </p>
 
               {isActivated ? (
@@ -79,6 +86,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
       </div>
     </>
   );
+  const content_list = isEn
+    ? `Content List`
+    : isSimpleCN
+    ? t2s("內容列表")
+    : "內容列表";
   if (isPC) return <>{sidebarContent}</>;
   else
     return (
@@ -98,7 +110,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             setIsOpen(true);
           }}
         >
-          {isEn ? `Content List` : "內容列表"}
+          {content_list}
         </button>
 
         <Drawer
@@ -117,9 +129,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
         >
           <div className="flex flex-col w-full">
             <div className="w-full flex flex-row justify-between items-center pb-[24px]">
-              <p className="text-heading-m text-newPrimary">
-                {isEn ? `Content List` : "內容列表"}
-              </p>
+              <p className="text-heading-m text-newPrimary">{content_list}</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

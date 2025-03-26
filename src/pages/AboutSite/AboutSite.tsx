@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { t2s } from "chinese-s2t";
 import {
   DirectorySidebar,
   BannerPhotoBox,
@@ -10,6 +11,7 @@ import {
   maxPCContainer,
   maxMobileContainer,
   type DirectorySidebarItems,
+  type BreadcrumbItem,
 } from "../../components";
 import { Language, useSettings } from "../../context";
 
@@ -20,22 +22,11 @@ const multilingual = {
     title: "Important Notices",
     intro:
       "This web site is produced and maintained by the Hong Kong Council for Testing and Certification (HKCTC), the Innovation and Technology Commission (the Commission) of the Hong Kong Special Administrative Region Government of the People's Republic of China.",
-    desc: (
-      <>
-        The webpages on HKCTC are viewable on most modern browsers. HKCTC
-        follows the HTML5 standard and does not make use of browser-specific
-        features. However, each computer system displays fonts slightly
-        differently and some users may have adjusted the default font size and
-        screen resolution on their computers. As a result, the webpages on HKCTC
-        may be displayed differently on computer systems with different
-        configurations.
-        <br />
-        <br />
-        The webpages on HKCTC are best viewed with the latest version of Edge,
-        Mozilla Firefox, Safari or Google Chrome. To update your browsers,
-        please visit one of the websites listed below:
-      </>
-    ),
+    desc: [
+      "The webpages on HKCTC are viewable on most modern browsers. HKCTC follows the HTML5 standard and does not make use of browser-specific features. However, each computer system displays fonts slightly differently and some users may have adjusted the default font size and screen resolution on their computers. As a result, the webpages on HKCTC may be displayed differently on computer systems with different configurations.",
+
+      "The webpages on HKCTC are best viewed with the latest version of Edge, Mozilla Firefox, Safari or Google Chrome. To update your browsers, please visit one of the websites listed below:",
+    ],
     edge: "Edge Product Home Page",
     safari: "Safari Product Home Page",
     mozilla: "Mozilla Firefox Product Home Page",
@@ -122,15 +113,10 @@ const multilingual = {
     about_site: "關於本網站",
     intro:
       "本網站由香港特別行政區創新科技署(下稱「本署」)、香港檢測和認證局負責製作及管理。",
-    desc: (
-      <>
-        大部分近年的瀏覽器均能用於瀏覽香港檢測和認證局網頁（下稱「本網站」）。本網站採用HTML5標準，並沒有使用只適用於某種瀏覽器的功能。不過，每部電腦所顯示的字型均有些微差異，而每位使用者或會調校不同的預設字型大小及螢幕解像度。因此，根據不同電腦系統的配置，本網站顯示或會不同。
-        <br />
-        <br />
-        以最新版本的Edge，Mozilla Firefox，Safari及Google
-        Chrome瀏覽器閱讀本網站效果最佳。若你仍然使用這些瀏覽器的舊版本，我們建議你盡快更新至最新版本。請瀏覽以下網頁以更新你的瀏覽器：
-      </>
-    ),
+    desc: [
+      "大部分近年的瀏覽器均能用於瀏覽香港檢測和認證局網頁（下稱「本網站」）。本網站採用HTML5標準，並沒有使用只適用於某種瀏覽器的功能。不過，每部電腦所顯示的字型均有些微差異，而每位使用者或會調校不同的預設字型大小及螢幕解像度。因此，根據不同電腦系統的配置，本網站顯示或會不同。",
+      "以最新版本的Edge，Mozilla Firefox，Safari及Google Chrome瀏覽器閱讀本網站效果最佳。若你仍然使用這些瀏覽器的舊版本，我們建議你盡快更新至最新版本。請瀏覽以下網頁以更新你的瀏覽器：",
+    ],
     edge: "Edge產品網頁",
     safari: "Safari產品網頁",
     google: "Google Chrome產品網頁",
@@ -214,10 +200,15 @@ const multilingual = {
 };
 
 const ImportantNote: React.FC = () => {
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
 
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
+
   const {
     title,
     intro,
@@ -243,7 +234,10 @@ const ImportantNote: React.FC = () => {
         </div>
       </div>
 
-      <div>{desc}</div>
+      <div>
+        {(desc as string[])[0]} <br /> <br />
+        {(desc as string[])[1]}
+      </div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6">
         <li>
@@ -279,10 +273,14 @@ const ImportantNote: React.FC = () => {
 };
 
 const Accessibility: React.FC = () => {
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
 
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
   const { accessibility, web_accessibility, we_are_committed, tel, email } =
     page_text;
 
@@ -301,10 +299,14 @@ const Accessibility: React.FC = () => {
 };
 
 const Privacy: React.FC = () => {
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
 
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
   const {
     privacy_policy,
     policy_statement,
@@ -321,8 +323,8 @@ const Privacy: React.FC = () => {
       <div className="text-body-m">{policy_desc}</div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6 text-justify">
-        {policy_items.map((item, i) => (
-          <li key={i}>{item}</li>
+        {[policy_items as any[]].map((item: any, index: number) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
       <div className="italic text-justify">{enquiry}</div>
@@ -331,10 +333,14 @@ const Privacy: React.FC = () => {
 };
 
 const Contact: React.FC = () => {
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
 
   const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+    language === Language.EN
+      ? multilingual.en
+      : language === Language.ZH_TW
+      ? multilingual.cn
+      : convertTraditionalToSimplified(multilingual.cn);
   const {
     contact,
     email,
@@ -362,7 +368,7 @@ const Contact: React.FC = () => {
       </div>
 
       <div>
-        {location_detail.map((d, i) => (
+        {[location_detail as any[]].map((d: any, i: number) => (
           <p key={i}>{d}</p>
         ))}
       </div>
@@ -370,7 +376,7 @@ const Contact: React.FC = () => {
       <div className="font-semibold">{open_hours}</div>
       <div>
         <p className="underline">{mon_to_fri}</p>
-        {time.map((t, i) => (
+        {[time as any[]].map((t: any, i: number) => (
           <p key={i}>{t}</p>
         ))}
       </div>
@@ -414,9 +420,14 @@ const Contact: React.FC = () => {
 };
 
 const RelatedSite: React.FC = () => {
-  const { language } = useSettings();
+  const { language, convertTraditionalToSimplified } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+  const page_text = isEn
+    ? multilingual.en
+    : language === Language.ZH_TW
+    ? multilingual.cn
+    : convertTraditionalToSimplified(multilingual.cn);
   const {
     related_site,
     gov,
@@ -573,7 +584,7 @@ const RelatedSite: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : pb.titleCN}
+                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
               </a>
             </li>
           ))}
@@ -591,7 +602,7 @@ const RelatedSite: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : pb.titleCN}
+                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
               </a>
             </li>
           ))}
@@ -609,7 +620,7 @@ const RelatedSite: React.FC = () => {
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : pb.titleCN}
+                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
               </a>
             </li>
           ))}
@@ -666,9 +677,15 @@ const directoryItems: DirectorySidebarItems[] = [
 export const AboutSite: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
+  const { isPC, language, convertTraditionalToSimplified } = useSettings();
   const isEN = language === Language.EN;
-  const page_text = isEN ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+
+  const page_text = isEN
+    ? multilingual.en
+    : language === Language.ZH_TW
+    ? multilingual.cn
+    : convertTraditionalToSimplified(multilingual.cn);
   const { home, about_site } = page_text;
   const queryParams = new URLSearchParams(location.search);
 
@@ -708,7 +725,12 @@ export const AboutSite: React.FC = () => {
     { label: home, href: "/hkctc" },
     { label: about_site, href: "/about-the-site" },
     {
-      label: (isEN ? findObj?.label : findObj?.labelCN) ?? "",
+      label:
+        (isEN
+          ? findObj?.label
+          : isSimpleCN
+          ? t2s(findObj?.labelCN ?? "")
+          : findObj?.labelCN) ?? "",
     },
   ];
 
@@ -718,7 +740,7 @@ export const AboutSite: React.FC = () => {
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
 

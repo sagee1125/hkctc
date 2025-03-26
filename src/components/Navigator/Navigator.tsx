@@ -19,6 +19,7 @@ import {
   Paper,
   Popper,
 } from "@mui/material";
+import { t2s } from "chinese-s2t";
 
 const hideExploreBar = [
   "/events-landing",
@@ -82,7 +83,8 @@ const multilingual = {
 };
 
 export const Navigator: React.FC = () => {
-  const { isPC, handleChangeLang, language } = useSettings();
+  const { isPC, handleChangeLang, language, convertTraditionalToSimplified } =
+    useSettings();
   const location = useLocation();
   const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -91,7 +93,13 @@ export const Navigator: React.FC = () => {
     string | null
   >(getCurrentTitle(currentPath));
   const showEn = language === Language.EN;
-  const page_text = showEn ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
+
+  const page_text = showEn
+    ? multilingual.en
+    : isSimpleCN
+    ? convertTraditionalToSimplified(multilingual.cn)
+    : multilingual.cn;
   const { explore_as } = page_text;
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
@@ -190,7 +198,11 @@ export const Navigator: React.FC = () => {
                         }}
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
-                        {showEn ? item.title : item.titleCN}
+                        {showEn
+                          ? item.title
+                          : isSimpleCN
+                          ? t2s(item.titleCN)
+                          : item.titleCN}
                       </button>
                     )}
                   </Menu.Item>
@@ -241,7 +253,11 @@ export const Navigator: React.FC = () => {
                     {NavigationBarConfiguration.map((nav, ncIndex) => {
                       const { title, titleCN, items, navUrl } = nav;
                       const ifHideArrow: boolean = !items.length;
-                      const displayTitle = showEn ? title : titleCN;
+                      const displayTitle = showEn
+                        ? title
+                        : isSimpleCN
+                        ? t2s(titleCN)
+                        : titleCN;
                       return (
                         <div
                           key={ncIndex}
@@ -450,6 +466,8 @@ export const Navigator: React.FC = () => {
                                     const ifHideArrow: boolean = !items.length;
                                     const displayTitle = showEn
                                       ? title
+                                      : isSimpleCN
+                                      ? t2s(titleCN)
                                       : titleCN;
 
                                     return (
@@ -511,6 +529,12 @@ export const Navigator: React.FC = () => {
                                     {showEn
                                       ? NavigationBarConfiguration[activeIndex]
                                           .title
+                                      : isSimpleCN
+                                      ? t2s(
+                                          NavigationBarConfiguration[
+                                            activeIndex
+                                          ].titleCN
+                                        )
                                       : NavigationBarConfiguration[activeIndex]
                                           .titleCN}
                                   </p>
@@ -545,6 +569,8 @@ export const Navigator: React.FC = () => {
                                                   >
                                                     {showEn
                                                       ? navItems[0].name
+                                                      : isSimpleCN
+                                                      ? t2s(navItems[0].nameCN)
                                                       : navItems[0].nameCN}
                                                   </div>
                                                 </div>
@@ -576,6 +602,10 @@ export const Navigator: React.FC = () => {
                                                             <div className="text-body-m">
                                                               {showEn
                                                                 ? subTitle
+                                                                : isSimpleCN
+                                                                ? t2s(
+                                                                    sub.subTitleCN
+                                                                  )
                                                                 : sub.subTitleCN}
                                                             </div>
                                                           </div>
@@ -617,6 +647,10 @@ export const Navigator: React.FC = () => {
                                                           >
                                                             {showEn
                                                               ? sideName
+                                                              : isSimpleCN
+                                                              ? t2s(
+                                                                  sideItem.nameCN
+                                                                )
                                                               : sideItem.nameCN}
                                                           </p>
 
@@ -668,6 +702,10 @@ export const Navigator: React.FC = () => {
                                                                       <div className="text-body-m">
                                                                         {showEn
                                                                           ? subTitle
+                                                                          : isSimpleCN
+                                                                          ? t2s(
+                                                                              sub.subTitleCN
+                                                                            )
                                                                           : sub.subTitleCN}
                                                                       </div>
                                                                     </div>
@@ -709,6 +747,8 @@ export const Navigator: React.FC = () => {
                                                       <div className="text-body-m">
                                                         {showEn
                                                           ? subTitle
+                                                          : isSimpleCN
+                                                          ? t2s(sub.subTitleCN)
                                                           : sub.subTitleCN}
                                                       </div>
                                                     </div>
@@ -843,6 +883,8 @@ export const Navigator: React.FC = () => {
                                 <div className="text-highlight-s">
                                   {showEn
                                     ? navItems[0].name
+                                    : isSimpleCN
+                                    ? t2s(navItems[0].nameCN)
                                     : navItems[0].nameCN}
                                 </div>
                               </div>
@@ -863,7 +905,11 @@ export const Navigator: React.FC = () => {
                                         setActiveSubItem(sideName);
                                       }}
                                     >
-                                      {showEn ? sideName : nameCN}
+                                      {showEn
+                                        ? sideName
+                                        : isSimpleCN
+                                        ? t2s(nameCN)
+                                        : nameCN}
                                     </div>
                                   );
                                 })}
@@ -898,7 +944,11 @@ export const Navigator: React.FC = () => {
                               </div>
                             )}
                             <div className="w-full text-left text-body-s">
-                              {showEn ? subTitle : sub.subTitleCN}
+                              {showEn
+                                ? subTitle
+                                : isSimpleCN
+                                ? t2s(sub.subTitleCN)
+                                : sub.subTitleCN}
                             </div>
                           </div>
                         );
