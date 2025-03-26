@@ -38,27 +38,27 @@ export const Footer: React.FC = () => {
     {
       label: "Important Notices",
       labelCN: "重要告示",
-      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.IMPORTANT_NOTE}`,
+      link: `/about-the-site?section=${ABOUT_SIDE_MODULE.IMPORTANT_NOTE}`,
     },
     {
       label: "Accessibility",
       labelCN: "無障礙網頁守則",
-      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.ACCESSIBILITY}`,
+      link: `/about-the-site?section=${ABOUT_SIDE_MODULE.ACCESSIBILITY}`,
     },
     {
       label: "Privacy Policy",
       labelCN: "私隱政策聲明",
-      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.PRIVACY}`,
+      link: `/about-the-site?section=${ABOUT_SIDE_MODULE.PRIVACY}`,
     },
     {
       label: "Contact Us",
       labelCN: "聯絡我們",
-      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.CONTACT}`,
+      link: `/about-the-site?section=${ABOUT_SIDE_MODULE.CONTACT}`,
     },
     {
       label: "Related Site",
       labelCN: "相關網址",
-      link: `/about-the-site?am=${ABOUT_SIDE_MODULE.RELATED_SITE}`,
+      link: `/about-the-site?section=${ABOUT_SIDE_MODULE.RELATED_SITE}`,
     },
   ];
 

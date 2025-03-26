@@ -49,7 +49,7 @@ const multilingual = {
       "《衝出迷宮：生活中的檢測認證》是一本中文漫畫書，講述Samantha和阿祖兩位少年勇者如何安全闖出迷宮的成長歷險故事。迷宮提出檢測和認證範疇的問題，不易回答，安全過關並不是想像中的輕易...",
     bottom: (
       <>
-        如果你也想來走一躺，並考驗你衝出迷宮的能力，請點選一下漫畫書封面。Or
+        如果你也想來走一躺，並考驗你衝出迷宮的能力，請點選一下漫畫書封面。或點擊
         read the text version &nbsp;
         <a
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
@@ -57,9 +57,9 @@ const multilingual = {
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          here
+          此處
         </a>
-        .
+        閲讀文字版本。
       </>
     ),
   },

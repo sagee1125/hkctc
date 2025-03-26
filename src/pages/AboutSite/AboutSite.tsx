@@ -61,7 +61,51 @@ const multilingual = {
         Format (PDF).
       </div>
     ),
+    accessibility: "Accessibility",
+    web_accessibility: "Web Accessibility Conformance",
+    we_are_committed:
+      "We are committed to ensuring that our website conforms to the World Wide Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG) 2.0 Level AA requirements to the maximum extent possible. However, as our website contains considerable multi-media contents from third parties, it is not possible to incorporate all Level AA accessibility requirements in all of them. Nonetheless, the multi-media contents are so located as not to affect the accessibility of significant contents in our website. Should you have any enquires or comments on its accessibility, please contact us by phone or email.",
+    tel: "Telephone number:",
+    email: "Email address:",
+    email_short: "Email",
+    privacy_policy: "Privacy Policy",
+    policy_statement: "Policy Statement",
+    policy_desc:
+      "The HKCTC is committed to ensuring that all personal data are handled in accordance with the provisions of the Personal Data (Privacy) Ordinance. The Commission sets procedures to ensure good practices within the Commission on the acquisition, collection, recording, storage, disclosure, correction, erasure and communication of personal data kept by the Commission on its employees and members of the public. The Commission's policy and general practices are summarized as follows:",
+    policy_items: [
+      "to collect adequate, but not excessive, personal data by lawful and fair means only for lawful purposes directly related to the functions or activities of this Commission;",
+      "to take all reasonably practicable steps to ensure that the personal data collected or retained are accurate, having regard to the purposes for which they are to be used;",
+      "to take all reasonably practicable steps to ensure that a person can be informed of the kinds of personal data that the Commission holds, the purposes for which the data are to be used, whether the person is obliged to supply the data, and the consequences of not supplying the data;",
+      "to erase personal data which are no longer necessary for the purposes for which they are to be used;",
+      "to use the personal data collected only for purposes or directly related purposes for which the data were to be used at the time of collection, unless the individual concerned has given prior consent for a change of use or such use is permitted by law;",
+      "to take all reasonably practicable steps to ensure that personal data held are protected against unauthorised or accidental access, processing, erasure or other use; and",
+      "to allow persons to access and correct personal data of which they are the data subjects and process any such access/correction requests in a manner permitted or required by law. Photocopies of the data requested will only be provided upon payment of charges. The requester will be advised in advance of the charges.",
+    ],
+    enquiry: (
+      <>
+        For enquiry, please contact us at{" "}
+        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+          enquiry@hkctc.gov.hk
+        </a>
+        .
+      </>
+    ),
+    contact: "Contact Us",
+    location: "Location",
+    fax: "Fax:",
+    location_detail: [
+      "Secretariat, Hong Kong Council for Testing and Certification",
+      "Innovation and Technology Commission",
+      "Units 801-04, 8/F, The Hub, 23 Yip Kan Street, Wong Chuk Hang, Hong Kong",
+    ],
+    open_hours: "Opening Hours:",
+    closed_on: "Closed on Saturdays, Sundays and public holidays",
+    tel_fax: "Telephone/ Fax",
+    tel_short: "Tel:",
+    mon_to_fri: "Monday to Friday",
+    time: ["8:45 am - 12:30 pm", "1:30 pm - 6:00 pm"],
   },
+
   cn: {
     title: "重要聲明",
     home: `主頁`,
@@ -102,6 +146,49 @@ const multilingual = {
         瀏覽及列印PDF格式檔案文件。
       </div>
     ),
+    accessibility: "無障礙訪問",
+    web_accessibility: "無障礙網頁守則",
+    we_are_committed:
+      "我們承諾盡力確保本網站符合萬維網聯盟（W3C）《無障礙網頁內容指引》（WCAG）2.0 AA級別標準，但本網站載有大量由第三方提供的多媒體內容，要規定這類內容全部符合所有AA級別標準並不可能。儘管如此，這類多媒體內容會擺放在特定位置，確保不會阻礙用戶接觸本網站所載的重要內容。如對本網站在使用上有任何查詢或意見，請致電或發送電郵與我們聯絡。",
+    tel: "電話號碼：",
+    email: "電郵地址：",
+    email_short: "電郵",
+    privacy_policy: "隱私政策",
+    policy_statement: "私隱政策聲明",
+    policy_desc:
+      "香港檢測和認證局致力確保按照《個人資料(私隱)條例》的規定，處理所有個人資料。本署就有關獲取、收集、記錄、保存、披露、更改、刪除和傳遞所保存的僱員及市民個人資料制定程序，以確保採取恰當的做法。本署就處理個人資料所採取的政策及守則概述如下：",
+    policy_items: [
+      "以合法和公平的方法收集足夠但不超乎適度的個人資料，而該等資料必須只供用作直接與本署職能及活動有關的合法用途；",
+      "在顧及個人資料所作用途的同時，採取一切合理而切實可行的步驟，確保所收集或保存的資料準確無誤；",
+      "採取一切合理而切實可行的步驟，確保任何人均可得知本署所持有個人資料的類別、有關資料所作的用途、是否有責任提供該等資料，以及拒絕提供資料的後果；",
+      "刪除不再需要作原有用途的個人資料；",
+      "除非事先獲得有關人士的同意改變資料的用途，或該等用途得到法律准許，否則本署只會把所收集的個人資料用於收集資料時所述明的用途，或與此直接有關的用途；",
+      "採取一切合理而切實可行的步驟，確保個人資料受到保障，不會在未經許可或意外的情況下被他人查閱、處理、刪除或作其他用途；",
+      "准許有關資料的當事人查閱和改正其個人資料，並會按法律准許或規定的方式，處理有關查閱／改正個人資料的要求。本署在收取費用後，便會向申請人發出所需資料的影印本，並會事先通知申請人所需繳交的費用。",
+    ],
+    enquiry: (
+      <>
+        如有查詢，請電郵至
+        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+          enquiry@hkctc.gov.hk
+        </a>
+        與我們聯絡。
+      </>
+    ),
+    contact: "聯絡我們",
+    location: "地址",
+    location_detail: [
+      "創新科技署",
+      "香港檢測和認證局秘書處",
+      "香港黃竹坑業勤街23號 The Hub 8樓801-04室",
+    ],
+    fax: "傳真：",
+    open_hours: "辦公時間：",
+    closed_on: "星期六、日及公衆假期休息",
+    tel_fax: "電話/傳真",
+    tel_short: "電話：",
+    mon_to_fri: "星期一至五",
+    time: ["上午8時45分至下午12時30分", "下午1時30分至6時正"],
   },
 };
 
@@ -171,129 +258,102 @@ const ImportantNote: React.FC = () => {
 };
 
 const Accessibility: React.FC = () => {
+  const { language } = useSettings();
+
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { accessibility, web_accessibility, we_are_committed, tel, email } =
+    page_text;
+
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <SquareTitle title="Accessibility" />
-      <div className="text-heading-l">Web Accessibility Conformance</div>
+      <SquareTitle title={accessibility} />
+      <div className="text-heading-l">{web_accessibility}</div>
 
-      <div className="text-body-m">
-        We are committed to ensuring that our website conforms to the World Wide
-        Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG) 2.0
-        Level AA requirements to the maximum extent possible. However, as our
-        website contains considerable multi-media contents from third parties,
-        it is not possible to incorporate all Level AA accessibility
-        requirements in all of them. Nonetheless, the multi-media contents are
-        so located as not to affect the accessibility of significant contents in
-        our website. Should you have any enquires or comments on its
-        accessibility, please contact us by phone or email.
-      </div>
+      <div className="text-body-m text-justify">{we_are_committed}</div>
       <div>
-        Telephone number: <Link>(852) 2180 9101</Link> <br />
-        Email address: <Link>enquiry@hkctc.gov.hk</Link>
+        {tel} <Link>(852) 2180 9101</Link> <br />
+        {email} <a href="mailto:enquiry@hkctc.gov.hk">enquiry@hkctc.gov.hk</a>
       </div>
     </div>
   );
 };
 
 const Privacy: React.FC = () => {
+  const { language } = useSettings();
+
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    privacy_policy,
+    policy_statement,
+    policy_desc,
+    policy_items,
+    enquiry,
+  } = page_text;
+
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <div className="flex-1">
-        <SquareTitle title="Privacy Policy" />
-      </div>
-      <div className="text-heading-l">Policy Statement</div>
+      <SquareTitle title={privacy_policy} />
+      <div className="text-heading-l text-justify">{policy_statement}</div>
 
-      <div className="text-body-m">
-        The HKCTC is committed to ensuring that all personal data are handled in
-        accordance with the provisions of the Personal Data (Privacy) Ordinance.
-        The Commission sets procedures to ensure good practices within the
-        Commission on the acquisition, collection, recording, storage,
-        disclosure, correction, erasure and communication of personal data kept
-        by the Commission on its employees and members of the public. The
-        Commission's policy and general practices are summarized as follows:
-      </div>
+      <div className="text-body-m">{policy_desc}</div>
 
-      <ul className="flex flex-col gap-[24px] list-disc ml-6">
-        <li>
-          to collect adequate, but not excessive, personal data by lawful and
-          fair means only for lawful purposes directly related to the functions
-          or activities of this Commission;
-        </li>
-        <li>
-          to take all reasonably practicable steps to ensure that the personal
-          data collected or retained are accurate, having regard to the purposes
-          for which they are to be used;
-        </li>
-
-        <li>
-          to take all reasonably practicable steps to ensure that a person can
-          be informed of the kinds of personal data that the Commission holds,
-          the purposes for which the data are to be used, whether the person is
-          obliged to supply the data, and the consequences of not supplying the
-          data;
-        </li>
-        <li>
-          to erase personal data which are no longer necessary for the purposes
-          for which they are to be used;
-        </li>
-
-        <li>
-          to use the personal data collected only for purposes or directly
-          related purposes for which the data were to be used at the time of
-          collection, unless the individual concerned has given prior consent
-          for a change of use or such use is permitted by law;
-        </li>
-
-        <li>
-          to take all reasonably practicable steps to ensure that personal data
-          held are protected against unauthorised or accidental access,
-          processing, erasure or other use; and
-        </li>
-
-        <li>
-          to allow persons to access and correct personal data of which they are
-          the data subjects and process any such access/correction requests in a
-          manner permitted or required by law. Photocopies of the data requested
-          will only be provided upon payment of charges. The requester will be
-          advised in advance of the charges.
-        </li>
+      <ul className="flex flex-col gap-[24px] list-disc ml-6 text-justify">
+        {policy_items.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
       </ul>
-
-      <div className="italic">
-        For enquiry, please contact us at <Link>enquiry@hkctc.gov.hk</Link>.
-      </div>
+      <div className="italic text-justify">{enquiry}</div>
     </div>
   );
 };
 
 const Contact: React.FC = () => {
+  const { language } = useSettings();
+
+  const page_text =
+    language === Language.EN ? multilingual.en : multilingual.cn;
+  const {
+    contact,
+    email,
+    email_short,
+    location,
+    fax,
+    location_detail,
+    open_hours,
+    closed_on,
+    tel_fax,
+    tel_short,
+    mon_to_fri,
+    time,
+  } = page_text;
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px]">
-      <div className="flex-1">
-        <SquareTitle title="Contact Us" />
-      </div>
+      <SquareTitle title={contact} />
       <div className="text-heading-l flex flex-row items-center">
         <img
           className="w-[24px] h-[24px] h-auto mr-[16px]"
           src={process.env.PUBLIC_URL + `/assets/icons/Location.svg`}
           alt={"contact"}
         />
-        Location
+        {location}
       </div>
 
       <div>
-        Secretariat, Hong Kong Council for Testing and Certification <br />
-        Innovation and Technology Commission <br />
-        Units 801-04, 8/F, The Hub, 23 Yip Kan Street, Wong Chuk Hang, Hong Kong
+        {location_detail.map((d, i) => (
+          <p key={i}>{d}</p>
+        ))}
       </div>
 
-      <div className="font-semibold">Opening Hours:</div>
+      <div className="font-semibold">{open_hours}</div>
       <div>
-        <span className="underline">Monday to Friday</span> <br />
-        8:45 am - 12:30 pm <br />
-        1:30 pm - 6:00 pm
+        <p className="underline">{mon_to_fri}</p>
+        {time.map((t, i) => (
+          <p key={i}>{t}</p>
+        ))}
       </div>
-      <div>Closed on Saturdays, Sundays and public holidays</div>
+      <div>{closed_on}</div>
 
       <hr />
 
@@ -303,12 +363,12 @@ const Contact: React.FC = () => {
           src={process.env.PUBLIC_URL + `/assets/icons/telephone.svg`}
           alt={"contact"}
         />
-        Telephone/ Fax
+        {tel_fax}
       </div>
 
       <div>
-        Tel: <b>(852) 2180 9101</b> <br />
-        Fax: <b>(852) 3691 8655</b>
+        {tel_short} <b>(852) 2180 9101</b> <br />
+        {fax} <b>(852) 3691 8655</b>
       </div>
 
       <hr />
@@ -319,11 +379,14 @@ const Contact: React.FC = () => {
           src={process.env.PUBLIC_URL + `/assets/icons/mail.svg`}
           alt={"contact"}
         />
-        Email
+        {email_short}
       </div>
 
       <div>
-        Email Adress: <Link>enquiry@hkctc.gov.hk</Link>
+        {email}{" "}
+        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+          enquiry@hkctc.gov.hk
+        </a>
       </div>
     </div>
   );
@@ -378,7 +441,6 @@ export const AboutSite: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
 
   const initialSection = queryParams.get("section") ?? "";
-
   const initialParam: ABOUT_SIDE_MODULE = directoryItems.some(
     (i) => i.value === (initialSection as ABOUT_SIDE_MODULE)
   )
@@ -399,13 +461,13 @@ export const AboutSite: React.FC = () => {
         behavior: "smooth",
       });
     }
-    navigate(`?am=${activatedItems}`);
+    navigate(`?section=${activatedItems}`);
   };
 
   useEffect(() => {
     if (initialParam !== activeItem) {
       setActiveItem(initialParam);
-      navigate(`?am=${initialParam}`);
+      navigate(`?section=${initialParam}`);
     }
   }, [initialParam, navigate]);
 
