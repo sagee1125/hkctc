@@ -2,6 +2,7 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import { useMediaQuery } from "@mui/material";
+import { t2s } from "chinese-s2t";
 
 export const enum Language {
   ZH_CN = "zh-CN",
@@ -14,6 +15,7 @@ type SettingsContextType = {
   fontSize: "small" | "medium" | "large";
   language: Language;
   isPC: boolean;
+  fontClass: string;
   pdfjsLib: typeof pdfjsLib;
   handleChangeLang: (role: Language) => void;
   setFontSize: (fontSize: "small" | "medium" | "large") => void;
@@ -54,6 +56,12 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
       setIsLoading(false);
     }
   };
+  const fontClassMapping: Record<Language, string> = {
+    [Language.EN]: "",
+    [Language.ZH_TW]: "traditional-chinese",
+    [Language.ZH_CN]: "simplified-chinese",
+  };
+  const fontClass = fontClassMapping[language];
 
   return (
     <SettingsContext.Provider
@@ -62,6 +70,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         language,
         isLoading,
         isPC,
+        fontClass,
         setFontSize,
         handleChangeLang,
         setIsLoading,

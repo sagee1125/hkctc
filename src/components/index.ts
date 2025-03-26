@@ -24,3 +24,4 @@ export * from "./TextField";
 export * from "./Radio";
 export * from "./Checkbox";
 export * from "./Button";
+export * from "./languageSelection";

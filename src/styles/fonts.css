@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Roboto Flex Chinese';
+  src: local('Microsoft YaHei'); /* 简体字体 */
+  unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+  font-family: 'Roboto Flex Chinese';
+  src: local('Microsoft JhengHei'); /* 繁体字体 */
+  unicode-range: U+4E00-9FFF;
+  font-display: swap;
+}
+
+
+body {
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+/* 简体中文模式 */
+.simplified-chinese {
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+/* 繁体中文模式 */
+.traditional-chinese {
+  font-family: 'Roboto Flex Chinese', 'Roboto Flex', sans-serif;
+}
+
+/* 确保所有元素继承字体 */
+body, div, p, h1, h2, h3, h4, h5, h6, span, a, button, input, textarea {
+  font-family: inherit !important;
+}

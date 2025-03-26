@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/tailwind.css";
+import "./styles/fonts.css";
 import { disableCache } from "@iconify/react";
 
 disableCache("local");
