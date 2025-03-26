@@ -18,74 +18,107 @@ import {
 } from "../../components";
 import {
   CATEGORIES,
-  CategoryLabel,
-  hktctReportsList,
-  legislativeCouncilList,
-  hkctcNewsletterList,
-  advertorialsList,
-  pamphletsList,
-  bookletsList,
+  hktctReportsList as hktctReportsList_en,
+  legislativeCouncilList as legislativeCouncilList_en,
+  hkctcNewsletterList as hkctcNewsletterList_en,
+  advertorialsList as advertorialsList_en,
+  pamphletsList as pamphletsList_en,
+  bookletsList as booletsList_en,
   comicsList,
-  corruptionGuideList,
-  otherInformationList,
+  corruptionGuideList as corruptionGuideList_en,
+  otherInformationList as otherInformationList_en,
   type PublicationType,
   MEDIA_TYPE,
   ADVERTORIALS_SECTOR,
-  convertedCoursesList,
-  coursesList,
+  convertedCoursesList as coursesList_en,
   LANGUAGE,
+  hktctReportsList_cn,
+  advertorialsList_cn,
+  legislativeCouncilList_cn,
+  hkctcNewsletterList_cn,
+  convertedCoursesList_cn as coursesList_cn,
+  pamphletsList_cn,
+  booletsList_cn,
+  corruptionGuideList_cn,
+  otherInformationList_cn,
 } from "../../const";
-import { useSettings } from "../../context";
+import { Language, useSettings } from "../../context";
 
-const mediaTypeMapping: Partial<Record<string, string>> = {
-  All: "All",
-  [MEDIA_TYPE.PDF]: "PDF",
-  [MEDIA_TYPE.VIDEO]: "Video",
+const multilingual = {
+  en: {
+    title: "Resources",
+    filter: "Filter",
+    Clear_Filters: "Clear Filters",
+    Media_type: "Media type",
+    Media_type_list: ["All", "PDF", "Video"],
+    Year: "Year",
+    Apply: "Apply",
+
+    Advertorials: "Advertorials",
+    about_tc: "About the testing and certification industry",
+    sv: "Services offered by the testing and certification industry",
+
+    filterOptions: ["From Latest to Oldest", "From Oldest to Latest"],
+    Categories: "Categories",
+
+    filterReportButtons: ["All", "HKCTC Reports", "Legislative Council Papers"],
+
+    Reports: "Reports",
+
+    courseButtons: ["All", "English Version", "Cantonese Version"],
+
+    Publications: "Publications",
+
+    filterPublicationButtons: [
+      "All",
+      "Pamphlets",
+      "Booklets",
+      "Comics",
+      "Corruption Prevention Guide",
+      "Other Useful Information",
+    ],
+  },
+  cn: {
+    title: "資源",
+    filter: "篩選",
+    Clear_Filters: "清除篩選",
+    Media_type: "媒體類型",
+    Media_type_list: ["全部", "PDF", "影片"],
+    Year: "年份",
+    Apply: "套用",
+
+    Advertorials: "特約專輯",
+    about_tc: "關於檢測和認證業",
+    sv: "檢測和認證業提供的服務",
+    filterOptions: ["從最新到最舊", "從最舊到最新"],
+
+    Categories: "類別",
+
+    filterReportButtons: ["全部", "香港檢測和認證局報告", "立法會文件"],
+
+    Reports: "報告",
+
+    courseButtons: ["全部", "英文版本", "粤语版本"],
+
+    Publications: "刊物",
+
+    filterPublicationButtons: [
+      "全部",
+      "宣傳單張",
+      "小冊子",
+      "漫畫",
+      "檢測和認證業防貪指引",
+      "其他有用資料",
+    ],
+  },
 };
+
+enum TimeFilterType {
+  LatestToOld = "LatestToOld",
+  OldToLatest = "OldToLatest",
+}
+
 const currentYear = new Date().getFullYear(); // get current year
-
-const resourcesList: PublicationType[] = [
-  ...hktctReportsList,
-  ...legislativeCouncilList,
-  ...hkctcNewsletterList,
-  ...advertorialsList,
-  ...convertedCoursesList,
-];
-
-const filterReportsButtons = [
-  "All",
-  "HKCTC Reports",
-  "Legislative Council Papers",
-];
-
-const reportsList: Record<string, PublicationType[]> = {
-  All: [...hktctReportsList, ...legislativeCouncilList],
-  "HKCTC Reports": hktctReportsList,
-  "Legislative Council Papers": legislativeCouncilList,
-};
-
-const filterPublicationButtons = [
-  "All",
-  "Pamphlets",
-  "Booklets",
-  "Comics",
-  "Corruption Prevention Guide",
-  "Other Useful Information",
-];
-const publicationList: Record<string, PublicationType[]> = {
-  All: [
-    ...pamphletsList,
-    ...bookletsList,
-    ...comicsList,
-    ...corruptionGuideList,
-    ...otherInformationList,
-  ],
-  Pamphlets: pamphletsList,
-  Booklets: bookletsList,
-  Comics: comicsList,
-  "Corruption Prevention Guide": corruptionGuideList,
-  "Other Useful Information": otherInformationList,
-};
 
 const aboutTestingTags = [
   ADVERTORIALS_SECTOR.OVERVIEW,
@@ -94,27 +127,6 @@ const aboutTestingTags = [
   ADVERTORIALS_SECTOR.METROLOGY,
   ADVERTORIALS_SECTOR.TC_SUPPORT,
 ];
-
-const aboutTestingSector: Record<string, any[]> = {
-  All: advertorialsList.filter((item) =>
-    item.sector?.some((s) => aboutTestingTags.includes(s))
-  ),
-  Overview: advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.OVERVIEW)
-  ),
-  "Mainland Opportunities": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY)
-  ),
-  "Manpower Development": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.MANPOWER)
-  ),
-  "Metrology, Accreditation and Standards": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
-  ),
-  "Support to T&C Industry": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
-  ),
-};
 
 const certificateTags = [
   ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM,
@@ -129,64 +141,6 @@ const certificateTags = [
   ADVERTORIALS_SECTOR.TEXTILE_CLOTHING,
   ADVERTORIALS_SECTOR.TOYS,
 ];
-const certificateSector: Record<string, any[]> = {
-  All: advertorialsList.filter((item) =>
-    item?.sector?.some((s) => certificateTags.includes(s))
-  ),
-  "Management System Certification": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM)
-  ),
-  "Chinese Medicines": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.CHINESE_MEDICINE)
-  ),
-  "Construction Materials": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.CONSTRUCTION)
-  ),
-  "Electrical & Electronic Products": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS)
-  ),
-  "Environmental Protection": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION)
-  ),
-  Food: advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.FOOD)
-  ),
-  "Information and Communications Technologies": advertorialsList.filter(
-    (item) => item.sector?.includes(ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY)
-  ),
-  Jewellery: advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.JEWELLERY)
-  ),
-  "Medical testing": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.MEDICAL_TESTING)
-  ),
-  "Textile, Clothing & Footwear": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.TEXTILE_CLOTHING)
-  ),
-  "Toys & Children's Products": advertorialsList.filter((item) =>
-    item.sector?.includes(ADVERTORIALS_SECTOR.TOYS)
-  ),
-};
-
-const coursesButtonMap: Record<string, PublicationType[]> = {
-  All: [...convertedCoursesList],
-  "English Version": coursesList
-    .filter((c) => c.language === LANGUAGE.EN)
-    .map((c) => ({
-      title: c.title,
-      link: c.link,
-      mediaType: MEDIA_TYPE.VIDEO,
-      category: c.category,
-    })),
-  "Cantonese Version": coursesList
-    .filter((c) => c.language === LANGUAGE.CH)
-    .map((c) => ({
-      title: c.title,
-      link: c.link,
-      mediaType: MEDIA_TYPE.VIDEO,
-      category: c.category,
-    })),
-};
 
 const parseDate = (dateString: string) => {
   return new Date(dateString);
@@ -237,7 +191,81 @@ export const ResourcesReportsContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { isPC } = useSettings();
+  const { language, isPC } = useSettings();
+  const isEn = language === Language.EN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
+
+  const hktctReportsList = isEn ? hktctReportsList_en : hktctReportsList_cn;
+  const legislativeCouncilList = isEn
+    ? legislativeCouncilList_en
+    : legislativeCouncilList_cn;
+
+  const hkctcNewsletterList = isEn
+    ? hkctcNewsletterList_en
+    : hkctcNewsletterList_cn;
+
+  const resourcesList: PublicationType[] = [
+    ...hktctReportsList,
+    ...legislativeCouncilList,
+    ...hkctcNewsletterList,
+    // ...convertedCoursesList,
+  ];
+
+  const mediaTypeMapping: Partial<Record<string, string>> = {
+    [MEDIA_TYPE.ALL]: page_text.Media_type_list[0],
+    [MEDIA_TYPE.PDF]: page_text.Media_type_list[1],
+    [MEDIA_TYPE.VIDEO]: page_text.Media_type_list[2],
+  };
+
+  const timeFilterMapping: Partial<Record<string, string>> = {
+    [TimeFilterType.LatestToOld]: page_text.filterOptions[0],
+    [TimeFilterType.OldToLatest]: page_text.filterOptions[1],
+  };
+
+  const filterReportsButtonsMapping: Partial<Record<string, string>> = {
+    All: page_text.filterReportButtons[0],
+    "HKCTC Reports": page_text.filterReportButtons[1],
+    "Legislative Council Papers": page_text.filterReportButtons[2],
+  };
+
+  const reportsList: Record<string, PublicationType[]> = {
+    All: [...hktctReportsList, ...legislativeCouncilList],
+    "HKCTC Reports": hktctReportsList,
+    "Legislative Council Papers": legislativeCouncilList,
+  };
+
+  const filterPublicationButtonsMapping: Record<string, string> = {
+    All: page_text.filterPublicationButtons[0],
+    Pamphlets: page_text.filterPublicationButtons[1],
+    Booklets: page_text.filterPublicationButtons[2],
+    Comics: page_text.filterPublicationButtons[3],
+    "Corruption Prevention Guide": page_text.filterPublicationButtons[4],
+    "Other Useful Information": page_text.filterPublicationButtons[5],
+  };
+
+  const pamphletsList = isEn ? pamphletsList_en : pamphletsList_cn;
+  const bookletsList = isEn ? booletsList_en : booletsList_cn;
+  const corruptionGuideList = isEn
+    ? corruptionGuideList_en
+    : corruptionGuideList_cn;
+  const otherInformationList = isEn
+    ? otherInformationList_en
+    : otherInformationList_cn;
+  const publicationList: Record<string, PublicationType[]> = {
+    All: [
+      ...pamphletsList,
+      ...bookletsList,
+      ...comicsList,
+      ...corruptionGuideList,
+      ...otherInformationList,
+    ],
+    Pamphlets: pamphletsList,
+    Booklets: bookletsList,
+    Comics: comicsList,
+    "Corruption Prevention Guide": corruptionGuideList,
+    "Other Useful Information": otherInformationList,
+  };
+
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   // Reports filter buttons inside the Accordion
@@ -248,21 +276,20 @@ export const ResourcesReportsContent: React.FC = () => {
   const [activeAboutSector, setActiveAboutSector] = useState<number>(0);
   const [activeCertificateSector, setActiveCertificateSector] =
     useState<number>(-1);
-  const [activeCoursesCategory, setActiveCoursesCategory] = useState(
-    Object.keys(coursesButtonMap)[0]
-  );
+  const [activeCoursesCategory, setActiveCoursesCategory] = useState<number>(0);
 
   // layout display
   const [layoutButton, setLayoutButton] = useState<number>(0);
 
   // filter conditions display on the left side
-  const [selectedMediaType, setSelectedMediaType] = useState("All");
+  const [selectedMediaType, setSelectedMediaType] = useState(MEDIA_TYPE.ALL);
   const [needRangeValue, setNeedRangeValue] = useState(true);
   const [rangeValue, setRangeValue] = useState<number[]>([2009, currentYear]);
-  const filterOptions = ["From Latest to Oldest", "From Oldest to Latest"];
-  const [selectedItem, setSelectedItem] = useState<string>(filterOptions[0]);
+  const [selectedItem, setSelectedItem] = useState<string>(
+    TimeFilterType.LatestToOld
+  );
   const defaultFilterCondition = {
-    mediaType: "All",
+    mediaType: MEDIA_TYPE.ALL,
     rangeValue: [2009, currentYear],
     needRangeValue,
     selectedItem: selectedItem,
@@ -272,14 +299,197 @@ export const ResourcesReportsContent: React.FC = () => {
     defaultFilterCondition
   );
 
+  const courseButtonMapping: Record<string, string> = {
+    All: page_text.courseButtons[0],
+    "English Version": page_text.courseButtons[1],
+    "Cantonese Version": page_text.courseButtons[2],
+  };
+
+  const courseContent = isEn ? coursesList_en : coursesList_cn;
+  const coursesContentMapping: Record<string, PublicationType[]> = {
+    All: [...courseContent],
+    "English Version": courseContent
+      .filter((c) => c.language === LANGUAGE.EN)
+      .map((c) => ({
+        title: c.title,
+        link: c.link,
+        mediaType: MEDIA_TYPE.VIDEO,
+        category: c.category,
+      })),
+    "Cantonese Version": courseContent
+      .filter((c) => c.language === LANGUAGE.CH)
+      .map((c) => ({
+        title: c.title,
+        link: c.link,
+        mediaType: MEDIA_TYPE.VIDEO,
+        category: c.category,
+      })),
+  };
+
+  const advertorialsList = (
+    isEn ? advertorialsList_en : advertorialsList_cn
+  ).map((ad) => {
+    return {
+      title: ad.title,
+      link: ad.link,
+      mediaType: ad.mediaType,
+      sector: ad.sector,
+      category: ad.category,
+      date: ad.date,
+      yearRange: ad.yearRange,
+    };
+  });
+
+  const aboutTestingSector: Record<
+    string,
+    { list: any[]; label: string; labelCN: string }
+  > = {
+    All: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.some((s) =>
+          aboutTestingTags.includes(s as ADVERTORIALS_SECTOR)
+        )
+      ),
+      label: "All",
+      labelCN: "全部",
+    },
+    Overview: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.OVERVIEW)
+      ),
+      label: "Overview",
+      labelCN: "總覽",
+    },
+    "Mainland Opportunities": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MAINLAND_OPPORTUNITY)
+      ),
+      label: "Mainland Opportunities",
+      labelCN: "在內地的發展機遇",
+    },
+    "Manpower Development": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MANPOWER)
+      ),
+      label: "Manpower Development",
+      labelCN: "人力發展",
+    },
+    "Metrology, Accreditation and Standards": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.METROLOGY)
+      ),
+      label: "Metrology, Accreditation and Standards",
+      labelCN: "計量學、認可服務和標準",
+    },
+    "Support to T&C Industry": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.TC_SUPPORT)
+      ),
+      label: "Support to T&C Industry",
+      labelCN: "對檢測和認證業的支援",
+    },
+  };
+  const certificateSector: Record<
+    string,
+    { list: any[]; label: string; labelCN: string }
+  > = {
+    All: {
+      list: advertorialsList.filter((item) =>
+        item?.sector?.some((s) =>
+          certificateTags.includes(s as ADVERTORIALS_SECTOR)
+        )
+      ),
+      label: "All",
+      labelCN: "全部",
+    },
+    "Management System Certification": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MANAGEMENT_SYSTEM)
+      ),
+      label: "Management System Certification",
+      labelCN: "管理體系認證",
+    },
+    "Chinese Medicines": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.CHINESE_MEDICINE)
+      ),
+      label: "Chinese Medicines",
+      labelCN: "中藥",
+    },
+    "Construction Materials": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.CONSTRUCTION)
+      ),
+      label: "Construction Materials",
+      labelCN: "建築材料",
+    },
+    "Electrical & Electronic Products": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.ELECTRICAL_PRODUCTS)
+      ),
+      label: "Electrical & Electronic Products",
+      labelCN: "電氣及電子產品",
+    },
+    "Environmental Protection": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.ENVIRONMENT_PROTECTION)
+      ),
+      label: "Environmental Protection",
+      labelCN: "環保",
+    },
+    Food: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.FOOD)
+      ),
+      label: "Food",
+      labelCN: "食品",
+    },
+    "Information and Communications Technologies": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.INFORMATION_TECHNOLOGY)
+      ),
+      label: "Information and Communications Technologies",
+      labelCN: "資訊及通訊科技",
+    },
+    Jewellery: {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.JEWELLERY)
+      ),
+      label: "Jewellery",
+      labelCN: "珠寶",
+    },
+    "Medical testing": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.MEDICAL_TESTING)
+      ),
+      label: "Medical testing",
+      labelCN: "醫務化驗",
+    },
+    "Textile, Clothing & Footwear": {
+      list: advertorialsList.filter((item) =>
+        item.sector?.includes(ADVERTORIALS_SECTOR.TEXTILE_CLOTHING)
+      ),
+      label: "Textile, Clothing & Footwear",
+      labelCN: "紡織品、衣服和鞋履",
+    },
+    "Toys & Children's Products": {
+      list: advertorialsList.filter((item: any) =>
+        item?.sector?.includes(ADVERTORIALS_SECTOR.TOYS)
+      ),
+      label: "Toys & Children's Products",
+      labelCN: "玩具及兒童產品",
+    },
+  };
+
   const advertorialsFilterList = [
     ...(activeAboutSector >= 0
       ? aboutTestingSector[Object.keys(aboutTestingSector)[activeAboutSector]]
+          .list
       : []),
     ...(activeCertificateSector >= 0
       ? certificateSector[
           Object.keys(certificateSector)[activeCertificateSector]
-        ]
+        ].list
       : []),
   ];
 
@@ -318,10 +528,10 @@ export const ResourcesReportsContent: React.FC = () => {
 
   const handleClearFilter = (): void => {
     setFilterCondition(defaultFilterCondition);
-    setSelectedMediaType("All");
+    setSelectedMediaType(MEDIA_TYPE.ALL);
     setRangeValue([2009, currentYear]);
     setNeedRangeValue(true);
-    setSelectedItem(filterOptions[0]);
+    setSelectedItem(TimeFilterType.LatestToOld);
   };
 
   const handleChangeCategory = (item: string) => {
@@ -354,19 +564,23 @@ export const ResourcesReportsContent: React.FC = () => {
       enum: CATEGORIES;
       categoryArray: PublicationType[];
       subComponent?: React.ReactNode;
+      label_en: string;
+      label_cn: string;
     }
   > = {
-    [CategoryLabel.REPORTS]: {
+    [CATEGORIES.REPORTS]: {
       enum: CATEGORIES.REPORTS,
-      categoryArray: reportsList[filterReportsButtons[activeReport]].filter(
-        (item) => item.category.includes(CATEGORIES.REPORTS)
-      ),
+      label_en: "Reports",
+      label_cn: "報告",
+      categoryArray: reportsList[
+        Object.keys(filterReportsButtonsMapping)[activeReport]
+      ].filter((item) => item.category.includes(CATEGORIES.REPORTS)),
       subComponent: (
         <NormalAccordion
-          title="Reports"
+          title={page_text.Reports}
           details={
             <div className="flex flex-wrap gap-[8px]">
-              {filterReportsButtons.map((name, index) => {
+              {Object.values(filterReportsButtonsMapping).map((name, index) => {
                 const isActivated = activeReport === index;
                 return (
                   <button
@@ -388,53 +602,68 @@ export const ResourcesReportsContent: React.FC = () => {
         />
       ),
     },
-    [CategoryLabel.NEWSLETTER]: {
+    [CATEGORIES.NEWSLETTER]: {
       enum: CATEGORIES.NEWSLETTER,
+      label_en: "Newsletter",
+      label_cn: "通訊",
       categoryArray: resourcesList.filter((item) =>
         item.category.includes(CATEGORIES.NEWSLETTER)
       ),
     },
-    [CategoryLabel.PUBLICATIONS]: {
+    [CATEGORIES.PUBLICATIONS]: {
       enum: CATEGORIES.PUBLICATIONS,
+      label_en: "Publications",
+      label_cn: "刊物",
       categoryArray:
-        publicationList[filterPublicationButtons[activePublication]],
+        publicationList[
+          Object.keys(filterPublicationButtonsMapping)[activePublication]
+        ],
       subComponent: (
         <NormalAccordion
-          title="Publications"
+          title={page_text.Publications}
           details={
             <div className="flex flex-wrap gap-[8px]">
-              {filterPublicationButtons.map((name, index: number) => {
-                const isActivated = activePublication === index;
-                return (
-                  <button
-                    key={index}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActivePublication(index);
-                      setCurrentPage(0);
-                    }}
-                  >
-                    <p className="text-highlight-xs">{name}</p>
-                  </button>
-                );
-              })}
+              {Object.keys(filterPublicationButtonsMapping).map(
+                (name, index: number) => {
+                  const isActivated = activePublication === index;
+                  return (
+                    <button
+                      key={index}
+                      style={
+                        isActivated ? activatedButtonStyle : normalButtonStyle
+                      }
+                      onClick={() => {
+                        setActivePublication(index);
+                        setCurrentPage(0);
+                      }}
+                    >
+                      <p className="text-highlight-xs">
+                        {filterPublicationButtonsMapping[name]}
+                      </p>
+                    </button>
+                  );
+                }
+              )}
             </div>
           }
         />
       ),
     },
-    [CategoryLabel.COURSES]: {
+    [CATEGORIES.COURSES]: {
       enum: CATEGORIES.COURSES,
-      categoryArray: coursesButtonMap[activeCoursesCategory],
+      categoryArray:
+        coursesContentMapping[
+          Object.keys(courseButtonMapping)[activeCoursesCategory]
+        ],
+      label_en: "Courses",
+      label_cn: "課程",
       subComponent: (
         <NormalAccordion
           title="Courses"
           details={
             <div className="flex flex-row gap-[8px]">
-              {Object.keys(coursesButtonMap).map((name, index) => {
-                const isActivated = activeCoursesCategory === name;
+              {Object.keys(courseButtonMapping).map((name, index) => {
+                const isActivated = activeCoursesCategory === index;
                 return (
                   <button
                     key={index}
@@ -442,11 +671,13 @@ export const ResourcesReportsContent: React.FC = () => {
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
                     onClick={() => {
-                      setActiveCoursesCategory(name);
+                      setActiveCoursesCategory(index);
                       setCurrentPage(0);
                     }}
                   >
-                    <p className="text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs">
+                      {courseButtonMapping[name]}
+                    </p>
                   </button>
                 );
               })}
@@ -455,14 +686,16 @@ export const ResourcesReportsContent: React.FC = () => {
         />
       ),
     },
-    [CategoryLabel.ADVERTORIALS]: {
+    [CATEGORIES.ADVERTORIALS]: {
       enum: CATEGORIES.ADVERTORIALS,
+      label_en: "Advertorials",
+      label_cn: "特約專輯",
       categoryArray: advertorialsFilterList,
       subComponent: (
         <div className="flex flex-col gap-[24px]">
           <div>
             <NormalAccordion
-              title="About the testing and certification industry"
+              title={page_text.about_tc}
               details={
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(aboutTestingSector).map((name, index) => {
@@ -479,7 +712,11 @@ export const ResourcesReportsContent: React.FC = () => {
                           setCurrentPage(0);
                         }}
                       >
-                        <p className="text-highlight-xs">{name}</p>
+                        <p className="text-highlight-xs">
+                          {isEn
+                            ? aboutTestingSector[name].label
+                            : aboutTestingSector[name].labelCN}
+                        </p>
                       </button>
                     );
                   })}
@@ -490,7 +727,7 @@ export const ResourcesReportsContent: React.FC = () => {
 
           <div>
             <NormalAccordion
-              title="Services offered by the testing and certification industry"
+              title={page_text.sv}
               details={
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(certificateSector).map((name, index) => {
@@ -507,7 +744,11 @@ export const ResourcesReportsContent: React.FC = () => {
                           setCurrentPage(0);
                         }}
                       >
-                        <p className="text-highlight-xs">{name}</p>
+                        <p className="text-highlight-xs">
+                          {isEn
+                            ? certificateSector[name].label
+                            : certificateSector[name].labelCN}
+                        </p>
                       </button>
                     );
                   })}
@@ -527,14 +768,14 @@ export const ResourcesReportsContent: React.FC = () => {
 
   // apply filter on the displayed list
   const displayList = (
-    filterCondition.selectedItem === filterOptions[0]
+    filterCondition.selectedItem === TimeFilterType.LatestToOld
       ? sortByDateDescending
       : sortByDateAscending
   )(
     (activeCategoryList?.categoryArray ?? []).filter((cat) => {
       // Media Type filter
       const mediaTypeFilter =
-        filterCondition.mediaType === "All"
+        filterCondition.mediaType === MEDIA_TYPE.ALL
           ? true
           : cat.mediaType === filterCondition.mediaType;
 
@@ -566,16 +807,16 @@ export const ResourcesReportsContent: React.FC = () => {
   const filterBox = (
     <>
       <div className="flex flex-row items-center">
-        <p className="text-heading-l w-full">Filter</p>
+        <p className="text-heading-l w-full">{page_text.filter}</p>
         <div
           onClick={handleClearFilter}
           className="w-[50%] flex flex-row-reverse "
         >
-          <Link>Clear Filters</Link>
+          <Link>{page_text.Clear_Filters}</Link>
         </div>
       </div>
       <div className="bg-[#EEEEEA] mt-[16px] pt-[22px] px-[24px]">
-        <p className="text-highlight-l mb-[16px]">Media type</p>
+        <p className="text-highlight-l mb-[16px]">{page_text.Media_type}</p>
 
         <RadioGroup
           value={selectedMediaType}
@@ -612,7 +853,7 @@ export const ResourcesReportsContent: React.FC = () => {
           <>
             <div className="flex flex-row content-space-between w-full items-center flex-1">
               <p className="text-highlight-l mb-[16px] mt-[24px] w-full">
-                Year
+                {page_text.Year}
               </p>
               <Checkbox
                 checked={needRangeValue}
@@ -687,7 +928,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 color: needRangeValue ? "#233F55" : "#AAA",
               }}
             >
-              Year: {rangeValue[0]}-{rangeValue[1]}
+              {page_text.Year}: {rangeValue[0]}-{rangeValue[1]}
             </p>
 
             <div className="w-full">
@@ -695,7 +936,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 {({ open }) => (
                   <>
                     <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 p-[16px] bg-white text-body-m text-gray-700">
-                      {selectedItem}
+                      {timeFilterMapping[selectedItem]}
                       <ChevronDownIcon
                         className={`h-5 w-5 text-[#666666] transform transition-transform ${
                           open ? "rotate-180" : "rotate-0"
@@ -713,7 +954,7 @@ export const ResourcesReportsContent: React.FC = () => {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {filterOptions.map((item, index) => (
+                        {Object.keys(timeFilterMapping).map((item, index) => (
                           <Menu.Item key={index}>
                             {({ active }) => (
                               <button
@@ -724,7 +965,7 @@ export const ResourcesReportsContent: React.FC = () => {
                                     : "text-gray-700"
                                 }`}
                               >
-                                {item}
+                                {timeFilterMapping[item]}
                               </button>
                             )}
                           </Menu.Item>
@@ -752,7 +993,7 @@ export const ResourcesReportsContent: React.FC = () => {
           onClick={handleApplyFilter}
           variant="contained"
         >
-          Apply
+          {page_text.Apply}
         </Button>
       </div>
     </>
@@ -761,12 +1002,18 @@ export const ResourcesReportsContent: React.FC = () => {
   const categoriesBox = (
     <>
       <p className={`text-heading-l mt-[${isPC ? 32 : 0}px] mb-[16px]`}>
-        Categories
+        {page_text.Categories}
       </p>
       <div className="flex flex-col gap-[16px] mb-[32px]">
         {Object.keys(categories).map((cat, index) => {
-          const { enum: catEnum, categoryArray = [] } = categories[cat];
+          const {
+            enum: catEnum,
+            categoryArray = [],
+            label_cn,
+            label_en,
+          } = categories[cat];
           const isActivated = catEnum === selectedCategory;
+          const label = isEn ? label_en : label_cn;
           return (
             <div
               key={index}
@@ -779,7 +1026,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 handleChangeCategory(catEnum);
               }}
             >
-              <p className="text-heading-l">{cat}</p>
+              <p className="text-heading-l">{label}</p>
               <p className="text-highlight-l">
                 {"(" + categoryArray.length + ")"}
               </p>
@@ -797,7 +1044,7 @@ export const ResourcesReportsContent: React.FC = () => {
           isPC ? "" : "flex flex-row justify-between items-center"
         }`}
       >
-        <SquareTitle title="Resources" />
+        <SquareTitle title={page_text.title} />
         {!isPC && (
           <div
             className="border-[1px] border-[#E0E0E0] flex flex-row py-[14px] px-[14px] items-center gap-[8px] cursor-pointer"
