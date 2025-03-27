@@ -90,18 +90,17 @@ export const SeminarsWorkshops: React.FC = () => {
 
   const seminarsProcessData = isEn ? seminarsData : seminarsData_cn;
   const displaySeminars = seminarsProcessData.filter((item) => {
-    const activeYear = Object.keys(topicArray)[activeYearButton];
+    const activeYear = Object.values(yearArray)[activeYearButton];
     const activeTopic = Object.keys(topicArray)[activeTopicButton];
 
     // Check if the item matches the active year
     const yearMatch =
-      activeYear === "All" ||
-      activeYear === "全部" ||
-      String(item.year) === activeYear;
+      activeYear === yearArray[0] || String(item.year) === activeYear;
 
     // Check if the item matches the active topic
     const topicMatch = activeTopic === "All" || item.tag === activeTopic;
 
+    console.log(activeTopic, item.tag, topicMatch);
     // Return true if both conditions are met
     return yearMatch && topicMatch;
   });

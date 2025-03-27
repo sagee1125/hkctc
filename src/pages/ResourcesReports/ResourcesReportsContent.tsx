@@ -77,6 +77,11 @@ const multilingual = {
       "Corruption Prevention Guide",
       "Other Useful Information",
     ],
+
+    No_Results_Match: "No Results Match",
+    Please_try:
+      "Please try to select a different Media Type/ expand the Year range.",
+    Clear_Filters_Apply: "Clear Filters and Apply",
   },
   cn: {
     title: "資源",
@@ -110,6 +115,10 @@ const multilingual = {
       "檢測和認證業防貪指引",
       "其他有用資料",
     ],
+
+    No_Results_Match: "未找到匹配的结果",
+    Please_try: "請嘗試選擇不同的媒髏類型/擴展年份範圍。",
+    Clear_Filters_Apply: "清除篩選並套用",
   },
 };
 
@@ -208,7 +217,6 @@ export const ResourcesReportsContent: React.FC = () => {
     ...hktctReportsList,
     ...legislativeCouncilList,
     ...hkctcNewsletterList,
-    // ...convertedCoursesList,
   ];
 
   const mediaTypeMapping: Partial<Record<string, string>> = {
@@ -559,7 +567,7 @@ export const ResourcesReportsContent: React.FC = () => {
   };
 
   const categories: Record<
-    string,
+    CATEGORIES,
     {
       enum: CATEGORIES;
       categoryArray: PublicationType[];
@@ -804,6 +812,23 @@ export const ResourcesReportsContent: React.FC = () => {
     Boolean(i.yearRange)
   );
 
+  const resultDisplay_en = (
+    <div className="text-body-s">
+      Showing <b className="text-button-s">{dataCount}</b> results for{" "}
+      <b className="text-button-s">{categories[selectedCategory].label_en}</b>
+    </div>
+  );
+
+  const resultDisplay_cn = (
+    <div className="text-body-s">
+      顯示 <b className="text-button-s">{dataCount}</b> 個&nbsp;
+      <b className="text-button-s">{categories[selectedCategory].label_cn}</b>
+      &nbsp;結果
+    </div>
+  );
+
+  const resultDisplay = isEn ? resultDisplay_en : resultDisplay_cn;
+
   const filterBox = (
     <>
       <div className="flex flex-row items-center">
@@ -1011,7 +1036,7 @@ export const ResourcesReportsContent: React.FC = () => {
             categoryArray = [],
             label_cn,
             label_en,
-          } = categories[cat];
+          } = categories[cat as CATEGORIES];
           const isActivated = catEnum === selectedCategory;
           const label = isEn ? label_en : label_cn;
           return (
@@ -1070,10 +1095,7 @@ export const ResourcesReportsContent: React.FC = () => {
       </div>
       {subComponent && <div>{subComponent}</div>}
       <div className="flex flex-row justify-between items-center">
-        <div className="text-body-s">
-          Showing <b className="text-button-s">{dataCount}</b> results for{" "}
-          <b className="text-button-s">{selectedCategory.toLowerCase()}</b>
-        </div>
+        {resultDisplay}
         {isPC && (
           <div className="border-[1px] border-[#E0E0E0] flex flex-row p-[4px]">
             {layoutIcons.map((icon, index) => {
@@ -1151,12 +1173,12 @@ export const ResourcesReportsContent: React.FC = () => {
         </>
       ) : (
         <div className="flex flex-col text-center w-full gap-[20px]">
-          <div className="text-newPrimary text-heading-l">No Results Match</div>
-          <div>
-            Please try to select a different Media Type/ expand the Year range.
+          <div className="text-newPrimary text-heading-l">
+            {page_text.No_Results_Match}
           </div>
+          <div>{page_text.Please_try}</div>
           <div onClick={handleClearFilter}>
-            <Link>Clear Filters and Apply</Link>
+            <Link>{page_text.Clear_Filters_Apply}</Link>
           </div>
         </div>
       )}
