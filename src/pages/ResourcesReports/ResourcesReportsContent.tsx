@@ -48,26 +48,26 @@ const multilingual = {
   en: {
     title: "Resources",
     filter: "Filter",
-    Clear_Filters: "Clear Filters",
-    Media_type: "Media type",
-    Media_type_list: ["All", "PDF", "Video"],
-    Year: "Year",
-    Apply: "Apply",
+    clear_filters: "Clear Filters",
+    media_type: "Media type",
+    media_type_list: ["All", "PDF", "Video"],
+    year: "Year",
+    apply: "Apply",
 
-    Advertorials: "Advertorials",
+    advertorials: "Advertorials",
     about_tc: "About the testing and certification industry",
     sv: "Services offered by the testing and certification industry",
 
     filterOptions: ["From Latest to Oldest", "From Oldest to Latest"],
-    Categories: "Categories",
+    category: "Categories",
 
     filterReportButtons: ["All", "HKCTC Reports", "Legislative Council Papers"],
 
-    Reports: "Reports",
+    reports: "Reports",
 
     courseButtons: ["All", "English Version", "Cantonese Version"],
 
-    Publications: "Publications",
+    publications: "Publications",
 
     filterPublicationButtons: [
       "All",
@@ -78,34 +78,34 @@ const multilingual = {
       "Other Useful Information",
     ],
 
-    No_Results_Match: "No Results Match",
-    Please_try:
+    no_results_match: "No Results Match",
+    please_try:
       "Please try to select a different Media Type/ expand the Year range.",
-    Clear_Filters_Apply: "Clear Filters and Apply",
+    clear_filters_apply: "Clear Filters and Apply",
   },
   cn: {
     title: "資源",
     filter: "篩選",
-    Clear_Filters: "清除篩選",
-    Media_type: "媒體類型",
-    Media_type_list: ["全部", "PDF", "影片"],
-    Year: "年份",
-    Apply: "套用",
+    clear_filters: "清除篩選",
+    media_type: "媒體類型",
+    media_type_list: ["全部", "PDF", "影片"],
+    year: "年份",
+    apply: "套用",
 
-    Advertorials: "特約專輯",
+    advertorials: "特約專輯",
     about_tc: "關於檢測和認證業",
     sv: "檢測和認證業提供的服務",
     filterOptions: ["從最新到最舊", "從最舊到最新"],
 
-    Categories: "類別",
+    category: "類別",
 
     filterReportButtons: ["全部", "香港檢測和認證局報告", "立法會文件"],
 
-    Reports: "報告",
+    reports: "報告",
 
     courseButtons: ["全部", "英文版本", "粤语版本"],
 
-    Publications: "刊物",
+    publications: "刊物",
 
     filterPublicationButtons: [
       "全部",
@@ -116,9 +116,9 @@ const multilingual = {
       "其他有用資料",
     ],
 
-    No_Results_Match: "未找到匹配的结果",
-    Please_try: "請嘗試選擇不同的媒髏類型/擴展年份範圍。",
-    Clear_Filters_Apply: "清除篩選並套用",
+    no_results_match: "未找到匹配的结果",
+    please_try: "請嘗試選擇不同的媒髏類型/擴展年份範圍。",
+    clear_filters_apply: "清除篩選並套用",
   },
 };
 
@@ -200,10 +200,36 @@ export const ResourcesReportsContent: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { language, isPC } = useSettings();
+  const {
+    language,
+    isPC,
+    getPageText,
+    convertReactNode,
+    processText,
+    getSingleText,
+  } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+  const media_type_list: string[] = page_text.media_type_list as string[];
+  const filterOptions: string[] = page_text.filterOptions as string[];
+  const filterReportButtons: string[] =
+    page_text.filterReportButtons as string[];
+  const filterPublicationButtons: string[] =
+    page_text.filterPublicationButtons as string[];
+  const courseButtons: string[] = page_text.courseButtons as string[];
 
+  const {
+    filter,
+    clear_filters,
+    clear_filters_apply,
+    apply,
+    year,
+    media_type,
+    title,
+    category,
+    no_results_match,
+    please_try,
+  } = page_text;
   const hktctReportsList = isEn ? hktctReportsList_en : hktctReportsList_cn;
   const legislativeCouncilList = isEn
     ? legislativeCouncilList_en
@@ -220,20 +246,20 @@ export const ResourcesReportsContent: React.FC = () => {
   ];
 
   const mediaTypeMapping: Partial<Record<string, string>> = {
-    [MEDIA_TYPE.ALL]: page_text.Media_type_list[0],
-    [MEDIA_TYPE.PDF]: page_text.Media_type_list[1],
-    [MEDIA_TYPE.VIDEO]: page_text.Media_type_list[2],
+    [MEDIA_TYPE.ALL]: media_type_list[0],
+    [MEDIA_TYPE.PDF]: media_type_list[1],
+    [MEDIA_TYPE.VIDEO]: media_type_list[2],
   };
 
   const timeFilterMapping: Partial<Record<string, string>> = {
-    [TimeFilterType.LatestToOld]: page_text.filterOptions[0],
-    [TimeFilterType.OldToLatest]: page_text.filterOptions[1],
+    [TimeFilterType.LatestToOld]: filterOptions[0],
+    [TimeFilterType.OldToLatest]: filterOptions[1],
   };
 
   const filterReportsButtonsMapping: Partial<Record<string, string>> = {
-    All: page_text.filterReportButtons[0],
-    "HKCTC Reports": page_text.filterReportButtons[1],
-    "Legislative Council Papers": page_text.filterReportButtons[2],
+    All: filterReportButtons[0],
+    "HKCTC Reports": filterReportButtons[1],
+    "Legislative Council Papers": filterReportButtons[2],
   };
 
   const reportsList: Record<string, PublicationType[]> = {
@@ -243,12 +269,12 @@ export const ResourcesReportsContent: React.FC = () => {
   };
 
   const filterPublicationButtonsMapping: Record<string, string> = {
-    All: page_text.filterPublicationButtons[0],
-    Pamphlets: page_text.filterPublicationButtons[1],
-    Booklets: page_text.filterPublicationButtons[2],
-    Comics: page_text.filterPublicationButtons[3],
-    "Corruption Prevention Guide": page_text.filterPublicationButtons[4],
-    "Other Useful Information": page_text.filterPublicationButtons[5],
+    All: filterPublicationButtons[0],
+    Pamphlets: filterPublicationButtons[1],
+    Booklets: filterPublicationButtons[2],
+    Comics: filterPublicationButtons[3],
+    "Corruption Prevention Guide": filterPublicationButtons[4],
+    "Other Useful Information": filterPublicationButtons[5],
   };
 
   const pamphletsList = isEn ? pamphletsList_en : pamphletsList_cn;
@@ -308,9 +334,9 @@ export const ResourcesReportsContent: React.FC = () => {
   );
 
   const courseButtonMapping: Record<string, string> = {
-    All: page_text.courseButtons[0],
-    "English Version": page_text.courseButtons[1],
-    "Cantonese Version": page_text.courseButtons[2],
+    All: courseButtons[0],
+    "English Version": courseButtons[1],
+    "Cantonese Version": courseButtons[2],
   };
 
   const courseContent = isEn ? coursesList_en : coursesList_cn;
@@ -585,7 +611,7 @@ export const ResourcesReportsContent: React.FC = () => {
       ].filter((item) => item.category.includes(CATEGORIES.REPORTS)),
       subComponent: (
         <NormalAccordion
-          title={page_text.Reports}
+          title={page_text.Reports as string}
           details={
             <div className="flex flex-wrap gap-[8px]">
               {Object.values(filterReportsButtonsMapping).map((name, index) => {
@@ -628,7 +654,7 @@ export const ResourcesReportsContent: React.FC = () => {
         ],
       subComponent: (
         <NormalAccordion
-          title={page_text.Publications}
+          title={page_text.Publications as string}
           details={
             <div className="flex flex-wrap gap-[8px]">
               {Object.keys(filterPublicationButtonsMapping).map(
@@ -703,7 +729,7 @@ export const ResourcesReportsContent: React.FC = () => {
         <div className="flex flex-col gap-[24px]">
           <div>
             <NormalAccordion
-              title={page_text.about_tc}
+              title={page_text.about_tc as string}
               details={
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(aboutTestingSector).map((name, index) => {
@@ -735,7 +761,7 @@ export const ResourcesReportsContent: React.FC = () => {
 
           <div>
             <NormalAccordion
-              title={page_text.sv}
+              title={page_text.sv as string}
               details={
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(certificateSector).map((name, index) => {
@@ -827,21 +853,23 @@ export const ResourcesReportsContent: React.FC = () => {
     </div>
   );
 
-  const resultDisplay = isEn ? resultDisplay_en : resultDisplay_cn;
+  const resultDisplay = isEn
+    ? resultDisplay_en
+    : convertReactNode(resultDisplay_cn);
 
   const filterBox = (
     <>
       <div className="flex flex-row items-center">
-        <p className="text-heading-l w-full">{page_text.filter}</p>
+        <p className="text-heading-l w-full">{filter as string}</p>
         <div
           onClick={handleClearFilter}
           className="w-[50%] flex flex-row-reverse "
         >
-          <Link>{page_text.Clear_Filters}</Link>
+          <Link>{clear_filters as string}</Link>
         </div>
       </div>
       <div className="bg-[#EEEEEA] mt-[16px] pt-[22px] px-[24px]">
-        <p className="text-highlight-l mb-[16px]">{page_text.Media_type}</p>
+        <p className="text-highlight-l mb-[16px]">{media_type as string}</p>
 
         <RadioGroup
           value={selectedMediaType}
@@ -878,7 +906,7 @@ export const ResourcesReportsContent: React.FC = () => {
           <>
             <div className="flex flex-row content-space-between w-full items-center flex-1">
               <p className="text-highlight-l mb-[16px] mt-[24px] w-full">
-                {page_text.Year}
+                {page_text.Year as string}
               </p>
               <Checkbox
                 checked={needRangeValue}
@@ -953,7 +981,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 color: needRangeValue ? "#233F55" : "#AAA",
               }}
             >
-              {page_text.Year}: {rangeValue[0]}-{rangeValue[1]}
+              {year as string}: {rangeValue[0]}-{rangeValue[1]}
             </p>
 
             <div className="w-full">
@@ -990,7 +1018,7 @@ export const ResourcesReportsContent: React.FC = () => {
                                     : "text-gray-700"
                                 }`}
                               >
-                                {timeFilterMapping[item]}
+                                {processText(timeFilterMapping[item] ?? "")}
                               </button>
                             )}
                           </Menu.Item>
@@ -1018,7 +1046,7 @@ export const ResourcesReportsContent: React.FC = () => {
           onClick={handleApplyFilter}
           variant="contained"
         >
-          {page_text.Apply}
+          {apply as string}
         </Button>
       </div>
     </>
@@ -1027,7 +1055,7 @@ export const ResourcesReportsContent: React.FC = () => {
   const categoriesBox = (
     <>
       <p className={`text-heading-l mt-[${isPC ? 32 : 0}px] mb-[16px]`}>
-        {page_text.Categories}
+        {category as string}
       </p>
       <div className="flex flex-col gap-[16px] mb-[32px]">
         {Object.keys(categories).map((cat, index) => {
@@ -1038,7 +1066,7 @@ export const ResourcesReportsContent: React.FC = () => {
             label_en,
           } = categories[cat as CATEGORIES];
           const isActivated = catEnum === selectedCategory;
-          const label = isEn ? label_en : label_cn;
+          const label = getSingleText(label_en, label_cn);
           return (
             <div
               key={index}
@@ -1069,7 +1097,7 @@ export const ResourcesReportsContent: React.FC = () => {
           isPC ? "" : "flex flex-row justify-between items-center"
         }`}
       >
-        <SquareTitle title={page_text.title} />
+        <SquareTitle title={title as string} />
         {!isPC && (
           <div
             className="border-[1px] border-[#E0E0E0] flex flex-row py-[14px] px-[14px] items-center gap-[8px] cursor-pointer"
@@ -1090,7 +1118,7 @@ export const ResourcesReportsContent: React.FC = () => {
               />
             </svg>
             <p className="text-highlight-m text-newPrimary">
-              {page_text.filter}
+              {filter as string}
             </p>
           </div>
         )}
@@ -1150,7 +1178,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   } flex flex-col gap-[14px]`}
                 >
                   <MediaTemplateWithDialog
-                    title={title}
+                    title={processText(title)}
                     maskIcon={maskIcon}
                     date={date}
                     mediaLink={link}
@@ -1176,11 +1204,11 @@ export const ResourcesReportsContent: React.FC = () => {
       ) : (
         <div className="flex flex-col text-center w-full gap-[20px]">
           <div className="text-newPrimary text-heading-l">
-            {page_text.No_Results_Match}
+            {no_results_match as string}
           </div>
-          <div>{page_text.Please_try}</div>
+          <div>{please_try as string}</div>
           <div onClick={handleClearFilter}>
-            <Link>{page_text.Clear_Filters_Apply}</Link>
+            <Link>{clear_filters_apply as string}</Link>
           </div>
         </div>
       )}

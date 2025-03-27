@@ -46,7 +46,7 @@ export const AwardScheme21to22Preview: React.FC<{
   handleOpenAssessmentPanel: () => void;
 }> = ({ handleOpenAssessmentPanel }) => {
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
+  const { isPC, language, processText, convertReactNode } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
 
@@ -150,7 +150,9 @@ export const AwardScheme21to22Preview: React.FC<{
     [awardOneBtn[2]]: (
       <>
         <p>
-          {page_text.testing_manpower_award_content.applicant_entity_fulfill}
+          {processText(
+            page_text.testing_manpower_award_content.applicant_entity_fulfill
+          )}
         </p>
         <div
           className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px] my-[24px]`}
@@ -164,18 +166,22 @@ export const AwardScheme21to22Preview: React.FC<{
                 }`}
               >
                 <p className={`text-${item.color} underline !text-heading-s`}>
-                  {item.title}
+                  {processText(item.title)}
                 </p>
-                <p className="!text-body-m">{item.content}</p>
+                <p className="!text-body-m">{processText(item.content)}</p>
               </div>
             )
           )}
         </div>
         <div>
-          {page_text.testing_manpower_award_content.activity_carry_out}
+          {processText(
+            page_text.testing_manpower_award_content.activity_carry_out
+          )}
           <br />
           <br />
-          {page_text.testing_manpower_award_content.awardees_demonstrated}
+          {processText(
+            page_text.testing_manpower_award_content.awardees_demonstrated
+          )}
         </div>
       </>
     ),
@@ -193,12 +199,12 @@ export const AwardScheme21to22Preview: React.FC<{
                 index === 0 ? "newPrimary" : "white"
               } underline !text-heading-s`}
             >
-              {item.title}
+              {processText(item.title)}
             </div>
             <div
               className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
             >
-              {item.content}
+              {convertReactNode(item.content)}
             </div>
           </div>
         ))}
@@ -299,12 +305,12 @@ export const AwardScheme21to22Preview: React.FC<{
                 index === 0 ? "newPrimary" : "white"
               } underline !text-heading-s`}
             >
-              {item.title}
+              {processText(item.title)}
             </div>
             <div
               className={`text-${index === 0 ? "black" : "white"} !text-body-m`}
             >
-              {item.content}
+              {convertReactNode(item.content)}
             </div>
           </div>
         ))}
@@ -374,18 +380,18 @@ export const AwardScheme21to22Preview: React.FC<{
 
   return (
     <div className="w-full">
-      <SquareTitle title={page_text.title} />
-      <p className="text-highlight-l my-[24px] text-[#666]">
-        {page_text.result_announce}
-      </p>
-      <p className="text-body-m mb-[24px] text-justify">
-        {page_text.hkctc_launches_first}
-      </p>
+      <SquareTitle title={processText(page_text.title)} />
+      <h2 className="text-highlight-l my-[24px] text-[#666]">
+        {processText(page_text.result_announce)}
+      </h2>
+      <h3 className="text-body-m mb-[24px] text-justify">
+        {processText(page_text.hkctc_launches_first)}
+      </h3>
       <hr />
 
-      <p className="text-heading-l my-[24px]" id="supporting_organizations">
-        {page_text.supporting_organisations}
-      </p>
+      <h2 className="text-heading-l my-[24px]" id="supporting_organizations">
+        {processText(page_text.supporting_organisations)}
+      </h2>
       <div className="grid grid-cols-3 gap-[48px] p-[24px]">
         {supportingOrg.map((org, index) => {
           const { title, urlPath } = org;
@@ -410,33 +416,35 @@ export const AwardScheme21to22Preview: React.FC<{
       <hr className="my-[24px]" />
 
       <p className="text-heading-l my-[24px]" id="timeline">
-        {page_text.timeline}
+        {processText(page_text.timeline)}
       </p>
       <div className="w-full grid grid-cols-2 border-[1px] border-[#E0E0E0] mb-[24px]">
         <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          {page_text.date}
+          {processText(page_text.date)}
         </div>
         <div className="text-highlight-m px-[10px] py-[15px] bg-[#E0E0E0] flex items-center justify-start">
-          {page_text.event}
+          {processText(page_text.event)}
         </div>
         {page_text.timeline_list.map((item, index) => {
           const { date, event } = item;
           return (
             <React.Fragment key={index}>
               <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {date}
+                {processText(date)}
               </div>
               <div className="text-body-m px-[10px] py-[15px] flex items-center justify-start border-t border-gray-300">
-                {event}
+                {processText(event)}
               </div>
             </React.Fragment>
           );
         })}
       </div>
 
-      <p className="text-heading-l">{page_text.testing_manpower_award}</p>
+      <p className="text-heading-l">
+        {processText(page_text.testing_manpower_award)}
+      </p>
       <p className="text-body-m mt-[24px] text-justify">
-        {page_text.award_recognises_accredited}
+        {processText(page_text.award_recognises_accredited)}
       </p>
 
       <div className="flex flex-wrap gap-[8px] my-[24px] text-justify">
@@ -450,24 +458,26 @@ export const AwardScheme21to22Preview: React.FC<{
                 setActiveAwardOneButton(index);
               }}
             >
-              {btn}
+              {processText(btn)}
             </button>
           );
         })}
       </div>
 
       <div className="pb-[24px] text-body-m">
-        {awardMapOne[awardOneBtn[activeAwardOneButton]]}
+        {convertReactNode(awardMapOne[awardOneBtn[activeAwardOneButton]])}
       </div>
 
-      <p className="text-heading-l">{page_text.testing_profession_award}</p>
+      <p className="text-heading-l">
+        {processText(page_text.testing_profession_award)}
+      </p>
       <div className="text-body-m mt-[24px]">
-        {page_text.award_commends_individual}
+        {processText(page_text.award_commends_individual)}
         <br />
         <br />
         <ul>
-          <li>{page_text.purse_continue_learning}</li>
-          <li>{page_text.make_contribution}</li>
+          <li>{processText(page_text.purse_continue_learning)}</li>
+          <li>{processText(page_text.make_contribution)}</li>
         </ul>
       </div>
 
@@ -482,22 +492,23 @@ export const AwardScheme21to22Preview: React.FC<{
                 setActiveAwardTwoButton(index);
               }}
             >
-              {btn}
+              {processText(btn)}
             </button>
           );
         })}
       </div>
 
       <div className="mb-[24px] text-body-m">
-        {awardMapTwo[awardOneBtn[activeAwardTwoButton]]}
+        {convertReactNode(awardMapTwo[awardOneBtn[activeAwardTwoButton]])}
       </div>
 
       <hr />
 
-      <p className="text-heading-l mt-[24px]">{page_text.faq}</p>
+      <p className="text-heading-l mt-[24px]">{processText(page_text.faq)}</p>
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {questionBtn.map((btn, index) => {
           const isActivated = index === questionCategory;
+          const label = processText(btn);
           return (
             <button
               key={index}
@@ -506,7 +517,7 @@ export const AwardScheme21to22Preview: React.FC<{
                 setQuestionCategory(index);
               }}
             >
-              {btn.length > 48 && !isPC ? btn.slice(0, 48) + "..." : btn}
+              {label.length > 48 && !isPC ? label.slice(0, 48) + "..." : label}
             </button>
           );
         })}
@@ -517,14 +528,20 @@ export const AwardScheme21to22Preview: React.FC<{
           (q, index) => (
             <Accordion
               key={index}
-              title={`${index + 1}. ${q.title}`}
-              details={<div className="!text-body-m">{q.content}</div>}
+              title={`${index + 1}. ${processText(q.title)}`}
+              details={
+                <div className="!text-body-m">
+                  {convertReactNode(q.content)}
+                </div>
+              }
             />
           )
         )}
       </div>
 
-      <p className="text-heading-l my-[24px]">{page_text.application}</p>
+      <p className="text-heading-l my-[24px]">
+        {processText(page_text.application)}
+      </p>
 
       <div className="w-full flex flex-col gap-[24px]">
         {applicationData.map((item, index) => {
@@ -532,7 +549,7 @@ export const AwardScheme21to22Preview: React.FC<{
           return (
             <div key={index} className="w-full flex flex-row gap-[24px]">
               <MediaTemplateWithDialog
-                title={title}
+                title={processText(title)}
                 maskIcon={"PDF.png"}
                 date={""}
                 mediaLink={link}
@@ -544,7 +561,9 @@ export const AwardScheme21to22Preview: React.FC<{
           );
         })}
       </div>
-      <p className="text-heading-l my-[24px]">{page_text.publications}</p>
+      <p className="text-heading-l my-[24px]">
+        {processText(page_text.publications)}
+      </p>
       <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
         {publicationData.map((item, index) => {
           const {
@@ -559,7 +578,7 @@ export const AwardScheme21to22Preview: React.FC<{
           return (
             <div key={index} className="w-full flex flex-row gap-[24px]">
               <MediaTemplateWithDialog
-                title={title}
+                title={processText(title)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={mediaLink}
@@ -573,9 +592,9 @@ export const AwardScheme21to22Preview: React.FC<{
         })}
       </div>
       <hr className="my-[24px]" />
-      <p className="text-heading-l mb-[24px]">
-        {page_text.award_ceremony_list}
-      </p>
+      <h2 className="text-heading-l mb-[24px]">
+        {processText(page_text.award_ceremony_list)}
+      </h2>
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
         onClick={() => {
@@ -596,7 +615,7 @@ export const AwardScheme21to22Preview: React.FC<{
             isPC ? "pr-[16px] text-highlight-m" : "text-highlight-s"
           }`}
         >
-          {page_text.award_ceremony_list}
+          {processText(page_text.award_ceremony_list)}
         </div>
         <svg
           className="flex-shrink-0"

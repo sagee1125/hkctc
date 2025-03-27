@@ -1,6 +1,6 @@
 import React from "react";
 import { FileTemplate, SquareTitle } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 const multilingual = {
   en: {

@@ -2,38 +2,49 @@ import React from "react";
 import { award2122_panel_multilingual as multilingual } from "./lang";
 import { InternalBackButton, SquareTitle } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 export const AssessmentPanel2122: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
+  const {
+    assessment_panel_membership,
+    manpower_scheme_2122,
+    tc_assessment_panel,
+    members_1,
+    members,
+    chairman,
+    joseph_mak,
+    excellent_assessment_panel,
+    members_2,
+    chan_kin_sek,
+  } = page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={page_text.assessment_panel_membership} />
-      <p className="text-heading-l">{page_text.manpower_scheme_2122}</p>
+      <SquareTitle title={assessment_panel_membership as string} />
+      <p className="text-heading-l">{manpower_scheme_2122 as string}</p>
       <p className="text-heading-l my-[24px]">
-        {page_text.tc_assessment_panel}
+        {tc_assessment_panel as string}
       </p>
-      <p className="text-heading-m">{page_text.chairman}</p>
-      <p className="text-highlight-m">{page_text.joseph_mak}</p>
-      <p className="text-heading-m mt-[24px]">{page_text.members}</p>
+      <p className="text-heading-m">{chairman as string}</p>
+      <p className="text-highlight-m">{joseph_mak as string}</p>
+      <p className="text-heading-m mt-[24px]">{members as string}</p>
       <div>
-        {page_text.members_1.map((m, index) => (
+        {[members_1 as string[]].map((m, index) => (
           <p key={index} className="text-highlight-extra">
             {m}
           </p>
         ))}
       </div>
       <p className="text-heading-l my-[24px]">
-        {page_text.excellent_assessment_panel}
+        {excellent_assessment_panel as string}
       </p>
-      <p className="text-heading-m">{page_text.chairman}</p>
-      <p className="text-highlight-m">{page_text.chan_kin_sek}</p>
-      <p className="text-heading-m mt-[24px]">{page_text.members}</p>
+      <p className="text-heading-m">{chairman as string}</p>
+      <p className="text-highlight-m">{chan_kin_sek as string}</p>
+      <p className="text-heading-m mt-[24px]">{members as string}</p>
       <div>
-        {page_text.members_2.map((m, index) => (
+        {[members_2 as string[]].map((m, index) => (
           <p key={index} className="text-highlight-extra">
             {m}
           </p>
