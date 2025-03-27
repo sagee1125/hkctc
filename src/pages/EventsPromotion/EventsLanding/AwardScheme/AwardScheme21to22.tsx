@@ -93,7 +93,11 @@ export const AwardScheme21to22: React.FC = () => {
       label: page_text.breadcrumb[3],
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
-    { label: page_text.breadcrumb[4] },
+    {
+      label: page_text.breadcrumb[4],
+      href: `/events-promotion?section=${navItemEnum.award_scheme}&year=2122`,
+    },
+    { label: page_text.breadcrumb[5] },
   ];
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [

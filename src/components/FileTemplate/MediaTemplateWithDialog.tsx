@@ -205,7 +205,7 @@ export const MediaTemplateWithDialog: React.FC<
     return () => {
       isCancelled = true;
     };
-  }, [mediaLink, mediaType, mediaDomain, pdfjsLib]);
+  }, [mediaLink, mediaType, mediaDomain, pdfjsLib, direction]);
 
   const handleMouseEnter = (): void => {
     // if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);

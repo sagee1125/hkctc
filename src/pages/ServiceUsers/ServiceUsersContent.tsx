@@ -118,7 +118,7 @@ export const ServiceUsersContent: React.FC = () => {
       title: different_business_areas,
       description:
         "The testing and certification industry offers services covering a wide range of areas...",
-      descriptionCN: "檢測和認證業為多個範疇提供服務",
+      descriptionCN: "檢測和認證業為多個範疇提供服務，主要包括以下各項...",
       imagePath: "serviceUsers/service_1.png",
       link: "/tc-sector?section=different_business_areas",
     },
