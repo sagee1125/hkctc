@@ -48,7 +48,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   mediaType,
   mediaDomain = "hkctc",
 }: MediaDialogProps) => {
-  const { withLoading, isPC } = useSettings();
+  const { withLoading, isPC, getSingleText } = useSettings();
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -146,13 +146,13 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
           {mediaType === MEDIA_TYPE.PDF && (
             <>
               <MemoizedIframe src={pdfLink} />
-              {mediaDomain === "hkctc" && (
+              {mediaDomain === "hkctc" && isPC && (
                 <div className="absolute bottom-4 right-4 flex gap-2">
                   <button
                     className="bg-newPrimary text-white px-4 py-2"
                     onClick={handlePdfDownload}
                   >
-                    Download
+                    {getSingleText("Download", "下載")}
                   </button>
                 </div>
               )}

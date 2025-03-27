@@ -9,7 +9,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -33,9 +33,8 @@ export const Pamphlets: React.FC = () => {
     1: pamphletsList, // Pamphlets
     2: bookletsList, // Booklets
   };
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getSingleText, isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { pamphlets, types, filterButtons } = page_text;
 
   const filteredArticles = filterList[activeButton];
@@ -55,13 +54,13 @@ export const Pamphlets: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title={pamphlets} />
+      <SquareTitle title={pamphlets as string} />
       <div>
         <NormalAccordion
-          title={types}
+          title={types as string}
           details={
             <div className="flex flex-row gap-[8px]">
-              {filterButtons.map((name, index) => {
+              {(filterButtons as string[]).map((name, index) => {
                 const isActivated = activeButton === index;
                 return (
                   <button
@@ -103,7 +102,7 @@ export const Pamphlets: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

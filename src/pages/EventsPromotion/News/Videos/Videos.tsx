@@ -14,7 +14,7 @@ import {
   type VideoListData,
 } from "../../../../const/VideoList";
 import { MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -30,9 +30,9 @@ const multilingual = {
 };
 
 export const Videos: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title, types } = page_text;
 
   const [activeButton, setActiveButton] = useState<number>(0);
@@ -74,10 +74,10 @@ export const Videos: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div>
         <NormalAccordion
-          title={types}
+          title={types as string}
           details={
             <div className="flex flex-wrap gap-[8px]">
               {Object.keys(filterButtons).map((name, index) => {
@@ -93,7 +93,7 @@ export const Videos: React.FC = () => {
                     }}
                   >
                     <p className="text-highlight-xs">
-                      {isEn ? name : filterButtons[name]}
+                      {getSingleText(name, filterButtons[name])}
                     </p>
                   </button>
                 );
@@ -121,7 +121,7 @@ export const Videos: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={""}
                 mediaLink={link}

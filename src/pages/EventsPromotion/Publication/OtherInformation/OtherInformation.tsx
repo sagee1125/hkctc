@@ -1,7 +1,7 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../../components";
 import { otherInformationList, MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -13,13 +13,12 @@ const multilingual = {
 };
 
 export const OtherInformation: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { title } = page_text;
   return (
     <div>
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div className={`pt-[24px] flex flex-col ${isPC ? "" : "gap-[24px]"}`}>
         {otherInformationList.map((item, index) => {
           const { title, titleCN = "", mediaType, date, link } = item;
@@ -28,7 +27,7 @@ export const OtherInformation: React.FC = () => {
           return (
             <MediaTemplateWithDialog
               key={index}
-              title={isEn ? title : titleCN}
+              title={getSingleText(title, titleCN)}
               maskIcon={maskIcon}
               date={date as string}
               mediaLink={link}

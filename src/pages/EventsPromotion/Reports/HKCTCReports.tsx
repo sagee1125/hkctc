@@ -6,7 +6,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../components";
 import { hktctReportsList, MEDIA_TYPE } from "../../../const";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 const itemsPerPage = 9;
 
@@ -26,9 +26,9 @@ export const HKCTCReports: React.FC = () => {
     itemsPerPage,
     hktctReportsList
   );
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title } = page_text;
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const HKCTCReports: React.FC = () => {
 
   return (
     <div>
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div
         className={`w-full mt-[24px] grid ${
           isPC
@@ -60,7 +60,7 @@ export const HKCTCReports: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

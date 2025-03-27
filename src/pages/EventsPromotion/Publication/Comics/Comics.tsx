@@ -6,7 +6,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { comicsList, MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -36,9 +36,9 @@ export const Comics: React.FC = () => {
     itemsPerPage,
     comicsList
   );
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { comics, tc_play_roles, comic_series } = page_text;
 
   useEffect(() => {
@@ -50,16 +50,16 @@ export const Comics: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title={comics} />
+      <SquareTitle title={comics as string} />
       <img
         className="w-full"
         src={`${process.env.PUBLIC_URL}/assets/publications/comics/comic_big.png`}
         alt="PDF Icon"
       />
 
-      <div className="text-body-m">{tc_play_roles}</div>
+      <div className="text-body-m">{tc_play_roles as string}</div>
 
-      <div className="text-body-m">{comic_series}</div>
+      <div className="text-body-m">{comic_series as string}</div>
       <div
         className={`w-full grid ${
           isPC
@@ -79,7 +79,7 @@ export const Comics: React.FC = () => {
               } flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
-                title={title}
+                title={getSingleText(title, title)}
                 maskIcon={maskIcon}
                 date={""}
                 mediaDomain="hkctc"

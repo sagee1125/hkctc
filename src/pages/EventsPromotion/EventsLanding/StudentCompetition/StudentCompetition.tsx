@@ -5,64 +5,6 @@ import { Language, useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Student Competitions",
-    awardeesList: [
-      {
-        title: "Testing Science - Sustainability in Daily Life",
-        date: "2023-24",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_1.png",
-        hyperLink:
-          "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "Food Testing in Daily Life",
-        date: "2022-23",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_2.png",
-        hyperLink:
-          "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "Materials Testing Science in Daily Life",
-        date: "2021-22",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_3.png",
-        hyperLink:
-          "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "Testing Science in Daily Life - Healthcare and Hygiene",
-        date: "2020-21",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_4.png",
-        hyperLink:
-          "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "Testing Science for Green Living",
-        date: "2018-19",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_5.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "Testing Science for Improving the Quality of Life",
-        date: "2017-18",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_6.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
-      },
-      {
-        title: "Scientific Testing in Everyday Life",
-        date: "2016-2017",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_3.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
-      },
-    ],
     digi_science_video: `"Digi-Science" Video Production Competition for Hong Kong Secondary
         Schools`,
     raise_student_awareness: `To raise students' awareness of the importance of testing and
@@ -84,64 +26,7 @@ const multilingual = {
   },
   cn: {
     title: "學生比賽",
-    awardeesList: [
-      {
-        title: "測試科學–日常生活中的可持續性",
-        date: "2023-24",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_1.png",
-        hyperLink:
-          "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "生活中的食品檢測",
-        date: "2022-23",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_2.png",
-        hyperLink:
-          "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "日常中的物料檢測科學",
-        date: "2021-22",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_3.png",
-        hyperLink:
-          "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "生活中的檢測科學 - 衛生保健篇",
-        date: "2020-21",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_4.png",
-        hyperLink:
-          "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "檢測科學 - 綠色生活",
-        date: "2018-19",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_5.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      },
-      {
-        title: "檢測科學 - 改善生活質素",
-        date: "2017-18",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_6.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
-      },
-      {
-        title: "日常的科學測試",
-        date: "2016-2017",
-        maskIcon: "PRESS.png",
-        imgUrl: "awardees_3.png",
-        hyperLink:
-          "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
-      },
-    ],
+
     digi_science_video: `香港中學數碼科學短片製作比賽`,
     raise_student_awareness: `為使學生加深認識檢測和認證服務的重要性，自2016年起，香港檢測和認證局與香港數理教育學會合辦了香港中學數碼科學短片製作比賽。`,
     participant_student: `參賽學生須製作兩分鐘的短片及介紹其實驗理念的報告，內容與該年比賽主題有關。`,
@@ -154,12 +39,11 @@ const multilingual = {
 };
 
 export const StudentCompetition: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
-    awardeesList,
     digi_science_video,
     raise_student_awareness,
     participant_student,
@@ -170,17 +54,82 @@ export const StudentCompetition: React.FC = () => {
     hkngca_website,
   } = page_text;
 
+  const awardeesList = [
+    {
+      title: "Testing Science - Sustainability in Daily Life",
+      titleCN: "測試科學–日常生活中的可持續性",
+      date: "2023-24",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_1.png",
+      hyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+    },
+    {
+      title: "Food Testing in Daily Life",
+      titleCN: "生活中的食品檢測",
+      date: "2022-23",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_2.png",
+      hyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+    },
+    {
+      title: "Materials Testing Science in Daily Life",
+      titleCN: "日常中的物料檢測科學",
+      date: "2021-22",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_3.png",
+      hyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+    },
+    {
+      title: "Testing Science in Daily Life - Healthcare and Hygiene",
+      titleCN: "生活中的檢測科學 - 衛生保健篇",
+      date: "2020-21",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_4.png",
+      hyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+    },
+    {
+      titleCN: "檢測科學 - 綠色生活",
+      date: "2018-19",
+      title: "Testing Science for Green Living",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_5.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+    },
+    {
+      titleCN: "檢測科學 - 改善生活質素",
+      title: "Testing Science for Improving the Quality of Life",
+      date: "2017-18",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_6.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
+    },
+    {
+      title: "Scientific Testing in Everyday Life",
+      titleCN: "日常的科學測試",
+      date: "2016-2017",
+      maskIcon: "PRESS.png",
+      imgUrl: "awardees_3.png",
+      hyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
+    },
+  ];
   return (
     <div className="flex flex-col gap-[24px] mb-[48px]">
-      <SquareTitle title={title} />
-      <p className="text-heading-l">{digi_science_video}</p>
+      <SquareTitle title={title as string} />
+      <p className="text-heading-l">{digi_science_video as string}</p>
 
-      <div className="text-body-m">{raise_student_awareness}</div>
+      <div className="text-body-m">{raise_student_awareness as string}</div>
 
-      <div className="text-body-m">{participant_student}</div>
+      <div className="text-body-m">{participant_student as string}</div>
 
       <hr />
-      <p className="text-heading-l">{awardees_list}</p>
+      <p className="text-heading-l">{awardees_list as string}</p>
 
       <div
         className={`w-full ${
@@ -190,7 +139,8 @@ export const StudentCompetition: React.FC = () => {
         } `}
       >
         {awardeesList.map((item, index) => {
-          const { imgUrl, maskIcon, title, date, hyperLink } = item;
+          const { imgUrl, maskIcon, title, titleCN, date, hyperLink } = item;
+
           return (
             <div
               key={index}
@@ -219,7 +169,9 @@ export const StudentCompetition: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col items-start justify-center h-full">
-                <p className="text-highlight-l h-full">{title}</p>
+                <p className="text-highlight-l h-full">
+                  {getSingleText(title, titleCN)}
+                </p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +207,7 @@ export const StudentCompetition: React.FC = () => {
 
       <hr />
 
-      <p className="text-heading-l">{hk_youth_science}</p>
+      <p className="text-heading-l">{hk_youth_science as string}</p>
       <div
         className={`w-full grid grid-cols-${
           isPC ? "2 gap-x-[24px]" : "1 gap-[24px]"
@@ -274,8 +226,11 @@ export const StudentCompetition: React.FC = () => {
       </div>
 
       <div>
-        {since_2016}
-        <Link outerLink="https://stic.newgen.org.hk/">{hkngca_website}</Link>.
+        {since_2016 as string}
+        <Link outerLink="https://stic.newgen.org.hk/">
+          {hkngca_website as string}
+        </Link>
+        .
       </div>
     </div>
   );

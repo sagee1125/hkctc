@@ -102,9 +102,8 @@ export const EventsPromotion: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { home, event_promotion, seminar_workshop, events, media_coverage } =
     page_text;
 
@@ -146,9 +145,10 @@ export const EventsPromotion: React.FC = () => {
   }, [initialParam, activeItem, navigate]);
 
   const seminarArticleIndex = Number(window.location.hash.replace("#", ""));
-  const seminarArticleTitle = isEn
-    ? seminarsAndWorkshopsList[seminarArticleIndex]?.title
-    : seminarsAndWorkshopsList_CN[seminarArticleIndex]?.title;
+  const seminarArticleTitle = getSingleText(
+    seminarsAndWorkshopsList[seminarArticleIndex]?.title,
+    seminarsAndWorkshopsList_CN[seminarArticleIndex]?.title
+  );
 
   const handleChangeDirectorySidebarItems = (activatedItems: string): void => {
     setActivatedDirectorySidebarItems(activatedItems);
@@ -334,9 +334,10 @@ export const EventsPromotion: React.FC = () => {
   const findActiveSidebarItems = sidebarData.filter((section) => {
     return section.sidebarItems.find((item) => item.enum === activeItem);
   })?.[0];
-  const activeSidebarItemsLabel = isEn
-    ? findActiveSidebarItems?.title
-    : findActiveSidebarItems?.titleCN;
+  const activeSidebarItemsLabel = getSingleText(
+    findActiveSidebarItems?.title ?? "",
+    findActiveSidebarItems?.titleCN ?? ""
+  );
 
   const firstActiveItem = sidebarData
     .map((section) =>
@@ -345,9 +346,10 @@ export const EventsPromotion: React.FC = () => {
     .find((matchedItem) => matchedItem !== undefined);
 
   const firstActiveItemEnum = firstActiveItem?.enum;
-  const activeSidebarItemsSubLabel = isEn
-    ? firstActiveItem?.subTitle
-    : firstActiveItem?.subTitleCN;
+  const activeSidebarItemsSubLabel = getSingleText(
+    firstActiveItem?.subTitle ?? " ",
+    firstActiveItem?.subTitleCN ?? ""
+  );
 
   const handleChangeSidebar = (item: string) => {
     setActiveItem(item as navItemEnum);
@@ -390,13 +392,14 @@ export const EventsPromotion: React.FC = () => {
     ...(activeItem === navItemEnum.award_scheme
       ? [
           {
-            label: isEn
-              ? directoryItems.find(
-                  (i) => i.value === activatedDirectorySidebarItems
-                )?.label
-              : directoryItems.find(
-                  (i) => i.value === activatedDirectorySidebarItems
-                )?.labelCN,
+            label: getSingleText(
+              directoryItems.find(
+                (i) => i.value === activatedDirectorySidebarItems
+              )?.label ?? "",
+              directoryItems.find(
+                (i) => i.value === activatedDirectorySidebarItems
+              )?.labelCN ?? ""
+            ),
             href:
               onDetail && activatedDirectorySidebarItems === "2324"
                 ? `/events-promotion?section=${navItemEnum.award_scheme}`

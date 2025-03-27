@@ -6,7 +6,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { hkctcNewsletterList, MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -25,10 +25,9 @@ export const Newsletter: React.FC = () => {
     itemsPerPage,
     hkctcNewsletterList
   );
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
 
-  const page_text = isEn ? multilingual.en : multilingual.cn;
   const { title } = page_text;
   useEffect(() => {
     window.scroll({
@@ -39,7 +38,7 @@ export const Newsletter: React.FC = () => {
 
   return (
     <div>
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div
         className={`w-full ${
@@ -60,7 +59,7 @@ export const Newsletter: React.FC = () => {
               } flex flex-col gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}

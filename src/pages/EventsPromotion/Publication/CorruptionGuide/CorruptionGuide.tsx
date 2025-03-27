@@ -1,7 +1,7 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../../components";
 import { corruptionGuideList, MEDIA_TYPE } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Corruption Prevention Guide for T&C Industry",
@@ -12,13 +12,13 @@ const multilingual = {
 };
 
 export const CorruptionGuide: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title } = page_text;
   return (
     <div>
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       <div className={`pt-[24px] flex flex-col ${isPC ? "" : "gap-[24px]"}`}>
         {corruptionGuideList.map((item, index) => {
           const {
@@ -41,7 +41,7 @@ export const CorruptionGuide: React.FC = () => {
               className={`flex flex-col gap-[24px] ${isPC ? "" : "pb-[24px]"}`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date as string}
                 mediaLink={link}
