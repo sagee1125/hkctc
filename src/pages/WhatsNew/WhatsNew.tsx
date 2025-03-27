@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   SquareTitle,
   Link,
   fullContainer,
   maxPCContainer,
-  MediaDialog,
   maxMobileContainer,
   MediaTemplateWithDialog,
 } from "../../components";
@@ -30,19 +29,16 @@ const multilingual = {
 };
 
 export const WhatsNew: React.FC = () => {
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [activeReport, setActiveReport] = useState(0);
-  const currentReport = hkctcNewsletterList[activeReport];
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
   const { title, hkctc_newsletter, see_more } = page_text;
 
   const whatsNewData = isEn ? WhatsNewConfiguration : WhatsNewConfiguration_cn;
 
   const leftContent = (
     <div className="w-full flex flex-col gap-[24px]">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       {whatsNewData.map((item, index) => {
         const { imagePath, title, date, redirectTo } = item;
         return (
@@ -59,7 +55,7 @@ export const WhatsNew: React.FC = () => {
                   innerLink={redirectTo}
                   outerLink={redirectTo}
                 >
-                  {title}
+                  {getSingleText(title, title)}
                 </Link>
               </div>
               <div className="flex flex-row items-center">
@@ -91,7 +87,7 @@ export const WhatsNew: React.FC = () => {
   const rightContent = (
     <div>
       <div className="border-2 border-inherit p-[24px] flex flex-col">
-        <p className="text-heading-l">{hkctc_newsletter}</p>
+        <p className="text-heading-l">{hkctc_newsletter as string}</p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
           const { title, titleCN = "", date = "", mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
@@ -102,7 +98,7 @@ export const WhatsNew: React.FC = () => {
               className={`w-full h-auto object-cover flex flex-row gap-[14px] mt-[24px]`}
             >
               <MediaTemplateWithDialog
-                title={isEn ? title : titleCN}
+                title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={link}
@@ -118,7 +114,7 @@ export const WhatsNew: React.FC = () => {
             window.open("/events-promotion?section=hkctc_newsletter");
           }}
         >
-          {see_more}
+          {see_more as string}
         </div>
       </div>
     </div>
@@ -139,14 +135,6 @@ export const WhatsNew: React.FC = () => {
           </div>
         )}
       </div>
-      {isPreviewOpen && (
-        <MediaDialog
-          mediaType={currentReport.mediaType}
-          setIsPreviewOpen={setIsPreviewOpen}
-          title={currentReport.title}
-          link={currentReport.link}
-        />
-      )}
     </div>
   );
 };

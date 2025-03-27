@@ -77,9 +77,10 @@ export const SeminarsWorkshops: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { language, isPC } = useSettings();
+  const { language, isPC, getPageText, getSingleText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const navigate = useNavigate();
   const { yearArray, title, topics, years } = page_text;
   const seminarsData_cn = seminarsData.map((item, i) => ({
@@ -90,12 +91,13 @@ export const SeminarsWorkshops: React.FC = () => {
 
   const seminarsProcessData = isEn ? seminarsData : seminarsData_cn;
   const displaySeminars = seminarsProcessData.filter((item) => {
-    const activeYear = Object.values(yearArray)[activeYearButton];
+    const activeYear = Object.values(yearArray as string[])[activeYearButton];
     const activeTopic = Object.keys(topicArray)[activeTopicButton];
 
     // Check if the item matches the active year
     const yearMatch =
-      activeYear === yearArray[0] || String(item.year) === activeYear;
+      activeYear === (yearArray as string[])[0] ||
+      String(item.year) === activeYear;
 
     // Check if the item matches the active topic
     const topicMatch = activeTopic === "All" || item.tag === activeTopic;
@@ -113,11 +115,11 @@ export const SeminarsWorkshops: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-[24px]">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
       {!isPC && <RegistrationBox />}
       <div>
         <NormalAccordion
-          title={topics}
+          title={topics as string}
           details={
             <div className="flex flex-wrap gap-[8px]">
               {Object.keys(topicArray).map((btn, index) => {
@@ -133,7 +135,7 @@ export const SeminarsWorkshops: React.FC = () => {
                       setCurrentPage(0);
                     }}
                   >
-                    {isEn ? btn : topicArray[btn]}
+                    {getSingleText(btn, topicArray[btn])}
                   </button>
                 );
               })}
@@ -144,10 +146,10 @@ export const SeminarsWorkshops: React.FC = () => {
 
       <div>
         <NormalAccordion
-          title={years}
+          title={years as string}
           details={
             <div className="w-full flex flex-wrap gap-[8px]">
-              {yearArray.map((btn, index) => {
+              {(yearArray as string[]).map((btn, index) => {
                 const isActivated = index === activeYearButton;
                 return (
                   <button
@@ -160,7 +162,7 @@ export const SeminarsWorkshops: React.FC = () => {
                       setCurrentPage(0);
                     }}
                   >
-                    {btn}
+                    {getSingleText(btn, btn)}
                   </button>
                 );
               })}
@@ -191,7 +193,7 @@ export const SeminarsWorkshops: React.FC = () => {
               <div className="flex flex-col w-full justify-center">
                 <div className="text-heading-m underline-offset-4 mb-[16px]">
                   <Link linkColor="#203136" breakAll={false}>
-                    {title}
+                    {getSingleText(title, title)}
                   </Link>
                 </div>
                 <div className="flex flex-row items-center">

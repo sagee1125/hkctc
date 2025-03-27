@@ -6,7 +6,7 @@ import {
   SquareTitle,
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 import { formatDateToChinese } from "../../News";
 
 const mediaCoverageList = [
@@ -117,13 +117,13 @@ const multilingual = {
   },
 };
 export const MediaCoverage2324: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { media_coverage } = page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={media_coverage} />
+      <SquareTitle title={media_coverage as string} />
       <div
         className={`w-full mt-[24px] grid ${
           isPC
@@ -135,6 +135,7 @@ export const MediaCoverage2324: React.FC = () => {
           const { title, date = "", mediaType, link, mediaDomain } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "PRESS.png";
+          const displayTitle = getSingleText(title, title);
           return (
             <div
               key={index}
@@ -143,9 +144,13 @@ export const MediaCoverage2324: React.FC = () => {
               } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
-                title={title.length > 33 ? title.slice(0, 33) + "..." : title}
+                title={
+                  displayTitle.length > 33
+                    ? displayTitle.slice(0, 33) + "..."
+                    : displayTitle
+                }
                 maskIcon={maskIcon}
-                date={isEn ? date : formatDateToChinese(date)}
+                date={getSingleText(date, formatDateToChinese(date))}
                 mediaDomain={mediaDomain as ProxyDomain}
                 imagePath={undefined}
                 mediaLink={link}

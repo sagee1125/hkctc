@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "../../../../components";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -15,9 +15,9 @@ const multilingual = {
 };
 
 export const RegistrationBox: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { seminar_on, register } = page_text;
 
   return (
@@ -31,12 +31,12 @@ export const RegistrationBox: React.FC = () => {
         />
       </div>
       <div className="bg-[#203136] text-[#FFF] px-[19px] py-[15.5px] flex flex-col justify-center">
-        <p>{seminar_on}</p>
+        <p>{seminar_on as string}</p>
         <Link
           linkColor="#FFF"
           innerLink="/events-promotion/seminars-registration"
         >
-          {register}
+          {register as string}
         </Link>
       </div>
     </div>
