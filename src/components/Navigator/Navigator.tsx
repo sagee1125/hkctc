@@ -20,6 +20,7 @@ import {
   Popper,
 } from "@mui/material";
 import { t2s } from "chinese-s2t";
+import LanguageSelect from "../languageSelection";
 
 const hideExploreBar = [
   "/events-landing",
@@ -83,7 +84,7 @@ const multilingual = {
 };
 
 export const Navigator: React.FC = () => {
-  const { isPC, handleChangeLang, language, getPageText } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const location = useLocation();
   const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -93,7 +94,10 @@ export const Navigator: React.FC = () => {
   >(getCurrentTitle(currentPath));
   const showEn = language === Language.EN;
   const isSimpleCN = language === Language.ZH_CN;
-
+  const currentOption = getSingleText(
+    selectedExploreOption === null ? "" : selectedExploreOption,
+    exploreOption.find((op) => "/" + op.nav === currentPath)?.titleCN ?? ""
+  );
   const page_text = getPageText(multilingual);
 
   const { explore_as } = page_text;
@@ -162,7 +166,7 @@ export const Navigator: React.FC = () => {
           <>
             <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
               <p className="!text-body-s flex items-center justify-start">
-                {selectedExploreOption ?? (explore_as as string)}
+                {currentOption ?? (explore_as as string)}
               </p>
               <ChevronDownIcon
                 className={`h-[16px] w-[16px] text-[#666666] text-white transform transition-transform ${
@@ -340,18 +344,7 @@ export const Navigator: React.FC = () => {
                         )}
                       </>
                     )}
-                    <Icon
-                      icon="ci:globe"
-                      className="h-[24px] w-[24px] text-[#333333] flex-shrink-0 cursor-pointer"
-                      onClick={() => {
-                        // TODO
-                        handleChangeLang(
-                          language === Language.EN
-                            ? Language.ZH_TW
-                            : Language.EN
-                        );
-                      }}
-                    />
+                    <LanguageSelect />
                     <div
                       ref={anchorRef}
                       className="cursor-pointer h-[24px] w-[24px]"
