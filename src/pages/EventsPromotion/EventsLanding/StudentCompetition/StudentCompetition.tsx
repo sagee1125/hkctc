@@ -142,7 +142,7 @@ const multilingual = {
           "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
       },
     ],
-    digi_science_video: `"香港中學數碼科學短片製作比賽`,
+    digi_science_video: `香港中學數碼科學短片製作比賽`,
     raise_student_awareness: `為使學生加深認識檢測和認證服務的重要性，自2016年起，香港檢測和認證局與香港數理教育學會合辦了香港中學數碼科學短片製作比賽。`,
     participant_student: `參賽學生須製作兩分鐘的短片及介紹其實驗理念的報告，內容與該年比賽主題有關。`,
     awardees_list: "得獎學生名單",

@@ -15,9 +15,22 @@ const multilingual = {
     },
     accreditation_is_open:
       "Accreditation is open and voluntary in Hong Kong. It is currently provided by Hong Kong Accreditation Service (HKAS) under Innovation and Technology Commission in Hong Kong. HKAS operates three accreditation schemes:",
-    this_full_list:
-      "*This full list is for the purpose of searching specific conformity assessment activity and will only be updated weekly. For most up-to-date scope of accreditation, please visit",
-    HKAS: `HKAS's website`,
+    this_full_list: (
+      <>
+        *This full list is for the purpose of searching specific conformity
+        assessment activity and will only be updated weekly. For most up-to-date
+        scope of accreditation, please visit
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          HKAS's website
+        </a>
+        .
+      </>
+    ),
   },
   cn: {
     accreditation_services: "認可服務",
@@ -30,8 +43,20 @@ const multilingual = {
     },
     accreditation_is_open:
       "在香港，申請認可資格是公開和自願性質的，目前由創新科技署轄下的香港認可處提供認可資格。該處負責推行三個認可計劃，包括：",
-    this_full_list:
-      "*This full list is for the purpose of searching specific conformity assessment activity and will only be updated weekly. For most up-to-date scope of accreditation, please visit",
+    this_full_list: (
+      <>
+        此完整清單僅用於搜尋特定的合格評定活動，並且每週更新一次。如欲了解最新的認可範圍，請造訪
+        <a
+          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港認可處網站
+        </a>
+        。
+      </>
+    ),
     HKAS: `香港認可處網頁`,
   },
 };
@@ -44,7 +69,6 @@ export const AccreditationServices: React.FC = () => {
     accreditation_def,
     accreditation_is_open,
     this_full_list,
-    HKAS,
   } = page_text;
   return (
     <div className="w-full">
@@ -92,16 +116,7 @@ export const AccreditationServices: React.FC = () => {
         </div>
 
         <p className="text-italic-s mt-[24px] text-justify">
-          {this_full_list as string}&nbsp;
-          <a
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            {HKAS as string}
-          </a>
-          .
+          {this_full_list as React.ReactNode}
         </p>
       </div>
     </div>
