@@ -1,3 +1,4 @@
+import { t2s } from "chinese-s2t";
 import { type BreadcrumbItem } from "../../../../../components";
 import { navItemEnum } from "../../../../../const";
 import { Language } from "../../../../../context";
@@ -22,16 +23,17 @@ export const handleReturnDifferentBusinessAreasBreadcrumb = (
 ): BreadcrumbItem[] => {
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
+  const isSimpleCN = language === Language.ZH_CN;
   const { home, about_tc, sv_fof_diff } = page_text;
 
   const differentBusinessAreasBreadcrumbItems = [
-    { label: home, href: "/" },
+    { label: isSimpleCN ? t2s(home) : home, href: "/" },
     {
-      label: about_tc,
+      label: isSimpleCN ? t2s(about_tc) : about_tc,
       href: `/tc-sector?section=${navItemEnum.profile_and_role}`, // default to activate the first one
     },
     {
-      label: sv_fof_diff,
+      label: isSimpleCN ? t2s(sv_fof_diff) : sv_fof_diff,
       href: `/tc-sector?section=${navItemEnum.different_business_areas}`,
     },
     { label: currentArea },

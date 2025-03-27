@@ -121,11 +121,19 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       ) : (
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
           <p className="text-highlight-s">{explore_as as string}</p>
-          <img
-            className="w-[12px] h-[12px] ml-[8px] mr-[16px]"
-            src={process.env.PUBLIC_URL + "/assets/icons/arrow_right.svg"}
-            alt="arrow_right"
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            className="ml-[8px] mr-[16px]"
+          >
+            <path
+              d="M3.94336 1L8.94336 6L3.94336 11L3.05586 10.1125L7.16836 6L3.05586 1.8875L3.94336 1Z"
+              fill="white"
+            />
+          </svg>
           <div className="flex flex-row gap-[24px]">
             {exploreBarData.map((item, index) => {
               const { iconName, title, titleCN, hoverColor, onClick } = item;

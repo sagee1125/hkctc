@@ -21,7 +21,7 @@ import { Language, useSettings } from "../../../../context";
 export const AwardScheme21to22: React.FC = () => {
   const [locateAnchor, setLocateAnchor] = useState<number>(0);
   const [activeButtonTwo, setActiveButtonTwo] = useState<number>(0);
-  const { isPC, language } = useSettings();
+  const { isPC, language, processText, convertReactNode } = useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
 
@@ -29,7 +29,7 @@ export const AwardScheme21to22: React.FC = () => {
 
   const mediaData: MediaTemplateWithDialogProps[] = [
     {
-      title: page_text.mediaData.title,
+      title: processText(page_text.mediaData.title),
       maskIcon: "PRESS.png",
       date: page_text.mediaData.date,
       imagePath: "press_release.png",
@@ -55,7 +55,7 @@ export const AwardScheme21to22: React.FC = () => {
                   isPC ? "h-[102px]" : "min-w-[120px]"
                 }`}
               >
-                {c}
+                {processText(c)}
               </p>
             ))}
           </div>
@@ -76,7 +76,7 @@ export const AwardScheme21to22: React.FC = () => {
                   isPC ? "h-[102px]" : "min-w-[100px]"
                 }`}
               >
-                {c}
+                {processText(c)}
               </p>
             ))}
           </div>
@@ -86,18 +86,18 @@ export const AwardScheme21to22: React.FC = () => {
   };
 
   const breadcrumbItems = [
-    { label: page_text.breadcrumb[0], href: "/hkctc" },
-    { label: page_text.breadcrumb[1], href: "/events-promotion" },
-    { label: page_text.breadcrumb[2], href: "/events-promotion" },
+    { label: processText(page_text.breadcrumb[0]), href: "/hkctc" },
+    { label: processText(page_text.breadcrumb[1]), href: "/events-promotion" },
+    { label: processText(page_text.breadcrumb[2]), href: "/events-promotion" },
     {
-      label: page_text.breadcrumb[3],
+      label: processText(page_text.breadcrumb[3]),
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
-      label: page_text.breadcrumb[4],
+      label: processText(page_text.breadcrumb[4]),
       href: `/events-promotion?section=${navItemEnum.award_scheme}&year=2122`,
     },
-    { label: page_text.breadcrumb[5] },
+    { label: processText(page_text.breadcrumb[5]) },
   ];
 
   const directoryAnchorIds: Array<{ id: string; title: string }> = [
@@ -148,7 +148,7 @@ export const AwardScheme21to22: React.FC = () => {
               }
             }}
           >
-            {title}
+            {processText(title)}
           </div>
         );
       })}
@@ -172,7 +172,7 @@ export const AwardScheme21to22: React.FC = () => {
           setIsOpen(true);
         }}
       >
-        {page_text.mobile_sidebar.content_list}
+        {processText(page_text.mobile_sidebar.content_list)}
       </button>
 
       <Drawer
@@ -192,7 +192,7 @@ export const AwardScheme21to22: React.FC = () => {
         <div className="flex flex-col w-full">
           <div className="w-full flex flex-row justify-between items-center pb-[24px]">
             <p className="text-heading-m text-newPrimary">
-              {page_text.mobile_sidebar.content_list}
+              {processText(page_text.mobile_sidebar.content_list)}
             </p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +245,7 @@ export const AwardScheme21to22: React.FC = () => {
                     }
                   }}
                 >
-                  {title}
+                  {processText(title)}
                 </div>
               );
             })}
@@ -256,30 +256,32 @@ export const AwardScheme21to22: React.FC = () => {
   );
   const content = (
     <div className="flex flex-col gap-[24px]">
-      <SquareTitle title={page_text.tc_manpower_development} />
+      <SquareTitle title={processText(page_text.tc_manpower_development)} />
       <p className="text-heading-l" id="testing_testing_2122">
-        {page_text.awardees}
+        {processText(page_text.awardees)}
       </p>
       <div>
         <Accordion
-          title={page_text.directory_sidebar.tc_manpower}
+          title={processText(page_text.directory_sidebar.tc_manpower)}
           details={
             <div>
               <ol className="ml-[12px]">
                 {page_text.manpowerDevelopmentAwardees.map((a, i) => {
                   return (
                     <li key={i} className="w-full">
-                      {a}
+                      {processText(a)}
                     </li>
                   );
                 })}
               </ol>
               <br />
-              <p className="text-[#4B4746]">{page_text.corporate_awardees}</p>
+              <p className="text-[#4B4746]">
+                {processText(page_text.corporate_awardees)}
+              </p>
               <br />
               <ol>
-                <li>{page_text.hk_jockey_club}</li>
-                <li>{page_text.ul_international}</li>
+                <li>{processText(page_text.hk_jockey_club)}</li>
+                <li>{processText(page_text.ul_international)}</li>
               </ol>
             </div>
           }
@@ -287,7 +289,7 @@ export const AwardScheme21to22: React.FC = () => {
       </div>
       <div id="excellent_awardees_2122">
         <Accordion
-          title={page_text.directory_sidebar.tc_profession}
+          title={processText(page_text.directory_sidebar.tc_profession)}
           details={
             <>
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
@@ -303,7 +305,7 @@ export const AwardScheme21to22: React.FC = () => {
                         setActiveButtonTwo(i);
                       }}
                     >
-                      {b}
+                      {processText(b)}
                     </button>
                   );
                 })}
@@ -315,31 +317,33 @@ export const AwardScheme21to22: React.FC = () => {
                       isPC ? "" : "min-w-[140px]"
                     }`}
                   >
-                    {page_text.name}
+                    {processText(page_text.name)}
                   </div>
                   <div
                     className={`px-[10px] flex items-center ${
                       isPC ? "" : "min-w-[140px]"
                     }`}
                   >
-                    {page_text.position}
+                    {processText(page_text.position)}
                   </div>
                   <div
                     className={`px-[10px] flex items-center ${
                       isPC ? "" : "min-w-[140px]"
                     }`}
                   >
-                    {page_text.nominate_test_body}
+                    {processText(page_text.nominate_test_body)}
                   </div>
                 </div>
-                {buttonTwoMap[awardee_sub_group[activeButtonTwo]]}
+                {convertReactNode(
+                  buttonTwoMap[awardee_sub_group[activeButtonTwo]]
+                )}
               </div>
             </>
           }
         />
       </div>
       <p className="text-heading-l" id="award_ceremony_2122">
-        {page_text.directory_sidebar.award_ceremony}
+        {processText(page_text.directory_sidebar.award_ceremony)}
       </p>
       <div className="flex items-center">
         <img
@@ -380,7 +384,7 @@ export const AwardScheme21to22: React.FC = () => {
       <div className="w-full flex flex-row gap-[16px]">
         <div className="w-[32px] bg-[#333333]" />
         <p className="text-body-m text-justify">
-          {page_text.award_present_ceremony}
+          {processText(page_text.award_present_ceremony)}
         </p>
       </div>
 
@@ -408,18 +412,18 @@ export const AwardScheme21to22: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          {page_text.albert_yu} <br />
-          {page_text.deliver_speech}
+          {processText(page_text.albert_yu)} <br />
+          {processText(page_text.deliver_speech)}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px]">
-          {page_text.secretary_innovation_tech}
+          {processText(page_text.secretary_innovation_tech)}
         </p>
       </div>
 
       <div className="w-full flex flex-row gap-[16px]">
         <div className="w-[32px] bg-[#333333]" />
         <p className="text-body-m text-justify">
-          {page_text.ceremony_tc_practitioners}
+          {processText(page_text.ceremony_tc_practitioners)}
         </p>
       </div>
 
@@ -447,12 +451,12 @@ export const AwardScheme21to22: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.from_left}
+          {processText(page_text.from_left)}
           <br />
-          {page_text.ms_pun_commissioner}
+          {processText(page_text.ms_pun_commissioner)}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.group_photo_members}
+          {processText(page_text.group_photo_members)}
         </p>
 
         {/* left img */}
@@ -478,10 +482,10 @@ export const AwardScheme21to22: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.group_photo_excellent_awardees}
+          {processText(page_text.group_photo_excellent_awardees)}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.group_photo_tc}
+          {processText(page_text.group_photo_tc)}
         </p>
 
         {/* left img */}
@@ -507,10 +511,10 @@ export const AwardScheme21to22: React.FC = () => {
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.hk_jockey_club_awarded}
+          {processText(page_text.hk_jockey_club_awarded)}
         </p>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
-          {page_text.hk_jockey_club_awarded}
+          {processText(page_text.hk_jockey_club_awarded)}
         </p>
         <div className="flex items-stretch">
           <img
@@ -524,13 +528,13 @@ export const AwardScheme21to22: React.FC = () => {
         </div>
         <div />
         <p className="text-italic-s text-grey italic mt-[16px]">
-          {page_text.awardees_excellent_tc}
+          {processText(page_text.awardees_excellent_tc)}
         </p>
       </div>
 
       <hr />
 
-      <p className="text-heading-l"> {page_text.media}</p>
+      <p className="text-heading-l"> {processText(page_text.media)}</p>
 
       <div className={`w-full flex flex-col gap-[24px]`}>
         {mediaData.map((item, index) => {
@@ -546,7 +550,7 @@ export const AwardScheme21to22: React.FC = () => {
           return (
             <div key={index} className="w-full flex flex-row gap-[24px]">
               <MediaTemplateWithDialog
-                title={title}
+                title={processText(title)}
                 maskIcon={maskIcon}
                 date={date}
                 mediaLink={mediaLink}

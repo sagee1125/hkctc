@@ -615,7 +615,7 @@ export const AwardScheme21to22Preview: React.FC<{
             isPC ? "pr-[16px] text-highlight-m" : "text-highlight-s"
           }`}
         >
-          {processText(page_text.award_ceremony_list)}
+          {processText(page_text.award_ceremony_list_long)}
         </div>
         <svg
           className="flex-shrink-0"

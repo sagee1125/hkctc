@@ -1282,6 +1282,7 @@ export const award2122_multilingual = {
     },
 
     award_ceremony_list: "List of Awardees/ Award Ceremony",
+    award_ceremony_list_long: "List of Awardees/ Award Ceremony 2021-2022",
   },
   cn: {
     title: "2021-22年度檢測認證人力發展嘉許計劃",
@@ -1509,6 +1510,7 @@ export const award2122_multilingual = {
     },
 
     award_ceremony_list: "得獎名單/ 頒獎典禮",
+    award_ceremony_list_long: "2021-2022年度得獎名單/ 頒獎典禮",
   },
 };
 
@@ -1716,7 +1718,7 @@ export const award2122_list_multilingual = {
       "活動",
       "檢測認證人力發展嘉許計劃",
       "2021-22年度檢測認證人力發展嘉許計劃",
-      "得獎名單/ 頒獎典禮 2021-2022",
+      "2021-2022年度得獎名單/ 頒獎典禮",
     ],
     directory_sidebar: {
       tc_manpower: "檢測認證人力發展機構獎得獎者",

@@ -8,7 +8,7 @@ import { Language, useSettings } from "../../../../../context";
 
 export const SeminarArticlePage: React.FC = () => {
   const pageIndex = Number(window.location.hash.replace("#", ""));
-  const { language } = useSettings();
+  const { language, processText, convertReactNode } = useSettings();
   const isEn = language === Language.EN;
   const seminarsData = isEn
     ? seminarsAndWorkshopsList
@@ -30,16 +30,16 @@ export const SeminarArticlePage: React.FC = () => {
         />
       )}
 
-      <div className="text-heading-l">{title}</div>
+      <div className="text-heading-l">{processText(title)}</div>
       <div className="flex flex-row gap-[8px] items-center">
         <img
           className="w-[16px] h-[16px]"
           src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
           alt={"calendar"}
         />
-        <p className="text-body-s text-grey">{date}</p>
+        <p className="text-body-s text-grey">{processText(date)}</p>
       </div>
-      <div>{content}</div>
+      <div>{convertReactNode(content)}</div>
 
       <div className="flex flex-col gap-[24px]">
         {topics &&
@@ -56,17 +56,17 @@ export const SeminarArticlePage: React.FC = () => {
 
                 {t.pdfLink ? (
                   <Link linkColor="#000" outerLink={t.pdfLink}>
-                    {t.title}
+                    {processText(t.title)}
                   </Link>
                 ) : (
-                  <div color="#000">{t.title}</div>
+                  <div color="#000">{processText(t.title)}</div>
                 )}
               </div>
             );
           })}
       </div>
 
-      {subContent && <div>{subContent}</div>}
+      {subContent && <div>{convertReactNode(subContent)}</div>}
 
       {subTopics && (
         <div className="flex flex-col gap-[24px]">
@@ -76,10 +76,10 @@ export const SeminarArticlePage: React.FC = () => {
                 <div className="w-[6px] h-[6px] bg-black rounded-full" />
                 {t.pdfLink ? (
                   <Link linkColor="#000" outerLink={t.pdfLink}>
-                    {t.title}
+                    {processText(t.title)}
                   </Link>
                 ) : (
-                  <div color="#000">{t.title}</div>
+                  <div color="#000">{processText(t.title)}</div>
                 )}
               </div>
             );
