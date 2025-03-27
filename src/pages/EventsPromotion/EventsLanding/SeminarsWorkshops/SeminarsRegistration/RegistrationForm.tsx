@@ -15,6 +15,7 @@ import { Radio } from "../../../../../components/Radio/Radio";
 import { Checkbox } from "../../../../../components/Checkbox/Checkbox";
 import { Select } from "../../../../../components/Select/Select";
 import { handleReadySubmit } from "../../../../../utils";
+import { useSettings } from "../../../../../context";
 
 type RegistrationFormData = {
   title: string;
@@ -62,6 +63,8 @@ export const RegistrationForm: React.FC = () => {
       cn_content: "廣東話 (投影片或只以英語顯示)",
     },
   ];
+
+  const { processText } = useSettings();
 
   const registrationFormik = useFormik<RegistrationFormData>({
     initialValues: {
@@ -149,8 +152,10 @@ export const RegistrationForm: React.FC = () => {
                 <span>{item.en_content}</span>
               </div>
               <div className="flex flex-row gap-[5px]">
-                <span className="text-highlight-m">{item.cn_title}</span>
-                <span>{item.cn_content}</span>
+                <span className="text-highlight-m">
+                  {processText(item.cn_title)}
+                </span>
+                <span>{processText(item.cn_content)}</span>
               </div>
             </div>
           );
@@ -158,7 +163,8 @@ export const RegistrationForm: React.FC = () => {
       </div>
       <hr />
       <div>
-        <span className="italic">* Required Information</span> 必填欄位
+        <span className="italic">* Required Information</span>{" "}
+        {processText("必填欄位")}
       </div>
 
       <form
@@ -169,7 +175,9 @@ export const RegistrationForm: React.FC = () => {
         <div className="flex flex-col gap-[16px]">
           <div className="grid grid-cols-2 gap-[24px]">
             <div>
-              <div className="text-highlight-m mb-[8px]">Title 稱謂*</div>
+              <div className="text-highlight-m mb-[8px]">
+                Title {processText("稱謂")}*
+              </div>
               <TextField
                 name="title"
                 required
@@ -189,7 +197,9 @@ export const RegistrationForm: React.FC = () => {
             </div>
             <div />
             <div>
-              <div className="text-highlight-m mb-[8px]">First Name 名字*</div>
+              <div className="text-highlight-m mb-[8px]">
+                First Name {processText("名字")}*
+              </div>
               <TextField
                 name="firstName"
                 required
@@ -209,7 +219,9 @@ export const RegistrationForm: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-highlight-m mb-[8px]">Last Name 姓氏*</div>
+              <div className="text-highlight-m mb-[8px]">
+                Last Name {processText("姓氏")}*
+              </div>
               <TextField
                 name="lastName"
                 required
@@ -232,7 +244,7 @@ export const RegistrationForm: React.FC = () => {
           <div className="grid grid-cols-2 gap-[24px]">
             <div>
               <div className="text-highlight-m mb-[8px]">
-                Email Address 電郵地址*
+                Email Address {processText("電郵地址")}*
               </div>
               <TextField
                 name="email"
@@ -254,7 +266,7 @@ export const RegistrationForm: React.FC = () => {
 
             <div>
               <div className="text-highlight-m mb-[8px]">
-                Verify Email Address 確認電郵地址*
+                Verify Email Address {processText("確認電郵地址")}*
               </div>
               <TextField
                 name="verifyEmail"
@@ -277,7 +289,9 @@ export const RegistrationForm: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-[24px]">
             <div>
-              <div className="text-highlight-m mb-[8px]">Position 職位</div>
+              <div className="text-highlight-m mb-[8px]">
+                Position {processText("職位")}
+              </div>
               <TextField
                 name="position"
                 required
@@ -297,7 +311,9 @@ export const RegistrationForm: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-highlight-m mb-[8px]">Organisation 機構</div>
+              <div className="text-highlight-m mb-[8px]">
+                Organisation {processText("機構")}
+              </div>
               <TextField
                 name="organization"
                 required
@@ -320,7 +336,7 @@ export const RegistrationForm: React.FC = () => {
           <div className="grid grid-cols-2 gap-[24px]">
             <div>
               <div className="text-highlight-m mb-[8px]">
-                Telephone No. 電話號碼*
+                Telephone No. {processText("電話號碼")}*
               </div>
               <TextField
                 name="telephoneNumber"
@@ -342,7 +358,7 @@ export const RegistrationForm: React.FC = () => {
 
             <div>
               <div className="text-highlight-m mb-[8px]">
-                Country/Region 國家/地區
+                Country/Region {processText("國家/地區")}
               </div>
               <Select
                 name="country"
@@ -365,7 +381,7 @@ export const RegistrationForm: React.FC = () => {
 
             <div className="col-span-2">
               <p className="text-highlight-m mb-[8px]">
-                Attendance Certificate 出席證明書*
+                Attendance Certificate {processText("出席證明書")}*
               </p>
               <div className="w-1/2 pr-[12px]">
                 <Select
@@ -391,7 +407,7 @@ export const RegistrationForm: React.FC = () => {
             <div className="col-span-2">
               <p className="text-highlight-m mb-[8px]">
                 Full Name for Attendance Certificate (In English only)
-                出席證明書所載的英文全名
+                {processText("出席證明書所載的英文全名")}
               </p>
               <div className="w-1/2 pr-[12px]">
                 <TextField
@@ -422,13 +438,16 @@ export const RegistrationForm: React.FC = () => {
 
           <div className="flex flex-col gap-[8px] w-full">
             <div>
-              Certificate will be issued via Email 證明書會以電郵方式發出
+              Certificate will be issued via Email{" "}
+              {processText("證明書會以電郵方式發出")}
             </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-[16px]">
-          <p className="text-highlight-m">Type of Industry 行業</p>
+          <p className="text-highlight-m">
+            Type of Industry {processText("行業")}
+          </p>
           <RadioGroup
             name="industry"
             value={registrationFormik.values.industry}
@@ -444,7 +463,7 @@ export const RegistrationForm: React.FC = () => {
                 <div className="flex flex-row">
                   <Radio
                     value={item.value}
-                    label={item.label}
+                    label={processText(item.label as string)}
                     onChange={registrationFormik.handleChange}
                     checked={registrationFormik.values.industry === item.value}
                   />
@@ -478,7 +497,7 @@ export const RegistrationForm: React.FC = () => {
           <p className="text-highlight-m">
             How did you know about this Seminar? (Can choose more than one)
             <br />
-            您如何知道這次研討會? (可以選擇多個)
+            {processText("您如何知道這次研討會? (可以選擇多個)")}
           </p>
           <div className="flex flex-row flex-wrap">
             {knowSeminarWays.map((item) => {
@@ -524,8 +543,10 @@ export const RegistrationForm: React.FC = () => {
         <div>
           <p className="text-highlight-m">
             *I agree to receive information from HKCTC, for example, news of
-            seminar activities, e-newsletter, etc. <br />
-            *本人願意接收香港檢測和認證局的資訊，例如研討會活動消息、電子通訊等
+            seminar activities, e-newsletter, etc. <br />*
+            {processText(
+              "本人願意接收香港檢測和認證局的資訊，例如研討會活動消息、電子通訊等"
+            )}
           </p>
           <RadioGroup
             name="receiveInfoAgreement"

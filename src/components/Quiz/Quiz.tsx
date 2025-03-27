@@ -31,7 +31,14 @@ export const Quiz: React.FC = () => {
   const [currentAnswer, setCurrentAnswer] = useState<keyof QuizAnswers | null>(
     null
   );
-  const { isPC, language, getPageText, getSingleText } = useSettings();
+  const {
+    isPC,
+    language,
+    getPageText,
+    getSingleText,
+    processText,
+    convertReactNode,
+  } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
@@ -55,7 +62,6 @@ export const Quiz: React.FC = () => {
       ? quizInteractionMap[quiz]
       : quizInteractionCNMap[quiz];
   const showPaginator = quizData.explanation.length > 1;
-  const isSimpleCN = language === Language.ZH_CN;
   useEffect(() => {
     // Check if quizInteractionMap is ready (assuming it is static in your case,
     // but if it's async, you might want to check for async loading completion)
@@ -153,7 +159,7 @@ export const Quiz: React.FC = () => {
                               }] text-heading-${isPC ? "s" : "xs"} w-[260px]`}
                             >
                               {optionCharacter}.&nbsp;
-                              {isSimpleCN ? answer[1] : t2s(answer[1])}
+                              {processText(answer[1])}
                             </p>
                           </div>
                         );
@@ -212,7 +218,7 @@ export const Quiz: React.FC = () => {
                       </p>
                     </div>
                     <div className="py-[8px] text-highlight-s h-[260px] overflow-hidden">
-                      {quizData.explanation[explanationPage]}
+                      {convertReactNode(quizData.explanation[explanationPage])}
                     </div>
                   </div>
                   <div className="flex flex-col">

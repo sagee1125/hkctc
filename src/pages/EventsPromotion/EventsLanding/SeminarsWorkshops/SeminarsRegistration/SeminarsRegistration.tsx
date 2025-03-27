@@ -9,8 +9,9 @@ import {
   DirectorySidebar,
   maxMobileContainer,
   type DirectorySidebarItems,
+  type BreadcrumbItem,
 } from "../../../../../components";
-import { Language, useSettings } from "../../../../../context";
+import { useSettings } from "../../../../../context";
 const multilingual = {
   en: {
     home: "Home",
@@ -31,22 +32,21 @@ export const SeminarsRegistration: React.FC = () => {
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(0))
     : null; // remove `#`, get index
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { home, event_promotion, events, seminar_workshop } = page_text;
   const breadcrumbItems = [
     { label: home, href: "/" },
     {
-      label: event_promotion,
+      label: event_promotion as string,
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
-      label: events,
+      label: events as string,
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
     {
-      label: seminar_workshop,
+      label: seminar_workshop as string,
       href: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
     {
@@ -104,7 +104,7 @@ export const SeminarsRegistration: React.FC = () => {
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
           <div id="breadcrumb">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems as BreadcrumbItem[]} />
           </div>
         )}
         {isPC ? (
