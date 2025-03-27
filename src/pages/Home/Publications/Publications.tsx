@@ -333,7 +333,7 @@ export const Publications: React.FC = () => {
         },
         {
           title: `"Digi-Science" Video Production Competition for Hong Kong Secondary Schools`,
-          titleCN: `"香港中學數碼科學短片製作比賽`,
+          titleCN: `香港中學數碼科學短片製作比賽`,
           imgPath: "images/Digi-Science.png",
           nav: `/events-promotion?section=${navItemEnum.student_competition}`,
         },
