@@ -139,7 +139,7 @@ const Agreement: React.FC = () => {
     },
   ];
 
-  const { language } = useSettings();
+  const { language, getSingleNode, getSingleText } = useSettings();
 
   const questions =
     language === Language.EN ? agreementQuestion : agreementQuestionCN;
@@ -148,8 +148,12 @@ const Agreement: React.FC = () => {
       {questions.map((item, index) => (
         <Accordion
           key={index}
-          title={`${index + 1}. ${item.question}`}
-          details={<div className="text-body-m">{item.answer}</div>}
+          title={`${index + 1}. ${getSingleText(item.question, item.question)}`}
+          details={
+            <div className="text-body-m">
+              {getSingleNode(item.answer, item.answer)}
+            </div>
+          }
         />
       ))}
     </div>
@@ -541,7 +545,7 @@ const EnterpriseRun: React.FC = () => {
     },
   ];
 
-  const { language } = useSettings();
+  const { language, getSingleNode, getSingleText } = useSettings();
 
   const questions =
     language === Language.EN ? agreementQuestion : agreementQuestionCN;
@@ -550,8 +554,12 @@ const EnterpriseRun: React.FC = () => {
       {questions.map((item, index) => (
         <Accordion
           key={index}
-          title={`${index + 1}. ${item.question}`}
-          details={<div className="text-body-m">{item.answer}</div>}
+          title={`${index + 1}. ${getSingleText(item.question, item.question)}`}
+          details={
+            <div className="text-body-m">
+              {getSingleNode(item.answer, item.answer)}
+            </div>
+          }
         />
       ))}
     </div>
@@ -852,10 +860,8 @@ export const OverviewIOnCEPA: React.FC = () => {
           {Object.keys(faqMap).map((btn, index) => {
             const isActivated = btn === activeFAQType;
 
-            const label =
-              language === Language.EN
-                ? faqMap[btn].label
-                : faqMap[btn].labelCN;
+            const label = getSingleText(faqMap[btn].label, faqMap[btn].labelCN);
+
             return (
               <button
                 key={index}

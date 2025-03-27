@@ -45,10 +45,9 @@ const multilingual = {
 
 export const CEPAAgreements: React.FC = () => {
   const navigate = useNavigate();
-  const { language } = useSettings();
+  const { getPageText, getSingleNode, getSingleText } = useSettings();
 
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
 
   const agreementMap: Record<
     string,
@@ -1070,27 +1069,25 @@ export const CEPAAgreements: React.FC = () => {
   );
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div
         className="mt-[24px]"
         id={CEPAAgreements_ids.agreement_on_trade_in_services}
       >
         <Accordion
-          title={agreement_on_trade_in_services}
+          title={agreement_on_trade_in_services as string}
           details={
             <div>
-              {language === Language.EN
-                ? AgreementOnServices
-                : AgreementOnServices_CN}
+              {getSingleNode(AgreementOnServices, AgreementOnServices_CN)}
               <div className="mt-[16px]">
                 <div className="flex flex-wrap gap-[8px]">
                   {Object.keys(agreementMap).map((btn, index) => {
                     const isActivated = btn === agreementType;
-                    const displayLabel =
-                      language === Language.EN
-                        ? agreementMap[btn].tab
-                        : agreementMap[btn].tabCN;
+                    const displayLabel = getSingleText(
+                      agreementMap[btn].tab,
+                      agreementMap[btn].tabCN
+                    );
                     return (
                       <button
                         key={index}
@@ -1107,9 +1104,10 @@ export const CEPAAgreements: React.FC = () => {
                   })}
                 </div>
                 <div className="mt-[16px]">
-                  {language === Language.EN
-                    ? agreementMap[agreementType].content
-                    : agreementMap[agreementType].contentCN}
+                  {getSingleNode(
+                    agreementMap[agreementType].content,
+                    agreementMap[agreementType].contentCN
+                  )}
                 </div>
               </div>
             </div>
@@ -1121,10 +1119,8 @@ export const CEPAAgreements: React.FC = () => {
         id={CEPAAgreements_ids.agreement_on_trade_in_goods}
       >
         <Accordion
-          title={agreement_on_goods}
-          details={
-            language === Language.EN ? AgreementOnGoods : AgreementOnGoods_CN
-          }
+          title={agreement_on_goods as string}
+          details={getSingleNode(AgreementOnGoods, AgreementOnGoods_CN)}
         />
       </div>
       <div
@@ -1132,12 +1128,8 @@ export const CEPAAgreements: React.FC = () => {
         id={CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation}
       >
         <Accordion
-          title={agreement_on_economic_and_technical_cooperation}
-          details={
-            language === Language.EN
-              ? AgreementOnEconomic
-              : AgreementOnEconomic_CN
-          }
+          title={agreement_on_economic_and_technical_cooperation as string}
+          details={getSingleNode(AgreementOnEconomic, AgreementOnEconomic_CN)}
         />
       </div>
 
@@ -1146,26 +1138,25 @@ export const CEPAAgreements: React.FC = () => {
         id={CEPAAgreements_ids.mainland_and_hong_kong_agreement}
       >
         <Accordion
-          title={agreement_between_the_mainland_and_hk}
-          details={
-            language === Language.EN
-              ? AgreementBetweenTheMainlandAndHK
-              : AgreementBetweenTheMainlandAndHK_CN
-          }
+          title={agreement_between_the_mainland_and_hk as string}
+          details={getSingleNode(
+            AgreementBetweenTheMainlandAndHK,
+            AgreementBetweenTheMainlandAndHK_CN
+          )}
         />
       </div>
 
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_X_to_CEPA}>
         <Accordion
-          title={x_to_CEPA}
-          details={language === Language.EN ? X_to_CEPA : X_to_CEPA_CN}
+          title={x_to_CEPA as string}
+          details={getSingleNode(X_to_CEPA, X_to_CEPA_CN)}
         />
       </div>
 
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_IX_to_CEPA}>
         <Accordion
-          title={ix_to_CEPA}
-          details={language === Language.EN ? IX_to_CEPA : IX_to_CEPA_CN}
+          title={ix_to_CEPA as string}
+          details={getSingleNode(IX_to_CEPA, IX_to_CEPA_CN)}
         />
       </div>
 
@@ -1174,15 +1165,15 @@ export const CEPAAgreements: React.FC = () => {
         id={CEPAAgreements_ids.supplement_VIII_to_CEPA}
       >
         <Accordion
-          title={viii_to_CEPA}
-          details={language === Language.EN ? VIII_to_CEPA : VIII_to_CEPA_CN}
+          title={viii_to_CEPA as string}
+          details={getSingleNode(VIII_to_CEPA, VIII_to_CEPA_CN)}
         />
       </div>
 
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_VII_to_CEPA}>
         <Accordion
-          title={vii_to_CEPA}
-          details={language === Language.EN ? VII_to_CEPA : VII_to_CEPA_CN}
+          title={vii_to_CEPA as string}
+          details={getSingleNode(VII_to_CEPA, VII_to_CEPA_CN)}
         />
       </div>
     </div>

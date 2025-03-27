@@ -115,9 +115,9 @@ const multilingual = {
 };
 
 export const GBA: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     guangdong_hk,
     intro,
@@ -134,39 +134,41 @@ export const GBA: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SquareTitle title={guangdong_hk} />
+      <SquareTitle title={guangdong_hk as string} />
 
       <div className="text-body-m my-[24px]">
-        {intro.map((i, index) => (
+        {(intro as string[]).map((i, index) => (
           <React.Fragment key={index}>
             <p>{i}</p>
             <br />
           </React.Fragment>
         ))}
 
-        <p className="font-bold">{information_about_GBA_Standards}</p>
+        <p className="font-bold">{information_about_GBA_Standards as string}</p>
 
         <br />
-        <p>{information_about_GBA_found}</p>
+        <p>{information_about_GBA_found as React.ReactNode}</p>
         <br />
-        <p>{the_TID}</p>
+        <p>{the_TID as string}</p>
 
         <br />
 
-        <p className="font-bold">{formulation_GBA_standards}</p>
+        <p className="font-bold">
+          {formulation_GBA_standards as React.ReactNode}
+        </p>
         <br />
 
-        <p>{GBA_standardisation}</p>
+        <p>{GBA_standardisation as string}</p>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <SquareTitle title={GBA_certification} />
+      <SquareTitle title={GBA_certification as string} />
       <div className="mt-[24px] text-body-m">
-        <p>{with_the_support}</p>
+        <p>{with_the_support as React.ReactNode}</p>
         <br />
-        <p>{the_first_batch}</p>
+        <p>{the_first_batch as React.ReactNode}</p>
 
         <br />
-        <p>{information_about_GBA_certification}</p>
+        <p>{information_about_GBA_certification as React.ReactNode}</p>
       </div>
     </div>
   );

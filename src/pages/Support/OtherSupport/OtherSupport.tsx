@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SquareTitle } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { Language, LanguageResources, useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -82,9 +82,9 @@ const multilingual = {
 };
 
 export const OtherSupport: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     other_support,
     info_on_standards,
@@ -95,78 +95,101 @@ export const OtherSupport: React.FC = () => {
 
   return (
     <div className="w-full pb-[48px]">
-      <SquareTitle title={other_support} />
-      <p className="text-heading-l my-[24px]">{info_on_standards.title}</p>
+      <SquareTitle title={other_support as string} />
+      <p className="text-heading-l my-[24px]">
+        {(info_on_standards as LanguageResources).title as string}
+      </p>
       <p className="text-body-m text-justify">
-        {info_on_standards.concent}&nbsp;
+        {(info_on_standards as LanguageResources).concent as string}&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          {info_on_standards.website}
+          {(info_on_standards as LanguageResources).website as string}
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{measurement_traceability.title}</p>
+      <p className="text-heading-l">
+        {(measurement_traceability as LanguageResources).title as string}
+      </p>
       <p className="mt-[24px] text-body-m text-justify">
-        {measurement_traceability.para_1}
+        {(measurement_traceability as LanguageResources).para_1 as string}
       </p>
       <br />
       <p className="text-body-m text-justify">
-        {measurement_traceability.para_2}&nbsp;
+        {(measurement_traceability as LanguageResources).para_2 as string}&nbsp;
         <a
           href="https://www.itc.gov.hk/en/quality/scl/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          {measurement_traceability.website}
+          {(measurement_traceability as LanguageResources).website as string}
         </a>
         .
       </p>
       <br />
       <p className="text-body-m text-justify">
-        {measurement_traceability.para_3}&nbsp;
+        {(measurement_traceability as LanguageResources).para_3 as string}&nbsp;
         <a
           href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          {measurement_traceability.website}
+          {(measurement_traceability as LanguageResources).website as string}
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l mb-[24px]">
-        {support_and_consultation_centre.title}
+        {
+          (support_and_consultation_centre as LanguageResources)
+            .title as React.ReactNode
+        }
       </p>
 
       <p className="text-body-m text-justify">
-        {support_and_consultation_centre.content}&nbsp;
+        {
+          (support_and_consultation_centre as LanguageResources)
+            .content as React.ReactNode
+        }
+        &nbsp;
         <a
           href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          {support_and_consultation_centre.website}
+          {
+            (support_and_consultation_centre as LanguageResources)
+              .website as React.ReactNode
+          }
         </a>
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l">
-        {hk_export_credit_insurance_corporation.title}
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .title as React.ReactNode
+        }
       </p>
       <p className="text-body-m mt-[24px] text-justify">
-        {hk_export_credit_insurance_corporation.para_1}
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .para_1 as React.ReactNode
+        }
       </p>
       <br />
       <p className="text-body-m mb-[24px] text-justify">
-        {hk_export_credit_insurance_corporation.para_2}
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .para_2 as React.ReactNode
+        }
       </p>
 
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px]">
@@ -197,20 +220,36 @@ export const OtherSupport: React.FC = () => {
             />
           </svg>
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
-            {hk_export_credit_insurance_corporation.to_meet_the_needs}&nbsp;
+            {
+              (hk_export_credit_insurance_corporation as LanguageResources)
+                .to_meet_the_needs as React.ReactNode
+            }
+            &nbsp;
             <a
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              {hk_export_credit_insurance_corporation.TISP}
+              {
+                (hk_export_credit_insurance_corporation as LanguageResources)
+                  .TISP as React.ReactNode
+              }
             </a>
-            {hk_export_credit_insurance_corporation.to_cover}
+            {
+              (hk_export_credit_insurance_corporation as LanguageResources)
+                .to_cover as React.ReactNode
+            }
             <span className="text-newPrimary">
-              {hk_export_credit_insurance_corporation.up_to}
+              {
+                (hk_export_credit_insurance_corporation as LanguageResources)
+                  .up_to as React.ReactNode
+              }
             </span>
-            {hk_export_credit_insurance_corporation.dot}
+            {
+              (hk_export_credit_insurance_corporation as LanguageResources)
+                .dot as React.ReactNode
+            }
           </p>
         </div>
       </div>
@@ -231,28 +270,50 @@ export const OtherSupport: React.FC = () => {
             />
           </svg>
           <p className="text-highlight-m flex-grow min-w-0">
-            {hk_export_credit_insurance_corporation.TISP_covers}&nbsp;
+            {
+              (hk_export_credit_insurance_corporation as LanguageResources)
+                .TISP_covers as React.ReactNode
+            }
+            &nbsp;
             <span className="text-newPrimary">
-              {hk_export_credit_insurance_corporation.indemnity}
+              {
+                (hk_export_credit_insurance_corporation as LanguageResources)
+                  .indemnity as React.ReactNode
+              }
             </span>
             .
           </p>
         </div>
       </div>
       <p className="text-body-m my-[24px] text-justify">
-        {hk_export_credit_insurance_corporation.para_3}
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .para_3 as React.ReactNode
+        }
       </p>
       <p className="text-body-m text-justify">
-        {hk_export_credit_insurance_corporation.for_more_1}&nbsp;
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .for_more_1 as React.ReactNode
+        }
+        &nbsp;
         <a
           href="https://www.hkecic.com/en/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
         >
-          {hk_export_credit_insurance_corporation.website}
+          {
+            (hk_export_credit_insurance_corporation as LanguageResources)
+              .website as React.ReactNode
+          }
         </a>
-        &nbsp;{hk_export_credit_insurance_corporation.for_more_2}&nbsp;
+        &nbsp;
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .for_more_2 as React.ReactNode
+        }
+        &nbsp;
         <a
           href="mailto:info@hkecic.com"
           target="_blank"
@@ -261,7 +322,10 @@ export const OtherSupport: React.FC = () => {
         >
           info@hkecic.com
         </a>
-        {hk_export_credit_insurance_corporation.dot}
+        {
+          (hk_export_credit_insurance_corporation as LanguageResources)
+            .dot as React.ReactNode
+        }
       </p>
     </div>
   );

@@ -156,9 +156,10 @@ const multilingual = {
 export const Support: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { home, support } = page_text;
   const queryParams = new URLSearchParams(location.search);
   const initialSection = queryParams.get("section") ?? "";
@@ -184,7 +185,8 @@ export const Support: React.FC = () => {
   const { subTitle, subTitleCN } =
     eventItems.find((item) => item.enum === activeSidebarItems) ?? {};
   const activeSidebarItemsLabel =
-    (isEn ? subTitle : subTitleCN) ?? navItemEnum.exhibition_programme;
+    getSingleText(subTitle ?? "", subTitleCN ?? "") ??
+    navItemEnum.exhibition_programme;
 
   const dramaticComponent = returnComponent(
     activeSidebarItems as navItemEnum,
@@ -243,9 +245,9 @@ export const Support: React.FC = () => {
   };
 
   const breadcrumbItems = [
-    { label: home, href: "/" },
+    { label: home as string, href: "/" },
     {
-      label: support,
+      label: support as string,
       href: `/support?section=${navItemEnum.exhibition_programme}`, // default to activate the first one
     },
     {
@@ -260,14 +262,14 @@ export const Support: React.FC = () => {
       ? []
       : [
           {
-            label:
-              (isEn
-                ? directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
-                    activatedDirectorySidebarItems
-                  ]?.label
-                : directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
-                    activatedDirectorySidebarItems
-                  ]?.labelCN) ?? "",
+            label: getSingleText(
+              directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
+                activatedDirectorySidebarItems
+              ]?.label ?? "",
+              directorySidebarItemsMap[activeSidebarItems as navItemEnum]?.[
+                activatedDirectorySidebarItems
+              ]?.labelCN ?? ""
+            ),
           },
         ]),
   ];
@@ -292,7 +294,7 @@ export const Support: React.FC = () => {
         />
       )}
       <Sidebar
-        title={support}
+        title={support as string}
         sidebarItems={eventItems}
         activatedItems={activeSidebarItems}
         setActivatedItems={handleChangeSidebar}
