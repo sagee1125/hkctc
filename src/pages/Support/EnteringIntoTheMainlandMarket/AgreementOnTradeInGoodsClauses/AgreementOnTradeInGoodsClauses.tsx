@@ -119,9 +119,9 @@ const multilingual = {
 };
 
 export const AgreementOnTradeInGoodsClauses: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     article_58,
@@ -137,23 +137,33 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
 
   return (
     <div className="flex-1">
-      <SquareTitle title={title} />
-      <p className="text-heading-l my-[24px]">{article_58}</p>
-      {procedures}
+      <SquareTitle title={title as string} />
+      <p className="text-heading-l my-[24px]">
+        {article_58 as React.ReactNode}
+      </p>
+      {procedures as React.ReactNode}
       <hr className="my-[24px]" />
 
-      <p className="my-[24px] text-heading-l">{article_59}</p>
-      {cooperation}
+      <p className="my-[24px] text-heading-l">
+        {article_59 as React.ReactNode}
+      </p>
+      {cooperation as React.ReactNode}
       <br />
-      {encouraging_cooperation}
+      {encouraging_cooperation as React.ReactNode}
       <hr className="my-[24px]" />
-      <p className="mb-[24px] text-heading-l">{article_68}</p>
+      <p className="mb-[24px] text-heading-l">
+        {article_68 as React.ReactNode}
+      </p>
 
-      <p className="text-body-m text-justify">{two_sides_agree}</p>
+      <p className="text-body-m text-justify">
+        {two_sides_agree as React.ReactNode}
+      </p>
       <br />
-      {promote}
+      {promote as React.ReactNode}
       <br />
-      <p className="text-italic-s italic text-justify">{note}</p>
+      <p className="text-italic-s italic text-justify">
+        {note as React.ReactNode}
+      </p>
       <hr className="my-[24px]" />
 
       <InternalBackButton

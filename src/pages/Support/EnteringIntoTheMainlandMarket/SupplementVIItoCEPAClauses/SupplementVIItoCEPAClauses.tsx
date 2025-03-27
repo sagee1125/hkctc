@@ -6,7 +6,7 @@ import { Language, useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Supplement VII to CEPA - Clauses",
-    Liberalisation_of_Trade: `Liberalisation of Trade in Services (extracted from the Annex of
+    liberalisation_of_Trade: `Liberalisation of Trade in Services (extracted from the Annex of
         Supplement VII to CEPA)`,
     subgroup_sec: "Sectors or sub-sectors",
     sec_list: [
@@ -27,10 +27,10 @@ const multilingual = {
         relevant products under the CCC System. Cooperation arrangements should
         comply with relevant requirements in the "Regulations of the People's
         Republic of China on Certification and Accreditation".`,
-    Measures_in_Facilitating: `Measures in Facilitating Trade and Investment (extracted from the main
+    measures_in_Facilitating: `Measures in Facilitating Trade and Investment (extracted from the main
         text of Supplement VII to CEPA)`,
-    Trade_and_Investment: `III. Trade and Investment Facilitation`,
-    Both_sides_agree: `2. Both sides agree to further strengthen their cooperation in the area
+    trade_and_Investment: `III. Trade and Investment Facilitation`,
+    both_sides_agree: `2. Both sides agree to further strengthen their cooperation in the area
         of commodity inspection and quarantine, food safety, quality and
         standardisation. Accordingly, the following subparagraphs 5.2.5 and
         5.2.6 are added to Article 5.2 of Annex 6 to "CEPA":`,
@@ -43,7 +43,7 @@ const multilingual = {
   },
   cn: {
     title: "《CEPA補充協議七》 – 有關條文",
-    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議七》（附件））`,
+    liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議七》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
       `1. 商業服務`,
@@ -53,29 +53,45 @@ const multilingual = {
     ],
     specific_commitments: "具體承諾",
     to_allow_test: `在中國強制性產品認證制度（CCC）領域，允許經香港特區政府認可機構（香港認可處）認可的具備中國強制性產品認證制度相關產品檢測能力的香港檢測機構，以香港本地加工的（即產品加工場所在香港境內）CCC目錄內的部分產品為試點，與內地指定機構開展合作，承擔CCC認證檢測任務。具體合作安排按照《中華人民共和國認證認可條例》有關規定執行。`,
-    Measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議七》主體文件）`,
-    Trade_and_Investment: `三、貿易投資便利化`,
-    Both_sides_agree: `（二） 雙方同意進一步加強商品檢驗檢疫、食品安全、質量標準領域的合作，並據此將《安排》[CEPA]附件6第五條第（二）款增加第5、6項，內容為 :`,
+    measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議七》主體文件）`,
+    trade_and_Investment: `三、貿易投資便利化`,
+    both_sides_agree: `（二） 雙方同意進一步加強商品檢驗檢疫、食品安全、質量標準領域的合作，並據此將《安排》[CEPA]附件6第五條第（二）款增加第5、6項，內容為 :`,
     actively_promote: `"6. 積極推動香港檢測實驗室與已加入設有國家成員機構的認證檢測國際多邊互認體系（如IECEE/CB體系）的內地認證機構開展合作，成為該互認體系所接受的檢測實驗室。"`,
   },
 };
 
 export const SupplementVIItoCEPAClauses: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
+  const {
+    title,
+    subgroup_sec,
+    sec_list,
+    specific_commitments,
+    liberalisation_of_Trade,
+    to_allow_test,
+    trade_and_Investment,
+    measures_in_Facilitating,
+    both_sides_agree,
+    actively_promote,
+  } = page_text;
 
   return (
     <div className="flex-1">
-      <SquareTitle title={page_text.title} />
+      <SquareTitle title={title as string} />
       <p className="text-heading-l my-[24px]">
-        {page_text.Liberalisation_of_Trade}
+        {liberalisation_of_Trade as React.ReactNode}
       </p>
-      <p className="text-heading-m mb-[24px]">{page_text.subgroup_sec}</p>
+      <p className="text-heading-m mb-[24px]">
+        {subgroup_sec as React.ReactNode}
+      </p>
 
-      <p className="text-heading-m mb-[24px]">{page_text.subgroup_sec}</p>
+      <p className="text-heading-m mb-[24px]">
+        {subgroup_sec as React.ReactNode}
+      </p>
       <div className="text-justify">
-        {page_text.sec_list.map((s, i) => {
+        {(sec_list as string[]).map((s, i) => {
           return (
             <p className="text-body-m" key={i}>
               {s}
@@ -85,21 +101,25 @@ export const SupplementVIItoCEPAClauses: React.FC = () => {
       </div>
 
       <p className="my-[24px] text-heading-m">
-        {page_text.specific_commitments}
+        {specific_commitments as React.ReactNode}
       </p>
-      <p className="text-body-m text-justify">{page_text.to_allow_test}</p>
+      <p className="text-body-m text-justify">
+        {to_allow_test as React.ReactNode}
+      </p>
 
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mb-[24px]">
-        {page_text.Measures_in_Facilitating}
+        {measures_in_Facilitating as React.ReactNode}
       </p>
-      <p className="text-heading-m">{page_text.Trade_and_Investment}</p>
+      <p className="text-heading-m">
+        {trade_and_Investment as React.ReactNode}
+      </p>
       <p className="text-body-m my-[24px] text-justify">
-        {page_text.Both_sides_agree}
+        {both_sides_agree as React.ReactNode}
         <br />
         <br />
-        {page_text.actively_promote}
+        {actively_promote as React.ReactNode}
       </p>
       <hr className="my-[24px]" />
       <InternalBackButton

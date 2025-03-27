@@ -85,9 +85,10 @@ export const AgreementClause: React.FC = () => {
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(1))
     : null; // remove `#`, get index
-  const { isPC, language } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { home, support, entering_into_the_mainland_market, summary_of_CEPA } =
     page_text;
   const [activeItem, setActiveItem] = useState<string>(sidebarItems[0].value);
@@ -133,24 +134,24 @@ export const AgreementClause: React.FC = () => {
   };
 
   const breadcrumbItems = [
-    { label: home, href: "/" },
+    { label: home as string, href: "/" },
     {
-      label: support,
+      label: support as string,
       href: `/support`,
     },
     {
-      label: entering_into_the_mainland_market,
+      label: entering_into_the_mainland_market as string,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     {
-      label: summary_of_CEPA,
+      label: summary_of_CEPA as string,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
     {
-      label:
-        (isEn
-          ? sidebarItems.find((s) => s.value === currentTitle)?.label
-          : sidebarItems.find((s) => s.value === currentTitle)?.labelCN) ?? "",
+      label: getSingleText(
+        sidebarItems.find((s) => s.value === currentTitle)?.label ?? "",
+        sidebarItems.find((s) => s.value === currentTitle)?.labelCN ?? ""
+      ),
     },
   ];
 

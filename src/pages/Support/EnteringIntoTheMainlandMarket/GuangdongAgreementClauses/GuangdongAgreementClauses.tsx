@@ -67,9 +67,9 @@ const multilingual = {
 };
 
 export const GuangdongAgreementClauses: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getSingleText, getPageText, getSingleNode } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     liberalisation,
@@ -84,7 +84,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
 
   const specificCommitmentSection = (
     <ul className="text-body-m text-justify">
-      {specific_commitments.map((commit, index) => (
+      {(specific_commitments as string[]).map((commit, index) => (
         <React.Fragment key={index}>
           <br />
           <li>{commit}</li>
@@ -94,10 +94,10 @@ export const GuangdongAgreementClauses: React.FC = () => {
   );
   const specificCommitmentSection_CN = (
     <ol className="text-body-m text-justify">
-      {specific_commitments.map((commit, index) => (
+      {(specific_commitments as string[]).map((commit, index) => (
         <React.Fragment key={index}>
           <br />
-          <li>{commit}</li>
+          <li>{getSingleText(commit, commit)}</li>
         </React.Fragment>
       ))}
     </ol>
@@ -105,20 +105,20 @@ export const GuangdongAgreementClauses: React.FC = () => {
 
   return (
     <div className="flex-1">
-      <SquareTitle title={title} />
-      <p className="text-heading-l my-[24px]">{liberalisation}</p>
-      <p className="text-heading-m mb-[24px]">{sectors}</p>
+      <SquareTitle title={title as string} />
+      <p className="text-heading-l my-[24px]">{liberalisation as string}</p>
+      <p className="text-heading-m mb-[24px]">{sectors as string}</p>
 
       <ol>
-        <li className="text-body-m">{business_services}</li>
+        <li className="text-body-m">{business_services as string}</li>
       </ol>
 
-      <p className="text-body-m">{other_business_services}</p>
-      <p className="text-body-m">{technical_testing}</p>
-      <p className="mt-[24px] text-heading-m">{special}</p>
-      {isEn ? specificCommitmentSection : specificCommitmentSection_CN}
+      <p className="text-body-m">{other_business_services as string}</p>
+      <p className="text-body-m">{technical_testing as string}</p>
+      <p className="mt-[24px] text-heading-m">{special as string}</p>
+      {getSingleNode(specificCommitmentSection, specificCommitmentSection_CN)}
 
-      {guide}
+      {guide as React.ReactNode}
       <hr className="my-[24px]" />
 
       <InternalBackButton

@@ -1,7 +1,7 @@
 import React from "react";
 import { InternalBackButton, SquareTitle } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const specificCommitments = [
   {
@@ -83,9 +83,9 @@ const multilingual = {
 };
 
 export const AgreementOnTradeInServicesClauses: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, getSingleNode, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     liberalisation,
@@ -120,7 +120,7 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
           <li>{commit.commentCN}</li>
           {commit.implementationCN && (
             <p className="italic text-italic-s mt-[24px]">
-              {commit.implementationCN}
+              {getSingleText(commit.implementationCN, commit.implementationCN)}
             </p>
           )}
         </React.Fragment>
@@ -129,18 +129,18 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
   );
   return (
     <div>
-      <SquareTitle title={title} />
-      <p className="text-heading-l my-[24px]">{liberalisation}</p>
-      <p className="text-heading-m mb-[24px]">{sectors}</p>
+      <SquareTitle title={title as string} />
+      <p className="text-heading-l my-[24px]">{liberalisation as string}</p>
+      <p className="text-heading-m mb-[24px]">{sectors as string}</p>
       <ol>
-        <li className="text-body-m">{business_services}</li>
+        <li className="text-body-m">{business_services as string}</li>
       </ol>
 
-      <p className="text-body-m">{other_business_services}</p>
-      <p className="text-body-m text-justify">{technical_testing}</p>
-      <p className="my-[24px] text-heading-m">{special}</p>
-      <p className="text-italic-s italic">{effective}</p>
-      {isEn ? specificCommitmentSection : specificCommitmentSection_CN}
+      <p className="text-body-m">{other_business_services as string}</p>
+      <p className="text-body-m text-justify">{technical_testing as string}</p>
+      <p className="my-[24px] text-heading-m">{special as string}</p>
+      <p className="text-italic-s italic">{effective as string}</p>
+      {getSingleNode(specificCommitmentSection, specificCommitmentSection_CN)}
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}

@@ -37,9 +37,8 @@ const multilingual = {
 };
 
 export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     article_234,
@@ -54,28 +53,32 @@ export const AgreementOnEconomicTechnicalCooperationClauses: React.FC = () => {
 
   return (
     <div className="flex-1">
-      <SquareTitle title={title} />
-      <p className="text-heading-l my-[24px]">{article_234}</p>
-      <p className="text-body-m text-justify">{relevant_authorities}</p>
+      <SquareTitle title={title as string} />
+      <p className="text-heading-l my-[24px]">{article_234 as string}</p>
+      <p className="text-body-m text-justify">
+        {relevant_authorities as string}
+      </p>
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{article_236}</p>
+      <p className="text-heading-l">{article_236 as string}</p>
       <br />
-      <p className="text-body-m text-justify">{actively_promote}</p>
+      <p className="text-body-m text-justify">{actively_promote as string}</p>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l">{article_237}</p>
+      <p className="text-heading-l">{article_237 as string}</p>
       <br />
 
-      <p className="text-body-m text-justify">{actively_consider}</p>
+      <p className="text-body-m text-justify">{actively_consider as string}</p>
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{article_238}</p>
+      <p className="text-heading-l">{article_238 as string}</p>
       <br />
 
-      <p className="text-body-m text-justify">{consider_applications}</p>
+      <p className="text-body-m text-justify">
+        {consider_applications as string}
+      </p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}

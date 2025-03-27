@@ -6,7 +6,7 @@ import { Language, useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Supplement IX to CEPA - Clauses",
-    Liberalisation_of_Trade: `Liberalisation of Trade in Services (extracted from the Annex of
+    liberalisation_of_Trade: `Liberalisation of Trade in Services (extracted from the Annex of
         Supplement IX to CEPA)`,
     subgroup_sec: "Sectors or sub-sectors",
     sec_list: [
@@ -35,7 +35,7 @@ const multilingual = {
   },
   cn: {
     title: "《CEPA補充協議九》 - 有關條文",
-    Liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議九》（附件））`,
+    liberalisation_of_Trade: `服務貿易開放措施（節錄自《CEPA補充協議九》（附件））`,
     subgroup_sec: "部門或分部門",
     sec_list: [
       `1. 商業服務`,
@@ -61,19 +61,25 @@ const multilingual = {
 };
 
 export const SupplementIXtoCEPAClauses: React.FC = () => {
-  const { language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
-
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+  const {
+    title,
+    liberalisation_of_Trade,
+    subgroup_sec,
+    sec_list,
+    specific_commitments,
+    to_expand,
+  } = page_text;
   return (
     <div className="flex-1">
-      <SquareTitle title={page_text.title} />
+      <SquareTitle title={title as string} />
       <p className="text-heading-l my-[24px]">
-        {page_text.Liberalisation_of_Trade}
+        {liberalisation_of_Trade as string}
       </p>
-      <p className="text-heading-m mb-[24px]">{page_text.subgroup_sec}</p>
+      <p className="text-heading-m mb-[24px]">{subgroup_sec as string}</p>
       <div className="text-justify">
-        {page_text.sec_list.map((s, i) => {
+        {(sec_list as string[]).map((s, i) => {
           return (
             <p className="text-body-m" key={i}>
               {s}
@@ -83,9 +89,9 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
       </div>
 
       <p className="my-[24px] text-heading-m">
-        {page_text.specific_commitments}
+        {specific_commitments as string}
       </p>
-      <p className="text-body-m text-justify">{page_text.to_expand}</p>
+      <p className="text-body-m text-justify">{to_expand as React.ReactNode}</p>
 
       <hr className="my-[24px]" />
       <InternalBackButton
