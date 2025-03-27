@@ -158,8 +158,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
   props: MultipleSidebarsProps
 ) => {
   const { sidebars, activatedItems, setActivatedItems } = props;
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, getSingleText } = useSettings();
 
   const activatedParentTitle = findParentTitle(activatedItems, sidebars);
   const [currentExpandMobile, setCurrentExpandMobile] = useState<string>(
@@ -205,7 +204,9 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 className="flex flex-row justify-between items-center cursor-pointer"
                 onClick={() => toggleExpand(title)}
               >
-                <p className="text-heading-l">{isEn ? title : titleCN}</p>
+                <p className="text-heading-l">
+                  {getSingleText(title, titleCN)}
+                </p>
                 <ExpandMoreIcon
                   sx={{
                     fontSize: "24",
@@ -251,7 +252,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                             />
                           </div>
                           <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">
-                            {isEn ? subTitle : subTitleCN}
+                            {getSingleText(subTitle, subTitleCN)}
                           </div>
                         </div>
                       </div>
@@ -272,15 +273,16 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
             <>
               <Menu.Button className="inline-flex w-full justify-between items-center border border-[2px] border-newPrimary p-[16px]">
                 <p className="!text-heading-s w-full text-left">
-                  {isEn
-                    ? sidebars
-                        .flatMap((item) => item.sidebarItems)
-                        .find((subItem) => subItem.enum === activatedItems)
-                        ?.subTitle
-                    : sidebars
-                        .flatMap((item) => item.sidebarItems)
-                        .find((subItem) => subItem.enum === activatedItems)
-                        ?.subTitleCN}
+                  {getSingleText(
+                    sidebars
+                      .flatMap((item) => item.sidebarItems)
+                      .find((subItem) => subItem.enum === activatedItems)
+                      ?.subTitle ?? "",
+                    sidebars
+                      .flatMap((item) => item.sidebarItems)
+                      .find((subItem) => subItem.enum === activatedItems)
+                      ?.subTitleCN ?? ""
+                  )}
                 </p>
                 <ChevronDownIcon
                   className={`h-5 w-5 text-black transform transition-transform ${
@@ -317,7 +319,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                           }}
                         >
                           <p className="text-heading-m">
-                            {isEn ? title : titleCN}
+                            {getSingleText(title, titleCN)}
                           </p>
                           <ChevronDownIcon
                             className={`h-5 w-5 text-black transform transition-transform ${
@@ -346,7 +348,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                                         : "text-gray-700"
                                     }`}
                                   >
-                                    {isEn ? subTitle : subTitleCN}
+                                    {getSingleText(subTitle, subTitleCN)}
                                   </button>
                                 )}
                               </Menu.Item>

@@ -52,9 +52,8 @@ const multilingual = {
 };
 
 export const CareerOpportunities: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     intro,
@@ -72,14 +71,16 @@ export const CareerOpportunities: React.FC = () => {
   } = page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div className="bg-[#F7F7F5] px-[42px] py-[36px] mt-[24px]">
-        <p className="text-body-m flex-grow min-w-0 text-justify">{intro}</p>
+        <p className="text-body-m flex-grow min-w-0 text-justify">
+          {intro as string}
+        </p>
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{career_visits}</p>
+      <p className="text-heading-l mb-[24px]">{career_visits as string}</p>
 
       <div className="w-full grid grid-cols-2 gap-[8px] mb-[24px]">
         <img
@@ -94,21 +95,21 @@ export const CareerOpportunities: React.FC = () => {
         />
       </div>
       <div className="bg-[#F7F7F5] border-[1px] border-[#E0E0E0] grid grid-cols-2 text-highlight-m">
-        <div className="py-[16px] px-[24px]">{career_fairs}</div>
-        <div className="py-[16px] px-[24px]">{laboratory_visits}</div>
+        <div className="py-[16px] px-[24px]">{career_fairs as string}</div>
+        <div className="py-[16px] px-[24px]">{laboratory_visits as string}</div>
       </div>
       <div className="border-x-[1px] border-b-[1px] border-[#E0E0E0] grid grid-cols-2 text-body-s">
         <div className="py-[16px] px-[24px] border-r-[1px] border-[#E0E0E0]">
           <p className="text-justify">
-            {HKCTC_organising}
+            {HKCTC_organising as string}
             <br />
             <br />
-            {in_career_talks}
+            {in_career_talks as string}
           </p>
         </div>
         <div className="py-[16px] px-[24px] text-justify">
           <p>
-            {to_enhance}
+            {to_enhance as string}
             {student_will && (
               <>
                 <br />
@@ -120,11 +121,13 @@ export const CareerOpportunities: React.FC = () => {
         </div>
       </div>
 
-      <p className="mt-[24px] text-body-s text-justify">{school_which}</p>
+      <p className="mt-[24px] text-body-s text-justify">
+        {school_which as string}
+      </p>
 
       <div className="mt-[24px]">
         <FileTemplate
-          title={application_form}
+          title={application_form as string}
           imagePath={"assets/careerEducation/EventsApplicationForm.png"}
           iconPath={"PDF.png"}
           pdfHyperlink={"/en/doc/CareerTalk_or_Lab_visit_ReplyForm.pdf"}
@@ -133,12 +136,12 @@ export const CareerOpportunities: React.FC = () => {
 
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l mb-[24px]">{summer_internship}</p>
+      <p className="text-heading-l mb-[24px]">{summer_internship as string}</p>
       <p className="text-body-m text-justify">
-        {internship[0]}
+        {(internship as string[])[0]}
         <br />
         <br />
-        {internship[1]}
+        {(internship as string[])[1]}
       </p>
     </div>
   );

@@ -135,9 +135,9 @@ const multilingual = {
 };
 
 export const OtherProfessionalSchemes: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     intro,
@@ -151,27 +151,31 @@ export const OtherProfessionalSchemes: React.FC = () => {
   } = page_text;
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
-      <p className="text-body-m mt-[24px] text-justify">{intro}</p>
+      <p className="text-body-m mt-[24px] text-justify">{intro as string}</p>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{HKIE}</p>
+      <p className="text-heading-l mb-[24px]">{HKIE as string}</p>
 
-      <p className="text-body-m text-justify">{materials_engineers}</p>
-      <hr className="my-[24px] text-[#E0E0E0]" />
-
-      <p className="text-heading-l mb-[24px] text-justify">{professional}</p>
-      <p className="text-body-m">
-        {developed}
-        <br />
-        <br />
-        {currently}
+      <p className="text-body-m text-justify">
+        {materials_engineers as React.ReactNode}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{QMS}</p>
 
-      <p className="text-body-m text-justify">{bottom}</p>
+      <p className="text-heading-l mb-[24px] text-justify">
+        {professional as React.ReactNode}
+      </p>
+      <p className="text-body-m">
+        {developed as React.ReactNode}
+        <br />
+        <br />
+        {currently as React.ReactNode}
+      </p>
+      <hr className="my-[24px] text-[#E0E0E0]" />
+      <p className="text-heading-l mb-[24px]">{QMS as React.ReactNode}</p>
+
+      <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
     </div>
   );
 };

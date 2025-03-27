@@ -48,9 +48,9 @@ const multilingual = {
 };
 export const CareerDevelopment: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     resources,
@@ -214,20 +214,20 @@ export const CareerDevelopment: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
       <div className="my-[24px]">
         <p className="text-body-m text-justify">
-          {intro[0]}
+          {(intro as string[])[0]}
           <br />
           <br />
-          {intro[1]}
+          {(intro as string[])[1]}
         </p>
       </div>
       <div>
         {careerDev.map((item, index) => {
           const { title, titleCN, imgUrl, nav } = item;
-          const displayTitle = isEn ? title : titleCN;
+          const displayTitle = getSingleText(title, titleCN);
           return (
             <div
               key={index}
@@ -280,9 +280,9 @@ export const CareerDevelopment: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{how_to_prepare}</p>
+      <p className="text-heading-l">{how_to_prepare as React.ReactNode[]}</p>
       <p className="text-heading-m my-[24px] text-trustfulBlue">
-        {senior_level}
+        {senior_level as React.ReactNode[]}
       </p>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
@@ -292,7 +292,7 @@ export const CareerDevelopment: React.FC = () => {
             alt={"tick"}
           />
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
-            {senior_level_to_do[0]}
+            {(senior_level_to_do as string[])[0]}
           </p>
         </div>
       </div>
@@ -304,11 +304,13 @@ export const CareerDevelopment: React.FC = () => {
             alt={"tick"}
           />
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
-            {senior_level_to_do[1]}
+            {(senior_level_to_do as string[])[1]}
           </p>
         </div>
       </div>
-      <p className="text-heading-m my-[24px] text-trustfulBlue">{post_level}</p>
+      <p className="text-heading-m my-[24px] text-trustfulBlue">
+        {post_level as React.ReactNode}
+      </p>
 
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
@@ -318,7 +320,7 @@ export const CareerDevelopment: React.FC = () => {
             alt={"tick"}
           />
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
-            {post_level_to_do[0]}
+            {(post_level_to_do as string[])[0]}
           </p>
         </div>
       </div>
@@ -332,11 +334,11 @@ export const CareerDevelopment: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{related_links}</p>
+      <p className="text-heading-l">{related_links as React.ReactNode}</p>
       <div className="mt-[24px]">
         {relatedLinks.map((item, index) => {
           const { title, titleCN, imgUrl, nav } = item;
-          const displayTitle = isEn ? title : titleCN;
+          const displayTitle = getSingleText(title, titleCN);
           return (
             <div
               key={index}
@@ -391,7 +393,7 @@ export const CareerDevelopment: React.FC = () => {
 
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{resources}</p>
+      <p className="text-heading-l">{resources as string}</p>
       <div className="mt-[24px]">
         <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
           {resourcesData.map((item, index) => {
@@ -410,7 +412,7 @@ export const CareerDevelopment: React.FC = () => {
                 className="flex flex-row items-center h-[90px] mt-[24px] gap-[24px]"
               >
                 <MediaTemplateWithDialog
-                  title={isEn ? title : titleCN}
+                  title={getSingleText(title, titleCN)}
                   imagePath={imgUrl}
                   date=""
                   mediaLink={link}

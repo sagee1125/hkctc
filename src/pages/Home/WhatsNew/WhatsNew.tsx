@@ -21,7 +21,7 @@ const multilingual = {
 
 export const WhatsNew: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language, getPageText } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const changingEffectOn = false;
   const page_text = getPageText(multilingual);
 
@@ -166,7 +166,7 @@ export const WhatsNew: React.FC = () => {
                       overflow: "hidden",
                     }}
                   >
-                    {title}
+                    {getSingleText(title, title)}
                   </div>
                 </div>
 

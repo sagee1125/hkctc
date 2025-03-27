@@ -70,9 +70,8 @@ export const LearningTeachingResources: React.FC = () => {
 
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
 
-  const { language, isPC } = useSettings();
-  const isEn = language === Language.EN;
-  const page_text = isEn ? multilingual.en : multilingual.cn;
+  const { getPageText, isPC, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
   const {
     title,
     intro,
@@ -220,16 +219,18 @@ export const LearningTeachingResources: React.FC = () => {
   ];
   return (
     <div className="w-full">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
-      <p className="text-body-m my-[24px] text-justify">{intro}</p>
+      <p className="text-body-m my-[24px] text-justify">{intro as string}</p>
 
       <div id="STEM_Teaching_Kit" className="mb-[24px]">
         <Accordion
-          title={STEM_Teaching_Kit}
+          title={STEM_Teaching_Kit as string}
           details={
             <div>
-              <p className="text-body-m">{innovation_and_technology}</p>
+              <p className="text-body-m">
+                {innovation_and_technology as string}
+              </p>
               <div
                 className={`grid grid-cols-${
                   isPC ? "3 gap-[24px]" : "1"
@@ -249,12 +250,14 @@ export const LearningTeachingResources: React.FC = () => {
                       alt={"file icon"}
                     />
                     <p className="text-highlight-l text-left">
-                      {isEn ? down.title : down.titleCN}
+                      {getSingleText(down.title, down.titleCN)}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="text-heading-l mb-[24px]">{experiment_intro}</p>
+              <p className="text-heading-l mb-[24px]">
+                {experiment_intro as string}
+              </p>
               {/* <img
             className="w-full h-auto"
             alt="Analysis of Colorants"
@@ -262,11 +265,10 @@ export const LearningTeachingResources: React.FC = () => {
           /> */}
               <div key={videoDataOne[playVideoOneIndex].thumbnail}>
                 <VideoPlayer
-                  videoLink={
-                    isEn
-                      ? videoDataOne[playVideoOneIndex].url
-                      : videoDataOne[playVideoOneIndex].urlCN
-                  }
+                  videoLink={getSingleText(
+                    videoDataOne[playVideoOneIndex].url,
+                    videoDataOne[playVideoOneIndex].urlCN
+                  )}
                   thumbnail={videoDataOne[playVideoOneIndex].thumbnail}
                 />
               </div>
@@ -276,7 +278,10 @@ export const LearningTeachingResources: React.FC = () => {
                 } gap-[22px] mt-[24px]`}
               >
                 {videoDataOne.map((video, index) => {
-                  const displayTitle = isEn ? video.title : video.titleCN;
+                  const displayTitle = getSingleText(
+                    video.title,
+                    video.titleCN
+                  );
                   return (
                     <div
                       key={index}
@@ -312,10 +317,10 @@ export const LearningTeachingResources: React.FC = () => {
       </div>
       <div id="Teaching_Kit" className="mb-[24px]">
         <Accordion
-          title={teaching_kit}
+          title={teaching_kit as string}
           details={
             <div>
-              <p className="text-body-m">{teaching_kit_intro}</p>
+              <p className="text-body-m">{teaching_kit_intro as string}</p>
               <div
                 className={`grid grid-cols-${
                   isPC ? "3 gap-[24px]" : "1"
@@ -335,7 +340,7 @@ export const LearningTeachingResources: React.FC = () => {
                       alt={"file icon"}
                     />
                     <p className="text-highlight-l text-left">
-                      {isEn ? down.title : down.titleCN}
+                      {getSingleText(down.title, down.titleCN)}
                     </p>
                   </div>
                 ))}
@@ -347,11 +352,10 @@ export const LearningTeachingResources: React.FC = () => {
           /> */}
               <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
                 <VideoPlayer
-                  videoLink={
-                    isEn
-                      ? videoDataTwo[playVideoTwoIndex].url
-                      : videoDataTwo[playVideoTwoIndex].urlCN
-                  }
+                  videoLink={getSingleText(
+                    videoDataTwo[playVideoTwoIndex].url,
+                    videoDataTwo[playVideoTwoIndex].urlCN
+                  )}
                   thumbnail={videoDataTwo[playVideoTwoIndex].thumbnail}
                 />
               </div>
@@ -361,7 +365,10 @@ export const LearningTeachingResources: React.FC = () => {
                 } gap-[22px] mt-[24px]`}
               >
                 {videoDataTwo.map((video, index) => {
-                  const displayTitle = isEn ? video.title : video.titleCN;
+                  const displayTitle = getSingleText(
+                    video.title,
+                    video.titleCN
+                  );
                   return (
                     <div
                       key={index}
@@ -399,10 +406,10 @@ export const LearningTeachingResources: React.FC = () => {
 
       <div className="mb-[24px]">
         <Accordion
-          title={passing}
+          title={passing as string}
           details={
             <div>
-              <p className="text-body-m mb-[24px]">{passing_intro}</p>
+              <p className="text-body-m mb-[24px]">{passing_intro as string}</p>
               <img
                 className="w-full h-auto cursor-pointer"
                 alt="Maze"
@@ -413,7 +420,9 @@ export const LearningTeachingResources: React.FC = () => {
                   );
                 }}
               />
-              <p className="text-body-m mt-[24px] text-justify">{bottom}</p>
+              <p className="text-body-m mt-[24px] text-justify">
+                {bottom as React.ReactNode}
+              </p>
             </div>
           }
         />

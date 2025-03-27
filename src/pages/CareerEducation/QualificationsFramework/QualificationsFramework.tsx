@@ -183,9 +183,9 @@ const multilingual = {
 };
 
 export const QualificationsFramework: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     framework,
@@ -201,36 +201,42 @@ export const QualificationsFramework: React.FC = () => {
 
   return (
     <div className="w-full text-justify">
-      <SquareTitle title={title} />
+      <SquareTitle title={title as string} />
 
-      <p className="text-body-m my-[24px] text-justify">{framework}</p>
+      <p className="text-body-m my-[24px] text-justify">
+        {framework as string}
+      </p>
       <div className="mb-[24px]">
         <Accordion
-          title={specification}
-          details={<p className="text-body-m">{established}</p>}
+          title={specification as string}
+          details={
+            <p className="text-body-m">{established as React.ReactNode}</p>
+          }
         />
       </div>
 
       <div className="mb-[24px]">
         <Accordion
-          title={award_scheme}
-          details={<p className="text-body-m">{QF_has_launched}</p>}
+          title={award_scheme as string}
+          details={
+            <p className="text-body-m">{QF_has_launched as React.ReactNode}</p>
+          }
         />
       </div>
 
       <div className="mb-[24px]">
         <Accordion
-          title={recognition}
+          title={recognition as string}
           details={
             <>
               <p className="text-body-m">
-                {as_a_measure}
+                {as_a_measure as React.ReactNode}
                 <br />
                 <br />
-                {based_on}
+                {based_on as React.ReactNode}
               </p>
               <br />
-              <p className="text-body-m">{the_school}</p>
+              <p className="text-body-m">{the_school as React.ReactNode} </p>
             </>
           }
         />
