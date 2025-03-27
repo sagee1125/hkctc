@@ -39,6 +39,8 @@ type SettingsContextType = {
   getPageText(multilingualObj: MultilingualResources): LanguageResources;
   getSingleText(singleText: string, singleCNText: string): string;
   getSingleNode(node: React.ReactNode, nodeCN: React.ReactNode): JSX.Element;
+  processText(text: string): string;
+  convertReactNode(node: ReactNode): ReactNode;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -87,7 +89,6 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
     }
 
     if (!isValidElement(node)) {
-      console.log("????");
       return node;
     }
 
@@ -199,9 +200,17 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         return singleText;
     }
   }
+
+  function processText(text: string): string {
+    if (language === Language.ZH_CN) return t2s(text);
+    else return text;
+  }
+
   return (
     <SettingsContext.Provider
       value={{
+        processText,
+        convertReactNode,
         fontSize,
         language,
         isLoading,
