@@ -4,8 +4,13 @@ import {
   MediaTemplateWithDialogProps,
   SquareTitle,
 } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import {
+  Language,
+  type LanguageResources,
+  useSettings,
+} from "../../../context";
 import { MEDIA_TYPE } from "../../../const";
+import { formatDateToChinese } from "../../EventsPromotion";
 
 const multilingual = {
   en: {
@@ -113,9 +118,9 @@ const multilingual = {
 };
 
 export const Relaxation: React.FC = () => {
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, language, getSingleText, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     according_to,
@@ -167,16 +172,22 @@ export const Relaxation: React.FC = () => {
   return (
     <div className="w-full">
       <div className="mb-[24px]">
-        <SquareTitle title={title} />
+        <SquareTitle title={title as string} />
       </div>
-      <p className="mt-[24px] text-body-m text-justify">{according_to}</p>
+      <p className="mt-[24px] text-body-m text-justify">
+        {according_to as React.ReactNode}
+      </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{background}</p>
-      <p className="text-body-m mt-[24px] text-justify">{as_per_the}</p>
+      <p className="text-heading-l">{background as React.ReactNode}</p>
+      <p className="text-body-m mt-[24px] text-justify">
+        {as_per_the as React.ReactNode}
+      </p>
       <br />
-      <p className="text-body-m text-justify">{note}</p>
+      <p className="text-body-m text-justify">{note as React.ReactNode}</p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{details_of_relaxation.title}</p>
+      <p className="text-heading-l">
+        {(details_of_relaxation as LanguageResources).title as React.ReactNode}
+      </p>
       <div className="grid grid-cols-2 gap-[8px] my-[24px]">
         <img
           className="w-auto h-auto"
@@ -196,14 +207,34 @@ export const Relaxation: React.FC = () => {
         />
       </div>
       <ul>
-        <li className="!text-body-m">{details_of_relaxation.para_1}</li>
+        <li className="!text-body-m">
+          {
+            (details_of_relaxation as LanguageResources)
+              .para_1 as React.ReactNode
+          }
+        </li>
         <br />
-        <li className="text-body-m">{details_of_relaxation.para_2}</li>
+        <li className="text-body-m">
+          {
+            (details_of_relaxation as LanguageResources)
+              .para_2 as React.ReactNode
+          }
+        </li>
         <br />
-        <li className="text-body-m">{details_of_relaxation.para_3}</li>
+        <li className="text-body-m">
+          {
+            (details_of_relaxation as LanguageResources)
+              .para_3 as React.ReactNode
+          }
+        </li>
       </ul>
       <br />
-      <p className="text-body-m">{details_of_relaxation.please_refer}</p>
+      <p className="text-body-m">
+        {
+          (details_of_relaxation as LanguageResources)
+            .please_refer as React.ReactNode
+        }
+      </p>
       <div className="w-full flex flex-col gap-[24px]">
         {fileList.map((item, index) => {
           const {
@@ -216,7 +247,7 @@ export const Relaxation: React.FC = () => {
             maskIcon,
             date,
           } = item;
-          const displayTitle = language === Language.EN ? title : titleCN;
+          const displayTitle = getSingleText(title, titleCN);
           return (
             <div
               key={index}
@@ -232,7 +263,9 @@ export const Relaxation: React.FC = () => {
                 mediaLink={mediaLink}
                 direction="row"
                 maskIcon={maskIcon}
-                date={date}
+                date={
+                  language === Language.EN ? date : formatDateToChinese(date)
+                }
                 mediaType={mediaType}
                 mediaDomain={mediaDomain}
               />
@@ -241,7 +274,7 @@ export const Relaxation: React.FC = () => {
         })}
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{enquiries}</p>
+      <p className="text-heading-l">{enquiries as string}</p>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
@@ -250,7 +283,7 @@ export const Relaxation: React.FC = () => {
             alt={"alert"}
           />
           <p className="text-body-m flex-grow min-w-0">
-            {enquiries_about}
+            {enquiries_about as string}
             <br />
             <a
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
@@ -269,7 +302,7 @@ export const Relaxation: React.FC = () => {
             alt={"alert"}
           />
           <p className="text-body-m flex-grow min-w-0">
-            {information_regarding}
+            {information_regarding as string}
             <br />(
             <a
               href="https://www.ozp.tpb.gov.hk/"

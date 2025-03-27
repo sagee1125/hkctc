@@ -6,7 +6,7 @@ import {
   activatedButtonStyle,
   MediaTemplateWithDialog,
 } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { Language, LanguageResources, useSettings } from "../../../context";
 import { MEDIA_TYPE } from "../../../const";
 
 const multilingual = {
@@ -619,9 +619,10 @@ export const NilWaiverFee: React.FC = () => {
   const [activeButton, setActiveButton] = React.useState(
     Object.keys(faqMap)[0]
   );
-  const { isPC, language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, language, getPageText, getSingleText, getSingleNode } =
+    useSettings();
+  const page_text = getPageText(multilingual);
+
   const {
     title,
     the_measure_is,
@@ -638,27 +639,37 @@ export const NilWaiverFee: React.FC = () => {
   return (
     <div className="w-full text-justify">
       <div className="mb-[24px]">
-        <SquareTitle title={title} />
+        <SquareTitle title={title as string} />
       </div>
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m ">
-        {the_measure_is}
+        {the_measure_is as React.ReactNode}
       </div>
 
-      <p className="text-heading-l mt-[24px]">{summary.title}</p>
+      <p className="text-heading-l mt-[24px]">
+        {(summary as LanguageResources).title as React.ReactNode}
+      </p>
       <ul className="text-body-m mt-[24px]">
-        {summary.content.map((c, index) => (
-          <React.Fragment key={index}>
-            <li>{c}</li>
-            <br />
-          </React.Fragment>
-        ))}
+        {((summary as LanguageResources).content as React.ReactNode[]).map(
+          (c, index) => (
+            <React.Fragment key={index}>
+              <li>{c}</li>
+              <br />
+            </React.Fragment>
+          )
+        )}
       </ul>
-      <p className="text-body-m mb-[24px]">{summary.background_information}</p>
-      <p className="text-body-m mb-[24px]">{summary.note}</p>
+      <p className="text-body-m mb-[24px]">
+        {(summary as LanguageResources).background_information as string}
+      </p>
+      <p className="text-body-m mb-[24px]">
+        {(summary as LanguageResources).note as string}
+      </p>
 
       <div className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center">
         <MediaTemplateWithDialog
-          title={summary.legislative_council_brief}
+          title={
+            (summary as LanguageResources).legislative_council_brief as string
+          }
           mediaLink={"/en/doc/itc-hkctc-17-7-1c-e.pdf"}
           direction="row"
           maskIcon={"PDF.png"}
@@ -668,10 +679,12 @@ export const NilWaiverFee: React.FC = () => {
         />
       </div>
 
-      <p className="text-body-m mt-[24px]">{summary.to_learn_more}</p>
+      <p className="text-body-m mt-[24px]">
+        {(summary as LanguageResources).to_learn_more as string}
+      </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{enquiries}</p>
+      <p className="text-heading-l">{enquiries as string}</p>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
@@ -680,7 +693,7 @@ export const NilWaiverFee: React.FC = () => {
             alt={"alert"}
           />
           <p className="text-body-m flex-grow min-w-0">
-            {for_enquiries_on_whether}
+            {for_enquiries_on_whether as string}
           </p>
         </div>
         <div className="flex flex-row gap-[24px] items-center w-full mt-[24px]">
@@ -690,7 +703,7 @@ export const NilWaiverFee: React.FC = () => {
             alt={"alert"}
           />
           <p className="text-body-m flex-grow min-w-0">
-            {for_enquiries_on_application}
+            {for_enquiries_on_application as string}
             <a
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
@@ -704,13 +717,16 @@ export const NilWaiverFee: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <div className="flex flex-col gap-[24px]">
-        <p className="text-heading-l">{faq.title}</p>
-        <p className="text-body-m">{faq.below_are}</p>
+        <p className="text-heading-l">
+          {(faq as LanguageResources).title as string}
+        </p>
+        <p className="text-body-m">
+          {(faq as LanguageResources).below_are as string}
+        </p>
         <div className="flex flex-wrap gap-[8px]">
           {Object.keys(faqMap).map((b, i) => {
             const isActivated = activeButton === b;
-            const label =
-              language === Language.EN ? faqMap[b].label : faqMap[b].labelCN;
+            const label = getSingleText(faqMap[b].label, faqMap[b].labelCN);
             return (
               <button
                 key={i}
@@ -736,10 +752,10 @@ export const NilWaiverFee: React.FC = () => {
           ).map((com, i) => {
             return (
               <Accordion
-                title={`${i + 1}. ${com.question}`}
+                title={`${i + 1}. ${getSingleText(com.question, com.question)}`}
                 details={
                   <div className="flex flex-col gap-[24px] !text-body-m">
-                    {com.answer}
+                    {getSingleNode(com.answer, com.answer)}
                   </div>
                 }
               />
@@ -748,8 +764,8 @@ export const NilWaiverFee: React.FC = () => {
         </div>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{disclaimer}</p>
-      <p className="text-body-m">{disclaimer_content}</p>
+      <p className="text-heading-l mb-[24px]">{disclaimer as string}</p>
+      <p className="text-body-m">{disclaimer_content as string}</p>
     </div>
   );
 };
