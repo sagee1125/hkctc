@@ -322,8 +322,8 @@ export const award2324_multilingual = {
     ],
 
     ceremony_list: "List of Awardees/ Award Ceremony",
-    tc_manpower_pc: "T&C Manpower Development Award Scheme 2023-2024",
-    tc_manpower_mb: "T&C Manpower Development Award Scheme...",
+    tc_manpower_pc: "List of Awardees/Award Ceremony 2023-2024",
+    tc_manpower_mb: "List of Awardees/Award Ceremony 2023-2024",
   },
   cn: {
     title: "2023-24年度檢測認證人力發展嘉許計劃",
@@ -577,6 +577,7 @@ export const award2324_list_multilingual = {
       "Events",
       "T&C Manpower Development Award Scheme",
       "T&C Manpower Development Award Scheme 2023-2024",
+      "List of Awardees/ Award Ceremony 2023-2024",
     ],
     title: "List of Awardees/ Award Ceremony 2023-2024",
     awardees: "Awardees",
@@ -802,6 +803,7 @@ export const award2324_list_multilingual = {
       "活動",
       "年度檢測認證人力發展嘉許計劃",
       "2023-24年度檢測認證人力發展嘉許計劃",
+      "2023-2024年度得獎名單/ 頒獎典禮",
     ],
     title: "2023-2024年度得獎名單/ 頒獎典禮",
     awardees: "得獎名單",
@@ -1209,7 +1211,7 @@ export const award2122_multilingual = {
       },
       {
         title:
-          "If an activity of our company was conducted before 1 June 2021, could we use this to support our application?",
+          "If an activity of our company was conducted in 2019, could we use this to support our application?",
         content:
           "No. Only those activities and achievements made during the period from 1 January 2020 up to the date of application would be considered for the Award.",
       },
@@ -1519,6 +1521,7 @@ export const award2122_list_multilingual = {
       "Events & Promotions",
       "Events",
       "T&C Manpower Development Award Scheme",
+      "T&C Manpower Development Award Scheme 2021-2022",
       "List of Awardees/ Award Ceremony 2021-2022",
     ],
     directory_sidebar: {
@@ -1712,6 +1715,7 @@ export const award2122_list_multilingual = {
       "活動及宣傳",
       "活動",
       "檢測認證人力發展嘉許計劃",
+      "2021-22年度檢測認證人力發展嘉許計劃",
       "得獎名單/ 頒獎典禮 2021-2022",
     ],
     directory_sidebar: {

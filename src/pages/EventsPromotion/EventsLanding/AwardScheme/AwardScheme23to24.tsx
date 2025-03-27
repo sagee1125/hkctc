@@ -34,7 +34,11 @@ export const AwardScheme23to24: React.FC = () => {
       label: page_text.breadcrumb[3],
       href: `/events-promotion?section=${navItemEnum.award_scheme}`,
     },
-    { label: page_text.breadcrumb[4] },
+    {
+      label: page_text.breadcrumb[4],
+      href: `/events-promotion?section=${navItemEnum.award_scheme}`,
+    },
+    { label: page_text.breadcrumb[5] },
   ];
 
   const tcAwardeesBtn = page_text.tc_awardees_btn;

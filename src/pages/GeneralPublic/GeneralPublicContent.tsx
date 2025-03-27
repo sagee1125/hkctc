@@ -103,7 +103,7 @@ export const GeneralPublicContent: React.FC = () => {
                 } items-center`}
                 key={i}
               >
-                <div className={`flex flex-col w-full mx-[24px] gap-[16px]`}>
+                <div className={`flex flex-col w-full mr-[24px] gap-[16px]`}>
                   <div className={"text-heading-m"}>
                     <Link
                       linkColor="#203136"

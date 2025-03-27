@@ -814,7 +814,7 @@ export const ResourcesReportsContent: React.FC = () => {
 
   const resultDisplay_en = (
     <div className="text-body-s">
-      Showing <b className="text-button-s">{dataCount}</b> results for{" "}
+      Showing <b className="text-button-s">{dataCount}</b> results for&nbsp;
       <b className="text-button-s">{categories[selectedCategory].label_en}</b>
     </div>
   );
@@ -1089,7 +1089,9 @@ export const ResourcesReportsContent: React.FC = () => {
                 fill="#233F55"
               />
             </svg>
-            <p className="text-highlight-m text-newPrimary">Filter</p>
+            <p className="text-highlight-m text-newPrimary">
+              {page_text.filter}
+            </p>
           </div>
         )}
       </div>

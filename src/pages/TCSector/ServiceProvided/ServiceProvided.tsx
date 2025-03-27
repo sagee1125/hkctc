@@ -147,7 +147,10 @@ const InspectionService: React.FC = () => {
   const { getPageText } = useSettings();
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
 
-  const { INSPECTION, ON_LOCAL, ON_EXTERNAL } = pageText;
+  const { INSPECTION } = pageText;
+
+  const { ON_LOCAL, ON_EXTERNAL } = INSPECTION as LanguageResources;
+
   return (
     <div className="w-full flex flex-col gap-[24px]">
       <div className="text-body-m">

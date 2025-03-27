@@ -7,7 +7,7 @@ import { type LanguageResources, useSettings } from "../../../context";
 
 const multilingual = {
   en: {
-    profile_of_the_Sector: "Profile of the Sector",
+    profile_of_the_Sector: "Profile of the Industry",
     the_total:
       "The total business receipts of the private independent establishments in the testing and certification (T&C) industry were $24.9 billion.",
     the_total_italic:
@@ -49,7 +49,7 @@ const multilingual = {
       title: "Industry value added (HK$ million) of Category A Establishments",
     },
 
-    role_of_the_sector: "Role of the Sector",
+    role_of_the_sector: "Role of the Industry",
     in_additional_to:
       "In additional to its direct economic contribution, the industry also supports the manufacturing, export and supply chain.",
     locally:
