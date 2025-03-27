@@ -147,16 +147,12 @@ const InspectionService: React.FC = () => {
   const { getPageText } = useSettings();
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
 
-  const {
-    INSPECTION_MAY,
-    INSPECTION_OF_BATCH,
-    INSPECTION_OF_STRUCTURAL,
-    ON_LOCAL,
-    ON_EXTERNAL,
-  } = pageText;
+  const { INSPECTION, ON_LOCAL, ON_EXTERNAL } = pageText;
   return (
     <div className="w-full flex flex-col gap-[24px]">
-      <div className="text-body-m">{INSPECTION_MAY as string}</div>
+      <div className="text-body-m">
+        {(INSPECTION as LanguageResources).INSPECTION_MAY as string}
+      </div>
 
       <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
@@ -164,7 +160,7 @@ const InspectionService: React.FC = () => {
           alt="testIcon"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
-          {INSPECTION_OF_BATCH as string}
+          {(INSPECTION as LanguageResources).INSPECTION_OF_BATCH as string}
         </span>
       </div>
 
@@ -174,7 +170,7 @@ const InspectionService: React.FC = () => {
           alt="testIcon"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
-          {INSPECTION_OF_STRUCTURAL as string}
+          {(INSPECTION as LanguageResources).INSPECTION_OF_STRUCTURAL as string}
         </span>
       </div>
 
@@ -188,7 +184,7 @@ const InspectionService: React.FC = () => {
 const CertificateService: React.FC = () => {
   const { getPageText, getSingleText, getSingleNode } = useSettings();
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
-  const { INTRO } = pageText;
+  const { CERTIFICATION } = pageText;
 
   const accordionMap = [
     {
@@ -223,26 +219,23 @@ const CertificateService: React.FC = () => {
         </div>
       ),
       contentCN: (
-        <div className="flex flex-col gap-[24px] !text-body-m">
-          <div>
-            現時已有國際標準涵蓋各種管理體系認證。機構基於不同的原因申請符合各種國際標準的認證，包括改善機構管理、市場推廣。
-          </div>
-          <div>
-            ISO 9001是一份列明品質管理體系一般規定的國際標準。ISO
-            9001認證是香港最受歡迎的管理體系認證。此外，其他類別認證的需求甚殷，例如ISO
-            14001環境管理體系認證、
-            <span
-              className="!text-highlight-s underline text-newPrimary cursor-pointer"
-              onClick={() => {
-                window.open("/tc-sector/environmental_protection", "_blank");
-              }}
-            >
-              ISO 50001能源管理體系認證
-            </span>
-            以及ISO 45001職業健康安全管理體系認證。
-          </div>
-        </div>
-      ),
+        <>
+          現時已有國際標準涵蓋各種管理體系認證。機構基於不同的原因申請符合各種國際標準的認證，包括改善機構管理、市場推廣。
+          <br />
+          ISO 9001是一份列明品質管理體系一般規定的國際標準。ISO
+          9001認證是香港最受歡迎的管理體系認證。此外，其他類別認證的需求甚殷，例如ISO
+          14001環境管理體系認證、
+          <span
+            className="!text-highlight-s underline text-newPrimary cursor-pointer"
+            onClick={() => {
+              window.open("/tc-sector/environmental_protection", "_blank");
+            }}
+          >
+            ISO 50001能源管理體系認證
+          </span>
+          以及ISO 45001職業健康安全管理體系認證。
+        </>
+      ) as JSX.Element,
     },
     {
       title: `(ii) Product certification, e.g. certification of a supplier's competence in producing a mobile phone to regulatory requirements`,
@@ -259,11 +252,8 @@ const CertificateService: React.FC = () => {
           products and food.
         </div>
       ),
-      contentCN: (
-        <div className="!text-body-m">
-          產品認證可提高各界對獲認證供應商提供有關產品的信心。製造商可增加商機，監管機構可減少監管，用家可享用更可靠的產品，三方均有好處。香港的獲認可認證機構所採用的產品認證計劃主要與建築材料、消費品和食品有關。
-        </div>
-      ),
+      contentCN:
+        "產品認證可提高各界對獲認證供應商提供有關產品的信心。製造商可增加商機，監管機構可減少監管，用家可享用更可靠的產品，三方均有好處。香港的獲認可認證機構所採用的產品認證計劃主要與建築材料、消費品和食品有關。",
     },
 
     {
@@ -271,7 +261,7 @@ const CertificateService: React.FC = () => {
       titleCN:
         "(iii)審定及核查，例如符合ISO 14064-1, ISO 14064-2 or ISO/TS 14067要求的溫室氣體聲明書審定及/或核查",
       content: (
-        <div className="flex flex-col gap-[24px] !text-body-m">
+        <div className="flex flex-col gap-[24px]">
           <div>
             To tackle climate changes, many organisations around the world are
             implementing various initiatives to limit greenhouse gas (GHG)
@@ -288,7 +278,7 @@ const CertificateService: React.FC = () => {
         </div>
       ),
       contentCN: (
-        <div className="flex flex-col gap-[24px] !text-body-m">
+        <div className="flex flex-col gap-[24px]">
           <div>
             為了應對氣候變化，全球多個機構正在推行各項措施，控制大氣中溫室氣體的含量。這些措施有賴對溫室氣體的排放及/或移除進行量化、監察、報告、審定和核查。
           </div>
@@ -303,13 +293,22 @@ const CertificateService: React.FC = () => {
   ];
   return (
     <div className="flex flex-col gap-[24px]">
-      <div className="text-body-m">{INTRO as string}</div>
+      <div className="text-body-m">
+        {(CERTIFICATION as LanguageResources).INTRO as string}
+      </div>
 
       {accordionMap.map((a, i) => (
         <Accordion
           key={i}
           title={getSingleText(a.title, a.titleCN)}
-          details={getSingleNode(a.content, a.contentCN)}
+          details={
+            <div className="text-body-m">
+              {getSingleNode(
+                a.content as React.ReactNode,
+                a.contentCN as React.ReactNode
+              )}
+            </div>
+          }
         />
       ))}
     </div>
@@ -317,7 +316,7 @@ const CertificateService: React.FC = () => {
 };
 
 export const ServiceProvided: React.FC = () => {
-  const { getPageText, getSingleNode, language } = useSettings();
+  const { getPageText, language } = useSettings();
   const isEn = language === Language.EN;
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
   const { TITLE, SERVICE_HEAD } = pageText;

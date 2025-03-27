@@ -87,6 +87,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
     }
 
     if (!isValidElement(node)) {
+      console.log("????");
       return node;
     }
 
@@ -105,6 +106,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
 
     return React.cloneElement(node, newProps, children);
   }
+
   function convertTraditionalToSimplified(
     traditionalObj: LanguageResources
   ): LanguageResources {
@@ -164,7 +166,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
       case Language.ZH_TW:
         return nodeCN as JSX.Element;
       case Language.ZH_CN:
-        return convertReactNode(node) as JSX.Element;
+        return convertReactNode(nodeCN) as JSX.Element;
       default:
         return node as JSX.Element;
     }
