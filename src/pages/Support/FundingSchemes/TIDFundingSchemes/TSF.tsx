@@ -35,9 +35,8 @@ const multilingual = {
 };
 
 export const TSF: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const { title, the_scheme_provides, activities, the_maximum_amount } =
     page_text;
@@ -48,11 +47,13 @@ export const TSF: React.FC = () => {
           outerLink="https://www.smefund.tid.gov.hk/english/tsf/tsf_objective.html"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
 
-      <p className="text-body-m mt-[16px] mb-[24px]">{the_scheme_provides}</p>
+      <p className="text-body-m mt-[16px] mb-[24px]">
+        {the_scheme_provides as string}
+      </p>
 
       <div className="flex flex-row gap-[24px] items-center w-full">
         <img
@@ -60,7 +61,7 @@ export const TSF: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
           alt={"money"}
         />
-        {the_maximum_amount}
+        {the_maximum_amount as React.ReactNode}
       </div>
       <div className="flex flex-row gap-[24px] items-center w-full mt-[24px]">
         <img
@@ -68,7 +69,7 @@ export const TSF: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/icons/tick.svg`}
           alt={"tick"}
         />
-        <p className="text-body-m flex-grow min-w-0">{activities}</p>
+        <p className="text-body-m flex-grow min-w-0">{activities as string}</p>
       </div>
     </div>
   );

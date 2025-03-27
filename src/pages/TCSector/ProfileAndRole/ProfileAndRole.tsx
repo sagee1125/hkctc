@@ -3,11 +3,7 @@ import { Icon } from "@iconify/react";
 import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
-import {
-  Language,
-  type LanguageResources,
-  useSettings,
-} from "../../../context";
+import { type LanguageResources, useSettings } from "../../../context";
 
 const multilingual = {
   en: {

@@ -18,9 +18,9 @@ const multilingual = {
 };
 
 export const NITTP: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title, NITTP_subsidises, matching_basis, to_train_their_staff } =
     page_text;
   return (
@@ -30,14 +30,16 @@ export const NITTP: React.FC = () => {
           outerLink="https://www.itf.gov.hk/en/funding-programmes/nurturing-talent/nittp/index.html"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
 
       <p className="text-body-m mt-[16px]">
-        {NITTP_subsidises}&nbsp;
-        <span className="text-newPrimary font-semibold">{matching_basis}</span>
-        &nbsp;{to_train_their_staff}
+        {NITTP_subsidises as string}&nbsp;
+        <span className="text-newPrimary font-semibold">
+          {matching_basis as string}
+        </span>
+        &nbsp;{to_train_their_staff as string}
       </p>
     </div>
   );

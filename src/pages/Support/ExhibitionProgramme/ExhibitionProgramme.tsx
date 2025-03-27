@@ -1,6 +1,6 @@
 import React from "react";
 import { SquareTitle } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -20,20 +20,20 @@ const multilingual = {
 };
 
 export const ExhibitionProgramme: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { hkctc_exhibition_programme, hkctc_sets_up, hkctc_invites } =
     page_text;
 
   return (
     <div className="w-full">
-      <SquareTitle title={hkctc_exhibition_programme} />
+      <SquareTitle title={hkctc_exhibition_programme as string} />
       <p className="mt-[24px] text-body-m text-justify">
-        {hkctc_sets_up}
+        {hkctc_sets_up as string}
         <br />
         <br />
-        {hkctc_invites}
+        {hkctc_invites as string}
       </p>
     </div>
   );

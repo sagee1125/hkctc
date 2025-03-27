@@ -19,7 +19,7 @@ type TableBodyProps = {
 };
 
 export const FundingSchemesTable: React.FC<TableBodyProps> = ({ rows }) => {
-  const { language } = useSettings();
+  const { language, getSingleText } = useSettings();
 
   const tableHeads =
     language === Language.EN
@@ -38,47 +38,57 @@ export const FundingSchemesTable: React.FC<TableBodyProps> = ({ rows }) => {
           >
             {tableHeads.map((head, index) => (
               <TableCell align="left" key={index}>
-                <p className="text-body-s text-[#7E7E7E]">{head}</p>
+                <p className="text-body-s text-[#7E7E7E]">
+                  {getSingleText(head, head)}
+                </p>
               </TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <TableRow
-              key={index}
-              sx={{
-                "& td": {
-                  borderBottom: "1px dashed #C8CFD9",
-                },
-                "&:last-child td": {
-                  borderBottom: 0,
-                },
-              }}
-            >
-              <TableCell>
-                <a
-                  className="text-body-s underline text-[#000]"
-                  href={row.schemeNameHyperLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {row.schemeName}
-                </a>
-              </TableCell>
-              <TableCell>
-                <p className="text-body-s">{row.objective}</p>
-              </TableCell>
-              <TableCell>
-                <p className="text-body-s">{row.targetAudience}</p>
-              </TableCell>
-              <TableCell>
-                <p className="text-highlight-s text-newPrimary">
-                  {row.fundingAmount}
-                </p>
-              </TableCell>
-            </TableRow>
-          ))}
+          {rows.map((row, index) => {
+            const { schemeName, objective, targetAudience, fundingAmount } =
+              row;
+            return (
+              <TableRow
+                key={index}
+                sx={{
+                  "& td": {
+                    borderBottom: "1px dashed #C8CFD9",
+                  },
+                  "&:last-child td": {
+                    borderBottom: 0,
+                  },
+                }}
+              >
+                <TableCell>
+                  <a
+                    className="text-body-s underline text-[#000]"
+                    href={row.schemeNameHyperLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {getSingleText(schemeName, schemeName)}
+                  </a>
+                </TableCell>
+                <TableCell>
+                  <p className="text-body-s">
+                    {getSingleText(objective, objective)}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  <p className="text-body-s">
+                    {getSingleText(targetAudience, targetAudience)}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  <p className="text-highlight-s text-newPrimary">
+                    {getSingleText(fundingAmount, fundingAmount)}
+                  </p>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>

@@ -3,7 +3,7 @@ import { Link } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
 
 export const SMEExportMarketingFund: React.FC = () => {
-  const { language } = useSettings();
+  const { getPageText } = useSettings();
 
   const multilingual = {
     en: {
@@ -37,8 +37,8 @@ export const SMEExportMarketingFund: React.FC = () => {
     },
   };
 
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { title, this_scheme_aims_to, maximum } = page_text;
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
@@ -47,11 +47,13 @@ export const SMEExportMarketingFund: React.FC = () => {
           outerLink="https://www.smefund.tid.gov.hk/english/emf/emf_objective.html"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
 
-      <p className="text-body-m mt-[16px] mb-[24px]">{this_scheme_aims_to}</p>
+      <p className="text-body-m mt-[16px] mb-[24px]">
+        {this_scheme_aims_to as string}
+      </p>
 
       <div className="flex flex-row gap-[24px] items-center w-full">
         <img
@@ -59,14 +61,14 @@ export const SMEExportMarketingFund: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
           alt={"money"}
         />
-        {maximum}
+        {maximum as React.ReactNode}
       </div>
     </div>
   );
 };
 
 export const SMELoanGuaranteeScheme: React.FC = () => {
-  const { language } = useSettings();
+  const { getPageText } = useSettings();
 
   const multilingual = {
     en: {
@@ -94,8 +96,8 @@ export const SMELoanGuaranteeScheme: React.FC = () => {
       ),
     },
   };
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const page_text = getPageText(multilingual);
+
   const { title, this_scheme_aims_to, maximum } = page_text;
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
@@ -104,10 +106,12 @@ export const SMELoanGuaranteeScheme: React.FC = () => {
           outerLink="https://www.smefund.tid.gov.hk/english/sgs/sgs_objective.html"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
-      <p className="text-body-m mt-[16px] mb-[24px]">{this_scheme_aims_to}</p>
+      <p className="text-body-m mt-[16px] mb-[24px]">
+        {this_scheme_aims_to as string}
+      </p>
 
       <div className="flex flex-row gap-[24px] items-center w-full">
         <img
@@ -115,7 +119,7 @@ export const SMELoanGuaranteeScheme: React.FC = () => {
           src={`${process.env.PUBLIC_URL}/assets/icons/matching.svg`}
           alt={"matching"}
         />
-        {maximum}
+        {maximum as React.ReactNode}
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ import {
   SMELoanGuaranteeScheme,
   TSF,
 } from "./TIDFundingSchemes";
-import { Language, useSettings } from "../../../context";
+import { LanguageResources, useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -272,10 +272,9 @@ const ITFMap: Record<
 };
 
 export const FundingSchemes: React.FC = () => {
-  const { isPC, language } = useSettings();
+  const { isPC, getPageText, getSingleText } = useSettings();
+  const page_text = getPageText(multilingual);
 
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
   const { funding_schemes, ITF, PASS, TID, TCJS } = page_text;
 
   const [activeITFButton, setActiveITFButton] = useState<string>(
@@ -287,25 +286,25 @@ export const FundingSchemes: React.FC = () => {
   );
   return (
     <div className="w-full">
-      <SquareTitle title={funding_schemes} />
+      <SquareTitle title={funding_schemes as string} />
 
       <div className="mt-[24px]">
         <Accordion
-          title={ITF.title}
+          title={(ITF as LanguageResources).title as string}
           details={
             <div className="text-body-m !text-justify w-full">
-              <p>{ITF.ITF_aims_to}</p>
+              <p>{(ITF as LanguageResources).ITF_aims_to as string}</p>
               <br />
               <p className="mb-[24px] text-justify">
-                {ITF.ITF_is_administered}
+                {(ITF as LanguageResources).ITF_is_administered as string}
               </p>
               <div className="flex flex-wrap gap-[8px]">
                 {Object.keys(ITFMap).map((btn, index) => {
                   const isActivated = btn === activeITFButton;
-                  const label =
-                    language === Language.EN
-                      ? ITFMap[btn].label
-                      : ITFMap[btn].labelCN;
+                  const label = getSingleText(
+                    ITFMap[btn].label,
+                    ITFMap[btn].labelCN
+                  );
                   return (
                     <button
                       key={index}
@@ -333,13 +332,21 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={PASS.title}
+          title={(PASS as LanguageResources).title as string}
           details={
             <div>
-              {PASS.the_pass_launched_by}
+              {
+                (PASS as LanguageResources)
+                  .the_pass_launched_by as React.ReactNode
+              }
 
               <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
-                <p className="text-body-m">{PASS.a_wide_range_of}</p>
+                <p className="text-body-m">
+                  {
+                    (PASS as LanguageResources)
+                      .a_wide_range_of as React.ReactNode
+                  }
+                </p>
 
                 <div className="flex flex-row gap-[24px] items-center w-full mt-[16px]">
                   <img
@@ -347,7 +354,10 @@ export const FundingSchemes: React.FC = () => {
                     src={`${process.env.PUBLIC_URL}/assets/icons/pass.svg`}
                     alt={"pass"}
                   />
-                  {PASS.no_particular_restrictions}
+                  {
+                    (PASS as LanguageResources)
+                      .no_particular_restrictions as React.ReactNode
+                  }
                 </div>
 
                 <div className="flex flex-row gap-[24px] items-center w-full mt-[24px]">
@@ -356,7 +366,10 @@ export const FundingSchemes: React.FC = () => {
                     src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
                     alt={"rocket"}
                   />
-                  {PASS.each_approved_project}
+                  {
+                    (PASS as LanguageResources)
+                      .each_approved_project as React.ReactNode
+                  }
                 </div>
               </div>
             </div>
@@ -366,20 +379,23 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={TID.title}
+          title={(TID as LanguageResources).title as string}
           details={
             <div>
               <p className="text-body-m my-[16px]">
-                {TID.the_trade_and_industry_department}
+                {
+                  (TID as LanguageResources)
+                    .the_trade_and_industry_department as string
+                }
               </p>
               <div className="flex flex-wrap gap-[8px]">
                 {Object.keys(tidMap).map((btn, index) => {
                   const isActivated = btn === activeTIDFunding;
 
-                  const label =
-                    language === Language.EN
-                      ? tidMap[btn].label
-                      : tidMap[btn].labelCN;
+                  const label = getSingleText(
+                    tidMap[btn].label,
+                    tidMap[btn].labelCN
+                  );
                   return (
                     <button
                       key={index}
@@ -409,14 +425,19 @@ export const FundingSchemes: React.FC = () => {
 
       <div className="mt-[24px]">
         <Accordion
-          title={TCJS.title}
+          title={(TCJS as LanguageResources).title as string}
           details={
             <div>
               <p className="!text-body-m">
-                {TCJS.the_innovation_and_technology_commission}
+                {
+                  (TCJS as LanguageResources)
+                    .the_innovation_and_technology_commission as string
+                }
               </p>
               <br />
-              <p className="mb-[16px] !text-body-m">{TCJS.the_scheme_was}</p>
+              <p className="mb-[16px] !text-body-m">
+                {(TCJS as LanguageResources).the_scheme_was as string}
+              </p>
               <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
                 <div className="flex flex-row gap-[24px] items-center w-full">
                   <img
@@ -425,7 +446,7 @@ export const FundingSchemes: React.FC = () => {
                     alt={"pass"}
                   />
                   <p className="text-body-m flex-grow min-w-0">
-                    {TCJS.each_local}
+                    {(TCJS as LanguageResources).each_local as React.ReactNode}
                   </p>
                 </div>
 
@@ -435,10 +456,15 @@ export const FundingSchemes: React.FC = () => {
                     src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
                     alt={"money"}
                   />
-                  {TCJS.for_each_approve}
+                  {
+                    (TCJS as LanguageResources)
+                      .for_each_approve as React.ReactNode
+                  }
                 </div>
               </div>
-              <p className="my-[16px] !text-body-m">{TCJS.the_application}</p>
+              <p className="my-[16px] !text-body-m">
+                {(TCJS as LanguageResources).the_application as React.ReactNode}
+              </p>
             </div>
           }
         />

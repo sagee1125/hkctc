@@ -22,9 +22,9 @@ const multilingual = {
 };
 
 export const ITSP: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title, ITSP_supports, pp, platform_projects, sp, seed_projects } =
     page_text;
   return (
@@ -34,20 +34,20 @@ export const ITSP: React.FC = () => {
           outerLink="https://www.itf.gov.hk/l-eng/ITSP.asp"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
 
-      <p className="text-body-m my-[16px]">{ITSP_supports}</p>
+      <p className="text-body-m my-[16px]">{ITSP_supports as string}</p>
       <p className="gap-[24px] items-center w-full text-newPrimary">
-        <span className="text-highlight-m">{pp}&nbsp;</span>
+        <span className="text-highlight-m">{pp as string}&nbsp;</span>
 
-        <span className="text-body-m">{platform_projects}</span>
+        <span className="text-body-m">{platform_projects as string}</span>
       </p>
 
       <p className="gap-[24px] items-center w-full text-newPrimary mt-[24px]">
-        <span className="text-highlight-m">{sp}&nbsp;</span>
-        <span className="text-body-m">{seed_projects}</span>
+        <span className="text-highlight-m">{sp as string}&nbsp;</span>
+        <span className="text-body-m">{seed_projects as string}</span>
       </p>
     </div>
   );

@@ -15,20 +15,20 @@ const multilingual = {
   },
 };
 export const PRP: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
+
   const { title, the_programme_supports, it_provides } = page_text;
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px] text-justify">
       <div className="text-heading-m ">
         <Link outerLink="https://www.itf.gov.hk/l-eng/PRP.asp" linkColor="#000">
-          {title}
+          {title as string}
         </Link>
       </div>
 
       <p className="text-body-m my-[16px] text-justify">
-        {the_programme_supports}
+        {the_programme_supports as string}
       </p>
       <div className="flex flex-row gap-[24px] items-center w-full">
         <img
@@ -37,7 +37,7 @@ export const PRP: React.FC = () => {
           alt={"matching"}
         />
         <p className="text-body-m flex-grow min-w-0 text-justify">
-          {it_provides}
+          {it_provides as string}
         </p>
       </div>
     </div>

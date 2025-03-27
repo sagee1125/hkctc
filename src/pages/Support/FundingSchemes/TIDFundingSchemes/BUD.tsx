@@ -24,9 +24,8 @@ const multilingual = {
 };
 
 export const BUD: React.FC = () => {
-  const { language } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { language, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
 
   const {
     title,
@@ -44,20 +43,22 @@ export const BUD: React.FC = () => {
           outerLink="https://www.bud.hkpc.org/index.php/en"
           linkColor="#000"
         >
-          {title}
+          {title as string}
         </Link>
       </div>
 
-      <p className="text-body-m mt-[16px]">{the_fund_aims_to}</p>
+      <p className="text-body-m mt-[16px]">{the_fund_aims_to as string}</p>
       <br />
-      <p className="text-body-m mb-[24px]">{to_capture}</p>
+      <p className="text-body-m mb-[24px]">{to_capture as string}</p>
       <div className="flex flex-row gap-[24px] items-center w-full">
         <img
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/tick.svg`}
           alt={"tick"}
         />
-        <p className="text-body-m flex-grow min-w-0">{funding_support}</p>
+        <p className="text-body-m flex-grow min-w-0">
+          {funding_support as string}
+        </p>
       </div>
       <div className="flex flex-row gap-[24px] items-center w-full mt-[24px]">
         <img
@@ -66,16 +67,16 @@ export const BUD: React.FC = () => {
           alt={"tick"}
         />
         <p className="text-body-m flex-grow min-w-0">
-          {the_gov_launched}&nbsp;“
+          {the_gov_launched as string}&nbsp;“
           <a
             href="https://www.bud.hkpc.org/sites/default/files/download/EASY-leaflet_Chi_Eng_Final.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E] underline-offset-[2px]"
           >
-            {easy_BUD}
+            {easy_BUD as string}
           </a>
-          ”&nbsp;{on_jun}
+          ”&nbsp;{on_jun as string}
         </p>
       </div>
     </div>
