@@ -18,6 +18,7 @@ const multilingual = {
     home: "Home",
     support: "Support - Entering into the Mainland Market",
     CCC: "China Compulsory Certification (CCC) Testing",
+    CEPA: "CEPA Agreements",
     since:
       "Since the signing of the Supplement VII to CEPA, the Mainland has been gradually opening up its CCC market to Hong Kong testing and certification bodies. Testing organisations in Hong Kong are now allowed to co-operate with designated Mainland certification bodies to undertake testing of all products that require CCC which are processed or manufactured in any place (including places outside China).",
     list: [
@@ -83,6 +84,7 @@ const multilingual = {
     home: "主頁",
     support: "支援 - 進入內地市場",
     CCC: "中國強制性產品認證制度（CCC）檢測",
+    CEPA: "CEPA協議",
     list_of: "現行需要CCC認證的產品包括：",
     since:
       "自簽署《CEPA補充協議七》起，內地逐步對香港檢測和認證機構開放其CCC市場。現時香港檢測機構可與內地指定認證機構合作，為在任何地區（包括中國以外）加工或生產並需CCC認證的產品進行檢測工作。",
@@ -143,14 +145,27 @@ const multilingual = {
 export const CCCTesting: React.FC = () => {
   const { isPC, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
-  const { home, support, CCC, list, since, any_testing, list_of, enquiry } =
-    page_text;
+  const {
+    home,
+    support,
+    CCC,
+    list,
+    since,
+    any_testing,
+    list_of,
+    enquiry,
+    CEPA,
+  } = page_text;
 
   const breadcrumbItems = [
     { label: home as string, href: "/" },
     {
       label: support as string,
-      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
+      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#0`,
+    },
+    {
+      label: CEPA as string,
+      href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
     },
     { label: CCC as string },
   ];
