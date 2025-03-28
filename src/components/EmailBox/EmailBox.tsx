@@ -85,6 +85,7 @@ export const EmailBox: React.FC = () => {
         />
         <textarea
           placeholder={write_down as string}
+          aria-labe1={"Write down your message"}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,

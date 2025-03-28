@@ -42,17 +42,17 @@ export const AwardScheme21to22: React.FC = () => {
   const awardee_sub_group = page_text.awardee_sub_group;
   const buttonTwoMap: Record<string, React.ReactNode> = {
     [awardee_sub_group[0]]: (
-      <div className={isPC ? "" : "overflow-x-auto"}>
+      <div>
         {page_text.juniorGroup.map((og, index) => (
           <div
             key={index}
-            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m w-fit min-w-full border-b last:border-0 "
           >
             {[og.one, og.two, og.three].map((c, key) => (
               <p
                 key={key}
                 className={`py-[15px] px-[10px] flex items-center ${
-                  isPC ? "h-[102px]" : "min-w-[120px]"
+                  isPC ? "h-[102px]" : "min-w-[140px]"
                 }`}
               >
                 {processText(c)}
@@ -63,17 +63,17 @@ export const AwardScheme21to22: React.FC = () => {
       </div>
     ),
     [awardee_sub_group[1]]: (
-      <div className={isPC ? "" : "overflow-x-auto"}>
+      <div>
         {page_text.middleGroup.map((og, index) => (
           <div
             key={index}
-            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+            className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m w-fit min-w-full border-b last:border-0 "
           >
             {[og.one, og.two, og.three].map((c, key) => (
               <p
                 key={key}
                 className={`py-[15px] px-[10px] flex items-center ${
-                  isPC ? "h-[102px]" : "min-w-[100px]"
+                  isPC ? "h-[102px]" : "min-w-[140px]"
                 }`}
               >
                 {processText(c)}
@@ -310,8 +310,14 @@ export const AwardScheme21to22: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="text-body-m !text-left">
-                <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+              <div
+                className={`text-body-m !text-left ${
+                  isPC ? "" : "overflow-x-auto"
+                }`}
+              >
+                <div
+                  className={`grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px] w-fit min-w-full`}
+                >
                   <div
                     className={`px-[10px] flex items-center ${
                       isPC ? "" : "min-w-[140px]"

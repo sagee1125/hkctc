@@ -24,7 +24,7 @@ export const languageOptions: LanguageOption[] = [
 ];
 
 const LanguageSelect: React.FC = () => {
-  const { language, handleChangeLang } = useSettings();
+  const { language, handleChangeLang, isPC } = useSettings();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -54,7 +54,7 @@ const LanguageSelect: React.FC = () => {
           minWidth: "auto",
         }}
       >
-        {currentOptions}
+        <p className={isPC ? "text-body-m" : "text-body-l"}>{currentOptions}</p>
       </Button>
       <Menu
         id="basic-menu"

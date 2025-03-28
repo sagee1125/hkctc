@@ -62,8 +62,10 @@ export const AwardScheme23to24: React.FC = () => {
   const tcProfessionBtn = page_text.tc_profession_awardees_btn;
   const buttonTwoMap: Record<string, React.ReactNode> = {
     [tcProfessionBtn[0]]: (
-      <div className={isPC ? "" : "overflow-x-auto"}>
-        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+      <div className="text-left">
+        <div
+          className={`grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px] w-fit min-w-full`}
+        >
           <div
             className={`px-[10px] flex items-center ${
               isPC ? "" : "min-w-[140px]"
@@ -93,13 +95,13 @@ export const AwardScheme23to24: React.FC = () => {
           (og, index) => (
             <div
               key={index}
-              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m w-fit min-w-full border-b last:border-0 "
             >
               {[og.one, og.two, og.three].map((c, key) => (
                 <p
                   key={key}
                   className={`py-[15px] px-[10px] flex items-center ${
-                    isPC ? "h-[102px]" : "min-w-[160px]"
+                    isPC ? "h-[102px]" : "min-w-[140px]"
                   }`}
                 >
                   {processText(c)}
@@ -111,8 +113,10 @@ export const AwardScheme23to24: React.FC = () => {
       </div>
     ),
     [tcProfessionBtn[1]]: (
-      <div className={isPC ? "" : "overflow-x-auto"}>
-        <div className="grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px]">
+      <div className="text-left">
+        <div
+          className={`grid grid-cols-[1fr,1fr,2fr] bg-[#E0E0E0] text-highlight-m py-[24px] w-fit min-w-full`}
+        >
           <div
             className={`px-[10px] flex items-center ${
               isPC ? "" : "min-w-[140px]"
@@ -141,12 +145,14 @@ export const AwardScheme23to24: React.FC = () => {
           (og, index) => (
             <div
               key={index}
-              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m border-b last:border-0"
+              className="grid grid-cols-[1fr,1fr,2fr] justify-items-start content-center text-body-m w-fit min-w-full border-b last:border-0 "
             >
               {[og.one, og.two, og.three].map((c, key) => (
                 <p
                   key={key}
-                  className="py-[15px] px-[10px] flex items-center h-[102px]"
+                  className={`py-[15px] px-[10px] flex items-center ${
+                    isPC ? "h-[102px]" : "min-w-[140px]"
+                  }`}
                 >
                   {processText(c)}
                 </p>
@@ -389,7 +395,7 @@ export const AwardScheme23to24: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="text-body-m text-justify">
+              <div className={`text-body-m ${isPC ? "" : "overflow-x-auto"}`}>
                 {buttonTwoMap[tcProfessionBtn[activeButtonTwo]]}
               </div>
             </>
