@@ -11,7 +11,7 @@ import {
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { ClausesDirectorySidebar } from "../ClausesDirectorySidebar";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -76,11 +76,13 @@ const multilingual = {
         </a>
       </>
     ),
+    bread_title:
+      "China Compulsory Certification (CCC) Testing or International Multilateral Systems on Mutual Recognition",
   },
   cn: {
     home: "主頁",
     support: "支援 - 進入內地市場",
-    CCC: "中國強制性產品認證（CCC）檢測",
+    CCC: "中國強制性產品認證制度（CCC）檢測",
     list_of: "現行需要CCC認證的產品包括：",
     since:
       "自簽署《CEPA補充協議七》起，內地逐步對香港檢測和認證機構開放其CCC市場。現時香港檢測機構可與內地指定認證機構合作，為在任何地區（包括中國以外）加工或生產並需CCC認證的產品進行檢測工作。",
@@ -139,36 +141,35 @@ const multilingual = {
 };
 
 export const CCCTesting: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { home, support, CCC, list, since, any_testing, list_of, enquiry } =
     page_text;
 
   const breadcrumbItems = [
-    { label: home, href: "/" },
+    { label: home as string, href: "/" },
     {
-      label: support,
+      label: support as string,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
-    { label: CCC },
+    { label: CCC as string },
   ];
 
   const sidebar = <ClausesDirectorySidebar />;
   const content = (
     <>
-      <SquareTitle title={CCC} />
-      <p className="text-body-m my-[24px] text-justify">
-        {since}
+      <SquareTitle title={CCC as string} />
+      <div className="text-body-m my-[24px] text-justify">
+        {since as React.ReactNode}
         <br />
         <br />
-        {any_testing}
-      </p>
+        {any_testing as React.ReactNode}
+      </div>
       <Accordion
-        title={list_of}
+        title={list_of as string}
         details={
           <div className="text-body-m">
-            {list.map((data, index) => (
+            {(list as string[]).map((data, index) => (
               <p key={index}>
                 {index + 1}.&nbsp;{data}
               </p>
@@ -176,7 +177,7 @@ export const CCCTesting: React.FC = () => {
           </div>
         }
       />
-      <p className="mt-[24px] text-body-m">{enquiry}</p>
+      <p className="mt-[24px] text-body-m">{enquiry as React.ReactNode}</p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}

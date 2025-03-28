@@ -10,7 +10,7 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -73,30 +73,29 @@ const multilingual = {
 };
 
 export const InternationalMultilateralSystems: React.FC = () => {
-  const { language, isPC } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
+  const { isPC, getPageText } = useSettings();
+  const page_text = getPageText(multilingual);
   const { home, support, IMS, intro, enquiry } = page_text;
 
   const breadcrumbItems = [
-    { label: home, href: "/" },
+    { label: home as string, href: "/" },
     {
-      label: support,
+      label: support as string,
       href: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
     },
-    { label: IMS },
+    { label: IMS as string },
   ];
 
   const sidebar = <ClausesDirectorySidebar />;
   const content = (
     <div className="flex-1">
-      <SquareTitle title={IMS} />
-      <p className="text-body-m my-[24px]">
-        {intro}
+      <SquareTitle title={IMS as string} />
+      <div className="text-body-m my-[24px] text-justify">
+        {intro as React.ReactNode}
         <br />
         <br />
-        {enquiry}
-      </p>
+        {enquiry as React.ReactNode}
+      </div>
 
       <hr className="my-[24px]" />
       <InternalBackButton
