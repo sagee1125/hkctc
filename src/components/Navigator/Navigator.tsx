@@ -165,7 +165,7 @@ export const Navigator: React.FC = () => {
           <>
             <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
               <p className="!text-body-s flex items-center justify-start">
-                {currentOption ?? (explore_as as string)}
+                {!currentOption ? (explore_as as string) : currentOption}
               </p>
               <ChevronDownIcon
                 className={`h-[16px] w-[16px] text-[#666666] text-white transform transition-transform ${
