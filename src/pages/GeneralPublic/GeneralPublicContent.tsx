@@ -3,7 +3,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { Language, useSettings } from "../../context";
 import { WhatsNewConfiguration, WhatsNewConfiguration_cn } from "../../const";
-import { t2s } from "chinese-s2t";
+
 const multilingual = {
   en: {
     advertorials: "Advertorials",
@@ -25,9 +25,8 @@ const multilingual = {
   },
 };
 export const GeneralPublicContent: React.FC = () => {
-  const { getPageText, isPC, language } = useSettings();
+  const { getPageText, isPC, language, processText } = useSettings();
   const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
   const page_text = getPageText(multilingual);
 
   const {
@@ -103,14 +102,18 @@ export const GeneralPublicContent: React.FC = () => {
                 } items-center`}
                 key={i}
               >
-                <div className={`flex flex-col w-full mr-[24px] gap-[16px]`}>
+                <div
+                  className={`flex flex-col w-full ${
+                    isPC ? "mr-[24px]" : "mx-[24px]"
+                  } gap-[16px]`}
+                >
                   <div className={"text-heading-m"}>
                     <Link
                       linkColor="#203136"
                       innerLink={w.redirectTo}
                       outerLink={w.redirectTo}
                     >
-                      {isSimpleCN ? t2s(title) : title}
+                      {processText(title)}
                     </Link>
                   </div>
                   <div className="flex flex-row items-center gap-[8px] text-body-s">

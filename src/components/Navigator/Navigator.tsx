@@ -99,7 +99,6 @@ export const Navigator: React.FC = () => {
     exploreOption.find((op) => "/" + op.nav === currentPath)?.titleCN ?? ""
   );
   const page_text = getPageText(multilingual);
-
   const { explore_as } = page_text;
   const [openMobileDropDown, setOpenMobileDropDown] = useState<boolean>(false);
   const [openSearchInput, setOpenSearchInput] = useState<boolean>(false);
@@ -156,11 +155,6 @@ export const Navigator: React.FC = () => {
   const isHideDropdown = activeIndex === null ? true : !navItems.length;
   const isTouchDevice = "ontouchstart" in window;
 
-  const explore_as_field_text = showEn
-    ? selectedExploreOption
-    : exploreOption.filter((e) => e.title === selectedExploreOption)?.[0]
-        ?.titleCN;
-
   const exploreContent = (
     <div className="bg-newPrimary h-[56px] mx-[24px] justify-center items-center flex-row text-white z-900">
       <Menu
@@ -171,7 +165,7 @@ export const Navigator: React.FC = () => {
           <>
             <Menu.Button className="inline-flex w-full justify-between items-center bg-newPrimary text-body-m text-white h-full">
               <p className="!text-body-s flex items-center justify-start">
-                {explore_as_field_text ?? (explore_as as string)}
+                {currentOption ?? (explore_as as string)}
               </p>
               <ChevronDownIcon
                 className={`h-[16px] w-[16px] text-[#666666] text-white transform transition-transform ${

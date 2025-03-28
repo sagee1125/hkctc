@@ -84,6 +84,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   const fontClass = fontClassMapping[language];
 
   function convertReactNode(node: ReactNode): ReactNode {
+    if (language !== Language.ZH_CN) return node;
     if (typeof node === "string") {
       return t2s(node);
     }

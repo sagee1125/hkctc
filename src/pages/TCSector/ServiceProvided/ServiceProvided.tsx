@@ -72,7 +72,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
     TESTING: {
       TITLE: "測試",
       CONTENT_1: "測試指按照程序測定物件的一項或多項特點，例子包括：",
-      INCLUDE_LIST: ["測試食品的重金屬含量", "測試血液的紅血球數量。"],
+      INCLUDE_LIST: ["測試食品的重金屬含量", "測試血液的紅血球數量"],
       CONTENT_2:
         "測試活動為不同業務範疇如醫務化驗、建築材料、食品、中藥、珠寶等提供支援，以應付本地需求。",
       CONTENT_3:
@@ -85,7 +85,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
       INSPECTION_MAY:
         "檢驗包括對材料、產品、裝置、設備、過程、工作程序或服務進行審查，確定是否符合要求，以及隨後向客戶報告這些活動的結果，有需要時向官方機構報告。例子包括：",
       INSPECTION_OF_BATCH: `在產品付運前，於工廠檢驗整批產品，以確定是否符合買家的規格`,
-      INSPECTION_OF_STRUCTURAL: `在檢驗結構焊接，以確定是否符合合約和法定的要求。`,
+      INSPECTION_OF_STRUCTURAL: `在檢驗結構焊接，以確定是否符合合約和法定的要求`,
       ON_LOCAL: (
         <>
           在本地需求方面，其中一個檢驗工作例子，是根據環境保護署推行的自願
