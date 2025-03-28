@@ -27,7 +27,7 @@ import {
   OverviewIOnCEPA,
   SummaryOfCEPA,
 } from "./EnteringIntoTheMainlandMarket";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 export const directorySidebarItemsMap: Partial<
   Record<
@@ -156,8 +156,7 @@ const multilingual = {
 export const Support: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isPC, language, getPageText, getSingleText } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { home, support } = page_text;
@@ -169,9 +168,12 @@ export const Support: React.FC = () => {
     ? (initialSection as navItemEnum)
     : navItemEnum.exhibition_programme;
   const initialHash = window.location.hash;
-  const initialHashIndex = initialHash
+
+  const initialHashIndex = !initialHash
+    ? null // remove `#`, get index
+    : Number(initialHash.substring(1)) >= 0
     ? Number(initialHash.substring(1))
-    : null; // remove `#`, get index
+    : 0;
 
   const eventItems: SubItems[] =
     NavigationBarConfiguration.find((nav: NavData) => nav.title === "Support")
