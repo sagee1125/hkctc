@@ -368,7 +368,7 @@ export const Navigator: React.FC = () => {
                     >
                       {openMobileDropDown ? (
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns="https://www.w3.org/2000/svg"
                           className="h-[22px] w-[22px]"
                           viewBox="0 0 22 22"
                           fill="none"
@@ -383,7 +383,7 @@ export const Navigator: React.FC = () => {
                         </svg>
                       ) : (
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns="https://www.w3.org/2000/svg"
                           className="h-[24px] w-[24px]"
                           viewBox="0 0 24 20"
                           fill="none"

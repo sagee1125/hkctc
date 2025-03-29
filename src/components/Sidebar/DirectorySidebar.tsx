@@ -123,7 +123,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             <div className="w-full flex flex-row justify-between items-center pb-[24px]">
               <p className="text-heading-m text-newPrimary">{content_list}</p>
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"

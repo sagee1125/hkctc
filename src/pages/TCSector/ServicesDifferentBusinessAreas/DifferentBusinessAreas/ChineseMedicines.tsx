@@ -176,7 +176,7 @@ export const ChineseMedicines: React.FC = () => {
         <p>
           Many types of Chinese medicines can now be tested against the&nbsp;
           <a
-            href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -311,7 +311,7 @@ export const ChineseMedicines: React.FC = () => {
         <p>
           現時，很多中藥材可按
           <a
-            href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -320,7 +320,7 @@ export const ChineseMedicines: React.FC = () => {
           </a>
           或《中國藥典》等標準進行測試。
           <a
-            href="http://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"

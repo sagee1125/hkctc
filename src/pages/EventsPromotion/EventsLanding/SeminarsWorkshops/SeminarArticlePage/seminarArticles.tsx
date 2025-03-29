@@ -652,7 +652,7 @@ export const seminarsAndWorkshopsList = [
         The Council and the Hong Kong Accreditation Service arranged the
         Technical Webinar on Testing and Certification Services for Engineers
         for the Hong Kong Institution of Engineers.
-        <a href="http://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
+        <a href="https://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
           (Details)
         </a>
         <br />
@@ -2247,7 +2247,7 @@ export const seminarsAndWorkshopsList = [
         The Council and the Hong Kong Accreditation Service arranged the Seminar
         on Testing and Certification Services for Engineers for the Hong Kong
         Institution of Engineers.
-        <a href="http://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
+        <a href="https://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
           (Details)
         </a>
         <br />
@@ -4478,7 +4478,7 @@ export const seminarsAndWorkshopsList_CN = [
     content: (
       <p>
         香港檢測和認證局及香港認可處與香港工程師學會協辦與工程師相關的檢測認證服務網上技術研討會。
-        <a href="http://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
+        <a href="https://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
           (詳情)（只有英文版本）
         </a>
         <br />
@@ -5640,7 +5640,7 @@ export const seminarsAndWorkshopsList_CN = [
     content: (
       <p>
         香港檢測和認證局及香港認可處與香港工程師學會協辦與工程師相關的檢測認證服務研討會。
-        <a href="http://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
+        <a href="https://ev.hkie.org.hk/en_it_events_inside_Past.aspx?EventID=1200&&TypeName=Events+%2f+Activities">
           (詳情)（只有英文版本）
         </a>
         <br />

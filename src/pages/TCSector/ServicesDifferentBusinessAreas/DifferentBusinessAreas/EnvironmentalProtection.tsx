@@ -536,7 +536,7 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
                           viewBox="0 0 21 21"
@@ -709,7 +709,7 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
                           viewBox="0 0 21 21"

@@ -434,18 +434,18 @@ export const Footer: React.FC = () => {
     {
       logoSize: isPC ? "h-[31px] w-[88px]" : "h-[24px]",
       img: "w3c_logo.png",
-      hyperlink: "http://www.w3.org/WAI/WCAG2AA-Conformance",
+      hyperlink: "https://www.w3.org/WAI/WCAG2AA-Conformance",
     },
     {
       logoSize: isPC ? "h-[56px] w-[88px]" : "h-[43px]",
       img: "WA_Gold_TC.png",
-      hyperlink: "http://www.webforall.gov.hk/recognition_scheme",
+      hyperlink: "https://www.webforall.gov.hk/recognition_scheme",
     },
 
     {
       logoSize: isPC ? "h-[48px] w-[120px]" : "h-[27px]",
       img: "brandhk.png",
-      hyperlink: "http://www.brandhk.gov.hk/html/en/index.html",
+      hyperlink: "https://www.brandhk.gov.hk/html/en/index.html",
     },
     {
       logoSize: isPC ? "h-[74px] w-[100px]" : "h-[50px]",

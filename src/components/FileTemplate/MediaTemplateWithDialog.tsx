@@ -400,7 +400,7 @@ export const MediaTemplateWithDialog: React.FC<
             {date && (
               <div className="flex flex-row gap-[8px] items-center">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="17"
                   height="17"
                   viewBox="0 0 17 17"
@@ -624,7 +624,7 @@ export const MediaTemplateWithDialog: React.FC<
               {date ? (
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"
                     viewBox="0 0 17 17"

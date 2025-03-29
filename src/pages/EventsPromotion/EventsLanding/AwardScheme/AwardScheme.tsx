@@ -106,7 +106,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
               viewBox="0 0 25 24"
@@ -126,7 +126,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
               viewBox="0 0 25 24"
@@ -261,7 +261,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
               viewBox="0 0 22 24"
@@ -326,7 +326,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
               viewBox="0 0 22 24"
@@ -755,7 +755,7 @@ export const AwardScheme: React.FC = () => {
         </div>
         <svg
           className="flex-shrink-0"
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="16"
           viewBox="0 0 16 16"

@@ -28,7 +28,7 @@ const multilingual = {
         accordance with objective and well-defined standards. The list of such
         qualifications and courses can be found in the&nbsp;
         <a
-          href="http://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
+          href="https://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -120,7 +120,7 @@ const multilingual = {
         </a>
         於2008年展開，主要目的是提供一個鼓勵及促進終身學習的平台，以提升香港工作人口的技能及競爭力。資歷架構是個共有七級的資歷級別制度，涵蓋學術、職業專才及持續教育及培訓等不同界別。所有資歷架構認可的資歷皆通過質素保證，並按照客觀及明確的標準去釐定其級別。這些認可資歷及課程載於「
         <a
-          href="http://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
+          href="https://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

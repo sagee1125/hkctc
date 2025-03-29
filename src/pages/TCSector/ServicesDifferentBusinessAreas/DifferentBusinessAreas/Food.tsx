@@ -206,14 +206,14 @@ export const Food: React.FC = () => {
           <br />
           <br />
           另一項與食物有關的法例是
-          <Link outerLink="http://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
+          <Link outerLink="https://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
             食物安全條例（第612章）
           </Link>
           ，條例包括實施新的食物安全管制措施，如設立食物進口商和食物分銷商登記制度，以及規定食物商須妥為保存食物進出紀錄，以加強食物溯源能力。
           <br />
           <br />
           有關食物規例/指引詳情，請瀏覽
-          <Link outerLink="http://www.cfs.gov.hk/english/food_leg/food_leg.html">
+          <Link outerLink="https://www.cfs.gov.hk/english/food_leg/food_leg.html">
             食物安全中心網站
           </Link>
           。
@@ -358,7 +358,7 @@ export const Food: React.FC = () => {
           <br />
           <br />
           Another food related ordinance is&nbsp;
-          <Link outerLink="http://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
+          <Link outerLink="https://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
             the Food Safety Ordinance (Cap. 612)
           </Link>
           &nbsp;which provides new food safety control measures, including a
@@ -369,7 +369,7 @@ export const Food: React.FC = () => {
           <br />
           For more details on Food Legislation / Guidelines in Hong Kong, please
           visit the&nbsp;
-          <Link outerLink="http://www.cfs.gov.hk/english/food_leg/food_leg.html">
+          <Link outerLink="https://www.cfs.gov.hk/english/food_leg/food_leg.html">
             Centre for Food Safety website
           </Link>
           .

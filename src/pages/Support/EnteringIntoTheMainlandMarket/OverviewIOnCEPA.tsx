@@ -469,7 +469,7 @@ const EnterpriseRun: React.FC = () => {
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
-              href="http://www.samr.gov.cn/fw/wsbs/rzrkjyjc/rzjgzd/"
+              href="https://www.samr.gov.cn/fw/wsbs/rzrkjyjc/rzjgzd/"
             >
               《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》
             </a>

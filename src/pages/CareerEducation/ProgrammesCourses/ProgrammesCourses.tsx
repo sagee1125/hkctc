@@ -53,7 +53,7 @@ const degreeMap: Record<
           {
             programme: "MSc in Analytical Chemistry",
             programmeCN: "分析化學理學碩士",
-            url: "http://prog-crs.ust.hk/pgprog/2018-19/msc-anchem",
+            url: "https://prog-crs.ust.hk/pgprog/2018-19/msc-anchem",
           },
         ],
       },
@@ -146,7 +146,7 @@ const degreeMap: Record<
           {
             programme: "Higher Diploma in Analytical Science",
             programmeCN: "化驗科學高級文憑",
-            url: "http://www.vtc.edu.hk/admission/en/programme/as114103-higher-diploma-in-analytical-science/",
+            url: "https://www.vtc.edu.hk/admission/en/programme/as114103-higher-diploma-in-analytical-science/",
           },
         ],
       },

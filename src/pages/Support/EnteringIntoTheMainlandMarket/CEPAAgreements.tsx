@@ -215,7 +215,7 @@ export const CEPAAgreements: React.FC = () => {
             為落實
             <a
               className="underline text-[#00E] text-[16px]"
-              href="http://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
+              href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
               target="_blank"
               rel="noopener noreferrer"
             >

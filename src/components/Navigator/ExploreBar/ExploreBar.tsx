@@ -122,7 +122,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
           <p className="text-highlight-s">{explore_as as string}</p>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             width="12"
             height="12"
             viewBox="0 0 12 12"

@@ -59,7 +59,7 @@ const multilingual = {
       <p className="text-body-m">
         Accredited laboratories in Hong Kong adopt the&nbsp;
         <a
-          href="http://www.gahk.org/en/gemtest.asp"
+          href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -68,7 +68,7 @@ const multilingual = {
         </a>
         &nbsp;and&nbsp;
         <a
-          href="http://www.gahk.org/en/gemtest.asp"
+          href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -119,7 +119,7 @@ const multilingual = {
       <>
         香港的認可實驗所按香港寶石學協會出版的
         <a
-          href="http://www.gahk.org/en/gemtest.asp"
+          href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -128,7 +128,7 @@ const multilingual = {
         </a>
         及
         <a
-          href="http://www.gahk.org/en/gemtest.asp"
+          href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

@@ -37,7 +37,7 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       <div className={"text-heading-l"}>{title}</div>
       {showArrowIcon && (
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="24"
           viewBox="0 0 16 24"

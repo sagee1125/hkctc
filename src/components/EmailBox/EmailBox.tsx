@@ -37,7 +37,7 @@ export const EmailBox: React.FC = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/api/process.php", {
+      const response = await fetch("https://localhost:8000/api/process.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -85,7 +85,7 @@ export const EmailBox: React.FC = () => {
         />
         <textarea
           placeholder={write_down as string}
-          aria-labe1={"Write down your message"}
+          aria-label={"Write down your message"}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,

@@ -275,7 +275,7 @@ export const AwardScheme23to24: React.FC = () => {
               {processText(page_text.mobile_sidebar.content_list)}
             </p>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               width="20"
               height="20"
               viewBox="0 0 20 20"
@@ -574,7 +574,7 @@ export const AwardScheme23to24: React.FC = () => {
         </div>
         <svg
           className="flex-shrink-0"
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="16"
           viewBox="0 0 16 16"

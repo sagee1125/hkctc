@@ -445,7 +445,7 @@ const RelatedSite: React.FC = () => {
     {
       title: "Vocational Training Council (Testing and Certification Portal)",
       titleCN: "職業訓練局(檢測和認證行業網站)",
-      href: "http://va.vtc.edu.hk/tcert",
+      href: "https://va.vtc.edu.hk/tcert",
     },
   ];
   const tradeAssociationsMap = [
@@ -486,7 +486,7 @@ const RelatedSite: React.FC = () => {
       title:
         "Market Supervision Administration of Guangdong Province (Chinese only)",
       titleCN: "廣東省市場監督管理局",
-      href: "http://amr.gd.gov.cn/",
+      href: "https://amr.gd.gov.cn/",
     },
     {
       title:
@@ -515,7 +515,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!flex !flex-col !gap-[8px] ml-[16px] !text-linked-m">
           <li>
             <a
-              href="http://www.itc.gov.hk/en/quality/hkas/about.htm"
+              href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -525,7 +525,7 @@ const RelatedSite: React.FC = () => {
           </li>
           <li>
             <a
-              href="http://www.itc.gov.hk/en/quality/hkas/about.htm"
+              href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

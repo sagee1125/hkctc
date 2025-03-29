@@ -67,7 +67,7 @@ const multilingual = {
         International Personnel Certification Association (IPC) to register as
         Auditors. Details on the scheme can be obtained at its&nbsp;
         <a
-          href="http://www.hkica.org/"
+          href="https://www.hkica.org/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -121,7 +121,7 @@ const multilingual = {
         17024:2012《合格評定—人員認證機構通用要求》，制定了「ISO
         9001質量管理體系人員認證計劃」。該計劃獲中國合格評定國家認可委員（CNAS）認可，根據相關協議，香港專業審核師可申請成為中國認證認可協會（CCAA）審核員及國際人員認證協會（IPC）認可審核師。有關計劃的詳情可瀏覽其
         <a
-          href="http://www.hkica.org/"
+          href="https://www.hkica.org/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"

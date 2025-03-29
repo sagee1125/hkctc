@@ -80,7 +80,7 @@ export const StudentCompetition: React.FC = () => {
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
       hyperLink:
-        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+        "https://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       title: "Testing Science in Daily Life - Healthcare and Hygiene",
@@ -89,7 +89,7 @@ export const StudentCompetition: React.FC = () => {
       maskIcon: "PRESS.png",
       imgUrl: "awardees_4.png",
       hyperLink:
-        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+        "https://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       titleCN: "檢測科學 - 綠色生活",
@@ -98,7 +98,7 @@ export const StudentCompetition: React.FC = () => {
       maskIcon: "PRESS.png",
       imgUrl: "awardees_5.png",
       hyperLink:
-        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
       titleCN: "檢測科學 - 改善生活質素",
@@ -107,7 +107,7 @@ export const StudentCompetition: React.FC = () => {
       maskIcon: "PRESS.png",
       imgUrl: "awardees_6.png",
       hyperLink:
-        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
     },
     {
       title: "Scientific Testing in Everyday Life",
@@ -116,7 +116,7 @@ export const StudentCompetition: React.FC = () => {
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
       hyperLink:
-        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
     },
   ];
   return (
@@ -174,7 +174,7 @@ export const StudentCompetition: React.FC = () => {
                 </p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"
                     viewBox="0 0 17 17"
