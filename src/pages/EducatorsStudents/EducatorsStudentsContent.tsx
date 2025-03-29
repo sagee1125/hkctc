@@ -121,7 +121,7 @@ export const EducatorsStudentsContent: React.FC = () => {
               key={index}
               className="flex flex-col justify-start group border-2 border-inherit h-auto cursor-pointer"
               onClick={() => {
-                window.open(link);
+                window.open(link, "_blank", "noopener");
               }}
             >
               <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
@@ -176,7 +176,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   key={index}
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
                   onClick={() => {
-                    window.open(link);
+                    window.open(link, "_blank", "noopener");
                   }}
                 >
                   <img
@@ -195,7 +195,11 @@ export const EducatorsStudentsContent: React.FC = () => {
           <div
             className="py-[24px] cursor-pointer"
             onClick={() => {
-              window.open("/events-promotion?section=comics");
+              window.open(
+                "/events-promotion?section=comics",
+                "_blank",
+                "noopener"
+              );
             }}
           >
             <div

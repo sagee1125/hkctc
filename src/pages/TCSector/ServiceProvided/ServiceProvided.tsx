@@ -211,7 +211,7 @@ const CertificateService: React.FC = () => {
             <span
               className="!text-highlight-s underline text-newPrimary cursor-pointer"
               onClick={() => {
-                window.open("/tc-sector/environmental_protection", "_blank");
+                window.open("/tc-sector/environmental_protection");
               }}
             >
               ISO 50001 energy management system certification
@@ -231,7 +231,7 @@ const CertificateService: React.FC = () => {
           <span
             className="!text-highlight-s underline text-newPrimary cursor-pointer"
             onClick={() => {
-              window.open("/tc-sector/environmental_protection", "_blank");
+              window.open("/tc-sector/environmental_protection");
             }}
           >
             ISO 50001能源管理體系認證

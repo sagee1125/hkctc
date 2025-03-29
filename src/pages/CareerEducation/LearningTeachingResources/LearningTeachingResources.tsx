@@ -241,7 +241,7 @@ export const LearningTeachingResources: React.FC = () => {
                     key={index}
                     className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
                     onClick={() => {
-                      window.open(down.link, "_blank");
+                      window.open(down.link, "_blank", "noopener");
                     }}
                   >
                     <img
@@ -331,7 +331,7 @@ export const LearningTeachingResources: React.FC = () => {
                     key={index}
                     className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
                     onClick={() => {
-                      window.open(down.link, "_blank");
+                      window.open(down.link, "_blank", "noopener");
                     }}
                   >
                     <img
@@ -379,7 +379,6 @@ export const LearningTeachingResources: React.FC = () => {
                       }`}
                       onClick={() => {
                         setPlayVideoTwoIndex(index);
-                        // window.open(video.url, "_blank");
                       }}
                     >
                       <div className="w-[37px] text-center p-[10px]">{`0${
@@ -416,7 +415,9 @@ export const LearningTeachingResources: React.FC = () => {
                 src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
                 onClick={() => {
                   window.open(
-                    "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf"
+                    "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
+                    "_blank",
+                    "noopener"
                   );
                 }}
               />

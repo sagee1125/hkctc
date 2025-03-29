@@ -132,7 +132,7 @@ export const GeneralPublicContent: React.FC = () => {
                     isPC ? "w-[278px] h-full" : "w-full h-auto"
                   } object-cover cursor-pointer`}
                   onClick={() => {
-                    window.open(w.redirectTo);
+                    window.open(w.redirectTo, "_blank", "noopener");
                   }}
                   src={`${process.env.PUBLIC_URL}/assets/whatsNew/${w.imagePath}`}
                   alt={w.title}

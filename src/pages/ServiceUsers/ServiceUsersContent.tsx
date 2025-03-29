@@ -226,7 +226,7 @@ export const ServiceUsersContent: React.FC = () => {
                 <div
                   className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
                   onClick={() => {
-                    window.open(link);
+                    window.open(link, "_blank", "noopener");
                   }}
                 >
                   <img

@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
       const { search } = value;
       if (search) {
         const preLink = `https://www.search.gov.hk/result?tpl_id=stdsearch&gp0=hkctc_home&ui_charset=utf-8&web=this&ui_lang=en&query=`;
-        window.open(preLink + search, "_blank");
+        window.open(preLink + search, "_blank", "noopener");
       }
     },
   });

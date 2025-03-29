@@ -74,7 +74,7 @@ export const WhatsNew: React.FC = () => {
                   : "w-full h-auto"
               } object-cover cursor-pointer`}
               onClick={() => {
-                window.open(redirectTo);
+                window.open(redirectTo, "_blank", "noopener");
               }}
               src={`${process.env.PUBLIC_URL}/assets/whatsNew/${imagePath}`}
               alt={imagePath}

@@ -489,7 +489,11 @@ export const ProfileAndRole: React.FC = () => {
                       setActiveReport(index);
                       setIsPreviewOpen(true);
                     } else {
-                      window.open("https://www.hkctc.gov.hk" + link, "_blank");
+                      window.open(
+                        "https://www.hkctc.gov.hk" + link,
+                        "_blank",
+                        "noopener"
+                      );
                     }
                   }}
                   style={{ flexShrink: 0 }}

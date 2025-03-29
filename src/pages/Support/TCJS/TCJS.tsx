@@ -467,7 +467,7 @@ export const TCJS: React.FC = () => {
                 className="relative w-[130px] h-full cursor-pointer"
                 onClick={() => {
                   if (docLink) {
-                    window.open(docLink, "_blank");
+                    window.open(docLink, "_blank", "noopener");
                     return;
                   }
 
@@ -478,7 +478,8 @@ export const TCJS: React.FC = () => {
                     } else {
                       window.open(
                         "https://www.hkctc.gov.hk" + pdfLink,
-                        "_blank"
+                        "_blank",
+                        "noopener"
                       );
                     }
                   }

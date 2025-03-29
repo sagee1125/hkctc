@@ -232,7 +232,7 @@ export const MediaTemplateWithDialog: React.FC<
 
   const handleOnClick = (): void => {
     if (mediaType === MEDIA_TYPE.NEW_PAGE) {
-      window.open(mediaLink, "_blank");
+      window.open(mediaLink, "_blank", "noopener");
       return;
     }
 
@@ -250,10 +250,14 @@ export const MediaTemplateWithDialog: React.FC<
 
       switch (mediaDomain) {
         case "hkctc":
-          window.open("https://www.hkctc.gov.hk" + mediaLink, "_blank");
+          window.open(
+            "https://www.hkctc.gov.hk" + mediaLink,
+            "_blank",
+            "noopener"
+          );
           break;
         case "cpas-icac":
-          window.open("https://cpas.icac.hk" + mediaLink, "_blank");
+          window.open("https://cpas.icac.hk" + mediaLink, "_blank", "noopener");
           break;
         default:
           break;

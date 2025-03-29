@@ -23,7 +23,7 @@ export const MediaTemplate: React.FC<
           isPC ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
         onClick={() => {
-          mediaLink && window.open(mediaLink);
+          mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
       >
         <div className="flex-shrink-0 relative h-full w-auto">
@@ -66,7 +66,7 @@ export const MediaTemplate: React.FC<
           isPC ? "flex-col" : "flex-row"
         } h-auto gap-[24px] cursor-pointer`}
         onClick={() => {
-          mediaLink && window.open(mediaLink);
+          mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
       >
         <div

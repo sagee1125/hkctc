@@ -148,7 +148,7 @@ export const StudentCompetition: React.FC = () => {
                 isPC ? "w-full h-[282px]" : "w-full h-auto"
               }  flex flex-col gap-[14px] cursor-pointer`}
               onClick={() => {
-                window.open(hyperLink, "_blank");
+                window.open(hyperLink, "_blank", "noopener");
               }}
             >
               <div
