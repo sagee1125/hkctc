@@ -9,6 +9,9 @@ module.exports = function (app) {
       timeout: 10000,  
       proxyTimeout: 10000, 
       secure: false,
+      headers: {
+        "Content-Security-Policy": "default-src 'self'"
+      },
       pathRewrite: {
         '^/hkctc-proxy': '',  
       },
@@ -23,6 +26,9 @@ module.exports = function (app) {
       target: 'https://cpas.icac.hk',
       changeOrigin: true,
       secure: false,
+      headers: {
+        "Content-Security-Policy": "default-src 'self'"
+      },
       timeout: 10000,  
       proxyTimeout: 10000, 
       pathRewrite: {
@@ -40,6 +46,9 @@ module.exports = function (app) {
       secure: false,
       timeout: 20000,  
       proxyTimeout: 20000, 
+      headers: {
+        "Content-Security-Policy": "default-src 'self'"
+      },
       pathRewrite: {
         '^/hkbedc-proxy': '',
       },
@@ -62,6 +71,9 @@ module.exports = function (app) {
       pathRewrite: {
         '^/takungpao-proxy': '',
       },
+      headers: {
+        "Content-Security-Policy": "default-src 'self'"
+      },
     })
   );
 
@@ -75,6 +87,9 @@ module.exports = function (app) {
       proxyTimeout: 20000, 
       pathRewrite: {
         '^/devb-proxy': '',
+      },
+      headers: {
+        "Content-Security-Policy": "default-src 'self'"
       },
     })
   );
