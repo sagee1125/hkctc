@@ -301,9 +301,8 @@ export const MediaTemplateWithDialog: React.FC<
                       src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
                       style={{
                         objectFit: "cover",
-
-                        width: "100%",
-                        height: "100%",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
                         zIndex: 2,
                         aspectRatio: "auto",
                       }}

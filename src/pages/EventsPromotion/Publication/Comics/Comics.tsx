@@ -68,7 +68,7 @@ export const Comics: React.FC = () => {
         }`}
       >
         {currentPageData.map((item, index) => {
-          const { title, mediaType, link } = item;
+          const { title, mediaType, link, thumbnail } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
@@ -84,6 +84,7 @@ export const Comics: React.FC = () => {
                 date={""}
                 mediaDomain="hkctc"
                 mediaLink={link}
+                thumbnail={thumbnail}
                 mediaType={mediaType}
               />
             </div>
