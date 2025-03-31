@@ -1,11 +1,5 @@
 import { Backdrop, CircularProgress } from "@mui/material";
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  isValidElement,
-} from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import { useMediaQuery } from "@mui/material";
 import { t2s } from "chinese-s2t";
@@ -50,7 +44,7 @@ const SettingsContext = createContext<SettingsContextType | undefined>(
 export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.mjs`;
 
   const isPC = useMediaQuery("(min-width:1024px)");
 

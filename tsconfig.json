@@ -6,7 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "typeRoots": ["node_modules/@types", "node_modules"],
+    "typeRoots": ["node_modules/@types", "node_modules","types"],
     "types": [],
     "downlevelIteration": true,
     "allowJs": true,
@@ -25,6 +25,6 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
+    "src/**/*.tsx","types"
   ]
 }

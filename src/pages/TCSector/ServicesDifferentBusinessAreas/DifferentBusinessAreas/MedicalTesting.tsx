@@ -16,7 +16,7 @@ import {
   maxMobileContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -122,7 +122,7 @@ const multilingual = {
 };
 
 export const MedicalTesting: React.FC = () => {
-  const { isPC, language, getPageText, getSingleText } = useSettings();
+  const { isPC, language, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
