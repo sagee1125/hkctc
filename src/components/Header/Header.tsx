@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import LanguageSelect from "../languageSelection";
 
 export const HeaderSocialMedia: React.FC = () => {
@@ -13,14 +13,14 @@ export const HeaderSocialMedia: React.FC = () => {
         icon="mage:camera-2"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         onClick={() => {
-          window.location.href = "https://www.instagram.com/hkctcgovhk/";
+          window.open("https://www.instagram.com/hkctcgovhk/");
         }}
       />
       <Icon
         icon="fa6-brands:facebook-f"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         onClick={() => {
-          window.location.href = "https://www.facebook.com/hkctcgovhk";
+          window.open("https://www.facebook.com/hkctcgovhk");
         }}
       />
     </>
