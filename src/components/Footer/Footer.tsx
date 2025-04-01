@@ -490,14 +490,14 @@ export const Footer: React.FC = () => {
               icon="mage:camera-2"
               className="h-[38px] w-[38px] text-white cursor-pointer"
               onClick={() => {
-                window.location.href = "https://www.instagram.com/hkctcgovhk/";
+                window.open("https://www.instagram.com/hkctcgovhk/");
               }}
             />
             <Icon
               icon="fa6-brands:facebook-f"
               className="h-[32px] w-[32px] text-white cursor-pointer"
               onClick={() => {
-                window.location.href = "https://www.facebook.com/hkctcgovhk";
+                window.open("https://www.facebook.com/hkctcgovhk");
               }}
             />
           </div>
@@ -737,7 +737,7 @@ export const Footer: React.FC = () => {
             className={isPC ? logo.logoSize : ""}
             key={index}
             onClick={() => {
-              window.location.href = logo.hyperlink;
+              window.open(logo.hyperlink);
             }}
           >
             <img
