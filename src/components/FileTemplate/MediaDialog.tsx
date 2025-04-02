@@ -11,40 +11,40 @@ type MediaDialogProps = {
   mediaDomain?: ProxyDomain;
 };
 
-export const proxyHeadMapping: Record<ProxyDomain, string> = {
-  hkctc: "/hkctc-proxy",
-  "cpas-icac": "/cpas-icac-proxy",
-  hkbedc: "/hkbedc-proxy",
-  devb: "/devb-proxy",
-  takungpao: "/takungpao-proxy",
-  youtube: "/",
-};
+// export const proxyHeadMapping: Record<ProxyDomain, string> = {
+//   hkctc: "/hkctc-proxy",
+//   "cpas-icac": "/cpas-icac-proxy",
+//   hkbedc: "/hkbedc-proxy",
+//   devb: "/devb-proxy",
+//   takungpao: "/takungpao-proxy",
+//   youtube: "/",
+// };
 
-export const handleGetWholePDFUrl = (
-  domain: ProxyDomain,
-  link: string
-): string => {
-  switch (domain) {
-    case "hkctc":
-      return `https://www.hkctc.gov.hk` + link;
-    case "cpas-icac":
-      return "https://cpas.icac.hk" + link;
-    case "hkbedc":
-      return `https://www.hkbedc.icac.hk` + link;
-    case "takungpao":
-      return `https://paper.takungpao.com` + link;
-    case "devb":
-      return `https://www.devb.gov.hk` + link;
+// export const handleGetWholePDFUrl = (
+//   domain: ProxyDomain,
+//   link: string
+// ): string => {
+//   switch (domain) {
+//     case "hkctc":
+//       return `https://www.hkctc.gov.hk` + link;
+//     case "cpas-icac":
+//       return "https://cpas.icac.hk" + link;
+//     case "hkbedc":
+//       return `https://www.hkbedc.icac.hk` + link;
+//     case "takungpao":
+//       return `https://paper.takungpao.com` + link;
+//     case "devb":
+//       return `https://www.devb.gov.hk` + link;
 
-    default:
-      return link;
-  }
-};
+//     default:
+//       return link;
+//   }
+// };
 
 export const MediaDialog: React.FC<MediaDialogProps> = ({
   setIsPreviewOpen,
   title,
-  link,
+  link: pdfHyperlink,
   mediaType,
   mediaDomain = "hkctc",
 }: MediaDialogProps) => {
@@ -53,22 +53,35 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const handlePdfDownload = async () => {
-    if (!link) return;
+    if (!pdfHyperlink) return;
     await withLoading(async () => {
       try {
-        const proxyHead = proxyHeadMapping[mediaDomain];
-        const response = await fetch(proxyHead + link);
-        const pdfBlob = await response.blob();
-        const pdfHyperlink = document.createElement("a");
+        // const proxyHead = proxyHeadMapping[mediaDomain];
+        // const response = await fetch(proxyHead + link);
+        // const pdfBlob = await response.blob();
+        // const pdfHyperlink = document.createElement("a");
 
-        pdfHyperlink.href = URL.createObjectURL(pdfBlob);
+        // pdfHyperlink.href = URL.createObjectURL(pdfBlob);
+        // const originalFileName =
+        //   link.split("/").pop() || title.replaceAll(" ", "_") + ".pdf";
+        // pdfHyperlink.download = decodeURIComponent(originalFileName);
+        // document.body.appendChild(pdfHyperlink);
+        // pdfHyperlink.click();
+        // document.body.removeChild(pdfHyperlink);
+        // URL.revokeObjectURL(pdfHyperlink.href);
+
+        const link = document.createElement("a");
+        link.href = pdfHyperlink;
+
         const originalFileName =
-          link.split("/").pop() || title.replaceAll(" ", "_") + ".pdf";
-        pdfHyperlink.download = decodeURIComponent(originalFileName);
-        document.body.appendChild(pdfHyperlink);
-        pdfHyperlink.click();
-        document.body.removeChild(pdfHyperlink);
-        URL.revokeObjectURL(pdfHyperlink.href);
+          pdfHyperlink.split("/").pop() || title.replaceAll(" ", "_") + ".pdf";
+
+        link.download = decodeURIComponent(originalFileName);
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
       } catch (error) {
         console.error("Error downloading PDF:", error);
       }
@@ -86,9 +99,9 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     }
   };
 
-  const pdfLink = `https://docs.google.com/viewer?url=${encodeURIComponent(
-    handleGetWholePDFUrl(mediaDomain, link)
-  )}&embedded=true&chrome=false`;
+  // const pdfLink = `https://docs.google.com/viewer?url=${encodeURIComponent(
+  //   handleGetWholePDFUrl(mediaDomain, pdfHyperlink)
+  // )}&embedded=true&chrome=false`;
 
   const MemoizedIframe: React.FC<{
     src: string;
@@ -126,15 +139,12 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                   controls
                   onClick={handlePlayPause}
                 >
-                  <source
-                    src={`https://www.hkctc.gov.hk${link}`}
-                    type="video/mp4"
-                  />
+                  <source src={pdfHyperlink} type="video/mp4" />
                 </video>
               ) : (
                 <iframe
                   className="w-full h-full pt-[24px]"
-                  src={link}
+                  src={pdfHyperlink}
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
                   allowFullScreen
@@ -145,7 +155,8 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
           )}
           {mediaType === MEDIA_TYPE.PDF && (
             <>
-              <MemoizedIframe src={pdfLink} />
+              {/* instead of passing pdfLink */}
+              <MemoizedIframe src={pdfHyperlink} />
               {mediaDomain === "hkctc" && isPC && (
                 <div className="absolute bottom-4 right-4 flex gap-2">
                   <button

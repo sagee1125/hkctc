@@ -25,27 +25,27 @@ export type MediaTemplateWithDialogProps = {
   titleUnderline?: boolean;
   thumbnail?: string;
 };
-export const handleGetPDFUrl = (
-  domain: ProxyDomain,
-  mediaLink: string
-): string => {
-  switch (domain) {
-    case "hkctc":
-      return "/hkctc-proxy" + mediaLink;
-    case "cpas-icac":
-      return "/cpas-icac-proxy" + mediaLink;
-    case "hkbedc":
-      return "/hkbedc-proxy" + mediaLink;
-    case "takungpao":
-      return "/takungpao-proxy" + mediaLink;
-    case "devb":
-      return "/devb-proxy" + mediaLink;
+// export const handleGetPDFUrl = (
+//   domain: ProxyDomain,
+//   mediaLink: string
+// ): string => {
+//   switch (domain) {
+//     case "hkctc":
+//       return "/hkctc-proxy" + mediaLink;
+//     case "cpas-icac":
+//       return "/cpas-icac-proxy" + mediaLink;
+//     case "hkbedc":
+//       return "/hkbedc-proxy" + mediaLink;
+//     case "takungpao":
+//       return "/takungpao-proxy" + mediaLink;
+//     case "devb":
+//       return "/devb-proxy" + mediaLink;
 
-    default:
-      return "/hkctc-proxy" + mediaLink;
-  }
-};
-//   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
+//     default:
+//       return "/hkctc-proxy" + mediaLink;
+//   }
+// };
+
 export const MediaTemplateWithDialog: React.FC<
   MediaTemplateWithDialogProps
 > = ({
@@ -76,8 +76,8 @@ export const MediaTemplateWithDialog: React.FC<
     let isCancelled = false;
 
     const fetchAndRenderPdf = async () => {
-      const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
-      console.log("pdfUrl", pdfUrl);
+      // const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
+      const pdfUrl = mediaLink;
       setLoading(true);
       try {
         // Force to render file
@@ -129,7 +129,9 @@ export const MediaTemplateWithDialog: React.FC<
     const fetchVideoPoster = () => {
       setLoading(true);
       const videoElement = document.createElement("video");
-      videoElement.src = "/hkctc-proxy" + mediaLink;
+      // videoElement.src = "/hkctc-proxy" + mediaLink;
+      videoElement.src = mediaLink;
+
       videoElement.onloadeddata = () => {
         if (videoElement.poster && imageRef.current) {
           imageRef.current.src = videoElement.poster;
@@ -350,7 +352,8 @@ export const MediaTemplateWithDialog: React.FC<
                       }}
                     >
                       <source
-                        src={"/hkctc-proxy" + mediaLink}
+                        // src={"/hkctc-proxy" + mediaLink}
+                        src={mediaLink}
                         type="video/mp4"
                       />
                     </video>
@@ -529,7 +532,8 @@ export const MediaTemplateWithDialog: React.FC<
                         }}
                       >
                         <source
-                          src={"/hkctc-proxy" + mediaLink}
+                          // src={"/hkctc-proxy" + mediaLink}
+                          src={mediaLink}
                           type="video/mp4"
                         />
                       </video>
