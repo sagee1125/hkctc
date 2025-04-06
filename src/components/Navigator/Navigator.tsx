@@ -19,7 +19,6 @@ import {
   Paper,
   Popper,
 } from "@mui/material";
-import { t2s } from "chinese-s2t";
 import LanguageSelect from "../languageSelection";
 import { maxMobileContainer, maxPCContainer } from "../Container";
 
@@ -93,8 +92,7 @@ export const Navigator: React.FC = () => {
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(getCurrentTitle(currentPath));
-  const showEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
+
   const currentOption = getSingleText(
     selectedExploreOption === null ? "" : selectedExploreOption,
     exploreOption.find((op) => "/" + op.nav === currentPath)?.titleCN ?? ""
@@ -198,11 +196,7 @@ export const Navigator: React.FC = () => {
                         }}
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
-                        {showEn
-                          ? item.title
-                          : isSimpleCN
-                          ? t2s(item.titleCN)
-                          : item.titleCN}
+                        {getSingleText(item.title, item.titleCN)}
                       </button>
                     )}
                   </Menu.Item>
@@ -263,11 +257,7 @@ export const Navigator: React.FC = () => {
                       {NavigationBarConfiguration.map((nav, ncIndex) => {
                         const { title, titleCN, items, navUrl } = nav;
                         const ifHideArrow: boolean = !items.length;
-                        const displayTitle = showEn
-                          ? title
-                          : isSimpleCN
-                          ? t2s(titleCN)
-                          : titleCN;
+                        const displayTitle = getSingleText(title, titleCN);
                         return (
                           <div
                             key={ncIndex}
@@ -466,12 +456,10 @@ export const Navigator: React.FC = () => {
                                         nav;
                                       const ifHideArrow: boolean =
                                         !items.length;
-                                      const displayTitle = showEn
-                                        ? title
-                                        : isSimpleCN
-                                        ? t2s(titleCN)
-                                        : titleCN;
-
+                                      const displayTitle = getSingleText(
+                                        title,
+                                        titleCN
+                                      );
                                       return (
                                         <div
                                           key={index}
@@ -529,19 +517,12 @@ export const Navigator: React.FC = () => {
                                       className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
                                     />
                                     <p className="text-highlight-extra">
-                                      {showEn
-                                        ? NavigationBarConfiguration[
-                                            activeIndex
-                                          ].title
-                                        : isSimpleCN
-                                        ? t2s(
-                                            NavigationBarConfiguration[
-                                              activeIndex
-                                            ].titleCN
-                                          )
-                                        : NavigationBarConfiguration[
-                                            activeIndex
-                                          ].titleCN}
+                                      {getSingleText(
+                                        NavigationBarConfiguration[activeIndex]
+                                          .title,
+                                        NavigationBarConfiguration[activeIndex]
+                                          .titleCN
+                                      )}
                                     </p>
                                   </div>
                                   {navItems.map((sideItems, index) => {
@@ -572,13 +553,10 @@ export const Navigator: React.FC = () => {
                                                         fontWeight: 600,
                                                       }}
                                                     >
-                                                      {showEn
-                                                        ? navItems[0].name
-                                                        : isSimpleCN
-                                                        ? t2s(
-                                                            navItems[0].nameCN
-                                                          )
-                                                        : navItems[0].nameCN}
+                                                      {getSingleText(
+                                                        navItems[0].name,
+                                                        navItems[0].nameCN
+                                                      )}
                                                     </div>
                                                   </div>
 
@@ -607,13 +585,10 @@ export const Navigator: React.FC = () => {
                                                               }}
                                                             >
                                                               <div className="text-body-m">
-                                                                {showEn
-                                                                  ? subTitle
-                                                                  : isSimpleCN
-                                                                  ? t2s(
-                                                                      sub.subTitleCN
-                                                                    )
-                                                                  : sub.subTitleCN}
+                                                                {getSingleText(
+                                                                  subTitle,
+                                                                  sub.subTitleCN
+                                                                )}
                                                               </div>
                                                             </div>
                                                           );
@@ -653,13 +628,10 @@ export const Navigator: React.FC = () => {
                                                                 fontWeight: 600,
                                                               }}
                                                             >
-                                                              {showEn
-                                                                ? sideName
-                                                                : isSimpleCN
-                                                                ? t2s(
-                                                                    sideItem.nameCN
-                                                                  )
-                                                                : sideItem.nameCN}
+                                                              {getSingleText(
+                                                                sideName,
+                                                                sideItem.nameCN
+                                                              )}
                                                             </p>
 
                                                             <ChevronDownIcon
@@ -712,13 +684,10 @@ export const Navigator: React.FC = () => {
                                                                         }}
                                                                       >
                                                                         <div className="text-body-m">
-                                                                          {showEn
-                                                                            ? subTitle
-                                                                            : isSimpleCN
-                                                                            ? t2s(
-                                                                                sub.subTitleCN
-                                                                              )
-                                                                            : sub.subTitleCN}
+                                                                          {getSingleText(
+                                                                            subTitle,
+                                                                            sub.subTitleCN
+                                                                          )}
                                                                         </div>
                                                                       </div>
                                                                     );
@@ -757,13 +726,10 @@ export const Navigator: React.FC = () => {
                                                         }}
                                                       >
                                                         <div className="text-body-m">
-                                                          {showEn
-                                                            ? subTitle
-                                                            : isSimpleCN
-                                                            ? t2s(
-                                                                sub.subTitleCN
-                                                              )
-                                                            : sub.subTitleCN}
+                                                          {getSingleText(
+                                                            subTitle,
+                                                            sub.subTitleCN
+                                                          )}
                                                         </div>
                                                       </div>
                                                     );
@@ -873,8 +839,7 @@ export const Navigator: React.FC = () => {
                 <div className="w-full">
                   {navItems.map((sideItems, nvIndex) => {
                     if (activeSubItem !== sideItems.name) return <></>;
-                    const { nameCN, subItems } = sideItems;
-
+                    const { subItems } = sideItems;
                     return (
                       <div
                         key={nvIndex}
@@ -895,11 +860,10 @@ export const Navigator: React.FC = () => {
                                     }}
                                   />
                                   <div className="text-highlight-s">
-                                    {showEn
-                                      ? navItems[0].name
-                                      : isSimpleCN
-                                      ? t2s(navItems[0].nameCN)
-                                      : navItems[0].nameCN}
+                                    {getSingleText(
+                                      navItems[0].name,
+                                      navItems[0].nameCN
+                                    )}
                                   </div>
                                 </div>
                               ) : (
@@ -915,15 +879,11 @@ export const Navigator: React.FC = () => {
                                             ? "bg-lightGrey px-4"
                                             : "hover:bg-gray-100 px-1"
                                         }`}
-                                        onClick={() => {
+                                        onMouseEnter={() => {
                                           setActiveSubItem(sideName);
                                         }}
                                       >
-                                        {showEn
-                                          ? sideName
-                                          : isSimpleCN
-                                          ? t2s(nameCN)
-                                          : nameCN}
+                                        {getSingleText(sideName, nameCN)}
                                       </div>
                                     );
                                   })}
@@ -958,11 +918,7 @@ export const Navigator: React.FC = () => {
                                 </div>
                               )}
                               <div className="w-full text-left text-body-s">
-                                {showEn
-                                  ? subTitle
-                                  : isSimpleCN
-                                  ? t2s(sub.subTitleCN)
-                                  : sub.subTitleCN}
+                                {getSingleText(subTitle, sub.subTitleCN)}
                               </div>
                             </div>
                           );
