@@ -325,8 +325,8 @@ export const ProgrammesCourses: React.FC = () => {
         })}
       </div>
 
-      <div className="flex flex-row gap-[12px] items-center text-trustfulBlue mb-[24px]">
-        <div className="h-[15px] w-[15px] bg-trustfulBlue" />
+      <div className="flex flex-row gap-[12px] items-center text-newPrimary mb-[24px]">
+        <div className="h-[15px] w-[15px] bg-newPrimary" />
         <p className="text-heading-l">
           {getSingleText(
             degreeMap[activeButton].tab,
@@ -370,12 +370,12 @@ export const ProgrammesCourses: React.FC = () => {
       <hr className="my-[24px] text-[#E0E0E0]" />
 
       <p className="text-heading-l">{other_course as string}</p>
-      <p className="text-heading-l text-trustfulBlue my-[24px]">
+      <p className="text-heading-l text-newPrimary my-[24px]">
         {VTC as string}
       </p>
       <p className="text-body-m text-justify">{VTC_detail as string}</p>
 
-      <p className="text-heading-l text-trustfulBlue my-[24px]">
+      <p className="text-heading-l text-newPrimary my-[24px]">
         {HKPC as string}
       </p>
       <p className="text-body-m text-justify">{HKPC_detail as string}</p>

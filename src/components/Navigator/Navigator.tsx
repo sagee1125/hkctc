@@ -349,7 +349,7 @@ export const Navigator: React.FC = () => {
                       <LanguageSelect />
                       <div
                         ref={anchorRef}
-                        className="cursor-pointer h-[24px] w-[24px]"
+                        className="cursor-pointer"
                         onClick={
                           isTouchDevice
                             ? undefined
@@ -387,7 +387,7 @@ export const Navigator: React.FC = () => {
                         ) : (
                           <svg
                             xmlns="https://www.w3.org/2000/svg"
-                            className="h-[24px] w-[24px]"
+                            className="h-[32px] w-[32px]"
                             viewBox="0 0 24 20"
                             fill="none"
                           >

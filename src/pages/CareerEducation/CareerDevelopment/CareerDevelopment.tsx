@@ -8,7 +8,7 @@ const multilingual = {
   en: {
     title: "Career Development",
     resources: "Resources",
-    related_links: "Related Links",
+    related_links: "Related Sections",
     intro: [
       "Testing and certification play a crucial role in our daily life. They provide assurance on the quality and safety of products and services for a wide spectrum of industries.",
       "The demand for quality products and services has never been higher. Given the growing need for testing and certification services, the testing and certification industry has a keen demand for talent. Pursuing a career in testing and certification will bring you a wide range of opportunities!",
@@ -281,7 +281,7 @@ export const CareerDevelopment: React.FC = () => {
       <hr className="my-[24px] text-[#E0E0E0]" />
 
       <p className="text-heading-l">{how_to_prepare as React.ReactNode[]}</p>
-      <p className="text-heading-m my-[24px] text-trustfulBlue">
+      <p className="text-heading-m my-[24px] text-newPrimary">
         {senior_level as React.ReactNode[]}
       </p>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
