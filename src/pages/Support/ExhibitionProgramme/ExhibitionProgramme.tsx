@@ -35,6 +35,18 @@ export const ExhibitionProgramme: React.FC = () => {
         <br />
         {hkctc_invites as string}
       </p>
+      <div className="flex flex-row items-stretch w-full space-x-[24px] mt-[24px]">
+        <img
+          src="/assets/support/exhibition_programme.png"
+          alt="exhibition programme"
+          className="object-cover h-full w-[100%]" // 关键点：h-full + w-auto
+        />
+        <img
+          src="/assets/support/exhibition_programme_2.png"
+          alt="exhibition programme 2"
+          className="object-cover h-full w-[50%]" // 关键点：h-full + w-auto
+        />
+      </div>
     </div>
   );
 };
