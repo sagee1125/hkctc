@@ -61,8 +61,19 @@ export const Header: React.FC = () => {
   const { HKCTC } = page_text;
 
   return (
-    <>
-      <header className="w-full">
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <header
+        style={{
+          maxWidth: "1440px",
+          width: "100%",
+        }}
+      >
         <div
           className="flex-shrink-0"
           style={{
@@ -122,7 +133,7 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </header>
-    </>
+    </div>
   );
 };
 
