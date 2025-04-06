@@ -11,8 +11,7 @@ import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import { EmailBox, Quiz, SquareTitle } from "../../../components";
 import { CATEGORIES, navItemEnum } from "../../../const";
-import { Language, useSettings } from "../../../context";
-import { t2s } from "chinese-s2t";
+import { useSettings } from "../../../context";
 
 type ResourcesData = {
   title: string;
@@ -77,9 +76,8 @@ export const Publications: React.FC = () => {
     Category.Events
   );
   const navigate = useNavigate();
-  const { isPC, language, getPageText } = useSettings();
-  const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
+  const { isPC, getPageText, getSingleText } = useSettings();
+
   const page_text = getPageText(multilingual);
 
   const {
@@ -405,16 +403,13 @@ export const Publications: React.FC = () => {
                       }}
                     >
                       <p
-                        className={"text-center"}
+                        className={"text-center text-highlight-l"}
                         style={{
-                          fontSize: "16px",
-                          lineHeight: "22px",
-                          fontWeight: 700,
                           color: isActivated ? "#233F55" : "black",
                         }}
                         ref={(el) => (titleRefs.current[index] = el)}
                       >
-                        {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
+                        {getSingleText(title, titleCN)}
                       </p>
                     </div>
                   );
@@ -488,7 +483,7 @@ export const Publications: React.FC = () => {
                             }}
                             ref={(el) => (titleRefs.current[index] = el)}
                           >
-                            {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
+                            {getSingleText(title, titleCN)}
                           </p>
                         </div>
                       );
@@ -558,11 +553,10 @@ export const Publications: React.FC = () => {
                             isPC ? "s" : "xs"
                           } text-[#7B8C99]`}
                         >
-                          {isEn
-                            ? prevActiveCategory.toUpperCase()
-                            : isSimpleCN
-                            ? t2s(traditionTitle)
-                            : traditionTitle}
+                          {getSingleText(
+                            prevActiveCategory.toUpperCase(),
+                            traditionTitle
+                          )}
                         </p>
                         <p
                           style={{
@@ -572,7 +566,7 @@ export const Publications: React.FC = () => {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
+                          {getSingleText(title, titleCN)}
                         </p>
                       </div>
                     </div>
@@ -803,7 +797,7 @@ export const Publications: React.FC = () => {
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
                     {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
                     <div className="z-20 pl-[20px] text-heading-l text-center w-full">
-                      {isEn ? title : isSimpleCN ? t2s(titleCN) : titleCN}
+                      {getSingleText(title, titleCN)}
                     </div>
                     <div className="z-20 pr-[20px]">
                       <Icon
