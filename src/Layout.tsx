@@ -37,6 +37,7 @@ const layoutStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
+  width: "100%",
 };
 
 const contentStyle: React.CSSProperties = {
