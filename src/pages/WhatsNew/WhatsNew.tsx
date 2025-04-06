@@ -45,7 +45,7 @@ export const WhatsNew: React.FC = () => {
           <div
             key={index}
             className={`flex ${
-              isPC ? "flex-row " : "flex-col-reverse"
+              isPC ? "flex-row-reverse" : "flex-col-reverse"
             } items-center w-full gap-[24px]`}
           >
             <div className="w-full">

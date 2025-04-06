@@ -511,13 +511,14 @@ export const Footer: React.FC = () => {
                   setSitemapCollapsed(!sitemapCollapsed);
                 }}
               >
-                <p className="text-body-s">{sitemap as string}</p>
+                <p className="text-body-m">{sitemap as string}</p>
                 <ExpandMoreIcon
                   sx={{
                     transform: !sitemapCollapsed
                       ? "rotate(180deg)"
                       : "rotate(0deg)",
                     transition: "transform 0.3s ease",
+                    fontSize: "26px",
                   }}
                 />
               </div>
