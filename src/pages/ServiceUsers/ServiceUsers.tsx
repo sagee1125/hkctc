@@ -40,7 +40,7 @@ export const ServiceUsers: React.FC = () => {
         title={service_users as string}
         titleTheme="energeticOrange"
         description={desc as string}
-        barBackgroundImg="serviceUsers/Service_Users_banner_bg.png"
+        barBackgroundImg="serviceUsers/Service_Users_banner_bg_2.png"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
