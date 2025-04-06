@@ -178,7 +178,7 @@ export const SeminarsWorkshops: React.FC = () => {
             <div
               key={id}
               className={`flex ${
-                isPC ? "flex-row " : "flex-col-reverse"
+                isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}
               onClick={() => {
                 window.scroll({
