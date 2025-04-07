@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Header, Navigator } from "./components";
+import { Footer, Header, Navigator, ScrollTopButton } from "./components";
 import { useSettings } from "./context";
 
 type LayoutProps = {
@@ -27,7 +27,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     >
       {isPC && <Header />}
       <Navigator />
-      <main style={contentStyle}>{children}</main>
+      <main style={contentStyle}>
+        {children}
+        <ScrollTopButton />
+      </main>
+
       <Footer />
     </div>
   );

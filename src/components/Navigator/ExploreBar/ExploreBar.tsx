@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
 import { Language, useSettings } from "../../../context";
 import { t2s } from "chinese-s2t";
+import { maxMobileContainer, maxPCContainer } from "../../Container";
 
 type ExploreBarData = {
   iconName: string;
@@ -40,7 +41,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, getPageText } = useSettings();
+  const { language, getPageText, isPC } = useSettings();
   const page_text = getPageText(multilingual);
 
   const currentPath = location.pathname;
@@ -119,46 +120,51 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       {isMobileView ? (
         <></>
       ) : (
-        <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center text-white">
-          <p className="text-highlight-s">{explore_as as string}</p>
-          <svg
-            xmlns="https://www.w3.org/2000/svg"
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            className="ml-[8px] mr-[16px]"
+        <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center justify-center text-white">
+          <div
+            className="flex flex-row px-[32px] items-center text-white"
+            style={isPC ? maxPCContainer : maxMobileContainer}
           >
-            <path
-              d="M3.94336 1L8.94336 6L3.94336 11L3.05586 10.1125L7.16836 6L3.05586 1.8875L3.94336 1Z"
-              fill="white"
-            />
-          </svg>
-          <div className="flex flex-row gap-[24px]">
-            {exploreBarData.map((item, index) => {
-              const { iconName, title, titleCN, hoverColor, onClick } = item;
-              return (
-                <div
-                  key={index}
-                  className="group flex flex-row items-center gap-1 cursor-pointer text-highlight-s"
-                  onClick={onClick}
-                >
-                  <Icon
-                    icon={iconName}
-                    width={20}
-                    height={20}
-                    className={hoverColor}
-                  />
-                  <p className={hoverColor}>
-                    {language === Language.EN
-                      ? title
-                      : language === Language.ZH_CN
-                      ? t2s(titleCN)
-                      : titleCN}
-                  </p>
-                </div>
-              );
-            })}
+            <p className="text-highlight-s">{explore_as as string}</p>
+            <svg
+              xmlns="https://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              className="ml-[8px] mr-[16px]"
+            >
+              <path
+                d="M3.94336 1L8.94336 6L3.94336 11L3.05586 10.1125L7.16836 6L3.05586 1.8875L3.94336 1Z"
+                fill="white"
+              />
+            </svg>
+            <div className="flex flex-row gap-[24px]">
+              {exploreBarData.map((item, index) => {
+                const { iconName, title, titleCN, hoverColor, onClick } = item;
+                return (
+                  <div
+                    key={index}
+                    className="group flex flex-row items-center gap-1 cursor-pointer text-highlight-s"
+                    onClick={onClick}
+                  >
+                    <Icon
+                      icon={iconName}
+                      width={20}
+                      height={20}
+                      className={hoverColor}
+                    />
+                    <p className={hoverColor}>
+                      {language === Language.EN
+                        ? title
+                        : language === Language.ZH_CN
+                        ? t2s(titleCN)
+                        : titleCN}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

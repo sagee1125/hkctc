@@ -25,3 +25,4 @@ export * from "./Radio";
 export * from "./Checkbox";
 export * from "./Button";
 export * from "./languageSelection";
+export * from "./ScrollTopButton";
