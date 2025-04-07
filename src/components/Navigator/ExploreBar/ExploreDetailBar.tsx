@@ -6,6 +6,8 @@ type ExploreDetailBarProps = {
   titleTheme: string;
   description: string;
   barBackgroundImg: string;
+  isPC: boolean;
+  offset?: string;
 };
 
 export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
@@ -13,15 +15,17 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   titleTheme,
   description,
   barBackgroundImg,
+  isPC,
+  offset = "30%",
 }) => {
   const dynamicBarStyle: React.CSSProperties = {
     ...barStyle,
     backgroundImage: `url(${process.env.PUBLIC_URL}/assets/${barBackgroundImg})`, // 从 public 文件夹加载
     backgroundSize: "cover",
-    backgroundPosition: "center 30%",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
     width: "100%",
+    backgroundPosition: isPC ? `center ${offset}` : "start",
   };
 
   return (
@@ -72,3 +76,6 @@ const bottomRightSquareStyle: React.CSSProperties = {
   backgroundColor: "white",
   zIndex: 20,
 };
+function useSettings(): { isPC: any } {
+  throw new Error("Function not implemented.");
+}

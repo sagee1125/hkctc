@@ -1,6 +1,7 @@
 import React from "react";
 import { Language, useSettings } from "../../context";
 import { navItemEnum } from "../../const";
+import { useNavigate } from "react-router-dom";
 
 const multilingual = {
   en: {
@@ -20,6 +21,7 @@ const multilingual = {
 export const PhotoPanel: React.FC = () => {
   const { getPageText, isPC } = useSettings();
   const page_text = getPageText(multilingual);
+  const navigate = useNavigate();
 
   const {
     learning_teaching_resources,
@@ -39,7 +41,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open(
+            navigate(
               `/career_and_education?section=${navItemEnum.learning_teaching_resources}`
             );
           }}
@@ -60,7 +62,7 @@ export const PhotoPanel: React.FC = () => {
               cursor: "pointer",
             }}
             onClick={() => {
-              window.open(
+              navigate(
                 `/events-promotion?section=${navItemEnum.student_competition}`
               );
             }}
@@ -79,7 +81,7 @@ export const PhotoPanel: React.FC = () => {
               cursor: "pointer",
             }}
             onClick={() => {
-              window.open(
+              navigate(
                 `/events-promotion?section=${navItemEnum.qualifications_framework}`
               );
             }}
@@ -99,7 +101,7 @@ export const PhotoPanel: React.FC = () => {
               cursor: "pointer",
             }}
             onClick={() => {
-              window.open(
+              navigate(
                 `/events-promotion?section=${navItemEnum.programmes_and_courses}`
               );
             }}
@@ -128,7 +130,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open(
+            navigate(
               `/events-promotion?section=${navItemEnum.learning_teaching_resources}`
             );
           }}
@@ -163,7 +165,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open(
+            navigate(
               `/events-promotion?section=${navItemEnum.student_competition}`
             );
           }}
@@ -198,7 +200,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open(
+            navigate(
               `/events-promotion?section=${navItemEnum.qualifications_framework}`
             );
           }}
@@ -234,7 +236,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           onClick={() => {
-            window.open(
+            navigate(
               `/events-promotion?section=${navItemEnum.programmes_and_courses}`
             );
           }}
