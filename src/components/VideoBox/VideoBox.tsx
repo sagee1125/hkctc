@@ -26,10 +26,11 @@ export const VideoBox: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const videoUrls = [
-    process.env.PUBLIC_URL + "/assets/InnoCarnivalcut.mp4",
-    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-    // "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    "InnoCarnivalcut.mp4",
+    "HKCTC_03_edit_016_sub_TC_ENG.mp4", // 求學篇
+    "HKCTC_02_edit_014_sub_TC_ENG.mp4", // 工作篇
+    "HKCTC_04_012_sub_TC_ENG.mp4", // 求真篇
+    "HKCTC_ESG_edit_005_sub_TC_ENG.mp4",
   ];
 
   useEffect(() => {
@@ -119,7 +120,7 @@ export const VideoBox: React.FC = () => {
             <video
               key={index}
               ref={index === currentVideoIndex ? videoRef : null}
-              src={url}
+              src={process.env.PUBLIC_URL + "/assets/" + url}
               className="w-full h-full object-cover"
               autoPlay
               muted
