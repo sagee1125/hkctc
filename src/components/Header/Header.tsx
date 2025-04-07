@@ -116,10 +116,7 @@ export const Header: React.FC = () => {
                 />
               </form>
             )}
-            {/* <Icon
-              icon="mingcute:font-line"
-              className="h-6 w-6 text-[#333333] flex-shrink-0"
-            /> */}
+
             <LanguageSelect />
             <div
               style={{
