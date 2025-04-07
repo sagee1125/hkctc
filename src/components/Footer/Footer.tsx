@@ -8,6 +8,7 @@ import { navItemEnum } from "../../const";
 import { Language, useSettings } from "../../context";
 import { ABOUT_SIDE_MODULE } from "../../pages";
 import { t2s } from "chinese-s2t";
+import { maxMobileContainer, maxPCContainer } from "../Container";
 
 type Sub = {
   label: string;
@@ -460,12 +461,28 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer>
-      <div className="bg-newPrimary text-white px-[24px]">
+    <footer
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        className="bg-newPrimary text-white px-[24px]"
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <div
           className={`${
             isPC ? "h-[100px]" : "h-auto"
           } w-full flex justify-end items-end`}
+          style={isPC ? maxPCContainer : maxMobileContainer}
         >
           <div
             style={{
@@ -503,7 +520,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         {isPC ? (
-          <>
+          <div style={isPC ? maxPCContainer : maxMobileContainer}>
             <div className="h-[42px] w-full flex justify-center items-center">
               <div
                 className="flex flex-row gap-[6px] items-center cursor-pointer"
@@ -675,7 +692,7 @@ export const Footer: React.FC = () => {
                 ))}
               </div>
             </Collapse>
-          </>
+          </div>
         ) : (
           <div className="w-full flex flex-col items-center gap-[8px] py-[24px]">
             <div className="flex justify-center gap-4 text-white">
@@ -731,26 +748,33 @@ export const Footer: React.FC = () => {
       <div
         className={`bg-white ${
           isPC ? "h-[90px]" : "py-[16px] px-[24px]"
-        } flex flex-row items-center justify-center gap-[12px]`}
+        } flex flex-col justify-center items-center`}
       >
-        {downsideLogos.map((logo, index) => (
-          <div
-            className={isPC ? logo.logoSize : ""}
-            key={index}
-            onClick={() => {
-              window.open(logo.hyperlink);
-            }}
-          >
-            <img
-              className="object-fit cursor-pointer"
-              src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
-              alt={logo.img}
-            />
-          </div>
-        ))}
+        <div
+          style={isPC ? maxPCContainer : maxMobileContainer}
+          className="flex flex-row items-center justify-center gap-[12px]"
+        >
+          {downsideLogos.map((logo, index) => (
+            <div
+              className={isPC ? logo.logoSize : ""}
+              key={index}
+              onClick={() => {
+                window.open(logo.hyperlink);
+              }}
+            >
+              <img
+                className="object-fit cursor-pointer"
+                src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
+                alt={logo.img}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="bg-[#333333] h-[50px] flex px-[24px] items-center">
-        <p className="text-white text-body-s">{copyright_desc as string}</p>
+      <div className="bg-[#333333] h-[50px] flex px-[24px] items-center flex-col justify-center">
+        <div style={isPC ? maxPCContainer : maxMobileContainer}>
+          <p className="text-white text-body-s">{copyright_desc as string}</p>
+        </div>
       </div>
     </footer>
   );
