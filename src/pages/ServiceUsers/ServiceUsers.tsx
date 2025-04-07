@@ -37,10 +37,12 @@ export const ServiceUsers: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
+        isPC={isPC}
         title={service_users as string}
         titleTheme="energeticOrange"
         description={desc as string}
         barBackgroundImg="serviceUsers/Service_Users_banner_bg_2.png"
+        offset="10%"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (

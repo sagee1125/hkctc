@@ -34,6 +34,7 @@ export const Industry: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
+        isPC={isPC}
         title={industry as string}
         titleTheme="growthfulGreen"
         description={desc as string}
