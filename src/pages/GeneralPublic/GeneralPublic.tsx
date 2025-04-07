@@ -38,6 +38,7 @@ export const GeneralPublic: React.FC = () => {
   return (
     <div style={fullContainer}>
       <ExploreDetailBar
+        isPC={isPC}
         title={general_public as string}
         titleTheme="elegancePurple"
         description={desc as string}

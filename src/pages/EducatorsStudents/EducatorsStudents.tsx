@@ -9,7 +9,7 @@ import {
 import { ExploreDetailBar } from "../../components/Navigator";
 import { PhotoPanel } from "./PhotoPanel";
 import { EducatorsStudentsContent } from "./EducatorsStudentsContent";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -40,6 +40,7 @@ export const EducatorsStudents: React.FC = () => {
         title={educator_student as string}
         titleTheme="trustfulBlue"
         description={desc as string}
+        isPC={isPC}
         barBackgroundImg="educatorsStudents/banner_bg.png"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
