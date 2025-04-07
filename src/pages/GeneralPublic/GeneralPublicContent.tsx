@@ -3,6 +3,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { Language, useSettings } from "../../context";
 import { WhatsNewConfiguration, WhatsNewConfiguration_cn } from "../../const";
+import { useNavigate } from "react-router-dom";
 
 const multilingual = {
   en: {
@@ -28,6 +29,7 @@ export const GeneralPublicContent: React.FC = () => {
   const { getPageText, isPC, language, processText } = useSettings();
   const isEn = language === Language.EN;
   const page_text = getPageText(multilingual);
+  const navigate = useNavigate();
 
   const {
     hkctc_newsletter,
@@ -79,7 +81,7 @@ export const GeneralPublicContent: React.FC = () => {
           <div
             className="cursor-pointer"
             onClick={() => {
-              window.open("/whats-new");
+              navigate("/whats-new");
             }}
           >
             <SquareTitle title={whats_new as string} />
@@ -98,13 +100,15 @@ export const GeneralPublicContent: React.FC = () => {
             return (
               <div
                 className={`flex ${
-                  isPC ? "flex-row" : "flex-col-reverse w-full gap-[24px]"
+                  isPC
+                    ? "flex-row-reverse"
+                    : "flex-col-reverse w-full gap-[24px]"
                 } items-center`}
                 key={i}
               >
                 <div
                   className={`flex flex-col w-full ${
-                    isPC ? "mr-[24px]" : "mx-[24px]"
+                    isPC ? "ml-[24px]" : "mx-[24px]"
                   } gap-[16px]`}
                 >
                   <div className={"text-heading-m"}>
@@ -132,7 +136,7 @@ export const GeneralPublicContent: React.FC = () => {
                     isPC ? "w-[278px] h-full" : "w-full h-auto"
                   } object-cover cursor-pointer`}
                   onClick={() => {
-                    window.open(w.redirectTo, "_blank", "noopener");
+                    if (w.redirectTo) navigate(w.redirectTo);
                   }}
                   src={`${process.env.PUBLIC_URL}/assets/whatsNew/${w.imagePath}`}
                   alt={w.title}
@@ -154,7 +158,7 @@ export const GeneralPublicContent: React.FC = () => {
                   key={index}
                   className="flex flex-row items-start gap-[24px] cursor-pointer"
                   onClick={() => {
-                    window.open(link);
+                    navigate(link);
                   }}
                 >
                   <img
@@ -183,7 +187,7 @@ export const GeneralPublicContent: React.FC = () => {
                 cursor: "pointer",
               }}
               onClick={() => {
-                window.open("/events-promotion?section=seminar_workshop");
+                navigate("/events-promotion?section=seminar_workshop");
               }}
             >
               <div
@@ -209,7 +213,7 @@ export const GeneralPublicContent: React.FC = () => {
           <div
             className="cursor-pointer"
             onClick={() => {
-              window.open("/events-promotion?section=comics");
+              navigate("/events-promotion?section=comics");
             }}
           >
             <div
