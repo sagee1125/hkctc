@@ -79,7 +79,9 @@ export const Quiz: React.FC = () => {
       {isLoaded && (
         <div
           className={`w-full ${
-            isPC ? "aspect-[380/480] bg-center bg-contain" : "h-[480px]"
+            isPC
+              ? "aspect-[380/480] bg-center bg-contain"
+              : "h-[480px] bg-center bg-cover"
           } bg-no-repeat relative transition-opacity duration-1000 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
