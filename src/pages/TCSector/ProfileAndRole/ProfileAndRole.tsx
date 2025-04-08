@@ -395,6 +395,8 @@ export const ProfileAndRole: React.FC = () => {
             return (
               <button
                 key={index}
+                tabIndex={0}
+                role="button"
                 className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
@@ -484,6 +486,8 @@ export const ProfileAndRole: React.FC = () => {
               >
                 <div
                   className="relative w-[130px] h-full cursor-pointer border-2 border-inherit"
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     if (isPC) {
                       setActiveReport(index);
@@ -515,6 +519,8 @@ export const ProfileAndRole: React.FC = () => {
                     className={`text-highlight-${
                       isPC ? "m" : "s"
                     } text-black cursor-pointer`}
+                    tabIndex={0}
+                    role="button"
                     onClick={() => {
                       setActiveReport(index);
                       setIsPreviewOpen(true);

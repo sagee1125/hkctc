@@ -618,6 +618,8 @@ export const ResourcesReportsContent: React.FC = () => {
                 const isActivated = activeReport === index;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -662,6 +664,8 @@ export const ResourcesReportsContent: React.FC = () => {
                   const isActivated = activePublication === index;
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -700,6 +704,8 @@ export const ResourcesReportsContent: React.FC = () => {
                 const isActivated = activeCoursesCategory === index;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -736,6 +742,8 @@ export const ResourcesReportsContent: React.FC = () => {
                     const isActivated = activeAboutSector === index;
                     return (
                       <button
+                        tabIndex={0}
+                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -768,6 +776,8 @@ export const ResourcesReportsContent: React.FC = () => {
                     const isActivated = activeCertificateSector === index;
                     return (
                       <button
+                        tabIndex={0}
+                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -864,6 +874,8 @@ export const ResourcesReportsContent: React.FC = () => {
         <div
           onClick={handleClearFilter}
           className="w-[50%] flex flex-row-reverse "
+          tabIndex={0}
+          role="button"
         >
           <Link>{clear_filters as string}</Link>
         </div>
@@ -919,6 +931,8 @@ export const ResourcesReportsContent: React.FC = () => {
                     padding: 0,
                   },
                 }}
+                tabIndex={0}
+                role="checkbox"
                 onClick={() => {
                   setNeedRangeValue(!needRangeValue);
                 }}
@@ -1011,6 +1025,8 @@ export const ResourcesReportsContent: React.FC = () => {
                           <Menu.Item key={index}>
                             {({ active }) => (
                               <button
+                                tabIndex={0}
+                                role="button"
                                 onClick={() => setSelectedItem(item)}
                                 className={`block w-full text-left px-4 py-3 text-sm ${
                                   active
@@ -1043,6 +1059,8 @@ export const ResourcesReportsContent: React.FC = () => {
             textTransform: "none",
             borderRadius: 0,
           }}
+          tabIndex={0}
+          role="button"
           onClick={handleApplyFilter}
           variant="contained"
         >
@@ -1070,6 +1088,8 @@ export const ResourcesReportsContent: React.FC = () => {
           return (
             <div
               key={index}
+              tabIndex={0}
+              role="button"
               className="cursor-pointer flex flex-row justify-between w-full h-[77px] items-center px-[20px] transition-all duration-800 ease-in-out"
               style={{
                 backgroundColor: isActivated ? "#233F55" : "#EAEAE5",
@@ -1100,12 +1120,17 @@ export const ResourcesReportsContent: React.FC = () => {
         <SquareTitle title={title as string} />
         {!isPC && (
           <div
+            tabIndex={0}
+            role="button"
             className="border-[1px] border-[#E0E0E0] flex flex-row py-[14px] px-[14px] items-center gap-[8px] cursor-pointer"
             onClick={() => {
               setMobileFilterOpen(true);
             }}
           >
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="22"
@@ -1133,6 +1158,8 @@ export const ResourcesReportsContent: React.FC = () => {
               return (
                 <div
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   className="m-auto p-[8px] h-[40px] w-[40px] cursor-pointer"
                   style={{ background: isActivated ? "#233F55" : "white" }}
                   onClick={() => {

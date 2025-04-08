@@ -112,6 +112,8 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
         <button
           className="absolute top-2 right-2 px-2 cursor-pointer"
           onClick={() => setIsPreviewOpen(false)}
+          tabIndex={0}
+          role="button"
         >
           ✕
         </button>
@@ -151,6 +153,8 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                   <button
                     className="bg-newPrimary text-white px-4 py-2"
                     onClick={handlePdfDownload}
+                    tabIndex={0}
+                    role="button"
                   >
                     {getSingleText("Download", "下載")}
                   </button>

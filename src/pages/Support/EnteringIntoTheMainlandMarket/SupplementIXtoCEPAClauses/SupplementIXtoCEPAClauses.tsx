@@ -22,6 +22,7 @@ const multilingual = {
         certification services that can be undertaken by Hong Kong testing
         organisations to cover food. (See&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -47,6 +48,7 @@ const multilingual = {
       <>
         在廣東省試點將香港檢測機構獲准承擔的認證服務範圍放寬至食品類別。（詳情見&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
           rel="noopener noreferrer"

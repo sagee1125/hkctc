@@ -22,6 +22,8 @@ export const MediaTemplate: React.FC<
         className={`border-2 border-[#E0E0E0] w-full flex ${
           isPC ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
+        tabIndex={0}
+        role="button"
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
@@ -65,6 +67,8 @@ export const MediaTemplate: React.FC<
         className={`w-full flex ${
           isPC ? "flex-col" : "flex-row"
         } h-auto gap-[24px] cursor-pointer`}
+        tabIndex={0}
+        role="button"
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}

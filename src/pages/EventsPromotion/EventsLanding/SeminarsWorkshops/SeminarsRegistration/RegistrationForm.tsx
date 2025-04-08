@@ -141,7 +141,9 @@ export const RegistrationForm: React.FC = () => {
     <div className="w-full flex flex-col gap-[24px]">
       <div>
         <p className="text-highlight-s text-[#7A7A7A]">Join New Seminar</p>
-        <p className="text-heading-l">XXX Seminar - Registration</p>
+        <p className="text-heading-l" tabIndex={0} role="heading">
+          XXX Seminar - Registration
+        </p>
       </div>
       <div className="flex flex-col gap-[16px]">
         {infoDisplay.map((item) => {
@@ -180,7 +182,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="title"
+                aria-label="title"
                 required
+                aria-required="true"
                 value={registrationFormik.values.title}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -202,7 +206,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="firstName"
+                aria-label="firstName"
                 required
+                aria-required="true"
                 value={registrationFormik.values.firstName}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -224,7 +230,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="lastName"
+                aria-label="lastName"
                 required
+                aria-required="true"
                 value={registrationFormik.values.lastName}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -248,7 +256,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="email"
+                aria-label="email"
                 required
+                aria-required="true"
                 value={registrationFormik.values.email}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -270,7 +280,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="verifyEmail"
+                aria-label="verifyEmail"
                 required
+                aria-required="true"
                 value={registrationFormik.values.verifyEmail}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -294,7 +306,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="position"
+                aria-label="position"
                 required
+                aria-required="true"
                 value={registrationFormik.values.position}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -316,7 +330,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="organization"
+                aria-label="organization"
                 required
+                aria-required="true"
                 value={registrationFormik.values.organization}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -340,7 +356,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="telephoneNumber"
+                aria-label="telephoneNumber"
                 required
+                aria-required="true"
                 value={registrationFormik.values.telephoneNumber}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -362,7 +380,9 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <Select
                 name="country"
+                aria-label="country"
                 required
+                aria-required="true"
                 options={countryList}
                 value={registrationFormik.values.country}
                 onChange={registrationFormik.handleChange}
@@ -386,7 +406,9 @@ export const RegistrationForm: React.FC = () => {
               <div className="w-1/2 pr-[12px]">
                 <Select
                   name="attendanceCertificate"
+                  aria-label="attendanceCertificate"
                   required
+                  aria-required="true"
                   value={registrationFormik.values.attendanceCertificate}
                   options={[]}
                   onChange={registrationFormik.handleChange}
@@ -413,6 +435,8 @@ export const RegistrationForm: React.FC = () => {
                 <TextField
                   name="fullNameAttendanceCertificate"
                   required
+                  aria-required="true"
+                  aria-label="fullNameAttendanceCertificate"
                   value={
                     registrationFormik.values.fullNameAttendanceCertificate
                   }
@@ -451,6 +475,7 @@ export const RegistrationForm: React.FC = () => {
           <RadioGroup
             name="industry"
             value={registrationFormik.values.industry}
+            aria-label="industry"
             onChange={handleChangeIndustry}
             sx={{
               display: "flex",
@@ -462,6 +487,8 @@ export const RegistrationForm: React.FC = () => {
               return (
                 <div className="flex flex-row">
                   <Radio
+                    tabIndex={0}
+                    role="radio"
                     value={item.value}
                     label={processText(item.label as string)}
                     onChange={registrationFormik.handleChange}
@@ -472,6 +499,7 @@ export const RegistrationForm: React.FC = () => {
                       <TextField
                         name="otherIndustry"
                         required
+                        aria-required="true"
                         value={registrationFormik.values.otherIndustry}
                         onChange={registrationFormik.handleChange}
                         onBlur={registrationFormik.handleBlur}
@@ -505,6 +533,9 @@ export const RegistrationForm: React.FC = () => {
                 <div className="flex flex-row">
                   <Checkbox
                     name="aboutSeminar"
+                    tabIndex={0}
+                    role="checkbox"
+                    aria-label="aboutSeminar"
                     value={registrationFormik.values.aboutSeminar.includes(
                       item.value as string
                     )}
@@ -518,7 +549,9 @@ export const RegistrationForm: React.FC = () => {
                     <div className="w-[400px]">
                       <TextField
                         name="otherIndustry"
+                        aria-label="otherIndustry"
                         required
+                        aria-required="true"
                         value={registrationFormik.values.otherAboutSeminar}
                         onChange={registrationFormik.handleChange}
                         onBlur={registrationFormik.handleBlur}
@@ -550,6 +583,7 @@ export const RegistrationForm: React.FC = () => {
           </p>
           <RadioGroup
             name="receiveInfoAgreement"
+            aria-label="receiveInfoAgreement"
             value={registrationFormik.values.receiveInfoAgreement}
             onChange={handleChangeAgreement}
             sx={{
@@ -561,6 +595,8 @@ export const RegistrationForm: React.FC = () => {
             <Radio
               value={true}
               label={"Agree 同意"}
+              tabIndex={0}
+              role="radio"
               onChange={registrationFormik.handleChange}
               checked={registrationFormik.values.receiveInfoAgreement === true}
               error={
@@ -571,6 +607,8 @@ export const RegistrationForm: React.FC = () => {
             <Radio
               value={false}
               label={"Disagree 不同意"}
+              tabIndex={0}
+              role="radio"
               onChange={registrationFormik.handleChange}
               checked={registrationFormik.values.receiveInfoAgreement === false}
               error={
@@ -631,6 +669,9 @@ export const RegistrationForm: React.FC = () => {
         <div className="w-full">
           <Button
             variant="contained"
+            aria-label="submit"
+            tabIndex={0}
+            role="button"
             type="submit"
             sx={{
               textTransform: "none",

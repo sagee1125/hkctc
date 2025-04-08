@@ -23,6 +23,7 @@ const multilingual = {
         click on the picture of the comic book.&nbsp;Or read the text version
         &nbsp;
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -51,6 +52,7 @@ const multilingual = {
       <>
         如果你也想來走一躺，並考驗你衝出迷宮的能力，請點選一下漫畫書封面。或點擊
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -243,6 +245,8 @@ export const LearningTeachingResources: React.FC = () => {
                     onClick={() => {
                       window.open(down.link, "_blank", "noopener");
                     }}
+                    tabIndex={0}
+                    role="button"
                   >
                     <img
                       className="w-[64px] h-[64px]"
@@ -290,6 +294,8 @@ export const LearningTeachingResources: React.FC = () => {
                           ? "bg-newPrimary text-white"
                           : "bg-whiteGrey text-black"
                       }`}
+                      tabIndex={0}
+                      role="button"
                       onClick={() => {
                         setPlayVideoOneIndex(index);
                       }}
@@ -333,6 +339,8 @@ export const LearningTeachingResources: React.FC = () => {
                     onClick={() => {
                       window.open(down.link, "_blank", "noopener");
                     }}
+                    tabIndex={0}
+                    role="button"
                   >
                     <img
                       className="w-[64px] h-[64px]"
@@ -380,6 +388,8 @@ export const LearningTeachingResources: React.FC = () => {
                       onClick={() => {
                         setPlayVideoTwoIndex(index);
                       }}
+                      tabIndex={0}
+                      role="button"
                     >
                       <div className="w-[37px] text-center p-[10px]">{`0${
                         index + 1
@@ -420,6 +430,8 @@ export const LearningTeachingResources: React.FC = () => {
                     "noopener"
                   );
                 }}
+                tabIndex={0}
+                role="button"
               />
               <p className="text-body-m mt-[24px] text-justify">
                 {bottom as React.ReactNode}

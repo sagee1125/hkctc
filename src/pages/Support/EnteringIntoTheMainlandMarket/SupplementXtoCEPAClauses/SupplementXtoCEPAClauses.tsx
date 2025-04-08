@@ -71,7 +71,7 @@ const multilingual = {
 //     <br />
 //     <p className="!text-italic-s italic">
 //       (For implementation details of commitments "1" and "2", see&nbsp;
-//       <a
+//       <a               aria-label="link"
 //         className="underline text-[#00E]"
 //         target="_blank"
 //         rel="noopener noreferrer"
@@ -87,7 +87,7 @@ const multilingual = {
 //     To allow contractual service providers employed by Hong Kong service
 //     suppliers, in the mode of movement of natural persons, to provide services
 //     under this industry or sub-industry in the Mainland.&nbsp;
-//     <a
+//     <a               aria-label="link"
 //       className="underline text-[#00E] !text-italic-s italic"
 //       target="_blank"
 //       rel="noopener noreferrer"
@@ -111,6 +111,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <p className="!text-italic-s italic">
         （有關承諾"1"及"2"的實施詳情，請見&nbsp;
         <a
+          aria-label="link"
           className="underline text-[#00E]"
           target="_blank"
           rel="noopener noreferrer"
@@ -126,6 +127,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       允許香港服務提供者僱用的合同服務提供者以自然人流動的方式在內地提供本部門或分部門分類項下的服務。
       （詳情見
       <a
+        aria-label="link"
         className="underline text-[#00E] !text-italic-s italic"
         target="_blank"
         rel="noopener noreferrer"
@@ -150,6 +152,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <p className="!text-italic-s italic">
         (For implementation details of commitments "1" and "2", see&nbsp;
         <a
+          aria-label="link"
           className="underline text-[#00E]"
           target="_blank"
           rel="noopener noreferrer"
@@ -166,6 +169,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       suppliers, in the mode of movement of natural persons, to provide services
       under this industry or sub-industry in the Mainland.&nbsp;
       <a
+        aria-label="link"
         className="underline text-[#00E] !text-italic-s italic"
         target="_blank"
         rel="noopener noreferrer"

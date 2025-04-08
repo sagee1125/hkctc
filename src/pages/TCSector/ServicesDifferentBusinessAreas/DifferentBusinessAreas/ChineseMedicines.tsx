@@ -78,6 +78,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Chinese
         Medicines are available at&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -125,6 +126,7 @@ const multilingual = {
       <p className="text-body-m py-[24px] text-justify">
         為公眾提供一項或多項獲認可的中藥測試服務詳情請瀏覽
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -159,6 +161,7 @@ export const ChineseMedicines: React.FC = () => {
           proprietary Chinese Medicines (pCm) since 2003 to ensure that they can
           meet the safety requirements. For more details, please visit the&nbsp;
           <a
+            aria-label="link"
             href="https://www.cmchk.org.hk/index_en.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -176,6 +179,7 @@ export const ChineseMedicines: React.FC = () => {
         <p>
           Many types of Chinese medicines can now be tested against the&nbsp;
           <a
+            aria-label="link"
             href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -203,6 +207,8 @@ export const ChineseMedicines: React.FC = () => {
               return (
                 <button
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveButton(index);
@@ -267,6 +273,7 @@ export const ChineseMedicines: React.FC = () => {
               <p className="text-body-m">
                 1. Testing according to the&nbsp;
                 <a
+                  aria-label="link"
                   href="https://www.cmro.gov.hk/html/eng/useful_information/hkcmms/volumes.html"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -294,6 +301,7 @@ export const ChineseMedicines: React.FC = () => {
         <p>
           根據《中醫藥條例》（香港法例第549章），自2003年起中成藥在註冊時須進行重金屬及有毒元素含量、農藥殘留量及微生物限度等安全性測試，以證明符合有關的安全要求。詳情請瀏覽
           <a
+            aria-label="link"
             href="https://www.cmchk.org.hk/index_en.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -311,6 +319,7 @@ export const ChineseMedicines: React.FC = () => {
         <p>
           現時，很多中藥材可按
           <a
+            aria-label="link"
             href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -320,6 +329,7 @@ export const ChineseMedicines: React.FC = () => {
           </a>
           或《中國藥典》等標準進行測試。
           <a
+            aria-label="link"
             href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -341,6 +351,8 @@ export const ChineseMedicines: React.FC = () => {
               const isActivated = index === activeButton;
               return (
                 <button
+                  tabIndex={0}
+                  role="button"
                   key={index}
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
@@ -404,6 +416,7 @@ export const ChineseMedicines: React.FC = () => {
               <p className="text-body-m">
                 1. 按
                 <a
+                  aria-label="link"
                   href="https://www.cmro.gov.hk/html/eng/useful_information/hkcmms/volumes.html"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -41,6 +41,7 @@ const multilingual = {
       <div>
         Please download the latest version of&nbsp;
         <a
+          aria-label="link"
           href="https://helpx.adobe.com/support.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -75,7 +76,11 @@ const multilingual = {
     enquiry: (
       <>
         For enquiry, please contact us at{" "}
-        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+        <a
+          aria-label="link"
+          href="mailto:enquiry@hkctc.gov.hk"
+          className="underline text-[#00E]"
+        >
           enquiry@hkctc.gov.hk
         </a>
         .
@@ -132,6 +137,7 @@ const multilingual = {
       <div>
         請下載最新版本的
         <a
+          aria-label="link"
           href="https://helpx.adobe.com/support.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -165,7 +171,11 @@ const multilingual = {
     enquiry: (
       <>
         如有查詢，請電郵至
-        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+        <a
+          aria-label="link"
+          href="mailto:enquiry@hkctc.gov.hk"
+          className="underline text-[#00E]"
+        >
           enquiry@hkctc.gov.hk
         </a>
         與我們聯絡。
@@ -287,7 +297,9 @@ const Accessibility: React.FC = () => {
       <div>
         {tel as string} <Link>(852) 2180 9101</Link> <br />
         {email as string}{" "}
-        <a href="mailto:enquiry@hkctc.gov.hk">enquiry@hkctc.gov.hk</a>
+        <a aria-label="link" href="mailto:enquiry@hkctc.gov.hk">
+          enquiry@hkctc.gov.hk
+        </a>
       </div>
     </div>
   );
@@ -399,7 +411,11 @@ const Contact: React.FC = () => {
 
       <div>
         {email as string}{" "}
-        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+        <a
+          aria-label="link"
+          href="mailto:enquiry@hkctc.gov.hk"
+          className="underline text-[#00E]"
+        >
           enquiry@hkctc.gov.hk
         </a>
       </div>
@@ -503,6 +519,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!text-linked-m mb-[8px]">
           <li>
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -515,6 +532,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!flex !flex-col !gap-[8px] ml-[16px] !text-linked-m">
           <li>
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
@@ -525,6 +543,7 @@ const RelatedSite: React.FC = () => {
           </li>
           <li>
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
@@ -535,6 +554,7 @@ const RelatedSite: React.FC = () => {
           </li>
           <li>
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -547,6 +567,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!text-linked-m">
           <li className="underline text-[#00E] mt-[8px]">
             <a
+              aria-label="link"
               href="https://www.govtlab.gov.hk/tc/home/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -564,6 +585,7 @@ const RelatedSite: React.FC = () => {
           {publicOrgMap.map((pb, index) => (
             <li key={index}>
               <a
+                aria-label="link"
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -584,6 +606,7 @@ const RelatedSite: React.FC = () => {
           {tradeAssociationsMap.map((pb, index) => (
             <li key={index}>
               <a
+                aria-label="link"
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -602,6 +625,7 @@ const RelatedSite: React.FC = () => {
           {mainlandOrgMap.map((pb, index) => (
             <li key={index}>
               <a
+                aria-label="link"
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"

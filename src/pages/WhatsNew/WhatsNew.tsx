@@ -73,6 +73,8 @@ export const WhatsNew: React.FC = () => {
                   ? "w-[278px] h-full border-2 border-inherit"
                   : "w-full h-auto"
               } object-cover cursor-pointer`}
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.open(redirectTo, "_blank", "noopener");
               }}
@@ -110,6 +112,8 @@ export const WhatsNew: React.FC = () => {
         })}
         <div
           className="text-links underline text-right w-full cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/events-promotion?section=hkctc_newsletter");
           }}

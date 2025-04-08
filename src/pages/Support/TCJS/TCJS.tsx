@@ -73,7 +73,11 @@ const Applications: React.FC = () => {
           <br />
           <p>
             Email:&nbsp;
-            <a href="mailto:tcjs@itc.gov.hk" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:tcjs@itc.gov.hk"
+              className="underline text-[#00E]"
+            >
               tcjs@itc.gov.hk
             </a>
           </p>
@@ -421,6 +425,8 @@ export const TCJS: React.FC = () => {
           return (
             <button
               key={index}
+              tabIndex={0}
+              role="button"
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveFAQType(btn);
@@ -444,7 +450,11 @@ export const TCJS: React.FC = () => {
           <p className="text-body-m flex-grow min-w-0">
             Organisations interested in the scheme can make enquiries via email
             to&nbsp;
-            <a href="mailto:tcjs@itc.gov.hk" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:tcjs@itc.gov.hk"
+              className="underline text-[#00E]"
+            >
               tcjs@itc.gov.hk
             </a>
             &nbsp;or
@@ -465,6 +475,8 @@ export const TCJS: React.FC = () => {
             >
               <div
                 className="relative w-[130px] h-full cursor-pointer"
+                tabIndex={0}
+                role="button"
                 onClick={() => {
                   if (docLink) {
                     window.open(docLink, "_blank", "noopener");

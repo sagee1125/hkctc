@@ -202,6 +202,8 @@ export const EnvironmentalProtection: React.FC = () => {
                 const isActivated = index === activeBSectionButton;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -232,6 +234,8 @@ export const EnvironmentalProtection: React.FC = () => {
                 const isActivated = index === activeCSectionButton;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -316,6 +320,7 @@ export const EnvironmentalProtection: React.FC = () => {
             For the list of HKAS-accredited validation/verification bodies,
             please visit&nbsp;
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
               target="_blank"
               rel="noopener noreferrer"
@@ -357,6 +362,8 @@ export const EnvironmentalProtection: React.FC = () => {
                 return (
                   <button
                     key={index}
+                    tabIndex={0}
+                    role="button"
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
@@ -386,6 +393,8 @@ export const EnvironmentalProtection: React.FC = () => {
               return (
                 <button
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveCSectionButton(index);
@@ -454,6 +463,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>
             獲香港認可處認可的相關審定/核查機構名單，請瀏覽
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
               target="_blank"
               rel="noopener noreferrer"
@@ -536,6 +546,9 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
+                          aria-label="icon"
+                          tabIndex={0}
+                          role="none"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -603,6 +616,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>
             獲香港認可處認可的相關認證機構名單，請瀏覽
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -709,6 +723,9 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
+                          aria-label="icon"
+                          tabIndex={0}
+                          role="none"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -789,6 +806,7 @@ export const EnvironmentalProtection: React.FC = () => {
             For the list of HKAS-accredited certification bodies, please visit
             the&nbsp;
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
               target="_blank"
               rel="noopener noreferrer"

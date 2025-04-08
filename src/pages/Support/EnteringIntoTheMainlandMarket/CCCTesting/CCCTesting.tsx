@@ -47,6 +47,7 @@ const multilingual = {
         products. Procedures for testing organisations in applying for relevant
         accreditation from HKAS could be viewed at&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -70,7 +71,10 @@ const multilingual = {
         <br />
         Email:&nbsp;
         <a
+          aria-label="link"
           className="underline text-[#00E] cursor-pointer"
+          tabIndex={0}
+          role="button"
           href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk
@@ -110,6 +114,7 @@ const multilingual = {
       <>
         任何擬從事CCC檢測工作的檢測實驗所須獲得香港認可處認可，以確認該實驗所具備相關檢測能力。有關申請香港認可處認可的程序，請見香港認可處的&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -132,7 +137,10 @@ const multilingual = {
         <br />
         電子郵件：
         <a
+          aria-label="link"
           className="underline text-[#00E] cursor-pointer"
+          tabIndex={0}
+          role="button"
           href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk

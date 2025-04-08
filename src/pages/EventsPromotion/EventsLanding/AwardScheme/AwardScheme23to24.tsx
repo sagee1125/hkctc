@@ -218,6 +218,8 @@ export const AwardScheme23to24: React.FC = () => {
               fontStyle,
               marginStyle
             )}
+            tabIndex={0}
+            role="button"
             onClick={() => {
               const scrollElement = document.getElementById(id);
               if (scrollElement) {
@@ -238,6 +240,8 @@ export const AwardScheme23to24: React.FC = () => {
   const mobileSidebar = (
     <>
       <button
+        tabIndex={0}
+        role="button"
         className="!text-highlight-m text-white fixed bottom-[24px] right-[24px] z-50"
         style={{
           background: "#233F55",
@@ -275,6 +279,9 @@ export const AwardScheme23to24: React.FC = () => {
               {processText(page_text.mobile_sidebar.content_list)}
             </p>
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="20"
               height="20"
@@ -314,6 +321,8 @@ export const AwardScheme23to24: React.FC = () => {
                     fontStyle,
                     marginStyle
                   )}
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     const scrollElement = document.getElementById(id);
                     if (scrollElement) {
@@ -352,6 +361,8 @@ export const AwardScheme23to24: React.FC = () => {
                   const isActivated = activeButtonOne === i;
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={i}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -382,6 +393,8 @@ export const AwardScheme23to24: React.FC = () => {
                   const isActivated = activeButtonTwo === i;
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={i}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -550,6 +563,8 @@ export const AwardScheme23to24: React.FC = () => {
 
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer mb-[24px]"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           navigate(
             `/events-promotion?section=${navItemEnum.award_scheme}&year=2324&on_detail=1`
@@ -573,6 +588,9 @@ export const AwardScheme23to24: React.FC = () => {
           {processText(page_text.media_coverage)}
         </div>
         <svg
+          tabIndex={0}
+          role="none"
+          aria-label="icon"
           className="flex-shrink-0"
           xmlns="https://www.w3.org/2000/svg"
           width="16"

@@ -18,7 +18,7 @@ export const Strength: React.FC = () => {
       .SYSTEM_INTERNATIONAL_CONTENT,
     [Language.ZH_TW]: (pageText.ROBUST as LanguageResources)
       .SYSTEM_INTERNATIONAL_CONTENT,
-    [Language.ZH_CN]: `香港认可处已与过百个经济体系的认可机构（包括所有香港的主要贸易伙伴）签订互认协议，有关安排大大促进行业内获认可机构的检测和认证结果的认受性。有关详情请浏览<a
+    [Language.ZH_CN]: `香港认可处已与过百个经济体系的认可机构（包括所有香港的主要贸易伙伴）签订互认协议，有关安排大大促进行业内获认可机构的检测和认证结果的认受性。有关详情请浏览<a               aria-label="link"
                 href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -148,6 +148,8 @@ export const Strength: React.FC = () => {
             return (
               <button
                 key={index}
+                tabIndex={0}
+                role="button"
                 className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

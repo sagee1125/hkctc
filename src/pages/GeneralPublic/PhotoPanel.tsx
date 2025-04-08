@@ -42,6 +42,8 @@ export const PhotoPanel: React.FC = () => {
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
               ...imgBox,
             }}
+            tabIndex={0}
+            role="button"
             onClick={() => {
               navigate(`/about-us`);
             }}
@@ -58,6 +60,8 @@ export const PhotoPanel: React.FC = () => {
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
             }}
+            tabIndex={0}
+            role="button"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
               ...imgBox,
@@ -77,6 +81,8 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
             }}
             className="cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
@@ -96,6 +102,8 @@ export const PhotoPanel: React.FC = () => {
             ...imgBox,
           }}
           className="cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
           }}
@@ -115,6 +123,8 @@ export const PhotoPanel: React.FC = () => {
         <div className="grid grid-cols-1 gap-[24px]">
           <div
             className="cursor-pointer"
+            tabIndex={0}
+            role="button"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
               backgroundSize: "cover",
@@ -148,6 +158,8 @@ export const PhotoPanel: React.FC = () => {
           </div>
           <div
             className="cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
             }}
@@ -190,6 +202,8 @@ export const PhotoPanel: React.FC = () => {
               position: "relative",
             }}
             className="cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
@@ -224,6 +238,8 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
           }}
           className="cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
           }}

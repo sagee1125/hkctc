@@ -179,6 +179,8 @@ export const VideoBox: React.FC = () => {
                       <Icon
                         icon="icons8:left-squared"
                         className="text-white cursor-pointer"
+                        tabIndex={0}
+                        role="button"
                         style={{
                           width: "50px",
                           height: "50px",
@@ -189,6 +191,8 @@ export const VideoBox: React.FC = () => {
                       <Icon
                         icon="icons8:right-squared"
                         className="text-white cursor-pointer"
+                        tabIndex={0}
+                        role="button"
                         style={{
                           width: "50px",
                           height: "50px",

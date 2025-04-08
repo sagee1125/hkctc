@@ -12,12 +12,16 @@ export const HeaderSocialMedia: React.FC = () => {
       <Icon
         icon="mage:camera-2"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("https://www.instagram.com/hkctcgovhk/");
         }}
       />
       <Icon
         icon="fa6-brands:facebook-f"
+        tabIndex={0}
+        role="button"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         onClick={() => {
           window.open("https://www.facebook.com/hkctcgovhk");
@@ -84,6 +88,8 @@ export const Header: React.FC = () => {
           <div className="flex flex-row gap-4 items-center pr-4">
             <div
               className="cursor-pointer"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 setOpenSearchInput(!openSearchInput);
               }}

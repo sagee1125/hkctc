@@ -106,6 +106,9 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
@@ -126,6 +129,9 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
@@ -155,6 +161,7 @@ export const AwardScheme: React.FC = () => {
           <li>
             {processText(page_text.awardMap_one.permit_use_logo)}&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >
@@ -261,6 +268,9 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
@@ -326,6 +336,9 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
+              aria-label="icon"
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
@@ -587,6 +600,8 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -619,6 +634,8 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -646,6 +663,8 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -738,6 +757,8 @@ export const AwardScheme: React.FC = () => {
             behavior: "smooth",
           });
         }}
+        tabIndex={0}
+        role="button"
       >
         <img
           className="w-[160px] h-full max-w-[160px] object-cover"
@@ -754,6 +775,9 @@ export const AwardScheme: React.FC = () => {
           )}
         </div>
         <svg
+          aria-label="icon"
+          tabIndex={0}
+          role="none"
           className="flex-shrink-0"
           xmlns="https://www.w3.org/2000/svg"
           width="16"

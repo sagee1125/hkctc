@@ -401,6 +401,8 @@ export const Publications: React.FC = () => {
                       onClick={() => {
                         setActiveCategory(title);
                       }}
+                      tabIndex={0}
+                      role="button"
                     >
                       <p
                         className={"text-center text-highlight-l"}
@@ -472,6 +474,8 @@ export const Publications: React.FC = () => {
                           onClick={() => {
                             setActiveCategory(title);
                           }}
+                          tabIndex={0}
+                          role="button"
                         >
                           <p
                             className={"text-center"}
@@ -530,6 +534,8 @@ export const Publications: React.FC = () => {
                   >
                     <div
                       className="flex flex-row h-[100px] gap-[24px] w-full cursor-pointer"
+                      tabIndex={0}
+                      role="button"
                       onClick={() => {
                         if (nav) {
                           window.scroll({
@@ -547,7 +553,11 @@ export const Publications: React.FC = () => {
                           alt={imgPath}
                         />
                       </div>
-                      <div className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center">
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center"
+                      >
                         <p
                           className={`text-highlight-${
                             isPC ? "s" : "xs"
@@ -589,6 +599,8 @@ export const Publications: React.FC = () => {
                     }
                   }}
                   className="cursor-pointer"
+                  tabIndex={0}
+                  role="button"
                 >
                   {explore_more as string}
                 </p>
@@ -773,6 +785,8 @@ export const Publications: React.FC = () => {
               return (
                 <div
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
                   onClick={() => {
                     window.scroll({

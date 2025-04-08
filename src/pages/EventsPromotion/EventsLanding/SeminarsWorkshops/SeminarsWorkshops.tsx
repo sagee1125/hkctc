@@ -126,6 +126,8 @@ export const SeminarsWorkshops: React.FC = () => {
                 const isActivated = index === activeTopicButton;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -153,6 +155,8 @@ export const SeminarsWorkshops: React.FC = () => {
                 const isActivated = index === activeYearButton;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -180,6 +184,8 @@ export const SeminarsWorkshops: React.FC = () => {
               className={`flex ${
                 isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -210,6 +216,8 @@ export const SeminarsWorkshops: React.FC = () => {
                   className={`${
                     isPC ? "h-[198px] w-auto" : "w-full h-auto"
                   } object-cover cursor-pointer`}
+                  tabIndex={0}
+                  role="button"
                   src={
                     process.env.PUBLIC_URL +
                     `/assets/eventsLanding/seminarsWorkshops/${img}`
