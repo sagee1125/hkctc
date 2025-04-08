@@ -179,7 +179,7 @@ export const WhatsNew: React.FC = () => {
                     icon="material-symbols:date-range-rounded"
                     aria-label={"icon"}
                   />
-                  <h2 className="text-body-m text-grey">{date}</h2>
+                  <div className="text-body-m text-grey">{date}</div>
                 </div>
               </div>
             );

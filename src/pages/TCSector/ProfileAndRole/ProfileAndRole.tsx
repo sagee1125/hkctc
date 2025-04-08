@@ -533,11 +533,11 @@ export const ProfileAndRole: React.FC = () => {
                         icon="material-symbols:date-range-rounded"
                         aria-label={"icon"}
                       />
-                      <h2
+                      <div
                         className={`text-body-${isPC ? "m" : "s"} text-[#666]`}
                       >
                         {date}
-                      </h2>
+                      </div>
                     </div>
                   )}
                 </div>

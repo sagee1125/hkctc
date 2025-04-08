@@ -211,23 +211,23 @@ export const ToysChildrenProducts: React.FC = () => {
       </div>
 
       <FileTemplate
-        title={toys as string as string}
+        title={toys as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
         pdfHyperlink={fileTemplateLink[language]}
       />
-      <p className="text-heading-l my-[24px]">
-        {benefits_of_toys as string as string}{" "}
+      <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
+        {benefits_of_toys as string}{" "}
       </p>
       <p className="text-body-m text-justify">
-        {when_it_comes as string as string}
+        {when_it_comes as string}
         <br />
         <br />
-        {help_assure as string as string}
+        {help_assure as string}
       </p>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">
-        {tc_service as string as string}
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {tc_service as string}
       </p>
 
       <div className="w-full flex flex-col gap-[24px]">
@@ -241,7 +241,9 @@ export const ToysChildrenProducts: React.FC = () => {
       </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{laboratories as string}</p>
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {laboratories as string}
+      </p>
       <p className="text-body-m text-justify">{bottomMapping[language]}</p>
       <hr className="my-[24px]" />
       <InternalBackButton

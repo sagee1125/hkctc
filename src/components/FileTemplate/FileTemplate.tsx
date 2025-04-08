@@ -44,6 +44,8 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           style={{
             cursor: enablePdfDownload ? "pointer" : "default",
           }}
+          role="button"
+          tabIndex={0}
           onClick={() => setIsPreviewOpen(true)}
         >
           <img
@@ -65,6 +67,8 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           style={{
             cursor: enablePdfDownload ? "pointer" : "default",
           }}
+          role="button"
+          tabIndex={0}
           onClick={() => setIsPreviewOpen(true)}
         >
           {titleHyperlink ? (
@@ -80,7 +84,9 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
               {title}
             </a>
           ) : (
-            <p className="text-highlight-m">{title}</p>
+            <p className="text-highlight-m" tabIndex={0}>
+              {title}
+            </p>
           )}
 
           {date && (
