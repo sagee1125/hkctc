@@ -23,6 +23,7 @@ const multilingual = {
         experience, may apply for the HKIE membership under its Materials
         Division. Details may be obtained at&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkie.org.hk/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -44,6 +45,7 @@ const multilingual = {
         Assurance as well as Calibration. Full details may be obtained at its
         relevant&nbsp;
         <a
+          aria-label="link"
           href="https://www.hktic.org/zh_HK/PersonnelCertification"
           target="_blank"
           rel="noopener noreferrer"
@@ -67,6 +69,7 @@ const multilingual = {
         International Personnel Certification Association (IPC) to register as
         Auditors. Details on the scheme can be obtained at its&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkica.org/"
           target="_blank"
           rel="noopener noreferrer"
@@ -91,6 +94,7 @@ const multilingual = {
       <>
         製造商、供應商、建築公司、建材實驗所等都需要材料工程師提供品質及安全管理。修讀經香港工程師學會審核/認可與材料有關的工程學學位課程（或取得屋宇、土木、化學、環境及結構工程學位，並修讀至少兩科與建築工程物料有關的科目），並累積足夠相關工作經驗，可申請專業材料工程師資格。有關詳情可瀏覽
         <a
+          aria-label="link"
           href="https://www.hkie.org.hk/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -105,6 +109,7 @@ const multilingual = {
       <>
         現時，該計劃的認證範圍包括化學測試、建築材料測試、電器產品測試、微生物測試、紡織及製衣測試、玩具及輕工產品測試、食品測試、環保測試、品質保證以及儀器校正。有關詳情可瀏覽其
         <a
+          aria-label="link"
           href="https://www.hktic.org/zh_HK/PersonnelCertification"
           target="_blank"
           rel="noopener noreferrer"
@@ -121,6 +126,7 @@ const multilingual = {
         17024:2012《合格評定—人員認證機構通用要求》，制定了「ISO
         9001質量管理體系人員認證計劃」。該計劃獲中國合格評定國家認可委員（CNAS）認可，根據相關協議，香港專業審核師可申請成為中國認證認可協會（CCAA）審核員及國際人員認證協會（IPC）認可審核師。有關計劃的詳情可瀏覽其
         <a
+          aria-label="link"
           href="https://www.hkica.org/"
           target="_blank"
           rel="noopener noreferrer"

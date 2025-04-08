@@ -117,6 +117,8 @@ export const WhatsNew: React.FC = () => {
             return (
               <div
                 key={index}
+                tabIndex={0}
+                role="button"
                 className={`flex flex-col group cursor-pointer justify-between`}
                 onClick={() => {
                   if (redirectTo) {
@@ -130,6 +132,8 @@ export const WhatsNew: React.FC = () => {
               >
                 <div>
                   <div
+                    tabIndex={0}
+                    role="button"
                     className={`relative flex justify-center items-center w-full ${
                       isPC ? "min-w-[290px]" : ""
                     } aspect-[16/9] overflow-hidden cursor-pointer`}

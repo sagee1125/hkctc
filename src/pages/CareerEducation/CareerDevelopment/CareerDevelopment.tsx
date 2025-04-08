@@ -232,6 +232,7 @@ export const CareerDevelopment: React.FC = () => {
             <div
               key={index}
               className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+              tabIndex={0} role="button"
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -255,6 +256,8 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
+                tabIndex={0} role="none"
+                aria-label="icon"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"
@@ -343,6 +346,7 @@ export const CareerDevelopment: React.FC = () => {
             <div
               key={index}
               className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
+              tabIndex={0} role="button"
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -367,12 +371,14 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
+                tabIndex={0} role="none"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
+                aria-label="icon"
               >
                 <g clipPath="url(#clip0_2682_55750)">
                   <path

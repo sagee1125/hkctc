@@ -21,6 +21,8 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
       />
       <p
         className="text-highlight-l cursor-pointer text-newPrimary"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.scroll({
             top: 0,

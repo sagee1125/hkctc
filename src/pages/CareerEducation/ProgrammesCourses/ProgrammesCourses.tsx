@@ -169,6 +169,7 @@ const multilingual = {
         <br />
         Launched in the 2015/16 academic year, the&nbsp;
         <a
+          aria-label="link"
           href="https://www.cspe.edu.hk/en/sssdp/participating-institutions.html#year=2020/21"
           target="_blank"
           rel="noopener noreferrer"
@@ -198,6 +199,7 @@ const multilingual = {
         the industry. Details of the courses and seminars may be obtained at
         VTC/IVE's relevant&nbsp;
         <a
+          aria-label="link"
           href="https://www.vtc.edu.hk/studyat/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -216,6 +218,7 @@ const multilingual = {
         their workers. Details of HKPC's training activities are accessible on
         HKPC's&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkpcacademy.org/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -233,6 +236,7 @@ const multilingual = {
       <>
         與檢測和認證業相關的學術課程包括科學、應用科學、工程及時裝與紡織等。本港的高等教育界持續開辦更多有關檢測和認證的副學位至研究生程度課程，由2015/16學年起，
         <a
+          aria-label="link"
           href="https://www.cspe.edu.hk/en/sssdp/participating-institutions.html#year=2020/21"
           target="_blank"
           rel="noopener noreferrer"
@@ -252,6 +256,7 @@ const multilingual = {
       <>
         職業訓練局轄下專業教育學院定期舉辦短期課程及研討會，向檢測和認證從業員提供行業的最新知識，並增進他們對行業的了解。課程及研討會詳情可於職業訓練局的
         <a
+          aria-label="link"
           href="https://www.vtc.edu.hk/studyat/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -267,6 +272,7 @@ const multilingual = {
       <>
         香港生產力促進局經常舉辦不同的專業培訓課程，讓業界人士藉此提升及增進其業內知識和技能。有關該局課程資料，詳情請瀏覽該局
         <a
+          aria-label="link"
           href="https://www.hkpcacademy.org/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -313,6 +319,8 @@ export const ProgrammesCourses: React.FC = () => {
           const isActivated = activeButton === b;
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={i}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -349,6 +357,7 @@ export const ProgrammesCourses: React.FC = () => {
             <div className="py-[16px] px-[10px] border-b-[1px] border-[#E0E0E0] flex flex-col gap-[30px]">
               {item.programmes.map((prog, index) => (
                 <a
+                  aria-label="link"
                   key={index}
                   href={prog.url}
                   target="_blank"

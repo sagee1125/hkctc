@@ -45,6 +45,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#0");
           }}
@@ -57,6 +59,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -78,6 +81,7 @@ export const SummaryOfCEPA: React.FC = () => {
             <ul>
               <li className="text-body-m">
                 <a
+                  aria-label="link"
                   href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -95,6 +99,7 @@ export const SummaryOfCEPA: React.FC = () => {
               <br />
               <li className="text-body-m">
                 <a
+                  aria-label="link"
                   href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -122,6 +127,8 @@ export const SummaryOfCEPA: React.FC = () => {
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
+            tabIndex={0}
+            role="button"
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);
@@ -142,6 +149,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">Agreement on Trade in Goods</p>,
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#1");
         }}
@@ -155,6 +164,8 @@ export const SummaryOfCEPA: React.FC = () => {
       </p>,
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#2");
         }}
@@ -173,6 +184,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#0");
           }}
@@ -185,6 +198,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -204,6 +218,7 @@ export const SummaryOfCEPA: React.FC = () => {
             <ul>
               <li className="text-body-m">
                 <a
+                  aria-label="link"
                   href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -220,6 +235,7 @@ export const SummaryOfCEPA: React.FC = () => {
               <br />
               <li className="text-body-m">
                 <a
+                  aria-label="link"
                   href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -243,6 +259,8 @@ export const SummaryOfCEPA: React.FC = () => {
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
+            tabIndex={0}
+            role="button"
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);
@@ -263,6 +281,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">《貨物貿易協議》</p>,
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#1");
         }}
@@ -278,6 +298,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">《經濟技術合作協議》</p>,
       <p
         className="text-body-m underline text-[#233F55] cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#2");
         }}
@@ -303,6 +325,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#3");
           }}
@@ -312,6 +336,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
+            aria-label="link"
             className="text-[#00E] text-body-m underline"
             href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             target="_blank"
@@ -331,6 +356,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#4");
           }}
@@ -344,6 +371,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -355,6 +383,7 @@ export const SummaryOfCEPA: React.FC = () => {
           <br />
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -375,6 +404,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#5");
           }}
@@ -384,6 +415,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
+            aria-label="link"
             className="text-[#00E] text-body-m underline"
             href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
             target="_blank"
@@ -403,6 +435,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">Supplement VIII to CEPA</p>,
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#6");
         }}
@@ -414,6 +448,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">Supplement VII to CEPA</p>,
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#7");
         }}
@@ -432,6 +468,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#3");
           }}
@@ -441,6 +479,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
+            aria-label="link"
             className="text-[#00E] text-body-m underline"
             href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             target="_blank"
@@ -460,6 +499,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#4");
           }}
@@ -472,6 +513,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -483,6 +525,7 @@ export const SummaryOfCEPA: React.FC = () => {
           <br />
           <li className="text-body-m">
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -503,6 +546,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <>
         <p
           className="text-[#233F55] text-body-m underline cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             window.open("/support/agreement-clause#5");
           }}
@@ -512,6 +557,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
+            aria-label="link"
             className="text-[#00E] text-body-m underline"
             href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
             target="_blank"
@@ -531,6 +577,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">《CEPA補充協議八》</p>,
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#6");
         }}
@@ -542,6 +590,8 @@ export const SummaryOfCEPA: React.FC = () => {
       <p className="text-body-m">《CEPA補充協議七》</p>,
       <p
         className="text-[#233F55] text-body-m underline cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           window.open("/support/agreement-clause#7");
         }}

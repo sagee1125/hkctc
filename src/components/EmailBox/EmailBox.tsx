@@ -98,6 +98,8 @@ export const EmailBox: React.FC = () => {
           style={{
             lineHeight: 1.5,
           }}
+          tabIndex={0}
+          role="button"
           disabled={loading}
           onClick={handleButtonClick}
         >

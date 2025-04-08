@@ -275,6 +275,7 @@ export const award2324_multilingual = {
               Testing and Certification Manpower Development Corporate Award” at
               Annex to the&nbsp;
               <a
+                aria-label="link"
                 className="underline text-[#00E]"
                 href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
               >
@@ -527,6 +528,7 @@ export const award2324_multilingual = {
               <br />
               有關使用按其所取得機構獎金獎或鉑金獎標誌的詳情，請參閱載於申請指南附件的
               <a
+                aria-label="link"
                 className="underline text-[#00E]"
                 href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
               >
@@ -1236,6 +1238,7 @@ export const award2122_multilingual = {
             Certification Manpower Development Corporate Award Logo” at the
             Annex to the&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >
@@ -1469,6 +1472,7 @@ export const award2122_multilingual = {
             <br />
             有關使用機構獎標誌的詳情，請參閱載於申請指南附件的「檢測認證人力發展機構獎標誌使用指引」。
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >

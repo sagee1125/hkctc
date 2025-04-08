@@ -118,16 +118,22 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
                   isPC ? "w-[270px]" : "w-full"
                 } group`}
               >
-                <div className="w-full aspect-[260/202] overflow-hidden cursor-pointer">
+                <div
+                  className="w-full aspect-[260/202] overflow-hidden cursor-pointer"
+                  tabIndex={0}
+                  role="button"
+                  onClick={onClick}
+                >
                   <img
                     className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/${img}`}
                     alt={"file icon"}
-                    onClick={onClick}
                   />
                 </div>
                 <p
                   className="text-highlight-m cursor-pointer"
+                  tabIndex={0}
+                  role="button"
                   onClick={onClick}
                 >
                   {displayTitle}

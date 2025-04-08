@@ -80,6 +80,8 @@ export const GeneralPublicContent: React.FC = () => {
         <span className="flex flex-row items-center">
           <div
             className="cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               navigate("/whats-new");
             }}
@@ -135,6 +137,8 @@ export const GeneralPublicContent: React.FC = () => {
                   className={`${
                     isPC ? "w-[278px] h-full" : "w-full h-auto"
                   } object-cover cursor-pointer`}
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     if (w.redirectTo) navigate(w.redirectTo);
                   }}
@@ -160,6 +164,8 @@ export const GeneralPublicContent: React.FC = () => {
                   onClick={() => {
                     navigate(link);
                   }}
+                  tabIndex={0}
+                  role="button"
                 >
                   <img
                     className={`w-[130px] h-auto`}
@@ -215,6 +221,8 @@ export const GeneralPublicContent: React.FC = () => {
             onClick={() => {
               navigate("/events-promotion?section=comics");
             }}
+            tabIndex={0}
+            role="button"
           >
             <div
               style={{

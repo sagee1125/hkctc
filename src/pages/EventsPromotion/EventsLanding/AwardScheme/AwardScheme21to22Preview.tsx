@@ -63,6 +63,8 @@ export const AwardScheme21to22Preview: React.FC<{
         <>
           <span
             className="underline cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={handleOpenAssessmentPanel}
           >
             {
@@ -91,6 +93,8 @@ export const AwardScheme21to22Preview: React.FC<{
         <>
           <span
             className="underline cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={handleOpenAssessmentPanel}
           >
             {page_text.stagesGridOne.stage_2_assessment}
@@ -116,6 +120,7 @@ export const AwardScheme21to22Preview: React.FC<{
           <li>
             {page_text.testing_manpower_award_content.permit_use_logo}&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >
@@ -452,6 +457,8 @@ export const AwardScheme21to22Preview: React.FC<{
           const isActivated = index === activeAwardOneButton;
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -486,6 +493,8 @@ export const AwardScheme21to22Preview: React.FC<{
           const isActivated = index === activeAwardTwoButton;
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -511,6 +520,8 @@ export const AwardScheme21to22Preview: React.FC<{
           const label = processText(btn);
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -597,6 +608,8 @@ export const AwardScheme21to22Preview: React.FC<{
       </h2>
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           navigate("/events-promotion/award-scheme2122");
           window.scroll({
@@ -618,12 +631,15 @@ export const AwardScheme21to22Preview: React.FC<{
           {processText(page_text.award_ceremony_list_long)}
         </div>
         <svg
+          tabIndex={0}
+          role="none"
           className="flex-shrink-0"
           xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="16"
           viewBox="0 0 16 16"
           fill="none"
+          aria-label="icon"
         >
           <g clipPath="url(#clip0_2682_55750)">
             <path

@@ -44,6 +44,7 @@ const multilingual = {
         <p className="text-body-m mb-[16px]">
           The&nbsp;
           <a
+            aria-label="link"
             href="https://www.pass.gov.hk/index.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -132,6 +133,7 @@ const multilingual = {
       the_pass_launched_by: (
         <p className="text-body-m mb-[16px]">
           <a
+            aria-label="link"
             href="https://www.pass.gov.hk/index.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -307,6 +309,8 @@ export const FundingSchemes: React.FC = () => {
                   );
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -398,6 +402,8 @@ export const FundingSchemes: React.FC = () => {
                   );
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle

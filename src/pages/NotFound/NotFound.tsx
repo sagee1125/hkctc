@@ -51,6 +51,8 @@ export const NotFound: React.FC = () => {
         <p className="my-[24px] text-body-m text-center">{desc as string}</p>
         <div className="text-highlight-m text-white w-full flex justify-center">
           <button
+            tabIndex={0}
+            role="button"
             className="bg-[#233F55] w-[296px] p-[16px]"
             onClick={() => {
               navigate("/");

@@ -123,6 +123,8 @@ export const EducatorsStudentsContent: React.FC = () => {
               onClick={() => {
                 window.open(link, "_blank", "noopener");
               }}
+              tabIndex={0}
+              role="button"
             >
               <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
                 <img
@@ -178,6 +180,8 @@ export const EducatorsStudentsContent: React.FC = () => {
                   onClick={() => {
                     window.open(link, "_blank", "noopener");
                   }}
+                  tabIndex={0}
+                  role="button"
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -201,6 +205,8 @@ export const EducatorsStudentsContent: React.FC = () => {
                 "noopener"
               );
             }}
+            tabIndex={0}
+            role="button"
           >
             <div
               style={{

@@ -36,12 +36,15 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
 
   return (
     <a
+      aria-label="link"
       href={outerLink}
       target="_blank"
       rel="noreferrer"
       className={`cursor-pointer ${breakAll ? "break-all" : "text-justify"} ${
         underline && "underline underline-offset-4"
       } text-[${colorMapping[linkColor as LinkColor] ?? linkColor}]`}
+      tabIndex={0}
+      role="button"
       onClick={handleOpenOuterLink}
     >
       {children}

@@ -22,6 +22,7 @@ const multilingual = {
       <p className="text-italic-s italic mt-[24px]">
         An&nbsp;
         <a
+          aria-label="link"
           className="underline text-[#00E]"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
           target="_blank"
@@ -53,6 +54,7 @@ const multilingual = {
       <p className="text-italic-s italic mt-[24px]">
         內地已公布
         <a
+          aria-label="link"
           className="underline text-[#00E]"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
           target="_blank"

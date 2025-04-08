@@ -44,7 +44,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     setActivatedItems(navItemEnum);
                   }}
                 >
-                  <div className="flex flex-row gap-[24px] w-full cursor-pointer ">
+                  <div
+                    className="flex flex-row gap-[24px] w-full cursor-pointer "
+                    tabIndex={0}
+                    role="button"
+                  >
                     <div className="w-[130px] h-[90px] overflow-hidden">
                       <img
                         className="min-w-[130px] min-h-[90px] object-cover object-center"
@@ -105,6 +109,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       <Menu.Item key={index}>
                         {({ active }) => (
                           <button
+                            tabIndex={0}
+                            role="button"
                             onClick={() => {
                               setActivatedItems(navItemEnum);
                             }}
@@ -203,6 +209,8 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
               <div
                 className="flex flex-row justify-between items-center cursor-pointer"
                 onClick={() => toggleExpand(title)}
+                tabIndex={0}
+                role="button"
               >
                 <p className="text-heading-l">
                   {getSingleText(title, titleCN)}
@@ -235,6 +243,8 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                             ? "bg-[#F2F2EF] border-[8px] border-[#F2F2EF]"
                             : "bg-transparent border-[0px] border-transparent"
                         }`}
+                        tabIndex={0}
+                        role="button"
                         onClick={() => {
                           setActivatedItems(navItemEnum);
                         }}
@@ -317,6 +327,8 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                           onClick={() => {
                             setCurrentExpandMobile(expand ? "" : title);
                           }}
+                          tabIndex={0}
+                          role="button"
                         >
                           <p className="text-heading-m">
                             {getSingleText(title, titleCN)}
@@ -339,6 +351,8 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                               <Menu.Item key={innerIndex}>
                                 {({ active }) => (
                                   <button
+                                    tabIndex={0}
+                                    role="button"
                                     onClick={() => {
                                       setActivatedItems(navItemEnum);
                                     }}

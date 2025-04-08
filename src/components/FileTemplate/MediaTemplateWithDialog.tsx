@@ -270,6 +270,8 @@ export const MediaTemplateWithDialog: React.FC<
         <div
           className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
           onClick={handleOnClick}
+          tabIndex={0}
+          role="button"
         >
           <div
             className="overflow-hidden flex-shrink-0 relative border-r-[2px] border-inherit"
@@ -403,11 +405,14 @@ export const MediaTemplateWithDialog: React.FC<
             {date && (
               <div className="flex flex-row gap-[8px] items-center">
                 <svg
+                  tabIndex={0}
+                  role="none"
                   xmlns="https://www.w3.org/2000/svg"
                   width="17"
                   height="17"
                   viewBox="0 0 17 17"
                   fill="none"
+                  aria-label="date"
                 >
                   <g clipPath="url(#clip0_3271_24860)">
                     <path
@@ -627,11 +632,14 @@ export const MediaTemplateWithDialog: React.FC<
               {date ? (
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
+                    tabIndex={0}
+                    role="none"
                     xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"
                     viewBox="0 0 17 17"
                     fill="none"
+                    aria-label="date"
                   >
                     <g clipPath="url(#clip0_3271_24860)">
                       <path
