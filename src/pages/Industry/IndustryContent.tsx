@@ -126,6 +126,8 @@ export const IndustryContent: React.FC = () => {
             return (
               <div
                 key={index}
+                tabIndex={0}
+                role="button"
                 className={`grid grid-cols-${
                   isPC ? "2 h-[278px]" : "1"
                 } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
@@ -176,6 +178,8 @@ export const IndustryContent: React.FC = () => {
               return (
                 <div
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
                   onClick={() => {
                     window.open(link);
@@ -194,6 +198,8 @@ export const IndustryContent: React.FC = () => {
 
           <div
             className="pt-[24px] cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               window.open("/events-promotion?section=award_scheme");
             }}
@@ -212,6 +218,8 @@ export const IndustryContent: React.FC = () => {
           </div>
           <div
             className="pt-[24px] pb-[32px] cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               window.open("/events-promotion?section=seminar_workshop");
             }}

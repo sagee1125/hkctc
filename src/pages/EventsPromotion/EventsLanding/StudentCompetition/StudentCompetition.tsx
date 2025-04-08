@@ -147,6 +147,8 @@ export const StudentCompetition: React.FC = () => {
               className={`${
                 isPC ? "w-full h-[282px]" : "w-full h-auto"
               }  flex flex-col gap-[14px] cursor-pointer`}
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.open(hyperLink, "_blank", "noopener");
               }}
@@ -174,6 +176,9 @@ export const StudentCompetition: React.FC = () => {
                 </p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
+                    aria-label="icon"
+                    tabIndex={0}
+                    role="none"
                     xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"

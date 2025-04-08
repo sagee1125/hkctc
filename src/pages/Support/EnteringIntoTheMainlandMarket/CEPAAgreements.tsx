@@ -108,6 +108,7 @@ export const CEPAAgreements: React.FC = () => {
             The above measures will come into effect on 1 March 2025. The State
             Administration for Market Regulation will promulgate the&nbsp;
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -154,6 +155,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             以上措施於二○二五年三月一日起實施。詳細實施安排已載於國家認監委發布的
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -175,6 +177,7 @@ export const CEPAAgreements: React.FC = () => {
             On 4 November 2020, the State Administration for Market Regulation
             published&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E] text-[16px]"
               href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
               target="_blank"
@@ -184,6 +187,7 @@ export const CEPAAgreements: React.FC = () => {
             </a>
             &nbsp;relating to the implementation of the&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E] text-[16px]"
               href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
               target="_blank"
@@ -214,6 +218,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             為落實
             <a
+              aria-label="link"
               className="underline text-[#00E] text-[16px]"
               href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
               target="_blank"
@@ -223,6 +228,7 @@ export const CEPAAgreements: React.FC = () => {
             </a>
             中，有關取消「與強制性認證有關的檢查機構指定」許可工作，國家市場監督管理總局於2020年11月4日發佈
             <a
+              aria-label="link"
               className="underline text-[#00E] text-[16px]"
               href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
               target="_blank"
@@ -279,6 +285,7 @@ export const CEPAAgreements: React.FC = () => {
             Certification and Accreditation Administration of the People’s
             Republic of China (“CNCA”) has promulgated the&nbsp;
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -309,6 +316,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             以上措施已於二○二○年六月一日起實施。國家認證認可監督管理委員會（“認監委”）已公布獲修訂和新增措施的
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -334,6 +342,8 @@ export const CEPAAgreements: React.FC = () => {
             designated Mainland certification bodies to undertake&nbsp;
             <span
               className="!text-highlight-m underline text-newPrimary cursor-pointer"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 navigate("/support/CCC_testing");
                 window.scroll({
@@ -347,6 +357,7 @@ export const CEPAAgreements: React.FC = () => {
             &nbsp;on all products that are processed or manufactured in the
             Mainland requiring CCC. The&nbsp;
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -365,6 +376,8 @@ export const CEPAAgreements: React.FC = () => {
             二○一八年十二月，內地透過換文修訂《服務貿易協議》，以進一步擴大中國強制性產品認證（"CCC"）市場的對港開放範圍。新措施允許香港的檢測機構與內地指定認證機構展開合作，承擔在內地加工或生產的CCC目錄內所有產品的{" "}
             <span
               className="!text-highlight-m underline text-newPrimary cursor-pointer"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 navigate("/support/CCC_testing");
                 window.scroll({
@@ -377,6 +390,7 @@ export const CEPAAgreements: React.FC = () => {
             </span>
             工作。此措施已於二○一九年三月一日起實施，相關
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -423,6 +437,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#4");
             window.scroll({
@@ -452,6 +468,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated two Implementation Guides (
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -464,6 +481,7 @@ export const CEPAAgreements: React.FC = () => {
         their scope of services in respect of voluntary certification are
         available at the&nbsp;
         <a
+          aria-label="link"
           href="https://www.cnca.gov.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -482,6 +500,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一三年八月簽署
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#4");
             window.scroll({
@@ -498,6 +518,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制訂實施指南（
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -507,6 +528,7 @@ export const CEPAAgreements: React.FC = () => {
         </a>
         ），為以上開放措施的實施提供更多資訊。認監委亦已發布內地認證機構及其有關自願性產品認證的服務範圍的
         <a
+          aria-label="link"
           href="https://www.cnca.gov.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -524,6 +546,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#7");
             window.scroll({
@@ -538,6 +562,8 @@ export const CEPAAgreements: React.FC = () => {
         includes liberalisation measures of the&nbsp;
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -552,6 +578,8 @@ export const CEPAAgreements: React.FC = () => {
         become recognised testing organisations under&nbsp;
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate(
               "/support/international_multilateral_systems_on_mutual_recognition"
@@ -584,6 +612,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一○年五月簽署
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#7");
             window.scroll({
@@ -597,6 +627,8 @@ export const CEPAAgreements: React.FC = () => {
         ，當中包括有關
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -610,6 +642,8 @@ export const CEPAAgreements: React.FC = () => {
         的開放措施，以及協助香港檢測機構成為設有國家成員機構的認證檢測
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate(
               "/support/international_multilateral_systems_on_mutual_recognition"
@@ -635,6 +669,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#6");
             window.scroll({
@@ -652,6 +688,8 @@ export const CEPAAgreements: React.FC = () => {
         for the&nbsp;
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -673,6 +711,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一一年十二月簽署
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#6");
             window.scroll({
@@ -686,6 +726,8 @@ export const CEPAAgreements: React.FC = () => {
         。由二○一二年四月起，在《CEPA補充協議七》的基礎上，允許香港檢測機構與內地指定認證機構展開合作，對現行所有需
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -705,6 +747,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#5");
             window.scroll({
@@ -725,6 +769,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -745,6 +790,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一二年六月簽署
         <span
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#5");
             window.scroll({
@@ -761,6 +808,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已為此開放措施制訂
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -778,6 +826,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#3");
             window.scroll({
@@ -795,6 +845,8 @@ export const CEPAAgreements: React.FC = () => {
         products in the "audio and visual apparatus" category of the&nbsp;
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -826,6 +878,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
+          aria-label="link"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -845,6 +898,8 @@ export const CEPAAgreements: React.FC = () => {
         於中國內地與香港特區於二○一四年十二月簽署
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#3");
             window.scroll({
@@ -858,6 +913,8 @@ export const CEPAAgreements: React.FC = () => {
         ，當中包括允許香港檢測機構與內地指定機構開展合作，承擔在港設計定型且在廣東省加工或生產的音視頻設備類產品的
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/CCC_testing");
             window.scroll({
@@ -879,6 +936,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制訂
         <a
+          aria-label="link"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -895,6 +953,8 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#2");
             window.scroll({
@@ -932,6 +992,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一七年六月簽署
         <span
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause#2");
             window.scroll({
@@ -959,6 +1021,8 @@ export const CEPAAgreements: React.FC = () => {
     <div className="text-body-m">
       <span
         className="!text-highlight-m underline text-newPrimary cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           navigate("/support/agreement-clause#1");
           window.scroll({
@@ -980,6 +1044,8 @@ export const CEPAAgreements: React.FC = () => {
       內地與香港於二○一八年十二月簽署
       <span
         className="!text-highlight-m underline text-newPrimary cursor-pointer"
+        tabIndex={0}
+        role="button"
         onClick={() => {
           navigate("/support/agreement-clause#1");
           window.scroll({
@@ -1000,6 +1066,8 @@ export const CEPAAgreements: React.FC = () => {
         The&nbsp;
         <span
           className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause");
           }}
@@ -1024,6 +1092,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -1043,6 +1112,8 @@ export const CEPAAgreements: React.FC = () => {
         中國內地與香港特區於二○一五年十一月簽署
         <span
           className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             navigate("/support/agreement-clause");
           }}
@@ -1056,6 +1127,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制定
         <a
+          aria-label="link"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -1090,6 +1162,8 @@ export const CEPAAgreements: React.FC = () => {
                     );
                     return (
                       <button
+                        tabIndex={0}
+                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle

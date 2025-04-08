@@ -23,6 +23,7 @@ const multilingual = {
         assessment activity and will only be updated weekly. For most up-to-date
         scope of accreditation, please visit&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -50,6 +51,7 @@ const multilingual = {
       <>
         此完整清單僅用於搜尋特定的合格評定活動，並且每週更新一次。如欲了解最新的認可範圍，請造訪
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -166,6 +168,8 @@ export const ServiceUsersContent: React.FC = () => {
             const { title, imagePath, description, descriptionCN, link } = item;
             return (
               <div
+                tabIndex={0}
+                role="button"
                 key={index}
                 className={`grid grid-cols-${
                   isPC ? "2 h-[278px]" : "1"
@@ -224,6 +228,8 @@ export const ServiceUsersContent: React.FC = () => {
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
                 <div
+                  tabIndex={0}
+                  role="button"
                   className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
                   onClick={() => {
                     window.open(link, "_blank", "noopener");
@@ -266,6 +272,8 @@ export const ServiceUsersContent: React.FC = () => {
               return (
                 <div
                   key={index}
+                  tabIndex={0}
+                  role="button"
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
                   onClick={() => {
                     window.scroll({

@@ -137,6 +137,8 @@ export const AwardScheme21to22: React.FC = () => {
               fontStyle,
               marginStyle
             )}
+            tabIndex={0}
+            role="button"
             onClick={() => {
               const scrollElement = document.getElementById(id);
               if (scrollElement) {
@@ -158,6 +160,8 @@ export const AwardScheme21to22: React.FC = () => {
   const mobileSidebar = (
     <>
       <button
+        tabIndex={0}
+        role="button"
         className="!text-highlight-m text-white fixed bottom-[24px] right-[24px] z-50"
         style={{
           background: "#233F55",
@@ -195,11 +199,14 @@ export const AwardScheme21to22: React.FC = () => {
               {processText(page_text.mobile_sidebar.content_list)}
             </p>
             <svg
+              tabIndex={0}
+              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="20"
               height="20"
               viewBox="0 0 20 20"
               fill="none"
+              aria-label="icon"
               onClick={() => {
                 setIsOpen(false);
               }}
@@ -234,6 +241,8 @@ export const AwardScheme21to22: React.FC = () => {
                     fontStyle,
                     marginStyle
                   )}
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     const scrollElement = document.getElementById(id);
                     if (scrollElement) {
@@ -297,6 +306,8 @@ export const AwardScheme21to22: React.FC = () => {
                   const isActivated = activeButtonTwo === i;
                   return (
                     <button
+                      tabIndex={0}
+                      role="button"
                       key={i}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle

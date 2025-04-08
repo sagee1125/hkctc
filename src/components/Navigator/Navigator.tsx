@@ -194,6 +194,8 @@ export const Navigator: React.FC = () => {
                           setOpenMobileDropDown(false);
                           navigate(item.nav);
                         }}
+                        tabIndex={0}
+                        role="button"
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
                         {getSingleText(item.title, item.titleCN)}
@@ -246,6 +248,8 @@ export const Navigator: React.FC = () => {
                     className={`${
                       isPC ? "h-[54px] w-[141px]" : ""
                     } aspect-[141/54] cursor-pointer`}
+                    tabIndex={0}
+                    role="button"
                     onClick={() => {
                       navigate("/");
                     }}
@@ -262,6 +266,8 @@ export const Navigator: React.FC = () => {
                           <div
                             key={ncIndex}
                             className="flex flex-row items-center gap-[6px] cursor-pointer h-full"
+                            tabIndex={0}
+                            role="button"
                             onMouseEnter={() => {
                               setActiveIndex(ncIndex);
                               setActiveSubItem(
@@ -307,6 +313,8 @@ export const Navigator: React.FC = () => {
                       <>
                         <div
                           className="cursor-pointer"
+                          tabIndex={0}
+                          role="button"
                           onClick={() => {
                             setOpenSearchInput(!openSearchInput);
                           }}
@@ -351,6 +359,8 @@ export const Navigator: React.FC = () => {
                     <div
                       ref={anchorRef}
                       className="cursor-pointer"
+                      tabIndex={0}
+                      role="button"
                       onClick={
                         isTouchDevice
                           ? undefined
@@ -372,10 +382,13 @@ export const Navigator: React.FC = () => {
                     >
                       {openMobileDropDown ? (
                         <svg
+                          tabIndex={0}
+                          role="none"
                           xmlns="https://www.w3.org/2000/svg"
                           className="h-[22px] w-[22px]"
                           viewBox="0 0 22 22"
                           fill="none"
+                          aria-label="close"
                         >
                           <path
                             d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
@@ -387,10 +400,13 @@ export const Navigator: React.FC = () => {
                         </svg>
                       ) : (
                         <svg
+                          tabIndex={0}
+                          role="none"
                           xmlns="https://www.w3.org/2000/svg"
                           className="h-[32px] w-[32px]"
                           viewBox="0 0 24 20"
                           fill="none"
+                          aria-label="open"
                         >
                           <path
                             d="M0 2H24"
@@ -464,6 +480,8 @@ export const Navigator: React.FC = () => {
                                       <div
                                         key={index}
                                         className="flex flex-row justify-between items-center gap-[6px] cursor-pointer h-full"
+                                        tabIndex={0}
+                                        role="button"
                                         onClick={() => {
                                           // means has subitems
                                           if (!ifHideArrow) {
@@ -507,6 +525,8 @@ export const Navigator: React.FC = () => {
                                 {/* allow to back */}
                                 <div
                                   className="flex flex-row gap-[16px] items-center cursor-pointer"
+                                  tabIndex={0}
+                                  role="button"
                                   onClick={() => {
                                     setActiveIndex(null);
                                   }}
@@ -514,6 +534,8 @@ export const Navigator: React.FC = () => {
                                   <Icon
                                     icon="icon-park-outline:left"
                                     className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
+                                    tabIndex={0}
+                                    role="button"
                                   />
                                   <p className="text-highlight-extra">
                                     {getSingleText(
@@ -614,6 +636,8 @@ export const Navigator: React.FC = () => {
                                                               ? "bg-lightGrey"
                                                               : ""
                                                           }`}
+                                                          tabIndex={0}
+                                                          role="button"
                                                           onClick={() => {
                                                             setActiveSubItem(
                                                               sideName
@@ -783,6 +807,8 @@ export const Navigator: React.FC = () => {
                                 <Menu.Item key={eoIndex}>
                                   {({ active }) => (
                                     <button
+                                      tabIndex={0}
+                                      role="button"
                                       key={eoIndex}
                                       onClick={() => {
                                         setSelectedExploreOption(item.title);
@@ -844,7 +870,11 @@ export const Navigator: React.FC = () => {
                           <>
                             <div className="w-full h-full flex flex-col flex-[6]">
                               {customizedSidebar === true ? (
-                                <div className="flex flex-row cursor-pointer">
+                                <div
+                                  className="flex flex-row cursor-pointer"
+                                  tabIndex={0}
+                                  role="button"
+                                >
                                   <div
                                     className="bg-[#EEEEEA]"
                                     style={{
@@ -872,6 +902,8 @@ export const Navigator: React.FC = () => {
                                             ? "bg-lightGrey px-4"
                                             : "hover:bg-gray-100 px-1"
                                         }`}
+                                        tabIndex={0}
+                                        role="button"
                                         onMouseEnter={() => {
                                           setActiveSubItem(sideName);
                                         }}
@@ -893,6 +925,8 @@ export const Navigator: React.FC = () => {
                               className={`flex flex-col gap-2 flex-[5] ${
                                 subTitle === "" ? "" : "cursor-pointer"
                               }`}
+                              tabIndex={0}
+                              role="button"
                               onClick={() => {
                                 if (navUrl) navigate(navUrl);
                               }}

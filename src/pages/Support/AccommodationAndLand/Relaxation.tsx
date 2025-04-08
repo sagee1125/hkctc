@@ -53,6 +53,7 @@ const multilingual = {
           For any processed/processing temporary waiver application submitted in
           accordance with&nbsp;
           <a
+            aria-label="link"
             href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -99,6 +100,7 @@ const multilingual = {
         <>
           依地政總署
           <a
+            aria-label="link"
             href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -286,6 +288,7 @@ export const Relaxation: React.FC = () => {
             {enquiries_about as string}
             <br />
             <a
+              aria-label="link"
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -305,6 +308,7 @@ export const Relaxation: React.FC = () => {
             {information_regarding as string}
             <br />(
             <a
+              aria-label="link"
               href="https://www.ozp.tpb.gov.hk/"
               target="_blank"
               rel="noopener noreferrer"

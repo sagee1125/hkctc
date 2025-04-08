@@ -52,6 +52,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
                 borderStyle,
                 marginStyle
               )}
+              tabIndex={0}
+              role="button"
               style={{
                 ...(disabled ? { cursor: "not-allowed" } : {}),
               }}
@@ -88,6 +90,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
     return (
       <>
         <button
+          tabIndex={0}
+          role="button"
           className="!text-highlight-m text-white fixed bottom-[24px] right-[24px] z-50"
           style={{
             background: "#233F55",
@@ -123,6 +127,8 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             <div className="w-full flex flex-row justify-between items-center pb-[24px]">
               <p className="text-heading-m text-newPrimary">{content_list}</p>
               <svg
+                tabIndex={0}
+                role="none"
                 xmlns="https://www.w3.org/2000/svg"
                 width="20"
                 height="20"
@@ -131,6 +137,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
                 onClick={() => {
                   setIsOpen(false);
                 }}
+                aria-label="icon"
               >
                 <path
                   d="M18 18L10 10M10 10L2 2M10 10L18 2M10 10L2 18"

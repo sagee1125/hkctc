@@ -21,6 +21,7 @@ const Agreement: React.FC = () => {
           <p>
             According to the&nbsp;
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -44,6 +45,7 @@ const Agreement: React.FC = () => {
             procedures of establishing cooperation with designated Mainland
             organisations could be viewed at&nbsp;
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,6 +72,7 @@ const Agreement: React.FC = () => {
             relevant training courses and examinations. (The system “CCAA
             認證人員註冊與管理系統” could be accessed at its&nbsp;
             <a
+              aria-label="link"
               href="https://service.ccaa.org.cn/#/index"
               target="_blank"
               rel="noopener noreferrer"
@@ -96,6 +99,7 @@ const Agreement: React.FC = () => {
           <p>
             《服務貿易協議》中與檢測認證相關的條款於二○一九年十一月獲修訂。根據二○二○年五月公布的相關
             <a
+              aria-label="link"
               href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -105,6 +109,7 @@ const Agreement: React.FC = () => {
             </a>
             ，擬從事CCC檢測工作的香港檢測機構必須取得香港認可處實驗所認可計劃的認可，以確認該實驗所具備進行CCC產品檢測的能力。該等檢測機構亦須與內地指定認證機構簽訂合作協議。有關對檢測機構的資質要求及申請與內地指定機構合作的程序，請見
             <a
+              aria-label="link"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -125,6 +130,7 @@ const Agreement: React.FC = () => {
           <p>
             目前已經在「CCAA認證人員註冊與管理系統」中註冊過的CCC工廠檢查員，在轉換機構時，只需要在該系統中使用「轉換機構申請」功能，按照系統提示程序進行轉換機構即可。該過程不再需要向CCAA進行書面申請，也不需要進行培訓考試（「CCAA認證人員註冊與管理系統」請見CCAA的
             <a
+              aria-label="link"
               href="https://service.ccaa.org.cn/#/index"
               target="_blank"
               rel="noopener noreferrer"
@@ -198,6 +204,7 @@ const EnterpriseRun: React.FC = () => {
           <ul>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -210,6 +217,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -222,6 +230,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -240,7 +249,11 @@ const EnterpriseRun: React.FC = () => {
           <p>Phone number: +86-10-82262779</p>
           <p>
             Email address:&nbsp;
-            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:qiul@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
               qiul@cnca.gov.cn
             </a>
           </p>
@@ -251,6 +264,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
+              aria-label="link"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -280,6 +294,7 @@ const EnterpriseRun: React.FC = () => {
             out on the website of the State Administration for Market Regulation
             -&nbsp;
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
@@ -290,6 +305,7 @@ const EnterpriseRun: React.FC = () => {
             (available in Simplified Chinese only). Applicants may also refer to
             CNCA's&nbsp;
             <a
+              aria-label="link"
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -315,6 +331,7 @@ const EnterpriseRun: React.FC = () => {
             detailed CCC requirements and implementation needs. Such designated
             plans would be announced on CNCA's&nbsp;
             <a
+              aria-label="link"
               href="https://www.cnca.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
@@ -348,7 +365,11 @@ const EnterpriseRun: React.FC = () => {
           <p>Phone number: +86-10-82262779</p>
           <p>
             Email address:&nbsp;
-            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:qiul@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
               qiul@cnca.gov.cn
             </a>
           </p>
@@ -359,6 +380,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
+              aria-label="link"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -391,6 +413,7 @@ const EnterpriseRun: React.FC = () => {
           <ul>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -402,6 +425,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -413,6 +437,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
+                aria-label="link"
                 href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -434,7 +459,11 @@ const EnterpriseRun: React.FC = () => {
           <p>電話：&nbsp;+86-10-82262779</p>
           <p>
             電郵：&nbsp;
-            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:qiul@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
               qiul@cnca.gov.cn
             </a>
           </p>
@@ -445,6 +474,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
+              aria-label="link"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -466,6 +496,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             相關申請制度、條件和程序，已載於國家市場監督管理總局（市場監管總局）的網頁，詳見市場監管總局的
             <a
+              aria-label="link"
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
@@ -475,6 +506,7 @@ const EnterpriseRun: React.FC = () => {
             </a>
             網頁。申請者亦可參考認監委的
             <a
+              aria-label="link"
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -494,6 +526,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             根據原國家質量監督檢驗檢疫總局發佈的《強制性產品認證機構、檢查機構和實驗室管理辦法》第十二條，認監委按強制性產品認證制度的具體要求和實施需要，提出指定計劃，並以公告形式在認監委的
             <a
+              aria-label="link"
               href="https://www.cnca.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
@@ -523,7 +556,11 @@ const EnterpriseRun: React.FC = () => {
 
           <p>
             電郵：&nbsp;
-            <a href="mailto:qiul@cnca.gov.cn" className="underline text-[#00E]">
+            <a
+              aria-label="link"
+              href="mailto:qiul@cnca.gov.cn"
+              className="underline text-[#00E]"
+            >
               qiul@cnca.gov.cn
             </a>
           </p>
@@ -534,6 +571,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
+              aria-label="link"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -784,6 +822,8 @@ export const OverviewIOnCEPA: React.FC = () => {
               mb-[16px] w-full cursor-pointer ${
                 index === 0 ? "bg-newPrimary text-white" : ""
               }`}
+                tabIndex={0}
+                role="button"
                 onClick={() => {
                   navigate(
                     `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}&serviceTab=${item.serviceTab}#1`
@@ -817,6 +857,8 @@ export const OverviewIOnCEPA: React.FC = () => {
                   className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
               p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
               mb-[16px] w-full cursor-pointer"
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     navigate(
                       `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
@@ -834,6 +876,8 @@ export const OverviewIOnCEPA: React.FC = () => {
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
+            tabIndex={0}
+            role="button"
             className="text-highlight-m"
             onClick={() => {
               setTimelineCollapsed(!timelineCollapsed);
@@ -864,6 +908,8 @@ export const OverviewIOnCEPA: React.FC = () => {
 
             return (
               <button
+                tabIndex={0}
+                role="button"
                 key={index}
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

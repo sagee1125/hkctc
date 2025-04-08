@@ -289,6 +289,8 @@ export const Advertorials: React.FC = () => {
                 const isActivated = activeAboutSector === index;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -322,6 +324,8 @@ export const Advertorials: React.FC = () => {
                 const isActivated = activeCertificateSector === index;
                 return (
                   <button
+                    tabIndex={0}
+                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle

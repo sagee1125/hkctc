@@ -102,6 +102,7 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(info_on_standards as LanguageResources).concent as string}&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -122,6 +123,7 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(measurement_traceability as LanguageResources).para_2 as string}&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/scl/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -135,6 +137,7 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(measurement_traceability as LanguageResources).para_3 as string}&nbsp;
         <a
+          aria-label="link"
           href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -159,6 +162,7 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
+          aria-label="link"
           href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -195,6 +199,9 @@ export const OtherSupport: React.FC = () => {
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <svg
+            aria-label="icon"
+            tabIndex={0}
+            role="none"
             xmlns="https://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -226,6 +233,7 @@ export const OtherSupport: React.FC = () => {
             }
             &nbsp;
             <a
+              aria-label="link"
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
               rel="noopener noreferrer"
@@ -257,6 +265,9 @@ export const OtherSupport: React.FC = () => {
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
         <div className="flex flex-row gap-[24px] items-center w-full text-justify">
           <svg
+            aria-label="icon"
+            tabIndex={0}
+            role="none"
             className="w-[32px] h-[32px] flex-shrink-0"
             xmlns="https://www.w3.org/2000/svg"
             width="32"
@@ -298,6 +309,7 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
+          aria-label="link"
           href="https://www.hkecic.com/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -315,6 +327,7 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
+          aria-label="link"
           href="mailto:info@hkecic.com"
           target="_blank"
           rel="noopener noreferrer"

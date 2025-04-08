@@ -59,6 +59,7 @@ const multilingual = {
       <p className="text-body-m">
         Accredited laboratories in Hong Kong adopt the&nbsp;
         <a
+          aria-label="link"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -68,6 +69,7 @@ const multilingual = {
         </a>
         &nbsp;and&nbsp;
         <a
+          aria-label="link"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -82,6 +84,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Jewellery are
         available at&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -119,6 +122,7 @@ const multilingual = {
       <>
         香港的認可實驗所按香港寶石學協會出版的
         <a
+          aria-label="link"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -128,6 +132,7 @@ const multilingual = {
         </a>
         及
         <a
+          aria-label="link"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -140,6 +145,7 @@ const multilingual = {
         <br />
         獲香港認可處認可的珠寶測試實驗所的名單，請瀏覽
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"

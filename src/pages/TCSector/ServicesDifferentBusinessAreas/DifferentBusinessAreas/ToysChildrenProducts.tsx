@@ -54,6 +54,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Toys and
         Children's Products are available at&nbsp;
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -98,6 +99,7 @@ const multilingual = {
       <>
         獲香港認可處認可的玩具及兒童產品測試實驗所名單，請瀏覽
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -176,6 +178,7 @@ export const ToysChildrenProducts: React.FC = () => {
       <>
         获香港认可处认可的玩具及儿童产品测试实验所名单，请浏览
         <a
+          aria-label="link"
           href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
           target="_blank"
           rel="noopener noreferrer"

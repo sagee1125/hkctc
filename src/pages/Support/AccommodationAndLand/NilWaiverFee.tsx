@@ -17,6 +17,7 @@ const multilingual = {
         The measure is effective from 1 February 2016. The details on
         application procedures are set out in the&nbsp;
         <a
+          aria-label="link"
           href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -53,7 +54,11 @@ const multilingual = {
         For enquiries on whether a testing laboratory may benefit under this
         measure, please contact the Secretariat of the Hong Kong Council for
         Testing and Certification (
-        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+        <a
+          aria-label="link"
+          href="mailto:enquiry@hkctc.gov.hk"
+          className="underline text-[#00E]"
+        >
           enquiry@hkctc.gov.hk
         </a>
         )
@@ -74,6 +79,7 @@ const multilingual = {
       <>
         施在2016年2月1日起生效。申請程序的詳情於地政總署
         <a
+          aria-label="link"
           href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -109,7 +115,11 @@ const multilingual = {
     for_enquiries_on_whether: (
       <>
         有關測試實驗所可否受惠於這項措施的查詢，請與香港檢測和認證局秘書處（
-        <a href="mailto:enquiry@hkctc.gov.hk" className="underline text-[#00E]">
+        <a
+          aria-label="link"
+          href="mailto:enquiry@hkctc.gov.hk"
+          className="underline text-[#00E]"
+        >
           enquiry@hkctc.gov.hk
         </a>
         ）聯絡。
@@ -165,6 +175,7 @@ const eligibilityQues = [
         You may approach the Secretariat of the Hong Kong Council for Testing
         and Certification (
         <a
+          aria-label="link"
           href="mailto:enquiry@hkctc.gov.hk"
           className="underline text-[#00E] break-all"
         >
@@ -304,6 +315,7 @@ const planningQues = [
         Please refer to the Outline Zoning Plans at the Statutory Planning
         Portal&nbsp;(
         <a
+          aria-label="link"
           href="https://www.ozp.tpb.gov.hk/"
           target="_blank"
           rel="noopener noreferrer"
@@ -453,6 +465,7 @@ const planningQuesCN = [
       <span>
         請參閱有關法定規劃綜合網站的分區計劃大綱圖目錄詳細資料: (
         <a
+          aria-label="link"
           href="https://www.ozp.tpb.gov.hk/"
           target="_blank"
           rel="noopener noreferrer"
@@ -502,6 +515,7 @@ const eligibilityQuesCN = [
       <span>
         你可聯絡香港檢測和認證局秘書處 (
         <a
+          aria-label="link"
           href="mailto:enquiry@hkctc.gov.hk"
           className="underline text-[#00E] break-all"
         >
@@ -705,6 +719,7 @@ export const NilWaiverFee: React.FC = () => {
           <p className="text-body-m flex-grow min-w-0">
             {for_enquiries_on_application as string}
             <a
+              aria-label="link"
               href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -730,6 +745,8 @@ export const NilWaiverFee: React.FC = () => {
             return (
               <button
                 key={i}
+                tabIndex={0}
+                role="button"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveButton(b);

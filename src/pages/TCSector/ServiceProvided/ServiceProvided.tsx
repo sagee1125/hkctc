@@ -44,6 +44,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
           of indoor air quality at premises according to the Environmental
           Protection Department's "
           <a
+            aria-label="link"
             href="https://www.iaq.gov.hk/en/home/"
             className="underline text-[#00E]"
             target="_blank"
@@ -90,6 +91,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
         <>
           在本地需求方面，其中一個檢驗工作例子，是根據環境保護署推行的自願
           <a
+            aria-label="link"
             href="https://www.iaq.gov.hk/zh/home-tc/"
             className="underline text-[#00E]"
             target="_blank"
@@ -158,6 +160,7 @@ const InspectionService: React.FC = () => {
       <>
         在本地需求方面，其中一个检验工作例子，是根据环境保护署推行的自愿
         <a
+          aria-label="link"
           href="https://www.iaq.gov.hk/zh-cn/home-sc/"
           className="underline text-[#00E]"
           target="_blank"
@@ -229,6 +232,8 @@ const CertificateService: React.FC = () => {
             e.g. ISO 14001 environmental management system certification,&nbsp;
             <span
               className="!text-highlight-s underline text-newPrimary cursor-pointer"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.open("/tc-sector/environmental_protection");
               }}
@@ -249,6 +254,8 @@ const CertificateService: React.FC = () => {
           14001環境管理體系認證、
           <span
             className="!text-highlight-s underline text-newPrimary cursor-pointer"
+            tabIndex={0}
+            role="button"
             onClick={() => {
               window.open("/tc-sector/environmental_protection");
             }}
@@ -444,6 +451,8 @@ export const ServiceProvided: React.FC = () => {
           const isActivated = index === activeButton;
           return (
             <button
+              tabIndex={0}
+              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {

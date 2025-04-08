@@ -25,7 +25,11 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   }, []);
 
   return (
-    <div className="w-full h-auto cursor-pointer relative">
+    <div
+      className="w-full h-auto cursor-pointer relative"
+      tabIndex={0}
+      role="button"
+    >
       <video
         ref={videoRef}
         key={videoLink}
