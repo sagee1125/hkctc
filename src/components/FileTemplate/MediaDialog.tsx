@@ -11,36 +11,6 @@ type MediaDialogProps = {
   mediaDomain?: ProxyDomain;
 };
 
-// export const proxyHeadMapping: Record<ProxyDomain, string> = {
-//   hkctc: "/hkctc-proxy",
-//   "cpas-icac": "/cpas-icac-proxy",
-//   hkbedc: "/hkbedc-proxy",
-//   devb: "/devb-proxy",
-//   takungpao: "/takungpao-proxy",
-//   youtube: "/",
-// };
-
-// export const handleGetWholePDFUrl = (
-//   domain: ProxyDomain,
-//   link: string
-// ): string => {
-//   switch (domain) {
-//     case "hkctc":
-//       return `https://www.hkctc.gov.hk` + link;
-//     case "cpas-icac":
-//       return "https://cpas.icac.hk" + link;
-//     case "hkbedc":
-//       return `https://www.hkbedc.icac.hk` + link;
-//     case "takungpao":
-//       return `https://paper.takungpao.com` + link;
-//     case "devb":
-//       return `https://www.devb.gov.hk` + link;
-
-//     default:
-//       return link;
-//   }
-// };
-
 export const MediaDialog: React.FC<MediaDialogProps> = ({
   setIsPreviewOpen,
   title,
@@ -56,20 +26,6 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     if (!pdfHyperlink) return;
     await withLoading(async () => {
       try {
-        // const proxyHead = proxyHeadMapping[mediaDomain];
-        // const response = await fetch(proxyHead + link);
-        // const pdfBlob = await response.blob();
-        // const pdfHyperlink = document.createElement("a");
-
-        // pdfHyperlink.href = URL.createObjectURL(pdfBlob);
-        // const originalFileName =
-        //   link.split("/").pop() || title.replaceAll(" ", "_") + ".pdf";
-        // pdfHyperlink.download = decodeURIComponent(originalFileName);
-        // document.body.appendChild(pdfHyperlink);
-        // pdfHyperlink.click();
-        // document.body.removeChild(pdfHyperlink);
-        // URL.revokeObjectURL(pdfHyperlink.href);
-
         const link = document.createElement("a");
         link.href = pdfHyperlink;
 

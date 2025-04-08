@@ -25,26 +25,6 @@ export type MediaTemplateWithDialogProps = {
   titleUnderline?: boolean;
   thumbnail?: string;
 };
-// export const handleGetPDFUrl = (
-//   domain: ProxyDomain,
-//   mediaLink: string
-// ): string => {
-//   switch (domain) {
-//     case "hkctc":
-//       return "/hkctc-proxy" + mediaLink;
-//     case "cpas-icac":
-//       return "/cpas-icac-proxy" + mediaLink;
-//     case "hkbedc":
-//       return "/hkbedc-proxy" + mediaLink;
-//     case "takungpao":
-//       return "/takungpao-proxy" + mediaLink;
-//     case "devb":
-//       return "/devb-proxy" + mediaLink;
-
-//     default:
-//       return "/hkctc-proxy" + mediaLink;
-//   }
-// };
 
 export const MediaTemplateWithDialog: React.FC<
   MediaTemplateWithDialogProps
@@ -129,7 +109,6 @@ export const MediaTemplateWithDialog: React.FC<
     const fetchVideoPoster = () => {
       setLoading(true);
       const videoElement = document.createElement("video");
-      // videoElement.src = "/hkctc-proxy" + mediaLink;
       videoElement.src = mediaLink;
 
       videoElement.onloadeddata = () => {
@@ -351,11 +330,7 @@ export const MediaTemplateWithDialog: React.FC<
                         zIndex: 1,
                       }}
                     >
-                      <source
-                        // src={"/hkctc-proxy" + mediaLink}
-                        src={mediaLink}
-                        type="video/mp4"
-                      />
+                      <source src={mediaLink} type="video/mp4" />
                     </video>
                   )}
 
@@ -531,11 +506,7 @@ export const MediaTemplateWithDialog: React.FC<
                           zIndex: 1,
                         }}
                       >
-                        <source
-                          // src={"/hkctc-proxy" + mediaLink}
-                          src={mediaLink}
-                          type="video/mp4"
-                        />
+                        <source src={mediaLink} type="video/mp4" />
                       </video>
                     )}
 
