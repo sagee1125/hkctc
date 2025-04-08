@@ -207,7 +207,7 @@ export const AwardScheme23to24: React.FC = () => {
           : "border-[#E0E0E0]";
         const fontStyle = isActivated
           ? "text-heading-m bg-newPrimary text-white"
-          : "text-heading-m text-[#AAAAAA]";
+          : "text-heading-m text-[#767676]";
 
         const marginStyle = index === 0 ? "" : "-mt-[2px]";
         return (
@@ -310,7 +310,7 @@ export const AwardScheme23to24: React.FC = () => {
                 : "border-[#E0E0E0]";
               const fontStyle = isActivated
                 ? "text-heading-m bg-newPrimary text-white"
-                : "text-heading-m text-[#AAAAAA]";
+                : "text-heading-m text-[#767676]";
 
               const marginStyle = index === 0 ? "" : "-mt-[2px]";
               return (
@@ -348,7 +348,12 @@ export const AwardScheme23to24: React.FC = () => {
     <>
       <SquareTitle title={processText(page_text.title)} />
 
-      <p className="text-heading-l my-[24px]" id="awardees">
+      <p
+        className="text-heading-l my-[24px]"
+        id="awardees"
+        role="heading"
+        aria-level={10}
+      >
         {processText(page_text.awardees)}
       </p>
       <div id="testing-awardees">
@@ -559,7 +564,9 @@ export const AwardScheme23to24: React.FC = () => {
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">{processText(page_text.media)}</p>
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {processText(page_text.media)}
+      </p>
 
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer mb-[24px]"

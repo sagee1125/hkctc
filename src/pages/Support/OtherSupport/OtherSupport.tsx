@@ -96,7 +96,7 @@ export const OtherSupport: React.FC = () => {
   return (
     <div className="w-full pb-[48px]">
       <SquareTitle title={other_support as string} />
-      <p className="text-heading-l my-[24px]">
+      <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
         {(info_on_standards as LanguageResources).title as string}
       </p>
       <p className="text-body-m text-justify">
@@ -113,9 +113,9 @@ export const OtherSupport: React.FC = () => {
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {(measurement_traceability as LanguageResources).title as string}
-      </p>
+      </div>
       <p className="mt-[24px] text-body-m text-justify">
         {(measurement_traceability as LanguageResources).para_1 as string}
       </p>
@@ -148,7 +148,7 @@ export const OtherSupport: React.FC = () => {
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
         {
           (support_and_consultation_centre as LanguageResources)
             .title as React.ReactNode
@@ -176,18 +176,18 @@ export const OtherSupport: React.FC = () => {
         .
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {
           (hk_export_credit_insurance_corporation as LanguageResources)
             .title as React.ReactNode
         }
-      </p>
-      <p className="text-body-m mt-[24px] text-justify">
+      </div>
+      <div className="text-body-m mt-[24px] text-justify">
         {
           (hk_export_credit_insurance_corporation as LanguageResources)
             .para_1 as React.ReactNode
         }
-      </p>
+      </div>
       <br />
       <p className="text-body-m mb-[24px] text-justify">
         {

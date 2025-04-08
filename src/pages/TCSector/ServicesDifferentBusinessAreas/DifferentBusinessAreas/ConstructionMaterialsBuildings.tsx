@@ -113,7 +113,7 @@ const multilingual = {
         Details of the laboratories providing the public with accredited
         construction materials testing services are available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -792,7 +792,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 style={{
                   ...normalPagingButtonStyle,
                   cursor: currentPage === 0 ? "not-allowed" : "pointer",
-                  color: currentPage === 0 ? "#AAAAAA" : "black",
+                  color: currentPage === 0 ? "#767676" : "black",
                 }}
               >
                 <Icon
@@ -826,7 +826,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 style={{
                   ...normalPagingButtonStyle,
                   cursor: currentPage === maxPage ? "not-allowed" : "pointer",
-                  color: currentPage === maxPage ? "#AAAAAA" : "black",
+                  color: currentPage === maxPage ? "#767676" : "black",
                 }}
               >
                 <Icon
@@ -986,9 +986,9 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
         />
       </div>
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {benefits_of as React.ReactNode}
-      </p>
+      </div>
       <FileTemplate
         title={prod_cert as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
@@ -1007,9 +1007,9 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {testing_and_inspection as React.ReactNode}
-      </p>
+      </div>
 
       <FileTemplate
         title={testing_and_inspection as string}
@@ -1037,8 +1037,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                 </div>
 
                 <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
-                  <p className="text-heading-m">{item.contentTitle}</p>
-                  <p className="text-body-m mt-[16px]">{item.content}</p>
+                  <div className="text-heading-m">{item.contentTitle}</div>
+                  <div className="text-body-m mt-[16px]">{item.content}</div>
                 </div>
               </div>
             }
@@ -1046,10 +1046,12 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         ))}
       </div>
 
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {laboratories as React.ReactNode}
-      </p>
-      <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
+      </div>
+      <div className="text-body-m text-justify">
+        {bottom as React.ReactNode}
+      </div>
       <hr className="my-[24px]" />
 
       <InternalBackButton

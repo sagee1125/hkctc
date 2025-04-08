@@ -207,9 +207,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
   return (
     <div className="flex-1">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {Liberalisation_of_Trade as React.ReactNode}
-      </p>
+      </div>
       <p className="text-heading-m mb-[24px]">
         {subgroup_sec as React.ReactNode}
       </p>
@@ -239,12 +239,12 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       </ul>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {measures_in_Facilitating as React.ReactNode}
-      </p>
-      <p className="text-heading-m mb-[24px]">
+      </div>
+      <div className="text-heading-m mb-[24px]">
         {trade_and_Investment as React.ReactNode}
-      </p>
+      </div>
       <p className="text-body-m  text-justify">
         {two_sides_agreed as React.ReactNode}
         <br />

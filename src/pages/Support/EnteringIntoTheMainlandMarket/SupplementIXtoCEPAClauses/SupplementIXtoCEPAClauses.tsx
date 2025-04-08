@@ -25,7 +25,7 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
           organisations to cover food. (See&nbsp;
           <a
             aria-label="link"
-          href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -51,7 +51,7 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
           在廣東省試點將香港檢測機構獲准承擔的認證服務範圍放寬至食品類別。（詳情見&nbsp;
           <a
             aria-label="link"
-          href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -75,9 +75,9 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
   return (
     <div className="flex-1">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {liberalisation_of_Trade as string}
-      </p>
+      </div>
       <p className="text-heading-m mb-[24px]">{subgroup_sec as string}</p>
       <div className="text-justify">
         {(sec_list as string[]).map((s, i) => {

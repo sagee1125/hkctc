@@ -47,7 +47,7 @@ const multilingual = {
         products. Procedures for testing organisations in applying for relevant
         accreditation from HKAS could be viewed at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"

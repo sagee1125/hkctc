@@ -162,16 +162,18 @@ export const OtherProfessionalSchemes: React.FC = () => {
       <p className="text-body-m mt-[24px] text-justify">{intro as string}</p>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{HKIE as string}</p>
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {HKIE as string}
+      </p>
 
       <p className="text-body-m text-justify">
         {materials_engineers as React.ReactNode}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l mb-[24px] text-justify">
+      <div className="text-heading-l mb-[24px] text-justify">
         {professional as React.ReactNode}
-      </p>
+      </div>
       <p className="text-body-m">
         {developed as React.ReactNode}
         <br />
@@ -179,7 +181,7 @@ export const OtherProfessionalSchemes: React.FC = () => {
         {currently as React.ReactNode}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{QMS as React.ReactNode}</p>
+      <div className="text-heading-l mb-[24px]">{QMS as React.ReactNode}</div>
 
       <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
     </div>

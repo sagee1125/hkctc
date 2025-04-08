@@ -45,7 +45,11 @@ export const NotFound: React.FC = () => {
         >
           404
         </div>
-        <p className="text-heading-l mt-[16px] text-center">
+        <p
+          className="text-heading-l mt-[16px] text-center"
+          role="heading"
+          aria-level={10}
+        >
           {not_found as string}
         </p>
         <p className="my-[24px] text-body-m text-center">{desc as string}</p>

@@ -130,7 +130,7 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
   return (
     <div>
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">{liberalisation as string}</p>
+      <div className="text-heading-l my-[24px]">{liberalisation as string}</div>
       <p className="text-heading-m mb-[24px]">{sectors as string}</p>
       <ol>
         <li className="text-body-m">{business_services as string}</li>

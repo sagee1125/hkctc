@@ -80,7 +80,9 @@ export const CareerOpportunities: React.FC = () => {
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{career_visits as string}</p>
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {career_visits as string}
+      </p>
 
       <div className="w-full grid grid-cols-2 gap-[8px] mb-[24px]">
         <img
@@ -136,7 +138,9 @@ export const CareerOpportunities: React.FC = () => {
 
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l mb-[24px]">{summer_internship as string}</p>
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+        {summer_internship as string}
+      </p>
       <p className="text-body-m text-justify">
         {(internship as string[])[0]}
         <br />

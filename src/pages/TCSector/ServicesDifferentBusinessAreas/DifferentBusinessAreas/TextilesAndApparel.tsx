@@ -82,7 +82,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Textile and
         Apparel are available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -264,18 +264,18 @@ export const TextilesAndApparel: React.FC = () => {
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
         pdfHyperlink={fileTemplateLink[language]}
       />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {benefits_of as React.ReactNode}
-      </p>
-      <p className="text-body-m text-justify">
+      </div>
+      <div className="text-body-m text-justify">
         {benefit_detail as React.ReactNode}
-      </p>
+      </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{tc_service as React.ReactNode}</p>
-      <p className="text-body-m my-[24px] text-justify">
+      <div className="text-heading-l">{tc_service as React.ReactNode}</div>
+      <div className="text-body-m my-[24px] text-justify">
         {hk_tc as React.ReactNode}
-      </p>
+      </div>
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForTextile.map((item, index) => (
           <Accordion
@@ -287,12 +287,12 @@ export const TextilesAndApparel: React.FC = () => {
       </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mt-[24px]">
+      <div className="text-heading-l mt-[24px]">
         {laboratories as React.ReactNode}
-      </p>
-      <p className="text-body-m pt-[24px] text-justify">
+      </div>
+      <div className="text-body-m pt-[24px] text-justify">
         {bottomMapping[language] as React.ReactNode}
-      </p>
+      </div>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

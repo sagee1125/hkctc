@@ -27,7 +27,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
           An&nbsp;
           <a
             aria-label="link"
-          className="underline text-[#00E]"
+            className="underline text-[#00E]"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             )}
@@ -61,7 +61,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
           內地已公布
           <a
             aria-label="link"
-          className="underline text-[#00E]"
+            className="underline text-[#00E]"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
             )}
@@ -114,7 +114,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
   return (
     <div className="flex-1">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">{liberalisation as string}</p>
+      <div className="text-heading-l my-[24px]">{liberalisation as string}</div>
       <p className="text-heading-m mb-[24px]">{sectors as string}</p>
 
       <ol>

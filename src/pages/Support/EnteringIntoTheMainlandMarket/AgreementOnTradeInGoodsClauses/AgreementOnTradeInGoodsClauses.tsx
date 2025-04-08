@@ -138,9 +138,9 @@ export const AgreementOnTradeInGoodsClauses: React.FC = () => {
   return (
     <div className="flex-1">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {article_58 as React.ReactNode}
-      </p>
+      </div>
       {procedures as React.ReactNode}
       <hr className="my-[24px]" />
 

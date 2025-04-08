@@ -150,6 +150,7 @@ export const IndustryContent: React.FC = () => {
                   } gap-[24px]`}
                 >
                   <div
+                    tabIndex={0}
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                   >

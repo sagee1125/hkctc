@@ -420,7 +420,12 @@ export const AwardScheme21to22Preview: React.FC<{
       </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l my-[24px]" id="timeline">
+      <p
+        className="text-heading-l my-[24px]"
+        id="timeline"
+        role="heading"
+        aria-level={10}
+      >
         {processText(page_text.timeline)}
       </p>
       <div className="w-full grid grid-cols-2 border-[1px] border-[#E0E0E0] mb-[24px]">
@@ -445,9 +450,9 @@ export const AwardScheme21to22Preview: React.FC<{
         })}
       </div>
 
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {processText(page_text.testing_manpower_award)}
-      </p>
+      </div>
       <p className="text-body-m mt-[24px] text-justify">
         {processText(page_text.award_recognises_accredited)}
       </p>
@@ -475,9 +480,9 @@ export const AwardScheme21to22Preview: React.FC<{
         {convertReactNode(awardMapOne[awardOneBtn[activeAwardOneButton]])}
       </div>
 
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {processText(page_text.testing_profession_award)}
-      </p>
+      </div>
       <div className="text-body-m mt-[24px]">
         {processText(page_text.award_commends_individual)}
         <br />
@@ -513,7 +518,9 @@ export const AwardScheme21to22Preview: React.FC<{
 
       <hr />
 
-      <p className="text-heading-l mt-[24px]">{processText(page_text.faq)}</p>
+      <p className="text-heading-l mt-[24px]" role="heading" aria-level={10}>
+        {processText(page_text.faq)}
+      </p>
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {questionBtn.map((btn, index) => {
           const isActivated = index === questionCategory;
@@ -550,7 +557,7 @@ export const AwardScheme21to22Preview: React.FC<{
         )}
       </div>
 
-      <p className="text-heading-l my-[24px]">
+      <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
         {processText(page_text.application)}
       </p>
 
@@ -572,7 +579,7 @@ export const AwardScheme21to22Preview: React.FC<{
           );
         })}
       </div>
-      <p className="text-heading-l my-[24px]">
+      <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
         {processText(page_text.publications)}
       </p>
       <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
