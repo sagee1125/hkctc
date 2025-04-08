@@ -102,11 +102,11 @@ export const TC_SECTOR_STRENGTH_TEXT = {
 
       SYSTEM_INTERNATIONAL_TITLE: "(iii) 制度廣獲國際認可",
       SYSTEM_INTERNATIONAL_CONTENT: `香港認可處已與過百個經濟體系的認可機構（包括所有香港的主要貿易夥伴）簽訂互認協議，有關安排大大促進行業內獲認可機構的檢測和認證結果的認受性。有關詳情請瀏覽<a
-                href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+                href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="text-decoration: underline; color: #00E;"
-              >香港認可處網頁</a>.`,
+              >香港認可處網頁</a>。`,
 
       QUICK_RESPONSE_TITLE: "(iv) 迅速回應新的市場需求",
       QUICK_RESPONSE_CONTENT: `香港認可處一般能在較短時間內提供新服務，故能支援本地檢測和認證業迅速回應新的市場需求。`,
