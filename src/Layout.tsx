@@ -1,5 +1,6 @@
 import React from "react";
-import { Footer, Header, Navigator, ScrollTopButton } from "./components";
+import { Footer, Header, Navigator } from "./components";
+import { ScrollTopButton } from "./components/ScrollTopButton/ScrollTopButton";
 import { useSettings } from "./context";
 
 type LayoutProps = {

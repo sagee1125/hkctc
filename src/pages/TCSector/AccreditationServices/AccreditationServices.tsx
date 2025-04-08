@@ -47,7 +47,7 @@ const multilingual = {
       <>
         此完整清單僅用於搜尋特定的合格評定活動，並且每週更新一次。如欲了解最新的認可範圍，請造訪
         <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -61,7 +61,7 @@ const multilingual = {
   },
 };
 export const AccreditationServices: React.FC = () => {
-  const { getPageText, getSingleText } = useSettings();
+  const { language, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
   const {
     accreditation_services,
@@ -70,6 +70,26 @@ export const AccreditationServices: React.FC = () => {
     accreditation_is_open,
     this_full_list,
   } = page_text;
+
+  const thisFullListMapping: Record<Language, any> = {
+    [Language.EN]: this_full_list,
+    [Language.ZH_TW]: this_full_list,
+    [Language.ZH_CN]: (
+      <>
+        此完整清单仅用于搜寻特定的合格评定活动，并且每週更新一次。如欲了解最新的认可范围，请造访
+        <a
+          href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港认可处网站
+        </a>
+        。
+      </>
+    ),
+  };
+
   return (
     <div className="w-full">
       <div className="flex-1">
@@ -116,7 +136,7 @@ export const AccreditationServices: React.FC = () => {
         </div>
 
         <p className="text-italic-s mt-[24px] text-justify">
-          {this_full_list as React.ReactNode}
+          {thisFullListMapping[language] as React.ReactNode}
         </p>
       </div>
     </div>

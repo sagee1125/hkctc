@@ -90,7 +90,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
         <>
           在本地需求方面，其中一個檢驗工作例子，是根據環境保護署推行的自願
           <a
-            href="https://www.iaq.gov.hk/en/home/"
+            href="https://www.iaq.gov.hk/zh/home-tc/"
             className="underline text-[#00E]"
             target="_blank"
             rel="noopener noreferrer"
@@ -144,12 +144,31 @@ const TestingService: React.FC = () => {
 };
 
 const InspectionService: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
 
   const { INSPECTION } = pageText;
 
   const { ON_LOCAL, ON_EXTERNAL } = INSPECTION as LanguageResources;
+
+  const onLocalTextMapping: Record<Language, any> = {
+    [Language.EN]: ON_LOCAL,
+    [Language.ZH_TW]: ON_LOCAL,
+    [Language.ZH_CN]: (
+      <>
+        在本地需求方面，其中一个检验工作例子，是根据环境保护署推行的自愿
+        <a
+          href="https://www.iaq.gov.hk/zh-cn/home-sc/"
+          className="underline text-[#00E]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          「办公室及公众场所室内空气质素检定计划」
+        </a>
+        在特定场所进行的室内空气质素检验。
+      </>
+    ),
+  };
 
   return (
     <div className="w-full flex flex-col gap-[24px]">
@@ -177,7 +196,7 @@ const InspectionService: React.FC = () => {
         </span>
       </div>
 
-      <div className="text-body-m">{ON_LOCAL as string}</div>
+      <div className="text-body-m">{onLocalTextMapping[language]}</div>
 
       <div className="text-body-m">{ON_EXTERNAL as string}</div>
     </div>
