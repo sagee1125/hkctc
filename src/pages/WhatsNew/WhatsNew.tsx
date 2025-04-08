@@ -89,7 +89,9 @@ export const WhatsNew: React.FC = () => {
   const rightContent = (
     <div>
       <div className="border-2 border-inherit p-[24px] flex flex-col">
-        <p className="text-heading-l">{hkctc_newsletter as string}</p>
+        <p className="text-heading-l" role="heading" aria-level={10}>
+          {hkctc_newsletter as string}
+        </p>
         {hkctcNewsletterList.slice(0, 6).map((item, index) => {
           const { title, titleCN = "", date = "", mediaType, link } = item;
           const isPDF = mediaType === MEDIA_TYPE.PDF;

@@ -659,9 +659,9 @@ export const NilWaiverFee: React.FC = () => {
         {the_measure_is as React.ReactNode}
       </div>
 
-      <p className="text-heading-l mt-[24px]">
+      <div className="text-heading-l mt-[24px]">
         {(summary as LanguageResources).title as React.ReactNode}
-      </p>
+      </div>
       <ul className="text-body-m mt-[24px]">
         {((summary as LanguageResources).content as React.ReactNode[]).map(
           (c, index) => (
@@ -698,7 +698,7 @@ export const NilWaiverFee: React.FC = () => {
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{enquiries as string}</p>
+      <div className="text-heading-l">{enquiries as string}</div>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
@@ -732,9 +732,9 @@ export const NilWaiverFee: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <div className="flex flex-col gap-[24px]">
-        <p className="text-heading-l">
+        <div className="text-heading-l">
           {(faq as LanguageResources).title as string}
-        </p>
+        </div>
         <p className="text-body-m">
           {(faq as LanguageResources).below_are as string}
         </p>
@@ -781,7 +781,7 @@ export const NilWaiverFee: React.FC = () => {
         </div>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]">{disclaimer as string}</p>
+      <div className="text-heading-l mb-[24px]">{disclaimer as string}</div>
       <p className="text-body-m">{disclaimer_content as string}</p>
     </div>
   );

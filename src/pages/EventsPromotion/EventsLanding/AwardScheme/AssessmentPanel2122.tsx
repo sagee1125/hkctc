@@ -23,10 +23,10 @@ export const AssessmentPanel2122: React.FC = () => {
   return (
     <div className="w-full">
       <SquareTitle title={assessment_panel_membership as string} />
-      <p className="text-heading-l">{manpower_scheme_2122 as string}</p>
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l">{manpower_scheme_2122 as string}</div>
+      <div className="text-heading-l my-[24px]">
         {tc_assessment_panel as string}
-      </p>
+      </div>
       <p className="text-heading-m">{chairman as string}</p>
       <p className="text-highlight-m">{joseph_mak as string}</p>
       <p className="text-heading-m mt-[24px]">{members as string}</p>
@@ -37,7 +37,7 @@ export const AssessmentPanel2122: React.FC = () => {
           </p>
         ))}
       </div>
-      <p className="text-heading-l my-[24px]">
+      <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
         {excellent_assessment_panel as string}
       </p>
       <p className="text-heading-m">{chairman as string}</p>

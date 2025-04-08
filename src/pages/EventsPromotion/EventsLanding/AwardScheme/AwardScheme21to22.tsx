@@ -126,7 +126,7 @@ export const AwardScheme21to22: React.FC = () => {
           : "border-[#E0E0E0]";
         const fontStyle = isActivated
           ? "text-heading-m bg-newPrimary text-white"
-          : "text-heading-m text-[#AAAAAA]";
+          : "text-heading-m text-[#767676]";
 
         const marginStyle = index === 0 ? "" : "-mt-[2px]";
         return (
@@ -230,7 +230,7 @@ export const AwardScheme21to22: React.FC = () => {
                 : "border-[#E0E0E0]";
               const fontStyle = isActivated
                 ? "text-heading-m bg-newPrimary text-white"
-                : "text-heading-m text-[#AAAAAA]";
+                : "text-heading-m text-[#767676]";
 
               const marginStyle = index === 0 ? "" : "-mt-[2px]";
               return (
@@ -266,9 +266,9 @@ export const AwardScheme21to22: React.FC = () => {
   const content = (
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title={processText(page_text.tc_manpower_development)} />
-      <p className="text-heading-l" id="testing_testing_2122">
+      <div className="text-heading-l" id="testing_testing_2122">
         {processText(page_text.awardees)}
-      </p>
+      </div>
       <div>
         <Accordion
           title={processText(page_text.directory_sidebar.tc_manpower)}
@@ -359,9 +359,9 @@ export const AwardScheme21to22: React.FC = () => {
           }
         />
       </div>
-      <p className="text-heading-l" id="award_ceremony_2122">
+      <div className="text-heading-l" id="award_ceremony_2122">
         {processText(page_text.directory_sidebar.award_ceremony)}
-      </p>
+      </div>
       <div className="flex items-center">
         <img
           src={
@@ -551,7 +551,7 @@ export const AwardScheme21to22: React.FC = () => {
 
       <hr />
 
-      <p className="text-heading-l"> {processText(page_text.media)}</p>
+      <div className="text-heading-l"> {processText(page_text.media)}</div>
 
       <div className={`w-full flex flex-col gap-[24px]`}>
         {mediaData.map((item, index) => {

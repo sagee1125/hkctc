@@ -32,7 +32,7 @@ const multilingual = {
         Accreditation Service of the Government provides accreditation to
         medical laboratories through the&nbsp;
         <a
-          aria-label="link"
+          aria-label="Visit the Hong Kong Laboratory Accreditation Scheme (HOKLAS) website – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/accreditation/hoklas.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Medical
         Testing are available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -454,9 +454,9 @@ export const MedicalTesting: React.FC = () => {
           mediaLink="https://www.hkctc.gov.hk/en/doc/HKCTC_Leaflet_Medical.pdf"
         />
       </div>
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {benefits_of as React.ReactNode}
-      </p>
+      </div>
 
       <img
         className="w-full h-auto"
@@ -464,28 +464,28 @@ export const MedicalTesting: React.FC = () => {
         alt="Accredited Medical Testing Service"
       />
 
-      <p className="text-body-m mt-[24px] text-justify">
+      <div className="text-body-m mt-[24px] text-justify">
         {reliable_test as React.ReactNode}
         <br />
         <br />
         {accreditation_is as React.ReactNode}
-      </p>
+      </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {why_should_we_use as React.ReactNode}
-      </p>
+      </div>
 
       <img
         className="w-full h-auto"
         src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/Accredited-Medical-Testing-Service-2.png`}
         alt="Accredited Medical Testing Service"
       />
-      <p className="text-body-m mt-[24px] text-justify">
+      <div className="text-body-m mt-[24px] text-justify">
         {the_accreditation_criteria as React.ReactNode}
         <br /> <br />
         {to_get_accreditation as React.ReactNode}
-      </p>
+      </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       {/* <>
         <p className="text-heading-l">
@@ -564,8 +564,8 @@ export const MedicalTesting: React.FC = () => {
         </div>
       </> */}
 
-      <p className="text-heading-l">{laboratories as React.ReactNode}</p>
-      <p className="text-body-m pt-[24px]">{bottom as React.ReactNode}</p>
+      <div className="text-heading-l">{laboratories as React.ReactNode}</div>
+      <div className="text-body-m pt-[24px]">{bottom as React.ReactNode}</div>
       <hr className="my-[24px]" />
 
       <InternalBackButton

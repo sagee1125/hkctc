@@ -413,12 +413,12 @@ export const TCJS: React.FC = () => {
           </p>
         </div>
       </div>
-      <p className="text-heading-l">Application Period</p>
+      <div className="text-heading-l">Application Period</div>
       <div className="mt-[24px]">
         <SummaryTable tableHeads={tableHeads} tableRows={tableRows} />
       </div>
       <hr className="text-[#E0E0E0] my-[24px]" />
-      <p className="text-heading-l">Frequently Asked Questions</p>
+      <div className="text-heading-l">Frequently Asked Questions</div>
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {Object.keys(faqMap).map((btn, index) => {
           const isActivated = btn === activeFAQType;
@@ -439,7 +439,7 @@ export const TCJS: React.FC = () => {
       </div>
       <div>{faqMap[activeFAQType]}</div>
       <hr className="text-[#E0E0E0] my-[24px]" />
-      <p className="text-heading-l">Enquiries</p>
+      <div className="text-heading-l">Enquiries</div>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
@@ -464,7 +464,7 @@ export const TCJS: React.FC = () => {
         </div>
       </div>
       <hr className="text-[#E0E0E0] my-[24px]" />
-      <p className="text-heading-l">Application Documents</p>
+      <div className="text-heading-l">Application Documents</div>
       <div className="w-full">
         {documentsList.map((item, index) => {
           const { title, maskIcon, imgUrl, pdfLink, docLink } = item;

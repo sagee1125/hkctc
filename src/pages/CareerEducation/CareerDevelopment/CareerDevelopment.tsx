@@ -232,7 +232,8 @@ export const CareerDevelopment: React.FC = () => {
             <div
               key={index}
               className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
-              tabIndex={0} role="button"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -256,7 +257,8 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
-                tabIndex={0} role="none"
+                tabIndex={0}
+                role="none"
                 aria-label="icon"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
@@ -283,10 +285,12 @@ export const CareerDevelopment: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{how_to_prepare as React.ReactNode[]}</p>
-      <p className="text-heading-m my-[24px] text-newPrimary">
+      <div className="text-heading-l">
+        {how_to_prepare as React.ReactNode[]}
+      </div>
+      <div className="text-heading-m my-[24px] text-newPrimary">
         {senior_level as React.ReactNode[]}
-      </p>
+      </div>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img
@@ -337,7 +341,7 @@ export const CareerDevelopment: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{related_links as React.ReactNode}</p>
+      <div className="text-heading-l">{related_links as React.ReactNode}</div>
       <div className="mt-[24px]">
         {relatedLinks.map((item, index) => {
           const { title, titleCN, imgUrl, nav } = item;
@@ -346,7 +350,8 @@ export const CareerDevelopment: React.FC = () => {
             <div
               key={index}
               className="flex flex-row items-center h-[90px] gap-[24px] mb-[24px] cursor-pointer"
-              tabIndex={0} role="button"
+              tabIndex={0}
+              role="button"
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -371,7 +376,8 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
-                tabIndex={0} role="none"
+                tabIndex={0}
+                role="none"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"
@@ -399,7 +405,7 @@ export const CareerDevelopment: React.FC = () => {
 
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{resources as string}</p>
+      <div className="text-heading-l">{resources as string}</div>
       <div className="mt-[24px]">
         <div className={`grid grid-cols-${isPC ? "2" : "1"} gap-[24px]`}>
           {resourcesData.map((item, index) => {

@@ -31,7 +31,7 @@ export const SeminarArticlePage: React.FC = () => {
       )}
 
       <div className="text-heading-l">{processText(title)}</div>
-      <div className="flex flex-row gap-[8px] items-center">
+      <div className="flex flex-row gap-[8px] items-center" tabIndex={0}>
         <img
           className="w-[16px] h-[16px]"
           src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}

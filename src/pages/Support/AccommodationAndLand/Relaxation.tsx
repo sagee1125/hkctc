@@ -180,16 +180,16 @@ export const Relaxation: React.FC = () => {
         {according_to as React.ReactNode}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{background as React.ReactNode}</p>
+      <div className="text-heading-l">{background as React.ReactNode}</div>
       <p className="text-body-m mt-[24px] text-justify">
         {as_per_the as React.ReactNode}
       </p>
       <br />
       <p className="text-body-m text-justify">{note as React.ReactNode}</p>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {(details_of_relaxation as LanguageResources).title as React.ReactNode}
-      </p>
+      </div>
       <div className="grid grid-cols-2 gap-[8px] my-[24px]">
         <img
           className="w-auto h-auto"
@@ -276,7 +276,7 @@ export const Relaxation: React.FC = () => {
         })}
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{enquiries as string}</p>
+      <div className="text-heading-l">{enquiries as string}</div>
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <img

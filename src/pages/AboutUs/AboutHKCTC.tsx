@@ -119,7 +119,7 @@ export const AboutHKCTC: React.FC = () => {
         </div>
       </div>
       <p className="my-[24px] text-body-m text-justify">{heading as string}</p>
-      <p className="text-heading-l">{membership as string}</p>
+      <div className="text-heading-l">{membership as string}</div>
       <p
         className="mt-[8px]"
         style={{

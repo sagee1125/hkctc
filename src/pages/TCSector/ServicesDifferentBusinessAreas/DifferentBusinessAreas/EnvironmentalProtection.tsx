@@ -203,7 +203,6 @@ export const EnvironmentalProtection: React.FC = () => {
                 return (
                   <button
                     tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -235,7 +234,6 @@ export const EnvironmentalProtection: React.FC = () => {
                 return (
                   <button
                     tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -320,7 +318,7 @@ export const EnvironmentalProtection: React.FC = () => {
             For the list of HKAS-accredited validation/verification bodies,
             please visit&nbsp;
             <a
-              aria-label="link"
+              aria-label="HKAS's website  – opens in a new tab"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
               target="_blank"
               rel="noopener noreferrer"
@@ -363,7 +361,6 @@ export const EnvironmentalProtection: React.FC = () => {
                   <button
                     key={index}
                     tabIndex={0}
-                    role="button"
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
@@ -394,7 +391,6 @@ export const EnvironmentalProtection: React.FC = () => {
                 <button
                   key={index}
                   tabIndex={0}
-                  role="button"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveCSectionButton(index);
@@ -548,7 +544,7 @@ export const EnvironmentalProtection: React.FC = () => {
                         <svg
                           aria-label="icon"
                           tabIndex={0}
-                          role="none"
+                          role="tab"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -725,7 +721,7 @@ export const EnvironmentalProtection: React.FC = () => {
                         <svg
                           aria-label="icon"
                           tabIndex={0}
-                          role="none"
+                          role="tab"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -806,7 +802,7 @@ export const EnvironmentalProtection: React.FC = () => {
             For the list of HKAS-accredited certification bodies, please visit
             the&nbsp;
             <a
-              aria-label="link"
+              aria-label="HKAS's website  – opens in a new tab"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -845,9 +841,9 @@ export const EnvironmentalProtection: React.FC = () => {
           iconPath="VIDEO.png"
         />
       </div>
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {page_text.greenhouse as React.ReactNode[]}
-      </p>
+      </div>
       <FileTemplate
         title={page_text.greenhouse as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
@@ -873,9 +869,9 @@ export const EnvironmentalProtection: React.FC = () => {
 
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {page_text.iso_energy as React.ReactNode[]}
-      </p>
+      </div>
       <FileTemplate
         title={page_text.iso_energy as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"

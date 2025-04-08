@@ -21,7 +21,7 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -66,7 +66,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Electrical and
         Electronic Products are available att&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -176,7 +176,6 @@ export const ElectricalElectronicProducts: React.FC = () => {
               return (
                 <button
                   tabIndex={0}
-                  role="button"
                   key={index}
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
@@ -230,21 +229,21 @@ export const ElectricalElectronicProducts: React.FC = () => {
         pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
       />
 
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {benefits_of as React.ReactNode}
-      </p>
-      <p className="text-body-m text-justify">
+      </div>
+      <div className="text-body-m text-justify">
         {(benefits_details as React.ReactNode[])[0]}
         <br />
         <br />
         {(benefits_details as React.ReactNode[])[1]}
-      </p>
+      </div>
       <hr className="my-[24px]" />
 
-      <p className="text-heading-l">{tc_service as React.ReactNode} </p>
-      <p className="text-body-m my-[24px]">
+      <div className="text-heading-l">{tc_service as React.ReactNode}</div>
+      <div className="text-body-m my-[24px]">
         {accredited_testing as React.ReactNode}
-      </p>
+      </div>
       <div className="w-full flex flex-col gap-[24px]">
         {servicesForElectrical.map((item, index) => (
           <Accordion
@@ -254,10 +253,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
           />
         ))}
       </div>
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {laboratories as React.ReactNode}
-      </p>
-      <p className="text-body-m text-justify">{bottom as React.ReactNode}</p>
+      </div>
+      <div className="text-body-m text-justify">
+        {bottom as React.ReactNode}
+      </div>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

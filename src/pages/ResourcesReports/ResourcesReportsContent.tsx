@@ -865,7 +865,7 @@ export const ResourcesReportsContent: React.FC = () => {
   const filterBox = (
     <>
       <div className="flex flex-row items-center">
-        <p className="text-heading-l w-full">{filter as string}</p>
+        <div className="text-heading-l w-full">{filter as string}</div>
         <div
           onClick={handleClearFilter}
           className="w-[50%] flex flex-row-reverse "
@@ -891,7 +891,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 className={`group flex h-[24px] w-[24px] items-center justify-center rounded-full border transition-all ${
                   selectedMediaType === type
                     ? "bg-newPrimary"
-                    : "bg-[#D3D4D6] border-[#AAAAAA]"
+                    : "bg-[#D3D4D6] border-[#767676]"
                 }`}
               >
                 <CheckIcon
@@ -1066,7 +1066,11 @@ export const ResourcesReportsContent: React.FC = () => {
 
   const categoriesBox = (
     <>
-      <p className={`text-heading-l mt-[${isPC ? 32 : 0}px] mb-[16px]`}>
+      <p
+        className={`text-heading-l mt-[${isPC ? 32 : 0}px] mb-[16px]`}
+        role="heading"
+        aria-level={10}
+      >
         {category as string}
       </p>
       <div className="flex flex-col gap-[16px] mb-[32px]">
@@ -1093,7 +1097,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 handleChangeCategory(catEnum);
               }}
             >
-              <p className="text-heading-l">{label}</p>
+              <div className="text-heading-l">{label}</div>
               <p className="text-highlight-l">
                 {"(" + categoryArray.length + ")"}
               </p>
@@ -1162,6 +1166,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 >
                   <div
                     className="h-[24px] w-[24px]"
+                    role="img"
                     style={{
                       color: isActivated ? "white" : "#233F55",
                       WebkitMask: `url(${process.env.PUBLIC_URL}/assets/icons/${icon}) no-repeat center`,
@@ -1228,7 +1233,11 @@ export const ResourcesReportsContent: React.FC = () => {
             {no_results_match as string}
           </div>
           <div>{please_try as string}</div>
-          <div onClick={handleClearFilter}>
+          <div
+            onClick={handleClearFilter}
+            role="button"
+            aria-label="clear filter"
+          >
             <Link>{clear_filters_apply as string}</Link>
           </div>
         </div>

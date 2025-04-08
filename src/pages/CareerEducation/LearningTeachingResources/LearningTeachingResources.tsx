@@ -259,7 +259,11 @@ export const LearningTeachingResources: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <p className="text-heading-l mb-[24px]">
+              <p
+                className="text-heading-l mb-[24px]"
+                role="heading"
+                aria-level={10}
+              >
                 {experiment_intro as string}
               </p>
               {/* <img

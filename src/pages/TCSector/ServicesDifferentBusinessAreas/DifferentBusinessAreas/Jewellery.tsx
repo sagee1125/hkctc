@@ -59,7 +59,7 @@ const multilingual = {
       <p className="text-body-m">
         Accredited laboratories in Hong Kong adopt the&nbsp;
         <a
-          aria-label="link"
+          aria-label="Standard Methods for Testing Fei Cui (Jadeite Jade) for Hong Kong - opens in a new tab"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const multilingual = {
         </a>
         &nbsp;and&nbsp;
         <a
-          aria-label="link"
+          aria-label="Standard Methods for Testing Diamond for Hong Kong - opens in a new tab"
           href="https://www.gahk.org/en/gemtest.asp"
           target="_blank"
           rel="noopener noreferrer"
@@ -84,7 +84,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Jewellery are
         available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -197,9 +197,9 @@ export const Jewellery: React.FC = () => {
           pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
         />
       </div>
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {page_text.testing_fei_cui as React.ReactNode}
-      </p>
+      </div>
       <ol className="mt-[24px] text-body-m">
         <li>{page_text.Authentication_fei_cui as React.ReactNode}</li>
         <br />
@@ -228,9 +228,9 @@ export const Jewellery: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {page_text.Laboratories_Accredited as React.ReactNode}
-      </p>
+      </div>
 
       <p className="text-body-m">
         {page_text.hk_accredited_lab as React.ReactNode}

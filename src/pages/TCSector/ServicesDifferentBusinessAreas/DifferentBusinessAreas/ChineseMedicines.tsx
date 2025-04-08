@@ -78,7 +78,7 @@ const multilingual = {
         The laboratories providing accredited testing services on Chinese
         Medicines are available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HKAS's website  – opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -208,7 +208,6 @@ export const ChineseMedicines: React.FC = () => {
                 <button
                   key={index}
                   tabIndex={0}
-                  role="button"
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
                     setActiveButton(index);
@@ -352,7 +351,6 @@ export const ChineseMedicines: React.FC = () => {
               return (
                 <button
                   tabIndex={0}
-                  role="button"
                   key={index}
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {
@@ -463,9 +461,9 @@ export const ChineseMedicines: React.FC = () => {
         pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
       />
 
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {page_text.Benefits_Chinese_Medicines as React.ReactNode}
-      </p>
+      </div>
 
       <div className="text-body-m text-justify">
         {page_text.hk_international_trade as React.ReactNode}
@@ -495,9 +493,9 @@ export const ChineseMedicines: React.FC = () => {
       </div>
 
       <hr className="my-[24px]" />
-      <p className="text-heading-l">
+      <div className="text-heading-l">
         {page_text.Laboratories_Accredited as React.ReactNode}
-      </p>
+      </div>
       {page_text.HKAS_website}
       <hr className="mb-[24px]" />
 

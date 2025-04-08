@@ -49,7 +49,7 @@ export const MediaTemplate: React.FC<
         >
           <p className="text-heading-m">{title}</p>
           {date && (
-            <div className="flex flex-row gap-[8px] items-center">
+            <div className="flex flex-row gap-[8px] items-center" tabIndex={0}>
               <img
                 className="w-[16px] h-[16px]"
                 src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}

@@ -474,7 +474,9 @@ export const ProfileAndRole: React.FC = () => {
           {from_wider_perspective as string}
         </p>
         <hr className="my-[24px]" />
-        <p className="text-heading-l mb-[24px]">{statistics_data as string}</p>
+        <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+          {statistics_data as string}
+        </p>
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
             const { title, imagePath, date, link } = item;
