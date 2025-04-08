@@ -1,6 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import React, { useState } from "react";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 const multilingual = {
   en: {
     enquiries: `Enquiries`,
@@ -67,6 +67,7 @@ export const EmailBox: React.FC = () => {
         <div className="text-body-m">{contact as string}</div>
         <input
           placeholder={name as string}
+          aria-label={name as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -76,6 +77,7 @@ export const EmailBox: React.FC = () => {
         />
         <input
           placeholder={email as string}
+          aria-label={email as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 2,
@@ -85,7 +87,7 @@ export const EmailBox: React.FC = () => {
         />
         <textarea
           placeholder={write_down as string}
-          aria-label={"Write down your message"}
+          aria-label={write_down as string}
           className="w-full p-[16px] resize-none overflow-y-auto"
           style={{
             lineHeight: 1.5,
@@ -99,7 +101,6 @@ export const EmailBox: React.FC = () => {
             lineHeight: 1.5,
           }}
           tabIndex={0}
-          role="button"
           disabled={loading}
           onClick={handleButtonClick}
         >

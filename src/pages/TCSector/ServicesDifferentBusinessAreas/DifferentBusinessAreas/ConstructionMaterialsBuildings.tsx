@@ -787,7 +787,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               {/* Previous Button */}
               <button
                 tabIndex={0}
-                role="button"
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 0}
                 style={{
@@ -796,13 +795,17 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   color: currentPage === 0 ? "#AAAAAA" : "black",
                 }}
               >
-                <Icon icon="mingcute:arrow-left-fill" width="24" height="24" />
+                <Icon
+                  icon="mingcute:arrow-left-fill"
+                  width="24"
+                  height="24"
+                  aria-label={"arrow icon"}
+                />
               </button>
 
               {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
                 <button
                   tabIndex={0}
-                  role="button"
                   key={pageIndex}
                   onClick={() => setCurrentPage(pageIndex)}
                   style={
@@ -818,7 +821,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
               {/* Next Button */}
               <button
                 tabIndex={0}
-                role="button"
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={currentPage === maxPage}
                 style={{
@@ -827,7 +829,12 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   color: currentPage === maxPage ? "#AAAAAA" : "black",
                 }}
               >
-                <Icon icon="mingcute:arrow-right-fill" width="24" height="24" />
+                <Icon
+                  icon="mingcute:arrow-right-fill"
+                  width="24"
+                  height="24"
+                  aria-label={"arrow icon"}
+                />
               </button>
             </div>
             <div style={{ overflowX: "auto" }}>

@@ -66,7 +66,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
               <span className="text-highlight-m">{item.label}</span>
             )}
             {index < items.length - 1 && (
-              <Icon icon="weui:arrow-outlined" className="w-4 h-4 text-grey" />
+              <Icon
+                icon="weui:arrow-outlined"
+                className="w-4 h-4 text-grey"
+                aria-label={"arrow"}
+              />
             )}
           </div>
         ))}

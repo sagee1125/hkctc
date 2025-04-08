@@ -195,7 +195,6 @@ export const Navigator: React.FC = () => {
                           navigate(item.nav);
                         }}
                         tabIndex={0}
-                        role="button"
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
                         {getSingleText(item.title, item.titleCN)}
@@ -253,6 +252,7 @@ export const Navigator: React.FC = () => {
                     onClick={() => {
                       navigate("/");
                     }}
+                    aria-label={"hkctc logo"}
                   />
                 </div>
                 {isPC ? (
@@ -293,6 +293,7 @@ export const Navigator: React.FC = () => {
                             </p>
                             <Icon
                               icon="oui:arrow-down"
+                              aria-label={"arrow"}
                               style={{
                                 display: ifHideArrow ? "none" : "block",
                                 color:
@@ -322,6 +323,7 @@ export const Navigator: React.FC = () => {
                           <Icon
                             icon="ri:search-line"
                             className="h-[32px] w-[32px] text-[#333333]"
+                            aria-label={"search icon"}
                           />
                         </div>
 
@@ -383,11 +385,11 @@ export const Navigator: React.FC = () => {
                       {openMobileDropDown ? (
                         <svg
                           tabIndex={0}
-                          role="none"
+                          role="img"
                           xmlns="https://www.w3.org/2000/svg"
                           className="h-[22px] w-[22px]"
                           viewBox="0 0 22 22"
-                          fill="none"
+                          fill="button"
                           aria-label="close"
                         >
                           <path
@@ -401,7 +403,7 @@ export const Navigator: React.FC = () => {
                       ) : (
                         <svg
                           tabIndex={0}
-                          role="none"
+                          role="button"
                           xmlns="https://www.w3.org/2000/svg"
                           className="h-[32px] w-[32px]"
                           viewBox="0 0 24 20"
@@ -508,6 +510,7 @@ export const Navigator: React.FC = () => {
                                         </p>
                                         <Icon
                                           icon="icon-park-outline:right"
+                                          aria-label={"arrow icon"}
                                           style={{
                                             display: ifHideArrow
                                               ? "none"
@@ -533,6 +536,7 @@ export const Navigator: React.FC = () => {
                                 >
                                   <Icon
                                     icon="icon-park-outline:left"
+                                    aria-label={"arrow icon"}
                                     className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
                                     tabIndex={0}
                                     role="button"
@@ -808,7 +812,6 @@ export const Navigator: React.FC = () => {
                                   {({ active }) => (
                                     <button
                                       tabIndex={0}
-                                      role="button"
                                       key={eoIndex}
                                       onClick={() => {
                                         setSelectedExploreOption(item.title);
