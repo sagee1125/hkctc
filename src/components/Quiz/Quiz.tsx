@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ArrowForwardIos } from "@mui/icons-material";
-import { t2s } from "chinese-s2t";
 import { QUIZ, QuizStage, type QuizAnswers } from "./types";
 import { quizInteractionCNMap, quizInteractionMap } from "./const";
 import { Language, useSettings } from "../../context";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { navItemEnum } from "../../const";
 import { useNavigate } from "react-router-dom";
 
