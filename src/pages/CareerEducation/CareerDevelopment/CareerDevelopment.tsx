@@ -2,7 +2,7 @@ import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { MEDIA_TYPE, navItemEnum } from "../../../const";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 const multilingual = {
   en: {

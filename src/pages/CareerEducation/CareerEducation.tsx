@@ -23,7 +23,7 @@ import { CareerOpportunities } from "./CareerOpportunities/CareerOpportunities";
 import { ProgrammesCourses } from "./ProgrammesCourses/ProgrammesCourses";
 import { QualificationsFramework } from "./QualificationsFramework/QualificationsFramework";
 import { LearningTeachingResources } from "./LearningTeachingResources/LearningTeachingResources";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const sidebarComponent: Partial<
   Record<
