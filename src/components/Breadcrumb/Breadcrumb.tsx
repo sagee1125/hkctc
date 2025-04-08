@@ -31,7 +31,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   <span
                     className="text-body-m cursor-pointer truncate max-w-[20ch]"
                     tabIndex={0}
-                    role="button"
+                    role="link"
                     onClick={() => {
                       window.scroll({
                         top: 0,
@@ -49,7 +49,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                 <span
                   className="text-body-m cursor-pointer truncate max-w-[20ch]"
                   tabIndex={0}
-                  role="button"
+                  role="link"
                   onClick={() => {
                     const element = document.getElementById("breadcrumb");
                     if (element) {

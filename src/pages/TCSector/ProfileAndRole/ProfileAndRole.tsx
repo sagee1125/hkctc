@@ -396,7 +396,6 @@ export const ProfileAndRole: React.FC = () => {
               <button
                 key={index}
                 tabIndex={0}
-                role="button"
                 className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

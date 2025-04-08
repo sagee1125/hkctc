@@ -169,7 +169,9 @@ export const EducatorsStudentsContent: React.FC = () => {
 
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{career_opportunities as string}</p>
+          <p className="text-heading-l" role="heading" aria-level={10}>
+            {career_opportunities as string}
+          </p>
           <div>
             {careerData.map((item, index) => {
               const { title, imgUrl, link } = item;
@@ -209,6 +211,8 @@ export const EducatorsStudentsContent: React.FC = () => {
             role="button"
           >
             <div
+              role="button"
+              aria-label="img"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Career_Charlie.png)`,
                 display: "flex",

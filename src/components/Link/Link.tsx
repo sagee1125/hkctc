@@ -44,7 +44,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
         underline && "underline underline-offset-4"
       } text-[${colorMapping[linkColor as LinkColor] ?? linkColor}]`}
       tabIndex={0}
-      role="button"
+      role="link"
       onClick={handleOpenOuterLink}
     >
       {children}

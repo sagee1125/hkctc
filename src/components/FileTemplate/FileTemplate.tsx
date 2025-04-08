@@ -75,7 +75,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
               rel="noopener noreferrer"
               className="text-highlight-m cursor-pointer"
               tabIndex={0}
-              role="button"
+              role="link"
             >
               {title}
             </a>

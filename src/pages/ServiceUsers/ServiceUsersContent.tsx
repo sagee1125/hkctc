@@ -24,6 +24,7 @@ const multilingual = {
         scope of accreditation, please visit&nbsp;
         <a
           aria-label="link"
+          role="link"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -264,7 +265,9 @@ export const ServiceUsersContent: React.FC = () => {
       {/* Others & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{others as string}</p>
+          <p className="text-heading-l" role="heading" aria-level={10}>
+            {others as string}
+          </p>
 
           <div className="mb-[32px]">
             {othersData.map((item, index) => {

@@ -40,6 +40,7 @@ export const PhotoPanel: React.FC = () => {
             ...imgBox,
             cursor: "pointer",
           }}
+          role="button"
           onClick={() => {
             navigate(
               `/career_and_education?section=${navItemEnum.learning_teaching_resources}`
@@ -56,6 +57,7 @@ export const PhotoPanel: React.FC = () => {
         <div className="grid grid-cols-2 gap-[24px]">
           <div
             className="col-span-2"
+            role="button"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
               ...imgBox,
@@ -80,6 +82,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
               cursor: "pointer",
             }}
+            role="button"
             onClick={() => {
               navigate(
                 `/events-promotion?section=${navItemEnum.qualifications_framework}`
@@ -100,6 +103,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
               cursor: "pointer",
             }}
+            role="button"
             onClick={() => {
               navigate(
                 `/events-promotion?section=${navItemEnum.programmes_and_courses}`
@@ -129,6 +133,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
             cursor: "pointer",
           }}
+          role="button"
           onClick={() => {
             navigate(
               `/events-promotion?section=${navItemEnum.learning_teaching_resources}`
@@ -164,6 +169,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
             cursor: "pointer",
           }}
+          role="button"
           onClick={() => {
             navigate(
               `/events-promotion?section=${navItemEnum.student_competition}`
@@ -199,6 +205,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
             cursor: "pointer",
           }}
+          role="button"
           onClick={() => {
             navigate(
               `/events-promotion?section=${navItemEnum.qualifications_framework}`
@@ -235,6 +242,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
             cursor: "pointer",
           }}
+          role="button"
           onClick={() => {
             navigate(
               `/events-promotion?section=${navItemEnum.programmes_and_courses}`
