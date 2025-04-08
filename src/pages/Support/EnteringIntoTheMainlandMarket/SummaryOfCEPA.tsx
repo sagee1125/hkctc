@@ -27,7 +27,7 @@ const multilingual = {
 };
 
 export const SummaryOfCEPA: React.FC = () => {
-  const { language, getPageText, getSingleNode } = useSettings();
+  const { language, getPageText, getSingleNode, processLink } = useSettings();
   const isEn = language === Language.EN;
   const isSimple = language === Language.ZH_CN;
 
@@ -60,7 +60,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -82,7 +84,9 @@ export const SummaryOfCEPA: React.FC = () => {
               <li className="text-body-m">
                 <a
                   aria-label="link"
-                  href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  href={processLink(
+                    "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -100,7 +104,9 @@ export const SummaryOfCEPA: React.FC = () => {
               <li className="text-body-m">
                 <a
                   aria-label="link"
-                  href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  href={processLink(
+                    "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -199,7 +205,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -219,7 +227,9 @@ export const SummaryOfCEPA: React.FC = () => {
               <li className="text-body-m">
                 <a
                   aria-label="link"
-                  href="https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  href={processLink(
+                    "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -236,7 +246,9 @@ export const SummaryOfCEPA: React.FC = () => {
               <li className="text-body-m">
                 <a
                   aria-label="link"
-                  href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  href={processLink(
+                    "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-[#00E]"
@@ -338,7 +350,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <a
             aria-label="link"
             className="text-[#00E] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            href={processLink(
+              "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -372,7 +386,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -384,7 +400,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -417,7 +435,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <a
             aria-label="link"
             className="text-[#00E] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            href={processLink(
+              "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -481,7 +501,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <a
             aria-label="link"
             className="text-[#00E] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            href={processLink(
+              "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -514,7 +536,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -526,7 +550,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <li className="text-body-m">
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -559,7 +585,9 @@ export const SummaryOfCEPA: React.FC = () => {
           <a
             aria-label="link"
             className="text-[#00E] text-body-m underline"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            href={processLink(
+              "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >

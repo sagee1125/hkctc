@@ -98,7 +98,7 @@ const multilingual = {
 //   </p>,
 // ];
 export const SupplementXtoCEPAClauses: React.FC = () => {
-  const { getSingleNode, getPageText, language } = useSettings();
+  const { getSingleNode, getPageText, language, processLink } = useSettings();
   const page_text = getPageText(multilingual);
 
   const specificCommitments_CN = [
@@ -115,7 +115,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
           className="underline text-[#00E]"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+          href={processLink(
+            "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+          )}
         >
           實施指南
         </a>
@@ -131,7 +133,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
         className="underline text-[#00E] !text-italic-s italic"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+        href={processLink(
+          "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+        )}
       >
         實施指南
       </a>
@@ -156,7 +160,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
           className="underline text-[#00E]"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+          href={processLink(
+            "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+          )}
         >
           Implementation Guide
         </a>
@@ -173,7 +179,9 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
         className="underline text-[#00E] !text-italic-s italic"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+        href={processLink(
+          "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
+        )}
       >
         (See&nbsp;Implementation Guide&nbsp;for details.)
       </a>
