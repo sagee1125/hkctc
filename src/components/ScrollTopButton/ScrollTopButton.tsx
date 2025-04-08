@@ -44,6 +44,7 @@ export const ScrollTopButton: React.FC = () => {
             behavior: "smooth",
           });
         }}
+        aria-label="scroll to top"
       >
         <svg
           tabIndex={0}

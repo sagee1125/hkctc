@@ -415,9 +415,9 @@ export const AwardScheme23to24: React.FC = () => {
           }
         />
       </div>
-      <h2 className="text-heading-l my-[24px]" id="award-ceremony">
+      <div className="text-heading-l my-[24px]" id="award-ceremony">
         {processText(page_text.award_ceremony)}
-      </h2>
+      </div>
       {/* Ceremony1 */}
       <div className="flex items-center">
         <img
