@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { type FileTemplateProps } from "./types";
 import { useSettings } from "../../context";
 
-//   pls rewrite the pdfHyperlink without `https://www.hkctc.gov.hk`
 export const FileTemplate: React.FC<FileTemplateProps> = ({
   title,
   titleHyperlink,
@@ -19,13 +18,14 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
     if (!pdfHyperlink) return;
     await withLoading(async () => {
       try {
-        const response = await fetch("/hkctc-proxy" + pdfHyperlink);
-        const pdfBlob = await response.blob();
         const link = document.createElement("a");
-        link.href = URL.createObjectURL(pdfBlob);
+        link.href = pdfHyperlink;
+
         const originalFileName =
           pdfHyperlink.split("/").pop() || title.replaceAll(" ", "_") + ".pdf";
+
         link.download = decodeURIComponent(originalFileName);
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -116,9 +116,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
             <iframe
               className="w-full h-full pt-[24px]"
               title={title}
-              src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-                `https://www.hkctc.gov.hk` + pdfHyperlink
-              )}&embedded=true&chrome=false`}
+              src={pdfHyperlink}
             />
             <div className="absolute bottom-4 right-4 flex gap-2">
               <button
