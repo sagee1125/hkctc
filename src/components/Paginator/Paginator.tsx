@@ -53,7 +53,12 @@ export const Paginator: React.FC<PaginatorProps> = ({
           color: currentPage === 0 ? "#AAAAAA" : "black",
         }}
       >
-        <Icon icon="mingcute:arrow-left-fill" width="24" height="24" />
+        <Icon
+          icon="mingcute:arrow-left-fill"
+          width="24"
+          height="24"
+          aria-label={"arrow icon"}
+        />
       </button>
 
       {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
@@ -84,7 +89,12 @@ export const Paginator: React.FC<PaginatorProps> = ({
           color: currentPage === maxPage ? "#AAAAAA" : "black",
         }}
       >
-        <Icon icon="mingcute:arrow-right-fill" width="24" height="24" />
+        <Icon
+          icon="mingcute:arrow-right-fill"
+          width="24"
+          height="24"
+          aria-label={"arrow icon"}
+        />
       </button>
     </div>
   );

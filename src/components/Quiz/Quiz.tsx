@@ -112,7 +112,11 @@ export const Quiz: React.FC = () => {
                   >
                     {getSingleText(quick_quiz as string, quick_quiz as string)}
                   </p>
-                  <p className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}>
+                  <p
+                    className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}
+                    role="heading"
+                    aria-level={10}
+                  >
                     {getSingleText(
                       quizData.question as string,
                       quizData.question as string
@@ -203,7 +207,7 @@ export const Quiz: React.FC = () => {
                       >
                         <svg
                           tabIndex={0}
-                          role="none"
+                          role="img"
                           xmlns="https://www.w3.org/2000/svg"
                           width="24"
                           height="24"
@@ -243,7 +247,7 @@ export const Quiz: React.FC = () => {
                           <svg
                             aria-label="icon"
                             tabIndex={0}
-                            role="none"
+                            role="img"
                             xmlns="https://www.w3.org/2000/svg"
                             width="15"
                             height="24"
@@ -276,7 +280,7 @@ export const Quiz: React.FC = () => {
                         >
                           <svg
                             tabIndex={0}
-                            role="none"
+                            role="img"
                             aria-label="icon"
                             xmlns="https://www.w3.org/2000/svg"
                             width="15"
@@ -332,7 +336,7 @@ export const Quiz: React.FC = () => {
                       >
                         <svg
                           tabIndex={0}
-                          role="none"
+                          role="img"
                           aria-label="icon"
                           xmlns="https://www.w3.org/2000/svg"
                           width="24"
@@ -368,7 +372,7 @@ export const Quiz: React.FC = () => {
                     >
                       <svg
                         tabIndex={0}
-                        role="none"
+                        role="img"
                         aria-label="icon"
                         xmlns="https://www.w3.org/2000/svg"
                         width="24"
@@ -431,7 +435,7 @@ export const Quiz: React.FC = () => {
                     >
                       <svg
                         tabIndex={0}
-                        role="none"
+                        role="img"
                         aria-label="icon"
                         xmlns="https://www.w3.org/2000/svg"
                         width="24"

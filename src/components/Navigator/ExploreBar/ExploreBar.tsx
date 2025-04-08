@@ -156,6 +156,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                     <Icon
                       icon={iconName}
                       width={20}
+                      aria-label={iconName}
                       height={20}
                       className={hoverColor}
                     />

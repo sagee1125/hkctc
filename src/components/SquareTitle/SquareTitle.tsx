@@ -21,7 +21,8 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
         redirectTo ? "cursor-pointer" : ""
       }`}
       tabIndex={0}
-      role="button"
+      role="heading"
+      aria-level={10}
       onClick={() => {
         if (redirectTo) {
           window.scroll({
@@ -36,14 +37,19 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
         className={`mt-[8px] h-[15px] w-[15px] bg-newPrimary`}
         style={{ flexShrink: 0 }}
       />
-      <div className={"text-heading-l"} tabIndex={0} role="heading">
+      <div
+        className={"text-heading-l"}
+        tabIndex={0}
+        role="heading"
+        aria-level={10}
+      >
         {title}
       </div>
       {showArrowIcon && (
         <svg
           aria-label="arrow icon"
           tabIndex={0}
-          role="none"
+          role="img"
           xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="24"

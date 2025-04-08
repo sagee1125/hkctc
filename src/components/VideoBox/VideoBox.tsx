@@ -164,7 +164,13 @@ export const VideoBox: React.FC = () => {
                   <div className="text-white pr-[26em]">
                     {currentVideoIndex === 0 && (
                       <>
-                        <p className="text-heading-xl">{welcome as string}</p>
+                        <p
+                          className="text-heading-xl"
+                          role="heading"
+                          aria-level={10}
+                        >
+                          {welcome as string}
+                        </p>
 
                         <p className="!text-body-m py-[24px]">
                           {innoCarnival as string}
@@ -178,6 +184,7 @@ export const VideoBox: React.FC = () => {
                     <>
                       <Icon
                         icon="icons8:left-squared"
+                        aria-label={"arrow icon"}
                         className="text-white cursor-pointer"
                         tabIndex={0}
                         role="button"
@@ -190,6 +197,7 @@ export const VideoBox: React.FC = () => {
                       />
                       <Icon
                         icon="icons8:right-squared"
+                        aria-label={"arrow icon"}
                         className="text-white cursor-pointer"
                         tabIndex={0}
                         role="button"

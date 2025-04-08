@@ -495,6 +495,7 @@ export const Footer: React.FC = () => {
             }}
           >
             <Logo
+              aria-label="hkctc logo"
               style={{ filter: "brightness(0) invert(1)", cursor: "pointer" }}
               onClick={() => {
                 window.scroll({
@@ -505,6 +506,7 @@ export const Footer: React.FC = () => {
             />
             <Icon
               icon="mage:camera-2"
+              aria-label={"instagram icon"}
               className="h-[38px] w-[38px] text-white cursor-pointer"
               tabIndex={0}
               role="button"
@@ -514,6 +516,7 @@ export const Footer: React.FC = () => {
             />
             <Icon
               icon="fa6-brands:facebook-f"
+              aria-label={"facebook icon"}
               className="h-[32px] w-[32px] text-white cursor-pointer"
               tabIndex={0}
               role="button"
@@ -582,6 +585,7 @@ export const Footer: React.FC = () => {
                           >
                             <Icon
                               icon="weui:arrow-outlined"
+                              aria-label={"arrow icon"}
                               className="h-[36px] w-[10px] text-white"
                               onClick={() => {
                                 if (sub.link) {
@@ -663,6 +667,7 @@ export const Footer: React.FC = () => {
                                   >
                                     <Icon
                                       icon="weui:arrow-outlined"
+                                      aria-label={"arrow icon"}
                                       className="h-full w-[10px] text-white"
                                     />
 
@@ -790,6 +795,7 @@ export const Footer: React.FC = () => {
                 role="button"
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
+                aria-label={"hkctc logo"}
               />
             </div>
           ))}

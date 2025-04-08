@@ -629,6 +629,7 @@ export const Publications: React.FC = () => {
           <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
             <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
+              role="button"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
                 backgroundSize: "cover",
@@ -712,6 +713,7 @@ export const Publications: React.FC = () => {
                 cursor: "pointer",
                 overflow: "hidden",
               }}
+              role="button"
               onClick={() => {
                 navigate(
                   `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`
@@ -810,11 +812,15 @@ export const Publications: React.FC = () => {
                   />
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
                     {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
-                    <div className="z-20 pl-[20px] text-heading-l text-center w-full">
+                    <div
+                      className="z-20 pl-[20px] text-heading-l text-center w-full"
+                      tabIndex={0}
+                    >
                       {getSingleText(title, titleCN)}
                     </div>
                     <div className="z-20 pr-[20px]">
                       <Icon
+                        aria-label="icon"
                         icon={icon}
                         style={{ height: "24px", width: "24px" }}
                       />
