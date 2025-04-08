@@ -9,7 +9,7 @@ import {
 import { ExploreDetailBar } from "../../components/Navigator";
 
 import { IndustryContent } from "./IndustryContent";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -38,7 +38,9 @@ export const Industry: React.FC = () => {
         title={industry as string}
         titleTheme="growthfulGreen"
         description={desc as string}
-        barBackgroundImg="industry/banner_bg_2.png"
+        barBackgroundImg={
+          isPC ? "industry/banner_bg_1.png" : "industry/banner_bg_2.png"
+        }
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (

@@ -161,11 +161,15 @@ export const VideoBox: React.FC = () => {
             >
               {isPC && (
                 <div className="text-white pr-[26em]">
-                  <p className="text-heading-xl">{welcome as string}</p>
+                  {currentVideoIndex === 0 && (
+                    <>
+                      <p className="text-heading-xl">{welcome as string}</p>
 
-                  <p className="!text-body-m py-[24px]">
-                    {innoCarnival as string}
-                  </p>
+                      <p className="!text-body-m py-[24px]">
+                        {innoCarnival as string}
+                      </p>
+                    </>
+                  )}
                 </div>
               )}
               <div className="flex flex-row">
@@ -244,12 +248,4 @@ const progressBarStyle: React.CSSProperties = {
   height: "100%",
   background: "#D1E39B",
   transition: "width 0.1s ease-out",
-};
-
-const buttonStyle: React.CSSProperties = {
-  padding: "10px 20px",
-  backgroundColor: "#FFFFFF",
-  color: "#000000",
-  cursor: "pointer",
-  border: "none",
 };
