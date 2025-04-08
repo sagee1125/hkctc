@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
 
 const Agreement: React.FC = () => {
+  const { language, getSingleNode, getSingleText, processLink } = useSettings();
+
   const agreementQuestion: Array<{
     question: string;
     answer: React.ReactNode;
@@ -22,7 +24,9 @@ const Agreement: React.FC = () => {
             According to the&nbsp;
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -100,7 +104,9 @@ const Agreement: React.FC = () => {
             《服務貿易協議》中與檢測認證相關的條款於二○一九年十一月獲修訂。根據二○二○年五月公布的相關
             <a
               aria-label="link"
-              href="https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              href={processLink(
+                "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -144,8 +150,6 @@ const Agreement: React.FC = () => {
       ),
     },
   ];
-
-  const { language, getSingleNode, getSingleText } = useSettings();
 
   const questions =
     language === Language.EN ? agreementQuestion : agreementQuestionCN;
