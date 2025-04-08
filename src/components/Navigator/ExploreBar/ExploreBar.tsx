@@ -127,7 +127,6 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
           >
             <p className="text-highlight-s">{explore_as as string}</p>
             <svg
-              tabIndex={0}
               role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="12"

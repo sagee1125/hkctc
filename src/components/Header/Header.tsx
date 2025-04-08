@@ -13,7 +13,7 @@ export const HeaderSocialMedia: React.FC = () => {
         icon="mage:camera-2"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         tabIndex={0}
-        role="button"
+        role="link"
         aria-label={"instagram icon"}
         onClick={() => {
           window.open("https://www.instagram.com/hkctcgovhk/");
@@ -23,7 +23,7 @@ export const HeaderSocialMedia: React.FC = () => {
         icon="fa6-brands:facebook-f"
         tabIndex={0}
         aria-label={"facebook icon"}
-        role="button"
+        role="link"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         onClick={() => {
           window.open("https://www.facebook.com/hkctcgovhk");

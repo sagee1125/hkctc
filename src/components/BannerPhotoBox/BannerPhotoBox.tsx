@@ -22,7 +22,7 @@ export const BannerPhotoBox: React.FC<BannerPhotoBoxProps> = ({ src }) => {
         overflow: "hidden",
       }}
     >
-      <div style={bgStyle}>
+      <div style={bgStyle} role="img">
         <div style={overlayStyle} />
         <div className={`bg-white h-[${squareSize}px] w-[${squareSize}px]`} />
       </div>

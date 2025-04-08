@@ -29,7 +29,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   };
 
   return (
-    <div style={dynamicBarStyle}>
+    <div style={dynamicBarStyle} role="button">
       <div style={overlayStyle} />
       <div
         className="flex flex-col gap-[4px]"
@@ -38,7 +38,11 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
           zIndex: 10,
         }}
       >
-        <p className={classNames("text-heading-xl", `text-${titleTheme}`)}>
+        <p
+          className={classNames("text-heading-xl", `text-${titleTheme}`)}
+          role="heading"
+          aria-level={10}
+        >
           {title}
         </p>
         <p className="text-white text-light">{description}</p>

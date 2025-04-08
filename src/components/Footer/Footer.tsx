@@ -496,6 +496,7 @@ export const Footer: React.FC = () => {
           >
             <Logo
               aria-label="hkctc logo"
+              role="img"
               style={{ filter: "brightness(0) invert(1)", cursor: "pointer" }}
               onClick={() => {
                 window.scroll({
@@ -509,7 +510,7 @@ export const Footer: React.FC = () => {
               aria-label={"instagram icon"}
               className="h-[38px] w-[38px] text-white cursor-pointer"
               tabIndex={0}
-              role="button"
+              role="link"
               onClick={() => {
                 window.open("https://www.instagram.com/hkctcgovhk/");
               }}
@@ -519,7 +520,7 @@ export const Footer: React.FC = () => {
               aria-label={"facebook icon"}
               className="h-[32px] w-[32px] text-white cursor-pointer"
               tabIndex={0}
-              role="button"
+              role="link"
               onClick={() => {
                 window.open("https://www.facebook.com/hkctcgovhk");
               }}
@@ -557,7 +558,7 @@ export const Footer: React.FC = () => {
                     <p
                       className="text-heading-l cursor-pointer"
                       tabIndex={0}
-                      role="button"
+                      role="link"
                       onClick={() => {
                         if (col.link) {
                           navigate(col.link);
@@ -581,11 +582,12 @@ export const Footer: React.FC = () => {
                           <div
                             className="flex flex-row gap-[8px] items-center cursor-pointer"
                             tabIndex={0}
-                            role="button"
+                            role="img"
                           >
                             <Icon
                               icon="weui:arrow-outlined"
                               aria-label={"arrow icon"}
+                              role="link"
                               className="h-[36px] w-[10px] text-white"
                               onClick={() => {
                                 if (sub.link) {
@@ -610,7 +612,7 @@ export const Footer: React.FC = () => {
                                 <li
                                   className="cursor-pointer"
                                   tabIndex={0}
-                                  role="button"
+                                  role="link"
                                   key={index}
                                   onClick={() => {
                                     if (item.link) {
@@ -654,7 +656,7 @@ export const Footer: React.FC = () => {
                                   <div
                                     className="flex flex-row gap-[8px] items-center cursor-pointer h-[22px]"
                                     tabIndex={0}
-                                    role="button"
+                                    role="link"
                                     onClick={() => {
                                       if (sub.link) {
                                         navigate(sub.link);
@@ -683,7 +685,7 @@ export const Footer: React.FC = () => {
                                         <li
                                           className="cursor-pointer"
                                           tabIndex={0}
-                                          role="button"
+                                          role="link"
                                           key={index}
                                           onClick={() => {
                                             if (item.link) {
@@ -724,7 +726,7 @@ export const Footer: React.FC = () => {
                   key={index}
                   className="text-body-s cursor-pointer"
                   tabIndex={0}
-                  role="button"
+                  role="link"
                   onClick={() => {
                     if (item.link) {
                       window.scroll({
@@ -750,7 +752,7 @@ export const Footer: React.FC = () => {
                   key={index}
                   className="text-body-s cursor-pointer"
                   tabIndex={0}
-                  role="button"
+                  role="link"
                   onClick={() => {
                     if (item.link) {
                       window.scroll({
@@ -792,7 +794,7 @@ export const Footer: React.FC = () => {
               <img
                 className="object-fit cursor-pointer"
                 tabIndex={0}
-                role="button"
+                role="img"
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
                 aria-label={"hkctc logo"}

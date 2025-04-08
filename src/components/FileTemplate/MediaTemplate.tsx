@@ -23,7 +23,7 @@ export const MediaTemplate: React.FC<
           isPC ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
         tabIndex={0}
-        role="button"
+        role="link"
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
@@ -68,7 +68,7 @@ export const MediaTemplate: React.FC<
           isPC ? "flex-col" : "flex-row"
         } h-auto gap-[24px] cursor-pointer`}
         tabIndex={0}
-        role="button"
+        role="link"
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}

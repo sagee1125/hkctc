@@ -153,7 +153,9 @@ export const GeneralPublicContent: React.FC = () => {
       {/* Materials & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px] flex flex-col gap-[24px]">
-          <p className="text-heading-l">{materials as string}</p>
+          <p className="text-heading-l" role="heading" aria-level={10}>
+            {materials as string}
+          </p>
           <div className="flex flex-col gap-[24px]">
             {materialsData.map((mat, index) => {
               const { title, imgUrl, link } = mat;
@@ -182,6 +184,8 @@ export const GeneralPublicContent: React.FC = () => {
           </div>
           <div>
             <div
+              role="button"
+              tabIndex={0}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",
@@ -225,6 +229,8 @@ export const GeneralPublicContent: React.FC = () => {
             role="button"
           >
             <div
+              role="button"
+              aria-label="image"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/comics_1.png)`,
                 display: "flex",

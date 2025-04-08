@@ -248,7 +248,7 @@ export const Navigator: React.FC = () => {
                       isPC ? "h-[54px] w-[141px]" : ""
                     } aspect-[141/54] cursor-pointer`}
                     tabIndex={0}
-                    role="button"
+                    role="img"
                     onClick={() => {
                       navigate("/");
                     }}
