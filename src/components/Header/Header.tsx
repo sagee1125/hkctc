@@ -14,6 +14,7 @@ export const HeaderSocialMedia: React.FC = () => {
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         tabIndex={0}
         role="button"
+        aria-label={"instagram icon"}
         onClick={() => {
           window.open("https://www.instagram.com/hkctcgovhk/");
         }}
@@ -21,6 +22,7 @@ export const HeaderSocialMedia: React.FC = () => {
       <Icon
         icon="fa6-brands:facebook-f"
         tabIndex={0}
+        aria-label={"facebook icon"}
         role="button"
         className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
         onClick={() => {
@@ -94,7 +96,11 @@ export const Header: React.FC = () => {
                 setOpenSearchInput(!openSearchInput);
               }}
             >
-              <Icon icon="ri:search-line" className="h-6 w-6 text-[#333333]" />
+              <Icon
+                icon="ri:search-line"
+                className="h-6 w-6 text-[#333333]"
+                aria-label={"search line"}
+              />
             </div>
             {openSearchInput && (
               <form noValidate onSubmit={formik.handleSubmit}>
