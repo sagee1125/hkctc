@@ -619,7 +619,6 @@ export const ResourcesReportsContent: React.FC = () => {
                 return (
                   <button
                     tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -665,7 +664,6 @@ export const ResourcesReportsContent: React.FC = () => {
                   return (
                     <button
                       tabIndex={0}
-                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -705,7 +703,6 @@ export const ResourcesReportsContent: React.FC = () => {
                 return (
                   <button
                     tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -743,7 +740,6 @@ export const ResourcesReportsContent: React.FC = () => {
                     return (
                       <button
                         tabIndex={0}
-                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -777,7 +773,6 @@ export const ResourcesReportsContent: React.FC = () => {
                     return (
                       <button
                         tabIndex={0}
-                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -1026,7 +1021,6 @@ export const ResourcesReportsContent: React.FC = () => {
                             {({ active }) => (
                               <button
                                 tabIndex={0}
-                                role="button"
                                 onClick={() => setSelectedItem(item)}
                                 className={`block w-full text-left px-4 py-3 text-sm ${
                                   active
@@ -1130,7 +1124,7 @@ export const ResourcesReportsContent: React.FC = () => {
             <svg
               aria-label="icon"
               tabIndex={0}
-              role="none"
+              role="img"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="22"

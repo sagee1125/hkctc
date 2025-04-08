@@ -84,6 +84,7 @@ export const Quiz: React.FC = () => {
           } bg-no-repeat relative transition-opacity duration-1000 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
+          role="button"
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/quiz/quiz_${
               quiz + 1

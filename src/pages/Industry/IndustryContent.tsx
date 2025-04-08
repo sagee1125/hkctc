@@ -170,7 +170,9 @@ export const IndustryContent: React.FC = () => {
       {/* Publications & Enquires */}
       <div className="flex flex-col">
         <div className="border-2 border-inherit p-[24px]">
-          <p className="text-heading-l">{publications as string}</p>
+          <p className="text-heading-l" role="heading" aria-level={10}>
+            {publications as string}
+          </p>
 
           <div>
             {publicationData.map((item, index) => {
@@ -205,6 +207,8 @@ export const IndustryContent: React.FC = () => {
             }}
           >
             <div
+              role="img"
+              aria-label="image"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/industry/20232014.png)`,
                 display: "flex",
@@ -225,6 +229,8 @@ export const IndustryContent: React.FC = () => {
             }}
           >
             <div
+              role="button"
+              tabIndex={0}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",

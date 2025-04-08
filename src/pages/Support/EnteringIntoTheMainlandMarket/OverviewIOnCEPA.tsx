@@ -50,6 +50,7 @@ const Agreement: React.FC = () => {
             organisations could be viewed at&nbsp;
             <a
               aria-label="link"
+              role="link"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
