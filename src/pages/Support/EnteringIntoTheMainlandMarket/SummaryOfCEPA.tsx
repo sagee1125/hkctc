@@ -134,7 +134,6 @@ export const SummaryOfCEPA: React.FC = () => {
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
             tabIndex={0}
-            role="button"
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);
@@ -272,7 +271,6 @@ export const SummaryOfCEPA: React.FC = () => {
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
             tabIndex={0}
-            role="button"
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);

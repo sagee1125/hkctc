@@ -50,7 +50,6 @@ const Agreement: React.FC = () => {
             organisations could be viewed at&nbsp;
             <a
               aria-label="link"
-              role="link"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -660,8 +659,7 @@ const multilingual = {
 };
 
 export const OverviewIOnCEPA: React.FC = () => {
-  const { isPC, language, getPageText, getSingleText, getSingleNode } =
-    useSettings();
+  const { isPC, getPageText, getSingleText, getSingleNode } = useSettings();
   const page_text = getPageText(multilingual);
   const [activeFAQType, setActiveFAQType] = useState<string>(
     Object.keys(faqMap)[0]
@@ -882,7 +880,6 @@ export const OverviewIOnCEPA: React.FC = () => {
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
             tabIndex={0}
-            role="button"
             className="text-highlight-m"
             onClick={() => {
               setTimelineCollapsed(!timelineCollapsed);
@@ -914,7 +911,6 @@ export const OverviewIOnCEPA: React.FC = () => {
             return (
               <button
                 tabIndex={0}
-                role="button"
                 key={index}
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

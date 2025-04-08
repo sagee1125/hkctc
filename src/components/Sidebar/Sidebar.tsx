@@ -218,7 +218,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 <ExpandMoreIcon
                   sx={{
                     fontSize: "24",
-                    color: "#7A7A7A",
+                    color: "#666666",
                     transform: expand ? undefined : "rotate(180deg)",
                     cursor: "pointer",
                     transition: "transform 0.3s ease-in-out",
