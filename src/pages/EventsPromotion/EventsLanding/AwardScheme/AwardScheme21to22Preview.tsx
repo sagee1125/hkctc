@@ -386,17 +386,17 @@ export const AwardScheme21to22Preview: React.FC<{
   return (
     <div className="w-full">
       <SquareTitle title={processText(page_text.title)} />
-      <h2 className="text-highlight-l my-[24px] text-[#666]">
+      <div className="text-highlight-l my-[24px] text-[#666]">
         {processText(page_text.result_announce)}
-      </h2>
-      <h3 className="text-body-m mb-[24px] text-justify">
+      </div>
+      <div className="text-body-m mb-[24px] text-justify">
         {processText(page_text.hkctc_launches_first)}
-      </h3>
+      </div>
       <hr />
 
-      <h2 className="text-heading-l my-[24px]" id="supporting_organizations">
+      <div className="text-heading-l my-[24px]" id="supporting_organizations">
         {processText(page_text.supporting_organisations)}
-      </h2>
+      </div>
       <div className="grid grid-cols-3 gap-[48px] p-[24px]">
         {supportingOrg.map((org, index) => {
           const { title, urlPath } = org;
@@ -603,9 +603,9 @@ export const AwardScheme21to22Preview: React.FC<{
         })}
       </div>
       <hr className="my-[24px]" />
-      <h2 className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]">
         {processText(page_text.award_ceremony_list)}
-      </h2>
+      </div>
       <div
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
         tabIndex={0}
