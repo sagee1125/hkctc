@@ -146,10 +146,10 @@ export const VideoBox: React.FC = () => {
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="flex flex-col jusity-between h-full">
+          <div className="flex flex-col justify-between h-full">
             {isPC && <div className="h-[50px] w-[50px] bg-newPrimary" />}
             <div
-              className="flex justify-between items-end py-10 px-[24px] mt-auto" // Added mt-auto for bottom alignment
+              className="flex flex-col items-center mt-auto w-full" // Added mt-auto for bottom alignment
               style={{
                 ...(!isPC
                   ? {}
@@ -159,57 +159,61 @@ export const VideoBox: React.FC = () => {
                     }),
               }}
             >
-              {isPC && (
-                <div className="text-white pr-[26em]">
-                  {currentVideoIndex === 0 && (
-                    <>
-                      <p className="text-heading-xl">{welcome as string}</p>
+              <div className="flex justify-between items-end py-10 px-[24px] mt-auto w-full max-w-[1440px]">
+                {isPC && (
+                  <div className="text-white pr-[26em]">
+                    {currentVideoIndex === 0 && (
+                      <>
+                        <p className="text-heading-xl">{welcome as string}</p>
 
-                      <p className="!text-body-m py-[24px]">
-                        {innoCarnival as string}
-                      </p>
+                        <p className="!text-body-m py-[24px]">
+                          {innoCarnival as string}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                )}
+                <div className="flex flex-row">
+                  {videoUrls.length > 1 ? (
+                    <>
+                      <Icon
+                        icon="icons8:left-squared"
+                        className="text-white cursor-pointer"
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          strokeWidth: "1px",
+                        }}
+                        onClick={() => handleSlide("prev")}
+                      />
+                      <Icon
+                        icon="icons8:right-squared"
+                        className="text-white cursor-pointer"
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          strokeWidth: "1px",
+                        }}
+                        onClick={() => handleSlide("next")}
+                      />
                     </>
+                  ) : (
+                    <div />
                   )}
                 </div>
-              )}
-              <div className="flex flex-row">
-                {videoUrls.length > 1 ? (
-                  <>
-                    <Icon
-                      icon="icons8:left-squared"
-                      className="text-white cursor-pointer"
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        strokeWidth: "1px",
-                      }}
-                      onClick={() => handleSlide("prev")}
-                    />
-                    <Icon
-                      icon="icons8:right-squared"
-                      className="text-white cursor-pointer"
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        strokeWidth: "1px",
-                      }}
-                      onClick={() => handleSlide("next")}
-                    />
-                  </>
-                ) : (
-                  <div />
-                )}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {!isPC && (
-        <div className="text-white bg-newPrimary p-[14px]">
-          <p className="text-highlight-m">{welcome as string}</p>
+      {!isPC && currentVideoIndex === 0 && (
+        <div className="bg-newPrimary p-[14px] w-full ">
+          <p className="text-highlight-m text-white ">{welcome as string}</p>
 
-          <p className="!text-body-xs pt-[16px]">{innoCarnival as string}</p>
+          <p className="!text-body-xs pt-[16px] text-white">
+            {innoCarnival as string}
+          </p>
         </div>
       )}
       {/* progress*/}
