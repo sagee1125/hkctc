@@ -2,12 +2,29 @@ import React, { useState } from "react";
 import { TC_SECTOR_STRENGTH_TEXT } from "../lang";
 import { SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
-import { type LanguageResources, useSettings } from "../../../context";
+import {
+  Language,
+  type LanguageResources,
+  useSettings,
+} from "../../../context";
 
 export const Strength: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const pageText = getPageText(TC_SECTOR_STRENGTH_TEXT);
+
+  const systemInternationalMapping: Record<Language, any> = {
+    [Language.EN]: (pageText.ROBUST as LanguageResources)
+      .SYSTEM_INTERNATIONAL_CONTENT,
+    [Language.ZH_TW]: (pageText.ROBUST as LanguageResources)
+      .SYSTEM_INTERNATIONAL_CONTENT,
+    [Language.ZH_CN]: `香港认可处已与过百个经济体系的认可机构（包括所有香港的主要贸易伙伴）签订互认协议，有关安排大大促进行业内获认可机构的检测和认证结果的认受性。有关详情请浏览<a
+                href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="text-decoration: underline; color: #00E;"
+              >香港认可处网页</a>。`,
+  };
 
   const strengthContent = [
     {
@@ -75,9 +92,7 @@ export const Strength: React.FC = () => {
         {
           label: (pageText.ROBUST as LanguageResources)
             .SYSTEM_INTERNATIONAL_TITLE,
-          value: [
-            (pageText.ROBUST as LanguageResources).SYSTEM_INTERNATIONAL_CONTENT,
-          ],
+          value: [systemInternationalMapping[language]],
         },
         {
           label: (pageText.ROBUST as LanguageResources).QUICK_RESPONSE_TITLE,

@@ -98,7 +98,7 @@ const multilingual = {
       <>
         獲香港認可處認可的玩具及兒童產品測試實驗所名單，請瀏覽
         <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -169,6 +169,31 @@ export const ToysChildrenProducts: React.FC = () => {
     />
   );
 
+  const bottomMapping: Record<Language, any> = {
+    [Language.EN]: bottom,
+    [Language.ZH_TW]: bottom,
+    [Language.ZH_CN]: (
+      <>
+        获香港认可处认可的玩具及儿童产品测试实验所名单，请浏览
+        <a
+          href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港认可处网页
+        </a>
+        。
+      </>
+    ),
+  };
+
+  const fileTemplateLink: Record<Language, string> = {
+    [Language.EN]: "/tc-sector/en/doc/toys_booklet_eng.pdf",
+    [Language.ZH_TW]: "/tc/doc/toys_booklet_tc.pdf",
+    [Language.ZH_CN]: "/sc/doc/toys_booklet_sc.pdf",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle} />
@@ -185,7 +210,7 @@ export const ToysChildrenProducts: React.FC = () => {
       <FileTemplate
         title={toys as string as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
-        pdfHyperlink="/en/doc/toys_booklet_eng.pdf"
+        pdfHyperlink={fileTemplateLink[language]}
       />
       <p className="text-heading-l my-[24px]">
         {benefits_of_toys as string as string}{" "}
@@ -214,7 +239,7 @@ export const ToysChildrenProducts: React.FC = () => {
       <hr className="my-[24px]" />
 
       <p className="text-heading-l mb-[24px]">{laboratories as string}</p>
-      <p className="text-body-m text-justify">{bottom as string}</p>
+      <p className="text-body-m text-justify">{bottomMapping[language]}</p>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/tc-sector?section=${navItemEnum.different_business_areas}`}

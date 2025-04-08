@@ -17,7 +17,7 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const multilingual = {
   en: {
@@ -139,7 +139,7 @@ const multilingual = {
       <>
         獲香港認可處認可的紡織及成衣測試實驗所名單，請瀏覽
         <a
-          href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+          href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -175,6 +175,31 @@ export const TextilesAndApparel: React.FC = () => {
     benefit_detail,
   } = page_text;
   const businessAreaTitle = title as BusinessAreaTitle;
+
+  const bottomMapping: Record<Language, any> = {
+    [Language.EN]: bottom,
+    [Language.ZH_TW]: bottom,
+    [Language.ZH_CN]: (
+      <>
+        获香港认可处认可的纺织及成衣测试实验所名单，请浏览
+        <a
+          href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E]"
+        >
+          香港认可处网页
+        </a>
+        。
+      </>
+    ),
+  };
+
+  const fileTemplateLink: Record<Language, string> = {
+    [Language.EN]: "/en/doc/textile_booklet_low_res_eng.pdf",
+    [Language.ZH_TW]: "/tc/doc/textile_booklet_low_res_chi.pdf",
+    [Language.ZH_CN]: "/sc/doc/textile_booklet_low_res_schi.pdf",
+  };
 
   const servicesForTextile: Array<{
     title: string;
@@ -234,7 +259,7 @@ export const TextilesAndApparel: React.FC = () => {
       <FileTemplate
         title={title as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
-        pdfHyperlink="/en/doc/textile_booklet_low_res_eng.pdf"
+        pdfHyperlink={fileTemplateLink[language]}
       />
       <p className="text-heading-l my-[24px]">
         {benefits_of as React.ReactNode}
@@ -263,7 +288,7 @@ export const TextilesAndApparel: React.FC = () => {
         {laboratories as React.ReactNode}
       </p>
       <p className="text-body-m pt-[24px] text-justify">
-        {bottom as React.ReactNode}
+        {bottomMapping[language] as React.ReactNode}
       </p>
       <hr className="my-[24px]" />
       <InternalBackButton
@@ -271,6 +296,7 @@ export const TextilesAndApparel: React.FC = () => {
       />
     </>
   );
+
   return (
     <div style={fullContainer}>
       <BannerPhotoBox
