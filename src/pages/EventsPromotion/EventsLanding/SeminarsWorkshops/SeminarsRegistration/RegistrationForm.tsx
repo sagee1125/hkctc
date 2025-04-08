@@ -140,7 +140,7 @@ export const RegistrationForm: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px]">
       <div>
-        <p className="text-highlight-s text-[#7A7A7A]">Join New Seminar</p>
+        <p className="text-highlight-s text-[#666666]">Join New Seminar</p>
         <p className="text-heading-l" tabIndex={0} role="heading">
           XXX Seminar - Registration
         </p>
@@ -182,6 +182,7 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="title"
+                label="title"
                 aria-label="title"
                 required
                 aria-required="true"
@@ -208,6 +209,7 @@ export const RegistrationForm: React.FC = () => {
                 name="firstName"
                 aria-label="firstName"
                 required
+                label="firstName"
                 aria-required="true"
                 value={registrationFormik.values.firstName}
                 onChange={registrationFormik.handleChange}
@@ -231,6 +233,7 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="lastName"
                 aria-label="lastName"
+                label="lastName"
                 required
                 aria-required="true"
                 value={registrationFormik.values.lastName}
@@ -256,6 +259,7 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="email"
+                label="email"
                 aria-label="email"
                 required
                 aria-required="true"
@@ -281,6 +285,7 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="verifyEmail"
                 aria-label="verifyEmail"
+                label="verifyEmail"
                 required
                 aria-required="true"
                 value={registrationFormik.values.verifyEmail}
@@ -305,6 +310,7 @@ export const RegistrationForm: React.FC = () => {
                 Position {processText("職位")}
               </div>
               <TextField
+                label="position"
                 name="position"
                 aria-label="position"
                 required
@@ -330,6 +336,7 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="organization"
+                label="organization"
                 aria-label="organization"
                 required
                 aria-required="true"
@@ -357,6 +364,7 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="telephoneNumber"
                 aria-label="telephoneNumber"
+                label="telephoneNumber"
                 required
                 aria-required="true"
                 value={registrationFormik.values.telephoneNumber}
@@ -380,8 +388,10 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <Select
                 name="country"
+                label="country"
                 aria-label="country"
                 required
+                role="option"
                 aria-required="true"
                 options={countryList}
                 value={registrationFormik.values.country}
@@ -405,6 +415,7 @@ export const RegistrationForm: React.FC = () => {
               </p>
               <div className="w-1/2 pr-[12px]">
                 <Select
+                  label="attendanceCertificate"
                   name="attendanceCertificate"
                   aria-label="attendanceCertificate"
                   required
@@ -433,6 +444,7 @@ export const RegistrationForm: React.FC = () => {
               </p>
               <div className="w-1/2 pr-[12px]">
                 <TextField
+                  label="fullNameAttendanceCertificate"
                   name="fullNameAttendanceCertificate"
                   required
                   aria-required="true"
@@ -499,6 +511,8 @@ export const RegistrationForm: React.FC = () => {
                       <TextField
                         name="otherIndustry"
                         required
+                        tabIndex={0}
+                        label="otherIndustry"
                         aria-required="true"
                         value={registrationFormik.values.otherIndustry}
                         onChange={registrationFormik.handleChange}
@@ -551,6 +565,7 @@ export const RegistrationForm: React.FC = () => {
                         name="otherIndustry"
                         aria-label="otherIndustry"
                         required
+                        label="otherIndustry"
                         aria-required="true"
                         value={registrationFormik.values.otherAboutSeminar}
                         onChange={registrationFormik.handleChange}

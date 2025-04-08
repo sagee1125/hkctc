@@ -7,6 +7,10 @@ export const TextField: React.FunctionComponent<TextFieldProps> = (
   return (
     <MTextField
       {...props}
+      InputLabelProps={{
+        shrink: false,
+        style: { display: "none" }, // 不顯示 label
+      }}
       sx={{
         ".MuiOutlinedInput-notchedOutline": {
           border: "1px solid #E0E0E0",

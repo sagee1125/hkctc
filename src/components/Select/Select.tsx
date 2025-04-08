@@ -29,6 +29,10 @@ export const Select: React.FunctionComponent<CustomSelectProps> = (
     <TextField
       {...rest}
       select
+      InputLabelProps={{
+        shrink: false,
+        style: { display: "none" }, // 不顯示 label
+      }}
       SelectProps={{
         MenuProps: {
           PaperProps: {

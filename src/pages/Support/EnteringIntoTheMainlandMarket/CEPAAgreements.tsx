@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 export enum CEPAAgreements_ids {
   agreement_on_trade_in_services = "agreement_on_trade_in_services",
@@ -1190,7 +1190,6 @@ export const CEPAAgreements: React.FC = () => {
                     return (
                       <button
                         tabIndex={0}
-                        role="button"
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
