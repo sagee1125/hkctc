@@ -589,10 +589,12 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
 
-      <p className="text-heading-l">{processText(page_text.test_cert_award)}</p>
-      <p className="text-body-m mt-[24px]">
+      <div className="text-heading-l">
+        {processText(page_text.test_cert_award)}
+      </div>
+      <div className="text-body-m mt-[24px]">
         {processText(page_text.test_cert_award_intro)}
-      </p>
+      </div>
 
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {AwardOneButtonList.map((btn, index) => {
@@ -618,7 +620,9 @@ export const AwardScheme: React.FC = () => {
         {awardMapOne[AwardOneButtonList[activeAwardOneButton]]}
       </div>
 
-      <p className="text-heading-l">{processText(page_text.excellent_award)}</p>
+      <div className="text-heading-l">
+        {processText(page_text.excellent_award)}
+      </div>
       <p className="text-body-m mt-[24px]">
         {processText(page_text.award_commends_individual)}
         <br />
@@ -654,7 +658,7 @@ export const AwardScheme: React.FC = () => {
 
       <hr />
 
-      <p className="text-heading-l mt-[24px]">
+      <p className="text-heading-l mt-[24px]" role="heading" aria-level={10}>
         {processText(page_text.frequent_questions)}
       </p>
       <div className="flex flex-wrap gap-[8px] my-[24px]">
@@ -693,7 +697,12 @@ export const AwardScheme: React.FC = () => {
         )}
       </div>
 
-      <p className="text-heading-l mt-[24px]" id="application">
+      <p
+        className="text-heading-l mt-[24px]"
+        id="application"
+        role="heading"
+        aria-level={10}
+      >
         {processText(page_text.application)}
       </p>
       <div className="w-full flex flex-col gap-[24px] mt-[24px]">
@@ -714,7 +723,12 @@ export const AwardScheme: React.FC = () => {
           );
         })}
       </div>
-      <p className="text-heading-l my-[24px]" id="publications">
+      <p
+        className="text-heading-l my-[24px]"
+        id="publications"
+        role="heading"
+        aria-level={10}
+      >
         {processText(page_text.publications)}
       </p>
       <div className={`w-full grid grid-cols-${isPC ? 2 : 1} gap-[24px]`}>
@@ -745,7 +759,7 @@ export const AwardScheme: React.FC = () => {
         })}
       </div>
       <hr className="my-[24px]" />
-      <p className="text-heading-l mb-[24px]">
+      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
         {processText(page_text.ceremony_list)}
       </p>
       <div

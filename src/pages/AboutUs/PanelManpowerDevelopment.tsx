@@ -99,7 +99,7 @@ export const PanelManpowerDevelopment: React.FC = () => {
           ))}
         </ul>
       </div>
-      <p className="text-heading-l">{membership as string}</p>
+      <div className="text-heading-l">{membership as string}</div>
       <p
         className="mt-[8px]"
         style={{

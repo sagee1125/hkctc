@@ -5,9 +5,8 @@ import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Collapse } from "@mui/material";
 import { navItemEnum } from "../../const";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { ABOUT_SIDE_MODULE } from "../../pages";
-import { t2s } from "chinese-s2t";
 import { maxMobileContainer, maxPCContainer } from "../Container";
 
 type Sub = {
@@ -38,9 +37,8 @@ const multilingual = {
 
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
-  const { isPC, language, getPageText } = useSettings();
-  const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
+  const { isPC, getPageText, getSingleText } = useSettings();
+
   const page_text = getPageText(multilingual);
 
   const { copyright_desc, sitemap } = page_text;
@@ -569,11 +567,7 @@ export const Footer: React.FC = () => {
                         }
                       }}
                     >
-                      {isEn
-                        ? col.title
-                        : isSimpleCN
-                        ? t2s(col.titleCN)
-                        : col.titleCN}
+                      {getSingleText(col.title, col.titleCN)}
                     </p>
                     <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
                     <div className="flex flex-col gap-[16px] text-body-m">
@@ -600,11 +594,7 @@ export const Footer: React.FC = () => {
                               }}
                             />
 
-                            {isEn
-                              ? sub.label
-                              : isSimpleCN
-                              ? t2s(sub.labelCN)
-                              : sub.labelCN}
+                            {getSingleText(sub.label, sub.labelCN)}
                           </div>
                           {sub.items && (
                             <div className="flex flex-col gap-[16px] pl-[16px]">
@@ -624,11 +614,7 @@ export const Footer: React.FC = () => {
                                     }
                                   }}
                                 >
-                                  {isEn
-                                    ? item.label
-                                    : isSimpleCN
-                                    ? t2s(item.labelCN)
-                                    : item.labelCN}
+                                  {getSingleText(item.label, item.labelCN)}
                                 </li>
                               ))}
                             </div>
@@ -641,13 +627,9 @@ export const Footer: React.FC = () => {
                       <div>
                         {(col.secSubs ?? []).map((sec, index) => (
                           <div key={index} className="mt-[42px] flex flex-col">
-                            <p className="text-heading-l">
-                              {isEn
-                                ? sec.title
-                                : isSimpleCN
-                                ? t2s(sec.titleCN)
-                                : sec.titleCN}
-                            </p>
+                            <div className="text-heading-l">
+                              {getSingleText(sec.title, sec.titleCN)}
+                            </div>
                             <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
 
                             <div className="flex flex-col gap-[16px] text-body-m">
@@ -673,11 +655,7 @@ export const Footer: React.FC = () => {
                                       className="h-full w-[10px] text-white"
                                     />
 
-                                    {isEn
-                                      ? sub.label
-                                      : isSimpleCN
-                                      ? t2s(sub.labelCN)
-                                      : sub.labelCN}
+                                    {getSingleText(sub.label, sub.labelCN)}
                                   </div>
                                   {sub.items && (
                                     <div className="flex flex-col gap-[16px] pl-[16px]">
@@ -697,11 +675,10 @@ export const Footer: React.FC = () => {
                                             }
                                           }}
                                         >
-                                          {isEn
-                                            ? item.label
-                                            : isSimpleCN
-                                            ? t2s(item.labelCN)
-                                            : item.labelCN}
+                                          {getSingleText(
+                                            item.label,
+                                            item.labelCN
+                                          )}
                                         </li>
                                       ))}
                                     </div>
@@ -737,11 +714,7 @@ export const Footer: React.FC = () => {
                     }
                   }}
                 >
-                  {isEn
-                    ? item.label
-                    : isSimpleCN
-                    ? t2s(item.labelCN)
-                    : item.labelCN}
+                  {getSingleText(item.label, item.labelCN)}
                 </p>
               ))}
             </div>
@@ -763,11 +736,7 @@ export const Footer: React.FC = () => {
                     }
                   }}
                 >
-                  {isEn
-                    ? item.label
-                    : isSimpleCN
-                    ? t2s(item.labelCN)
-                    : item.labelCN}
+                  {getSingleText(item.label, item.labelCN)}
                 </p>
               ))}
             </div>

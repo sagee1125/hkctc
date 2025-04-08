@@ -281,6 +281,7 @@ export const MediaTemplateWithDialog: React.FC<
                   {!!thumbnail ? (
                     <img
                       alt="img"
+                      tabIndex={0}
                       src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
                       style={{
                         objectFit: "cover",
@@ -294,6 +295,7 @@ export const MediaTemplateWithDialog: React.FC<
                     <canvas
                       key={mediaLink}
                       ref={canvasRef}
+                      tabIndex={0}
                       style={{
                         objectFit: "contain",
                         zIndex: 1,
@@ -377,6 +379,7 @@ export const MediaTemplateWithDialog: React.FC<
               className={`text-heading-${
                 isPC ? "m" : "xs"
               } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
+              tabIndex={0}
             >
               {title}
             </div>
@@ -427,6 +430,8 @@ export const MediaTemplateWithDialog: React.FC<
             isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
           } cursor-pointer`}
             onClick={handleOnClick}
+            tabIndex={0}
+            role="button"
           >
             <div
               style={{
@@ -467,6 +472,7 @@ export const MediaTemplateWithDialog: React.FC<
                       <canvas
                         key={mediaLink}
                         ref={canvasRef}
+                        tabIndex={0}
                         style={{
                           objectFit: "contain",
                           zIndex: 1,
@@ -587,6 +593,8 @@ export const MediaTemplateWithDialog: React.FC<
               direction === "column" ? "center" : "start"
             } `}
             onClick={handleOnClick}
+            tabIndex={0}
+            role="button"
             style={{
               cursor: "pointer",
             }}

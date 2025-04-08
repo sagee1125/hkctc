@@ -802,7 +802,9 @@ export const OverviewIOnCEPA: React.FC = () => {
       <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] text-body-m mt-[24px]">
         {since_the_signing as string}
       </div>
-      <p className="text-heading-l my-[24px]">{time_line_title as string}</p>
+      <div className="text-heading-l my-[24px]">
+        {time_line_title as string}
+      </div>
       <div>
         <div className="w-full flex flex-col">
           {timeLineData.map((item, index) => (
@@ -899,7 +901,7 @@ export const OverviewIOnCEPA: React.FC = () => {
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l">{faq as string}</p>
+      <div className="text-heading-l">{faq as string}</div>
 
       <div>
         <div className="flex flex-wrap gap-[8px] my-[24px]">

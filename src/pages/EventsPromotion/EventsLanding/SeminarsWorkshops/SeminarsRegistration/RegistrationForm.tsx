@@ -141,7 +141,7 @@ export const RegistrationForm: React.FC = () => {
     <div className="w-full flex flex-col gap-[24px]">
       <div>
         <p className="text-highlight-s text-[#666666]">Join New Seminar</p>
-        <p className="text-heading-l" tabIndex={0} role="heading">
+        <p className="text-heading-l" aria-level={10} role="heading">
           XXX Seminar - Registration
         </p>
       </div>

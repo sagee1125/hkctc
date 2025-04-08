@@ -50,7 +50,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
         style={{
           ...normalPagingButtonStyle,
           cursor: currentPage === 0 ? "not-allowed" : "pointer",
-          color: currentPage === 0 ? "#AAAAAA" : "black",
+          color: currentPage === 0 ? "#767676" : "black",
         }}
       >
         <Icon
@@ -86,7 +86,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
         style={{
           ...normalPagingButtonStyle,
           cursor: currentPage === maxPage ? "not-allowed" : "pointer",
-          color: currentPage === maxPage ? "#AAAAAA" : "black",
+          color: currentPage === maxPage ? "#767676" : "black",
         }}
       >
         <Icon

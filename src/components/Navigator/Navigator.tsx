@@ -286,7 +286,7 @@ export const Navigator: React.FC = () => {
                                   activeIndex === ncIndex ||
                                   activeIndex === null
                                     ? "black"
-                                    : "#AAAAAA",
+                                    : "#767676",
                               }}
                             >
                               {displayTitle}
@@ -300,7 +300,7 @@ export const Navigator: React.FC = () => {
                                   activeIndex === ncIndex ||
                                   activeIndex === null
                                     ? "black"
-                                    : "#AAAAAA",
+                                    : "#767676",
                               }}
                             />
                           </div>

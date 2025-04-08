@@ -40,10 +40,10 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             : "border-[#E0E0E0]";
           const pcFontStyle = isActivated
             ? "text-heading-m"
-            : "text-body-l text-[#AAAAAA]";
+            : "text-body-l text-[#767676]";
           const mobileFontStyle = isActivated
             ? "text-heading-s"
-            : "text-body-m text-[#AAAAAA]";
+            : "text-body-m text-[#767676]";
           const marginStyle = index === 0 ? "" : "-mt-[2px]";
           return (
             <div

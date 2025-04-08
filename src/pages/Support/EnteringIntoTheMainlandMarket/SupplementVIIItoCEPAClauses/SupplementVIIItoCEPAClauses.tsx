@@ -55,9 +55,9 @@ export const SupplementVIIItoCEPAClauses: React.FC = () => {
   return (
     <div className="flex-1">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l my-[24px]">
+      <div className="text-heading-l my-[24px]">
         {liberalisation_of_Trade as React.ReactNode}
-      </p>
+      </div>
       <p className="text-heading-m mb-[24px]">
         {subgroup_sec as React.ReactNode}
       </p>

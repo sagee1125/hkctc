@@ -312,7 +312,7 @@ export const ProgrammesCourses: React.FC = () => {
       <p className="text-body-m mt-[24px] text-justify">{intro as string}</p>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{list_tertiary as string} </p>
+      <div className="text-heading-l">{list_tertiary as string}</div>
 
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {buttonArr.map((b, i) => {
@@ -335,12 +335,12 @@ export const ProgrammesCourses: React.FC = () => {
 
       <div className="flex flex-row gap-[12px] items-center text-newPrimary mb-[24px]">
         <div className="h-[15px] w-[15px] bg-newPrimary" />
-        <p className="text-heading-l">
+        <div className="text-heading-l">
           {getSingleText(
             degreeMap[activeButton].tab,
             degreeMap[activeButton].tabCN
           )}
-        </p>
+        </div>
       </div>
       <div className="bg-[#F7F7F5] border-[1px] border-[#E0E0E0] grid grid-cols-2 text-highlight-m">
         <div className="py-[16px] px-[10px]">{institution as string}</div>
@@ -378,13 +378,21 @@ export const ProgrammesCourses: React.FC = () => {
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l">{other_course as string}</p>
-      <p className="text-heading-l text-newPrimary my-[24px]">
+      <div className="text-heading-l">{other_course as string}</div>
+      <p
+        className="text-heading-l text-newPrimary my-[24px]"
+        role="heading"
+        aria-level={10}
+      >
         {VTC as string}
       </p>
       <p className="text-body-m text-justify">{VTC_detail as string}</p>
 
-      <p className="text-heading-l text-newPrimary my-[24px]">
+      <p
+        className="text-heading-l text-newPrimary my-[24px]"
+        role="heading"
+        aria-level={10}
+      >
         {HKPC as string}
       </p>
       <p className="text-body-m text-justify">{HKPC_detail as string}</p>

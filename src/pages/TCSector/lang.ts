@@ -46,6 +46,9 @@ export const TC_SECTOR_STRENGTH_TEXT = {
                 target="_blank"
                 rel="noopener noreferrer"
                 style="text-decoration: underline; color: #00E;"
+                 aria-label="HKAS's website  – opens in a new tab"
+
+
               >
                 HKAS's website</a>.`,
 

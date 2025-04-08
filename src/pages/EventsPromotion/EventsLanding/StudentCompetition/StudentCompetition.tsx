@@ -122,14 +122,14 @@ export const StudentCompetition: React.FC = () => {
   return (
     <div className="flex flex-col gap-[24px] mb-[48px]">
       <SquareTitle title={title as string} />
-      <p className="text-heading-l">{digi_science_video as string}</p>
+      <div className="text-heading-l">{digi_science_video as string}</div>
 
       <div className="text-body-m">{raise_student_awareness as string}</div>
 
       <div className="text-body-m">{participant_student as string}</div>
 
       <hr />
-      <p className="text-heading-l">{awardees_list as string}</p>
+      <div className="text-heading-l">{awardees_list as string}</div>
 
       <div
         className={`w-full ${
@@ -212,7 +212,7 @@ export const StudentCompetition: React.FC = () => {
 
       <hr />
 
-      <p className="text-heading-l">{hk_youth_science as string}</p>
+      <div className="text-heading-l">{hk_youth_science as string}</div>
       <div
         className={`w-full grid grid-cols-${
           isPC ? "2 gap-x-[24px]" : "1 gap-[24px]"

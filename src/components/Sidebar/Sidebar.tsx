@@ -24,7 +24,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   if (isPC)
     return (
       <div className="border-2 border-inherit p-[24px]">
-        <p className="text-heading-l">{title}</p>
+        <p className="text-heading-l" role="heading" aria-level={10}>
+          {title}
+        </p>
         <div className="w-full flex flex-col gap-[24px] py-[24px]">
           <div className="w-full flex flex-col gap-[24px]">
             {sidebarItems.map((item, index) => {
@@ -212,7 +214,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 tabIndex={0}
                 role="button"
               >
-                <p className="text-heading-l">
+                <p className="text-heading-l" role="heading" aria-level={10}>
                   {getSingleText(title, titleCN)}
                 </p>
                 <ExpandMoreIcon
