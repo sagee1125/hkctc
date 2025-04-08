@@ -35,6 +35,7 @@ type SettingsContextType = {
   getSingleNode(node: React.ReactNode, nodeCN: React.ReactNode): JSX.Element;
   processText(text: string): string;
   convertReactNode(node: ReactNode): ReactNode;
+  processLink(link: string): string;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -201,6 +202,24 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
     else return text;
   }
 
+  // 返回语言对应链接
+  function processLink(originalUrl: string): string {
+    const languageTextMap: Record<Language, string> = {
+      [Language.EN]: "en",
+      [Language.ZH_TW]: "tc",
+      [Language.ZH_CN]: "sc",
+    };
+
+    // 替换 URL 中的语言部分（如 `/en/` → `/tc/`）
+    const newUrl = originalUrl.replace(
+      /\/(en|tc|sc)\//,
+      `/${languageTextMap[language]}/`
+    );
+
+    // 替换文件名中的语言后缀（如 `_en.pdf` → `_tc.pdf`）
+    return newUrl.replace(/_en(?=\.\w+$)/, `_${languageTextMap[language]}`);
+  }
+
   return (
     <SettingsContext.Provider
       value={{
@@ -219,6 +238,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         getPageText,
         getSingleText,
         getSingleNode,
+        processLink,
       }}
     >
       {isLoading && (
