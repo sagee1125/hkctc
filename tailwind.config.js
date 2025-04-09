@@ -80,6 +80,8 @@ module.exports = {
       animation: {
         "fade-in": "fadeIn 2s ease-in-out forwards",
       },
+      left: ['focus-within'],
+
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },

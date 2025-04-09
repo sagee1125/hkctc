@@ -73,13 +73,12 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
         >
           {titleHyperlink ? (
             <a
-              aria-label="link"
+              aria-label="navigate back to this page"
               href={titleHyperlink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-highlight-m cursor-pointer"
               tabIndex={0}
-              role="link"
             >
               {title}
             </a>
@@ -107,7 +106,6 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           <div className="bg-white p-4 w-[70vw] h-[80vh] relative">
             <button
               tabIndex={0}
-              role="button"
               className="absolute top-2 right-2 px-2"
               onClick={() => setIsPreviewOpen(false)}
             >
@@ -121,7 +119,6 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
             <div className="absolute bottom-4 right-4 flex gap-2">
               <button
                 tabIndex={0}
-                role="button"
                 className="bg-newPrimary text-white px-4 py-2"
                 onClick={handlePdfDownload}
               >
