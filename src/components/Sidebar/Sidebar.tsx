@@ -3,7 +3,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { Collapse } from "@mui/material";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { type SubItems } from "../../const";
 
 type SidebarProps = {
@@ -90,7 +90,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   className={`h-5 w-5 text-black transform transition-transform ${
                     open ? "rotate-180" : "rotate-0"
                   }`}
-                  aria-hidden="true"
+                  aria-label="icon"
                 />
               </Menu.Button>
               <Transition
@@ -112,7 +112,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         {({ active }) => (
                           <button
                             tabIndex={0}
-                            role="button"
                             onClick={() => {
                               setActivatedItems(navItemEnum);
                             }}
@@ -300,7 +299,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                   className={`h-5 w-5 text-black transform transition-transform ${
                     open ? "rotate-180" : "rotate-0"
                   }`}
-                  aria-hidden="true"
+                  aria-label="icon"
                 />
               </Menu.Button>
               <Transition
@@ -339,7 +338,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                             className={`h-5 w-5 text-black transform transition-transform ${
                               expand ? "rotate-180" : "rotate-0"
                             }`}
-                            aria-hidden="true"
+                            aria-label="icon"
                           />
                         </div>
                         <Collapse in={expand}>
@@ -354,7 +353,6 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                                 {({ active }) => (
                                   <button
                                     tabIndex={0}
-                                    role="button"
                                     onClick={() => {
                                       setActivatedItems(navItemEnum);
                                     }}

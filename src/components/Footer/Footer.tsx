@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
 
   const [sitemapCollapsed, setSitemapCollapsed] = useState<boolean>(true);
 
-  const commonDate: Sub[] = [
+  const commonData: Sub[] = [
     {
       label: "Resources Library",
       labelCN: "資源庫",
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
           title: "",
           link: "",
           titleCN: "",
-          subs: commonDate,
+          subs: commonData,
         },
         {
           title: "What’s New",
@@ -701,7 +701,7 @@ export const Footer: React.FC = () => {
         ) : (
           <div className="w-full flex flex-col items-center gap-[8px] py-[24px]">
             <div className="flex justify-center gap-4 text-white">
-              {commonDate.slice(0, 3).map((item, index) => (
+              {commonData.slice(0, 3).map((item, index) => (
                 <p
                   key={index}
                   className="text-body-s cursor-pointer"
@@ -723,7 +723,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="flex justify-center gap-4">
-              {commonDate.slice(3, 5).map((item, index) => (
+              {commonData.slice(3, 6).map((item, index) => (
                 <p
                   key={index}
                   className="text-body-s cursor-pointer"

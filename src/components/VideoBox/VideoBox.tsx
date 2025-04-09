@@ -97,6 +97,40 @@ export const VideoBox: React.FC = () => {
     }, 500);
   };
 
+  const videoSwitching = (
+    <div className="flex flex-row">
+      {videoUrls.length > 1 && (
+        <>
+          <Icon
+            icon="icons8:left-squared"
+            aria-label={"arrow icon"}
+            className="text-white cursor-pointer"
+            tabIndex={0}
+            role="button"
+            style={{
+              width: "50px",
+              height: "50px",
+              strokeWidth: "1px",
+            }}
+            onClick={() => handleSlide("prev")}
+          />
+          <Icon
+            icon="icons8:right-squared"
+            aria-label={"arrow icon"}
+            className="text-white cursor-pointer"
+            tabIndex={0}
+            role="button"
+            style={{
+              width: "50px",
+              height: "50px",
+              strokeWidth: "1px",
+            }}
+            onClick={() => handleSlide("next")}
+          />
+        </>
+      )}
+    </div>
+  );
   return (
     <div style={fullContainer}>
       <div
@@ -162,71 +196,46 @@ export const VideoBox: React.FC = () => {
             >
               <div className="flex justify-between items-end py-10 px-[24px] mt-auto w-full max-w-[1440px]">
                 {isPC && (
-                  <div className="text-white pr-[26em]">
-                    {currentVideoIndex === 0 && (
-                      <>
-                        <p
-                          className="text-heading-xl"
-                          role="heading"
-                          aria-level={10}
-                        >
-                          {welcome as string}
-                        </p>
+                  <>
+                    <div className="text-white pr-[26em]">
+                      {currentVideoIndex === 0 && (
+                        <>
+                          <p
+                            className="text-heading-xl"
+                            role="heading"
+                            aria-level={10}
+                          >
+                            {welcome as string}
+                          </p>
 
-                        <p className="!text-body-m py-[24px]">
-                          {innoCarnival as string}
-                        </p>
-                      </>
-                    )}
-                  </div>
+                          <p className="!text-body-m py-[24px]">
+                            {innoCarnival as string}
+                          </p>
+                        </>
+                      )}
+                    </div>
+                    {videoSwitching}
+                  </>
                 )}
-                <div className="flex flex-row">
-                  {videoUrls.length > 1 ? (
-                    <>
-                      <Icon
-                        icon="icons8:left-squared"
-                        aria-label={"arrow icon"}
-                        className="text-white cursor-pointer"
-                        tabIndex={0}
-                        role="button"
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          strokeWidth: "1px",
-                        }}
-                        onClick={() => handleSlide("prev")}
-                      />
-                      <Icon
-                        icon="icons8:right-squared"
-                        aria-label={"arrow icon"}
-                        className="text-white cursor-pointer"
-                        tabIndex={0}
-                        role="button"
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          strokeWidth: "1px",
-                        }}
-                        onClick={() => handleSlide("next")}
-                      />
-                    </>
-                  ) : (
-                    <div />
-                  )}
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {!isPC && currentVideoIndex === 0 && (
-        <div className="bg-newPrimary p-[14px] w-full ">
-          <p className="text-highlight-m text-white ">{welcome as string}</p>
-
-          <p className="!text-body-xs pt-[16px] text-white">
-            {innoCarnival as string}
-          </p>
+      {!isPC && (
+        <div className="bg-newPrimary p-[14px] w-full">
+          {currentVideoIndex === 0 && (
+            <div>
+              <p className="text-highlight-m text-white ">
+                {welcome as string}
+              </p>
+              <p className="!text-body-xs pt-[16px] text-white">
+                {innoCarnival as string}
+              </p>
+            </div>
+          )}
+          <div className="pt-[8px]">{videoSwitching}</div>
         </div>
       )}
       {/* progress*/}

@@ -2,8 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
-import { Language, useSettings } from "../../../context";
-import { t2s } from "chinese-s2t";
+import { useSettings } from "../../../context";
 import { maxMobileContainer, maxPCContainer } from "../../Container";
 
 type ExploreBarData = {
@@ -41,7 +40,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, getPageText, isPC } = useSettings();
+  const { getPageText, isPC, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const currentPath = location.pathname;
@@ -85,7 +84,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
     {
       title: "T&C Service Users",
       titleCN: "檢測認證服務使用者",
-      iconName: "mdi:user",
+      iconName: "fa-solid:user",
       hoverColor:
         currentPath === "/service-users"
           ? "text-energeticOrange"
@@ -122,12 +121,12 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       ) : (
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center justify-center text-white">
           <div
-            className="flex flex-row px-[32px] items-center text-white"
+            className="flex flex-row pr-[32px] pl-[24px] items-center text-white"
             style={isPC ? maxPCContainer : maxMobileContainer}
           >
             <p className="text-highlight-s">{explore_as as string}</p>
             <svg
-              role="tab"
+              role="img"
               xmlns="https://www.w3.org/2000/svg"
               width="12"
               height="12"
@@ -155,17 +154,11 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                     <Icon
                       tabIndex={0}
                       icon={iconName}
-                      width={20}
                       aria-label={iconName}
-                      height={20}
-                      className={hoverColor}
+                      className={`${hoverColor} !w-[20px] !h-[20px]`}
                     />
                     <p className={hoverColor}>
-                      {language === Language.EN
-                        ? title
-                        : language === Language.ZH_CN
-                        ? t2s(titleCN)
-                        : titleCN}
+                      {getSingleText(title, titleCN)}
                     </p>
                   </div>
                 );
