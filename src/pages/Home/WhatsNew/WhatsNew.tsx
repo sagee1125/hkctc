@@ -176,8 +176,9 @@ export const WhatsNew: React.FC = () => {
 
                 <div className="flex flex-row w-full mt-4 gap-2">
                   <Icon
+                    tabIndex={0}
                     icon="material-symbols:date-range-rounded"
-                    aria-label={"icon"}
+                    aria-label={"date icon"}
                   />
                   <div className="text-body-m text-grey">{date}</div>
                 </div>

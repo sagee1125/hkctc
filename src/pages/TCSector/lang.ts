@@ -41,12 +41,12 @@ export const TC_SECTOR_STRENGTH_TEXT = {
 
       SYSTEM_INTERNATIONAL_TITLE:
         "(iii) System being widely recognised internationally",
-      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification industry.For details, please visit <a  aria-label="HKAS's website"
+      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification industry.For details, please visit <a  aria-label=aria-label="HKAS's website  – opens in a new tab"
                 href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="text-decoration: underline; color: #00E;"
-                 aria-label="HKAS's website  – opens in a new tab"
+                 aria-label="HKAS's website  - opens in a new tab"
 
 
               >

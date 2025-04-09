@@ -32,18 +32,21 @@ export const SkipLinks: React.FC = () => {
     <nav aria-label="Skip links">
       <div className="absolute left-[-999px] top-2 z-[9999] flex gap-2 p-2 text-white underline  focus-within:left-2 text-highlight-l">
         <button
+          tabIndex={0}
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("main-content")}
         >
           {main_content as string}
         </button>
         <button
+          tabIndex={0}
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("main-menu")}
         >
           {main_menu as string}
         </button>
         <button
+          tabIndex={0}
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("footer")}
         >
