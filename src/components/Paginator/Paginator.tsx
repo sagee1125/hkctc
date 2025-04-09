@@ -44,7 +44,6 @@ export const Paginator: React.FC<PaginatorProps> = ({
       {/* Previous Button */}
       <button
         tabIndex={0}
-        role="button"
         onClick={() => setCurrentPage(currentPage - 1)}
         disabled={currentPage === 0}
         style={{
@@ -65,7 +64,6 @@ export const Paginator: React.FC<PaginatorProps> = ({
       {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
         <button
           tabIndex={0}
-          role="button"
           key={pageIndex}
           onClick={() => setCurrentPage(pageIndex)}
           style={
@@ -81,7 +79,6 @@ export const Paginator: React.FC<PaginatorProps> = ({
       {/* Next Button */}
       <button
         tabIndex={0}
-        role="button"
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={currentPage === maxPage}
         style={{

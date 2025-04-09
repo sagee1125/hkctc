@@ -39,14 +39,14 @@ export const SkipLinks: React.FC = () => {
           {main_content as string}
         </button>
         <button
-          tabIndex={0}
+          tabIndex={1}
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("main-menu")}
         >
           {main_menu as string}
         </button>
         <button
-          tabIndex={0}
+          tabIndex={2}
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("footer")}
         >
@@ -56,3 +56,6 @@ export const SkipLinks: React.FC = () => {
     </nav>
   );
 };
+function useEffect(arg0: () => () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}
