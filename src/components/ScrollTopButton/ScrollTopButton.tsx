@@ -1,8 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useSettings } from "../../context";
 
 export const ScrollTopButton: React.FC = () => {
   const location = useLocation();
+  const { isPC } = useSettings();
+
   const currentPath = location.pathname;
   const hideButton = [
     "/educators-students",
@@ -19,7 +22,7 @@ export const ScrollTopButton: React.FC = () => {
     currentPath === "/" ||
     hideButton.some((path) => currentPath.startsWith(path));
 
-  if (ifHideButton) return <></>;
+  if (ifHideButton || !isPC) return <></>;
 
   return (
     <div

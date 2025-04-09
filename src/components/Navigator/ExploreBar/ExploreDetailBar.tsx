@@ -36,16 +36,28 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
         style={{
           marginLeft: "24px",
           zIndex: 10,
+          width: "100%",
+          alignItems: "center",
         }}
       >
-        <p
-          className={classNames("text-heading-xl", `text-${titleTheme}`)}
-          role="heading"
-          aria-level={10}
+        <div
+          style={{
+            zIndex: 10,
+            maxWidth: isPC ? "1440px" : "1024px",
+            width: "100%",
+            paddingLeft: "12px",
+            paddingRight: "12px",
+          }}
         >
-          {title}
-        </p>
-        <p className="text-white text-light">{description}</p>
+          <p
+            className={classNames("text-heading-xl", `text-${titleTheme}`)}
+            role="heading"
+            aria-level={10}
+          >
+            {title}
+          </p>
+          <p className="text-white text-light">{description}</p>
+        </div>
       </div>
       <div style={bottomRightSquareStyle} />
     </div>
@@ -80,6 +92,3 @@ const bottomRightSquareStyle: React.CSSProperties = {
   backgroundColor: "white",
   zIndex: 20,
 };
-function useSettings(): { isPC: any } {
-  throw new Error("Function not implemented.");
-}

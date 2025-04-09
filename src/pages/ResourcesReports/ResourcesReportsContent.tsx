@@ -1022,7 +1022,7 @@ export const ResourcesReportsContent: React.FC = () => {
                         className={`h-5 w-5 text-[#666666] transform transition-transform ${
                           open ? "rotate-180" : "rotate-0"
                         }`}
-                        aria-hidden="true"
+                        aria-label="icon"
                       />
                     </Menu.Button>
                     <Transition

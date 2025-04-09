@@ -544,7 +544,7 @@ export const EnvironmentalProtection: React.FC = () => {
                         <svg
                           aria-label="icon"
                           tabIndex={0}
-                          role="tab"
+                          role="img"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -721,7 +721,7 @@ export const EnvironmentalProtection: React.FC = () => {
                         <svg
                           aria-label="icon"
                           tabIndex={0}
-                          role="tab"
+                          role="img"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"

@@ -42,7 +42,7 @@ export const ServiceUsers: React.FC = () => {
         titleTheme="energeticOrange"
         description={desc as string}
         barBackgroundImg="serviceUsers/Service_Users_banner_bg_2.png"
-        offset="10%"
+        offset="44%"
       />
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC && (
