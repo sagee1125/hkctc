@@ -460,6 +460,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer
+      id="footer"
       style={{
         width: "100%",
         display: "flex",
@@ -763,7 +764,6 @@ export const Footer: React.FC = () => {
               <img
                 className="object-fit cursor-pointer"
                 tabIndex={0}
-                role="img"
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
                 aria-label={"hkctc logo"}

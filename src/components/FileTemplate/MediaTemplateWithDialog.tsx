@@ -204,7 +204,7 @@ export const MediaTemplateWithDialog: React.FC<
     return () => {
       isCancelled = true;
     };
-  }, [mediaLink, mediaType, mediaDomain, pdfjsLib, direction]);
+  }, [mediaLink, mediaType, mediaDomain, pdfjsLib, direction, thumbnail]);
 
   const handleMouseEnter = (): void => {
     // if (mediaDomain === "youtube") setIsHoveringYTBVideo(true);
@@ -408,7 +408,7 @@ export const MediaTemplateWithDialog: React.FC<
               <div className="flex flex-row gap-[8px] items-center">
                 <svg
                   tabIndex={0}
-                  role="none"
+                  role="img"
                   xmlns="https://www.w3.org/2000/svg"
                   width="17"
                   height="17"
@@ -640,7 +640,7 @@ export const MediaTemplateWithDialog: React.FC<
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
                     tabIndex={0}
-                    role="none"
+                    role="img"
                     xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"
