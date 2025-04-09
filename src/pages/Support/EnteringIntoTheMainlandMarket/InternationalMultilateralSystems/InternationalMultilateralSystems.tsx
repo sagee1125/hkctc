@@ -35,7 +35,7 @@ const multilingual = {
         <br />
         Email:&nbsp;
         <a
-          aria-label="link"
+          aria-label="mail to:yangy@cnca.gov.cn"
           className="underline text-[#00E] cursor-pointer"
           tabIndex={0}
           role="button"
@@ -68,7 +68,7 @@ const multilingual = {
         <br />
         電子郵件：
         <a
-          aria-label="link"
+          aria-label="mail to:yangy@cnca.gov.cn"
           className="underline text-[#00E] cursor-pointer"
           tabIndex={0}
           role="button"

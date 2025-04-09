@@ -50,8 +50,11 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l-extra text-white z-20"}>
-                {about as string}{" "}
+              <p
+                className={"text-heading-l-extra text-white z-20"}
+                tabIndex={0}
+              >
+                {about as string}
               </p>
             </div>
           </div>
@@ -69,7 +72,10 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l-extra text-white z-20"}>
+              <p
+                className={"text-heading-l-extra text-white z-20"}
+                tabIndex={0}
+              >
                 {profile_and_role as string}
               </p>
             </div>
@@ -151,7 +157,7 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
-              <p className={"text-heading-l text-white z-20"}>
+              <p className={"text-heading-l text-white z-20"} tabIndex={0}>
                 {about as string}
               </p>
             </div>
@@ -186,7 +192,7 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l text-white z-20"}>
+              <p className={"text-heading-l text-white z-20"} tabIndex={0}>
                 {profile_and_role as string}
               </p>
             </div>

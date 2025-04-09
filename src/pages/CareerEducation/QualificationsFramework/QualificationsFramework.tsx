@@ -12,7 +12,7 @@ const multilingual = {
         The&nbsp;
         <span style={{ fontWeight: 700 }}>Qualifications Framework</span>&nbsp;
         <a
-          aria-label="link"
+          aria-label="Qualifications Framework"
           href="https://www.hkqf.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const multilingual = {
         accordance with objective and well-defined standards. The list of such
         qualifications and courses can be found in the&nbsp;
         <a
-          aria-label="link"
+          aria-label="Qualifications Register"
           href="https://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -52,7 +52,7 @@ const multilingual = {
         required of practitioners to perform various job functions effectively.
         More details can be found in its relevant&nbsp;
         <a
-          aria-label="link"
+          aria-label="relevant webpage"
           href="https://www.hkqf.gov.hk/tic/en/scs/introduction/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -74,7 +74,7 @@ const multilingual = {
         partners in and outside Hong Kong. Details of the scheme can be found at
         its&nbsp;
         <a
-          aria-label="link"
+          aria-label="award scheme introduction"
           href="https://www.hkqf.gov.hk/tic/en/award_scheme/introduction/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const multilingual = {
         and Certification Industry. For details of the RPL mechanism and
         application method, please visit its&nbsp;
         <a
-          aria-label="link"
+          aria-label="website"
           href="https://www.hkmu.edu.hk/st/rpl/?repeat=w3tc"
           target="_blank"
           rel="noopener noreferrer"
@@ -116,7 +116,7 @@ const multilingual = {
       <>
         <span style={{ fontWeight: 700 }}>資歷架構</span>&nbsp;
         <a
-          aria-label="link"
+          aria-label="資歷架構"
           href="https://www.hkqf.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -126,7 +126,7 @@ const multilingual = {
         </a>
         於2008年展開，主要目的是提供一個鼓勵及促進終身學習的平台，以提升香港工作人口的技能及競爭力。資歷架構是個共有七級的資歷級別制度，涵蓋學術、職業專才及持續教育及培訓等不同界別。所有資歷架構認可的資歷皆通過質素保證，並按照客觀及明確的標準去釐定其級別。這些認可資歷及課程載於「
         <a
-          aria-label="link"
+          aria-label="資歷名冊"
           href="https://www.hkqr.gov.hk/HKQRPRD/web/hkqr-en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -142,7 +142,7 @@ const multilingual = {
       <>
         檢測及認證業行業培訓諮詢委員會於2010年在資歷架構下成立，並於2014年7月推出專為檢測及認證業界撰寫的《能力標準說明》。《能力標準說明》包含242個「能力單元」，按能力級別分佈於7個主要職能範疇之中，載列從業員於不同的工作職能範疇下所需要的技能、知識及成效標準。有關詳情可瀏覽其相關
         <a
-          aria-label="link"
+          aria-label="相關網頁"
           href="https://www.hkqf.gov.hk/tic/en/scs/introduction/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -158,7 +158,7 @@ const multilingual = {
       <>
         資歷架構設立的學習體驗獎勵計劃，旨在鼓勵業內表現出色或嶄露頭角的從業員參與世界各地不同的學習活動（如國際比賽、研討會、交流會及考察等），以擴闊他們的視野，並與本地或境外業界夥伴建立網絡。計劃詳情可瀏覽
         <a
-          aria-label="link"
+          aria-label="相關網頁"
           href="https://www.hkqf.gov.hk/tic/en/award_scheme/introduction/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -178,7 +178,7 @@ const multilingual = {
       <>
         香港公開大學科技學院獲教育局局長委任為獨立評估機構，進行檢測及認證業的「過往資歷認可」的評估工作。有關「過往資歷認可」機制的詳情及申請方法，可瀏覽
         <a
-          aria-label="link"
+          aria-label="瀏覽網頁"
           href="https://www.hkmu.edu.hk/st/rpl/?repeat=w3tc"
           target="_blank"
           rel="noopener noreferrer"

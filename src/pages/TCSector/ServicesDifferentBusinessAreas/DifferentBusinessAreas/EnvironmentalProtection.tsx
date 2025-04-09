@@ -459,7 +459,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>
             獲香港認可處認可的相關審定/核查機構名單，請瀏覽
             <a
-              aria-label="link"
+              aria-label="香港認可處網頁"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
               target="_blank"
               rel="noopener noreferrer"
@@ -612,7 +612,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>
             獲香港認可處認可的相關認證機構名單，請瀏覽
             <a
-              aria-label="link"
+              aria-label="香港認可處網頁"
               href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
               target="_blank"
               rel="noopener noreferrer"

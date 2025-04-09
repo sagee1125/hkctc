@@ -941,10 +941,22 @@ export const ResourcesReportsContent: React.FC = () => {
                 max={currentYear}
                 onChange={handleRangeChange}
                 valueLabelDisplay="on"
+                tabIndex={needRangeValue ? 0 : -1}
                 getAriaValueText={rangValuetext}
+                aria-labelledby="range-slider-label"
+                componentsProps={{
+                  thumb: {
+                    "aria-label": "Select year range",
+                  },
+                }}
                 step={1}
                 sx={{
                   zIndex: 10,
+                  // 保留焦点环
+                  "& .MuiSlider-thumb:focus-visible": {
+                    outline: "4px solid #80B2FF",
+                    outlineOffset: "2px",
+                  },
                   "& .MuiSlider-track": {
                     bgcolor: needRangeValue ? "#233F55" : "#AAA",
                     height: "6px",
@@ -983,6 +995,13 @@ export const ResourcesReportsContent: React.FC = () => {
                   },
                 }}
               />
+
+              <label
+                id="range-slider-label"
+                style={{ visibility: "hidden", position: "absolute" }}
+              >
+                Year range selection
+              </label>
             </Box>
             <p
               className={`text-body-m mb-[16px]`}

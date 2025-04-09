@@ -36,7 +36,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
 
   return (
     <a
-      aria-label="link"
+      aria-label="open the link"
       href={outerLink}
       target="_blank"
       rel="noreferrer"

@@ -4,7 +4,7 @@ export const TVP: React.FC = () => {
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
       <a
-        aria-label="link"
+        aria-label="Technology Voucher Programme (TVP)"
         className="text-heading-m underline"
         href="/" // TODO
         target="_blank"

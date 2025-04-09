@@ -20,7 +20,7 @@ import {
 } from "../../../../components";
 import { navItemEnum } from "../../../../const";
 import { Icon } from "@iconify/react";
-import { Language, useSettings } from "../../../../context";
+import { useSettings } from "../../../../context";
 
 type HyperlinkData = {
   label: string;
@@ -137,7 +137,7 @@ const multilingual = {
       <>
         More information is available on the&nbsp;
         <a
-          aria-label="link"
+          aria-label="visit the website"
           href="https://www.iaq.gov.hk/en/home/"
           target="_blank"
           rel="noopener noreferrer"
@@ -202,7 +202,7 @@ const multilingual = {
         are able to provide many of the certified products in the table in (c)
         above. Information on these suppliers is available at&nbsp;
         <a
-          aria-label="link"
+          aria-label="HA's product certification webpage"
           className="underline text-links"
           href="https://www.housingauthority.gov.hk/en/business-partnerships/resources/construction-product-certification/index.html"
           target="_blank"
@@ -212,7 +212,7 @@ const multilingual = {
         </a>
         &nbsp;(OR&nbsp;
         <a
-          aria-label="link"
+          aria-label="contact list of relevant manufacturers or suppliers"
           className="underline text-links"
           href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
           target="_blank"
@@ -255,7 +255,7 @@ const multilingual = {
     use_of_prod_BEAM_detail_1: (
       <>
         <a
-          aria-label="link"
+          aria-label="BEAM Plus"
           href="https://www.hkgbc.org.hk/eng/beam-plus/introduction/"
           target="_blank"
           rel="noopener noreferrer"
@@ -284,7 +284,7 @@ const multilingual = {
         and products under the Materials and Waste Aspects (MWA). For details,
         please refer to the scheme's&nbsp;
         <a
-          aria-label="link"
+          aria-label="scheme's webpage"
           href="https://www.hkgbc.org.hk/eng/beam-plus/beam-plus-new-buildings/"
           target="_blank"
           rel="noopener noreferrer"
@@ -306,7 +306,7 @@ const multilingual = {
         also been given to illustrate a product certification scheme in action.
         Please refer to the&nbsp;
         <a
-          aria-label="link"
+          aria-label="flyer"
           href="https://www.archsd.gov.hk/media/consultants-contractors/product-conformity-certification-schemes/pccs_leaflet_posting%20to%20internet.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -343,7 +343,7 @@ const multilingual = {
       <>
         香港房屋委員會（房委會）率先在其建屋工程中使用已認證建材，同時亦累積了多間可供應上述大部份可認證建材的供應商資料。這些資料已上載到
         <a
-          aria-label="link"
+          aria-label="房委會的產品認證網頁"
           className="underline text-links"
           href="https://www.housingauthority.gov.hk/en/business-partnerships/resources/construction-product-certification/index.html"
           target="_blank"
@@ -353,7 +353,7 @@ const multilingual = {
         </a>
         （或
         <a
-          aria-label="link"
+          aria-label="有關製造商或供應商名錄"
           className="underline text-links"
           href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
           target="_blank"
@@ -370,7 +370,7 @@ const multilingual = {
       <>
         建築署擬備了一份單張介紹產品認證的運作及在工程中使用產品認證的好處。單張也列舉了幾個例子具體說明產品認證計劃的實際應用。詳情請參考
         <a
-          aria-label="link"
+          aria-label="建築署單張"
           href="https://www.archsd.gov.hk/media/consultants-contractors/product-conformity-certification-schemes/pccs_leaflet_posting%20to%20internet.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -388,7 +388,7 @@ const multilingual = {
     use_of_prod_BEAM_detail_1: (
       <>
         <a
-          aria-label="link"
+          aria-label="綠建環評"
           href="https://www.hkgbc.org.hk/eng/beam-plus/introduction/"
           target="_blank"
           rel="noopener noreferrer"
@@ -403,7 +403,7 @@ const multilingual = {
       <>
         綠建環評新建建築評估涵蓋新建項目的前期拆卸、規劃、設計、施工及調試階段，亦適用於現存建築的大規模翻新或改裝工程。計劃下，如在用材方面選用有認證的建築材料和產品，可獲取得分。如需有關詳情，請瀏覽計劃的
         <a
-          aria-label="link"
+          aria-label="計劃的網站"
           href="https://www.hkgbc.org.hk/eng/beam-plus/beam-plus-new-buildings/"
           target="_blank"
           rel="noopener noreferrer"
@@ -462,7 +462,7 @@ const multilingual = {
       <>
         獲香港認可處認可的樓宇及建築材料測試實驗所名單，請瀏覽
         <a
-          aria-label="link"
+          aria-label="香港認可處網頁"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -477,7 +477,7 @@ const multilingual = {
       <>
         如需更多資料，請瀏覽
         <a
-          aria-label="link"
+          aria-label="網站"
           href="https://www.iaq.gov.hk/en/home/"
           target="_blank"
           rel="noopener noreferrer"
@@ -581,8 +581,7 @@ const schemeOwnerCol: HyperlinkData[] = [
 
 const itemsPerPage = 9;
 export const ConstructionMaterialsBuildings: React.FC = () => {
-  const { isPC, language, getPageText } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const [currentPage, setCurrentPage] = useState(0);
 
   const page_text = getPageText(multilingual);
@@ -640,14 +639,14 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
   const schemeOwnerColArray: React.ReactNode[] = schemeOwnerCol.map(
     (item, index) => (
       <a
-        aria-label="link"
+        aria-label={getSingleText(item.label, item.labelCN)}
         href={item.link}
         key={index}
         target="_blank"
         rel="noopener noreferrer"
         className="underline text-[#2F2F2F]"
       >
-        {isEn ? item.label : item.labelCN}
+        {getSingleText(item.label, item.labelCN)}
       </a>
     )
   );
@@ -657,13 +656,16 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       <ul>
         <li>
           <a
-            aria-label="link"
+            aria-label={getSingleText(
+              hyperlinkData.label,
+              hyperlinkData.labelCN
+            )}
             href={hyperlinkData.link}
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#2F2F2F]"
           >
-            {isEn ? hyperlinkData.label : hyperlinkData.labelCN}
+            {getSingleText(hyperlinkData.label, hyperlinkData.labelCN)}
           </a>
         </li>
       </ul>
