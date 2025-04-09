@@ -69,6 +69,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
             )}
             {index < items.length - 1 && (
               <Icon
+                tabIndex={0}
                 icon="weui:arrow-outlined"
                 className="w-4 h-4 text-grey"
                 aria-label={"an arrow icon"}

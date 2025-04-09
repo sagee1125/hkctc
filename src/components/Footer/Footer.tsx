@@ -583,6 +583,7 @@ export const Footer: React.FC = () => {
                               icon="weui:arrow-outlined"
                               aria-label={"arrow icon"}
                               role="link"
+                              tabIndex={0}
                               className="h-[36px] w-[10px] text-white"
                               onClick={() => {
                                 if (sub.link) {
@@ -651,6 +652,7 @@ export const Footer: React.FC = () => {
                                     }}
                                   >
                                     <Icon
+                                      tabIndex={0}
                                       icon="weui:arrow-outlined"
                                       aria-label={"arrow icon"}
                                       className="h-full w-[10px] text-white"

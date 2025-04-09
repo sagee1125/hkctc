@@ -292,6 +292,7 @@ export const Navigator: React.FC = () => {
                               {displayTitle}
                             </p>
                             <Icon
+                              tabIndex={0}
                               icon="oui:arrow-down"
                               aria-label={"arrow"}
                               style={{
@@ -322,6 +323,7 @@ export const Navigator: React.FC = () => {
                           }}
                         >
                           <Icon
+                            tabIndex={0}
                             icon="ri:search-line"
                             className="h-[32px] w-[32px] text-[#333333]"
                             aria-label={"search icon"}
@@ -345,6 +347,7 @@ export const Navigator: React.FC = () => {
                                       disabled={!formik.values.search}
                                       color="primary"
                                       type="submit"
+                                      tabIndex={0}
                                     >
                                       GO
                                     </IconButton>
@@ -510,6 +513,7 @@ export const Navigator: React.FC = () => {
                                           {displayTitle}
                                         </p>
                                         <Icon
+                                          tabIndex={0}
                                           icon="icon-park-outline:right"
                                           aria-label={"arrow icon"}
                                           style={{

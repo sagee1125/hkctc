@@ -153,6 +153,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                     role="button"
                   >
                     <Icon
+                      tabIndex={0}
                       icon={iconName}
                       width={20}
                       aria-label={iconName}

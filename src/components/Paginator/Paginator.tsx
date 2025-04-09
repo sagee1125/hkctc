@@ -54,6 +54,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
         }}
       >
         <Icon
+          tabIndex={0}
           icon="mingcute:arrow-left-fill"
           width="24"
           height="24"
@@ -90,6 +91,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
         }}
       >
         <Icon
+          tabIndex={0}
           icon="mingcute:arrow-right-fill"
           width="24"
           height="24"
