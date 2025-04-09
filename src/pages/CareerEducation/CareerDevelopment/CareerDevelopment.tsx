@@ -258,7 +258,7 @@ export const CareerDevelopment: React.FC = () => {
               </div>
               <svg
                 tabIndex={0}
-                role="none"
+                role="img"
                 aria-label="icon"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
@@ -315,9 +315,9 @@ export const CareerDevelopment: React.FC = () => {
           </p>
         </div>
       </div>
-      <p className="text-heading-m my-[24px] text-trustfulBlue">
+      <div className="text-heading-m my-[24px] text-[#23F555]">
         {post_level as React.ReactNode}
-      </p>
+      </div>
 
       <div className="mt-[24px] border-[1px] border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
@@ -326,9 +326,9 @@ export const CareerDevelopment: React.FC = () => {
             src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
             alt={"tick"}
           />
-          <p className="text-highlight-m flex-grow min-w-0 text-justify">
+          <div className="text-highlight-m flex-grow min-w-0 text-justify">
             {(post_level_to_do as string[])[0]}
-          </p>
+          </div>
         </div>
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
@@ -377,7 +377,7 @@ export const CareerDevelopment: React.FC = () => {
               </div>
               <svg
                 tabIndex={0}
-                role="none"
+                role="img"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"

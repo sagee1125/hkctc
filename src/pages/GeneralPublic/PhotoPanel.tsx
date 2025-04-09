@@ -5,9 +5,21 @@ import { navItemEnum } from "../../const";
 const multilingual = {
   en: {
     about: "About HKCTC",
-    profile_and_role: "Profile and Role of T&C Industry",
-    tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
-    services_provided: "Services Provided by T&C Industry",
+    profile_and_role: (
+      <>
+        Profile and Role of
+        <br />
+        T&C Sector
+      </>
+    ),
+    tc_sector_strengths: <>Strengths of Hong Kong's T&C Industry</>,
+    services_provided: (
+      <>
+        Services Provided by
+        <br />
+        T&C Industry
+      </>
+    ),
   },
   cn: {
     about: "關於我們",
@@ -72,12 +84,12 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p
+              <div
                 className={"text-heading-l-extra text-white z-20"}
                 tabIndex={0}
               >
-                {profile_and_role as string}
-              </p>
+                {profile_and_role as React.ReactNode}
+              </div>
             </div>
           </div>
 
@@ -95,9 +107,9 @@ export const PhotoPanel: React.FC = () => {
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l-extra text-white z-10"}>
-                {tc_sector_strengths as string}
-              </p>
+              <div className={"text-heading-l-extra text-white z-10"}>
+                {tc_sector_strengths as React.ReactNode}
+              </div>
             </div>
           </div>
         </div>
@@ -116,9 +128,9 @@ export const PhotoPanel: React.FC = () => {
         >
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-            <p className={"text-heading-l-extra text-white z-10"}>
-              {services_provided as string}
-            </p>
+            <div className={"text-heading-l-extra text-white z-10"}>
+              {services_provided as React.ReactNode}
+            </div>
           </div>
         </div>
       </div>
