@@ -69,7 +69,7 @@ export const BUD: React.FC = () => {
         <p className="text-body-m flex-grow min-w-0">
           {the_gov_launched as string}&nbsp;“
           <a
-            aria-label="link"
+            aria-label={easy_BUD as string}
             href="https://www.bud.hkpc.org/sites/default/files/download/EASY-leaflet_Chi_Eng_Final.pdf"
             target="_blank"
             rel="noopener noreferrer"

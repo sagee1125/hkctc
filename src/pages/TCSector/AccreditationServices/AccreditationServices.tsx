@@ -48,7 +48,7 @@ const multilingual = {
       <>
         此完整清單僅用於搜尋特定的合格評定活動，並且每週更新一次。如欲了解最新的認可範圍，請造訪
         <a
-          aria-label="link"
+          aria-label="香港認可處網站"
           href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -80,7 +80,7 @@ export const AccreditationServices: React.FC = () => {
       <>
         此完整清单仅用于搜寻特定的合格评定活动，并且每週更新一次。如欲了解最新的认可范围，请造访
         <a
-          aria-label="link"
+          aria-label="香港认可处网站"
           href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"

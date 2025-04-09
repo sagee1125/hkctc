@@ -102,7 +102,9 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(info_on_standards as LanguageResources).concent as string}&nbsp;
         <a
-          aria-label="link"
+          aria-label={
+            (info_on_standards as LanguageResources).website as string
+          }
           href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -123,7 +125,9 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(measurement_traceability as LanguageResources).para_2 as string}&nbsp;
         <a
-          aria-label="link"
+          aria-label={
+            (measurement_traceability as LanguageResources).website as string
+          }
           href="https://www.itc.gov.hk/en/quality/scl/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -137,7 +141,9 @@ export const OtherSupport: React.FC = () => {
       <p className="text-body-m text-justify">
         {(measurement_traceability as LanguageResources).para_3 as string}&nbsp;
         <a
-          aria-label="link"
+          aria-label={
+            (measurement_traceability as LanguageResources).website as string
+          }
           href="https://www.govtlab.gov.hk/en/home/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -162,7 +168,10 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
-          aria-label="link"
+          aria-label={
+            (support_and_consultation_centre as LanguageResources)
+              .website as string
+          }
           href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -233,7 +242,10 @@ export const OtherSupport: React.FC = () => {
             }
             &nbsp;
             <a
-              aria-label="link"
+              aria-label={
+                (hk_export_credit_insurance_corporation as LanguageResources)
+                  .TISP as string
+              }
               href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
               target="_blank"
               rel="noopener noreferrer"
@@ -309,7 +321,10 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
-          aria-label="link"
+          aria-label={
+            (hk_export_credit_insurance_corporation as LanguageResources)
+              .website as string
+          }
           href="https://www.hkecic.com/en/"
           target="_blank"
           rel="noopener noreferrer"
@@ -327,7 +342,7 @@ export const OtherSupport: React.FC = () => {
         }
         &nbsp;
         <a
-          aria-label="link"
+          aria-label="mail to info@hkecic.com"
           href="mailto:info@hkecic.com"
           target="_blank"
           rel="noopener noreferrer"

@@ -31,7 +31,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   <span
                     className="text-body-m cursor-pointer truncate max-w-[20ch]"
                     tabIndex={0}
-                    role="link"
+                    role="button"
+                    aria-label={"navigate to " + item.label}
                     onClick={() => {
                       window.scroll({
                         top: 0,
@@ -49,7 +50,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                 <span
                   className="text-body-m cursor-pointer truncate max-w-[20ch]"
                   tabIndex={0}
-                  role="link"
+                  role="button"
+                  aria-label={"navigate to " + item.label}
                   onClick={() => {
                     const element = document.getElementById("breadcrumb");
                     if (element) {
@@ -69,7 +71,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
               <Icon
                 icon="weui:arrow-outlined"
                 className="w-4 h-4 text-grey"
-                aria-label={"arrow"}
+                aria-label={"an arrow icon"}
               />
             )}
           </div>

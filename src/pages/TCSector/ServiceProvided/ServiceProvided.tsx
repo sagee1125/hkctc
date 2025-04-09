@@ -44,7 +44,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
           of indoor air quality at premises according to the Environmental
           Protection Department's "
           <a
-            aria-label="link"
+            aria-label="Indoor Air Quality Certification Scheme for Offices and Public Places"
             href="https://www.iaq.gov.hk/en/home/"
             className="underline text-[#00E]"
             target="_blank"
@@ -91,7 +91,7 @@ const TC_SERVICE_PROVIDED_TEXT = {
         <>
           在本地需求方面，其中一個檢驗工作例子，是根據環境保護署推行的自願
           <a
-            aria-label="link"
+            aria-label="「辦公室及公眾場所室內空氣質素檢定計劃」"
             href="https://www.iaq.gov.hk/zh/home-tc/"
             className="underline text-[#00E]"
             target="_blank"
@@ -160,7 +160,7 @@ const InspectionService: React.FC = () => {
       <>
         在本地需求方面，其中一个检验工作例子，是根据环境保护署推行的自愿
         <a
-          aria-label="link"
+          aria-label="「办公室及公众场所室内空气质素检定计划」"
           href="https://www.iaq.gov.hk/zh-cn/home-sc/"
           className="underline text-[#00E]"
           target="_blank"

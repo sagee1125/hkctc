@@ -23,7 +23,7 @@ const Agreement: React.FC = () => {
           <p>
             According to the&nbsp;
             <a
-              aria-label="link"
+              aria-label="Implementation Guide"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -49,7 +49,7 @@ const Agreement: React.FC = () => {
             procedures of establishing cooperation with designated Mainland
             organisations could be viewed at&nbsp;
             <a
-              aria-label="link"
+              aria-label="HKAS’s website"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -76,7 +76,7 @@ const Agreement: React.FC = () => {
             relevant training courses and examinations. (The system “CCAA
             認證人員註冊與管理系統” could be accessed at its&nbsp;
             <a
-              aria-label="link"
+              aria-label="CCAA website"
               href="https://service.ccaa.org.cn/#/index"
               target="_blank"
               rel="noopener noreferrer"
@@ -103,7 +103,7 @@ const Agreement: React.FC = () => {
           <p>
             《服務貿易協議》中與檢測認證相關的條款於二○一九年十一月獲修訂。根據二○二○年五月公布的相關
             <a
-              aria-label="link"
+              aria-label="實施指南"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -115,7 +115,7 @@ const Agreement: React.FC = () => {
             </a>
             ，擬從事CCC檢測工作的香港檢測機構必須取得香港認可處實驗所認可計劃的認可，以確認該實驗所具備進行CCC產品檢測的能力。該等檢測機構亦須與內地指定認證機構簽訂合作協議。有關對檢測機構的資質要求及申請與內地指定機構合作的程序，請見
             <a
-              aria-label="link"
+              aria-label="香港認可處網頁"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -136,7 +136,7 @@ const Agreement: React.FC = () => {
           <p>
             目前已經在「CCAA認證人員註冊與管理系統」中註冊過的CCC工廠檢查員，在轉換機構時，只需要在該系統中使用「轉換機構申請」功能，按照系統提示程序進行轉換機構即可。該過程不再需要向CCAA進行書面申請，也不需要進行培訓考試（「CCAA認證人員註冊與管理系統」請見CCAA的
             <a
-              aria-label="link"
+              aria-label="CCAA的網頁"
               href="https://service.ccaa.org.cn/#/index"
               target="_blank"
               rel="noopener noreferrer"
@@ -208,7 +208,7 @@ const EnterpriseRun: React.FC = () => {
           <ul>
             <li>
               <a
-                aria-label="link"
+                aria-label="《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》"
                 href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -221,7 +221,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
-                aria-label="link"
+                aria-label="《國家認監委關於進一步深化汽車強制性產品認證改革的公告》"
                 href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -234,7 +234,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
-                aria-label="link"
+                aria-label="《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》"
                 href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -254,7 +254,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to qiul@cnca.gov.cn"
               href="mailto:qiul@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -268,7 +268,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to guanjw@cnca.gov.cn"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -298,7 +298,7 @@ const EnterpriseRun: React.FC = () => {
             out on the website of the State Administration for Market Regulation
             -&nbsp;
             <a
-              aria-label="link"
+              aria-label="《強制性產品認證機構和實驗室管理辦法》"
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
@@ -309,7 +309,7 @@ const EnterpriseRun: React.FC = () => {
             (available in Simplified Chinese only). Applicants may also refer to
             CNCA's&nbsp;
             <a
-              aria-label="link"
+              aria-label="CCC Column"
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -335,7 +335,7 @@ const EnterpriseRun: React.FC = () => {
             detailed CCC requirements and implementation needs. Such designated
             plans would be announced on CNCA's&nbsp;
             <a
-              aria-label="link"
+              aria-label="website and WeChat official"
               href="https://www.cnca.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
@@ -370,7 +370,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to qiul@cnca.gov.cn"
               href="mailto:qiul@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -384,7 +384,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             Email address:&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to guanjw@cnca.gov.cn"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -417,7 +417,7 @@ const EnterpriseRun: React.FC = () => {
           <ul>
             <li>
               <a
-                aria-label="link"
+                aria-label="認監委2015年第34號公告—《國家認監委關於發佈進一步深化強制性認證實施機構指定審批制度改革工作舉措的公告》"
                 href="https://www.cnca.gov.cn/zwxx/gg/2015/art/2023/art_bf698bdf2523441cb48b910caf35ca54.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -429,7 +429,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
-                aria-label="link"
+                aria-label="認監委2017年第1號公告—《國家認監委關於進一步深化汽車強制性產品認證改革的公告》"
                 href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -441,7 +441,7 @@ const EnterpriseRun: React.FC = () => {
             </li>
             <li>
               <a
-                aria-label="link"
+                aria-label="認監委2017年第28號公告—《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》"
                 href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -464,7 +464,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to qiul@cnca.gov.cn"
               href="mailto:qiul@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -478,7 +478,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to guanjw@cnca.gov.cn"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -500,7 +500,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             相關申請制度、條件和程序，已載於國家市場監督管理總局（市場監管總局）的網頁，詳見市場監管總局的
             <a
-              aria-label="link"
+              aria-label="《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》"
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
@@ -510,7 +510,7 @@ const EnterpriseRun: React.FC = () => {
             </a>
             網頁。申請者亦可參考認監委的
             <a
-              aria-label="link"
+              aria-label="「強制性產品認證專欄」"
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -530,7 +530,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             根據原國家質量監督檢驗檢疫總局發佈的《強制性產品認證機構、檢查機構和實驗室管理辦法》第十二條，認監委按強制性產品認證制度的具體要求和實施需要，提出指定計劃，並以公告形式在認監委的
             <a
-              aria-label="link"
+              aria-label="認監委的官方網頁"
               href="https://www.cnca.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
@@ -561,7 +561,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to qiul@cnca.gov.cn"
               href="mailto:qiul@cnca.gov.cn"
               className="underline text-[#00E]"
             >
@@ -575,7 +575,7 @@ const EnterpriseRun: React.FC = () => {
           <p>
             電郵：&nbsp;
             <a
-              aria-label="link"
+              aria-label="mail to guanjw@cnca.gov.cn"
               href="mailto:guanjw@cnca.gov.cn"
               className="underline text-[#00E]"
             >

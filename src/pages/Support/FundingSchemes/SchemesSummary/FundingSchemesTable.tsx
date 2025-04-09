@@ -63,7 +63,7 @@ export const FundingSchemesTable: React.FC<TableBodyProps> = ({ rows }) => {
               >
                 <TableCell>
                   <a
-                    aria-label="link"
+                    aria-label={getSingleText(schemeName, schemeName)}
                     className="text-body-s underline text-[#000]"
                     href={row.schemeNameHyperLink}
                     target="_blank"

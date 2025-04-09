@@ -23,7 +23,7 @@ const multilingual = {
         click on the picture of the comic book.&nbsp;Or read the text version
         &nbsp;
         <a
-          aria-label="link"
+          aria-label="PassingThroughTheMaze.pdf"
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -52,7 +52,7 @@ const multilingual = {
       <>
         如果你也想來走一躺，並考驗你衝出迷宮的能力，請點選一下漫畫書封面。或點擊
         <a
-          aria-label="link"
+          aria-label="文字版本"
           href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze_TextOnly.pdf"
           target="_blank"
           rel="noopener noreferrer"

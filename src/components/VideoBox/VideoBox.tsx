@@ -144,6 +144,7 @@ export const VideoBox: React.FC = () => {
             right: 0,
             bottom: 0,
           }}
+          tabIndex={0}
           className="absolute inset-0 w-full h-full"
         >
           <div className="flex flex-col justify-between h-full">

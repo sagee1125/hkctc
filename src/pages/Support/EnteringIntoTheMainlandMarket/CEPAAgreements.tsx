@@ -109,7 +109,7 @@ export const CEPAAgreements: React.FC = () => {
             The above measures will come into effect on 1 March 2025. The State
             Administration for Market Regulation will promulgate the&nbsp;
             <a
-              aria-label="link"
+              aria-label="implementation guide"
               href={processLink(
                 "https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
               )}
@@ -158,7 +158,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             以上措施於二○二五年三月一日起實施。詳細實施安排已載於國家認監委發布的
             <a
-              aria-label="link"
+              aria-label="實施指南"
               href={processLink(
                 "https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
               )}
@@ -182,7 +182,7 @@ export const CEPAAgreements: React.FC = () => {
             On 4 November 2020, the State Administration for Market Regulation
             published&nbsp;
             <a
-              aria-label="link"
+              aria-label="an announcement"
               className="underline text-[#00E] text-[16px]"
               href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
               target="_blank"
@@ -192,7 +192,7 @@ export const CEPAAgreements: React.FC = () => {
             </a>
             &nbsp;relating to the implementation of the&nbsp;
             <a
-              aria-label="link"
+              aria-label="State Council’s notice"
               className="underline text-[#00E] text-[16px]"
               href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
               target="_blank"
@@ -223,7 +223,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             為落實
             <a
-              aria-label="link"
+              aria-label="《國務院關於取消和下放一批行政許可事項的決定》"
               className="underline text-[#00E] text-[16px]"
               href="https://www.gov.cn/zhengce/content/2020-09/21/content_5545345.htm"
               target="_blank"
@@ -233,7 +233,7 @@ export const CEPAAgreements: React.FC = () => {
             </a>
             中，有關取消「與強制性認證有關的檢查機構指定」許可工作，國家市場監督管理總局於2020年11月4日發佈
             <a
-              aria-label="link"
+              aria-label="市場監管總局關於貫徹落實〈國務院關於取消和下放一批行政許可事項的決定〉有關事項的公告》（2020年第48號）"
               className="underline text-[#00E] text-[16px]"
               href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2023/art_3a444d8683da4c47bd634f492e6d8f4a.html"
               target="_blank"
@@ -290,7 +290,7 @@ export const CEPAAgreements: React.FC = () => {
             Certification and Accreditation Administration of the People’s
             Republic of China (“CNCA”) has promulgated the&nbsp;
             <a
-              aria-label="link"
+              aria-label="Implementation Guide"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -323,7 +323,7 @@ export const CEPAAgreements: React.FC = () => {
           <p className="text-body-m">
             以上措施已於二○二○年六月一日起實施。國家認證認可監督管理委員會（“認監委”）已公布獲修訂和新增措施的
             <a
-              aria-label="link"
+              aria-label="實施指南"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -366,7 +366,7 @@ export const CEPAAgreements: React.FC = () => {
             &nbsp;on all products that are processed or manufactured in the
             Mainland requiring CCC. The&nbsp;
             <a
-              aria-label="link"
+              aria-label="Implementation Guide"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -401,7 +401,7 @@ export const CEPAAgreements: React.FC = () => {
             </span>
             工作。此措施已於二○一九年三月一日起實施，相關
             <a
-              aria-label="link"
+              aria-label="實施指南"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               )}
@@ -481,7 +481,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated two Implementation Guides (
         <a
-          aria-label="link"
+          aria-label="measure on the movement of natural persons, other measures"
           href={processLink(
             "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
           )}
@@ -496,7 +496,7 @@ export const CEPAAgreements: React.FC = () => {
         their scope of services in respect of voluntary certification are
         available at the&nbsp;
         <a
-          aria-label="link"
+          aria-label="website of CNCA"
           href="https://www.cnca.gov.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -533,7 +533,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制訂實施指南（
         <a
-          aria-label="link"
+          aria-label="關於自然人流動的措施，其他措施"
           href={processLink(
             "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
           )}
@@ -545,7 +545,7 @@ export const CEPAAgreements: React.FC = () => {
         </a>
         ），為以上開放措施的實施提供更多資訊。認監委亦已發布內地認證機構及其有關自願性產品認證的服務範圍的
         <a
-          aria-label="link"
+          aria-label="內地認證機構及其有關自願性產品認證的服務範圍的名單"
           href="https://www.cnca.gov.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -786,7 +786,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
-          aria-label="link"
+          aria-label="measure on the movement of natural persons, other measures"
           href={processLink(
             "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           )}
@@ -827,7 +827,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已為此開放措施制訂
         <a
-          aria-label="link"
+          aria-label="實施指南"
           href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -897,7 +897,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
-          aria-label="link"
+          aria-label="Implementation Guide"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -957,7 +957,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制訂
         <a
-          aria-label="link"
+          aria-label="實施指南"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -1115,7 +1115,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
-          aria-label="link"
+          aria-label="Implementation Guide"
           href={processLink(
             "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
           )}
@@ -1152,7 +1152,7 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制定
         <a
-          aria-label="link"
+          aria-label="實施指南"
           href={processLink(
             "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
           )}

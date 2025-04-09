@@ -26,7 +26,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
         <p className="text-italic-s italic mt-[24px]">
           An&nbsp;
           <a
-            aria-label="link"
+            aria-label="Implementation Guide"
             className="underline text-[#00E]"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
@@ -60,7 +60,7 @@ export const GuangdongAgreementClauses: React.FC = () => {
         <p className="text-italic-s italic mt-[24px]">
           內地已公布
           <a
-            aria-label="link"
+            aria-label="實施指南"
             className="underline text-[#00E]"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"

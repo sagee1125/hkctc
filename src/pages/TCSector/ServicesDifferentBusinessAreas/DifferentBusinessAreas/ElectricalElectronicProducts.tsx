@@ -120,7 +120,7 @@ const multilingual = {
       <>
         獲香港認可處認可的電氣及電子產品（簡稱「電子產品」）測試實驗所名單，請瀏覽
         <a
-          aria-label="link"
+          aria-label="香港認可處網頁"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
