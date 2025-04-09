@@ -9,7 +9,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../../components";
 import { pamphletsList, bookletsList, MEDIA_TYPE } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 const itemsPerPage = 9;
 
@@ -33,7 +33,7 @@ export const Pamphlets: React.FC = () => {
     1: pamphletsList, // Pamphlets
     2: bookletsList, // Booklets
   };
-  const { getSingleText, isPC, getPageText } = useSettings();
+  const { getSingleText, isPC, getPageText, language } = useSettings();
   const page_text = getPageText(multilingual);
   const { pamphlets, types, filterButtons } = page_text;
 
@@ -63,6 +63,7 @@ export const Pamphlets: React.FC = () => {
               {(filterButtons as string[]).map((name, index) => {
                 const isActivated = activeButton === index;
                 return (
+                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
                     tabIndex={0}
                     role="button"
@@ -92,7 +93,24 @@ export const Pamphlets: React.FC = () => {
         } `}
       >
         {currentPageData?.map((item, index) => {
-          const { title, titleCN, mediaType, date, link, thumbnail } = item;
+          const {
+            title,
+            titleCN,
+            mediaType,
+            date,
+            link,
+            thumbnail,
+            scLink,
+            tcLink,
+          } = item;
+
+          const displayLink =
+            (language === Language.EN
+              ? link
+              : language === Language.ZH_CN
+              ? scLink ?? tcLink
+              : tcLink) ?? link;
+
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           const cover = !!thumbnail ? "pamphlets/" + thumbnail : "";
@@ -107,7 +125,7 @@ export const Pamphlets: React.FC = () => {
                 title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
-                mediaLink={link}
+                mediaLink={displayLink}
                 mediaType={mediaType}
                 thumbnail={cover}
               />

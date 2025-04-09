@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";
@@ -617,6 +619,7 @@ export const ResourcesReportsContent: React.FC = () => {
               {Object.values(filterReportsButtonsMapping).map((name, index) => {
                 const isActivated = activeReport === index;
                 return (
+                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
                     tabIndex={0}
                     key={index}
@@ -662,6 +665,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 (name, index: number) => {
                   const isActivated = activePublication === index;
                   return (
+                    // eslint-disable-next-line jsx-a11y/no-redundant-roles
                     <button
                       tabIndex={0}
                       key={index}
@@ -701,6 +705,7 @@ export const ResourcesReportsContent: React.FC = () => {
               {Object.keys(courseButtonMapping).map((name, index) => {
                 const isActivated = activeCoursesCategory === index;
                 return (
+                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
                     tabIndex={0}
                     key={index}
@@ -738,6 +743,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   {Object.keys(aboutTestingSector).map((name, index) => {
                     const isActivated = activeAboutSector === index;
                     return (
+                      // eslint-disable-next-line jsx-a11y/no-redundant-roles
                       <button
                         tabIndex={0}
                         key={index}
@@ -771,6 +777,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   {Object.keys(certificateSector).map((name, index) => {
                     const isActivated = activeCertificateSector === index;
                     return (
+                      // eslint-disable-next-line jsx-a11y/no-redundant-roles
                       <button
                         tabIndex={0}
                         key={index}
@@ -1212,7 +1219,15 @@ export const ResourcesReportsContent: React.FC = () => {
             }
           >
             {currentPageData.map((item, index) => {
-              const { title, date, link, mediaType } = item;
+              const { title, date, link, tcLink, scLink, mediaType } = item;
+
+              const displayLink =
+                (language === Language.EN
+                  ? link
+                  : language === Language.ZH_CN
+                  ? scLink ?? tcLink
+                  : tcLink) ?? link;
+
               const maskIcon =
                 mediaType === MEDIA_TYPE.PDF ? "PDF.png" : "VIDEO.png";
               return (
@@ -1226,7 +1241,7 @@ export const ResourcesReportsContent: React.FC = () => {
                     title={processText(title)}
                     maskIcon={maskIcon}
                     date={date}
-                    mediaLink={link}
+                    mediaLink={displayLink}
                     mediaType={mediaType}
                     direction={
                       !isPC ? "column" : layoutButton === 0 ? "full" : "column"

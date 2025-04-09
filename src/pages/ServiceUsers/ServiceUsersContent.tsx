@@ -70,12 +70,16 @@ export const accreditationService: Array<{
   titleCN: string;
   imagePath: string;
   link: string;
+  tcLink?: string;
+  scLink?: string;
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
     titleCN: "香港實驗所認可計劃",
     imagePath: "serviceUsers/HOKLAS_1.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
+    tcLink:"",
+    scLink:"",
   },
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
