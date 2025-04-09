@@ -1,7 +1,7 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../../components";
 import { corruptionGuideList, MEDIA_TYPE } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Corruption Prevention Guide for T&C Industry",
@@ -12,7 +12,7 @@ const multilingual = {
 };
 
 export const CorruptionGuide: React.FC = () => {
-  const { isPC, getPageText, getSingleText } = useSettings();
+  const { isPC, getPageText, getSingleText, language } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { title } = page_text;
@@ -29,7 +29,17 @@ export const CorruptionGuide: React.FC = () => {
             link,
             mediaDomain,
             thumbnail,
+            scLink,
+            tcLink,
           } = item;
+
+          const displayLink =
+            (language === Language.EN
+              ? link
+              : language === Language.ZH_CN
+              ? scLink ?? tcLink
+              : tcLink) ?? link;
+
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
@@ -44,7 +54,7 @@ export const CorruptionGuide: React.FC = () => {
                 title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date as string}
-                mediaLink={link}
+                mediaLink={displayLink}
                 mediaType={mediaType}
                 direction={isPC ? "full" : "column"}
                 mediaDomain={mediaDomain}

@@ -122,6 +122,8 @@ export const AwardScheme21to22Preview: React.FC<{
             <a
               aria-label={page_text.testing_manpower_award_content.guild_note}
               className="underline text-[#00E]"
+              target="_blank"
+              rel="noreferrer"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >
               {page_text.testing_manpower_award_content.guild_note}

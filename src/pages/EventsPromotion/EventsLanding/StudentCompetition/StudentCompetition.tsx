@@ -63,7 +63,9 @@ export const StudentCompetition: React.FC = () => {
       imgUrl: "awardees_1.png",
       hyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-    },
+      tcHyperLink:'',
+      scHyperLink:'',
+      },
     {
       title: "Food Testing in Daily Life",
       titleCN: "生活中的食品檢測",

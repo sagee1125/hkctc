@@ -102,7 +102,6 @@ export const SeminarsWorkshops: React.FC = () => {
     // Check if the item matches the active topic
     const topicMatch = activeTopic === "All" || item.tag === activeTopic;
 
-    console.log(activeTopic, item.tag, topicMatch);
     // Return true if both conditions are met
     return yearMatch && topicMatch;
   });
@@ -125,6 +124,7 @@ export const SeminarsWorkshops: React.FC = () => {
               {Object.keys(topicArray).map((btn, index) => {
                 const isActivated = index === activeTopicButton;
                 return (
+                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
                     tabIndex={0}
                     role="button"
@@ -154,6 +154,7 @@ export const SeminarsWorkshops: React.FC = () => {
               {(yearArray as string[]).map((btn, index) => {
                 const isActivated = index === activeYearButton;
                 return (
+                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
                     tabIndex={0}
                     role="button"
