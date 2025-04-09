@@ -1,6 +1,11 @@
 import React from "react";
-import { Footer, Header, Navigator } from "./components";
-import { ScrollTopButton } from "./components/ScrollTopButton/ScrollTopButton";
+import {
+  Footer,
+  Header,
+  Navigator,
+  ScrollTopButton,
+  SkipLinks,
+} from "./components";
 import { useSettings } from "./context";
 
 type LayoutProps = {
@@ -15,20 +20,16 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       className={fontClass}
       style={{
         ...layoutStyle,
-        ...(isPC
-          ? {
-              minWidth: "1300px",
-            }
-          : {
-              maxWidth: "1024px",
-              width: "100%",
-              overflow: "hidden",
-            }),
+        ...(isPC ? pcStyle : mobileStyle),
       }}
     >
-      {isPC && <Header />}
-      <Navigator />
-      <main style={contentStyle}>
+      <SkipLinks />
+      <div id="main-menu">
+        {isPC && <Header />}
+        <Navigator />
+      </div>
+
+      <main style={contentStyle} id="main-content">
         {children}
         <ScrollTopButton />
       </main>
@@ -43,6 +44,15 @@ const layoutStyle: React.CSSProperties = {
   flexDirection: "column",
   minHeight: "100vh",
   width: "100%",
+};
+
+const pcStyle: React.CSSProperties = {
+  minWidth: "1300px",
+};
+const mobileStyle: React.CSSProperties = {
+  maxWidth: "1024px",
+  width: "100%",
+  overflow: "hidden",
 };
 
 const contentStyle: React.CSSProperties = {
