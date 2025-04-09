@@ -44,6 +44,8 @@ const LanguageSelect: React.FC = () => {
   return (
     <div>
       <Button
+        tabIndex={0}
+        aria-label="switch language"
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
@@ -60,6 +62,7 @@ const LanguageSelect: React.FC = () => {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
+        tabIndex={0}
         onClose={handleClose}
         slotProps={{
           paper: {
@@ -98,6 +101,7 @@ const LanguageSelect: React.FC = () => {
             <MenuItem
               onClick={handleLanguageChange(lan.value)}
               key={i}
+              tabIndex={0}
               sx={{
                 listStyle: "none",
                 color: lan.value === language ? "#233F55" : "#000000",

@@ -818,9 +818,9 @@ export const Publications: React.FC = () => {
                     >
                       {getSingleText(title, titleCN)}
                     </div>
-                    <div className="z-20 pr-[20px]">
+                    <div className="z-20 pr-[20px]" tabIndex={0}>
                       <Icon
-                        aria-label="icon"
+                        aria-label="just a icon"
                         icon={icon}
                         style={{ height: "24px", width: "24px" }}
                       />

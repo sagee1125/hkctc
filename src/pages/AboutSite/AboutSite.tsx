@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { t2s } from "chinese-s2t";
 import {
   DirectorySidebar,
   BannerPhotoBox,
@@ -13,7 +12,7 @@ import {
   type DirectorySidebarItems,
   type BreadcrumbItem,
 } from "../../components";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -41,7 +40,7 @@ const multilingual = {
       <div>
         Please download the latest version of&nbsp;
         <a
-          aria-label="link"
+          aria-label="download Acrobat Reader"
           href="https://helpx.adobe.com/support.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -77,7 +76,7 @@ const multilingual = {
       <>
         For enquiry, please contact us at{" "}
         <a
-          aria-label="link"
+          aria-label="mail to enquiry@hkctc.gov.hk"
           href="mailto:enquiry@hkctc.gov.hk"
           className="underline text-[#00E]"
         >
@@ -137,7 +136,7 @@ const multilingual = {
       <div>
         請下載最新版本的
         <a
-          aria-label="link"
+          aria-label="下載 Acrobat Reader"
           href="https://helpx.adobe.com/support.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -172,7 +171,7 @@ const multilingual = {
       <>
         如有查詢，請電郵至
         <a
-          aria-label="link"
+          aria-label="mailto enquiry@hkctc.gov.hk"
           href="mailto:enquiry@hkctc.gov.hk"
           className="underline text-[#00E]"
         >
@@ -297,7 +296,10 @@ const Accessibility: React.FC = () => {
       <div>
         {tel as string} <Link>(852) 2180 9101</Link> <br />
         {email as string}{" "}
-        <a aria-label="link" href="mailto:enquiry@hkctc.gov.hk">
+        <a
+          aria-label="mailto enquiry@hkctc.gov.hk"
+          href="mailto:enquiry@hkctc.gov.hk"
+        >
           enquiry@hkctc.gov.hk
         </a>
       </div>
@@ -412,7 +414,7 @@ const Contact: React.FC = () => {
       <div>
         {email as string}{" "}
         <a
-          aria-label="link"
+          aria-label="mail to enquiry@hkctc.gov.hk"
           href="mailto:enquiry@hkctc.gov.hk"
           className="underline text-[#00E]"
         >
@@ -424,9 +426,7 @@ const Contact: React.FC = () => {
 };
 
 const RelatedSite: React.FC = () => {
-  const { language, getPageText } = useSettings();
-  const isEn = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
+  const { language, getPageText, getSingleText } = useSettings();
 
   const page_text = getPageText(multilingual);
   const {
@@ -519,7 +519,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!text-linked-m mb-[8px]">
           <li>
             <a
-              aria-label="link"
+              aria-label={ITC as string}
               href="https://www.itc.gov.hk/en/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -532,7 +532,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!flex !flex-col !gap-[8px] ml-[16px] !text-linked-m">
           <li>
             <a
-              aria-label="link"
+              aria-label={HKAS as string}
               href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
@@ -543,7 +543,7 @@ const RelatedSite: React.FC = () => {
           </li>
           <li>
             <a
-              aria-label="link"
+              aria-label={SCL as string}
               href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
               target="_blank"
               rel="noopener noreferrer"
@@ -554,7 +554,7 @@ const RelatedSite: React.FC = () => {
           </li>
           <li>
             <a
-              aria-label="link"
+              aria-label={standard_related as string}
               href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -567,7 +567,7 @@ const RelatedSite: React.FC = () => {
         <ul className="!text-linked-m">
           <li className="underline text-[#00E] mt-[8px]">
             <a
-              aria-label="link"
+              aria-label={gov_lab as string}
               href="https://www.govtlab.gov.hk/tc/home/index.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -585,13 +585,13 @@ const RelatedSite: React.FC = () => {
           {publicOrgMap.map((pb, index) => (
             <li key={index}>
               <a
-                aria-label="link"
+                aria-label={getSingleText(pb.title, pb.titleCN)}
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
+                {getSingleText(pb.title, pb.titleCN)}
               </a>
             </li>
           ))}
@@ -606,13 +606,13 @@ const RelatedSite: React.FC = () => {
           {tradeAssociationsMap.map((pb, index) => (
             <li key={index}>
               <a
-                aria-label="link"
+                aria-label={getSingleText(pb.title, pb.titleCN)}
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
+                {getSingleText(pb.title, pb.titleCN)}
               </a>
             </li>
           ))}
@@ -625,13 +625,13 @@ const RelatedSite: React.FC = () => {
           {mainlandOrgMap.map((pb, index) => (
             <li key={index}>
               <a
-                aria-label="link"
+                aria-label={getSingleText(pb.title, pb.titleCN)}
                 href={pb.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
               >
-                {isEn ? pb.title : isSimpleCN ? t2s(pb.titleCN) : pb.titleCN}
+                {getSingleText(pb.title, pb.titleCN)}
               </a>
             </li>
           ))}
@@ -688,9 +688,7 @@ const directoryItems: DirectorySidebarItems[] = [
 export const AboutSite: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isPC, language, getPageText } = useSettings();
-  const isEN = language === Language.EN;
-  const isSimpleCN = language === Language.ZH_CN;
+  const { isPC, getPageText, getSingleText } = useSettings();
 
   const page_text = getPageText(multilingual);
 
@@ -733,12 +731,7 @@ export const AboutSite: React.FC = () => {
     { label: home, href: "/hkctc" },
     { label: about_site, href: "/about-the-site" },
     {
-      label:
-        (isEN
-          ? findObj?.label
-          : isSimpleCN
-          ? t2s(findObj?.labelCN ?? "")
-          : findObj?.labelCN) ?? "",
+      label: getSingleText(findObj?.label ?? "", findObj?.labelCN ?? ""),
     },
   ];
 

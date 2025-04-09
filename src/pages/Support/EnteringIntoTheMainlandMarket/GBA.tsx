@@ -15,7 +15,7 @@ const multilingual = {
       <>
         Information about GBA Standards can be found on the&nbsp;
         <a
-          aria-label="link"
+          aria-label="Guangdong-Hong Kong-Macao Greater Bay Area Standard Information Public Service Platform"
           href="https://www.gbsrc.org.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -35,7 +35,7 @@ const multilingual = {
         also disseminates information about GBA Standards to the trades through
         issuing&nbsp;
         <a
-          aria-label="link"
+          aria-label="Commercial Information Circulars"
           href="ttps://www.tid.gov.hk/english/trade_relations/mainland/cic_gbastandards.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const multilingual = {
       <>
         Information about GBA Certification is available on the&nbsp;
         <a
-          aria-label="link"
+          aria-label="GBA Certification Public Service Platform"
           href={`https://gbacpc.org.cn/bayareacertification/index`}
           target="_blank"
           rel="noopener noreferrer"
@@ -82,7 +82,7 @@ const multilingual = {
       <>
         關於灣區認證的相關資訊可以在&nbsp;
         <a
-          aria-label="link"
+          aria-label="「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）"
           href="https://www.gbsrc.org.cn/"
           target="_blank"
           rel="noopener noreferrer"
@@ -105,7 +105,7 @@ const multilingual = {
       <>
         關於灣區認證的相關資訊可以在
         <a
-          aria-label="link"
+          aria-label="「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）"
           href={`https://gbacpc.org.cn/bayareacertification/index`}
           target="_blank"
           rel="noopener noreferrer"

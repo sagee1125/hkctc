@@ -161,7 +161,7 @@ export const AwardScheme: React.FC = () => {
           <li>
             {processText(page_text.awardMap_one.permit_use_logo)}&nbsp;
             <a
-              aria-label="link"
+              aria-label={processText(page_text.awardMap_one.guidance_note)}
               className="underline text-[#00E]"
               href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
             >

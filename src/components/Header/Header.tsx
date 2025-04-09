@@ -92,6 +92,7 @@ export const Header: React.FC = () => {
               className="cursor-pointer"
               tabIndex={0}
               role="button"
+              aria-label={"go searching"}
               onClick={() => {
                 setOpenSearchInput(!openSearchInput);
               }}
@@ -99,7 +100,7 @@ export const Header: React.FC = () => {
               <Icon
                 icon="ri:search-line"
                 className="h-6 w-6 text-[#333333]"
-                aria-label={"search line"}
+                aria-label={"search icon"}
               />
             </div>
             {openSearchInput && (
@@ -110,6 +111,15 @@ export const Header: React.FC = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   size="small"
+                  label="Search"
+                  aria-label="search"
+                  id="search-input"
+                  FormHelperTextProps={{
+                    id: "search-helper",
+                  }}
+                  inputProps={{
+                    "aria-describedby": "search-helper",
+                  }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">

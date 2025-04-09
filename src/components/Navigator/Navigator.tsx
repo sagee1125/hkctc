@@ -316,6 +316,7 @@ export const Navigator: React.FC = () => {
                           className="cursor-pointer"
                           tabIndex={0}
                           role="button"
+                          aria-label={"go searching"}
                           onClick={() => {
                             setOpenSearchInput(!openSearchInput);
                           }}

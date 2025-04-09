@@ -86,7 +86,7 @@ const multilingual = {
       <>
         認可是由第三方發出證明，確認化驗所有能力根據國際標準提供特定的測試服務。在香港，政府轄下的香港認可處透過
         <a
-          aria-label="link"
+          aria-label="實驗所認可計劃（HOKLAS）"
           href="https://www.itc.gov.hk/en/quality/hkas/accreditation/hoklas.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -106,7 +106,7 @@ const multilingual = {
       <>
         獲香港認可處認可的醫務化驗測試實驗所名單，請瀏覽
         <a
-          aria-label="link"
+          aria-label="香港認可處網頁"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -420,7 +420,7 @@ export const MedicalTesting: React.FC = () => {
         {item.name}
       </p>
       <a
-        aria-label="link"
+        aria-label={item.regNo}
         className="flex items-center justify-center px-[10px] h-full underline text-links text-center"
         target="_blank"
         rel="noopener noreferrer"

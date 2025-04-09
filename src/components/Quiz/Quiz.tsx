@@ -85,6 +85,7 @@ export const Quiz: React.FC = () => {
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           role="button"
+          tabIndex={0}
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/quiz/quiz_${
               quiz + 1
@@ -110,6 +111,7 @@ export const Quiz: React.FC = () => {
                       fontStyle: "normal",
                       fontWeight: 700,
                     }}
+                    tabIndex={0}
                   >
                     {getSingleText(quick_quiz as string, quick_quiz as string)}
                   </p>
@@ -117,6 +119,7 @@ export const Quiz: React.FC = () => {
                     className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}
                     role="heading"
                     aria-level={10}
+                    tabIndex={0}
                   >
                     {getSingleText(
                       quizData.question as string,
@@ -241,6 +244,8 @@ export const Quiz: React.FC = () => {
                             cursor:
                               explanationPage === 0 ? "not-allowed" : "pointer",
                           }}
+                          role="button"
+                          tabIndex={0}
                           onClick={() => {
                             setExplanationPage(0);
                           }}
@@ -275,6 +280,8 @@ export const Quiz: React.FC = () => {
                             cursor:
                               explanationPage !== 0 ? "not-allowed" : "pointer",
                           }}
+                          role="button"
+                          tabIndex={0}
                           onClick={() => {
                             setExplanationPage(1);
                           }}

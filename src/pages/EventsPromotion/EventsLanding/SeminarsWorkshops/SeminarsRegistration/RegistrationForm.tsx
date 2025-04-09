@@ -182,10 +182,20 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="title"
-                label="title"
+                label="Title"
                 aria-label="title"
                 required
                 aria-required="true"
+                id="title-input"
+                FormHelperTextProps={{
+                  id: "title-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "title-helper",
+                  "aria-errormessage": registrationFormik.errors.title
+                    ? "title-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.title}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -209,8 +219,18 @@ export const RegistrationForm: React.FC = () => {
                 name="firstName"
                 aria-label="firstName"
                 required
-                label="firstName"
+                label="First Name"
                 aria-required="true"
+                id="firstName-input"
+                FormHelperTextProps={{
+                  id: "firstName-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "firstName-helper",
+                  "aria-errormessage": registrationFormik.errors.firstName
+                    ? "firstName-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.firstName}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -233,9 +253,19 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="lastName"
                 aria-label="lastName"
-                label="lastName"
+                label="LastName"
                 required
                 aria-required="true"
+                id="lastName-input"
+                FormHelperTextProps={{
+                  id: "lastName-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "lastName-helper",
+                  "aria-errormessage": registrationFormik.errors.lastName
+                    ? "lastName-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.lastName}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -259,10 +289,20 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="email"
-                label="email"
+                label="Email"
                 aria-label="email"
                 required
                 aria-required="true"
+                id="email-input"
+                FormHelperTextProps={{
+                  id: "email-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "email-helper",
+                  "aria-errormessage": registrationFormik.errors.email
+                    ? "email-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.email}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -285,9 +325,19 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="verifyEmail"
                 aria-label="verifyEmail"
-                label="verifyEmail"
+                label="Verify Email"
                 required
                 aria-required="true"
+                id="verifyEmail-input"
+                FormHelperTextProps={{
+                  id: "verifyEmail-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "verifyEmail-helper",
+                  "aria-errormessage": registrationFormik.errors.verifyEmail
+                    ? "verifyEmail-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.verifyEmail}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -310,11 +360,21 @@ export const RegistrationForm: React.FC = () => {
                 Position {processText("職位")}
               </div>
               <TextField
-                label="position"
+                label="Position"
                 name="position"
                 aria-label="position"
                 required
                 aria-required="true"
+                id="position-input"
+                FormHelperTextProps={{
+                  id: "position-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "position-helper",
+                  "aria-errormessage": registrationFormik.errors.position
+                    ? "position-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.position}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -336,10 +396,20 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <TextField
                 name="organization"
-                label="organization"
+                label="Organization"
                 aria-label="organization"
                 required
                 aria-required="true"
+                id="organization-input"
+                FormHelperTextProps={{
+                  id: "organization-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "organization-helper",
+                  "aria-errormessage": registrationFormik.errors.organization
+                    ? "organization-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.organization}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -364,9 +434,19 @@ export const RegistrationForm: React.FC = () => {
               <TextField
                 name="telephoneNumber"
                 aria-label="telephoneNumber"
-                label="telephoneNumber"
+                label="TelephoneNumber"
                 required
                 aria-required="true"
+                id="telephoneNumber-input"
+                FormHelperTextProps={{
+                  id: "telephoneNumber-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "telephoneNumber-helper",
+                  "aria-errormessage": registrationFormik.errors.telephoneNumber
+                    ? "telephoneNumber-helper"
+                    : undefined,
+                }}
                 value={registrationFormik.values.telephoneNumber}
                 onChange={registrationFormik.handleChange}
                 onBlur={registrationFormik.handleBlur}
@@ -388,11 +468,21 @@ export const RegistrationForm: React.FC = () => {
               </div>
               <Select
                 name="country"
-                label="country"
+                label="Country"
                 aria-label="country"
                 required
                 role="option"
                 aria-required="true"
+                id="country-input"
+                FormHelperTextProps={{
+                  id: "country-helper",
+                }}
+                inputProps={{
+                  "aria-describedby": "country-helper",
+                  "aria-errormessage": registrationFormik.errors.country
+                    ? "country-helper"
+                    : undefined,
+                }}
                 options={countryList}
                 value={registrationFormik.values.country}
                 onChange={registrationFormik.handleChange}
@@ -415,11 +505,22 @@ export const RegistrationForm: React.FC = () => {
               </p>
               <div className="w-1/2 pr-[12px]">
                 <Select
-                  label="attendanceCertificate"
+                  label="AttendanceCertificate"
                   name="attendanceCertificate"
                   aria-label="attendanceCertificate"
                   required
                   aria-required="true"
+                  id="attendanceCertificate-input"
+                  FormHelperTextProps={{
+                    id: "attendanceCertificate-helper",
+                  }}
+                  inputProps={{
+                    "aria-describedby": "attendanceCertificate-helper",
+                    "aria-errormessage": registrationFormik.errors
+                      .attendanceCertificate
+                      ? "attendanceCertificate-helper"
+                      : undefined,
+                  }}
                   value={registrationFormik.values.attendanceCertificate}
                   options={[]}
                   onChange={registrationFormik.handleChange}
@@ -444,11 +545,22 @@ export const RegistrationForm: React.FC = () => {
               </p>
               <div className="w-1/2 pr-[12px]">
                 <TextField
-                  label="fullNameAttendanceCertificate"
+                  label="Full Name Attendance Certificate"
                   name="fullNameAttendanceCertificate"
                   required
                   aria-required="true"
                   aria-label="fullNameAttendanceCertificate"
+                  id="fullNameAttendanceCertificate-input"
+                  FormHelperTextProps={{
+                    id: "fullNameAttendanceCertificate-helper",
+                  }}
+                  inputProps={{
+                    "aria-describedby": "fullNameAttendanceCertificate-helper",
+                    "aria-errormessage": registrationFormik.errors
+                      .fullNameAttendanceCertificate
+                      ? "fullNameAttendanceCertificate-helper"
+                      : undefined,
+                  }}
                   value={
                     registrationFormik.values.fullNameAttendanceCertificate
                   }
@@ -502,7 +614,11 @@ export const RegistrationForm: React.FC = () => {
                     tabIndex={0}
                     role="radio"
                     value={item.value}
-                    label={processText(item.label as string)}
+                    label={
+                      <span role="button" tabIndex={0}>
+                        {processText(item.label as string)}
+                      </span>
+                    }
                     onChange={registrationFormik.handleChange}
                     checked={registrationFormik.values.industry === item.value}
                   />
@@ -512,8 +628,20 @@ export const RegistrationForm: React.FC = () => {
                         name="otherIndustry"
                         required
                         tabIndex={0}
-                        label="otherIndustry"
+                        label="Other Industry"
                         aria-required="true"
+                        aria-label="otherIndustry"
+                        id="otherIndustry-input"
+                        FormHelperTextProps={{
+                          id: "otherIndustry-helper",
+                        }}
+                        inputProps={{
+                          "aria-describedby": "otherIndustry-helper",
+                          "aria-errormessage": registrationFormik.errors
+                            .otherIndustry
+                            ? "otherIndustry-helper"
+                            : undefined,
+                        }}
                         value={registrationFormik.values.otherIndustry}
                         onChange={registrationFormik.handleChange}
                         onBlur={registrationFormik.handleBlur}
@@ -563,10 +691,21 @@ export const RegistrationForm: React.FC = () => {
                     <div className="w-[400px]">
                       <TextField
                         name="otherIndustry"
-                        aria-label="otherIndustry"
                         required
-                        label="otherIndustry"
+                        label="Other Industry"
                         aria-required="true"
+                        aria-label="otherIndustry"
+                        id="otherIndustry-input"
+                        FormHelperTextProps={{
+                          id: "otherIndustry-helper",
+                        }}
+                        inputProps={{
+                          "aria-describedby": "otherIndustry-helper",
+                          "aria-errormessage": registrationFormik.errors
+                            .otherIndustry
+                            ? "otherIndustry-helper"
+                            : undefined,
+                        }}
                         value={registrationFormik.values.otherAboutSeminar}
                         onChange={registrationFormik.handleChange}
                         onBlur={registrationFormik.handleBlur}

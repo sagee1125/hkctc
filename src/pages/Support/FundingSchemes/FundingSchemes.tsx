@@ -44,7 +44,7 @@ const multilingual = {
         <p className="text-body-m mb-[16px]">
           The&nbsp;
           <a
-            aria-label="link"
+            aria-label="Professional Services Advancement Support Scheme (PASS)"
             href="https://www.pass.gov.hk/index.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -133,7 +133,7 @@ const multilingual = {
       the_pass_launched_by: (
         <p className="text-body-m mb-[16px]">
           <a
-            aria-label="link"
+            aria-label="商務及經濟發展局推出專業服務協進支援計劃"
             href="https://www.pass.gov.hk/index.html"
             target="_blank"
             rel="noopener noreferrer"

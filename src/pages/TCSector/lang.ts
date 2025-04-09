@@ -41,7 +41,7 @@ export const TC_SECTOR_STRENGTH_TEXT = {
 
       SYSTEM_INTERNATIONAL_TITLE:
         "(iii) System being widely recognised internationally",
-      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification industry.For details, please visit <a               aria-label="link"
+      SYSTEM_INTERNATIONAL_CONTENT: `HKAS has concluded mutual recognition arrangements with accreditation bodies in over 100 economies, including all of Hong Kong's major trading partners. Such arrangement greatly facilitates the acceptance of the results of accredited establishments in Hong Kong's testing and certification industry.For details, please visit <a  aria-label="HKAS's website"
                 href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -104,7 +104,8 @@ export const TC_SECTOR_STRENGTH_TEXT = {
       INDEPENDENT_SYSTEM_CONTENT: `香港認可處是政府部門，在提供服務時可保持獨立角色而且免受利益衝突影響。`,
 
       SYSTEM_INTERNATIONAL_TITLE: "(iii) 制度廣獲國際認可",
-      SYSTEM_INTERNATIONAL_CONTENT: `香港認可處已與過百個經濟體系的認可機構（包括所有香港的主要貿易夥伴）簽訂互認協議，有關安排大大促進行業內獲認可機構的檢測和認證結果的認受性。有關詳情請瀏覽<a               aria-label="link"
+      SYSTEM_INTERNATIONAL_CONTENT: `香港認可處已與過百個經濟體系的認可機構（包括所有香港的主要貿易夥伴）簽訂互認協議，有關安排大大促進行業內獲認可機構的檢測和認證結果的認受性。有關詳情請瀏覽
+      <a aria-label="香港認可處網頁"
                 href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
                 target="_blank"
                 rel="noopener noreferrer"

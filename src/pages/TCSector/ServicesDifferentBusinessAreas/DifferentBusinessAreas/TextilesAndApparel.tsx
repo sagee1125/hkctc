@@ -140,7 +140,7 @@ const multilingual = {
       <>
         獲香港認可處認可的紡織及成衣測試實驗所名單，請瀏覽
         <a
-          aria-label="link"
+          aria-label="訪問香港認可處網頁"
           href="https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
@@ -185,7 +185,7 @@ export const TextilesAndApparel: React.FC = () => {
       <>
         获香港认可处认可的纺织及成衣测试实验所名单，请浏览
         <a
-          aria-label="link"
+          aria-label="香港认可处网页"
           href="https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"

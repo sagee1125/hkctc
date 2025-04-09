@@ -59,7 +59,9 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="Measure on the mutual recognition arrangement of certification and
+              relevant testing business among Guangdong, Hong Kong and Macao in
+              the China (Guangdong) Pilot Free Trade Zone"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
               )}
@@ -83,7 +85,7 @@ export const SummaryOfCEPA: React.FC = () => {
             <ul>
               <li className="text-body-m">
                 <a
-                  aria-label="link"
+                  aria-label="Measure on China Compulsory Certification (CCC) product testing"
                   href={processLink(
                     "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   )}
@@ -103,7 +105,7 @@ export const SummaryOfCEPA: React.FC = () => {
               <br />
               <li className="text-body-m">
                 <a
-                  aria-label="link"
+                  aria-label="Further liberalisation measures on CCC product testing, factory inspection and selection of post-certification test samples Measure on China Compulsory Certification (CCC) product testing"
                   href={processLink(
                     "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   )}
@@ -203,7 +205,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="關於在中國（廣東）自由貿易試驗區內試行粵港澳認證及相關檢測業務互認制度的措施"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_Implementation_Guide_en.pdf"
               )}
@@ -225,7 +227,7 @@ export const SummaryOfCEPA: React.FC = () => {
             <ul>
               <li className="text-body-m">
                 <a
-                  aria-label="link"
+                  aria-label="關於強制性產品認證（CCC）產品檢測的措施"
                   href={processLink(
                     "https://www.hkctc.gov.hk/en/doc/201902_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   )}
@@ -244,7 +246,7 @@ export const SummaryOfCEPA: React.FC = () => {
               <br />
               <li className="text-body-m">
                 <a
-                  aria-label="link"
+                  aria-label="關於CCC產品檢測、工廠檢查及獲證後選取測試樣本的進一步開放措施"
                   href={processLink(
                     "https://www.hkctc.gov.hk/en/doc/202005_CEPA_TradeinServices_ImplementationGuide_en.pdf"
                   )}
@@ -346,7 +348,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
-            aria-label="link"
+            aria-label="Implementation Guide"
             className="text-[#00E] text-body-m underline"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
@@ -383,7 +385,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="Measure on the movement of natural persons"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
               )}
@@ -397,7 +399,7 @@ export const SummaryOfCEPA: React.FC = () => {
           <br />
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="Other measures"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
               )}
@@ -431,7 +433,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
-            aria-label="link"
+            aria-label="Implementation Guide"
             className="text-[#00E] text-body-m underline"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
@@ -497,7 +499,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
-            aria-label="link"
+            aria-label="實施指南"
             className="text-[#00E] text-body-m underline"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_GD_Agreement_imp_details_en.pdf"
@@ -533,7 +535,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <ul>
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="關於自然人流動的措施"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
               )}
@@ -547,7 +549,7 @@ export const SummaryOfCEPA: React.FC = () => {
           <br />
           <li className="text-body-m">
             <a
-              aria-label="link"
+              aria-label="其他措施"
               href={processLink(
                 "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
               )}
@@ -581,7 +583,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         <p>
           <a
-            aria-label="link"
+            aria-label="實施指南"
             className="text-[#00E] text-body-m underline"
             href={processLink(
               "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
