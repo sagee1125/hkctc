@@ -11,8 +11,11 @@ export const PressReleases: React.FC = () => {
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
       titleCN: "政府公布香港檢測和認證局成員任命",
-
       link: "https://www.info.gov.hk/gia/general/202312/29/P2023122900309.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202312/29/P2023122900307.htm",
       date: "29 Dec 2023",
     },
     {
@@ -20,6 +23,10 @@ export const PressReleases: React.FC = () => {
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 announces award results",
       link: "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/202312/04/P2023120400309.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/202312/04/P2023120400309.htm",
       date: "4 Dec 2023",
     },
     {
@@ -28,45 +35,64 @@ export const PressReleases: React.FC = () => {
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 opens for applications",
       link: "https://www.info.gov.hk/gia/general/202305/02/P2023042700373.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/202305/02/P2023042700370.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/202305/02/P2023042700370.htm",
       date: "2 May 2023",
     },
     {
       titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」現接受申請",
-
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
       link: "https://www.info.gov.hk/gia/general/202112/28/P2021122800493.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/202112/28/P2021122800492.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202112/28/P2021122800492.htm?fontSize=1",
       date: "28 Dec 2021",
     },
     {
       titleCN: "政府公布香港檢測和認證局成員任命",
-
       title:
         "Testing and Certification Manpower Development Award Scheme 2021-22 announces award results",
       link: "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/202112/22/P2021122200209.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202112/22/P2021122200209.htm?fontSize=1",
       date: "22 Dec 2021",
     },
     {
       titleCN: "政府公布香港檢測和認證局成員任命",
-
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
       link: "https://www.info.gov.hk/gia/general/201912/20/P2019122000275.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/201912/20/P2019122000269.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/201912/20/P2019122000269.htm?fontSize=1",
       date: "20 Dec 2019",
     },
     {
       titleCN: "政府公布香港檢測和認證局成員任命",
-
       title: "Appointments to Hong Kong Council for Testing and Certification",
       link: "https://www.info.gov.hk/gia/general/201712/20/P2017122000348.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/201712/20/P2017122000343.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/201712/20/P2017122000343.htm?fontSize=1",
       date: "20 Dec 2017",
     },
     {
       titleCN: "《服務貿易協議》有關檢測和認證的新措施實施詳情",
-
       title:
         "Implementation details of new measure under CEPA Agreement on Trade in Services on testing and certification announced",
       link: "https://www.info.gov.hk/gia/general/201709/21/P2017092100377.htm",
+      tcLink:
+        "https://www.info.gov.hk/gia/general/201709/21/P2017092100371.htm",
+      scLink:
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/201709/21/P2017092100371.htm?fontSize=1",
       date: "21 Sep 2017",
     },
     {
@@ -75,6 +101,9 @@ export const PressReleases: React.FC = () => {
       title:
         "Government announces implementation arrangements for measure to facilitate operation of testing laboratories in industrial buildings",
       link: "https://www.info.gov.hk/gia/general/201601/25/P201601250593.htm",
+      tcLink: "https://www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
+      scLink:
+        "https://sc.isd.gov.hk/gb/www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
       date: "21 Jan 2016",
     },
   ];

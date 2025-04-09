@@ -530,7 +530,7 @@ export const award2324_multilingual = {
               <a
                 aria-label="「檢測認證人力發展機構獎得獎標誌使用指引」"
                 className="underline text-[#00E]"
-                href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+                href="://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
               >
                 「檢測認證人力發展機構獎得獎標誌使用指引」。
               </a>

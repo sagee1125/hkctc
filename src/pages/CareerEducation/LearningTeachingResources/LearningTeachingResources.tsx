@@ -100,11 +100,15 @@ export const LearningTeachingResources: React.FC = () => {
       title: "Download Teacher's Guide",
       titleCN: "下載教師指引",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Teachers_Guide_Eng.pdf",
+      tcLink:'',
+      scLink: '',
     },
     {
       title: "Download Student Laboratory Manual",
       titleCN: "下載學生實驗手冊",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Student_Manual_Eng.pdf",
+      tcLink:'',
+      scLink: '',
     },
   ];
   const downloadDataTwo = [
@@ -112,11 +116,15 @@ export const LearningTeachingResources: React.FC = () => {
       title: "Download Teachers' Guide",
       titleCN: "下載教師指引",
       link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Teachers_Guide_Eng.pdf",
+      tcLink:'',
+      scLink: '',
     },
     {
       title: "Download Student Laboratory Manual",
       titleCN: "下載學生實驗手冊",
       link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Student_Manual_Eng.pdf",
+      tcLink:'',
+      scLink: '',
     },
   ];
 

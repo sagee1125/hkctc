@@ -1,7 +1,7 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
 import { legislativeCouncilList, MEDIA_TYPE } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -13,7 +13,7 @@ const multilingual = {
 };
 
 export const LegislativeCouncil: React.FC = () => {
-  const { isPC, getSingleText, getPageText } = useSettings();
+  const { isPC, getSingleText, getPageText, language } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { title } = page_text;
@@ -35,7 +35,17 @@ export const LegislativeCouncil: React.FC = () => {
             dateCN = "",
             mediaType,
             link,
+            scLink,
+            tcLink,
           } = item;
+
+          const displayLink =
+            (language === Language.EN
+              ? link
+              : language === Language.ZH_CN
+              ? scLink ?? tcLink
+              : tcLink) ?? link;
+
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           const displayTitle = getSingleText(title, titleCN);
@@ -54,7 +64,7 @@ export const LegislativeCouncil: React.FC = () => {
                 }
                 maskIcon={maskIcon}
                 date={getSingleText(date, dateCN)}
-                mediaLink={link}
+                mediaLink={displayLink}
                 mediaType={mediaType}
               />
             </div>

@@ -6,7 +6,7 @@ import {
   handleGetPaginatorProp,
 } from "../../../components";
 import { hktctReportsList, MEDIA_TYPE } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 const itemsPerPage = 9;
 
@@ -26,7 +26,7 @@ export const HKCTCReports: React.FC = () => {
     itemsPerPage,
     hktctReportsList
   );
-  const { getPageText, isPC, getSingleText } = useSettings();
+  const { getPageText, isPC, getSingleText, language } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { title } = page_text;
@@ -49,7 +49,16 @@ export const HKCTCReports: React.FC = () => {
         }`}
       >
         {currentPageData.map((item, index) => {
-          const { title, date, titleCN, mediaType, link } = item;
+          const { title, date, titleCN, mediaType, link, tcLink, scLink } =
+            item;
+
+          const displayLink =
+            (language === Language.EN
+              ? link
+              : language === Language.ZH_CN
+              ? scLink ?? tcLink
+              : tcLink) ?? link;
+
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
@@ -63,7 +72,7 @@ export const HKCTCReports: React.FC = () => {
                 title={getSingleText(title, titleCN)}
                 maskIcon={maskIcon}
                 date={date}
-                mediaLink={link}
+                mediaLink={displayLink}
                 mediaType={mediaType}
               />
             </div>

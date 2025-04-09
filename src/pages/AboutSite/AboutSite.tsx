@@ -12,7 +12,7 @@ import {
   type DirectorySidebarItems,
   type BreadcrumbItem,
 } from "../../components";
-import { useSettings } from "../../context";
+import { Language, LanguageResources, useSettings } from "../../context";
 
 const multilingual = {
   en: {
@@ -208,6 +208,25 @@ const multilingual = {
   },
 };
 
+const returnRelatedLink = (
+  language: Language,
+  link: {
+    title?: string | LanguageResources | string[] | JSX.Element;
+    titleCN?: string;
+    href?: string;
+    tcHref?: string;
+    scHref?: string;
+  }
+) => {
+  if (language === Language.EN) {
+    return link.href;
+  } else if (language === Language.ZH_TW) {
+    return link.tcHref ?? link.href;
+  } else {
+    return link.scHref ?? link.tcHref ?? link.href;
+  }
+};
+
 const ImportantNote: React.FC = () => {
   const { getPageText } = useSettings();
 
@@ -227,6 +246,35 @@ const ImportantNote: React.FC = () => {
     google,
     please_download,
   } = page_text;
+
+  const linksList = [
+    {
+      name: edge,
+      enLink: "https://www.microsoft.com/en-us/edge/?form=MA13FJ",
+      tcLink: "",
+      scLink: "",
+    },
+    {
+      name: mozilla,
+      enLink:
+        "https://www.mozilla.org/en-US/firefox/?v=c&utm_source=www.mozilla.org&utm_medium=download_button&utm_campaign=firefox_page&utm_content=downloader_email_form_experiment_vc",
+      tcLink: "",
+      scLink: "",
+    },
+    {
+      name: safari,
+      enLink: "https://www.apple.com/safari/",
+      tcLink: "",
+      scLink: "",
+    },
+    {
+      name: google,
+      enLink: "https://www.google.com/intl/en/chrome/",
+      tcLink: "",
+      scLink: "",
+    },
+  ];
+
   return (
     <div className="w-full flex flex-col gap-[24px] pr-[24px] text-justify">
       <div className="flex-1">
@@ -244,26 +292,11 @@ const ImportantNote: React.FC = () => {
       </div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6">
-        <li>
-          <Link outerLink="https://www.microsoft.com/en-us/edge/?form=MA13FJ">
-            {edge as string}
-          </Link>
-        </li>
-        <li>
-          <Link outerLink="https://www.mozilla.org/en-US/firefox/?v=c&utm_source=www.mozilla.org&utm_medium=download_button&utm_campaign=firefox_page&utm_content=downloader_email_form_experiment_vc">
-            {mozilla as string}
-          </Link>
-        </li>
-        <li>
-          <Link outerLink="https://www.apple.com/safari/">
-            {safari as string}
-          </Link>
-        </li>
-        <li>
-          <Link outerLink="https://www.google.com/intl/en/chrome/">
-            {google as string}
-          </Link>
-        </li>
+        {linksList.map((link, index) => (
+          <li key={index}>
+            <Link outerLink={link.enLink}>{link.name as string}</Link>
+          </li>
+        ))}
       </ul>
 
       {please_download as string}
@@ -442,26 +475,69 @@ const RelatedSite: React.FC = () => {
     mainland_org,
   } = page_text;
 
+  const governmentMap = [
+    {
+      title: ITC,
+      href: "https://www.itc.gov.hk/en/index.html",
+      tcHref: "",
+      scHref: "",
+      children: [
+        {
+          title: HKAS,
+          href: "https://www.itc.gov.hk/en/quality/hkas/about.htm",
+          tcHref: "",
+          scHref: "",
+        },
+        {
+          title: SCL,
+          href: "https://www.itc.gov.hk/en/quality/hkas/about.htm",
+          tcHref: "",
+          scHref: "",
+        },
+        {
+          title: standard_related,
+          href: "https://www.itc.gov.hk/en/quality/qsdiv/index.html",
+          tcHref: "",
+          scHref: "",
+        },
+      ],
+    },
+    {
+      title: gov_lab,
+      href: "https://www.govtlab.gov.hk/tc/home/index.html",
+      tcHref: "",
+      scHref: "",
+    },
+  ];
+
   const publicOrgMap = [
     {
       title: "Hong Kong Productivity Council",
       titleCN: "香港生產力促進局",
       href: "https://www.hkpc.org/zh-HK",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Hong Kong Trade Development Council",
       titleCN: "香港貿易發展局",
       href: "https://hkservices.hktdc.com/tc/industry/testing-certification",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Hong Kong Export Credit Insurance Corporation",
       titleCN: "香港出口信用保險局",
       href: "https://www.hkecic.com/tc/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Vocational Training Council (Testing and Certification Portal)",
       titleCN: "職業訓練局(檢測和認證行業網站)",
       href: "https://va.vtc.edu.hk/tcert",
+      tcHref: "",
+      scHref: "",
     },
   ];
   const tradeAssociationsMap = [
@@ -469,21 +545,29 @@ const RelatedSite: React.FC = () => {
       title: "Hong Kong Association for Testing, Inspection and Certification",
       titleCN: "香港測檢認證協會",
       href: "https://www.hktic.org/en",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Hong Kong Association of Medical Laboratories",
       titleCN: "香港醫務化驗所總會",
       href: "https://www.hkaml.org/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Hong Kong Institution of Certified Auditors",
       titleCN: "香港專業審核師學會",
       href: "https://www.hkica.org/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title: "Hong Kong Society for Quality",
       titleCN: "香港品質學會",
       href: "https://hksq.org/",
+      tcHref: "",
+      scHref: "",
     },
   ];
   const mainlandOrgMap = [
@@ -491,24 +575,32 @@ const RelatedSite: React.FC = () => {
       title: "State Administration for Market Regulation (Chinese only)",
       titleCN: "國家市場監督管理總局",
       href: "https://www.samr.gov.cn/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title:
         "Certification and Accreditation Administration of the People's Republic of China (Chinese)",
       titleCN: "中國國家認證認可監督管理委員會",
       href: "https://www.cnca.gov.cn/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title:
         "Market Supervision Administration of Guangdong Province (Chinese only)",
       titleCN: "廣東省市場監督管理局",
       href: "https://amr.gd.gov.cn/",
+      tcHref: "",
+      scHref: "",
     },
     {
       title:
         "Market Supervision Administration of Shenzhen Municipality (Chinese only)",
       titleCN: "深圳市市場監督管理局",
       href: "https://amr.sz.gov.cn/",
+      tcHref: "",
+      scHref: "",
     },
   ];
   return (
@@ -516,66 +608,38 @@ const RelatedSite: React.FC = () => {
       <SquareTitle title={related_site as string} />
       <div className="text-heading-l mt-[24px]">{gov as string}</div>
       <div className="my-[24px]">
-        <ul className="!text-linked-m mb-[8px]">
-          <li>
-            <a
-              aria-label={ITC as string}
-              href="https://www.itc.gov.hk/en/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              {ITC as string}
-            </a>
-          </li>
-        </ul>
-        <ul className="!flex !flex-col !gap-[8px] ml-[16px] !text-linked-m">
-          <li>
-            <a
-              aria-label={HKAS as string}
-              href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              {HKAS as string}
-            </a>
-          </li>
-          <li>
-            <a
-              aria-label={SCL as string}
-              href="https://www.itc.gov.hk/en/quality/hkas/about.htm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              {SCL as string}
-            </a>
-          </li>
-          <li>
-            <a
-              aria-label={standard_related as string}
-              href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-[#00E]"
-            >
-              {standard_related as string}
-            </a>
-          </li>
-        </ul>
-        <ul className="!text-linked-m">
-          <li className="underline text-[#00E] mt-[8px]">
-            <a
-              aria-label={gov_lab as string}
-              href="https://www.govtlab.gov.hk/tc/home/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {gov_lab as string}
-            </a>
-          </li>
-        </ul>
+        {governmentMap.map((gov, index) => {
+          return (
+            <div key={index} className="mb-[8px]">
+              <ul className="!text-linked-m gap-[8px]">
+                <li>
+                  <a
+                    aria-label="link"
+                    href={returnRelatedLink(language, gov) as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-[#00E]"
+                  >
+                    {gov.title as string}
+                  </a>
+                </li>
+                {gov.children?.map((child, index) => (
+                  <li key={index} className="ml-[16px]">
+                    <a
+                      aria-label="link"
+                      href={returnRelatedLink(language, child) as string}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-[#00E]"
+                    >
+                      {child.title as string}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
 
       <div className="text-heading-l mt-[24px]">{public_org as string}</div>
