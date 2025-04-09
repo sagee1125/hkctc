@@ -98,6 +98,7 @@ export const Header: React.FC = () => {
               }}
             >
               <Icon
+                tabIndex={0}
                 icon="ri:search-line"
                 className="h-6 w-6 text-[#333333]"
                 aria-label={"search icon"}
@@ -125,6 +126,7 @@ export const Header: React.FC = () => {
                       <InputAdornment position="end">
                         <IconButton
                           size="small"
+                          tabIndex={0}
                           className="!text-body-s"
                           disabled={!formik.values.search}
                           color="primary"

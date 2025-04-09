@@ -49,7 +49,7 @@ const Agreement: React.FC = () => {
             procedures of establishing cooperation with designated Mainland
             organisations could be viewed at&nbsp;
             <a
-              aria-label="HKAS’s website"
+              aria-label="HKAS's website - opens in a new tab"
               href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
               target="_blank"
               rel="noopener noreferrer"

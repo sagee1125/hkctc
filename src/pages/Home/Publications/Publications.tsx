@@ -374,6 +374,7 @@ export const Publications: React.FC = () => {
     >
       {/* column 1,2 */}
       <div
+        tabIndex={0}
         className={`w-full transition-transform duration-700 pl-[24px] ${
           isVisible
             ? "translate-x-0 opacity-100"
@@ -630,6 +631,7 @@ export const Publications: React.FC = () => {
             <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
               role="button"
+              tabIndex={0}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
                 backgroundSize: "cover",
@@ -700,6 +702,7 @@ export const Publications: React.FC = () => {
           <div className={`w-full ${isPC ? "" : "max-w-full pr-[24px]"}`}>
             <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
+              tabIndex={0}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
                 backgroundSize: "cover",
@@ -774,6 +777,7 @@ export const Publications: React.FC = () => {
       {/* column 3 */}
       <div className={`px-[24px] w-full ${isPC ? "" : "mt-[24px] mb-[48px]"}`}>
         <div
+          tabIndex={0}
           className={`py-[24px] px-[30px] border-2 border-inherit w-full flex flex-col transition-transform duration-700 ${
             isVisible
               ? "translate-x-0 opacity-100"
@@ -807,6 +811,7 @@ export const Publications: React.FC = () => {
                   />
                   {/* side border */}
                   <div
+                    tabIndex={0}
                     className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
                     style={{ backgroundColor: sideColor, opacity: 0.8 }}
                   />
@@ -822,6 +827,7 @@ export const Publications: React.FC = () => {
                       <Icon
                         aria-label="just a icon"
                         icon={icon}
+                        tabIndex={0}
                         style={{ height: "24px", width: "24px" }}
                       />
                     </div>

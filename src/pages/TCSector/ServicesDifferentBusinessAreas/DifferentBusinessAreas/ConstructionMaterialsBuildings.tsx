@@ -801,6 +801,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   icon="mingcute:arrow-left-fill"
                   width="24"
                   height="24"
+                  tabIndex={0}
                   aria-label={"arrow icon"}
                 />
               </button>
@@ -836,6 +837,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   width="24"
                   height="24"
                   aria-label={"arrow icon"}
+                  tabIndex={0}
                 />
               </button>
             </div>

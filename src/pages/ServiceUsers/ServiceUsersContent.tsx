@@ -23,7 +23,7 @@ const multilingual = {
         assessment activity and will only be updated weekly. For most up-to-date
         scope of accreditation, please visit&nbsp;
         <a
-          aria-label="HKAS’s website"
+          aria-label="HKAS's website - opens in a new tab"
           href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
           target="_blank"
           rel="noopener noreferrer"
