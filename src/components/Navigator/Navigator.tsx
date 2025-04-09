@@ -277,6 +277,13 @@ export const Navigator: React.FC = () => {
                             }}
                             onClick={() => {
                               if (navUrl) navigate(navUrl);
+                              else {
+                                setActiveIndex(ncIndex);
+                                setActiveSubItem(
+                                  NavigationBarConfiguration[ncIndex]
+                                    ?.items?.[0]?.name ?? ""
+                                );
+                              }
                             }}
                           >
                             <p
@@ -913,6 +920,9 @@ export const Navigator: React.FC = () => {
                                         tabIndex={0}
                                         role="button"
                                         onMouseEnter={() => {
+                                          setActiveSubItem(sideName);
+                                        }}
+                                        onClick={() => {
                                           setActiveSubItem(sideName);
                                         }}
                                       >
