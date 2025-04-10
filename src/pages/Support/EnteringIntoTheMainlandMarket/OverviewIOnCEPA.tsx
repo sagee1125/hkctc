@@ -116,7 +116,11 @@ const Agreement: React.FC = () => {
             ，擬從事CCC檢測工作的香港檢測機構必須取得香港認可處實驗所認可計劃的認可，以確認該實驗所具備進行CCC產品檢測的能力。該等檢測機構亦須與內地指定認證機構簽訂合作協議。有關對檢測機構的資質要求及申請與內地指定機構合作的程序，請見
             <a
               aria-label="香港認可處網頁"
-              href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
+              href={
+                language === Language.ZH_TW
+                  ? "https://www.itc.gov.hk/ch/quality/hkas/accreditation/ccc.html"
+                  : "https://www.itc.gov.hk/gb/quality/hkas/accreditation/ccc.html"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -137,7 +141,11 @@ const Agreement: React.FC = () => {
             目前已經在「CCAA認證人員註冊與管理系統」中註冊過的CCC工廠檢查員，在轉換機構時，只需要在該系統中使用「轉換機構申請」功能，按照系統提示程序進行轉換機構即可。該過程不再需要向CCAA進行書面申請，也不需要進行培訓考試（「CCAA認證人員註冊與管理系統」請見CCAA的
             <a
               aria-label="CCAA的網頁"
-              href="https://service.ccaa.org.cn/#/index"
+              href={
+                language === Language.ZH_TW
+                  ? "http://www.landsd.gov.hk/tc/about/enquiries.htm"
+                  : "https://www.landsd.gov.hk/sc/about/enquiries.htm"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

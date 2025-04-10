@@ -1,10 +1,10 @@
 import React from "react";
 import { InternalBackButton, SquareTitle } from "../../../../components";
 import { navItemEnum } from "../../../../const";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 
 export const SupplementIXtoCEPAClauses: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const multilingual = {
     en: {
       title: "Supplement IX to CEPA - Clauses",
@@ -51,7 +51,11 @@ export const SupplementIXtoCEPAClauses: React.FC = () => {
           在廣東省試點將香港檢測機構獲准承擔的認證服務範圍放寬至食品類別。（詳情見&nbsp;
           <a
             aria-label="實施指南"
-            href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+            href={
+              language === Language.ZH_TW
+                ? "https://www.hkctc.gov.hk/tc/doc/CEPA_IX_Implementation_Guide-TradChn.pdf"
+                : "https://www.hkctc.gov.hk/sc/doc/CEPA_IX_Implementation_Guide-SimpChn.pdf"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"

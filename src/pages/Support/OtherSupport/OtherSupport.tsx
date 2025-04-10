@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
 import * as React from "react";
 import { SquareTitle } from "../../../components";
 import { Language, LanguageResources, useSettings } from "../../../context";
@@ -82,7 +83,7 @@ const multilingual = {
 };
 
 export const OtherSupport: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
@@ -105,7 +106,13 @@ export const OtherSupport: React.FC = () => {
           aria-label={
             (info_on_standards as LanguageResources).website as string
           }
-          href="https://www.itc.gov.hk/en/quality/qsdiv/index.html"
+          href={
+            language === Language.EN
+              ? "https://www.itc.gov.hk/en/quality/qsdiv/index.html"
+              : language === Language.ZH_TW
+              ? "https://www.itc.gov.hk/ch/quality/qsdiv/index.html"
+              : "https://www.itc.gov.hk/gb/quality/qsdiv/index.html"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -128,7 +135,13 @@ export const OtherSupport: React.FC = () => {
           aria-label={
             (measurement_traceability as LanguageResources).website as string
           }
-          href="https://www.itc.gov.hk/en/quality/scl/index.html"
+          href={
+            language === Language.EN
+              ? "https://www.itc.gov.hk/en/quality/scl/index.html"
+              : language === Language.ZH_TW
+              ? "https://www.itc.gov.hk/ch/quality/scl/index.html"
+              : "https://www.itc.gov.hk/gb/quality/scl/index.html"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -144,7 +157,13 @@ export const OtherSupport: React.FC = () => {
           aria-label={
             (measurement_traceability as LanguageResources).website as string
           }
-          href="https://www.govtlab.gov.hk/en/home/index.html"
+          href={
+            language === Language.EN
+              ? "https://www.govtlab.gov.hk/en/home/index.html"
+              : language === Language.ZH_TW
+              ? "https://www.govtlab.gov.hk/tc/home/index.html"
+              : "https://www.govtlab.gov.hk/sc/home/index.html"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -172,7 +191,13 @@ export const OtherSupport: React.FC = () => {
             (support_and_consultation_centre as LanguageResources)
               .website as string
           }
-          href="https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
+          href={
+            language === Language.EN
+              ? "https://www.success.tid.gov.hk/english/whatsnew/whatsnew.html"
+              : language === Language.ZH_TW
+              ? "https://www.success.tid.gov.hk/tc_chi/whatsnew/whatsnew.html"
+              : "https://www.success.tid.gov.hk/sc_chi/whatsnew/whatsnew.html"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
@@ -246,7 +271,13 @@ export const OtherSupport: React.FC = () => {
                 (hk_export_credit_insurance_corporation as LanguageResources)
                   .TISP as string
               }
-              href="https://www.hkecic.com/en/testing_and_inspection_services_policy"
+              href={
+                language === Language.EN
+                  ? "https://www.hkecic.com/en/testing_and_inspection_services_policy"
+                  : language === Language.ZH_TW
+                  ? "https://www.hkecic.com/tc/testing_and_inspection_services_policy"
+                  : "https://www.hkecic.com/sc/testing_and_inspection_services_policy"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -325,7 +356,13 @@ export const OtherSupport: React.FC = () => {
             (hk_export_credit_insurance_corporation as LanguageResources)
               .website as string
           }
-          href="https://www.hkecic.com/en/"
+          href={
+            language === Language.EN
+              ? "https://www.hkecic.com/en/"
+              : language === Language.ZH_TW
+              ? "https://www.hkecic.com/tc"
+              : "https://www.hkecic.com/sc"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
