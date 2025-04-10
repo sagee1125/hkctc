@@ -9,132 +9,6 @@ import {
 import { Language, LanguageResources, useSettings } from "../../../context";
 import { MEDIA_TYPE } from "../../../const";
 
-const multilingual = {
-  en: {
-    title: `"Nil Waiver Fee" for Testing Labs Operating in Industrial Buildings`,
-    the_measure_is: (
-      <>
-        The measure is effective from 1 February 2016. The details on
-        application procedures are set out in the&nbsp;
-        <a
-          aria-label="Practice Note No. 1/2016"
-          href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          Practice Note No. 1/2016
-        </a>
-        &nbsp;issued by Lands Department (LandsD).
-      </>
-    ),
-    summary: {
-      title: `Summary`,
-      content: [
-        `The Government introduces this policy measure effective as from 1 February 2016 to facilitate the operation of testing and calibration laboratories (hereunder referred to as "testing laboratories") in industrial building. The Government hopes that this measure would offer testing laboratories more choices of suitable space in the market.`,
-        `The leases of industrial buildings1 usually contain user restrictions. The uses permitted under such leases are typically specified as "industrial and/or godown purposes". However, testing laboratories not involving a primary manufacturing use are not considered as industrial use in the context of land leases.`,
-        `The owner (or his/her agent) intending to use part(s) of or an entire industrial building can apply to LandsD for a waiver of the user condition of the land lease to allow testing laboratory use for the lifetime of the existing industrial building, or until the expiry or termination of the current land lease, whichever is the earlier.`,
-        `For an approved application to LandsD for a waiver under this measure, the Government will exempt the waiver fee otherwise be chargeable for issuing waivers to allow use as a testing laboratory. However, applicants would need to pay an administrative fee as and when demanded by LandsD.`,
-        `Applications would only be accepted if the premises concerned are located in an industrial building where testing laboratory use is permitted under the current land use zoning of the site on the statutory plan, or is subject to a valid planning permission granted by the Town Planning Board (TPB), or is considered as an existing use under the provisions of the statutory plan.`,
-        `Innovation and Technology Commission (ITC) will advise LandsD whether or not the use as stated in an application is an eligible testing laboratory use.`,
-      ],
-      background_information: `For background information, please refer to the Legislative Council Brief:`,
-      note: `Note 1: An industrial building refers to a building lawfully erected on a lot which, under the lease conditions, shall not be used for any purpose other than for industrial and/or godown purposes. Industrial buildings do not include special factories such as those located in storage premises in container terminals and flatted factories built by the Hong Kong Housing Authority, or lots for special industries such as cargo handling uses, ship building and repairing, oil storage and refining and production of associated chemical by-product, manufacture of polystyrene plastics, manufacture and storage of chlorine, hydrogen and textile chemicals, etc.`,
-      legislative_council_brief: `Legislative Council Brief`,
-      to_learn_more: (
-        <>
-          To learn more about the measure, please see&nbsp;
-          <span className="text-newPrimary">FAQs</span>&nbsp;below.
-        </>
-      ),
-    },
-    enquiries: `Enquiries`,
-    for_enquiries_on_whether: (
-      <>
-        For enquiries on whether a testing laboratory may benefit under this
-        measure, please contact the Secretariat of the Hong Kong Council for
-        Testing and Certification (
-        <a
-          aria-label="mail to enquiry@hkctc.gov.hk"
-          href="mailto:enquiry@hkctc.gov.hk"
-          className="underline text-[#00E]"
-        >
-          enquiry@hkctc.gov.hk
-        </a>
-        )
-      </>
-    ),
-    for_enquiries_on_application: `For enquiries on application procedures, please contact the respective District Lands Office for which contact information can be found at `,
-    faq: {
-      title: "Frequently Asked Questions",
-      below_are: `Below are some questions and answers for general reference only and these would not prejudice LandsD in exercising its authority and powers according to the Government land lease and the relevant Practice Note (No. 1/ 2016). If you have any doubts about the land lease conditions or land use zoning, you are encouraged to seek professional advice.`,
-    },
-    disclaimer: `Disclaimer`,
-    disclaimer_content: `The information is provided by the Government for general reference only. The Government is not liable for any damages whatsoever arising out of the use of the information. The information shall not prejudice the Government in formulation of the implementation details and the Lands Department in exercising its authority and powers according to the Government land lease. The information shall not constitute any representation on the part of the Government or give rise to any expectation whatsoever and shall not be relied on as such. Each application for waiver will be considered on its own merits having regard to all factors and circumstances, which the Government at its absolute discretion considers applicable. The Government's right to add to, amend or delete the whole or any part of the information is hereby reserved.`,
-  },
-  cn: {
-    title: `在工業大廈營運的測試實驗所「免繳豁免書費用」安排`,
-
-    the_measure_is: (
-      <>
-        施在2016年2月1日起生效。申請程序的詳情於地政總署
-        <a
-          aria-label="作業備考編號1/2016"
-          href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          作業備考編號1/2016
-        </a>
-        中列明。
-      </>
-    ),
-    summary: {
-      title: `概要`,
-      content: [
-        `政府於2016年2月1日起實施這項措施，以協助測試及校正實驗所（下稱「測試實驗所」）於工業大廈營運。政府希望藉此為測試實驗所於市場提供更多可選擇的合適地方。`,
-        `工業大廈1的土地契約一般載有用途限制，有關契約容許的用途通常指定為「工業及／或倉庫」用途。然而，沒有涉及主要製造用途的測試實驗所，在一般工業契約下，不被視作工業用途。`,
-        `全幢或部份工業大廈的業主（或其代理人）可向地政總署申請豁免土地契約下用途條件的限制，以容許在現有工業大廈的整段使用期內或直至現行土地契約期屆滿或終止為止(以較早的日期為準)，作測試實驗所用途。`,
-        `如在這措施下向地政總署申請豁免書獲批核，政府將免收在一般情況下發出豁免書以容許作測試實驗所用途所須徵收的豁免書費用。然而，申請人須按地政總署的要求繳付行政費用。`,
-        `申請只會在以下情況下獲得接納：有關樓宇位於工業大廈內而測試實驗所用途為有關用地現時在法定圖則上的所屬土地用途地帶所准許的，或獲得城市規劃委員會（下稱「城規會」）批給有效的規劃許可，或在法定圖則的規定下被視為現有用途。`,
-        `創新科技署會就申請書中列明的用途是否合資格的測試實驗所用途向地政總署提供意見。`,
-      ],
-      background_information: `有關措施的背景資料，請參閱立法會參考資料摘要:`,
-      note: `註1:「工業大廈」指在地段合法興建的樓宇，而根據地契條件，該地段除作工業及／或倉庫用途外，不得作任何用途。這些地段在本文件中稱為工業地段。這類工業大廈不包括特殊的工廠大廈，例如貨櫃碼頭內的貨倉及香港房屋委員會興建的分層工廠大廈，以及特殊的工業，例如貨物裝卸、造船及修船、存油、煉油及生產相關化學副產品、製造聚苯乙烯塑料、製造及存儲氯氣、氫氣及紡織化工等所用的地段。`,
-      legislative_council_brief: `立法會參考資料摘要`,
-
-      to_learn_more: (
-        <>
-          如欲了解這項措施的詳情，請參閱
-          <span className="text-newPrimary">常見問題</span>。
-        </>
-      ),
-    },
-    enquiries: `查詢`,
-    for_enquiries_on_whether: (
-      <>
-        有關測試實驗所可否受惠於這項措施的查詢，請與香港檢測和認證局秘書處（
-        <a
-          aria-label="mail to enquiry@hkctc.gov.hk"
-          href="mailto:enquiry@hkctc.gov.hk"
-          className="underline text-[#00E]"
-        >
-          enquiry@hkctc.gov.hk
-        </a>
-        ）聯絡。
-      </>
-    ),
-    for_enquiries_on_application: `有關申請程序的查詢，請聯絡相關的分區地政處，聯絡資料可瀏覽以下網頁：`,
-    faq: {
-      title: "常見問題",
-      below_are: `以下答問資料僅供一般參考，並不妨礙地政總署根據政府土地契約行使其權限和權力，以及相關的作業備考（編號1/2016）。如對土地契約條件或土地用途地帶有疑問，應徵詢專業意見。`,
-    },
-    disclaimer: `免責聲明`,
-    disclaimer_content: `政府所提供的資料只供一般參考之用。政府無須對使用資料而引致的任何損害負上責任。資料並不妨礙政府制訂實施細則，以及地政總署根據政府土地契約行使其權限和權力。資料絕不構成由政府作出的任何陳述，也絕不應引起任何其他期望，故亦不得作為政府作出任何陳述或引起任何期望的根據。政府會按照每宗短期豁免書申請的個別情況，經考慮各種因素和情況後予以獨立考慮，而政府對各種因素和情況的適用與否有絕對酌情權。政府亦保留對資料的全部或部分內容作出增補、修訂或刪減的權利。`,
-  },
-};
-
 const eligibilityQues = [
   {
     question:
@@ -635,6 +509,137 @@ export const NilWaiverFee: React.FC = () => {
   );
   const { isPC, language, getPageText, getSingleText, getSingleNode } =
     useSettings();
+
+  const multilingual = {
+    en: {
+      title: `"Nil Waiver Fee" for Testing Labs Operating in Industrial Buildings`,
+      the_measure_is: (
+        <>
+          The measure is effective from 1 February 2016. The details on
+          application procedures are set out in the&nbsp;
+          <a
+            aria-label="Practice Note No. 1/2016"
+            href="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            Practice Note No. 1/2016
+          </a>
+          &nbsp;issued by Lands Department (LandsD).
+        </>
+      ),
+      summary: {
+        title: `Summary`,
+        content: [
+          `The Government introduces this policy measure effective as from 1 February 2016 to facilitate the operation of testing and calibration laboratories (hereunder referred to as "testing laboratories") in industrial building. The Government hopes that this measure would offer testing laboratories more choices of suitable space in the market.`,
+          `The leases of industrial buildings1 usually contain user restrictions. The uses permitted under such leases are typically specified as "industrial and/or godown purposes". However, testing laboratories not involving a primary manufacturing use are not considered as industrial use in the context of land leases.`,
+          `The owner (or his/her agent) intending to use part(s) of or an entire industrial building can apply to LandsD for a waiver of the user condition of the land lease to allow testing laboratory use for the lifetime of the existing industrial building, or until the expiry or termination of the current land lease, whichever is the earlier.`,
+          `For an approved application to LandsD for a waiver under this measure, the Government will exempt the waiver fee otherwise be chargeable for issuing waivers to allow use as a testing laboratory. However, applicants would need to pay an administrative fee as and when demanded by LandsD.`,
+          `Applications would only be accepted if the premises concerned are located in an industrial building where testing laboratory use is permitted under the current land use zoning of the site on the statutory plan, or is subject to a valid planning permission granted by the Town Planning Board (TPB), or is considered as an existing use under the provisions of the statutory plan.`,
+          `Innovation and Technology Commission (ITC) will advise LandsD whether or not the use as stated in an application is an eligible testing laboratory use.`,
+        ],
+        background_information: `For background information, please refer to the Legislative Council Brief:`,
+        note: `Note 1: An industrial building refers to a building lawfully erected on a lot which, under the lease conditions, shall not be used for any purpose other than for industrial and/or godown purposes. Industrial buildings do not include special factories such as those located in storage premises in container terminals and flatted factories built by the Hong Kong Housing Authority, or lots for special industries such as cargo handling uses, ship building and repairing, oil storage and refining and production of associated chemical by-product, manufacture of polystyrene plastics, manufacture and storage of chlorine, hydrogen and textile chemicals, etc.`,
+        legislative_council_brief: `Legislative Council Brief`,
+        to_learn_more: (
+          <>
+            To learn more about the measure, please see&nbsp;
+            <span className="text-newPrimary">FAQs</span>&nbsp;below.
+          </>
+        ),
+      },
+      enquiries: `Enquiries`,
+      for_enquiries_on_whether: (
+        <>
+          For enquiries on whether a testing laboratory may benefit under this
+          measure, please contact the Secretariat of the Hong Kong Council for
+          Testing and Certification (
+          <a
+            aria-label="mail to enquiry@hkctc.gov.hk"
+            href="mailto:enquiry@hkctc.gov.hk"
+            className="underline text-[#00E]"
+          >
+            enquiry@hkctc.gov.hk
+          </a>
+          )
+        </>
+      ),
+      for_enquiries_on_application: `For enquiries on application procedures, please contact the respective District Lands Office for which contact information can be found at `,
+      faq: {
+        title: "Frequently Asked Questions",
+        below_are: `Below are some questions and answers for general reference only and these would not prejudice LandsD in exercising its authority and powers according to the Government land lease and the relevant Practice Note (No. 1/ 2016). If you have any doubts about the land lease conditions or land use zoning, you are encouraged to seek professional advice.`,
+      },
+      disclaimer: `Disclaimer`,
+      disclaimer_content: `The information is provided by the Government for general reference only. The Government is not liable for any damages whatsoever arising out of the use of the information. The information shall not prejudice the Government in formulation of the implementation details and the Lands Department in exercising its authority and powers according to the Government land lease. The information shall not constitute any representation on the part of the Government or give rise to any expectation whatsoever and shall not be relied on as such. Each application for waiver will be considered on its own merits having regard to all factors and circumstances, which the Government at its absolute discretion considers applicable. The Government's right to add to, amend or delete the whole or any part of the information is hereby reserved.`,
+    },
+    cn: {
+      title: `在工業大廈營運的測試實驗所「免繳豁免書費用」安排`,
+
+      the_measure_is: (
+        <>
+          施在2016年2月1日起生效。申請程序的詳情於地政總署
+          <a
+            aria-label="作業備考編號1/2016"
+            href={
+              language === Language.ZH_TW
+                ? "https://www.landsd.gov.hk/tc/legco/lpn.htm"
+                : "https://www.landsd.gov.hk/sc/legco/lpn.htm"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            作業備考編號1/2016
+          </a>
+          中列明。
+        </>
+      ),
+      summary: {
+        title: `概要`,
+        content: [
+          `政府於2016年2月1日起實施這項措施，以協助測試及校正實驗所（下稱「測試實驗所」）於工業大廈營運。政府希望藉此為測試實驗所於市場提供更多可選擇的合適地方。`,
+          `工業大廈1的土地契約一般載有用途限制，有關契約容許的用途通常指定為「工業及／或倉庫」用途。然而，沒有涉及主要製造用途的測試實驗所，在一般工業契約下，不被視作工業用途。`,
+          `全幢或部份工業大廈的業主（或其代理人）可向地政總署申請豁免土地契約下用途條件的限制，以容許在現有工業大廈的整段使用期內或直至現行土地契約期屆滿或終止為止(以較早的日期為準)，作測試實驗所用途。`,
+          `如在這措施下向地政總署申請豁免書獲批核，政府將免收在一般情況下發出豁免書以容許作測試實驗所用途所須徵收的豁免書費用。然而，申請人須按地政總署的要求繳付行政費用。`,
+          `申請只會在以下情況下獲得接納：有關樓宇位於工業大廈內而測試實驗所用途為有關用地現時在法定圖則上的所屬土地用途地帶所准許的，或獲得城市規劃委員會（下稱「城規會」）批給有效的規劃許可，或在法定圖則的規定下被視為現有用途。`,
+          `創新科技署會就申請書中列明的用途是否合資格的測試實驗所用途向地政總署提供意見。`,
+        ],
+        background_information: `有關措施的背景資料，請參閱立法會參考資料摘要:`,
+        note: `註1:「工業大廈」指在地段合法興建的樓宇，而根據地契條件，該地段除作工業及／或倉庫用途外，不得作任何用途。這些地段在本文件中稱為工業地段。這類工業大廈不包括特殊的工廠大廈，例如貨櫃碼頭內的貨倉及香港房屋委員會興建的分層工廠大廈，以及特殊的工業，例如貨物裝卸、造船及修船、存油、煉油及生產相關化學副產品、製造聚苯乙烯塑料、製造及存儲氯氣、氫氣及紡織化工等所用的地段。`,
+        legislative_council_brief: `立法會參考資料摘要`,
+
+        to_learn_more: (
+          <>
+            如欲了解這項措施的詳情，請參閱
+            <span className="text-newPrimary">常見問題</span>。
+          </>
+        ),
+      },
+      enquiries: `查詢`,
+      for_enquiries_on_whether: (
+        <>
+          有關測試實驗所可否受惠於這項措施的查詢，請與香港檢測和認證局秘書處（
+          <a
+            aria-label="mail to enquiry@hkctc.gov.hk"
+            href="mailto:enquiry@hkctc.gov.hk"
+            className="underline text-[#00E]"
+          >
+            enquiry@hkctc.gov.hk
+          </a>
+          ）聯絡。
+        </>
+      ),
+      for_enquiries_on_application: `有關申請程序的查詢，請聯絡相關的分區地政處，聯絡資料可瀏覽以下網頁：`,
+      faq: {
+        title: "常見問題",
+        below_are: `以下答問資料僅供一般參考，並不妨礙地政總署根據政府土地契約行使其權限和權力，以及相關的作業備考（編號1/2016）。如對土地契約條件或土地用途地帶有疑問，應徵詢專業意見。`,
+      },
+      disclaimer: `免責聲明`,
+      disclaimer_content: `政府所提供的資料只供一般參考之用。政府無須對使用資料而引致的任何損害負上責任。資料並不妨礙政府制訂實施細則，以及地政總署根據政府土地契約行使其權限和權力。資料絕不構成由政府作出的任何陳述，也絕不應引起任何其他期望，故亦不得作為政府作出任何陳述或引起任何期望的根據。政府會按照每宗短期豁免書申請的個別情況，經考慮各種因素和情況後予以獨立考慮，而政府對各種因素和情況的適用與否有絕對酌情權。政府亦保留對資料的全部或部分內容作出增補、修訂或刪減的權利。`,
+    },
+  };
+
   const page_text = getPageText(multilingual);
 
   const {
@@ -648,7 +653,12 @@ export const NilWaiverFee: React.FC = () => {
     disclaimer,
     disclaimer_content,
   } = page_text;
-  // const renderedInfo = [eligibilityQues, panningQues, approvalQues, otherQues];
+
+  const for_enquiries_on_application_link: Record<Language, string> = {
+    [Language.EN]: "http://www.landsd.gov.hk/en/about/enquiries.htm",
+    [Language.ZH_TW]: "http://www.landsd.gov.hk/tc/about/enquiries.htm",
+    [Language.ZH_CN]: "https://www.landsd.gov.hk/sc/about/enquiries.htm",
+  };
 
   return (
     <div className="w-full text-justify">
@@ -684,7 +694,11 @@ export const NilWaiverFee: React.FC = () => {
           title={
             (summary as LanguageResources).legislative_council_brief as string
           }
-          mediaLink={"/en/doc/itc-hkctc-17-7-1c-e.pdf"}
+          mediaLink={
+            language === Language.EN
+              ? "/en/doc/itc-hkctc-17-7-1c-e.pdf"
+              : "https://www.hkctc.gov.hk/tc/doc/itc-hkctc-17-7-1c-c.pdf"
+          }
           direction="row"
           maskIcon={"PDF.png"}
           date={""}
@@ -720,12 +734,12 @@ export const NilWaiverFee: React.FC = () => {
             {for_enquiries_on_application as string}
             <a
               aria-label="open link - https://www.landsd.gov.hk/en/about-us/contact-us.html"
-              href="https://www.landsd.gov.hk/en/about-us/contact-us.html"
+              href={for_enquiries_on_application_link[language]}
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E] break-all"
             >
-              https://www.landsd.gov.hk/en/about-us/contact-us.html
+              {for_enquiries_on_application_link[language]}
             </a>
           </p>
         </div>
@@ -743,6 +757,7 @@ export const NilWaiverFee: React.FC = () => {
             const isActivated = activeButton === b;
             const label = getSingleText(faqMap[b].label, faqMap[b].labelCN);
             return (
+              // eslint-disable-next-line jsx-a11y/no-redundant-roles
               <button
                 key={i}
                 tabIndex={0}
