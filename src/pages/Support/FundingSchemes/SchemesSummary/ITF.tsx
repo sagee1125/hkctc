@@ -52,10 +52,22 @@ const rowsEN = [
   },
 ];
 
+const sCLinks = [
+  "https://www.itf.gov.hk/l-sc/ESS.asp",
+  "https://www.itf.gov.hk/l-sc/ITSP.asp",
+  "https://www.itf.gov.hk/l-sc/PRP.asp",
+
+  "https://www.itf.gov.hk/l-sc/crs.asp",
+
+  "https://www.itf.gov.hk/l-sc/GSP.asp",
+
+  "https://www.itf.gov.hk/sc/funding-programmes/nurturing-talent/nittp/index.html",
+];
+
 const rowsCN = [
   {
     schemeName: "BUD 專項基金（企業支援計劃）",
-    schemeNameHyperLink: "https://www.bud.hkpc.org/index.php/en",
+    schemeNameHyperLink: "https://www.itf.gov.hk/l-tc/ESS.asp",
     objective: "支援品牌發展、升級轉型及市場拓展",
     targetAudience: "中小企業",
     fundingAmount: "視乎計劃（例如：「BUD 申請易」最高 HK$100,000）",
@@ -89,6 +101,18 @@ const rowsCN = [
 export const ITF: React.FC = () => {
   const { language } = useSettings();
 
-  const rows = language === Language.EN ? rowsEN : rowsCN;
+  const rows =
+    language === Language.EN
+      ? rowsEN
+      : language === Language.ZH_TW
+      ? rowsCN
+      : rowsCN.map((r, i) => {
+          const { schemeNameHyperLink, ...rest } = r;
+          return {
+            ...rest,
+            schemeNameHyperLink: sCLinks[i],
+          };
+        });
+
   return <FundingSchemesTable rows={rows} />;
 };

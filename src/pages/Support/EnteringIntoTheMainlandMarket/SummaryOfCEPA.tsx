@@ -585,9 +585,11 @@ export const SummaryOfCEPA: React.FC = () => {
           <a
             aria-label="實施指南"
             className="text-[#00E] text-body-m underline"
-            href={processLink(
-              "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
-            )}
+            href={
+              language === Language.ZH_TW
+                ? "https://www.hkctc.gov.hk/tc/doc/CEPA_IX_Implementation_Guide-TradChn.pdf"
+                : "https://www.hkctc.gov.hk/sc/doc/CEPA_IX_Implementation_Guide-SimpChn.pdf"
+            }
             target="_blank"
             rel="noopener noreferrer"
           >

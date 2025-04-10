@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 export enum CEPAAgreements_ids {
   agreement_on_trade_in_services = "agreement_on_trade_in_services",
@@ -45,7 +45,7 @@ const multilingual = {
 
 export const CEPAAgreements: React.FC = () => {
   const navigate = useNavigate();
-  const { getPageText, getSingleNode, getSingleText, processLink } =
+  const { language, getPageText, getSingleNode, getSingleText, processLink } =
     useSettings();
 
   const page_text = getPageText(multilingual);
@@ -828,7 +828,11 @@ export const CEPAAgreements: React.FC = () => {
         內地已為此開放措施制訂
         <a
           aria-label="實施指南"
-          href="https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+          href={
+            language === Language.ZH_TW
+              ? "https://www.hkctc.gov.hk/tc/doc/CEPA_IX_Implementation_Guide-TradChn.pdf"
+              : "https://www.hkctc.gov.hk/sc/doc/CEPA_IX_Implementation_Guide-SimpChn.pdf"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
