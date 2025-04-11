@@ -77,25 +77,29 @@ export const accreditationService: Array<{
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
     titleCN: "香港實驗所認可計劃",
     imagePath: "serviceUsers/HOKLAS_1.png",
-    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html",
-    tcLink:"https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html",
-    scLink:"https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf",
+    tcLink:
+      "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html",
+    scLink:
+      "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html",
   },
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
     titleCN: "香港認證機構認可計劃",
     imagePath: "serviceUsers/HOKLAS_2.png",
-    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html",
-    tcLink:"https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hkcas.html",
-    scLink:"https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hkcas.html",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HKCAS_Accredited_Organisation.pdf",
+    tcLink:
+      "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hkcas.html",
+    scLink:
+      "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hkcas.html",
   },
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
     titleCN: "香港檢驗機構認可計劃",
     imagePath: "serviceUsers/HOKLAS_3.png",
-    link: "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkias.html",
-    tcLink:"",
-    scLink:"",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HKIAS_Accredited_Organisation.pdf",
+    tcLink: "",
+    scLink: "",
   },
 ];
 

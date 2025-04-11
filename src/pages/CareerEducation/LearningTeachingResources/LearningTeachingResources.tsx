@@ -72,7 +72,7 @@ export const LearningTeachingResources: React.FC = () => {
 
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
 
-  const { getPageText, isPC, getSingleText } = useSettings();
+  const { getPageText, isPC, language, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
   const {
     title,
@@ -100,15 +100,19 @@ export const LearningTeachingResources: React.FC = () => {
       title: "Download Teacher's Guide",
       titleCN: "下載教師指引",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Teachers_Guide_Eng.pdf",
-      tcLink:'',
-      scLink: '',
+      tcLink:
+        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Teachers_Guide_Chi.pdf",
+      scLink:
+        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Teachers_Guide_Chi.pdf",
     },
     {
       title: "Download Student Laboratory Manual",
       titleCN: "下載學生實驗手冊",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Student_Manual_Eng.pdf",
-      tcLink:'',
-      scLink: '',
+      tcLink:
+        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Student_Manual_Chi.pdf",
+      scLink:
+        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Student_Manual_Chi.pdf",
     },
   ];
   const downloadDataTwo = [
@@ -116,15 +120,19 @@ export const LearningTeachingResources: React.FC = () => {
       title: "Download Teachers' Guide",
       titleCN: "下載教師指引",
       link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Teachers_Guide_Eng.pdf",
-      tcLink:'',
-      scLink: '',
+      tcLink:
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Teachers_Guide_Chi.pdf",
+      scLink:
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Teachers_Guide_Chi.pdf",
     },
     {
       title: "Download Student Laboratory Manual",
       titleCN: "下載學生實驗手冊",
       link: "https://www.hkctc.gov.hk/en/doc/Teaching_Kit_Student_Manual_Eng.pdf",
-      tcLink:'',
-      scLink: '',
+      tcLink:
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Student_Manual_Chi.pdf",
+      scLink:
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Student_Manual_Chi.pdf",
     },
   ];
 
@@ -246,26 +254,35 @@ export const LearningTeachingResources: React.FC = () => {
                   isPC ? "3 gap-[24px]" : "1"
                 }  py-[24px]`}
               >
-                {downloadDataOne.map((down, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-                    onClick={() => {
-                      window.open(down.link, "_blank", "noopener");
-                    }}
-                    tabIndex={0}
-                    role="button"
-                  >
-                    <img
-                      className="w-[64px] h-[64px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                      alt={"file icon"}
-                    />
-                    <p className="text-highlight-l text-left">
-                      {getSingleText(down.title, down.titleCN)}
-                    </p>
-                  </div>
-                ))}
+                {downloadDataOne.map((down, index) => {
+                  const displayLink =
+                    (language === Language.EN
+                      ? down.link
+                      : language === Language.ZH_CN
+                      ? down.scLink ?? down.tcLink
+                      : down.tcLink) ?? down.link;
+
+                  return (
+                    <div
+                      key={index}
+                      className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+                      onClick={() => {
+                        window.open(displayLink, "_blank", "noopener");
+                      }}
+                      tabIndex={0}
+                      role="button"
+                    >
+                      <img
+                        className="w-[64px] h-[64px]"
+                        src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                        alt={"file icon"}
+                      />
+                      <p className="text-highlight-l text-left">
+                        {getSingleText(down.title, down.titleCN)}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
               <p
                 className="text-heading-l mb-[24px]"
@@ -365,11 +382,7 @@ export const LearningTeachingResources: React.FC = () => {
                   </div>
                 ))}
               </div>
-              {/* <img
-            className="w-full h-auto"
-            alt="Teaching Kit"
-            src={`${process.env.PUBLIC_URL}/assets/careerEducation/Teaching_Ki.png`}
-          /> */}
+
               <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
                 <VideoPlayer
                   videoLink={getSingleText(
