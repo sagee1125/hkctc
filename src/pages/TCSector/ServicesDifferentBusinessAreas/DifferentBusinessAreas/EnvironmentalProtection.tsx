@@ -460,7 +460,11 @@ export const EnvironmentalProtection: React.FC = () => {
             獲香港認可處認可的相關審定/核查機構名單，請瀏覽
             <a
               aria-label="香港認可處網頁"
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
+              href={
+                language === Language.ZH_TW
+                  ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hkcas.html"
+                  : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hkcas.html"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -613,7 +617,11 @@ export const EnvironmentalProtection: React.FC = () => {
             獲香港認可處認可的相關認證機構名單，請瀏覽
             <a
               aria-label="香港認可處網頁"
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+              href={
+                language === Language.ZH_TW
+                  ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hkcas.html"
+                  : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hkcas.html"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

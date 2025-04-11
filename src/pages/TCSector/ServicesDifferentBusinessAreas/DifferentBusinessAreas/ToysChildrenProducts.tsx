@@ -8,7 +8,7 @@ import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  FileTemplate,
+  MediaTemplateWithDialog,
   InternalBackButton,
   MediaTemplate,
   SquareTitle,
@@ -16,7 +16,7 @@ import {
   maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
 
 const multilingual = {
@@ -192,7 +192,7 @@ export const ToysChildrenProducts: React.FC = () => {
   };
 
   const fileTemplateLink: Record<Language, string> = {
-    [Language.EN]: "/tc-sector/en/doc/toys_booklet_eng.pdf",
+    [Language.EN]: "/en/doc/toys_booklet_eng.pdf",
     [Language.ZH_TW]: "/tc/doc/toys_booklet_tc.pdf",
     [Language.ZH_CN]: "/sc/doc/toys_booklet_sc.pdf",
   };
@@ -209,12 +209,16 @@ export const ToysChildrenProducts: React.FC = () => {
           mediaLink="https://www.youtube.com/embed/fKkwNRX0i6c"
         />
       </div>
-
-      <FileTemplate
-        title={toys as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ToysPDF.png"
-        pdfHyperlink={fileTemplateLink[language]}
-      />
+      <div className="w-full flex flex-row gap-[24px]">
+        <MediaTemplateWithDialog
+          title={toys as string}
+          mediaLink={fileTemplateLink[language]}
+          mediaDomain={"hkctc"}
+          direction={"row"}
+          date=""
+          mediaType={MEDIA_TYPE.PDF}
+        />
+      </div>
       <p className="text-heading-l my-[24px]" role="heading" aria-level={10}>
         {benefits_of_toys as string}{" "}
       </p>

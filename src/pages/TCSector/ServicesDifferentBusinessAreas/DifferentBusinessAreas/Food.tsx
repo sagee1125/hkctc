@@ -45,6 +45,8 @@ export const Food: React.FC = () => {
       titleCN: "食品",
       img: "food_2",
       link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
+      tcLink: "https://www.hkctc.gov.hk/tc/doc/food_booklet_tc.pdf",
+      scLink: "https://www.hkctc.gov.hk/sc/doc/food_booklet_sc.pdf",
     },
     {
       title: "Hong Kong's Testing and Certification for Food",
@@ -158,9 +160,22 @@ export const Food: React.FC = () => {
             <li>危害分析和關鍵控制點（HACCP）認證</li>
           </ul>
           <br />
-          <Link outerLink="https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/">
-            符合餐飲業食品標準認證系統（FHSCS）*的認證
-          </Link>
+          <ul>
+            <li>
+              符合
+              <Link
+                outerLink={
+                  language === Language.ZH_TW
+                    ? "https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/"
+                    : "https://www.polyu.edu.hk/fsn/research/research-centres/food-safety-and-technology-research-centre/"
+                }
+              >
+                餐飲業食品標準認證系統（FHSCS）
+              </Link>
+              *的認證
+            </li>
+          </ul>
+
           <br />
           <ul>
             <li>有機食物認證</li>
@@ -183,11 +198,23 @@ export const Food: React.FC = () => {
           <br />
           <br />
           香港認可處網頁已上載了
-          <Link outerLink="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services">
+          <Link
+            outerLink={
+              language === Language.ZH_TW
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+            }
+          >
             獲認可的食品測試實驗所
           </Link>
           ，以及
-          <Link outerLink="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html">
+          <Link
+            outerLink={
+              language === Language.ZH_TW
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hkcas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hkcas.html"
+            }
+          >
             獲認可的食物安全管理體系認證機構
           </Link>
           的名單。
@@ -199,21 +226,39 @@ export const Food: React.FC = () => {
       content: (
         <p>
           香港的基本食物法例載於
-          <Link outerLink="https://www.cfs.gov.hk/english/food_leg/food_leg_list.html#part5">
+          <Link
+            outerLink={
+              language === Language.ZH_TW
+                ? "https://www.cfs.gov.hk/tc_chi/food_leg/food_leg_list.html#part5"
+                : "https://www.cfs.gov.hk/sc_chi/food_leg/food_leg_list.html#part5"
+            }
+          >
             公眾衞生及市政條例（第132章）第V部
           </Link>
           。其主要條文涵蓋對食物購買人的一般保障、與出售不宜食用的食物和攙雜食物有關的罪行、食物成分組合及標籤、食物衞生，檢取及銷毀不宜食用的食物。該條例的附屬法例則規定各特定範圍的管制事宜。
           <br />
           <br />
           另一項與食物有關的法例是
-          <Link outerLink="https://www.cfs.gov.hk/english/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html">
+          <Link
+            outerLink={
+              language === Language.ZH_TW
+                ? "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html"
+                : "https://www.cfs.gov.hk/sc_chi/whatsnew/whatsnew_fstr/whatsnew_fstr_Food_Safety_Bill.html"
+            }
+          >
             食物安全條例（第612章）
           </Link>
           ，條例包括實施新的食物安全管制措施，如設立食物進口商和食物分銷商登記制度，以及規定食物商須妥為保存食物進出紀錄，以加強食物溯源能力。
           <br />
           <br />
           有關食物規例/指引詳情，請瀏覽
-          <Link outerLink="https://www.cfs.gov.hk/english/food_leg/food_leg.html">
+          <Link
+            outerLink={
+              language === Language.ZH_TW
+                ? "https://www.cfs.gov.hk/tc_chi/food_leg/food_leg.html"
+                : "https://www.cfs.gov.hk/sc_chi/food_leg/food_leg.html"
+            }
+          >
             食物安全中心網站
           </Link>
           。
@@ -395,17 +440,25 @@ export const Food: React.FC = () => {
           isPC ? photo.length : 1
         } gap-[24px]`}
       >
-        {photo.map((item, index) => (
-          <div key={index} className="w-full">
-            <MediaTemplate
-              direction={"vertical"}
-              title={getSingleText(item.title, item.titleCN)}
-              iconPath={item.icon}
-              imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
-              mediaLink={item.link}
-            />
-          </div>
-        ))}
+        {photo.map((item, index) => {
+          const displayLink =
+            (language === Language.EN
+              ? item.link
+              : language === Language.ZH_TW
+              ? item.tcLink
+              : item.scLink) ?? item.link;
+          return (
+            <div key={index} className="w-full">
+              <MediaTemplate
+                direction={"vertical"}
+                title={getSingleText(item.title, item.titleCN)}
+                iconPath={item.icon}
+                imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
+                mediaLink={displayLink}
+              />
+            </div>
+          );
+        })}
       </div>
 
       <div className="w-full flex flex-col gap-[24px] mb-[24px]">
