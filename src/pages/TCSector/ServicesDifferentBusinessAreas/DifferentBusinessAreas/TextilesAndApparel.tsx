@@ -8,15 +8,15 @@ import {
   Accordion,
   BannerPhotoBox,
   Breadcrumb,
-  FileTemplate,
   InternalBackButton,
   MediaTemplate,
+  MediaTemplateWithDialog,
   SquareTitle,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
 
 const multilingual = {
@@ -258,12 +258,16 @@ export const TextilesAndApparel: React.FC = () => {
           mediaLink="https://www.youtube.com/embed/JL54Sx8IFF0"
         />
       </div>
-
-      <FileTemplate
-        title={title as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/TextilesPDF.png"
-        pdfHyperlink={fileTemplateLink[language]}
-      />
+      <div className="w-full flex flex-row gap-[24px]">
+        <MediaTemplateWithDialog
+          title={title as string}
+          mediaLink={fileTemplateLink[language]}
+          mediaDomain={"hkctc"}
+          direction={"row"}
+          date=""
+          mediaType={MEDIA_TYPE.PDF}
+        />
+      </div>
       <div className="text-heading-l my-[24px]">
         {benefits_of as React.ReactNode}
       </div>
