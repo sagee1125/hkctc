@@ -228,7 +228,7 @@ const returnRelatedLink = (
 };
 
 const ImportantNote: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
 
   const page_text = getPageText(multilingual);
 
@@ -251,27 +251,27 @@ const ImportantNote: React.FC = () => {
     {
       name: edge,
       enLink: "https://www.microsoft.com/en-us/edge/?form=MA13FJ",
-      tcLink: "",
-      scLink: "",
+      tcLink: "http://www.microsoft.com/zh-hk/windows/microsoft-edge",
+      scLink: "http://www.microsoft.com/zh-hk/windows/microsoft-edge",
     },
     {
       name: mozilla,
       enLink:
         "https://www.mozilla.org/en-US/firefox/?v=c&utm_source=www.mozilla.org&utm_medium=download_button&utm_campaign=firefox_page&utm_content=downloader_email_form_experiment_vc",
-      tcLink: "",
-      scLink: "",
+      tcLink: "http://www.mozilla.org/en-US/firefox/fx/",
+      scLink: "http://www.mozilla.org/en-US/firefox/fx/",
     },
     {
       name: safari,
       enLink: "https://www.apple.com/safari/",
-      tcLink: "",
-      scLink: "",
+      tcLink: "http://www.apple.com/safari/",
+      scLink: "http://www.apple.com/safari/",
     },
     {
       name: google,
       enLink: "https://www.google.com/intl/en/chrome/",
-      tcLink: "",
-      scLink: "",
+      tcLink: "https://www.google.com/intl/zh-TW/chrome/browser/",
+      scLink: "https://www.google.com/intl/zh-TW/chrome/browser/",
     },
   ];
 
@@ -292,11 +292,20 @@ const ImportantNote: React.FC = () => {
       </div>
 
       <ul className="flex flex-col gap-[24px] list-disc ml-6">
-        {linksList.map((link, index) => (
-          <li key={index}>
-            <Link outerLink={link.enLink}>{link.name as string}</Link>
-          </li>
-        ))}
+        {linksList.map((link, index) => {
+          const displayLink =
+            (language === Language.EN
+              ? link.enLink
+              : language === Language.ZH_CN
+              ? link.scLink ?? link.tcLink
+              : link.tcLink) ?? link.enLink;
+
+          return (
+            <li key={index}>
+              <Link outerLink={displayLink}>{link.name as string}</Link>
+            </li>
+          );
+        })}
       </ul>
 
       {please_download as string}
@@ -479,34 +488,34 @@ const RelatedSite: React.FC = () => {
     {
       title: ITC,
       href: "https://www.itc.gov.hk/en/index.html",
-      tcHref: "",
-      scHref: "",
+      tcHref: "https://www.itc.gov.hk/ch/index.html",
+      scHref: "https://www.itc.gov.hk/gb/index.html",
       children: [
         {
           title: HKAS,
           href: "https://www.itc.gov.hk/en/quality/hkas/about.htm",
-          tcHref: "",
-          scHref: "",
+          tcHref: "https://www.itc.gov.hk/ch/quality/hkas/about.htm",
+          scHref: "https://www.itc.gov.hk/gb/quality/hkas/about.htm#",
         },
         {
           title: SCL,
           href: "https://www.itc.gov.hk/en/quality/hkas/about.htm",
-          tcHref: "",
-          scHref: "",
+          tcHref: "http://www.itc.gov.hk/ch/quality/scl/index.htm",
+          scHref: "https://www.itc.gov.hk/gb/quality/scl/index.htm",
         },
         {
           title: standard_related,
           href: "https://www.itc.gov.hk/en/quality/qsdiv/index.html",
-          tcHref: "",
-          scHref: "",
+          tcHref: "https://www.itc.gov.hk/ch/quality/qsdiv/index.html",
+          scHref: "https://www.itc.gov.hk/gb/quality/qsdiv/index.html",
         },
       ],
     },
     {
       title: gov_lab,
       href: "https://www.govtlab.gov.hk/tc/home/index.html",
-      tcHref: "",
-      scHref: "",
+      tcHref: "https://www.govtlab.gov.hk/tc/home/index.html",
+      scHref: "https://www.govtlab.gov.hk/sc/home/index.html",
     },
   ];
 
@@ -515,38 +524,39 @@ const RelatedSite: React.FC = () => {
       title: "Hong Kong Productivity Council",
       titleCN: "香港生產力促進局",
       href: "https://www.hkpc.org/zh-HK",
-      tcHref: "",
-      scHref: "",
+      tcHref: "https://www.hkpc.org/zh-HK/",
+      scHref: "https://www.hkpc.org/zh-CN/",
     },
     {
       title: "Hong Kong Trade Development Council",
       titleCN: "香港貿易發展局",
       href: "https://hkservices.hktdc.com/tc/industry/testing-certification",
-      tcHref: "",
-      scHref: "",
+      tcHref: "https://hkservices.hktdc.com/tc/industry/testing-certification",
+      scHref: "https://hkservices.hktdc.com/sc/industry/testing-certification",
     },
     {
       title: "Hong Kong Export Credit Insurance Corporation",
       titleCN: "香港出口信用保險局",
       href: "https://www.hkecic.com/tc/",
-      tcHref: "",
-      scHref: "",
+      tcHref: "http://www.hkecic.com/tc/index.aspx",
+      scHref: "http://www.hkecic.com/sc/index.aspx",
     },
     {
       title: "Vocational Training Council (Testing and Certification Portal)",
       titleCN: "職業訓練局(檢測和認證行業網站)",
       href: "https://va.vtc.edu.hk/tcert",
-      tcHref: "",
-      scHref: "",
+      tcHref: "http://va.vtc.edu.hk/tcert",
+      scHref: "http://va.vtc.edu.hk/tcert",
     },
   ];
+
   const tradeAssociationsMap = [
     {
       title: "Hong Kong Association for Testing, Inspection and Certification",
       titleCN: "香港測檢認證協會",
       href: "https://www.hktic.org/en",
-      tcHref: "",
-      scHref: "",
+      tcHref: "http://www.hktic.org/",
+      scHref: "http://www.hktic.org/",
     },
     {
       title: "Hong Kong Association of Medical Laboratories",
@@ -559,8 +569,8 @@ const RelatedSite: React.FC = () => {
       title: "Hong Kong Institution of Certified Auditors",
       titleCN: "香港專業審核師學會",
       href: "https://www.hkica.org/",
-      tcHref: "",
-      scHref: "",
+      tcHref: "http://hkica.org/",
+      scHref: "http://hkica.org/",
     },
     {
       title: "Hong Kong Society for Quality",
@@ -570,6 +580,7 @@ const RelatedSite: React.FC = () => {
       scHref: "",
     },
   ];
+
   const mainlandOrgMap = [
     {
       title: "State Administration for Market Regulation (Chinese only)",
@@ -603,6 +614,7 @@ const RelatedSite: React.FC = () => {
       scHref: "",
     },
   ];
+
   return (
     <div className="w-full pr-[24px]">
       <SquareTitle title={related_site as string} />
@@ -650,7 +662,7 @@ const RelatedSite: React.FC = () => {
             <li key={index}>
               <a
                 aria-label={getSingleText(pb.title, pb.titleCN)}
-                href={pb.href}
+                href={returnRelatedLink(language, pb)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
@@ -671,7 +683,7 @@ const RelatedSite: React.FC = () => {
             <li key={index}>
               <a
                 aria-label={getSingleText(pb.title, pb.titleCN)}
-                href={pb.href}
+                href={returnRelatedLink(language, pb)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
@@ -690,7 +702,7 @@ const RelatedSite: React.FC = () => {
             <li key={index}>
               <a
                 aria-label={getSingleText(pb.title, pb.titleCN)}
-                href={pb.href}
+                href={returnRelatedLink(language, pb)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
