@@ -57,14 +57,13 @@ export const MediaTemplateWithDialog: React.FC<
 
     const fetchAndRenderPdf = async () => {
       // const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
-      const pdfUrl = mediaLink;
+      // const pdfUrl = mediaLink;
+      const pdfUrl = `${process.env.PUBLIC_URL}/assets${mediaLink}`;
+
       setLoading(true);
       try {
         // Force to render file
-        const response = await fetch(pdfUrl, { cache: "no-store" });
-        const arrayBuffer = await response.arrayBuffer();
-
-        const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
         const pdf = await loadingTask.promise;
         const page = await pdf.getPage(1);
 
