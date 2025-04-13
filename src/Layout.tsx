@@ -2,6 +2,8 @@ import React from "react";
 import {
   Footer,
   Header,
+  maxMobileContainer,
+  maxPCContainer,
   Navigator,
   ScrollTopButton,
   SkipLinks,
@@ -47,10 +49,11 @@ const layoutStyle: React.CSSProperties = {
 };
 
 const pcStyle: React.CSSProperties = {
-  minWidth: "1300px",
+  minWidth: "1440px",
+  width: "100%",
 };
 const mobileStyle: React.CSSProperties = {
-  maxWidth: "1024px",
+  maxWidth: "1440px",
   width: "100%",
   overflow: "hidden",
 };

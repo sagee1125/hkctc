@@ -4,7 +4,7 @@ export const maxPCContainer: React.CSSProperties = {
 };
 
 export const maxMobileContainer: React.CSSProperties = {
-  maxWidth: "1024px",
+  maxWidth: "1440px",
   width: "100%",
 };
 
