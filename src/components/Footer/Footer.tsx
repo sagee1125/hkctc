@@ -611,7 +611,7 @@ export const Footer: React.FC = () => {
                                 <li
                                   className="cursor-pointer"
                                   tabIndex={0}
-                                  role="button"
+                                  role="menuitem"
                                   key={index}
                                   aria-label={getSingleText(
                                     item.label,
@@ -680,7 +680,7 @@ export const Footer: React.FC = () => {
                                         <li
                                           className="cursor-pointer"
                                           tabIndex={0}
-                                          role="button"
+                                          role="menuitem"
                                           key={index}
                                           aria-disabled={!item.link}
                                           onClick={() => {

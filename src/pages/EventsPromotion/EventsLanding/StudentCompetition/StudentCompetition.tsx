@@ -164,7 +164,7 @@ export const StudentCompetition: React.FC = () => {
                 <img
                   className="border-2 border-inherit w-full h-full object-cover"
                   src={`${process.env.PUBLIC_URL}/assets/eventsLanding/studentsCompetition/${imgUrl}`}
-                  alt={imgUrl}
+                  alt={getSingleText(title, titleCN)}
                 />
                 {/* Icon */}
                 <img

@@ -26,7 +26,7 @@ export const SeminarArticlePage: React.FC = () => {
             process.env.PUBLIC_URL +
             `/assets/eventsLanding/seminarsAndWorkshopsThumbnails/${img}`
           }
-          alt="seminars"
+          alt={processText(title)}
         />
       )}
 
@@ -35,7 +35,7 @@ export const SeminarArticlePage: React.FC = () => {
         <img
           className="w-[16px] h-[16px]"
           src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-          alt={"calendar"}
+          alt={processText(title)}
         />
         <p className="text-body-s text-grey">{processText(date)}</p>
       </div>

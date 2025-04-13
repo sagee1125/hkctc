@@ -38,7 +38,7 @@ export const MediaTemplate: React.FC<
           <img
             className="w-full h-full object-cover"
             src={process.env.PUBLIC_URL + imagePath}
-            alt={imagePath}
+            alt={title}
           />
           {/* Icon */}
           <img
@@ -87,7 +87,7 @@ export const MediaTemplate: React.FC<
           <img
             className="w-full h-full object-cover"
             src={process.env.PUBLIC_URL + imagePath}
-            alt={imagePath}
+            alt={title}
           />
           {/* Icon */}
           <img

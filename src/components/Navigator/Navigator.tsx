@@ -985,7 +985,7 @@ export const Navigator: React.FC = () => {
                                   "/assets/images/" +
                                   imgUrl
                                 }
-                                alt={subTitle}
+                                alt={getSingleText(subTitle, sub.subTitleCN)}
                               />
                             </div>
                           )}

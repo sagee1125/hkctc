@@ -60,6 +60,7 @@ export const SMEExportMarketingFund: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
           alt={"money"}
+          aria-hidden="true"
         />
         {maximum as React.ReactNode}
       </div>
@@ -118,6 +119,7 @@ export const SMELoanGuaranteeScheme: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/matching.svg`}
           alt={"matching"}
+          aria-hidden="true"
         />
         {maximum as React.ReactNode}
       </div>

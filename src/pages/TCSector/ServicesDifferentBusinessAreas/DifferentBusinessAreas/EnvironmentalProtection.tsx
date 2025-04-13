@@ -269,6 +269,7 @@ export const EnvironmentalProtection: React.FC = () => {
                 cSectionMap[activeCSectionButton].imgUrl
               }
               alt={cSectionMap[activeCSectionButton].imgUrl}
+              aria-hidden="true"
             />
           </div>
         </>
@@ -282,17 +283,15 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>GHG Validation and Verification can:</p>
           <br />
           <ul>
-            <li>
+            <li className="mb-[1em]">
               enhance the consistency, credibility and transparency of your GHG
               quantification, monitoring and reporting
             </li>
-            <br />
-            <li>
+            <li className="mb-[1em]">
               help develop and implement your organisation's GHG management
               plans or GHG projects
             </li>
-            <br />
-            <li>
+            <li className="mb-[1em]">
               facilitate your tracking of the performance and progress in the
               reduction of GHG emissions and increase in GHG removals
             </li>
@@ -422,6 +421,7 @@ export const EnvironmentalProtection: React.FC = () => {
                 cSectionMap[activeCSectionButton].imgUrl
               }
               alt={cSectionMap[activeCSectionButton].imgUrl}
+              aria-hidden="true"
             />
           </div>
         </>
@@ -434,13 +434,13 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>採用溫室氣體審定和核查可以：</p>
           <br />
           <ul>
-            <li>
+            <li className="mb-[1em]">
               增加機構在溫室氣體量化、監察和報告方面的一致性、可信度和透明度
             </li>
-            <br />
-            <li>協助機構制訂和實施溫室氣體管理計劃或溫室氣體項目</li>
-            <br />
-            <li>
+            <li className="mb-[1em]">
+              協助機構制訂和實施溫室氣體管理計劃或溫室氣體項目
+            </li>
+            <li className="mb-[1em]">
               協助機構追蹤溫室氣體減排及/或溫室氣體增加移除量方面的績效和進展
             </li>
           </ul>
@@ -510,13 +510,11 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>實施ISO 50001能源管理體系可以協助機構：</p>
           <br />
           <ul>
-            <li>了解現行能源使用狀況，以制訂相應的善用能源措施</li>
-            <br />
-            <li>制訂清晰的框架以促進持續改善能源管理</li>
-            <br />
-
-            <li>提高員工對能源效益和節能的意識</li>
-            <br />
+            <li className="mb-[1em]">
+              了解現行能源使用狀況，以制訂相應的善用能源措施
+            </li>
+            <li className="mb-[1em]">制訂清晰的框架以促進持續改善能源管理</li>
+            <li className="mb-[1em]">提高員工對能源效益和節能的意識</li>
 
             <li>透過節省能源消耗和減低成本，從而增加財政資源</li>
           </ul>
@@ -587,11 +585,12 @@ export const EnvironmentalProtection: React.FC = () => {
           <p>透過獲取ISO 50001能源管理體系認證，你的機構可以：</p>
           <br />
           <ul>
-            <li>
+            <li className="mb-[1em]">
               加強相關持份者（如客戶、生意夥伴）對你的能源管理體系質素的信心
             </li>
-            <br />
-            <li>證明致力持續推行符合國際標準的能源管理體系，藉以提升聲譽</li>
+            <li className="mb-[1em]">
+              證明致力持續推行符合國際標準的能源管理體系，藉以提升聲譽
+            </li>
           </ul>
         </>
       ),
@@ -680,19 +679,18 @@ export const EnvironmentalProtection: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li>
+            <li className="mb-[1em]">
               ascertain your current energy use status in order to devise
               corresponding measures to promote efficient energy use
             </li>
-            <br />
-            <li>
+            <li className="mb-[1em]">
               formulate a clear framework to promote continual improvement in
               energy management
             </li>
-            <br />
 
-            <li>raise staff awareness on energy efficiency and conservation</li>
-            <br />
+            <li className="mb-[1em]">
+              raise staff awareness on energy efficiency and conservation
+            </li>
 
             <li>
               increase financial savings as a result of energy saving and cost
@@ -769,12 +767,11 @@ export const EnvironmentalProtection: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li>
+            <li className="mb-[1em]">
               enhance the confidence of relevant stakeholders (e.g. clients,
               business partners) in the quality of your EnMS
             </li>
-            <br />
-            <li>
+            <li className="mb-[1em]">
               enhance reputation by demonstrating ongoing commitment to
               implementing an EnMS in compliance with international standard
             </li>

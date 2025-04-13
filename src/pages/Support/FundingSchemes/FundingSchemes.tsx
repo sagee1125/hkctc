@@ -363,6 +363,7 @@ export const FundingSchemes: React.FC = () => {
                     className="w-[24px] h-[24px] flex-shrink-0"
                     src={`${process.env.PUBLIC_URL}/assets/icons/pass.svg`}
                     alt={"pass"}
+                    aria-hidden="true"
                   />
                   {
                     (PASS as LanguageResources)
@@ -375,6 +376,7 @@ export const FundingSchemes: React.FC = () => {
                     className="w-[24px] h-[24px] flex-shrink-0"
                     src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
                     alt={"rocket"}
+                    aria-hidden="true"
                   />
                   {
                     (PASS as LanguageResources)
@@ -456,6 +458,7 @@ export const FundingSchemes: React.FC = () => {
                     className="w-[24px] h-[24px] flex-shrink-0"
                     src={`${process.env.PUBLIC_URL}/assets/icons/pass.svg`}
                     alt={"pass"}
+                    aria-hidden="true"
                   />
                   <p className="text-body-m flex-grow min-w-0">
                     {(TCJS as LanguageResources).each_local as React.ReactNode}
@@ -467,6 +470,7 @@ export const FundingSchemes: React.FC = () => {
                     className="w-[24px] h-[24px] flex-shrink-0"
                     src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
                     alt={"money"}
+                    aria-hidden="true"
                   />
                   {
                     (TCJS as LanguageResources)

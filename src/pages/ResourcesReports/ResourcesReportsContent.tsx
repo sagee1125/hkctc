@@ -1193,7 +1193,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 >
                   <div
                     className="h-[24px] w-[24px]"
-                    role="img"
+                    role="none"
                     style={{
                       color: isActivated ? "white" : "#233F55",
                       WebkitMask: `url(${process.env.PUBLIC_URL}/assets/icons/${icon}) no-repeat center`,

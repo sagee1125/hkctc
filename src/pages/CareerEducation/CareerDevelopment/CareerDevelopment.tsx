@@ -246,7 +246,7 @@ export const CareerDevelopment: React.FC = () => {
               <img
                 className="w-[130px] h-full object-contain"
                 src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                alt={imgUrl}
+                alt={displayTitle}
               />
               <div
                 className={`text-highlight-m text-black py-[8px] ${
@@ -296,6 +296,7 @@ export const CareerDevelopment: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
             alt={"tick"}
+            aria-hidden="true"
           />
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
             {(senior_level_to_do as string[])[0]}
@@ -308,6 +309,7 @@ export const CareerDevelopment: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
             alt={"tick"}
+            aria-hidden="true"
           />
           <p className="text-highlight-m flex-grow min-w-0 text-justify">
             {(senior_level_to_do as string[])[1]}
@@ -324,6 +326,7 @@ export const CareerDevelopment: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/blue-tick.svg`}
             alt={"tick"}
+            aria-hidden="true"
           />
           <div className="text-highlight-m flex-grow min-w-0 text-justify">
             {(post_level_to_do as string[])[0]}
@@ -335,7 +338,8 @@ export const CareerDevelopment: React.FC = () => {
         <img
           className="w-full h-full object-cover"
           src={`${process.env.PUBLIC_URL}/assets/careerEducation/career_path_en.png`}
-          alt={"career path"}
+          alt={"career"}
+          aria-hidden="true"
         />
       </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
@@ -363,7 +367,7 @@ export const CareerDevelopment: React.FC = () => {
               <img
                 className="w-[130px] h-full object-contain"
                 src={process.env.PUBLIC_URL + "/assets/images/" + imgUrl}
-                alt={imgUrl}
+                alt={displayTitle}
               />
 
               <div

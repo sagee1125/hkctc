@@ -73,7 +73,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
                 <img
                   className="w-[24px] h-[24px]"
                   src={process.env.PUBLIC_URL + "/assets/icons/arrow_right.svg"}
-                  alt="arrow_right"
+                  alt={getSingleText(item.label, item.labelCN)}
                 />
               ) : (
                 <div />

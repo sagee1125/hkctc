@@ -72,7 +72,7 @@ export const CEPAAgreements: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li className="text-body-m">
+            <li className="text-body-m mb-[1em]">
               On the geographical coverage of&nbsp;
               <span className="text-newPrimary !text-highlight-m">
                 CCC factory inspection
@@ -86,7 +86,6 @@ export const CEPAAgreements: React.FC = () => {
               </span>
               ;
             </li>
-            <br />
             <li className="text-body-m">
               On the geographical coverage of&nbsp;
               <span className="text-newPrimary !text-highlight-m">
@@ -130,7 +129,7 @@ export const CEPAAgreements: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li className="text-body-m">
+            <li className="text-body-m mb-[1em]">
               符合條件的香港認證機構可與內地指定機構開展合作進行
               <span className="text-newPrimary !text-highlight-m">
                 CCC工廠檢查
@@ -141,7 +140,6 @@ export const CEPAAgreements: React.FC = () => {
               </span>
               ；
             </li>
-            <br />
             <li className="text-body-m">
               符合條件的香港認證機構可與內地指定機構開展合作進行的
               <span className="text-newPrimary !text-highlight-m">
@@ -263,7 +261,7 @@ export const CEPAAgreements: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li className="text-body-m">
+            <li className="text-body-m mb-[1em]">
               On the scope of testing of CCC products that can be undertaken by
               qualified Hong Kong testing organisations in collaboration with
               designated Mainland organisations: To expand from products
@@ -271,7 +269,6 @@ export const CEPAAgreements: React.FC = () => {
               Kong to products processed or manufactured in any place (including
               places outside China).
             </li>
-            <br />
             <li className="text-body-m">
               On the geographical coverage of CCC factory inspection that can be
               undertaken by qualified certification bodies in Hong Kong in
@@ -311,10 +308,9 @@ export const CEPAAgreements: React.FC = () => {
           </p>
           <br />
           <ul>
-            <li className="text-body-m">
+            <li className="text-body-m mb-[1em]">
               符合條件的香港檢測機構可與內地指定機構開展合作進行CCC產品檢測，範圍從現時在內地加工或生產、或在香港加工的CCC產品，擴展至在任何地區（包括中國以外）加工或生產的CCC產品。
             </li>
-            <br />
             <li className="text-body-m">
               符合條件的香港認證機構可與內地指定機構開展合作進行CCC工廠檢查，範圍從現時在中國（廣東）自由貿易試驗區內的CCC產品生產廠，擴展至內地全境內的CCC產品生產廠。符合條件的香港認證機構也可承擔新增任務，即內地全境內獲證後於工廠選取測試樣本。
             </li>
