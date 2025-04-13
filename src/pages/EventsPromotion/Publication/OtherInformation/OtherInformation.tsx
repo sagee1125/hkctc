@@ -19,7 +19,11 @@ export const OtherInformation: React.FC = () => {
   return (
     <div>
       <SquareTitle title={title as string} />
-      <div className={`pt-[24px] flex flex-col ${isPC ? "" : "gap-[24px]"}`}>
+      <div
+        className={`pt-[24px] flex ${
+          isPC ? "flex-col" : "flex-wrap gap-[24px]"
+        }`}
+      >
         {otherInformationList.map((item, index) => {
           const {
             title,
@@ -40,16 +44,23 @@ export const OtherInformation: React.FC = () => {
           const isPDF = mediaType === MEDIA_TYPE.PDF;
           const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
           return (
-            <MediaTemplateWithDialog
+            <div
               key={index}
-              title={getSingleText(title, titleCN)}
-              maskIcon={maskIcon}
-              date={date as string}
-              mediaLink={displayLink}
-              mediaType={mediaType}
-              mediaDomain={"hkctc"}
-              direction={isPC ? "full" : "column"}
-            />
+              className={`${
+                isPC ? "w-full h-[282px]" : "h-[282px]"
+              } flex flex-col gap-[14px]`}
+            >
+              <MediaTemplateWithDialog
+                key={index}
+                title={getSingleText(title, titleCN)}
+                maskIcon={maskIcon}
+                date={date as string}
+                mediaLink={displayLink}
+                mediaType={mediaType}
+                mediaDomain={"hkctc"}
+                direction={isPC ? "full" : "column"}
+              />
+            </div>
           );
         })}
       </div>

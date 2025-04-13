@@ -39,12 +39,11 @@ export const Newsletter: React.FC = () => {
   return (
     <div>
       <SquareTitle title={title as string} />
-
       <div
-        className={`w-full ${
+        className={`w-full pt-[24px] ${
           isPC
             ? "grid grid-cols-3 gap-x-[24px] gap-y-[36px]"
-            : "grid grid-cols-1 gap-[24px]"
+            : "flex flex-wrap gap-x-[24px]"
         }`}
       >
         {currentPageData.map((item, index) => {
@@ -55,8 +54,8 @@ export const Newsletter: React.FC = () => {
             <div
               key={index}
               className={`${
-                isPC ? "w-full h-[282px]" : "w-full h-auto object-cover"
-              } flex flex-col gap-[14px] mt-[24px]`}
+                isPC ? "w-full h-[282px]" : "w-[252px] h-[282px]"
+              } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
                 title={getSingleText(title, titleCN)}
