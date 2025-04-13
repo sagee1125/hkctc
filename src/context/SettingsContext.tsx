@@ -24,6 +24,7 @@ type SettingsContextType = {
   fontSize: "small" | "medium" | "large";
   language: Language;
   isPC: boolean;
+  isTablet: boolean;
   fontClass: string;
   pdfjsLib: typeof pdfjsLib;
   handleChangeLang: (role: Language) => void;
@@ -48,6 +49,9 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.js`;
 
   const isPC = useMediaQuery("(min-width:1440px)");
+  const isTablet = useMediaQuery(
+    "(min-width:1024px) and (max-width:1439.99px)"
+  );
 
   const [fontSize, setFontSize] = useState<"small" | "medium" | "large">(
     "medium"
@@ -229,6 +233,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
         language,
         isLoading,
         isPC,
+        isTablet,
         fontClass,
         setFontSize,
         handleChangeLang,
