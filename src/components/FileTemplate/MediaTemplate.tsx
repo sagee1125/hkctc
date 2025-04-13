@@ -14,13 +14,13 @@ export const MediaTemplate: React.FC<
   direction = "horizontal",
   mediaLink,
 }) => {
-  const { isPC } = useSettings();
+  const { isPC, isTablet } = useSettings();
 
   const componentMap: Record<"horizontal" | "vertical", React.ReactNode> = {
     horizontal: (
       <div
         className={`border-2 border-[#E0E0E0] w-full flex ${
-          isPC ? "flex-row h-[278px]" : "flex-col"
+          isPC || isTablet ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
         tabIndex={0}
         role="link"
@@ -28,7 +28,11 @@ export const MediaTemplate: React.FC<
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
       >
-        <div className="flex-shrink-0 relative h-full w-auto">
+        <div
+          className={`flex-shrink-0 relative ${
+            isPC || isTablet ? "h-[280px] w-[390px]" : "h-full w-auto"
+          }`}
+        >
           <img
             className="w-full h-full object-cover"
             src={process.env.PUBLIC_URL + imagePath}
@@ -44,7 +48,7 @@ export const MediaTemplate: React.FC<
 
         <div
           className={`flex flex-col justify-center items-start pr-[24px] gap-[16px] ${
-            isPC ? "" : "px-[24px] pb-[24px]"
+            isPC || isTablet ? "" : "px-[24px] pb-[24px]"
           }`}
         >
           <p className="text-heading-m">{title}</p>
@@ -64,9 +68,7 @@ export const MediaTemplate: React.FC<
 
     vertical: (
       <div
-        className={`w-full flex ${
-          isPC ? "flex-col" : "flex-row"
-        } h-auto gap-[24px] cursor-pointer`}
+        className={`w-full flex  flex-col h-auto gap-[24px] cursor-pointer`}
         tabIndex={0}
         role="link"
         onClick={() => {
@@ -75,7 +77,7 @@ export const MediaTemplate: React.FC<
       >
         <div
           className={`flex-shrink-0 relative ${
-            isPC ? "h-full w-auto" : "w-1/2 h-auto"
+            isPC || isTablet ? "h-full w-auto" : "w-1/2 h-auto"
           }`}
         >
           <img
