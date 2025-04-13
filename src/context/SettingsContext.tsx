@@ -47,7 +47,7 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.js`;
 
-  const isPC = useMediaQuery("(min-width:1024px)");
+  const isPC = useMediaQuery("(min-width:1440px)");
 
   const [fontSize, setFontSize] = useState<"small" | "medium" | "large">(
     "medium"

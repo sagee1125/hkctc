@@ -431,28 +431,28 @@ export const Footer: React.FC = () => {
   ];
   const downsideLogos = [
     {
-      logoSize: isPC ? "h-[31px] w-[88px]" : "h-[24px]",
+      logoSize: "h-[31px] w-[88px]",
       img: "w3c_logo.png",
       hyperlink: "https://www.w3.org/WAI/WCAG2AA-Conformance",
     },
     {
-      logoSize: isPC ? "h-[56px] w-[88px]" : "h-[43px]",
+      logoSize: "h-[56px] w-[88px]",
       img: "WA_Gold_TC.png",
       hyperlink: "https://www.webforall.gov.hk/recognition_scheme",
     },
 
     {
-      logoSize: isPC ? "h-[48px] w-[120px]" : "h-[27px]",
+      logoSize: "h-[48px] w-[120px]",
       img: "brandhk.png",
       hyperlink: "https://www.brandhk.gov.hk/html/en/index.html",
     },
     {
-      logoSize: isPC ? "h-[74px] w-[100px]" : "h-[50px]",
+      logoSize: "h-[74px] w-[100px]",
       img: "SIPS_logo.png",
       hyperlink: "https://www.science.gov.hk/",
     },
     {
-      logoSize: isPC ? "h-[34px] w-[160px]" : "h-[14px]",
+      logoSize: "h-[34px] w-[160px]",
       img: "IHHK_logo_tc.png",
       hyperlink: "https://www.innovationhub.hk/",
     },
@@ -749,11 +749,11 @@ export const Footer: React.FC = () => {
       <div
         className={`bg-white ${
           isPC ? "h-[90px]" : "py-[16px] px-[24px]"
-        } flex flex-col justify-center items-center`}
+        } flex justify-center items-center`}
       >
         <div
-          style={isPC ? maxPCContainer : maxMobileContainer}
-          className="flex flex-row items-center justify-center gap-[12px]"
+          style={isPC ? maxPCContainer : { maxWidth: "600px", width: "100%" }}
+          className="flex flex-row items-center justify-center gap-[12px] h-full"
         >
           {downsideLogos.map((logo, index) => (
             <div
