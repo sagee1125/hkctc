@@ -118,11 +118,10 @@ export const AwardScheme21to22Preview: React.FC<{
         <p>{page_text.testing_manpower_award_content.awardees_be}</p>
         <br />
         <ul>
-          <li>
+          <li className="mb-[1em]">
             {page_text.testing_manpower_award_content.present_with_trophy}
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             {page_text.testing_manpower_award_content.permit_use_logo}&nbsp;
             <a
               aria-label={page_text.testing_manpower_award_content.guild_note}
@@ -135,7 +134,6 @@ export const AwardScheme21to22Preview: React.FC<{
             </a>
             {page_text.testing_manpower_award_content.bracket}
           </li>
-          <br />
           <li>
             {
               page_text.testing_manpower_award_content
@@ -229,10 +227,9 @@ export const AwardScheme21to22Preview: React.FC<{
         <p>{page_text.testing_profession_award_content.awardees_be}</p>
         <br />
         <ul>
-          <li>
+          <li className="mb-[1em]">
             {page_text.testing_profession_award_content.present_with_trophy}
           </li>
-          <br />
           <li>
             {
               page_text.testing_profession_award_content
@@ -420,6 +417,7 @@ export const AwardScheme21to22Preview: React.FC<{
                   urlPath
                 }
                 alt={title}
+                aria-hidden="true"
               />
             </div>
           );
@@ -636,7 +634,8 @@ export const AwardScheme21to22Preview: React.FC<{
         <img
           className="w-[130px] h-full object-contain flex-shrink-0"
           src={process.env.PUBLIC_URL + "/assets/eventsLanding/2021-2022.png"}
-          alt={"2023-2024"}
+          alt={processText(page_text.award_ceremony_list_long)}
+          aria-hidden="true"
         />
         <div
           className={`text-black py-[8px] ${

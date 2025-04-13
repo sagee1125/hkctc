@@ -22,10 +22,11 @@ export const TVP: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
           alt={"rocket"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">
           The Government’s funding ratio in each approved project has been
-          raised from{" "}
+          raised from&nbsp;
           <span className="text-newPrimary font-semibold">
             two thirds to three-quarters.
           </span>
@@ -36,9 +37,10 @@ export const TVP: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
           alt={"rocket"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">
-          The funding ceiling per applicant has been increased from{" "}
+          The funding ceiling per applicant has been increased from&nbsp;
           <span className="text-newPrimary font-semibold">
             $400,000 to $600,000.
           </span>
@@ -49,6 +51,7 @@ export const TVP: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
           alt={"rocket"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">
           The maximum number of approved projects has also been{" "}

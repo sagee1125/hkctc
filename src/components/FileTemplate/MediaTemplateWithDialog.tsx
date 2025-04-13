@@ -299,7 +299,7 @@ export const MediaTemplateWithDialog: React.FC<
                 <>
                   {!!thumbnail ? (
                     <img
-                      alt="img"
+                      alt={title}
                       tabIndex={0}
                       src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
                       style={{
@@ -362,7 +362,7 @@ export const MediaTemplateWithDialog: React.FC<
 
                   <img
                     ref={imageRef}
-                    alt="Video"
+                    alt={title}
                     style={{
                       objectFit: "contain",
                       width: "100%",
@@ -478,7 +478,7 @@ export const MediaTemplateWithDialog: React.FC<
                   <>
                     {!!thumbnail ? (
                       <img
-                        alt="img"
+                        alt={title}
                         src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
                         style={{
                           objectFit: "cover",
@@ -567,7 +567,7 @@ export const MediaTemplateWithDialog: React.FC<
 
                     <img
                       ref={imageRef}
-                      alt="Video"
+                      alt={title}
                       style={{
                         objectFit: "contain",
                         width: "100%",
@@ -584,7 +584,7 @@ export const MediaTemplateWithDialog: React.FC<
                   <>
                     {!!imagePath ? (
                       <img
-                        alt="img"
+                        alt={title}
                         src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
                         style={{
                           objectFit: "cover",
@@ -605,7 +605,7 @@ export const MediaTemplateWithDialog: React.FC<
               <img
                 className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
                 src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
-                alt="PDF Icon"
+                alt={title}
                 style={{
                   zIndex: 3,
                 }}

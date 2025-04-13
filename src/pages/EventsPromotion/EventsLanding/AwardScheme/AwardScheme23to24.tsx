@@ -437,6 +437,7 @@ export const AwardScheme23to24: React.FC = () => {
           className="object-contain"
           style={{ height: "auto", width: "100%" }}
           alt="Ceremony1"
+          aria-hidden="true"
         />
       </div>
       <div className="grid grid-cols-2 gap-[24px] mt-[24px]">
@@ -449,6 +450,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="Ceremony2"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -460,6 +462,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="Ceremony3"
+            aria-hidden="true"
           />
         </div>
       </div>
@@ -479,6 +482,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -490,6 +494,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
@@ -515,6 +520,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -526,6 +532,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
@@ -545,6 +552,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -556,6 +564,7 @@ export const AwardScheme23to24: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
@@ -590,7 +599,8 @@ export const AwardScheme23to24: React.FC = () => {
         <img
           className="w-[160px] h-full object-cover flex-shrink-0"
           src={process.env.PUBLIC_URL + "/assets/eventsLanding/2023-2024.png"}
-          alt={"2023-2024"}
+          alt={processText(page_text.media_coverage)}
+          aria-hidden="true"
         />
         <div
           className={`text-black py-[8px] ${

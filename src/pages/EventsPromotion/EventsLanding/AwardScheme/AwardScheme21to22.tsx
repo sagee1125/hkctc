@@ -376,6 +376,7 @@ export const AwardScheme21to22: React.FC = () => {
           className="object-contain"
           style={{ height: "auto", width: "100%" }}
           alt="Ceremony1"
+          aria-hidden="true"
         />
       </div>
 
@@ -389,6 +390,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="Ceremony2"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -400,6 +402,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="Ceremony3"
+            aria-hidden="true"
           />
         </div>
       </div>
@@ -420,6 +423,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -431,6 +435,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px]">
@@ -459,6 +464,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -470,6 +476,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
@@ -490,6 +497,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -501,6 +509,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
@@ -519,6 +528,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         {/* right img */}
@@ -530,6 +540,7 @@ export const AwardScheme21to22: React.FC = () => {
             }
             className="object-cover h-full w-full"
             alt="awardScheme"
+            aria-hidden="true"
           />
         </div>
         <p className="text-italic-s text-grey italic mt-[16px] mb-[20px]">
@@ -545,7 +556,8 @@ export const AwardScheme21to22: React.FC = () => {
               "/assets/eventsLanding/awardScheme/21-ceremony-12.png"
             }
             className="object-cover h-full w-full"
-            alt="awardScheme"
+            alt={processText(page_text.awardees_excellent_tc)}
+            aria-hidden="true"
           />
         </div>
         <div />

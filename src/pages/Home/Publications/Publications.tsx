@@ -557,7 +557,10 @@ export const Publications: React.FC = () => {
                         <img
                           className="border-[1px] border-[#E0E0E0] w-full h-full object-fit"
                           src={`${process.env.PUBLIC_URL}/assets/${imgPath}`}
-                          alt={imgPath}
+                          alt={getSingleText(
+                            prevActiveCategory.toUpperCase(),
+                            traditionTitle
+                          )}
                         />
                       </div>
                       <div

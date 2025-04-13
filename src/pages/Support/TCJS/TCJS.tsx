@@ -391,6 +391,7 @@ export const TCJS: React.FC = () => {
             className="w-[24px] h-[24px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/rocket.svg`}
             alt={"rocket"}
+            aria-hidden="true"
           />
           <p className="text-highlight-m flex-grow min-w-0">
             Local private T&C organisations with valid Hong Kong Accreditation
@@ -405,6 +406,7 @@ export const TCJS: React.FC = () => {
             className="w-[24px] h-[24px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
             alt={"money"}
+            aria-hidden="true"
           />
           <p className="text-highlight-m flex-grow min-w-0">
             For each approved position, the applicant employer would receive a
@@ -446,6 +448,7 @@ export const TCJS: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
             alt={"alert"}
+            aria-hidden="true"
           />
           <p className="text-body-m flex-grow min-w-0">
             Organisations interested in the scheme can make enquiries via email
@@ -502,13 +505,15 @@ export const TCJS: React.FC = () => {
                 <img
                   className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                   src={`${process.env.PUBLIC_URL}/assets/support/${imgUrl}`}
-                  alt={imgUrl}
+                  alt={title as string}
+                  aria-hidden="true"
                 />
                 {/* Icon */}
                 <img
                   className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
                   src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
                   alt="maskIcon"
+                  aria-hidden="true"
                 />
               </div>
 

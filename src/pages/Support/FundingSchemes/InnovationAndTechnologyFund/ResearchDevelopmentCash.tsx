@@ -34,6 +34,7 @@ export const ResearchDevelopmentCash: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
           alt={"money"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">{enterprises}</p>
       </div>

@@ -33,6 +33,7 @@ export const RegistrationBox: React.FC = () => {
           height={"68px"}
           src={process.env.PUBLIC_URL + `/assets/icons/registration.png`}
           alt="registration"
+          aria-label="registration"
         />
         <div
           className={`bg-[#233F55] h-[15px] w-[15px]`}

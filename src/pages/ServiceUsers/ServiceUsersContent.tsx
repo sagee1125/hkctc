@@ -200,6 +200,7 @@ export const ServiceUsersContent: React.FC = () => {
                     className="w-full h-auto object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={process.env.PUBLIC_URL + "/assets/" + imagePath}
                     alt={title as string}
+                    aria-hidden="true"
                   />
                 </div>
                 <div
@@ -253,13 +254,15 @@ export const ServiceUsersContent: React.FC = () => {
                   <img
                     className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
-                    alt={imagePath}
+                    alt={getSingleText(title, titleCN)}
+                    aria-hidden="true"
                   />
                   {/* Icon */}
                   <img
                     className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
                     src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="Share"
+                    aria-hidden="true"
                   />
                 </div>
                 <span className="!text-highlight-m h-full flex items-center">
@@ -305,6 +308,7 @@ export const ServiceUsersContent: React.FC = () => {
                     className="w-[130px] h-auto"
                     src={process.env.PUBLIC_URL + `/assets/${imgUrl}`}
                     alt={title}
+                    aria-hidden="true"
                   />
                   <p className="text-highlight-l">{title}</p>
                 </div>

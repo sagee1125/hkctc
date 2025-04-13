@@ -103,8 +103,7 @@ export const SummaryOfCEPA: React.FC = () => {
               (promulgated in Feb 2019)
             </p>
             <ul>
-              <br />
-              <li className="text-body-m">
+              <li className="text-body-m mt-[1em]">
                 <a
                   aria-label="Further liberalisation measures on CCC product testing, factory inspection and selection of post-certification test samples Measure on China Compulsory Certification (CCC) product testing"
                   href={processLink(
@@ -125,8 +124,7 @@ export const SummaryOfCEPA: React.FC = () => {
               (promulgated in May 2020)
             </p>
             <ul>
-              <br />
-              <li className="text-body-m">
+              <li className="text-body-m mt-[1em]">
                 Further liberalisation measures on CCC factory inspection and
                 selection of post-certification test samples
               </li>
@@ -247,8 +245,7 @@ export const SummaryOfCEPA: React.FC = () => {
               （2019年2月公布）
             </p>
             <ul>
-              <br />
-              <li className="text-body-m">
+              <li className="text-body-m mt-[1em]">
                 <a
                   aria-label="關於CCC產品檢測、工廠檢查及獲證後選取測試樣本的進一步開放措施"
                   href={processLink(
@@ -266,8 +263,7 @@ export const SummaryOfCEPA: React.FC = () => {
               （2020年5月公布）
             </p>
             <ul>
-              <br />
-              <li className="text-body-m">
+              <li className="text-body-m mt-[1em]">
                 關於CCC產品工廠檢查及獲證後選取測試樣本的進一步開放措施
               </li>
             </ul>
@@ -391,7 +387,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p className="text-body-m">Implementation Guides on -</p>
         <br />
         <ul>
-          <li className="text-body-m">
+          <li className="text-body-m mb-[1em]">
             <a
               aria-label="Measure on the movement of natural persons"
               href={processLink(
@@ -404,7 +400,6 @@ export const SummaryOfCEPA: React.FC = () => {
               Measure on the movement of natural persons
             </a>
           </li>
-          <br />
           <li className="text-body-m">
             <a
               aria-label="Other measures"
@@ -546,7 +541,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <p className="text-body-m">實施指南</p>
         <br />
         <ul>
-          <li className="text-body-m">
+          <li className="text-body-m mb-[1em]">
             <a
               aria-label="關於自然人流動的措施"
               href={processLink(
@@ -559,7 +554,6 @@ export const SummaryOfCEPA: React.FC = () => {
               關於自然人流動的措施
             </a>
           </li>
-          <br />
           <li className="text-body-m">
             <a
               aria-label="其他措施"

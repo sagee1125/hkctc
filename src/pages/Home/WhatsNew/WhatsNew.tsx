@@ -130,7 +130,16 @@ export const WhatsNew: React.FC = () => {
                     navigate(redirectTo);
                   }
                 }}
-                aria-label={title}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    if (redirectTo) {
+                      window.scroll({ top: 0, behavior: "smooth" });
+                      navigate(redirectTo);
+                    }
+                  }
+                }}
+                aria-labelledby={`button-label-${index}`}
               >
                 <div>
                   <div
@@ -169,6 +178,7 @@ export const WhatsNew: React.FC = () => {
                       wordWrap: "break-word",
                       overflow: "hidden",
                     }}
+                    id={`button-label-${index}`}
                   >
                     {getSingleText(title, title)}
                   </div>

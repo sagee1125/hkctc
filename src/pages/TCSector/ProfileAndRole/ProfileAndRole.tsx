@@ -454,6 +454,7 @@ export const ProfileAndRole: React.FC = () => {
             } w-full object-cover`}
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role1.png"}
             alt="Role1"
+            aria-hidden="true"
           />
           <img
             className={`${
@@ -461,6 +462,7 @@ export const ProfileAndRole: React.FC = () => {
             } w-full object-cover`}
             src={process.env.PUBLIC_URL + "/assets/tcSector/Role2.png"}
             alt="Role2"
+            aria-hidden="true"
           />
         </div>
 
@@ -507,13 +509,14 @@ export const ProfileAndRole: React.FC = () => {
                   <img
                     className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/${imagePath}`}
-                    alt={imagePath}
+                    alt={title}
                   />
                   {/* Icon */}
                   <img
                     className="absolute bottom-0 right-0 w-[32px] h-[32px]"
                     src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
                     alt="PDF Icon"
+                    aria-hidden="true"
                   />
                 </div>
                 <div>

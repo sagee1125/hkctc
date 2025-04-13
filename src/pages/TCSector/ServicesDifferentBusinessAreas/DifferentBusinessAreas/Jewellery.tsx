@@ -215,12 +215,15 @@ export const Jewellery: React.FC = () => {
         {page_text.testing_fei_cui as React.ReactNode}
       </div>
       <ol className="mt-[24px] text-body-m">
-        <li>{page_text.Authentication_fei_cui as React.ReactNode}</li>
-        <br />
-        <li>{page_text.internationally_renowned as React.ReactNode}</li>
-        <br />
-        <li>{page_text.hk_Accreditation as React.ReactNode}</li>
-        <br />
+        <li className="mb-[1em]">
+          {page_text.Authentication_fei_cui as React.ReactNode}
+        </li>
+        <li className="mb-[1em]">
+          {page_text.internationally_renowned as React.ReactNode}
+        </li>
+        <li className="mb-[1em]">
+          {page_text.hk_Accreditation as React.ReactNode}
+        </li>
         <li>{page_text.Accredited_laboratories as React.ReactNode}</li>
       </ol>
 

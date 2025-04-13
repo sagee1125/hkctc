@@ -19,6 +19,7 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
         className="w-[16px] h-[16px]"
         src={`${process.env.PUBLIC_URL}/assets/icons/arrow_left.svg`}
         alt={"arrow left"}
+        aria-hidden="true"
       />
       <p
         className="text-highlight-l cursor-pointer text-newPrimary"

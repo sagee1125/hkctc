@@ -718,7 +718,8 @@ export const NilWaiverFee: React.FC = () => {
           <img
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
-            alt={"alert"}
+            alt={for_enquiries_on_whether as string}
+            aria-hidden="true"
           />
           <p className="text-body-m flex-grow min-w-0">
             {for_enquiries_on_whether as string}
@@ -728,7 +729,8 @@ export const NilWaiverFee: React.FC = () => {
           <img
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
-            alt={"alert"}
+            alt={for_enquiries_on_application as string}
+            aria-hidden="true"
           />
           <p className="text-body-m flex-grow min-w-0">
             {for_enquiries_on_application as string}

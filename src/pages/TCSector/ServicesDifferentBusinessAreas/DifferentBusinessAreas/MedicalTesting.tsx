@@ -472,6 +472,7 @@ export const MedicalTesting: React.FC = () => {
         className="w-full h-auto"
         src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/Accredited-Medical-Testing-Service-1.png`}
         alt="Accredited Medical Testing Service"
+        aria-hidden="true"
       />
 
       <div className="text-body-m mt-[24px] text-justify">
@@ -490,6 +491,7 @@ export const MedicalTesting: React.FC = () => {
         className="w-full h-auto"
         src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/Accredited-Medical-Testing-Service-2.png`}
         alt="Accredited Medical Testing Service"
+        aria-hidden="true"
       />
       <div className="text-body-m mt-[24px] text-justify">
         {the_accreditation_criteria as React.ReactNode}

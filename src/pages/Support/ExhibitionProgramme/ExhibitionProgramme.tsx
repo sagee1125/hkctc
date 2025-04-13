@@ -39,12 +39,14 @@ export const ExhibitionProgramme: React.FC = () => {
         <img
           src="/assets/support/exhibition_programme.png"
           alt="exhibition programme"
-          className="object-cover h-full w-[100%]" // 关键点：h-full + w-auto
+          className="object-cover h-full w-[100%]"
+          aria-hidden="true"
         />
         <img
           src="/assets/support/exhibition_programme_2.png"
           alt="exhibition programme 2"
-          className="object-cover h-full w-[50%]" // 关键点：h-full + w-auto
+          className="object-cover h-full w-[50%]"
+          aria-hidden="true"
         />
       </div>
     </div>
