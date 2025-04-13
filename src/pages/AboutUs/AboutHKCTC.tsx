@@ -45,6 +45,8 @@ export const AboutHKCTC: React.FC = () => {
         "Government Chemist or representative",
         "Commissioner for Innovation and Technology or representative",
       ],
+      // about_logo:"About HKCTC Logo",
+      // inspired_by:`Inspired by the unified precision of a microscope, which is a combination of meticulous accuracy of scientific enquiry and the harmony represented by circles, the new HKCTC logo encapsulates the essence of the inclusivity and collaboration; innovation and quality; unifying force and scientific rigour.  This new logo is a cornerstone of HKCTC’s brand evolution, visually expressing our tagline - Catalysing Excellence.`
     },
     cn: {
       terms_of_ref: "職權範圍",

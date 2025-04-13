@@ -315,7 +315,7 @@ export const CareerDevelopment: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="text-heading-m my-[24px] text-[#23F555]">
+      <div className="text-heading-m my-[24px] text-newPrimary">
         {post_level as React.ReactNode}
       </div>
 
