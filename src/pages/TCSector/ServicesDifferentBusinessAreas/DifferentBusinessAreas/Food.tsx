@@ -28,8 +28,14 @@ const multilingual = {
 };
 
 export const Food: React.FC = () => {
-  const { isPC, language, processText, getSingleText, getSingleNode } =
-    useSettings();
+  const {
+    isPC,
+    isTablet,
+    language,
+    processText,
+    getSingleText,
+    getSingleNode,
+  } = useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
   const isSimpleCN = language === Language.ZH_CN;
@@ -436,8 +442,8 @@ export const Food: React.FC = () => {
       <SquareTitle title={page_text.title} />
 
       <div
-        className={`my-[24px] grid grid-cols-${
-          isPC ? photo.length : 1
+        className={`my-[24px] ${
+          isPC || isTablet ? "grid grid-cols-" + photo.length : "flex flex-wrap"
         } gap-[24px]`}
       >
         {photo.map((item, index) => {
@@ -451,6 +457,7 @@ export const Food: React.FC = () => {
             <div key={index} className="w-full">
               <MediaTemplate
                 title={getSingleText(item.title, item.titleCN)}
+                direction={isPC || isTablet ? "vertical" : "horizontal"}
                 iconPath={item.icon}
                 imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
                 mediaLink={displayLink}
