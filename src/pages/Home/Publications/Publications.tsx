@@ -156,7 +156,7 @@ export const Publications: React.FC = () => {
       }
       resizeObserver.disconnect();
     };
-  }, [activeCategory]);
+  }, [activeCategory, isPC]);
 
   useEffect(() => {
     const handleScroll = () => {
