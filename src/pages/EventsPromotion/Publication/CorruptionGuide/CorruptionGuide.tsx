@@ -19,7 +19,11 @@ export const CorruptionGuide: React.FC = () => {
   return (
     <div>
       <SquareTitle title={title as string} />
-      <div className={`pt-[24px] flex flex-col ${isPC ? "" : "gap-[24px]"}`}>
+      <div
+        className={`pt-[24px] flex ${
+          isPC ? "flex-col" : "flex-wrap gap-x-[24px]"
+        }`}
+      >
         {corruptionGuideList.map((item, index) => {
           const {
             title,
@@ -45,10 +49,9 @@ export const CorruptionGuide: React.FC = () => {
           return (
             <div
               key={index}
-              style={{
-                marginTop: index === 0 ? "" : "24px",
-              }}
-              className={`flex flex-col gap-[24px] ${isPC ? "" : "pb-[24px]"}`}
+              className={`${
+                isPC ? "w-full h-[282px]" : "w-[252px] h-[282px]"
+              } flex flex-col gap-[14px]`}
             >
               <MediaTemplateWithDialog
                 title={getSingleText(title, titleCN)}
