@@ -1180,6 +1180,9 @@ export const CEPAAgreements: React.FC = () => {
       >
         <Accordion
           title={agreement_on_trade_in_services as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.agreement_on_trade_in_services
+          }
           details={
             <div>
               {getSingleNode(AgreementOnServices, AgreementOnServices_CN)}
@@ -1224,6 +1227,9 @@ export const CEPAAgreements: React.FC = () => {
       >
         <Accordion
           title={agreement_on_goods as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.agreement_on_trade_in_goods
+          }
           details={getSingleNode(AgreementOnGoods, AgreementOnGoods_CN)}
         />
       </div>
@@ -1233,6 +1239,10 @@ export const CEPAAgreements: React.FC = () => {
       >
         <Accordion
           title={agreement_on_economic_and_technical_cooperation as string}
+          defaultExpanded={
+            scrollId ===
+            CEPAAgreements_ids.agreement_on_economic_and_technical_cooperation
+          }
           details={getSingleNode(AgreementOnEconomic, AgreementOnEconomic_CN)}
         />
       </div>
@@ -1243,6 +1253,9 @@ export const CEPAAgreements: React.FC = () => {
       >
         <Accordion
           title={agreement_between_the_mainland_and_hk as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.mainland_and_hong_kong_agreement
+          }
           details={getSingleNode(
             AgreementBetweenTheMainlandAndHK,
             AgreementBetweenTheMainlandAndHK_CN
@@ -1253,6 +1266,7 @@ export const CEPAAgreements: React.FC = () => {
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_X_to_CEPA}>
         <Accordion
           title={x_to_CEPA as string}
+          defaultExpanded={scrollId === CEPAAgreements_ids.supplement_X_to_CEPA}
           details={getSingleNode(X_to_CEPA, X_to_CEPA_CN)}
         />
       </div>
@@ -1260,6 +1274,9 @@ export const CEPAAgreements: React.FC = () => {
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_IX_to_CEPA}>
         <Accordion
           title={ix_to_CEPA as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.supplement_IX_to_CEPA
+          }
           details={getSingleNode(IX_to_CEPA, IX_to_CEPA_CN)}
         />
       </div>
@@ -1270,6 +1287,9 @@ export const CEPAAgreements: React.FC = () => {
       >
         <Accordion
           title={viii_to_CEPA as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.supplement_VIII_to_CEPA
+          }
           details={getSingleNode(VIII_to_CEPA, VIII_to_CEPA_CN)}
         />
       </div>
@@ -1277,6 +1297,9 @@ export const CEPAAgreements: React.FC = () => {
       <div className="mt-[24px]" id={CEPAAgreements_ids.supplement_VII_to_CEPA}>
         <Accordion
           title={vii_to_CEPA as string}
+          defaultExpanded={
+            scrollId === CEPAAgreements_ids.supplement_VII_to_CEPA
+          }
           details={getSingleNode(VII_to_CEPA, VII_to_CEPA_CN)}
         />
       </div>
