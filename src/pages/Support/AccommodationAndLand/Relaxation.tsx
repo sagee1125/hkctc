@@ -227,6 +227,7 @@ export const Relaxation: React.FC = () => {
             "/assets/support/details_of_the_elaxation_1.png"
           }
           alt="Professor WONG Wing-tak"
+          aria-hidden="true"
         />
         <img
           className="w-auto h-auto"
@@ -235,23 +236,22 @@ export const Relaxation: React.FC = () => {
             "/assets/support/details_of_the_elaxation_2.png"
           }
           alt="Professor WONG Wing-tak"
+          aria-hidden="true"
         />
       </div>
       <ul>
-        <li className="!text-body-m">
+        <li className="!text-body-m mb-[1em]">
           {
             (details_of_relaxation as LanguageResources)
               .para_1 as React.ReactNode
           }
         </li>
-        <br />
-        <li className="text-body-m">
+        <li className="text-body-m mb-[1em]">
           {
             (details_of_relaxation as LanguageResources)
               .para_2 as React.ReactNode
           }
         </li>
-        <br />
         <li className="text-body-m">
           {
             (details_of_relaxation as LanguageResources)
@@ -321,6 +321,7 @@ export const Relaxation: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
             alt={"alert"}
+            aria-hidden="true"
           />
           <p className="text-body-m flex-grow min-w-0">
             {enquiries_about as string}
@@ -341,6 +342,7 @@ export const Relaxation: React.FC = () => {
             className="w-[32px] h-[32px] flex-shrink-0"
             src={`${process.env.PUBLIC_URL}/assets/icons/alert.svg`}
             alt={"alert"}
+            aria-hidden="true"
           />
           <p className="text-body-m flex-grow min-w-0">
             {information_regarding as string}

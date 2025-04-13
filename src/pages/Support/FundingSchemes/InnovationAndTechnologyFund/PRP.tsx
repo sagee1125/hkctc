@@ -35,6 +35,7 @@ export const PRP: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/matching.svg`}
           alt={"matching"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0 text-justify">
           {it_provides as string}

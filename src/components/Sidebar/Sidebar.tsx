@@ -56,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         src={
                           process.env.PUBLIC_URL + "/assets/images/" + imgUrl
                         }
-                        alt={imgUrl}
+                        alt={getSingleText(subTitle, subTitleCN)}
                       />
                     </div>
                     <div className="text-highlight-m text-black w-[252px]">
@@ -260,7 +260,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                                 "/assets/images/" +
                                 imgUrl
                               }
-                              alt={imgUrl}
+                              alt={getSingleText(subTitle, subTitleCN)}
                             />
                           </div>
                           <div className="text-highlight-m text-black py-[8px] pr-[16px] w-[202px]">

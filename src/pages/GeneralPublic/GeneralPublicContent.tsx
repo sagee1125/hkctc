@@ -128,7 +128,7 @@ export const GeneralPublicContent: React.FC = () => {
                       src={
                         process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
                       }
-                      alt="date"
+                      alt={w.date}
                     />
                     {w.date}
                   </div>

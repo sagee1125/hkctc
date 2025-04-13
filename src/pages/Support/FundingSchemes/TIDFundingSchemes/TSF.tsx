@@ -60,6 +60,7 @@ export const TSF: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/money.svg`}
           alt={"money"}
+          aria-hidden="true"
         />
         {the_maximum_amount as React.ReactNode}
       </div>
@@ -68,6 +69,7 @@ export const TSF: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/tick.svg`}
           alt={"tick"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">{activities as string}</p>
       </div>

@@ -406,7 +406,7 @@ const Contact: React.FC = () => {
         <img
           className="w-[24px] h-[24px] h-auto mr-[16px]"
           src={process.env.PUBLIC_URL + `/assets/icons/Location.svg`}
-          alt={"contact"}
+          alt={location as string}
         />
         {location as string}
       </div>
@@ -432,7 +432,7 @@ const Contact: React.FC = () => {
         <img
           className="w-[24px] h-[22px] h-auto mr-[16px]"
           src={process.env.PUBLIC_URL + `/assets/icons/telephone.svg`}
-          alt={"contact"}
+          alt={tel_fax as string}
         />
         {tel_fax as string}
       </div>
@@ -448,7 +448,7 @@ const Contact: React.FC = () => {
         <img
           className="w-[24px] h-[22px] h-auto mr-[16px]"
           src={process.env.PUBLIC_URL + `/assets/icons/mail.svg`}
-          alt={"contact"}
+          alt={email_short as string}
         />
         {email_short as string}
       </div>

@@ -208,7 +208,7 @@ export const SeminarsWorkshops: React.FC = () => {
                   <img
                     className="w-[16px] h-[16px] mr-[8px]"
                     src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                    alt={date}
+                    alt={getSingleText(title, title)}
                   />
                   <span>{date}</span>
                 </div>

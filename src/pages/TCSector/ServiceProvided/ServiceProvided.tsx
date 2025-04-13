@@ -129,7 +129,8 @@ const TestingService: React.FC = () => {
             >
               <img
                 src={`${process.env.PUBLIC_URL}/assets/icons/test.svg`}
-                alt="testIcon"
+                alt={item}
+                aria-hidden="true"
               />
               <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
                 {item}
@@ -182,7 +183,8 @@ const InspectionService: React.FC = () => {
       <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/icons/Inspection.svg`}
-          alt="testIcon"
+          alt={(INSPECTION as LanguageResources).INSPECTION_OF_BATCH as string}
+          aria-hidden="true"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
           {(INSPECTION as LanguageResources).INSPECTION_OF_BATCH as string}
@@ -192,7 +194,10 @@ const InspectionService: React.FC = () => {
       <div className="border-2 py-[24px] flex flex-row items-center px-[36px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/icons/Inspection.svg`}
-          alt="testIcon"
+          alt={
+            (INSPECTION as LanguageResources).INSPECTION_OF_STRUCTURAL as string
+          }
+          aria-hidden="true"
         />
         <span className="text-body-m ml-4 semi-bold font-semibold ml-[16px]">
           {(INSPECTION as LanguageResources).INSPECTION_OF_STRUCTURAL as string}

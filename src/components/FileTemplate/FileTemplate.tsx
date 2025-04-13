@@ -51,7 +51,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           <img
             className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
             src={`${process.env.PUBLIC_URL}/${imagePath}`}
-            alt={imagePath}
+            alt={title}
           />
           {/* Icon */}
           {iconPath && (
@@ -151,7 +151,7 @@ export const FileTemplateTitleCenter: React.FC<FileTemplateProps> = ({
           <img
             className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
             src={`${process.env.PUBLIC_URL}/${imagePath}`}
-            alt={imagePath}
+            alt={title}
           />
           {/* Icon */}
           {iconPath && (

@@ -61,6 +61,7 @@ export const BUD: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/tick.svg`}
           alt={"tick"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">
           {funding_support as string}
@@ -71,6 +72,7 @@ export const BUD: React.FC = () => {
           className="w-[24px] h-[24px] flex-shrink-0"
           src={`${process.env.PUBLIC_URL}/assets/icons/tick.svg`}
           alt={"tick"}
+          aria-hidden="true"
         />
         <p className="text-body-m flex-grow min-w-0">
           {the_gov_launched as string}&nbsp;“

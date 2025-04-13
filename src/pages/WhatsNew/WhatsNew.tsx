@@ -62,7 +62,8 @@ export const WhatsNew: React.FC = () => {
                 <img
                   className="w-[16px] h-[16px]"
                   src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
-                  alt={"calendar"}
+                  alt={date}
+                  aria-hidden="true"
                 />
                 <span className="text-grey ml-[8px]">{date}</span>
               </div>
@@ -80,7 +81,7 @@ export const WhatsNew: React.FC = () => {
                 window.open(redirectTo, "_blank", "noopener");
               }}
               src={`${process.env.PUBLIC_URL}/assets/whatsNew/${imagePath}`}
-              alt={imagePath}
+              alt={getSingleText(title, title)}
             />
           </div>
         );

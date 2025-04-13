@@ -402,8 +402,9 @@ export const AwardScheme: React.FC = () => {
         <p>{processText(page_text.awardMap_two.awardee_be)}</p>
         <br />
         <ul>
-          <li>{processText(page_text.awardMap_two.present_trophy)}</li>
-          <br />
+          <li className="mb-[1em]">
+            {processText(page_text.awardMap_two.present_trophy)}
+          </li>
           <li>{processText(page_text.awardMap_two.invite_presentation)}</li>
         </ul>
       </>
@@ -772,7 +773,9 @@ export const AwardScheme: React.FC = () => {
         <img
           className="w-[160px] h-full max-w-[160px] object-cover"
           src={process.env.PUBLIC_URL + "/assets/eventsLanding/2023-2024.png"}
-          alt={"2023-2024"}
+          alt={processText(
+            !isPC ? page_text.tc_manpower_mb : page_text.tc_manpower_pc
+          )}
         />
         <div
           className={`text-highlight-m text-black py-[8px] ${

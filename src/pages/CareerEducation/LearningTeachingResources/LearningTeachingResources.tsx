@@ -276,7 +276,7 @@ export const LearningTeachingResources: React.FC = () => {
                       <img
                         className="w-[64px] h-[64px]"
                         src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                        alt={"file icon"}
+                        alt={getSingleText(down.title, down.titleCN)}
                       />
                       <p className="text-highlight-l text-left">
                         {getSingleText(down.title, down.titleCN)}
@@ -336,7 +336,7 @@ export const LearningTeachingResources: React.FC = () => {
                       }`}</div>
                       <img
                         className="w-[130px] h-full"
-                        alt={video.thumbnail}
+                        alt={displayTitle}
                         src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
                       />
                       <div className="flex flex-grow p-[10px]">
@@ -377,7 +377,7 @@ export const LearningTeachingResources: React.FC = () => {
                     <img
                       className="w-[64px] h-[64px]"
                       src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                      alt={"file icon"}
+                      alt={getSingleText(down.title, down.titleCN)}
                     />
                     <p className="text-highlight-l text-left">
                       {getSingleText(down.title, down.titleCN)}
@@ -425,7 +425,7 @@ export const LearningTeachingResources: React.FC = () => {
                       }`}</div>
                       <img
                         className="w-[130px] h-full"
-                        alt={video.thumbnail}
+                        alt={displayTitle}
                         src={`${process.env.PUBLIC_URL}/assets/careerEducation/${video.thumbnail}.png`}
                       />
                       <div className="flex flex-grow p-[10px]">
@@ -462,7 +462,7 @@ export const LearningTeachingResources: React.FC = () => {
               <p className="text-body-m mb-[24px]">{passing_intro as string}</p>
               <img
                 className="w-full h-auto"
-                alt="Maze"
+                alt={passing_intro as string}
                 src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
               />
               <p className="text-body-m mt-[24px] text-justify">
