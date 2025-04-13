@@ -5,7 +5,11 @@ import {
   WhatsNewConfiguration,
   WhatsNewConfiguration_cn,
 } from "../../../const";
-import { SquareTitle } from "../../../components";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SquareTitle,
+} from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
 
@@ -81,10 +85,7 @@ export const WhatsNew: React.FC = () => {
 
       <div
         className={`pt-[24px] w-full`}
-        style={{
-          maxWidth: "100%",
-          width: isPC ? "100%" : "1024px",
-        }}
+        style={isPC ? maxPCContainer : maxMobileContainer}
       >
         <div
           ref={isPC ? containerRef : null}
@@ -93,7 +94,7 @@ export const WhatsNew: React.FC = () => {
           }`}
           style={{
             whiteSpace: "nowrap",
-            width: isPC ? "100%" : "1024px",
+            width: "100%",
             gap: "24px",
             display: "grid",
             ...(isPC
@@ -101,7 +102,7 @@ export const WhatsNew: React.FC = () => {
                   gridTemplateColumns: `repeat(${firstFourWhatsNew.length}, minmax(0, 1fr))`,
                 }
               : {
-                  gridTemplateColumns: "repeat(4, 290px)",
+                  gridTemplateColumns: "repeat(4, auto)",
                   overflowX: "auto",
                   maxWidth: "100%",
                   paddingBottom: "8px",
@@ -119,7 +120,7 @@ export const WhatsNew: React.FC = () => {
                 key={index}
                 tabIndex={0}
                 role="button"
-                className={`flex flex-col group cursor-pointer justify-between`}
+                className={`flex flex-col group cursor-pointer justify-between min-w-[290px]`}
                 onClick={() => {
                   if (redirectTo) {
                     window.scroll({

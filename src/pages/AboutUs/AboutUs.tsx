@@ -12,7 +12,7 @@ import {
   maxPCContainer,
   Sidebar,
 } from "../../components";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { navItemEnum, SubItems } from "../../const";
 
 const rightMobileComponentMap: Record<string, React.ReactNode> = {
