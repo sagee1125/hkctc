@@ -116,28 +116,20 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
                 key={index}
                 className={`flex flex-col gap-[14px] ${
                   isPC ? "w-[270px]" : "w-full"
-                } group`}
+                } group cursor-pointer`}
+                tabIndex={0}
+                role="button"
+                aria-label={displayTitle}
+                onClick={onClick}
               >
-                <div
-                  className="w-full aspect-[260/202] overflow-hidden cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  onClick={onClick}
-                >
+                <div className="w-full aspect-[260/202] overflow-hidden">
                   <img
                     className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={`${process.env.PUBLIC_URL}/assets/tcSector/servicesDifferentBusinessAreas/${img}`}
                     alt={"file icon"}
                   />
                 </div>
-                <p
-                  className="text-highlight-m cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  onClick={onClick}
-                >
-                  {displayTitle}
-                </p>
+                <p className="text-highlight-m">{displayTitle}</p>
               </div>
             );
           })}

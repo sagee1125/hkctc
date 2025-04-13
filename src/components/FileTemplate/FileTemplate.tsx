@@ -73,7 +73,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
         >
           {titleHyperlink ? (
             <a
-              aria-label="navigate back to this page"
+              aria-label={`navigate back to ${title}`}
               href={titleHyperlink}
               target="_blank"
               rel="noopener noreferrer"

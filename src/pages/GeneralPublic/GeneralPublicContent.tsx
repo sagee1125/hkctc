@@ -82,6 +82,7 @@ export const GeneralPublicContent: React.FC = () => {
             className="cursor-pointer"
             tabIndex={0}
             role="button"
+            aria-label={whats_new as string}
             onClick={() => {
               navigate("/whats-new");
             }}
@@ -168,6 +169,7 @@ export const GeneralPublicContent: React.FC = () => {
                   }}
                   tabIndex={0}
                   role="button"
+                  aria-label={title}
                 >
                   <img
                     className={`w-[130px] h-auto`}
@@ -227,6 +229,7 @@ export const GeneralPublicContent: React.FC = () => {
             }}
             tabIndex={0}
             role="button"
+            aria-label="redirect to comics list in events promotion section"
           >
             <div
               role="button"

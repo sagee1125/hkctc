@@ -493,33 +493,35 @@ export const Footer: React.FC = () => {
               paddingTop: isPC ? "0px" : "24px",
             }}
           >
-            <Logo
-              aria-label="hkctc logo"
-              role="img"
-              style={{ filter: "brightness(0) invert(1)", cursor: "pointer" }}
-              onClick={() => {
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }}
-            />
+            <div
+              role="button"
+              onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+              aria-label="hkctc logo - scroll to top"
+              tabIndex={0}
+            >
+              <Logo
+                aria-label="hkctc logo"
+                style={{ filter: "brightness(0) invert(1)", cursor: "pointer" }}
+                role="img"
+                aria-hidden="true"
+              />
+            </div>
             <Icon
               icon="mage:camera-2"
-              aria-label={"instagram icon"}
+              aria-label={"open instagram"}
               className="h-[38px] w-[38px] text-white cursor-pointer"
               tabIndex={0}
-              role="link"
+              role="button"
               onClick={() => {
                 window.open("https://www.instagram.com/hkctcgovhk/");
               }}
             />
             <Icon
               icon="fa6-brands:facebook-f"
-              aria-label={"facebook icon"}
+              aria-label={"open facebook"}
               className="h-[32px] w-[32px] text-white cursor-pointer"
               tabIndex={0}
-              role="link"
+              role="button"
               onClick={() => {
                 window.open("https://www.facebook.com/hkctcgovhk");
               }}
@@ -536,6 +538,9 @@ export const Footer: React.FC = () => {
                 onClick={() => {
                   setSitemapCollapsed(!sitemapCollapsed);
                 }}
+                aria-label={
+                  sitemapCollapsed ? "open the sitemap" : "open the sitemap"
+                }
               >
                 <p className="text-body-m">{sitemap as string}</p>
                 <ExpandMoreIcon
@@ -557,7 +562,8 @@ export const Footer: React.FC = () => {
                     <p
                       className="text-heading-l cursor-pointer"
                       tabIndex={0}
-                      role="link"
+                      role="button"
+                      aria-label={getSingleText(col.title, col.titleCN)}
                       onClick={() => {
                         if (col.link) {
                           navigate(col.link);
@@ -577,23 +583,24 @@ export const Footer: React.FC = () => {
                           <div
                             className="flex flex-row gap-[8px] items-center cursor-pointer"
                             tabIndex={0}
-                            role="img"
+                            role="button"
+                            aria-label={getSingleText(sub.label, sub.labelCN)}
+                            onClick={() => {
+                              if (sub.link) {
+                                navigate(sub.link);
+                                window.scroll({
+                                  top: 0,
+                                  behavior: "smooth",
+                                });
+                              }
+                            }}
                           >
                             <Icon
                               icon="weui:arrow-outlined"
-                              aria-label={"arrow icon"}
+                              aria-hidden="true"
                               role="link"
                               tabIndex={0}
                               className="h-[36px] w-[10px] text-white"
-                              onClick={() => {
-                                if (sub.link) {
-                                  navigate(sub.link);
-                                  window.scroll({
-                                    top: 0,
-                                    behavior: "smooth",
-                                  });
-                                }
-                              }}
                             />
 
                             {getSingleText(sub.label, sub.labelCN)}
@@ -604,8 +611,12 @@ export const Footer: React.FC = () => {
                                 <li
                                   className="cursor-pointer"
                                   tabIndex={0}
-                                  role="link"
+                                  role="button"
                                   key={index}
+                                  aria-label={getSingleText(
+                                    item.label,
+                                    item.labelCN
+                                  )}
                                   onClick={() => {
                                     if (item.link) {
                                       navigate(item.link);
@@ -640,7 +651,11 @@ export const Footer: React.FC = () => {
                                   <div
                                     className="flex flex-row gap-[8px] items-center cursor-pointer h-[22px]"
                                     tabIndex={0}
-                                    role="link"
+                                    role="button"
+                                    aria-label={getSingleText(
+                                      sub.label,
+                                      sub.labelCN
+                                    )}
                                     onClick={() => {
                                       if (sub.link) {
                                         navigate(sub.link);
@@ -652,9 +667,8 @@ export const Footer: React.FC = () => {
                                     }}
                                   >
                                     <Icon
-                                      tabIndex={0}
                                       icon="weui:arrow-outlined"
-                                      aria-label={"arrow icon"}
+                                      aria-hidden="true"
                                       className="h-full w-[10px] text-white"
                                     />
 
@@ -666,8 +680,9 @@ export const Footer: React.FC = () => {
                                         <li
                                           className="cursor-pointer"
                                           tabIndex={0}
-                                          role="link"
+                                          role="button"
                                           key={index}
+                                          aria-disabled={!item.link}
                                           onClick={() => {
                                             if (item.link) {
                                               window.scroll({
@@ -677,6 +692,10 @@ export const Footer: React.FC = () => {
                                               navigate(item.link);
                                             }
                                           }}
+                                          aria-label={getSingleText(
+                                            item.label,
+                                            item.labelCN
+                                          )}
                                         >
                                           {getSingleText(
                                             item.label,
@@ -706,7 +725,8 @@ export const Footer: React.FC = () => {
                   key={index}
                   className="text-body-s cursor-pointer"
                   tabIndex={0}
-                  role="link"
+                  role="button"
+                  aria-label={getSingleText(item.label, item.labelCN)}
                   onClick={() => {
                     if (item.link) {
                       window.scroll({
@@ -728,7 +748,8 @@ export const Footer: React.FC = () => {
                   key={index}
                   className="text-body-s cursor-pointer"
                   tabIndex={0}
-                  role="link"
+                  role="button"
+                  aria-label={getSingleText(item.label, item.labelCN)}
                   onClick={() => {
                     if (item.link) {
                       window.scroll({
@@ -757,14 +778,18 @@ export const Footer: React.FC = () => {
         >
           {downsideLogos.map((logo, index) => (
             <div
-              className={isPC ? logo.logoSize : ""}
+              className={`cursor-pointer ${isPC ? logo.logoSize : ""}`}
               key={index}
               onClick={() => {
                 window.open(logo.hyperlink);
               }}
+              role="button"
+              tabIndex={0}
+              aria-label={logo.hyperlink}
             >
               <img
-                className="object-fit cursor-pointer"
+                className="object-fit"
+                role="img"
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}

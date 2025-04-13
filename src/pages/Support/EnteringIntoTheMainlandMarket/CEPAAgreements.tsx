@@ -360,6 +360,7 @@ export const CEPAAgreements: React.FC = () => {
                   behavior: "smooth",
                 });
               }}
+              aria-label="CCC testing"
             >
               CCC testing
             </span>
@@ -396,6 +397,7 @@ export const CEPAAgreements: React.FC = () => {
                   behavior: "smooth",
                 });
               }}
+              aria-label="CCC檢測"
             >
               CCC檢測
             </span>
@@ -459,6 +461,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="Supplement X to CEPA"
         >
           Supplement X to CEPA
         </span>
@@ -524,6 +527,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="《CEPA補充協議十》"
         >
           《CEPA補充協議十》
         </span>
@@ -588,6 +592,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="China Compulsory Certification (CCC) System"
         >
           China Compulsory Certification (CCC) System
         </span>
@@ -606,6 +611,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="international multilateral systems on mutual recognition"
         >
           international multilateral systems on mutual recognition
         </span>
@@ -653,6 +659,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="中國強制性產品認證制度（CCC）"
         >
           中國強制性產品認證制度（CCC）
         </span>
@@ -670,6 +677,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="國際多邊互認體系"
         >
           國際多邊互認體系
         </span>
@@ -695,6 +703,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="Supplement VIII to CEPA"
         >
           Supplement VIII to CEPA
         </span>
@@ -714,6 +723,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="China Compulsory Certification (CCC) System"
         >
           China Compulsory Certification (CCC) System
         </span>
@@ -737,6 +747,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="《CEPA補充協議八》"
         >
           《CEPA補充協議八》
         </span>
@@ -752,6 +763,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="中國強制性產品認證（CCC）"
         >
           中國強制性產品認證（CCC）
         </span>
@@ -773,6 +785,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="Supplement IX to CEPA"
         >
           Supplement IX to CEPA
         </span>
@@ -818,6 +831,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="《CEPA補充協議九》"
         >
           《CEPA補充協議九》
         </span>
@@ -858,6 +872,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="Guangdong Agreement"
         >
           The Agreement between the Mainland and Hong Kong on Achieving Basic
           Liberalisation of Trade in Services in Guangdong (Guangdong Agreement)
@@ -877,6 +892,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="China Compulsory Certification (CCC)"
         >
           China Compulsory Certification (CCC)
         </span>
@@ -932,6 +948,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="《關於內地在廣東與香港基本實現服務貿易自由化的協議》（廣東協議）"
         >
           《關於內地在廣東與香港基本實現服務貿易自由化的協議》（廣東協議）
         </span>
@@ -947,6 +964,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="中國強制性產品認證（CCC）"
         >
           中國強制性產品認證（CCC）
         </span>
@@ -989,6 +1007,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="The Agreement on Economic and Technical Cooperation"
         >
           The Agreement on Economic and Technical Cooperation
         </span>
@@ -1028,6 +1047,7 @@ export const CEPAAgreements: React.FC = () => {
               behavior: "smooth",
             });
           }}
+          aria-label="《經濟技術合作協議》"
         >
           《經濟技術合作協議》
         </span>
@@ -1057,6 +1077,7 @@ export const CEPAAgreements: React.FC = () => {
             behavior: "smooth",
           });
         }}
+        aria-label="The Agreement on Trade in Goods"
       >
         The Agreement on Trade in Goods
       </span>
@@ -1080,6 +1101,7 @@ export const CEPAAgreements: React.FC = () => {
             behavior: "smooth",
           });
         }}
+        aria-label="《貨物貿易協議》"
       >
         《貨物貿易協議》
       </span>
@@ -1098,6 +1120,7 @@ export const CEPAAgreements: React.FC = () => {
           onClick={() => {
             navigate("/support/agreement-clause");
           }}
+          aria-label="Agreement on Trade in Services"
         >
           Agreement on Trade in Services
         </span>
@@ -1146,6 +1169,7 @@ export const CEPAAgreements: React.FC = () => {
           onClick={() => {
             navigate("/support/agreement-clause");
           }}
+          aria-label="《服務貿易協議》"
         >
           《服務貿易協議》
         </span>

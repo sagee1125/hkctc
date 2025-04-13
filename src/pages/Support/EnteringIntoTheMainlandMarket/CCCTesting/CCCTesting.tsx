@@ -72,9 +72,8 @@ const multilingual = {
         Email:&nbsp;
         <a
           aria-label="mail to wmleung@itc.gov.hk"
-          className="underline text-[#00E] cursor-pointer"
+          className="underline text-[#00E]"
           tabIndex={0}
-          role="button"
           href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk
@@ -138,9 +137,8 @@ const multilingual = {
         電子郵件：
         <a
           aria-label="mail to wmleung@itc.gov.hk"
-          className="underline text-[#00E] cursor-pointer"
+          className="underline text-[#00E]"
           tabIndex={0}
-          role="button"
           href="mailto:wmleung@itc.gov.hk"
         >
           wmleung@itc.gov.hk

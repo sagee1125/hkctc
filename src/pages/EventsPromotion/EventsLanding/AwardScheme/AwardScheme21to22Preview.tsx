@@ -66,6 +66,10 @@ export const AwardScheme21to22Preview: React.FC<{
             tabIndex={0}
             role="button"
             onClick={handleOpenAssessmentPanel}
+            aria-label={
+              page_text.testing_profession_award_content.stagesGridTwo
+                .stage_2_assessment
+            }
           >
             {
               page_text.testing_profession_award_content.stagesGridTwo
@@ -96,6 +100,7 @@ export const AwardScheme21to22Preview: React.FC<{
             tabIndex={0}
             role="button"
             onClick={handleOpenAssessmentPanel}
+            aria-label={page_text.stagesGridOne.stage_2_assessment}
           >
             {page_text.stagesGridOne.stage_2_assessment}
           </span>
@@ -626,6 +631,7 @@ export const AwardScheme21to22Preview: React.FC<{
             behavior: "smooth",
           });
         }}
+        aria-label={processText(page_text.award_ceremony_list)}
       >
         <img
           className="w-[130px] h-full object-contain flex-shrink-0"
@@ -640,15 +646,13 @@ export const AwardScheme21to22Preview: React.FC<{
           {processText(page_text.award_ceremony_list_long)}
         </div>
         <svg
-          tabIndex={0}
-          role="none"
+          aria-hidden="true"
           className="flex-shrink-0"
           xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="16"
           viewBox="0 0 16 16"
           fill="none"
-          aria-label="icon"
         >
           <g clipPath="url(#clip0_2682_55750)">
             <path

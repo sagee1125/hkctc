@@ -193,6 +193,7 @@ export const ServiceUsersContent: React.FC = () => {
                   });
                   navigate(link);
                 }}
+                aria-label={title as string}
               >
                 <div className="overflow-hidden">
                   <img
@@ -247,6 +248,7 @@ export const ServiceUsersContent: React.FC = () => {
                   onClick={() => {
                     window.open(link, "_blank", "noopener");
                   }}
+                  aria-label={getSingleText(title, titleCN)}
                 >
                   <img
                     className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -297,6 +299,7 @@ export const ServiceUsersContent: React.FC = () => {
                     });
                     navigate(link);
                   }}
+                  aria-label={title}
                 >
                   <img
                     className="w-[130px] h-auto"

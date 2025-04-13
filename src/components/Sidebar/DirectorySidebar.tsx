@@ -63,6 +63,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
                 setIsOpen(false);
               }}
               key={index}
+              aria-label={getSingleText(item.label, item.labelCN)}
             >
               <p className={classNames(isPC ? pcFontStyle : mobileFontStyle)}>
                 {getSingleText(item.label, item.labelCN)}
@@ -124,20 +125,23 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
           }}
         >
           <div className="flex flex-col w-full">
-            <div className="w-full flex flex-row justify-between items-center pb-[24px]">
+            <div
+              className="w-full flex flex-row justify-between items-center pb-[24px] cursor-pointer"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={content_list}
+            >
               <p className="text-heading-m text-newPrimary">{content_list}</p>
               <svg
-                tabIndex={0}
-                role="none"
                 xmlns="https://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                aria-label="icon"
+                aria-hidden="true"
               >
                 <path
                   d="M18 18L10 10M10 10L2 2M10 10L18 2M10 10L2 18"

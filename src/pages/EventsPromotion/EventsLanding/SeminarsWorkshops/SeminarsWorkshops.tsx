@@ -196,6 +196,7 @@ export const SeminarsWorkshops: React.FC = () => {
                   replace: false,
                 });
               }}
+              aria-label={getSingleText(title, title)}
             >
               <div className="flex flex-col w-full justify-center">
                 <div className="text-heading-m underline-offset-4 mb-[16px]">
@@ -216,9 +217,7 @@ export const SeminarsWorkshops: React.FC = () => {
                 <img
                   className={`${
                     isPC ? "h-[198px] w-auto" : "w-full h-auto"
-                  } object-cover cursor-pointer`}
-                  tabIndex={0}
-                  role="button"
+                  } object-cover`}
                   src={
                     process.env.PUBLIC_URL +
                     `/assets/eventsLanding/seminarsWorkshops/${img}`

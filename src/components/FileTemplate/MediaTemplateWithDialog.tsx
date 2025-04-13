@@ -271,6 +271,7 @@ export const MediaTemplateWithDialog: React.FC<
           onClick={handleOnClick}
           tabIndex={0}
           role="button"
+          aria-label={"open " + mediaLink}
         >
           <div
             className="overflow-hidden flex-shrink-0 relative border-r-[2px] border-inherit"
@@ -407,14 +408,12 @@ export const MediaTemplateWithDialog: React.FC<
             {date && (
               <div className="flex flex-row gap-[8px] items-center">
                 <svg
-                  tabIndex={0}
-                  role="img"
+                  aria-hidden="true"
                   xmlns="https://www.w3.org/2000/svg"
                   width="17"
                   height="17"
                   viewBox="0 0 17 17"
                   fill="none"
-                  aria-label="date"
                 >
                   <g clipPath="url(#clip0_3271_24860)">
                     <path
@@ -453,6 +452,7 @@ export const MediaTemplateWithDialog: React.FC<
             onClick={handleOnClick}
             tabIndex={0}
             role="button"
+            aria-label={"open " + mediaLink}
           >
             <div
               style={{
@@ -639,14 +639,12 @@ export const MediaTemplateWithDialog: React.FC<
               {date ? (
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
-                    tabIndex={0}
-                    role="img"
                     xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"
                     viewBox="0 0 17 17"
                     fill="none"
-                    aria-label="date"
+                    aria-hidden="true"
                   >
                     <g clipPath="url(#clip0_3271_24860)">
                       <path

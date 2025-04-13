@@ -271,6 +271,7 @@ export const LearningTeachingResources: React.FC = () => {
                       }}
                       tabIndex={0}
                       role="button"
+                      aria-label={getSingleText(down.title, down.titleCN)}
                     >
                       <img
                         className="w-[64px] h-[64px]"
@@ -328,6 +329,7 @@ export const LearningTeachingResources: React.FC = () => {
                       onClick={() => {
                         setPlayVideoOneIndex(index);
                       }}
+                      aria-label={displayTitle}
                     >
                       <div className="w-[37px] text-center p-[10px]">{`0${
                         index + 1
@@ -370,6 +372,7 @@ export const LearningTeachingResources: React.FC = () => {
                     }}
                     tabIndex={0}
                     role="button"
+                    aria-label={getSingleText(down.title, down.titleCN)}
                   >
                     <img
                       className="w-[64px] h-[64px]"
@@ -415,6 +418,7 @@ export const LearningTeachingResources: React.FC = () => {
                       }}
                       tabIndex={0}
                       role="button"
+                      aria-label={displayTitle}
                     >
                       <div className="w-[37px] text-center p-[10px]">{`0${
                         index + 1
@@ -442,21 +446,24 @@ export const LearningTeachingResources: React.FC = () => {
         <Accordion
           title={passing as string}
           details={
-            <div>
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                window.open(
+                  "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
+                  "_blank",
+                  "noopener"
+                );
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={passing as string}
+            >
               <p className="text-body-m mb-[24px]">{passing_intro as string}</p>
               <img
-                className="w-full h-auto cursor-pointer"
+                className="w-full h-auto"
                 alt="Maze"
                 src={`${process.env.PUBLIC_URL}/assets/careerEducation/Maze.png`}
-                onClick={() => {
-                  window.open(
-                    "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
-                    "_blank",
-                    "noopener"
-                  );
-                }}
-                tabIndex={0}
-                role="button"
               />
               <p className="text-body-m mt-[24px] text-justify">
                 {bottom as React.ReactNode}

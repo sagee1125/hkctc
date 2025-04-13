@@ -36,7 +36,8 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
 
   return (
     <a
-      aria-label="open the link"
+      aria-label={"redirect to " + (innerLink ?? outerLink)}
+      aria-disabled={!innerLink && !outerLink}
       href={outerLink}
       target="_blank"
       rel="noreferrer"
@@ -44,7 +45,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
         underline && "underline underline-offset-4"
       } text-[${colorMapping[linkColor as LinkColor] ?? linkColor}]`}
       tabIndex={0}
-      role="link"
+      role="button"
       onClick={handleOpenOuterLink}
     >
       {children}

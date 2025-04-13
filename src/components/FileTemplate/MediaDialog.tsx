@@ -113,6 +113,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
           className="absolute top-2 right-2 px-2 cursor-pointer"
           onClick={() => setIsPreviewOpen(false)}
           tabIndex={0}
+          aria-label="close the preview modal"
         >
           ✕
         </button>
