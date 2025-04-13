@@ -241,6 +241,7 @@ export const CareerDevelopment: React.FC = () => {
                 });
                 navigate(nav);
               }}
+              aria-label={displayTitle}
             >
               <img
                 className="w-[130px] h-full object-contain"
@@ -257,9 +258,7 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
-                tabIndex={0}
-                role="img"
-                aria-label="icon"
+                aria-hidden="true"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"
@@ -359,6 +358,7 @@ export const CareerDevelopment: React.FC = () => {
                 });
                 navigate(nav);
               }}
+              aria-label={displayTitle}
             >
               <img
                 className="w-[130px] h-full object-contain"
@@ -376,15 +376,13 @@ export const CareerDevelopment: React.FC = () => {
                   : displayTitle}
               </div>
               <svg
-                tabIndex={0}
-                role="img"
                 className="flex-shrink-0"
                 xmlns="https://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
-                aria-label="icon"
+                aria-hidden="true"
               >
                 <g clipPath="url(#clip0_2682_55750)">
                   <path

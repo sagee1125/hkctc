@@ -9,26 +9,36 @@ import LanguageSelect from "../languageSelection";
 export const HeaderSocialMedia: React.FC = () => {
   return (
     <>
-      <Icon
-        icon="mage:camera-2"
-        className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
+      <div
         tabIndex={0}
-        role="link"
-        aria-label={"instagram icon"}
+        role="button"
+        className="cursor-pointer"
+        aria-label={"open instagram"}
         onClick={() => {
           window.open("https://www.instagram.com/hkctcgovhk/");
         }}
-      />
-      <Icon
-        icon="fa6-brands:facebook-f"
+      >
+        <Icon
+          role="none"
+          icon="mage:camera-2"
+          className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
+        />
+      </div>
+      <div
         tabIndex={0}
-        aria-label={"facebook icon"}
-        role="link"
-        className="h-[20px] w-[20px] text-[#333333] cursor-pointer flex-shrink-0"
+        role="button"
+        aria-label={"open facebook"}
+        className="cursor-pointer"
         onClick={() => {
           window.open("https://www.facebook.com/hkctcgovhk");
         }}
-      />
+      >
+        <Icon
+          icon="fa6-brands:facebook-f"
+          role="none"
+          className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
+        />
+      </div>
     </>
   );
 };
@@ -98,7 +108,7 @@ export const Header: React.FC = () => {
               }}
             >
               <Icon
-                tabIndex={0}
+                role="none"
                 icon="ri:search-line"
                 className="h-6 w-6 text-[#333333]"
                 aria-label={"search icon"}

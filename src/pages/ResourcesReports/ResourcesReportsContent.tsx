@@ -1122,6 +1122,7 @@ export const ResourcesReportsContent: React.FC = () => {
               onClick={() => {
                 handleChangeCategory(catEnum);
               }}
+              aria-label={label}
             >
               <div className="text-heading-l">{label}</div>
               <p className="text-highlight-l">
@@ -1150,11 +1151,10 @@ export const ResourcesReportsContent: React.FC = () => {
             onClick={() => {
               setMobileFilterOpen(true);
             }}
+            aria-label={filter as string}
           >
             <svg
-              aria-label="icon"
-              tabIndex={0}
-              role="img"
+              aria-hidden="true"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="22"
@@ -1189,6 +1189,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   onClick={() => {
                     setLayoutButton(index);
                   }}
+                  aria-label="change layout"
                 >
                   <div
                     className="h-[24px] w-[24px]"

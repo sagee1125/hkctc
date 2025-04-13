@@ -50,6 +50,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#0");
           }}
+          aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
         </p>
@@ -161,6 +162,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#1");
         }}
+        aria-label="Article 58, 59, 68"
       >
         Article 58, 59, 68
       </p>,
@@ -176,6 +178,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#2");
         }}
+        aria-label="Article 23(4), 23(6), 23(7), 23(8)"
       >
         Article 23(4), 23(6), 23(7), 23(8)
       </p>,
@@ -196,6 +199,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#0");
           }}
+          aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
         </p>
@@ -298,6 +302,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#1");
         }}
+        aria-label="第五十八、五十九、六十八條"
       >
         第五十八條
         <br />
@@ -315,6 +320,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#2");
         }}
+        aria-label="第二十三（四）條，第二十三（六）條，第二十三（七）條，第二十三（八）條"
       >
         第二十三（四）條
         <br />
@@ -342,6 +348,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#3");
           }}
+          aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
         </p>
@@ -375,6 +382,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#4");
           }}
+          aria-label="Liberalisation of Trade in Services and Trade and Investment Facilitation"
         >
           Liberalisation of Trade in Services and Trade and Investment
           Facilitation
@@ -427,6 +435,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#5");
           }}
+          aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
         </p>
@@ -460,6 +469,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#6");
         }}
+        aria-label="Liberalisation of Trade in Services"
       >
         Liberalisation of Trade in Services
       </p>,
@@ -473,6 +483,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#7");
         }}
+        aria-label="Liberalisation of Trade in Services and Trade and Investment Facilitation"
       >
         Liberalisation of Trade in Services and Trade and Investment
         Facilitation
@@ -493,6 +504,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#3");
           }}
+          aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
         </p>
@@ -526,6 +538,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#4");
           }}
+          aria-label="服務貿易開放措施和貿易投資便利化"
         >
           服務貿易開放措施和貿易投資便利化
         </p>
@@ -577,6 +590,7 @@ export const SummaryOfCEPA: React.FC = () => {
           onClick={() => {
             window.open("/support/agreement-clause#5");
           }}
+          aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
         </p>
@@ -612,6 +626,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#6");
         }}
+        aria-label="服務貿易開放措施"
       >
         服務貿易開放措施
       </p>,
@@ -625,6 +640,7 @@ export const SummaryOfCEPA: React.FC = () => {
         onClick={() => {
           window.open("/support/agreement-clause#7");
         }}
+        aria-label="服務貿易開放措施和貿易投資便利化"
       >
         服務貿易開放措施和貿易投資便利化
       </p>,

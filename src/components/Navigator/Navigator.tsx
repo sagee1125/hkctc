@@ -244,17 +244,20 @@ export const Navigator: React.FC = () => {
                     justifyContent: !isPC ? "space-between" : "flex-start",
                   }}
                 >
-                  <div className={`flex items-center`}>
+                  <div
+                    className={`flex items-center cursor-pointer`}
+                    role="button"
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    tabIndex={0}
+                    aria-label="go to homepage"
+                  >
                     <Logo
                       className={`${
                         isPC ? "h-[54px] w-[141px]" : ""
-                      } aspect-[141/54] cursor-pointer`}
-                      tabIndex={0}
-                      role="img"
-                      onClick={() => {
-                        navigate("/");
-                      }}
-                      aria-label={"hkctc logo"}
+                      } aspect-[141/54]`}
+                      aria-hidden="true"
                     />
                   </div>
                   {isPC ? (
@@ -287,6 +290,7 @@ export const Navigator: React.FC = () => {
                                   );
                                 }
                               }}
+                              aria-label={displayTitle}
                             >
                               <p
                                 className="text-highlight-s"
@@ -301,9 +305,8 @@ export const Navigator: React.FC = () => {
                                 {displayTitle}
                               </p>
                               <Icon
-                                tabIndex={0}
+                                aria-hidden="true"
                                 icon="oui:arrow-down"
-                                aria-label={"arrow"}
                                 style={{
                                   display: ifHideArrow ? "none" : "block",
                                   color:
@@ -332,7 +335,7 @@ export const Navigator: React.FC = () => {
                             }}
                           >
                             <Icon
-                              tabIndex={0}
+                              aria-hidden="true"
                               icon="ri:search-line"
                               className="h-[32px] w-[32px] text-[#333333]"
                               aria-label={"search icon"}
@@ -376,6 +379,7 @@ export const Navigator: React.FC = () => {
                         className="cursor-pointer"
                         tabIndex={0}
                         role="button"
+                        aria-label="toggle the dropdown selection"
                         onClick={
                           isTouchDevice
                             ? undefined
@@ -397,13 +401,11 @@ export const Navigator: React.FC = () => {
                       >
                         {openMobileDropDown ? (
                           <svg
-                            tabIndex={0}
-                            role="img"
                             xmlns="https://www.w3.org/2000/svg"
                             className="h-[22px] w-[22px]"
                             viewBox="0 0 22 22"
-                            fill="button"
-                            aria-label="close"
+                            fill="none"
+                            aria-hidden="true"
                           >
                             <path
                               d="M22 22L12 12M12 12L2 2M12 12L22 2M12 12L2 22"
@@ -415,13 +417,11 @@ export const Navigator: React.FC = () => {
                           </svg>
                         ) : (
                           <svg
-                            tabIndex={0}
-                            role="button"
                             xmlns="https://www.w3.org/2000/svg"
                             className="h-[32px] w-[32px]"
                             viewBox="0 0 24 20"
                             fill="none"
-                            aria-label="open"
+                            aria-hidden="true"
                           >
                             <path
                               d="M0 2H24"
@@ -498,6 +498,7 @@ export const Navigator: React.FC = () => {
                                           className="flex flex-row justify-between items-center gap-[6px] cursor-pointer h-full"
                                           tabIndex={0}
                                           role="button"
+                                          aria-label={displayTitle}
                                           onClick={() => {
                                             // means has subitems
                                             if (!ifHideArrow) {
@@ -549,13 +550,17 @@ export const Navigator: React.FC = () => {
                                     onClick={() => {
                                       setActiveIndex(null);
                                     }}
+                                    aria-label={getSingleText(
+                                      NavigationBarConfiguration[activeIndex]
+                                        .title,
+                                      NavigationBarConfiguration[activeIndex]
+                                        .titleCN
+                                    )}
                                   >
                                     <Icon
                                       icon="icon-park-outline:left"
-                                      aria-label={"arrow icon"}
-                                      className="h-[20px] w-[20px] text-[#333333] cursor-pointer"
-                                      tabIndex={0}
-                                      role="button"
+                                      aria-hidden={"true"}
+                                      className="h-[20px] w-[20px] text-[#333333]"
                                     />
                                     <p className="text-highlight-extra">
                                       {getSingleText(
@@ -657,6 +662,10 @@ export const Navigator: React.FC = () => {
                                                                 : ""
                                                             }`}
                                                             tabIndex={0}
+                                                            aria-label={getSingleText(
+                                                              sideName,
+                                                              sideItem.nameCN
+                                                            )}
                                                             role="button"
                                                             onClick={() => {
                                                               setActiveSubItem(
@@ -899,9 +908,11 @@ export const Navigator: React.FC = () => {
                         <div className="w-full h-full flex flex-col flex-[6]">
                           {customizedSidebar === true ? (
                             <div
-                              className="flex flex-row cursor-pointer"
-                              tabIndex={0}
-                              role="button"
+                              className="flex flex-row"
+                              aria-label={getSingleText(
+                                navItems[0].name,
+                                navItems[0].nameCN
+                              )}
                             >
                               <div
                                 className="bg-[#EEEEEA]"
@@ -932,6 +943,7 @@ export const Navigator: React.FC = () => {
                                     }`}
                                     tabIndex={0}
                                     role="button"
+                                    aria-label={getSingleText(sideName, nameCN)}
                                     onMouseEnter={() => {
                                       setActiveSubItem(sideName);
                                     }}
@@ -958,6 +970,8 @@ export const Navigator: React.FC = () => {
                           }`}
                           tabIndex={0}
                           role="button"
+                          aria-label={getSingleText(subTitle, sub.subTitleCN)}
+                          aria-disabled={subTitle === "" || !navUrl}
                           onClick={() => {
                             if (navUrl) navigate(navUrl);
                           }}

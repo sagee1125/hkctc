@@ -75,6 +75,7 @@ export const WhatsNew: React.FC = () => {
               } object-cover cursor-pointer`}
               tabIndex={0}
               role="button"
+              aria-label={getSingleText(title, title)}
               onClick={() => {
                 window.open(redirectTo, "_blank", "noopener");
               }}
@@ -119,6 +120,7 @@ export const WhatsNew: React.FC = () => {
           onClick={() => {
             window.open("/events-promotion?section=hkctc_newsletter");
           }}
+          aria-label={see_more as string}
         >
           {see_more as string}
         </div>

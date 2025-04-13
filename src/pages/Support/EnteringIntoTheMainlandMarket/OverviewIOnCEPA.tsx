@@ -842,6 +842,7 @@ export const OverviewIOnCEPA: React.FC = () => {
                     `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}&serviceTab=${item.serviceTab}#1`
                   );
                 }}
+                aria-label={getSingleText(item.date, item.dateCN)}
               >
                 <p>{getSingleText(item.date, item.dateCN)}</p>
                 <div>{getSingleNode(item.event, item.eventCN)}</div>
@@ -877,6 +878,7 @@ export const OverviewIOnCEPA: React.FC = () => {
                       `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
                     );
                   }}
+                  aria-label={getSingleText(item.date, item.dateCN)}
                 >
                   <p>{getSingleText(item.date, item.dateCN)}</p>
                   <p className="underline text-newPrimary">

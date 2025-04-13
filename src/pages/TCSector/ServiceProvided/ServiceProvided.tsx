@@ -234,6 +234,7 @@ const CertificateService: React.FC = () => {
               className="!text-highlight-s underline text-newPrimary cursor-pointer"
               tabIndex={0}
               role="button"
+              aria-label={"ISO 50001 energy management system certification"}
               onClick={() => {
                 window.open("/tc-sector/environmental_protection");
               }}
@@ -259,6 +260,7 @@ const CertificateService: React.FC = () => {
             onClick={() => {
               window.open("/tc-sector/environmental_protection");
             }}
+            aria-label="ISO 50001能源管理體系認證"
           >
             ISO 50001能源管理體系認證
           </span>

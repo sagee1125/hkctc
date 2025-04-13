@@ -55,6 +55,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
             }}
             tabIndex={0}
+            aria-label={about as string}
             role="button"
             onClick={() => {
               navigate(`/about-us`);
@@ -77,6 +78,7 @@ export const PhotoPanel: React.FC = () => {
             }}
             tabIndex={0}
             role="button"
+            aria-label="redirect to profile & role in T&C sector section"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
               ...imgBox,
@@ -101,6 +103,7 @@ export const PhotoPanel: React.FC = () => {
             className="cursor-pointer"
             tabIndex={0}
             role="button"
+            aria-label="redirect to T&C sector strengths in T&C sector section"
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
@@ -121,6 +124,7 @@ export const PhotoPanel: React.FC = () => {
           }}
           className="cursor-pointer"
           tabIndex={0}
+          aria-label="redirect to services provided in T&C sector section"
           role="button"
           onClick={() => {
             navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
@@ -143,6 +147,7 @@ export const PhotoPanel: React.FC = () => {
             className="cursor-pointer"
             tabIndex={0}
             role="button"
+            aria-label="redirect to about us"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
               backgroundSize: "cover",
@@ -181,6 +186,7 @@ export const PhotoPanel: React.FC = () => {
             onClick={() => {
               navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
             }}
+            aria-label="redirect to profile & role in T&C sector section"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
               backgroundSize: "cover",
@@ -219,6 +225,7 @@ export const PhotoPanel: React.FC = () => {
               backgroundPosition: "center top",
               position: "relative",
             }}
+            aria-label="redirect to T&C sector strengths in T&C sector section"
             className="cursor-pointer"
             tabIndex={0}
             role="button"
@@ -256,6 +263,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
           }}
           className="cursor-pointer"
+          aria-label="redirect to service provided in T&C sector section"
           tabIndex={0}
           role="button"
           onClick={() => {

@@ -16,6 +16,9 @@ export const TextField: React.FunctionComponent<TextFieldProps> = (
           border: "1px solid #E0E0E0",
           borderRadius: "0 !important",
         },
+        ".MuiInputBase-root": {
+          background: "#ffffff",
+        },
       }}
     />
   );

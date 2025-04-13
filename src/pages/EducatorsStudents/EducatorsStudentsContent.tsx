@@ -125,6 +125,7 @@ export const EducatorsStudentsContent: React.FC = () => {
               }}
               tabIndex={0}
               role="button"
+              aria-label={title as string}
             >
               <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
                 <img
@@ -185,6 +186,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   }}
                   tabIndex={0}
                   role="button"
+                  aria-label={title}
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -210,9 +212,9 @@ export const EducatorsStudentsContent: React.FC = () => {
             }}
             tabIndex={0}
             role="button"
+            aria-label="redirect to comics list in events promotion section"
           >
             <div
-              role="button"
               aria-label="img"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Career_Charlie.png)`,

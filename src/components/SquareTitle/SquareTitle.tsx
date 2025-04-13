@@ -22,7 +22,9 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       }`}
       tabIndex={0}
       role="heading"
+      aria-label={`redirect to ${title}`}
       aria-level={10}
+      aria-disabled={!redirectTo}
       onClick={() => {
         if (redirectTo) {
           window.scroll({
@@ -47,9 +49,7 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       </div>
       {showArrowIcon && (
         <svg
-          aria-label="arrow icon"
-          tabIndex={0}
-          role="img"
+          aria-hidden="true"
           xmlns="https://www.w3.org/2000/svg"
           width="16"
           height="24"

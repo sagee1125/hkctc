@@ -402,6 +402,7 @@ export const Publications: React.FC = () => {
                       onClick={() => {
                         setActiveCategory(title);
                       }}
+                      aria-label={getSingleText(title, titleCN)}
                       tabIndex={0}
                       role="button"
                     >
@@ -475,6 +476,7 @@ export const Publications: React.FC = () => {
                           onClick={() => {
                             setActiveCategory(title);
                           }}
+                          aria-label={getSingleText(title, titleCN)}
                           tabIndex={0}
                           role="button"
                         >
@@ -546,6 +548,10 @@ export const Publications: React.FC = () => {
                           navigate(nav);
                         }
                       }}
+                      aria-label={getSingleText(
+                        prevActiveCategory.toUpperCase(),
+                        traditionTitle
+                      )}
                     >
                       <div className="flex-shrink-0 relative w-[130px] h-[90px]">
                         <img
@@ -556,6 +562,10 @@ export const Publications: React.FC = () => {
                       </div>
                       <div
                         tabIndex={0}
+                        aria-label={getSingleText(
+                          prevActiveCategory.toUpperCase(),
+                          traditionTitle
+                        )}
                         role="button"
                         className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center"
                       >
@@ -602,6 +612,7 @@ export const Publications: React.FC = () => {
                   className="cursor-pointer"
                   tabIndex={0}
                   role="button"
+                  aria-label={explore_more as string}
                 >
                   {explore_more as string}
                 </p>
@@ -801,6 +812,7 @@ export const Publications: React.FC = () => {
                     });
                     navigate(navTo);
                   }}
+                  aria-label={getSingleText(title, titleCN)}
                 >
                   {/* Inner Background Div */}
                   <div
