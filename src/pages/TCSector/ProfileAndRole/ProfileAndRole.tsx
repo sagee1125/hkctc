@@ -489,6 +489,7 @@ export const ProfileAndRole: React.FC = () => {
                   className="relative w-[130px] h-full cursor-pointer border-2 border-inherit"
                   tabIndex={0}
                   role="button"
+                  aria-label={title}
                   onClick={() => {
                     if (isPC) {
                       setActiveReport(index);
@@ -526,6 +527,7 @@ export const ProfileAndRole: React.FC = () => {
                       setActiveReport(index);
                       setIsPreviewOpen(true);
                     }}
+                    aria-label={title}
                   >
                     {title}
                   </div>

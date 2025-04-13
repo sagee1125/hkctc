@@ -45,12 +45,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   onClick={() => {
                     setActivatedItems(navItemEnum);
                   }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={getSingleText(subTitle, subTitleCN)}
                 >
-                  <div
-                    className="flex flex-row gap-[24px] w-full cursor-pointer "
-                    tabIndex={0}
-                    role="button"
-                  >
+                  <div className="flex flex-row gap-[24px] w-full">
                     <div className="w-[130px] h-[90px] overflow-hidden">
                       <img
                         className="min-w-[130px] min-h-[90px] object-cover object-center"
@@ -212,6 +211,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                 onClick={() => toggleExpand(title)}
                 tabIndex={0}
                 role="button"
+                aria-label={getSingleText(title, titleCN)}
               >
                 <p className="text-heading-l" role="heading" aria-level={10}>
                   {getSingleText(title, titleCN)}
@@ -249,6 +249,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                         onClick={() => {
                           setActivatedItems(navItemEnum);
                         }}
+                        aria-label={getSingleText(subTitle, subTitleCN)}
                       >
                         <div className="flex flex-row gap-[24px] w-full">
                           <div className="w-[130px] h-[90px] overflow-hidden">
@@ -330,6 +331,7 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                           }}
                           tabIndex={0}
                           role="button"
+                          aria-label={getSingleText(title, titleCN)}
                         >
                           <p className="text-heading-m">
                             {getSingleText(title, titleCN)}

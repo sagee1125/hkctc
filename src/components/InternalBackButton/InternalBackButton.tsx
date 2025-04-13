@@ -12,6 +12,7 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
   const navigate = useNavigate();
   const { language } = useSettings();
   const isEn = language === Language.EN;
+  const back = isEn ? "Back" : "返回";
   return (
     <div className="flex flex-row gap-[8px] items-center">
       <img
@@ -31,8 +32,9 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
 
           navigate(targetUrl);
         }}
+        aria-label={back}
       >
-        {isEn ? "Back" : "返回"}
+        {back}
       </p>
     </div>
   );

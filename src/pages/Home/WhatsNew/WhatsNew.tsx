@@ -130,14 +130,13 @@ export const WhatsNew: React.FC = () => {
                     navigate(redirectTo);
                   }
                 }}
+                aria-label={title}
               >
                 <div>
                   <div
-                    tabIndex={0}
-                    role="button"
                     className={`relative flex justify-center items-center w-full ${
                       isPC ? "min-w-[290px]" : ""
-                    } aspect-[16/9] overflow-hidden cursor-pointer`}
+                    } aspect-[16/9] overflow-hidden `}
                   >
                     {/* 上层图片 */}
                     <img

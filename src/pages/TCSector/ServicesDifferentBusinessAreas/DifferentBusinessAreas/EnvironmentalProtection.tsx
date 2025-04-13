@@ -546,9 +546,7 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
-                          aria-label="icon"
-                          tabIndex={0}
-                          role="img"
+                          aria-hidden="true"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"
@@ -727,9 +725,7 @@ export const EnvironmentalProtection: React.FC = () => {
                       (page_text.timeLineData as React.ReactNode[]).length && (
                       <div className="w-full flex justify-center items-center pt-[10px] pb-[16px]">
                         <svg
-                          aria-label="icon"
-                          tabIndex={0}
-                          role="img"
+                          aria-hidden="true"
                           xmlns="https://www.w3.org/2000/svg"
                           width="21"
                           height="21"

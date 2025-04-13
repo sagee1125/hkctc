@@ -134,6 +134,7 @@ export const IndustryContent: React.FC = () => {
                 onClick={() => {
                   window.open(link);
                 }}
+                aria-label={title as string}
               >
                 <div className="overflow-hidden">
                   <img
@@ -187,6 +188,7 @@ export const IndustryContent: React.FC = () => {
                   onClick={() => {
                     window.open(link);
                   }}
+                  aria-label={title}
                 >
                   <img
                     className="w-[130px] h-auto"
@@ -206,6 +208,7 @@ export const IndustryContent: React.FC = () => {
             onClick={() => {
               window.open("/events-promotion?section=award_scheme");
             }}
+            aria-label="redirect to award scheme in events promotion section"
           >
             <div
               role="img"
@@ -228,6 +231,7 @@ export const IndustryContent: React.FC = () => {
             onClick={() => {
               window.open("/events-promotion?section=seminar_workshop");
             }}
+            aria-label="redirect to seminar workshop in events promotion section"
           >
             <div
               role="button"

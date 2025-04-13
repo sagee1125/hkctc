@@ -149,6 +149,7 @@ export const AwardScheme21to22: React.FC = () => {
                 });
               }
             }}
+            aria-label={processText(title)}
           >
             {processText(title)}
           </div>
@@ -194,22 +195,25 @@ export const AwardScheme21to22: React.FC = () => {
         }}
       >
         <div className="flex flex-col w-full">
-          <div className="w-full flex flex-row justify-between items-center pb-[24px]">
+          <div
+            className="w-full flex flex-row justify-between items-center pb-[24px] cursor-pointer"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            aria-label={processText(page_text.mobile_sidebar.content_list)}
+            role="button"
+            tabIndex={0}
+          >
             <p className="text-heading-m text-newPrimary">
               {processText(page_text.mobile_sidebar.content_list)}
             </p>
             <svg
-              tabIndex={0}
-              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="20"
               height="20"
               viewBox="0 0 20 20"
               fill="none"
-              aria-label="icon"
-              onClick={() => {
-                setIsOpen(false);
-              }}
+              aria-hidden="true"
             >
               <path
                 d="M18 18L10 10M10 10L2 2M10 10L18 2M10 10L2 18"
@@ -253,6 +257,7 @@ export const AwardScheme21to22: React.FC = () => {
                       });
                     }
                   }}
+                  aria-label={processText(title)}
                 >
                   {processText(title)}
                 </div>

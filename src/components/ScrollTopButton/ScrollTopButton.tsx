@@ -50,14 +50,12 @@ export const ScrollTopButton: React.FC = () => {
         aria-label="scroll to top"
       >
         <svg
-          tabIndex={0}
-          role="button"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          aria-label="scroll to top"
+          aria-hidden={true}
         >
           <path
             d="M-9.53674e-07 16.9351L12 4.93506L24 16.9351L21.87 19.0651L12 9.19506L2.13 19.0651L-9.53674e-07 16.9351Z"

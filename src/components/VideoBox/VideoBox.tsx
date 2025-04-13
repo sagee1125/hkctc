@@ -101,32 +101,42 @@ export const VideoBox: React.FC = () => {
     <div className="flex flex-row">
       {videoUrls.length > 1 && (
         <>
-          <Icon
-            icon="icons8:left-squared"
-            aria-label={"arrow icon"}
-            className="text-white cursor-pointer"
+          <div
+            className="cursor-pointer"
             tabIndex={0}
             role="button"
-            style={{
-              width: "50px",
-              height: "50px",
-              strokeWidth: "1px",
-            }}
+            aria-label="previous video"
             onClick={() => handleSlide("prev")}
-          />
-          <Icon
-            icon="icons8:right-squared"
-            aria-label={"arrow icon"}
-            className="text-white cursor-pointer"
+          >
+            <Icon
+              icon="icons8:left-squared"
+              className="text-white"
+              style={{
+                width: "50px",
+                height: "50px",
+                strokeWidth: "1px",
+              }}
+              aria-hidden="true"
+            />
+          </div>
+          <div
+            className="cursor-pointer"
             tabIndex={0}
             role="button"
-            style={{
-              width: "50px",
-              height: "50px",
-              strokeWidth: "1px",
-            }}
+            aria-label="next video"
             onClick={() => handleSlide("next")}
-          />
+          >
+            <Icon
+              icon="icons8:right-squared"
+              className="text-white"
+              style={{
+                width: "50px",
+                height: "50px",
+                strokeWidth: "1px",
+              }}
+              aria-hidden="true"
+            />
+          </div>
         </>
       )}
     </div>

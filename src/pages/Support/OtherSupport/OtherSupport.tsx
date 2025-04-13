@@ -233,9 +233,7 @@ export const OtherSupport: React.FC = () => {
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px]">
         <div className="flex flex-row gap-[24px] items-center w-full">
           <svg
-            aria-label="icon"
-            tabIndex={0}
-            role="none"
+            aria-hidden="true"
             xmlns="https://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -308,9 +306,7 @@ export const OtherSupport: React.FC = () => {
       <div className="border-2 border-[#E0E0E0] py-[24px] px-[36px] mt-[24px]">
         <div className="flex flex-row gap-[24px] items-center w-full text-justify">
           <svg
-            aria-label="icon"
-            tabIndex={0}
-            role="none"
+            aria-hidden="true"
             className="w-[32px] h-[32px] flex-shrink-0"
             xmlns="https://www.w3.org/2000/svg"
             width="32"

@@ -23,7 +23,9 @@ export const MediaTemplate: React.FC<
           isPC || isTablet ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
         tabIndex={0}
-        role="link"
+        role="button"
+        aria-label={"open " + mediaLink}
+        aria-disabled={!mediaLink}
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}
@@ -70,7 +72,9 @@ export const MediaTemplate: React.FC<
       <div
         className={`w-full flex  flex-col h-auto gap-[24px] cursor-pointer`}
         tabIndex={0}
-        role="link"
+        role="button"
+        aria-label={"open " + mediaLink}
+        aria-disabled={!mediaLink}
         onClick={() => {
           mediaLink && window.open(mediaLink, "_blank", "noopener");
         }}

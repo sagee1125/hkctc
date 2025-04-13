@@ -140,6 +140,9 @@ export const Quiz: React.FC = () => {
                             }}
                             tabIndex={0}
                             role="button"
+                            aria-label={
+                              optionCharacter + ":" + processText(answer[1])
+                            }
                           >
                             <div
                               className="h-[56px] w-[56px] relative"
@@ -210,15 +213,13 @@ export const Quiz: React.FC = () => {
                         }}
                       >
                         <svg
-                          tabIndex={0}
-                          role="img"
+                          aria-hidden="true"
                           xmlns="https://www.w3.org/2000/svg"
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
                           fill={quizData.theme}
                           className="absolute inset-0 m-auto"
-                          aria-label="icon"
                         >
                           <path
                             d="M7.57987 22.2903L0.693405 15.7889L3.17684 12.9521L7.22718 17.5767L7.6254 18.0314L7.9974 17.555L20.3116 1.78538L20.6867 2.2159L20.6884 2.21793L23.331 5.31882L7.57987 22.2903Z"
@@ -249,11 +250,11 @@ export const Quiz: React.FC = () => {
                           onClick={() => {
                             setExplanationPage(0);
                           }}
+                          aria-label="previous page"
+                          aria-disabled={explanationPage === 0}
                         >
                           <svg
-                            aria-label="icon"
-                            tabIndex={0}
-                            role="img"
+                            aria-hidden="true"
                             xmlns="https://www.w3.org/2000/svg"
                             width="15"
                             height="24"
@@ -285,11 +286,11 @@ export const Quiz: React.FC = () => {
                           onClick={() => {
                             setExplanationPage(1);
                           }}
+                          aria-label="next page"
+                          aria-disabled={explanationPage !== 0}
                         >
                           <svg
-                            tabIndex={0}
-                            role="img"
-                            aria-label="icon"
+                            aria-hidden="true"
                             xmlns="https://www.w3.org/2000/svg"
                             width="15"
                             height="24"
@@ -325,6 +326,7 @@ export const Quiz: React.FC = () => {
                         }}
                         tabIndex={0}
                         role="button"
+                        aria-label={next_question as string}
                         onClick={() => {
                           setQuiz(Math.floor(Math.random() * 10));
                           setCurrentAnswer(null);
@@ -341,11 +343,10 @@ export const Quiz: React.FC = () => {
                           setCurrentAnswer(null);
                           setQuizStage(QuizStage.QUESTION_DISPLAY);
                         }}
+                        aria-label={try_again as string}
                       >
                         <svg
-                          tabIndex={0}
-                          role="img"
-                          aria-label="icon"
+                          aria-hidden="true"
                           xmlns="https://www.w3.org/2000/svg"
                           width="24"
                           height="24"
@@ -379,9 +380,7 @@ export const Quiz: React.FC = () => {
                       }}
                     >
                       <svg
-                        tabIndex={0}
-                        role="img"
-                        aria-label="icon"
+                        aria-hidden="true"
                         xmlns="https://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -429,6 +428,7 @@ export const Quiz: React.FC = () => {
                         setCurrentAnswer(null);
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
                       }}
+                      aria-label={next_question as string}
                     >
                       {next_question as string}
                     </div>
@@ -438,13 +438,12 @@ export const Quiz: React.FC = () => {
                         setCurrentAnswer(null);
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
                       }}
+                      aria-label={try_again as string}
                       tabIndex={0}
                       role="button"
                     >
                       <svg
-                        tabIndex={0}
-                        role="img"
-                        aria-label="icon"
+                        aria-hidden="true"
                         xmlns="https://www.w3.org/2000/svg"
                         width="24"
                         height="24"

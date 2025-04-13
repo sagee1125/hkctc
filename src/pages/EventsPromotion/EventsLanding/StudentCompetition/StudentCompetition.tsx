@@ -63,9 +63,9 @@ export const StudentCompetition: React.FC = () => {
       imgUrl: "awardees_1.png",
       hyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      tcHyperLink:'',
-      scHyperLink:'',
-      },
+      tcHyperLink: "",
+      scHyperLink: "",
+    },
     {
       title: "Food Testing in Daily Life",
       titleCN: "生活中的食品檢測",
@@ -154,6 +154,7 @@ export const StudentCompetition: React.FC = () => {
               onClick={() => {
                 window.open(hyperLink, "_blank", "noopener");
               }}
+              aria-label={title}
             >
               <div
                 className={`flex-shrink-0 relative w-full ${
@@ -178,9 +179,7 @@ export const StudentCompetition: React.FC = () => {
                 </p>
                 <div className="flex flex-row gap-[8px] mt-[8px] items-center">
                   <svg
-                    aria-label="icon"
-                    tabIndex={0}
-                    role="none"
+                    aria-hidden="true"
                     xmlns="https://www.w3.org/2000/svg"
                     width="17"
                     height="17"

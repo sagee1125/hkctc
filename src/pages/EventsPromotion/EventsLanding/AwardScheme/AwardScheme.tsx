@@ -106,14 +106,12 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              aria-label="icon"
-              tabIndex={0}
-              role="none"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
               viewBox="0 0 25 24"
               fill="none"
+              aria-hidden="true"
             >
               <path
                 d="M21.4375 4H18.4375V3C18.4375 2.73478 18.3321 2.48043 18.1446 2.29289C17.9571 2.10536 17.7027 2 17.4375 2H7.4375C7.17228 2 6.91793 2.10536 6.73039 2.29289C6.54286 2.48043 6.4375 2.73478 6.4375 3V4H3.4375C3.17228 4 2.91793 4.10536 2.73039 4.29289C2.54286 4.48043 2.4375 4.73478 2.4375 5V8C2.4375 12.31 4.2375 14.91 7.2575 15C7.69814 15.762 8.30103 16.4176 9.02341 16.9205C9.74579 17.4234 10.57 17.7612 11.4375 17.91V20H9.4375V22H15.4375V20H13.4375V17.91C14.305 17.7612 15.1292 17.4234 15.8516 16.9205C16.574 16.4176 17.1769 15.762 17.6175 15C20.6175 14.9 22.4375 12.3 22.4375 8V5C22.4375 4.73478 22.3321 4.48043 22.1446 4.29289C21.9571 4.10536 21.7027 4 21.4375 4ZM4.4375 8V6H6.4375V12.83C4.6575 12.08 4.4375 9.3 4.4375 8ZM18.4375 12.83V6H20.4375V8C20.4375 9.3 20.2175 12.08 18.4375 12.83Z"
@@ -129,9 +127,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              aria-label="icon"
-              tabIndex={0}
-              role="none"
+              aria-hidden="true"
               xmlns="https://www.w3.org/2000/svg"
               width="25"
               height="24"
@@ -270,9 +266,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              aria-label="icon"
-              tabIndex={0}
-              role="none"
+              aria-hidden="true"
               xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
@@ -338,9 +332,7 @@ export const AwardScheme: React.FC = () => {
         <div className="border-2 border-inherit flex flex-col justify-center p-[48px] gap-[8px]">
           <div className="text-heading-s flex flex-row items-center gap-[8px]">
             <svg
-              aria-label="icon"
-              tabIndex={0}
-              role="none"
+              aria-hidden="true"
               xmlns="https://www.w3.org/2000/svg"
               width="22"
               height="24"
@@ -775,6 +767,7 @@ export const AwardScheme: React.FC = () => {
         }}
         tabIndex={0}
         role="button"
+        aria-label={processText(page_text.ceremony_list)}
       >
         <img
           className="w-[160px] h-full max-w-[160px] object-cover"
@@ -791,9 +784,7 @@ export const AwardScheme: React.FC = () => {
           )}
         </div>
         <svg
-          aria-label="icon"
-          tabIndex={0}
-          role="none"
+          aria-hidden="true"
           className="flex-shrink-0"
           xmlns="https://www.w3.org/2000/svg"
           width="16"
