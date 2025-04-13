@@ -17,7 +17,6 @@ import {
   maxPCContainer,
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
-import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
@@ -29,7 +28,8 @@ const multilingual = {
 };
 
 export const Food: React.FC = () => {
-  const { isPC, language, getSingleText, getSingleNode } = useSettings();
+  const { isPC, language, processText, getSingleText, getSingleNode } =
+    useSettings();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
   const isSimpleCN = language === Language.ZH_CN;
@@ -132,8 +132,8 @@ export const Food: React.FC = () => {
                   borderBottom: "1px dashed #C8CFD6",
                 }}
               >
-                <p>{isSimpleCN ? t2s(row[0]) : row[0]}</p>
-                <p>{isSimpleCN ? t2s(row[1]) : row[1]}</p>
+                <p>{processText(row[0])}</p>
+                <p>{processText(row[1])}</p>
               </div>
             ))}
           </div>
@@ -302,8 +302,8 @@ export const Food: React.FC = () => {
                   borderBottom: "1px dashed #C8CFD6",
                 }}
               >
-                <p>{isSimpleCN ? t2s(row[0]) : row[0]}</p>
-                <p>{isSimpleCN ? t2s(row[1]) : row[1]}</p>
+                <p>{processText(row[0])}</p>
+                <p>{processText(row[1])}</p>
               </div>
             ))}
           </div>
@@ -450,7 +450,6 @@ export const Food: React.FC = () => {
           return (
             <div key={index} className="w-full">
               <MediaTemplate
-                direction={"vertical"}
                 title={getSingleText(item.title, item.titleCN)}
                 iconPath={item.icon}
                 imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
@@ -465,7 +464,7 @@ export const Food: React.FC = () => {
         {data.map((item, index) => (
           <Accordion
             key={index}
-            title={isSimpleCN ? t2s(item.title) : item.title}
+            title={processText(item.title)}
             details={
               <div className="text-body-m">
                 {isSimpleCN
