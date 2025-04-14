@@ -142,7 +142,7 @@ export const VideoBox: React.FC = () => {
     </div>
   );
   return (
-    <div style={fullContainer}>
+    <div style={fullContainer} role="region" aria-label="Video playback area">
       <div
         style={{
           width: "100%",
@@ -166,9 +166,11 @@ export const VideoBox: React.FC = () => {
               ref={index === currentVideoIndex ? videoRef : null}
               src={process.env.PUBLIC_URL + "/assets/" + url}
               className="w-full h-full object-cover"
+              aria-label={welcome as string}
               autoPlay
               muted
               loop
+              lang="en"
               playsInline
               style={{
                 ...videoStyle,
