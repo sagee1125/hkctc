@@ -640,6 +640,8 @@ export const Publications: React.FC = () => {
           className={`w-full max-w-full grid grid-cols-${
             isPC ? "2" : "1"
           } mt-[24px] h-auto gap-[24px]`}
+          aria-description={stem_kit as string}
+          aria-label={stem_kit as string}
         >
           <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
             <div
@@ -717,6 +719,7 @@ export const Publications: React.FC = () => {
             <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
               tabIndex={0}
+              aria-label={chemical_kit as string}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
                 backgroundSize: "cover",

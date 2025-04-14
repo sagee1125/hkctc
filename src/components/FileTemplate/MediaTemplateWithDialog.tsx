@@ -594,6 +594,7 @@ export const MediaTemplateWithDialog: React.FC<
             onClick={handleOnClick}
             tabIndex={0}
             role="button"
+            aria-label="view this file"
             style={{
               cursor: "pointer",
             }}

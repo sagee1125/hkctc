@@ -785,7 +785,7 @@ export const Footer: React.FC = () => {
               }}
               role="button"
               tabIndex={0}
-              aria-label={logo.hyperlink}
+              aria-label={"logo - " + logo.hyperlink}
             >
               <img
                 className="object-fit"
@@ -793,7 +793,7 @@ export const Footer: React.FC = () => {
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
-                aria-label={"hkctc logo"}
+                aria-label={"HKCTC logo"}
               />
             </div>
           ))}

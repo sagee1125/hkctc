@@ -107,6 +107,7 @@ const LanguageSelect: React.FC = () => {
                 color: lan.value === language ? "#233F55" : "#000000",
                 textAlign: "center",
               }}
+              aria-label={lan.label}
             >
               {lan.label}
             </MenuItem>

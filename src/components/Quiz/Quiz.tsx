@@ -195,6 +195,7 @@ export const Quiz: React.FC = () => {
                           : QuizStage.ANSWER_WRONG
                       );
                     }}
+                    aria-label="Quiz Result"
                   >
                     <ArrowForwardIos className="text-[#fff]" />
                   </div>

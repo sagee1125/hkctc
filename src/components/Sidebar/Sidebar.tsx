@@ -111,6 +111,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         {({ active }) => (
                           <button
                             tabIndex={0}
+                            aria-label={getSingleText(subTitle, subTitleCN)}
                             onClick={() => {
                               setActivatedItems(navItemEnum);
                             }}

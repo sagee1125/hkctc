@@ -46,6 +46,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           }}
           role="button"
           tabIndex={0}
+          aria-label={"open modal"}
           onClick={() => setIsPreviewOpen(true)}
         >
           <img
@@ -70,6 +71,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           role="button"
           tabIndex={0}
           onClick={() => setIsPreviewOpen(true)}
+          aria-label="open modal"
         >
           {titleHyperlink ? (
             <a
@@ -108,6 +110,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
               tabIndex={0}
               className="absolute top-2 right-2 px-2"
               onClick={() => setIsPreviewOpen(false)}
+              aria-label="close modal"
             >
               ✕
             </button>
@@ -121,6 +124,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
                 tabIndex={0}
                 className="bg-newPrimary text-white px-4 py-2"
                 onClick={handlePdfDownload}
+                aria-label="Download"
               >
                 Download
               </button>

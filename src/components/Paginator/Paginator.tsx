@@ -51,12 +51,14 @@ export const Paginator: React.FC<PaginatorProps> = ({
           cursor: currentPage === 0 ? "not-allowed" : "pointer",
           color: currentPage === 0 ? "#767676" : "black",
         }}
+        aria-label="Previous Button"
       >
         <Icon
           tabIndex={0}
           icon="mingcute:arrow-left-fill"
           width="24"
           height="24"
+          aria-hidden="true"
           aria-label={"arrow icon"}
         />
       </button>
@@ -71,6 +73,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
               ? activatedPagingButtonStyle
               : normalPagingButtonStyle
           }
+          aria-label={`Jump to Page ${pageIndex + 1}`}
         >
           {pageIndex + 1}
         </button>
@@ -86,12 +89,14 @@ export const Paginator: React.FC<PaginatorProps> = ({
           cursor: currentPage === maxPage ? "not-allowed" : "pointer",
           color: currentPage === maxPage ? "#767676" : "black",
         }}
+        aria-label="Next Button"
       >
         <Icon
           tabIndex={0}
           icon="mingcute:arrow-right-fill"
           width="24"
           height="24"
+          aria-hidden="true"
           aria-label={"arrow icon"}
         />
       </button>

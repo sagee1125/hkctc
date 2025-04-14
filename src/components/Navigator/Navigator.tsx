@@ -194,6 +194,7 @@ export const Navigator: React.FC = () => {
                           setOpenMobileDropDown(false);
                           navigate(item.nav);
                         }}
+                        aria-label={getSingleText(item.title, item.titleCN)}
                         tabIndex={0}
                         className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
                       >
@@ -617,6 +618,11 @@ export const Navigator: React.FC = () => {
 
                                                           if (!subTitle)
                                                             return null;
+                                                          const display =
+                                                            getSingleText(
+                                                              subTitle,
+                                                              sub.subTitleCN
+                                                            );
                                                           return (
                                                             <div
                                                               key={index}
@@ -629,12 +635,14 @@ export const Navigator: React.FC = () => {
                                                                     navUrl
                                                                   );
                                                               }}
+                                                              role="button"
+                                                              tabIndex={0}
+                                                              aria-label={
+                                                                display
+                                                              }
                                                             >
                                                               <div className="text-body-m">
-                                                                {getSingleText(
-                                                                  subTitle,
-                                                                  sub.subTitleCN
-                                                                )}
+                                                                {display}
                                                               </div>
                                                             </div>
                                                           );
@@ -715,10 +723,22 @@ export const Navigator: React.FC = () => {
                                                                       !subTitle
                                                                     )
                                                                       return null;
+                                                                    const display =
+                                                                      getSingleText(
+                                                                        subTitle,
+                                                                        sub.subTitleCN
+                                                                      );
                                                                     return (
                                                                       <div
                                                                         key={
                                                                           subIdx
+                                                                        }
+                                                                        role="button"
+                                                                        tabIndex={
+                                                                          0
+                                                                        }
+                                                                        aria-label={
+                                                                          display
                                                                         }
                                                                         onClick={() => {
                                                                           setOpenMobileDropDown(
@@ -736,10 +756,9 @@ export const Navigator: React.FC = () => {
                                                                         }}
                                                                       >
                                                                         <div className="text-body-m">
-                                                                          {getSingleText(
-                                                                            subTitle,
-                                                                            sub.subTitleCN
-                                                                          )}
+                                                                          {
+                                                                            display
+                                                                          }
                                                                         </div>
                                                                       </div>
                                                                     );
@@ -766,6 +785,11 @@ export const Navigator: React.FC = () => {
                                                       sub;
 
                                                     if (!subTitle) return null;
+                                                    const display =
+                                                      getSingleText(
+                                                        subTitle,
+                                                        sub.subTitleCN
+                                                      );
                                                     return (
                                                       <div
                                                         key={subItemsIndex}
@@ -776,12 +800,12 @@ export const Navigator: React.FC = () => {
                                                           if (navUrl)
                                                             navigate(navUrl);
                                                         }}
+                                                        role="button"
+                                                        tabIndex={0}
+                                                        aria-label={display}
                                                       >
                                                         <div className="text-body-m">
-                                                          {getSingleText(
-                                                            subTitle,
-                                                            sub.subTitleCN
-                                                          )}
+                                                          {display}
                                                         </div>
                                                       </div>
                                                     );
@@ -854,9 +878,10 @@ export const Navigator: React.FC = () => {
                                             : "text-gray-700"
                                         }`}
                                       >
-                                        {language === Language.EN
-                                          ? item.title
-                                          : item.titleCN}
+                                        {getSingleText(
+                                          item.title,
+                                          item.titleCN
+                                        )}
                                       </button>
                                     )}
                                   </Menu.Item>
@@ -933,6 +958,7 @@ export const Navigator: React.FC = () => {
                               {navItems.map((sideItem, i) => {
                                 const { name: sideName, nameCN } = sideItem;
                                 const clicked = sideName === sideItems.name;
+                                const display = getSingleText(sideName, nameCN);
                                 return (
                                   <div
                                     key={i}
@@ -943,7 +969,7 @@ export const Navigator: React.FC = () => {
                                     }`}
                                     tabIndex={0}
                                     role="button"
-                                    aria-label={getSingleText(sideName, nameCN)}
+                                    aria-label={display}
                                     onMouseEnter={() => {
                                       setActiveSubItem(sideName);
                                     }}
@@ -951,7 +977,7 @@ export const Navigator: React.FC = () => {
                                       setActiveSubItem(sideName);
                                     }}
                                   >
-                                    {getSingleText(sideName, nameCN)}
+                                    {display}
                                   </div>
                                 );
                               })}

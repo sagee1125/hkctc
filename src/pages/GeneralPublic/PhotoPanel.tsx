@@ -61,12 +61,9 @@ export const PhotoPanel: React.FC = () => {
               navigate(`/about-us`);
             }}
           >
-            <div style={overlayStyle} />
+            <div style={overlayStyle} role="none" />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p
-                className={"text-heading-l-extra text-white z-20"}
-                tabIndex={0}
-              >
+              <p className={"text-heading-l-extra text-white z-20"}>
                 {about as string}
               </p>
             </div>
@@ -84,12 +81,9 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
             }}
           >
-            <div style={overlayStyle} />
+            <div style={overlayStyle} role="none" />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <div
-                className={"text-heading-l-extra text-white z-20"}
-                tabIndex={0}
-              >
+              <div className={"text-heading-l-extra text-white z-20"}>
                 {profile_and_role as React.ReactNode}
               </div>
             </div>
@@ -108,7 +102,7 @@ export const PhotoPanel: React.FC = () => {
               navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
             }}
           >
-            <div style={overlayStyle} />
+            <div style={overlayStyle} role="none" />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
               <div className={"text-heading-l-extra text-white z-10"}>
                 {tc_sector_strengths as React.ReactNode}
@@ -130,7 +124,7 @@ export const PhotoPanel: React.FC = () => {
             navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
           }}
         >
-          <div style={overlayStyle} />
+          <div style={overlayStyle} role="none" />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
             <div className={"text-heading-l-extra text-white z-10"}>
               {services_provided as React.ReactNode}
@@ -161,6 +155,7 @@ export const PhotoPanel: React.FC = () => {
             }}
           >
             <div
+              role="none"
               style={{
                 position: "absolute",
                 bottom: 0,
@@ -174,7 +169,7 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[16px] pb-[16px]">
-              <p className={"text-heading-l text-white z-20"} tabIndex={0}>
+              <p className={"text-heading-l text-white z-20"}>
                 {about as string}
               </p>
             </div>
@@ -197,6 +192,7 @@ export const PhotoPanel: React.FC = () => {
             }}
           >
             <div
+              role="none"
               style={{
                 position: "absolute",
                 bottom: 0,
@@ -210,7 +206,7 @@ export const PhotoPanel: React.FC = () => {
               }}
             />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
-              <p className={"text-heading-l text-white z-20"} tabIndex={0}>
+              <p className={"text-heading-l text-white z-20"}>
                 {profile_and_role as string}
               </p>
             </div>
@@ -234,6 +230,7 @@ export const PhotoPanel: React.FC = () => {
             }}
           >
             <div
+              role="none"
               style={{
                 position: "absolute",
                 bottom: 0,
@@ -271,6 +268,7 @@ export const PhotoPanel: React.FC = () => {
           }}
         >
           <div
+            role="none"
             style={{
               position: "absolute",
               bottom: 0,
