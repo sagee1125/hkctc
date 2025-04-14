@@ -29,7 +29,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
   };
 
   return (
-    <div style={dynamicBarStyle} role="button">
+    <div style={dynamicBarStyle} role="banner">
       <div style={overlayStyle} />
       <div
         className="flex flex-col gap-[4px]"
@@ -39,6 +39,7 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
           width: "100%",
           alignItems: "center",
         }}
+        aria-label={`${title} - ${description}`}
       >
         <div
           style={{
@@ -53,13 +54,16 @@ export const ExploreDetailBar: React.FC<ExploreDetailBarProps> = ({
             className={classNames("text-heading-xl", `text-${titleTheme}`)}
             role="heading"
             aria-level={10}
+            aria-label={title}
           >
             {title}
           </p>
-          <p className="text-white text-light">{description}</p>
+          <p className="text-white text-light" aria-label={description}>
+            {description}
+          </p>
         </div>
       </div>
-      <div style={bottomRightSquareStyle} />
+      <div style={bottomRightSquareStyle} role="none" />
     </div>
   );
 };

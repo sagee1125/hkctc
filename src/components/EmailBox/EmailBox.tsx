@@ -101,7 +101,7 @@ export const EmailBox: React.FC = () => {
   return (
     <form noValidate onSubmit={formik.handleSubmit}>
       <div className="text-heading-l pb-[16px]">{enquiries as string}</div>
-      <div className="bg-[#EAEAE5] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
+      <div className="bg-[#EAEAE5] border border-[1px] border-[#858585] w-full px-[24px] py-[22px] flex flex-col gap-[16px]">
         <div className="text-body-m">{contact as string}</div>
         <TextField
           name="name"
@@ -117,7 +117,7 @@ export const EmailBox: React.FC = () => {
           InputProps={{
             sx: {
               "&::placeholder": {
-                color: "rgba(0, 0, 0, 0.6)", // 自定義 placeholder 顏色
+                color: "#666666", // 自定義 placeholder 顏色
               },
             },
           }}
@@ -133,12 +133,17 @@ export const EmailBox: React.FC = () => {
           }}
           sx={{
             ".MuiOutlinedInput-notchedOutline": {
-              border: "1px solid #E0E0E0",
+              border: "1px solid #858585",
               borderRadius: "0 !important",
             },
             ".MuiInputBase-root": {
               background: "#ffffff",
             },
+            color: "#666666",
+          }}
+          InputLabelProps={{
+            shrink: false,
+            style: { display: "none" },
           }}
         />
         <TextField
@@ -154,6 +159,13 @@ export const EmailBox: React.FC = () => {
           size="small"
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={Boolean(formik.touched.email) && formik.errors.email}
+          InputProps={{
+            sx: {
+              "&::placeholder": {
+                color: "#666666",
+              },
+            },
+          }}
           id="email-input"
           FormHelperTextProps={{
             id: "email-helper",
@@ -165,13 +177,18 @@ export const EmailBox: React.FC = () => {
               : undefined,
           }}
           sx={{
+            color: "#666666",
             ".MuiOutlinedInput-notchedOutline": {
-              border: "1px solid #E0E0E0",
+              border: "1px solid #858585",
               borderRadius: "0 !important",
             },
             ".MuiInputBase-root": {
               background: "#ffffff",
             },
+          }}
+          InputLabelProps={{
+            shrink: false,
+            style: { display: "none" },
           }}
         />
         <TextField
@@ -190,6 +207,17 @@ export const EmailBox: React.FC = () => {
           error={formik.touched.msg && Boolean(formik.errors.msg)}
           helperText={Boolean(formik.touched.msg) && formik.errors.msg}
           id="msg-input"
+          InputProps={{
+            sx: {
+              "&::placeholder": {
+                color: "#666666",
+              },
+            },
+          }}
+          InputLabelProps={{
+            shrink: false,
+            style: { display: "none" },
+          }}
           FormHelperTextProps={{
             id: "msg-helper",
           }}
@@ -198,8 +226,10 @@ export const EmailBox: React.FC = () => {
             "aria-errormessage": formik.errors.msg ? "msg-helper" : undefined,
           }}
           sx={{
+            color: "#666666",
+
             ".MuiOutlinedInput-notchedOutline": {
-              border: "1px solid #E0E0E0",
+              border: "1px solid #858585",
               borderRadius: "0 !important",
             },
             ".MuiInputBase-root": {
@@ -215,6 +245,7 @@ export const EmailBox: React.FC = () => {
           tabIndex={0}
           disabled={loading}
           type="submit"
+          aria-label={send as string}
         >
           {loading ? (
             <CircularProgress

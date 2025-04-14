@@ -127,6 +127,9 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                   title={title}
                   controls
                   onClick={handlePlayPause}
+                  aria-label="play/pause the video"
+                  lang="en"
+                  aria-description={title}
                 >
                   <source
                     src={`https://www.hkctc.gov.hk${link}`}
@@ -154,6 +157,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                     className="bg-newPrimary text-white px-4 py-2"
                     onClick={handlePdfDownload}
                     tabIndex={0}
+                    aria-label={getSingleText("Download", "下載")}
                   >
                     {getSingleText("Download", "下載")}
                   </button>

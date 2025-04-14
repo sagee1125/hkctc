@@ -129,6 +129,7 @@ export const GeneralPublicContent: React.FC = () => {
                         process.env.PUBLIC_URL + `/assets/icons/calendar.svg`
                       }
                       alt={w.date}
+                      aria-label={processText(title)}
                     />
                     {w.date}
                   </div>
@@ -145,6 +146,7 @@ export const GeneralPublicContent: React.FC = () => {
                   }}
                   src={`${process.env.PUBLIC_URL}/assets/whatsNew/${w.imagePath}`}
                   alt={w.title}
+                  aria-label={"image - " + w.title}
                 />
               </div>
             );
@@ -178,6 +180,7 @@ export const GeneralPublicContent: React.FC = () => {
                       `/assets/generalPublic/${imgUrl}.png`
                     }
                     alt={title}
+                    aria-label={"image - " + title}
                   />
                   <p className="text-highlight-l">{title}</p>
                 </div>
@@ -198,6 +201,7 @@ export const GeneralPublicContent: React.FC = () => {
                 height: "134px",
                 cursor: "pointer",
               }}
+              aria-label="redirect to the seminar workshop in events promotion section"
               onClick={() => {
                 navigate("/events-promotion?section=seminar_workshop");
               }}
@@ -229,10 +233,10 @@ export const GeneralPublicContent: React.FC = () => {
             }}
             tabIndex={0}
             role="button"
-            aria-label="redirect to comics list in events promotion section"
+            aria-label="redirect to the comics list in events promotion section"
           >
             <div
-              role="button"
+              role="img"
               aria-label="image"
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/comics_1.png)`,
