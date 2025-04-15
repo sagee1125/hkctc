@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Accordion, SquareTitle, SummaryTable } from "../../../components";
+import {
+  Accordion,
+  Link,
+  SquareTitle,
+  SummaryTable,
+} from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import {
   Language,
@@ -114,8 +119,68 @@ const TC_SERVICE_PROVIDED_TEXT = {
 };
 
 const TestingService: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const pageText = getPageText(TC_SERVICE_PROVIDED_TEXT);
+
+  const contentMapping: Record<string, React.ReactNode> = {
+    [Language.EN]: (
+      <>
+        Testing activities support a variety of business areas in meeting local
+        needs, e.g.{" "}
+        <Link innerLink="/tc-sector/medical_testing" linkColor="ink">
+          medical
+        </Link>
+        ,{" "}
+        <Link
+          innerLink="/tc-sector/construction_materials_and_buildings"
+          linkColor="ink"
+        >
+          construction materials
+        </Link>
+        ,{" "}
+        <Link innerLink="/tc-sector/food" linkColor="ink">
+          food
+        </Link>
+        ,{" "}
+        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+          Chinese medicines
+        </Link>
+        ,{" "}
+        <Link innerLink="/tc-sector/jewellery" linkColor="ink">
+          Jewellery
+        </Link>
+        , etc.
+      </>
+    ),
+    [Language.ZH_TW]: (
+      <>
+        測試活動為不同業務範疇如
+        <Link innerLink="/tc-sector/medical_testing" linkColor="ink">
+          醫務化驗
+        </Link>
+        、
+        <Link
+          innerLink="/tc-sector/construction_materials_and_buildings"
+          linkColor="ink"
+        >
+          建築材料
+        </Link>
+        、
+        <Link innerLink="/tc-sector/food" linkColor="ink">
+          食品
+        </Link>
+        、
+        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+          中藥
+        </Link>
+        、
+        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+          珠寶
+        </Link>
+        等提供支援，以應付本地需求。
+      </>
+    ),
+  };
 
   return (
     <div className="flex flex-col gap-[24px] text-body-m">
@@ -139,7 +204,7 @@ const TestingService: React.FC = () => {
         }
       )}
 
-      <div>{(pageText.TESTING as LanguageResources)?.CONTENT_2 as string}</div>
+      <div>{contentMapping[language] as string}</div>
       <div>{(pageText.TESTING as LanguageResources)?.CONTENT_3 as string}</div>
     </div>
   );

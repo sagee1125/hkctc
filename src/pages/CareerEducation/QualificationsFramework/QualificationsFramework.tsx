@@ -121,8 +121,8 @@ export const QualificationsFramework: React.FC = () => {
             aria-label="資歷架構"
             href={
               language === Language.ZH_TW
-                ? "https://www.hkqf.gov.hk/tc/home/index.html"
-                : "https://www.hkqf.gov.hk/sc/home/index.html"
+                ? "https://www.hkqf.gov.hk/tc/home"
+                : "https://www.hkqf.gov.hk/sc/home"
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -155,8 +155,8 @@ export const QualificationsFramework: React.FC = () => {
             aria-label="相關網頁"
             href={
               language === Language.ZH_TW
-                ? "https://www.hkqf.gov.hk/tic/tc/scs/introduction/index.html"
-                : "https://www.hkqf.gov.hk/tic/sc/scs/introduction/index.html"
+                ? "https://www.hkqf.gov.hk/tc/home"
+                : "https://www.hkqf.gov.hk/sc/home"
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -175,8 +175,8 @@ export const QualificationsFramework: React.FC = () => {
             aria-label="相關網頁"
             href={
               language === Language.ZH_TW
-                ? "https://www.hkqf.gov.hk/tc/award_scheme/index.html"
-                : "https://www.hkqf.gov.hk/sc/award_scheme/index.html"
+                ? "https://www.hkqf.gov.hk/tc/home"
+                : "https://www.hkqf.gov.hk/sc/home"
             }
             target="_blank"
             rel="noopener noreferrer"

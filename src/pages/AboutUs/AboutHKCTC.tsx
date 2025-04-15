@@ -45,8 +45,10 @@ export const AboutHKCTC: React.FC = () => {
         "Government Chemist or representative",
         "Commissioner for Innovation and Technology or representative",
       ],
-      // about_logo:"About HKCTC Logo",
-      // inspired_by:`Inspired by the unified precision of a microscope, which is a combination of meticulous accuracy of scientific enquiry and the harmony represented by circles, the new HKCTC logo encapsulates the essence of the inclusivity and collaboration; innovation and quality; unifying force and scientific rigour.  This new logo is a cornerstone of HKCTC’s brand evolution, visually expressing our tagline - Catalysing Excellence.`
+      secretary: "Secretary",
+      secretary_manager: "Senior Manager (Testing and Certification)",
+      about_logo: "About HKCTC Logo",
+      inspired_by: `Inspired by the unified precision of a microscope, which is a combination of meticulous accuracy of scientific enquiry and the harmony represented by circles, the new HKCTC logo encapsulates the essence of the inclusivity and collaboration; innovation and quality; unifying force and scientific rigour.  This new logo is a cornerstone of HKCTC’s brand evolution, visually expressing our tagline - Catalysing Excellence.`,
     },
     cn: {
       terms_of_ref: "職權範圍",
@@ -88,6 +90,11 @@ export const AboutHKCTC: React.FC = () => {
         "政府化驗師或代表",
         "創新科技署署長或代表",
       ],
+      secretary: "秘書",
+      secretary_manager: "高級經理（檢測和認證）",
+      about_logo: "關於香港檢測和認證局的標誌",
+      inspired_by:
+        "香港檢測和認證局的全新標誌設計靈感源於顯微鏡所體現的統一精準概念，它融合了科學研究的嚴謹精確以及圓形所代表的和諧。新標誌充分展現了包容與協作、創新與品量、凝聚力與科學嚴謹的精髓，是香港檢測和認證局品牌發展歷程中的基石，以視覺形式詮釋了我們的標語：匯創卓越。",
     },
   };
   const page_text = getPageText(multilingual);
@@ -104,6 +111,10 @@ export const AboutHKCTC: React.FC = () => {
     heading,
     non_official_members,
     non_official_member_name,
+    secretary,
+    secretary_manager,
+    about_logo,
+    inspired_by,
   } = page_text;
   return (
     <div className="w-full text-justify">
@@ -154,6 +165,19 @@ export const AboutHKCTC: React.FC = () => {
           {name}
         </p>
       ))}
+
+      <p className="text-heading-m mt-[22px] mb-[8px]">{secretary as string}</p>
+      <p className="text-body-m">{secretary_manager as string}</p>
+
+      <div className="mt-[22px] flex flex-col gap-[24px]">
+        <p className="text-heading-m">{about_logo as string}</p>
+        <img
+          className="w-full"
+          src={`${process.env.PUBLIC_URL}/assets/about/transition.gif`}
+          alt={"pass"}
+        />
+        <p className="text-body-m">{inspired_by as string}</p>
+      </div>
     </div>
   );
 };
