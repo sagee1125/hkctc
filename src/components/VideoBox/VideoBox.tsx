@@ -17,84 +17,124 @@ const multilingual = {
 export const VideoBox: React.FC = () => {
   const { isPC, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
-
   const { welcome, innoCarnival } = page_text;
 
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // 使用 ref 数组存储所有视频引用
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const timerRef = useRef<NodeJS.Timeout>();
+  const progressRef = useRef<number>();
 
   const videoUrls = [
     "InnoCarnivalcut.mp4",
-    "HKCTC_03_edit_016_sub_TC_ENG.mp4", // 求學篇
-    "HKCTC_02_edit_014_sub_TC_ENG.mp4", // 工作篇
-    "HKCTC_04_012_sub_TC_ENG.mp4", // 求真篇
+    "HKCTC_03_edit_016_sub_TC_ENG.mp4",
+    "HKCTC_02_edit_014_sub_TC_ENG.mp4",
+    "HKCTC_04_012_sub_TC_ENG.mp4",
     "HKCTC_ESG_edit_005_sub_TC_ENG.mp4",
   ];
 
+  // 初始化 ref 数组
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const updateProgress = () => {
-        const percent = (video.currentTime / video.duration) * 100;
-        setProgress(percent ?? 0);
-      };
+    videoRefs.current = videoRefs.current.slice(0, videoUrls.length);
+  }, [videoUrls.length]);
 
-      video.addEventListener("timeupdate", updateProgress);
-      return () => video.removeEventListener("timeupdate", updateProgress);
-    }
-  }, []);
+  const playNextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videoUrls.length);
+  };
 
-  useEffect(() => {
-    const video = videoRef.current;
+  const resetVideo = (index: number) => {
+    const video = videoRefs.current[index];
     if (video) {
-      video.pause(); // pause current video
+      video.pause();
       video.currentTime = 0;
-      video.load();
-      setProgress(0);
-
-      const onCanPlayThrough = (): void => {
-        video.play();
-        video.removeEventListener("canplaythrough", onCanPlayThrough);
-      };
-
-      video.addEventListener("canplaythrough", onCanPlayThrough);
-
-      return () => {
-        video.removeEventListener("canplaythrough", onCanPlayThrough);
-      };
     }
+  };
+
+  const setupCurrentVideo = () => {
+    const currentVideo = videoRefs.current[currentVideoIndex];
+    if (!currentVideo) return;
+
+    // 强制重置播放器状态
+    currentVideo.currentTime = 0;
+    setProgress(0); // 双保险重置
+
+    const startPlayback = async () => {
+      try {
+        await currentVideo.play();
+
+        // 严格5秒切换（即使视频未播放完）
+        timerRef.current = setTimeout(() => {
+          playNextVideo();
+        }, 5000);
+
+        // 使用性能更高的进度更新
+        let lastUpdate = 0;
+        const updateProgress = (timestamp: number) => {
+          if (timestamp - lastUpdate > 50) {
+            // 50ms更新间隔
+            const percent = Math.min((currentVideo.currentTime / 5) * 100, 100);
+            setProgress(percent);
+            lastUpdate = timestamp;
+          }
+          progressRef.current = requestAnimationFrame(updateProgress);
+        };
+        progressRef.current = requestAnimationFrame(updateProgress);
+      } catch (e) {
+        setIsSliding(false);
+      }
+    };
+    //  确保事件监听器只添加一次
+    currentVideo.addEventListener("canplaythrough", startPlayback, {
+      once: true,
+    });
+
+    //  如果视频已可播放，立即启动
+    if (currentVideo.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+      startPlayback();
+    }
+
+    return () => {
+      currentVideo.removeEventListener("canplaythrough", startPlayback);
+    };
+  };
+
+  useEffect(() => {
+    const cleanup = setupCurrentVideo();
+    return () => {
+      cleanup?.();
+      clearTimeout(timerRef.current);
+      if (progressRef.current !== undefined) {
+        cancelAnimationFrame(progressRef.current);
+        progressRef.current = undefined;
+      }
+      setIsSliding(false);
+    };
   }, [currentVideoIndex]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.pause(); // pause current video
-      video.currentTime = 0;
-      setProgress(0);
-
-      // play when finished loading
-      video.load(); // load new
-      video.onloadeddata = () => {
-        video.play(); // play new
-      };
-    }
-  }, [currentVideoIndex]);
-
-  const handleSlide = (direction: "next" | "prev"): void => {
+  const handleSlide = (direction: "next" | "prev") => {
     if (isSliding) return;
     setIsSliding(true);
 
-    setTimeout(() => {
-      setCurrentVideoIndex((prevIndex) => {
-        if (direction === "next") {
-          return prevIndex === videoUrls.length - 1 ? 0 : prevIndex + 1;
-        }
-        return prevIndex === 0 ? videoUrls.length - 1 : prevIndex - 1;
-      });
-      setIsSliding(false);
-    }, 500);
+    if (progressRef.current) {
+      cancelAnimationFrame(progressRef.current);
+      progressRef.current = undefined;
+    }
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    setProgress(0);
+
+    setCurrentVideoIndex((prev) => {
+      const newIndex =
+        direction === "next"
+          ? (prev + 1) % videoUrls.length
+          : (prev - 1 + videoUrls.length) % videoUrls.length;
+      return newIndex;
+    });
+
+    setIsSliding(false);
   };
 
   const videoSwitching = (
@@ -141,6 +181,7 @@ export const VideoBox: React.FC = () => {
       )}
     </div>
   );
+
   return (
     <div style={fullContainer} role="region" aria-label="Video playback area">
       <div
@@ -163,24 +204,20 @@ export const VideoBox: React.FC = () => {
           {videoUrls.map((url, index) => (
             <video
               key={index}
-              ref={index === currentVideoIndex ? videoRef : null}
+              ref={(el) => (videoRefs.current[index] = el)}
               src={process.env.PUBLIC_URL + "/assets/" + url}
               className="w-full h-full object-cover"
               aria-label={welcome as string}
-              autoPlay
               muted
-              loop
-              lang="en"
               playsInline
-              style={{
-                ...videoStyle,
-              }}
+              loop={false}
+              preload="auto"
+              style={videoStyle}
             />
           ))}
         </div>
 
         {/* mask */}
-
         <div
           style={{
             zIndex: 10,
@@ -196,7 +233,7 @@ export const VideoBox: React.FC = () => {
           <div className="flex flex-col justify-between h-full">
             {isPC && <div className="h-[50px] w-[50px] bg-newPrimary" />}
             <div
-              className="flex flex-col items-center mt-auto w-full" // Added mt-auto for bottom alignment
+              className="flex flex-col items-center mt-auto w-full"
               style={{
                 ...(!isPC
                   ? {}
@@ -250,8 +287,13 @@ export const VideoBox: React.FC = () => {
           <div className="pt-[8px]">{videoSwitching}</div>
         </div>
       )}
-      {/* progress*/}
-      <div style={progressBarContainerStyle}>
+      {/* progress */}
+      <div
+        style={progressBarContainerStyle}
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-label="progressbar"
+      >
         <div
           style={{
             ...progressBarStyle,
