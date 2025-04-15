@@ -538,8 +538,7 @@ export const ProfileAndRole: React.FC = () => {
                     <div className="flex flex-row w-full mt-[8px] gap-2">
                       <Icon
                         icon="material-symbols:date-range-rounded"
-                        aria-label={"date icon"}
-                        tabIndex={0}
+                        aria-hidden={true}
                       />
                       <div
                         className={`text-body-${isPC ? "m" : "s"} text-[#666]`}

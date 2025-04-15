@@ -798,8 +798,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       title: whats_pc as string,
       content: (
         <ul>
-          <li>{(pc_def as React.ReactNode[])[0]}</li>
-          <br />
+          <li className="mb-[1em]">{(pc_def as React.ReactNode[])[0]}</li>
           <li>{(pc_def as React.ReactNode[])[1]}</li>
         </ul>
       ),
@@ -809,14 +808,17 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       content: (
         <>
           <ul>
-            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[0]}</li>
-            <br />
-            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[1]}</li>
+            <li className="mb-[1em]">
+              {(whats_benefits_of_pc_detail as React.ReactNode[])[0]}
+            </li>
+            <li className="mb-[1em]">
+              {(whats_benefits_of_pc_detail as React.ReactNode[])[1]}
+            </li>
 
-            <br />
-            <li>{(whats_benefits_of_pc_detail as React.ReactNode[])[2]}</li>
+            <li className="mb-[1em]">
+              {(whats_benefits_of_pc_detail as React.ReactNode[])[2]}
+            </li>
 
-            <br />
             <li className="mb-[16px]">
               {(whats_benefits_of_pc_detail as React.ReactNode[])[3]}
             </li>
@@ -852,8 +854,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   icon="mingcute:arrow-left-fill"
                   width="24"
                   height="24"
-                  tabIndex={0}
-                  aria-label={"arrow icon"}
+                  aria-hidden={true}
                 />
               </button>
 
@@ -947,8 +948,9 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       title: use_of_prod_ASD as string,
       content: (
         <ul>
-          <li>{use_of_prod_ASD_detail_1 as React.ReactNode}</li>
-          <br />
+          <li className="mb-[1em]">
+            {use_of_prod_ASD_detail_1 as React.ReactNode}
+          </li>
           <li>{use_of_prod_ASD_detail_2 as React.ReactNode}</li>
         </ul>
       ),
@@ -957,8 +959,9 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       title: use_of_prod_BEAM as string,
       content: (
         <ul className="text-justify">
-          <li>{use_of_prod_BEAM_detail_1 as React.ReactNode}</li>
-          <br />
+          <li className="mb-[1em]">
+            {use_of_prod_BEAM_detail_1 as React.ReactNode}
+          </li>
           <li>{use_of_prod_BEAM_detail_2 as React.ReactNode}</li>
         </ul>
       ),
@@ -967,13 +970,16 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       title: how_manufacturer as string,
       content: (
         <ul className="text-justify">
-          <li>{(how_manufacturer_ways as React.ReactNode[])[0]}</li>
+          <li className="mb-[1em]">
+            {(how_manufacturer_ways as React.ReactNode[])[0]}
+          </li>
 
-          <br />
-          <li>{(how_manufacturer_ways as React.ReactNode[])[1]}</li>
-          <br />
-          <li>{(how_manufacturer_ways as React.ReactNode[])[2]}</li>
-          <br />
+          <li className="mb-[1em]">
+            {(how_manufacturer_ways as React.ReactNode[])[1]}
+          </li>
+          <li className="mb-[1em]">
+            {(how_manufacturer_ways as React.ReactNode[])[2]}
+          </li>
           <li>{(how_manufacturer_ways as React.ReactNode[])[3]}</li>
         </ul>
       ),

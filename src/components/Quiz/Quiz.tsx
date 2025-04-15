@@ -111,7 +111,10 @@ export const Quiz: React.FC = () => {
                       fontStyle: "normal",
                       fontWeight: 700,
                     }}
-                    tabIndex={0}
+                    aria-label={getSingleText(
+                      quick_quiz as string,
+                      quick_quiz as string
+                    )}
                   >
                     {getSingleText(quick_quiz as string, quick_quiz as string)}
                   </p>
@@ -119,7 +122,10 @@ export const Quiz: React.FC = () => {
                     className={`py-[8px] text-heading-${isPC ? "l" : "m"}`}
                     role="heading"
                     aria-level={10}
-                    tabIndex={0}
+                    aria-label={getSingleText(
+                      quizData.question as string,
+                      quizData.question as string
+                    )}
                   >
                     {getSingleText(
                       quizData.question as string,

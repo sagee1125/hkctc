@@ -19,7 +19,7 @@ export const HeaderSocialMedia: React.FC = () => {
         }}
       >
         <Icon
-          role="none"
+          aria-hidden={true}
           icon="mage:camera-2"
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />
@@ -35,7 +35,7 @@ export const HeaderSocialMedia: React.FC = () => {
       >
         <Icon
           icon="fa6-brands:facebook-f"
-          role="none"
+          aria-hidden={true}
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />
       </div>
@@ -108,10 +108,9 @@ export const Header: React.FC = () => {
               }}
             >
               <Icon
-                role="none"
+                aria-hidden={true}
                 icon="ri:search-line"
                 className="h-6 w-6 text-[#333333]"
-                aria-label={"search icon"}
               />
             </div>
             {openSearchInput && (
