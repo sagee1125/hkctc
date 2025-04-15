@@ -526,9 +526,8 @@ export const Navigator: React.FC = () => {
                                             {displayTitle}
                                           </p>
                                           <Icon
-                                            tabIndex={0}
+                                            aria-hidden={true}
                                             icon="icon-park-outline:right"
-                                            aria-label={"arrow icon"}
                                             style={{
                                               display: ifHideArrow
                                                 ? "none"

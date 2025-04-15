@@ -54,12 +54,10 @@ export const Paginator: React.FC<PaginatorProps> = ({
         aria-label="Previous Button"
       >
         <Icon
-          tabIndex={0}
           icon="mingcute:arrow-left-fill"
           width="24"
           height="24"
           aria-hidden="true"
-          aria-label={"arrow icon"}
         />
       </button>
 
@@ -92,12 +90,10 @@ export const Paginator: React.FC<PaginatorProps> = ({
         aria-label="Next Button"
       >
         <Icon
-          tabIndex={0}
           icon="mingcute:arrow-right-fill"
           width="24"
           height="24"
           aria-hidden="true"
-          aria-label={"arrow icon"}
         />
       </button>
     </div>
