@@ -13,10 +13,8 @@ const multilingual = {
     },
     measurement_traceability: {
       title: "Measurement Traceability",
-      para_1: `Traceability means that the result of a measurement can be related to a national or international measurement standard. In addition, the measuring instrument must be calibrated with a measurement standard that is itself traceable. The concept of traceability is important because it makes possible the comparison of the accuracy of measurements worldwide according to a standardised procedure. Metrology is the study of measurement and there are two major fields, viz. physical metrology and chemical metrology.`,
-      para_2: `The Standards and Calibration Laboratory (SCL) maintains the reference standards of physical measurement traceable to the International System of Units for Hong Kong, promotes the international acceptance of these standards, and provides traceable calibration services and proficiency testing services to serve the local economy. For more information on the services provided by SCL, please visit its`,
-      para_3: `Government Laboratory provides chemical metrology support to the community through providing proficiency testing service, developing standard methods and producing reference material. For more information on the services provided by Government Laboratory, please visit its`,
-      website: "website",
+      para_1: `Traceability refers to the ability to relate the result of a measurement to established national or international standards through an unbroken chain of comparisons, each with stated uncertainties. For measurements to be traceable, the measuring instrument must be calibrated using a measurement standard that is traceable to recognized reference standards. This concept is fundamental because it ensures that measurement accuracy can be compared globally according to standardised procedures.`,
+      para_2: `Metrology, the science of measurement, plays a critical role in achieving traceability. In Hong Kong, China, metrological traceability and measurement accuracy are upheld by two key institutions: the Standards and Calibration Laboratory (SCL) and the Government Laboratory. Together, these institutions contribute to the development and maintenance of a robust measurement infrastructure, fostering confidence in measurements across industries, research, and trade.`,
     },
     support_and_consultation_centre: {
       title:
@@ -52,10 +50,8 @@ const multilingual = {
     },
     measurement_traceability: {
       title: "測量可溯源性",
-      para_1: `可溯源性指測量的結果可以與國家或國際的測量標準相關聯。此外，測量儀器必須以測量標準校正，而這個標準本身亦是可溯源的。可溯源性的概念十分重要，因爲它能讓大家根據標準程序，比較在世界各地進行的測量的準確性。計量是測量的科技，包括兩個主要範疇，即物理計量和化學計量。`,
-      para_2: `標準及校正實驗所負責為香港保存可溯源至國際單位制的物理測量參考標準，推動國際接納這些標準，並為本地企業提供可溯源的校正服務及能力驗證服務。如欲得知更多有關標準及校正實驗所所提供的服務，請瀏覽`,
-      para_3: `政府化驗所提供能力驗證計劃、制定標準方法及生產標準物質，為社會提供化學計量的支援。如欲得知更多有關政府化驗所所提供的服務，請瀏覽`,
-      website: "網頁",
+      para_1: `溯源性是指通過一系列具有明確測量不確定度的比對鏈，將測量結果關聯到既定的國家或國際標準的過程。這些比對鏈通常由國家或國際計量機構建立並維護，確保每個環節的標準都具有明確的不確定度和清晰的傳遞關係。為了確保測量具可溯源性，測量儀器必須定期使用可追溯至公認參考標準的標準進行校正。這樣，測量儀器的結果才能準確可靠，並符合既定的標準要求。`,
+      para_2: `計量學作為一門測量科學，在實現溯源性發揮著關鍵作用。在中國香港，計量溯源性和測量準確性主要由兩個機構共同維護：標準及校正實驗所（SCL）和政府化驗所。這兩個機構攜手合作，共同建設和持續完善計量基礎設施，為工業、科研及貿易領域提供準確和可靠的測量結果。`,
     },
     support_and_consultation_centre: {
       title: "由工業貿易署營辦的中小企業支援與諮詢中心",
@@ -130,47 +126,7 @@ export const OtherSupport: React.FC = () => {
       </p>
       <br />
       <p className="text-body-m text-justify">
-        {(measurement_traceability as LanguageResources).para_2 as string}&nbsp;
-        <a
-          aria-label={
-            (measurement_traceability as LanguageResources).website as string
-          }
-          href={
-            language === Language.EN
-              ? "https://www.itc.gov.hk/en/quality/scl/index.html"
-              : language === Language.ZH_TW
-              ? "https://www.itc.gov.hk/ch/quality/scl/index.html"
-              : "https://www.itc.gov.hk/gb/quality/scl/index.html"
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          {(measurement_traceability as LanguageResources).website as string}
-        </a>
-        .
-      </p>
-      <br />
-      <p className="text-body-m text-justify">
-        {(measurement_traceability as LanguageResources).para_3 as string}&nbsp;
-        <a
-          aria-label={
-            (measurement_traceability as LanguageResources).website as string
-          }
-          href={
-            language === Language.EN
-              ? "https://www.govtlab.gov.hk/en/home/index.html"
-              : language === Language.ZH_TW
-              ? "https://www.govtlab.gov.hk/tc/home/index.html"
-              : "https://www.govtlab.gov.hk/sc/home/index.html"
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-[#00E]"
-        >
-          {(measurement_traceability as LanguageResources).website as string}
-        </a>
-        .
+        {(measurement_traceability as LanguageResources).para_2 as string}
       </p>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
