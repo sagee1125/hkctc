@@ -129,7 +129,7 @@ export const EmailBox: React.FC = () => {
           }}
           inputProps={{
             "aria-describedby": "name-helper",
-            "aria-invalid": Boolean(formik.errors.name),
+            "aria-invalid": formik.errors.name ? "true" : "false",
             "aria-errormessage": formik.errors.name ? "name-helper" : undefined,
           }}
           sx={{
@@ -173,7 +173,7 @@ export const EmailBox: React.FC = () => {
           }}
           inputProps={{
             "aria-describedby": "email-helper",
-            "aria-invalid": Boolean(formik.errors.email),
+            "aria-invalid": formik.errors.email ? "true" : "false",
             "aria-errormessage": formik.errors.email
               ? "email-helper"
               : undefined,
@@ -225,7 +225,7 @@ export const EmailBox: React.FC = () => {
           }}
           inputProps={{
             "aria-describedby": "msg-helper",
-            "aria-invalid": Boolean(formik.errors.msg),
+            "aria-invalid": formik.errors.msg ? "true" : "false",
             "aria-errormessage": formik.errors.msg ? "msg-helper" : undefined,
           }}
           sx={{

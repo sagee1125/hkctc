@@ -84,8 +84,6 @@ export const Quiz: React.FC = () => {
           } bg-no-repeat relative transition-opacity duration-1000 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
-          role="button"
-          tabIndex={0}
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/quiz/quiz_${
               quiz + 1
@@ -193,6 +191,8 @@ export const Quiz: React.FC = () => {
                       backgroundColor: quizData.theme,
                       cursor: !currentAnswer ? "not-allowed" : "pointer",
                     }}
+                    tabIndex={0}
+                    role="button"
                     onClick={() => {
                       if (!currentAnswer) return;
                       setQuizStage(
@@ -203,7 +203,10 @@ export const Quiz: React.FC = () => {
                     }}
                     aria-label="Quiz Result"
                   >
-                    <ArrowForwardIos className="text-[#fff]" />
+                    <ArrowForwardIos
+                      className="text-[#fff]"
+                      arial-hidden="true"
+                    />
                   </div>
                 </div>
               )}
