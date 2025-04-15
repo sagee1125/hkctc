@@ -524,7 +524,6 @@ export const ServiceProvided: React.FC = () => {
           return (
             <button
               tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
