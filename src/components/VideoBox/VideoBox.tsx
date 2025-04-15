@@ -17,84 +17,117 @@ const multilingual = {
 export const VideoBox: React.FC = () => {
   const { isPC, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
-
   const { welcome, innoCarnival } = page_text;
 
   const [progress, setProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // 使用 ref 数组存储所有视频引用
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const timerRef = useRef<NodeJS.Timeout>();
+  const progressRef = useRef<number>();
 
   const videoUrls = [
     "InnoCarnivalcut.mp4",
-    "HKCTC_03_edit_016_sub_TC_ENG.mp4", // 求學篇
-    "HKCTC_02_edit_014_sub_TC_ENG.mp4", // 工作篇
-    "HKCTC_04_012_sub_TC_ENG.mp4", // 求真篇
+    "HKCTC_03_edit_016_sub_TC_ENG.mp4",
+    "HKCTC_02_edit_014_sub_TC_ENG.mp4",
+    "HKCTC_04_012_sub_TC_ENG.mp4",
     "HKCTC_ESG_edit_005_sub_TC_ENG.mp4",
   ];
 
+  // 初始化 ref 数组
   useEffect(() => {
-    const video = videoRef.current;
+    videoRefs.current = videoRefs.current.slice(0, videoUrls.length);
+  }, [videoUrls.length]);
+
+  const playNextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videoUrls.length);
+  };
+
+  const resetVideo = (index: number) => {
+    const video = videoRefs.current[index];
     if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
+
+  const setupCurrentVideo = () => {
+    const currentVideo = videoRefs.current[currentVideoIndex];
+    if (!currentVideo) return;
+
+    // 清理旧计时器
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+
+    // 重置所有视频
+    videoRefs.current.forEach((_, index) => {
+      if (index !== currentVideoIndex) resetVideo(index);
+    });
+
+    // 设置新视频
+    currentVideo.currentTime = 0;
+    setProgress(0);
+
+    const startPlayback = () => {
+      currentVideo.play().catch((e) => console.error("Play failed:", e));
+
+      // 设置5秒切换定时器
+      timerRef.current = setTimeout(() => {
+        playNextVideo();
+      }, 5000);
+
+      // 进度更新
       const updateProgress = () => {
-        const percent = (video.currentTime / video.duration) * 100;
-        setProgress(percent ?? 0);
+        const percent = Math.min((currentVideo.currentTime / 5) * 100, 100);
+        setProgress(percent);
+        progressRef.current = requestAnimationFrame(updateProgress);
       };
+      progressRef.current = requestAnimationFrame(updateProgress);
+    };
 
-      video.addEventListener("timeupdate", updateProgress);
-      return () => video.removeEventListener("timeupdate", updateProgress);
+    // 修复1: 确保事件监听器只添加一次
+    currentVideo.addEventListener("canplaythrough", startPlayback, {
+      once: true,
+    });
+
+    // 修复2: 如果视频已可播放，立即启动
+    if (currentVideo.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+      startPlayback();
     }
-  }, []);
+
+    return () => {
+      currentVideo.removeEventListener("canplaythrough", startPlayback);
+    };
+  };
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.pause(); // pause current video
-      video.currentTime = 0;
-      video.load();
-      setProgress(0);
-
-      const onCanPlayThrough = (): void => {
-        video.play();
-        video.removeEventListener("canplaythrough", onCanPlayThrough);
-      };
-
-      video.addEventListener("canplaythrough", onCanPlayThrough);
-
-      return () => {
-        video.removeEventListener("canplaythrough", onCanPlayThrough);
-      };
-    }
+    const cleanup = setupCurrentVideo();
+    return () => {
+      cleanup?.();
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    };
   }, [currentVideoIndex]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.pause(); // pause current video
-      video.currentTime = 0;
-      setProgress(0);
-
-      // play when finished loading
-      video.load(); // load new
-      video.onloadeddata = () => {
-        video.play(); // play new
-      };
-    }
-  }, [currentVideoIndex]);
-
-  const handleSlide = (direction: "next" | "prev"): void => {
+  const handleSlide = (direction: "next" | "prev") => {
     if (isSliding) return;
     setIsSliding(true);
 
-    setTimeout(() => {
-      setCurrentVideoIndex((prevIndex) => {
-        if (direction === "next") {
-          return prevIndex === videoUrls.length - 1 ? 0 : prevIndex + 1;
-        }
-        return prevIndex === 0 ? videoUrls.length - 1 : prevIndex - 1;
-      });
-      setIsSliding(false);
-    }, 500);
+    // 清理当前状态
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+
+    setCurrentVideoIndex((prev) => {
+      const newIndex =
+        direction === "next"
+          ? (prev + 1) % videoUrls.length
+          : (prev - 1 + videoUrls.length) % videoUrls.length;
+      return newIndex;
+    });
+
+    setIsSliding(false);
   };
 
   const videoSwitching = (
@@ -141,6 +174,7 @@ export const VideoBox: React.FC = () => {
       )}
     </div>
   );
+
   return (
     <div style={fullContainer} role="region" aria-label="Video playback area">
       <div
@@ -163,24 +197,20 @@ export const VideoBox: React.FC = () => {
           {videoUrls.map((url, index) => (
             <video
               key={index}
-              ref={index === currentVideoIndex ? videoRef : null}
+              ref={(el) => (videoRefs.current[index] = el)}
               src={process.env.PUBLIC_URL + "/assets/" + url}
               className="w-full h-full object-cover"
               aria-label={welcome as string}
-              autoPlay
               muted
-              loop
-              lang="en"
               playsInline
-              style={{
-                ...videoStyle,
-              }}
+              loop={false}
+              preload="auto"
+              style={videoStyle}
             />
           ))}
         </div>
 
         {/* mask */}
-
         <div
           style={{
             zIndex: 10,
@@ -196,7 +226,7 @@ export const VideoBox: React.FC = () => {
           <div className="flex flex-col justify-between h-full">
             {isPC && <div className="h-[50px] w-[50px] bg-newPrimary" />}
             <div
-              className="flex flex-col items-center mt-auto w-full" // Added mt-auto for bottom alignment
+              className="flex flex-col items-center mt-auto w-full"
               style={{
                 ...(!isPC
                   ? {}
@@ -250,7 +280,7 @@ export const VideoBox: React.FC = () => {
           <div className="pt-[8px]">{videoSwitching}</div>
         </div>
       )}
-      {/* progress*/}
+      {/* progress */}
       <div style={progressBarContainerStyle}>
         <div
           style={{
