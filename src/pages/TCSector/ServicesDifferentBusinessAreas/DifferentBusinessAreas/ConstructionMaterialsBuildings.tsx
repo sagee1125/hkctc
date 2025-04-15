@@ -185,6 +185,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "On-site measurements of IAQ parameters (e.g., air movement, carbon monoxide and volatile organic compounds)",
         "IAQ compliance assessment",
       ],
+      testing_and_inspection_title:
+        "Testing and Inspection Services for Construction Materials and Buildings",
       testing_and_inspection:
         "Testing and Inspection Services for Construction Materials and Buildings",
       more_info: (
@@ -384,7 +386,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "產品認證計劃為特定產品的供應商，訂立一系列確保產品符合質量要求的規則及程序合指定認證計劃的要求。",
         "第三方認證機構會根據規定進行嚴格評審，在確定供應商的產品達到認證計劃的要求後，對該供應商的產品發出認證證書。",
       ],
-      benefits_of: "樓宇及建築材料產品認證的好處",
+      benefits_of: "樓宇及建築材料產品認證",
       whats_benefits_of_pc: "產品認證的好處",
       whats_benefits_of_pc_detail: [
         "產品認證過程會透過上游監控提升產品質素。",
@@ -572,6 +574,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "實地量度室內空氣質素參數（例如空氣流動速度、一氧化碳、揮發性有機化合物等）",
         "評核室內空氣質素是否符合指標",
       ],
+      testing_and_inspection_title: "樓宇及建築材料認可測試及檢驗服務",
       testing_and_inspection: "香港的樓宇及建築材料認可測試及檢驗服務",
       col_one: [
         "混凝土",
@@ -641,6 +644,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     to_improve_indoor_air,
     to_improve_indoor_air_ways,
     more_info,
+    testing_and_inspection_title,
     testing_and_inspection,
     col_one,
     col_two,
@@ -1059,7 +1063,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
 
       <hr className="my-[24px]" />
       <div className="text-heading-l my-[24px]">
-        {testing_and_inspection as React.ReactNode}
+        {testing_and_inspection_title as React.ReactNode}
       </div>
 
       <FileTemplate
