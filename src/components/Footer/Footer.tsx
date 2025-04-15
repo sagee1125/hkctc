@@ -598,8 +598,6 @@ export const Footer: React.FC = () => {
                             <Icon
                               icon="weui:arrow-outlined"
                               aria-hidden="true"
-                              role="link"
-                              tabIndex={0}
                               className="h-[36px] w-[10px] text-white"
                             />
 

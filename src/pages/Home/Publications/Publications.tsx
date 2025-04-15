@@ -564,12 +564,10 @@ export const Publications: React.FC = () => {
                         />
                       </div>
                       <div
-                        tabIndex={0}
                         aria-label={getSingleText(
                           prevActiveCategory.toUpperCase(),
                           traditionTitle
                         )}
-                        role="button"
                         className="flex-grow flex-col flex overflow-hidden text-ellipsis cursor-pointer gap-[4px] h-[90px] justify-center"
                       >
                         <p
@@ -829,23 +827,18 @@ export const Publications: React.FC = () => {
                   />
                   {/* side border */}
                   <div
-                    tabIndex={0}
                     className={`absolute top-0 left-0 h-full w-[10px] group-hover:w-full transition-all duration-700 z-10`}
                     style={{ backgroundColor: sideColor, opacity: 0.8 }}
                   />
                   <div className="flex flex-row justify-between  items-center w-full text-white pr-2">
                     {/* <div className="pl-[20px] z-20 text-highlight-l">{`(${number})`}</div> */}
-                    <div
-                      className="z-20 pl-[20px] text-heading-l text-center w-full"
-                      tabIndex={0}
-                    >
+                    <div className="z-20 pl-[20px] text-heading-l text-center w-full">
                       {getSingleText(title, titleCN)}
                     </div>
-                    <div className="z-20 pr-[20px]" tabIndex={0}>
+                    <div className="z-20 pr-[20px]">
                       <Icon
-                        aria-label="just a icon"
+                        aria-hidden={true}
                         icon={icon}
-                        tabIndex={0}
                         style={{ height: "24px", width: "24px" }}
                       />
                     </div>

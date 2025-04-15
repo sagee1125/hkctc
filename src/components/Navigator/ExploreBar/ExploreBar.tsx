@@ -59,9 +59,8 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       titleCN: "公眾人士",
       iconName: (
         <Icon
-          tabIndex={0}
+          aria-hidden="true"
           icon={"entypo:globe"}
-          aria-label={"entypo:globe"}
           className={`${
             currentPath === "/general-public"
               ? "text-elegancePurple"
@@ -84,9 +83,8 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       titleCN: "老師與學生",
       iconName: (
         <Icon
-          tabIndex={1}
           icon={"fa-solid:book-reader"}
-          aria-label={"fa-solid:book-reader"}
+          aria-hidden="true"
           className={`${
             currentPath === "/educators-students"
               ? "text-trustfulBlue"
@@ -109,9 +107,8 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       titleCN: "檢測認證服務使用者",
       iconName: (
         <Icon
-          tabIndex={1}
           icon={"fa-solid:user"}
-          aria-label={"fa-solid:user"}
+          aria-hidden="true"
           className={`${
             currentPath === "/service-users"
               ? "text-energeticOrange"
@@ -139,6 +136,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
           viewBox="0 0 20 20"
           fill={isClicked ? "#7C7F83" : "none"}
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <g clip-path="url(#clip0_4013_21449)">
             <path
