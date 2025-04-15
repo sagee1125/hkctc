@@ -57,42 +57,41 @@ export const VideoBox: React.FC = () => {
     const currentVideo = videoRefs.current[currentVideoIndex];
     if (!currentVideo) return;
 
-    // 清理旧计时器
-    if (timerRef.current) clearTimeout(timerRef.current);
-    if (progressRef.current) cancelAnimationFrame(progressRef.current);
-
-    // 重置所有视频
-    videoRefs.current.forEach((_, index) => {
-      if (index !== currentVideoIndex) resetVideo(index);
-    });
-
-    // 设置新视频
+    // 强制重置播放器状态
     currentVideo.currentTime = 0;
-    setProgress(0);
+    setProgress(0); // 双保险重置
 
-    const startPlayback = () => {
-      currentVideo.play().catch((e) => console.error("Play failed:", e));
+    const startPlayback = async () => {
+      try {
+        await currentVideo.play();
 
-      // 设置5秒切换定时器
-      timerRef.current = setTimeout(() => {
-        playNextVideo();
-      }, 5000);
+        // 严格5秒切换（即使视频未播放完）
+        timerRef.current = setTimeout(() => {
+          playNextVideo();
+        }, 5000);
 
-      // 进度更新
-      const updateProgress = () => {
-        const percent = Math.min((currentVideo.currentTime / 5) * 100, 100);
-        setProgress(percent);
+        // 使用性能更高的进度更新
+        let lastUpdate = 0;
+        const updateProgress = (timestamp: number) => {
+          if (timestamp - lastUpdate > 50) {
+            // 50ms更新间隔
+            const percent = Math.min((currentVideo.currentTime / 5) * 100, 100);
+            setProgress(percent);
+            lastUpdate = timestamp;
+          }
+          progressRef.current = requestAnimationFrame(updateProgress);
+        };
         progressRef.current = requestAnimationFrame(updateProgress);
-      };
-      progressRef.current = requestAnimationFrame(updateProgress);
+      } catch (e) {
+        setIsSliding(false);
+      }
     };
-
-    // 修复1: 确保事件监听器只添加一次
+    //  确保事件监听器只添加一次
     currentVideo.addEventListener("canplaythrough", startPlayback, {
       once: true,
     });
 
-    // 修复2: 如果视频已可播放，立即启动
+    //  如果视频已可播放，立即启动
     if (currentVideo.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
       startPlayback();
     }
@@ -106,8 +105,12 @@ export const VideoBox: React.FC = () => {
     const cleanup = setupCurrentVideo();
     return () => {
       cleanup?.();
-      if (timerRef.current) clearTimeout(timerRef.current);
-      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+      clearTimeout(timerRef.current);
+      if (progressRef.current !== undefined) {
+        cancelAnimationFrame(progressRef.current);
+        progressRef.current = undefined;
+      }
+      setIsSliding(false);
     };
   }, [currentVideoIndex]);
 
@@ -115,9 +118,13 @@ export const VideoBox: React.FC = () => {
     if (isSliding) return;
     setIsSliding(true);
 
-    // 清理当前状态
+    if (progressRef.current) {
+      cancelAnimationFrame(progressRef.current);
+      progressRef.current = undefined;
+    }
     if (timerRef.current) clearTimeout(timerRef.current);
-    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+
+    setProgress(0);
 
     setCurrentVideoIndex((prev) => {
       const newIndex =
@@ -281,7 +288,12 @@ export const VideoBox: React.FC = () => {
         </div>
       )}
       {/* progress */}
-      <div style={progressBarContainerStyle}>
+      <div
+        style={progressBarContainerStyle}
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-label="progressbar"
+      >
         <div
           style={{
             ...progressBarStyle,
