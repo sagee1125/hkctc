@@ -506,26 +506,34 @@ export const Footer: React.FC = () => {
                 aria-hidden="true"
               />
             </div>
-            <Icon
-              icon="mage:camera-2"
-              aria-label={"open instagram"}
-              className="h-[38px] w-[38px] text-white cursor-pointer"
+            <div
               tabIndex={0}
               role="button"
+              aria-label={"open instagram"}
               onClick={() => {
                 window.open("https://www.instagram.com/hkctcgovhk/");
               }}
-            />
-            <Icon
-              icon="fa6-brands:facebook-f"
-              aria-label={"open facebook"}
-              className="h-[32px] w-[32px] text-white cursor-pointer"
+            >
+              <Icon
+                aria-hidden="true"
+                icon="mage:camera-2"
+                className="h-[38px] w-[38px] text-white cursor-pointer"
+              />
+            </div>
+            <div
               tabIndex={0}
+              aria-label={"open facebook"}
               role="button"
               onClick={() => {
                 window.open("https://www.facebook.com/hkctcgovhk");
               }}
-            />
+            >
+              <Icon
+                aria-hidden="true"
+                icon="fa6-brands:facebook-f"
+                className="h-[32px] w-[32px] text-white cursor-pointer"
+              />
+            </div>
           </div>
         </div>
         {isPC ? (
