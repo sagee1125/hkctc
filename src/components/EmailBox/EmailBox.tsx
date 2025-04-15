@@ -110,7 +110,6 @@ export const EmailBox: React.FC = () => {
           label={name as string}
           aria-label={name as string}
           required
-          aria-required="true"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           size="small"
@@ -153,7 +152,6 @@ export const EmailBox: React.FC = () => {
           placeholder={email as string}
           label={email as string}
           aria-label={email as string}
-          aria-required="true"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           required
@@ -197,7 +195,6 @@ export const EmailBox: React.FC = () => {
           name="msg"
           required
           value={formik.values.msg}
-          aria-required="true"
           label={write_down as string}
           placeholder={write_down as string}
           aria-label={write_down as string}
