@@ -10,7 +10,6 @@ import {
   maxPCContainer,
   SquareTitle,
 } from "../../../components";
-import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
 
 const multilingual = {
@@ -24,7 +23,6 @@ const multilingual = {
 };
 
 export const WhatsNew: React.FC = () => {
-  const navigate = useNavigate();
   const { isPC, language, getPageText, getSingleText } = useSettings();
   const changingEffectOn = false;
   const page_text = getPageText(multilingual);

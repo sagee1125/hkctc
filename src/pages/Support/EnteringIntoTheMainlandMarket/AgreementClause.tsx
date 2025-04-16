@@ -18,7 +18,7 @@ import {
   maxMobileContainer,
   type DirectorySidebarItems,
 } from "../../../components";
-import { Language, useSettings } from "../../../context";
+import { useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -85,8 +85,7 @@ export const AgreementClause: React.FC = () => {
   const initialHashIndex = initialHash
     ? Number(initialHash.substring(1))
     : null; // remove `#`, get index
-  const { isPC, language, getPageText, getSingleText } = useSettings();
-  const isEn = language === Language.EN;
+  const { isPC, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { home, support, entering_into_the_mainland_market, summary_of_CEPA } =

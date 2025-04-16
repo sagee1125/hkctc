@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { DirectorySidebar } from "../../../../../components";
 import { displayBusinessAreas } from "../../ServicesDifferentBusinessAreas";
 
@@ -19,21 +18,15 @@ export const DifferentBusinessAreasDirectorySidebar: React.FC<
     labelCN: area.titleCN,
     value: area.title,
   }));
-  const navigate = useNavigate();
 
   const handleNavToAreas = (area: string): void => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-
     const targetUrl =
       displayBusinessAreas.find(
         (item) =>
           item.title === (area as BusinessAreaTitle) ||
           item.titleCN === (area as BusinessAreaTitle)
       )?.nav ?? "";
-    if (targetUrl) navigate(targetUrl);
+    if (targetUrl) window.open(targetUrl, "_self");
   };
 
   return (

@@ -20,7 +20,6 @@ type LinkProps = {
 };
 
 export const Link: React.FC<LinkProps> = (props: LinkProps) => {
-  const navigate = useNavigate();
   const {
     children,
     outerLink,
@@ -31,7 +30,7 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
   } = props;
 
   const handleOpenOuterLink = () => {
-    if (innerLink) navigate(innerLink);
+    if (innerLink) window.open(innerLink, "_self");
   };
 
   return (

@@ -84,7 +84,8 @@ export const SeminarsRegistration: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!initialHashIndex) navigate(`/events-promotion/seminars-registration`);
+    if (!initialHashIndex)
+      window.open(`/events-promotion/seminars-registration`, "_self");
     else {
       navigate(`/support/agreement-clause#${initialHashIndex}`);
       setActiveItem(sidebarItems[initialHashIndex].value);

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { award2324_multilingual as multilingual } from "./lang";
 import {
   normalButtonStyle,
@@ -79,7 +78,6 @@ const supportingOrg: Array<{
 ];
 
 export const AwardScheme: React.FC = () => {
-  const navigate = useNavigate();
   const { isPC, language, processText, convertReactNode } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
