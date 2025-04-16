@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { seminarsData } from "./seminarData";
 import { seminarsAndWorkshopsList_CN } from "./SeminarArticlePage/seminarArticles";
 import {
@@ -20,6 +21,7 @@ const multilingual = {
     years: "Years",
     yearArray: [
       "All",
+      "2025",
       "2024",
       "2023",
       "2022",
@@ -38,6 +40,7 @@ const multilingual = {
     years: "年份",
     yearArray: [
       "全部",
+      "2025",
       "2024",
       "2023",
       "2022",
@@ -73,6 +76,7 @@ const topicArray: Record<string, string> = {
 };
 
 export const SeminarsWorkshops: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [activeYearButton, setActiveYearButton] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -181,15 +185,26 @@ export const SeminarsWorkshops: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-[24px]">
-        {currentPageData.map((item) => {
-          const { title, id, date, img } = item;
+        {currentPageData.map((item, index) => {
+          const { title, date, img } = item;
           return (
             <a
-              key={id}
-              href={`/events-promotion?section=seminar_article#${id}`}
+              key={index}
+              href={`/events-promotion?section=seminar_article#${index}`}
               className={`flex ${
                 isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}
+              tabIndex={0}
+              role="button"
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  behavior: "smooth",
+                });
+                navigate(`/events-promotion?section=seminar_article#${index}`, {
+                  replace: false,
+                });
+              }}
               aria-label={getSingleText(title, title)}
             >
               <div className="flex flex-col w-full justify-center">

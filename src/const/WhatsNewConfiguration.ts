@@ -35,10 +35,18 @@ export type WhatsNewData = {
   imagePath: string;
   imagePathSwitch?: string;
   redirectTo?: string;
+  outerLink?: boolean;
   onClick?: () => void;
 };
 
 export const WhatsNewConfiguration: WhatsNewData[] = [
+  {
+    title: "ICAC Anti-Corruption Workshop",
+    date: "10 Feb 2025",
+    imagePath: "icac.png",
+    imagePathSwitch: "icac.png",
+    redirectTo: `/events-promotion?section=seminar_article#64`,
+  },
   {
     title: 'Twelfth "HKCTC Newsletter" has been issued',
     date: "23 Dec 2024",
@@ -60,7 +68,7 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     date: "6 Aug 2024",
     imagePath: "whatsnew_2.png",
     imagePathSwitch: "Mid_Autumn_1.png",
-    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
   },
 
   {
@@ -78,6 +86,7 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     imagePath: "whatsnew_5.png",
     redirectTo:
       "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
+    outerLink: true,
   },
   {
     title: "“The BUD Fund - Easy BUD” has been launched",
@@ -88,6 +97,13 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
 ];
 
 export const WhatsNewConfiguration_cn: WhatsNewData[] = [
+  {
+    title: "廉政公署防貪工作坊",
+    date: "2025年2月10日",
+    imagePath: "icac.png",
+    imagePathSwitch: "icac.png",
+    redirectTo: `/events-promotion?section=seminar_article#64`,
+  },
   {
     title: "第十二期《香港檢測和認證局通訊》已經出版",
     date: "2024年12月23日",
@@ -107,7 +123,7 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
     date: "2024年8月6日",
     imagePath: "whatsnew_2.png",
     imagePathSwitch: "Mid_Autumn_1.png",
-    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
+    redirectTo: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
   },
 
   {
@@ -124,11 +140,12 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
     imagePath: "whatsnew_5.png",
     redirectTo:
       "https://www.recruit.com.hk/article/%E6%AA%A2%E6%B8%AC%E8%AA%8D%E8%AD%89-%E8%A1%A3%E9%A3%9F%E4%BD%8F%E8%A1%8C-%E5%B0%88%E6%A5%AD%E6%8A%8A%E9%97%9C/44038",
+    outerLink: true,
   },
   {
     title: "「BUD專項基金」——申請易經已推出",
     date: "2023年6月16日",
     imagePath: "whatsnew_6.png",
-    redirectTo: "/support?section=funding_schemes",
+    redirectTo: "/support?section=funding_schemes&scroll_id=BUD",
   },
 ];

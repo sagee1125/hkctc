@@ -3991,6 +3991,50 @@ export const seminarsAndWorkshopsList = [
       },
     ],
   },
+
+  //65
+  {
+    title: "ICAC Anti-Corruption Workshop",
+    date: "10 Feb 2025",
+    content: (
+      <p>
+        Professionalism, integrity, and credibility are the core values of Hong
+        Kong's testing and certification (T&C) industry, forming the foundation
+        of its competitive edge and good reputation. These qualities instill
+        confidence in users of T&C services and are key to the continued
+        success. To sustain this reputation and drive further development, it is
+        imperative for T&C organisations and practitioners to uphold high
+        standards of professionalism, maintain integrity, and adopt good
+        practices in their business and operations.
+        <br />
+        <br />
+        This ICAC Anti-Corruption Workshop is jointly organised by Hong Kong
+        Business Ethics Development Centre of Independent Commission Against
+        Corruption (ICAC), Hong Kong Council for Testing and Certification and
+        Hong Kong Accreditation Service. In this workshop, representatives of
+        the ICAC offered useful advice on anti-corruption regulations and gave
+        an analysis on the common corruption risks and ethical issues that T&C
+        practitioners may encounter.
+        <br />
+        <br />
+        Topics of the Workshop include:
+      </p>
+    ),
+    topics: [
+      {
+        title:
+          "Professional Integrity and Hong Kong's Anti-Bribery Legislation(Presentation)",
+        pdfLink:
+          "https://www.hkctc.gov.hk/en/doc/250210_Handout_Workshop_1.pdf",
+      },
+      {
+        title:
+          "Professional Integrity and Managing Staff Integrity (Presentation)",
+        pdfLink:
+          "https://www.hkctc.gov.hk/en/doc/250210_Handout_Workshop_2.pdf",
+      },
+    ],
+  },
 ];
 
 export const seminarsAndWorkshopsList_CN = [
@@ -6986,6 +7030,34 @@ export const seminarsAndWorkshopsList_CN = [
         type: "pdf",
         pdfLink:
           "https://www.hkctc.gov.hk/en/doc/Accreditation_service_GHG.pdf",
+      },
+    ],
+  },
+  //65
+  {
+    title: "廉政公署防貪工作坊",
+    date: "2025年2月10日",
+    content: (
+      <p>
+        專業、誠信和信譽是香港檢測和認證業的核心價值，也是其競爭優勢和良好聲譽的基礎。這些特質為使用檢測和認證服務的人注入信心，是持續成功的關鍵。為了維護這種聲譽並推動進一步的發展，檢測認證機構和從業員必須秉持高水平的專業精神，保持誠信，並在業務和運作上採取良好的做法。
+        <br />
+        <br />
+        是次廉政公署反貪污工作坊由香港商業道德發展中心(廉政公署)、香港檢測和認證局及香港認可處合辦。廉政公署的代表在工作坊中就反貪污法規提供了有用的建議，並分析了檢測和認證從業員可能遇到的常見貪污風險和道德問題。
+        <br />
+        <br />
+        工作坊題目包括了：
+      </p>
+    ),
+    topics: [
+      {
+        title: "專業道德與香港反貪法例 （簡報（只有英文版本））",
+        pdfLink:
+          "https://www.hkctc.gov.hk/en/doc/250210_Handout_Workshop_1.pdf",
+      },
+      {
+        title: "專業道德與誠信管理要訣 （簡報（只有英文版本））",
+        pdfLink:
+          "https://www.hkctc.gov.hk/en/doc/250210_Handout_Workshop_2.pdf",
       },
     ],
   },

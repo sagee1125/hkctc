@@ -89,7 +89,7 @@ export const GeneralPublicContent: React.FC = () => {
         </span>
         <>
           {whatsNewData.map((w, i) => {
-            const { title } = w;
+            const { title, outerLink = false, redirectTo } = w;
             return (
               <a
                 href={w.redirectTo}
@@ -105,8 +105,14 @@ export const GeneralPublicContent: React.FC = () => {
                     isPC ? "ml-[24px]" : "mx-[24px]"
                   } gap-[16px]`}
                 >
-                  <div className={"text-heading-m underline text-[#203136]"}>
-                    {processText(title)}
+                  <div className={"text-heading-m"}>
+                    <Link
+                      linkColor="#203136"
+                      innerLink={outerLink ? undefined : redirectTo}
+                      outerLink={outerLink ? redirectTo : undefined}
+                    >
+                      {processText(title)}
+                    </Link>
                   </div>
 
                   <div className="flex flex-row items-center gap-[8px] text-body-s">
