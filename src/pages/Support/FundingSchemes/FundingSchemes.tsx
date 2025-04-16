@@ -30,7 +30,7 @@ const tidMap: Record<
 
   BUD: {
     label: "BUD Fund (Enterprise Support Programme)",
-    labelCN: `UD專項基金（企業支援計劃）`,
+    labelCN: `BUD專項基金（企業支援計劃）`,
     content: <BUD />,
   },
   TSF: {
@@ -289,8 +289,10 @@ export const FundingSchemes: React.FC = () => {
     Object.keys(ITFMap)[0]
   );
 
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+  const tidMapKeys = Object.keys(tidMap);
   const [activeTIDFunding, setActiveTIDFunding] = useState<string>(
-    Object.keys(tidMap)[0]
+    scrollId === "BUD" ? tidMapKeys[1] : tidMapKeys[0]
   );
   return (
     <div className="w-full">
@@ -390,6 +392,7 @@ export const FundingSchemes: React.FC = () => {
       <div className="mt-[24px]">
         <Accordion
           title={(TID as LanguageResources).title as string}
+          defaultExpanded={scrollId === "BUD"}
           details={
             <div>
               <p className="text-body-m my-[16px]">

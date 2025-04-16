@@ -1,5 +1,13 @@
 export const seminarsData = [
   {
+    title: "ICAC Anti-Corruption Workshop",
+    date: "10 Feb 2025",
+    year: 2025,
+    tag: "Environmental protection",
+    id: "64",
+    img: "s_11.png",
+  },
+  {
     title:
       "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
     date: "11 April 2024",

@@ -41,7 +41,7 @@ export const WhatsNew: React.FC = () => {
     <div className="w-full flex flex-col gap-[24px]">
       <SquareTitle title={title as string} />
       {whatsNewData.map((item, index) => {
-        const { imagePath, title, date, redirectTo } = item;
+        const { imagePath, title, date, outerLink = false, redirectTo } = item;
         return (
           <div
             key={index}
@@ -53,8 +53,8 @@ export const WhatsNew: React.FC = () => {
               <div className="text-heading-m mb-[16px]">
                 <Link
                   linkColor="darkInk"
-                  innerLink={redirectTo}
-                  outerLink={redirectTo}
+                  innerLink={outerLink ? undefined : redirectTo}
+                  outerLink={outerLink ? redirectTo : undefined}
                 >
                   {getSingleText(title, title)}
                 </Link>
