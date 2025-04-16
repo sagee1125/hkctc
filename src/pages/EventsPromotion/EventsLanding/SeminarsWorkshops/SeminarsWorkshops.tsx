@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { seminarsData } from "./seminarData";
 import { seminarsAndWorkshopsList_CN } from "./SeminarArticlePage/seminarArticles";
 import {
@@ -81,7 +80,6 @@ export const SeminarsWorkshops: React.FC = () => {
   const isEn = language === Language.EN;
   const page_text = getPageText(multilingual);
 
-  const navigate = useNavigate();
   const { yearArray, title, topics, years } = page_text;
   const seminarsData_cn = seminarsData.map((item, i) => ({
     ...item,

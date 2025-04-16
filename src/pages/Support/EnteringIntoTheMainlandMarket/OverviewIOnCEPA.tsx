@@ -5,7 +5,6 @@ import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { CEPAAgreements_ids } from "./CEPAAgreements";
 import { navItemEnum } from "../../../const";
-import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
 
 const Agreement: React.FC = () => {
@@ -673,7 +672,6 @@ export const OverviewIOnCEPA: React.FC = () => {
     Object.keys(faqMap)[0]
   );
   const [timelineCollapsed, setTimelineCollapsed] = useState<boolean>(true);
-  const navigate = useNavigate();
 
   const timeLineData: Array<{
     date: string;

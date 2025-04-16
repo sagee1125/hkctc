@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { exploreOption } from "../Navigator";
 import { useSettings } from "../../../context";
 import { maxMobileContainer, maxPCContainer } from "../../Container";
@@ -38,7 +38,6 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
   isMobileView,
   isHidePCExploreBar,
 }) => {
-  const navigate = useNavigate();
   const location = useLocation();
   const { getPageText, isPC, getSingleText } = useSettings();
   const [testHover, setTestHover] = useState(false);
@@ -65,17 +64,17 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
             currentPath === "/general-public"
               ? "text-elegancePurple"
               : "group-hover:text-elegancePurple"
-          } ${isClicked ? "text-[#7C7F83]" : ""} !w-[20px] !h-[20px]`}
+          } ${isClicked ? "text-[#FFFFFF]" : ""} !w-[20px] !h-[20px]`}
         />
       ),
       hoverColor:
         currentPath === "/general-public"
           ? "text-elegancePurple"
           : `group-hover:text-elegancePurple ${
-              isClicked ? "text-[#7C7F83]" : ""
+              isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        navigate("general-public");
+        window.open("general-public", "_self");
       },
     },
     {
@@ -89,17 +88,17 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
             currentPath === "/educators-students"
               ? "text-trustfulBlue"
               : "group-hover:text-trustfulBlue"
-          } ${isClicked ? "text-[#7C7F83]" : ""} !w-[20px] !h-[20px]`}
+          } ${isClicked ? "text-[#FFFFFF]" : ""} !w-[20px] !h-[20px]`}
         />
       ),
       hoverColor:
         currentPath === "/educators-students"
           ? "text-trustfulBlue"
           : `group-hover:text-trustfulBlue ${
-              isClicked ? "text-[#7C7F83]" : ""
+              isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        navigate("educators-students");
+        window.open("educators-students", "_self");
       },
     },
     {
@@ -113,17 +112,17 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
             currentPath === "/service-users"
               ? "text-energeticOrange"
               : "group-hover:text-energeticOrange"
-          } ${isClicked ? "text-[#7C7F83]" : ""} !w-[20px] !h-[20px]`}
+          } ${isClicked ? "text-[#FFFFFF]" : ""} !w-[20px] !h-[20px]`}
         />
       ),
       hoverColor:
         currentPath === "/service-users"
           ? "text-energeticOrange"
           : `group-hover:text-energeticOrange ${
-              isClicked ? "text-[#7C7F83]" : ""
+              isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        navigate("service-users");
+        window.open("service-users", "_self");
       },
     },
     {
@@ -134,7 +133,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
           width="20"
           height="20"
           viewBox="0 0 20 20"
-          fill={isClicked ? "#7C7F83" : "none"}
+          fill={isClicked ? "#FFFFFF" : "none"}
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
@@ -145,7 +144,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                 currentPath === "/industry" || testHover
                   ? "#D1E39B"
                   : isClicked
-                  ? "#7C7F83"
+                  ? "#FFFFFF"
                   : "white"
               }
             />
@@ -161,10 +160,10 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
         currentPath === "/industry"
           ? "text-growthfulGreen"
           : `group-hover:text-growthfulGreen ${
-              isClicked ? "text-[#7C7F83]" : ""
+              isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        navigate("industry");
+        window.open("industry", "_self");
       },
     },
   ];

@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useSettings } from "../../context";
 type SquareTitleProps = {
   title: React.ReactNode;
@@ -12,16 +11,9 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
   showArrowIcon = false,
   redirectTo,
 }) => {
-  const navigate = useNavigate();
   const { isPC } = useSettings();
   const handleClick = (): void => {
-    if (redirectTo) {
-      window.scroll({
-        top: 0,
-        behavior: "smooth",
-      });
-      navigate(redirectTo);
-    }
+    window.open(redirectTo, "_self");
   };
   return (
     <div

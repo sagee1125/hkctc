@@ -155,7 +155,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                 >
                   {getSingleText(description, descriptionCN)}
                 </div>
-                <div className="text-highlight-m text-[#A7AAAD] text-center">
+                <div className="text-highlight-m text-[#727376] text-center">
                   {continue_read as string}
                 </div>
               </div>

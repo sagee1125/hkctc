@@ -17,12 +17,10 @@ import {
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
-import { useNavigate } from "react-router-dom";
 
 export const AwardScheme23to24: React.FC = () => {
-  const { isPC, language, processText, convertReactNode } = useSettings();
+  const { isPC, language, processText } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
 

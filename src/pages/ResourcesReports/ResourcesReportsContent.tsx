@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Radio, RadioGroup, Menu, Transition } from "@headlessui/react";

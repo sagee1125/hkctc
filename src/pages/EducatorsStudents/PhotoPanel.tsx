@@ -1,7 +1,6 @@
 import React from "react";
 import { useSettings } from "../../context";
 import { navItemEnum } from "../../const";
-import { useNavigate } from "react-router-dom";
 
 const multilingual = {
   en: {
@@ -21,7 +20,6 @@ const multilingual = {
 export const PhotoPanel: React.FC = () => {
   const { getPageText, isPC } = useSettings();
   const page_text = getPageText(multilingual);
-  const navigate = useNavigate();
 
   const {
     learning_teaching_resources,

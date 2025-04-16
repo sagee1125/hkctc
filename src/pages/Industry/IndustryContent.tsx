@@ -156,7 +156,7 @@ export const IndustryContent: React.FC = () => {
                   <div className="text-body0m">
                     {getSingleText(description, descriptionCN)}
                   </div>
-                  <div className="text-highlight-m text-[#A7AAAD] text-start">
+                  <div className="text-highlight-m text-[#727376] text-start">
                     {continue_read as string}
                   </div>
                 </div>

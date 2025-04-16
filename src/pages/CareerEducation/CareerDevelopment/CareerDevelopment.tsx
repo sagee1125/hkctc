@@ -1,6 +1,5 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
-import { useNavigate } from "react-router-dom";
 import { MEDIA_TYPE, navItemEnum } from "../../../const";
 import { useSettings } from "../../../context";
 
@@ -47,7 +46,6 @@ const multilingual = {
   },
 };
 export const CareerDevelopment: React.FC = () => {
-  const navigate = useNavigate();
   const { isPC, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
@@ -213,11 +211,7 @@ export const CareerDevelopment: React.FC = () => {
   ];
 
   const handleNav = (link: string): void => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-    navigate(link);
+    window.open(link, "_self");
   };
   return (
     <div className="w-full">

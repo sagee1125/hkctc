@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Collapse } from "@mui/material";
@@ -36,7 +35,6 @@ const multilingual = {
 };
 
 export const Footer: React.FC = () => {
-  const navigate = useNavigate();
   const { isPC, getPageText, getSingleText } = useSettings();
 
   const page_text = getPageText(multilingual);
@@ -458,15 +456,6 @@ export const Footer: React.FC = () => {
     },
   ];
 
-  const handleClick = (link?: string): void => {
-    if (link) {
-      window.scroll({
-        top: 0,
-        behavior: "smooth",
-      });
-      navigate(link);
-    }
-  };
   return (
     <footer
       id="footer"
@@ -587,39 +576,21 @@ export const Footer: React.FC = () => {
               <div className="grid grid-cols-4 gap-[24px] px-[25px] py-[42px]">
                 {footerData.map((col, index) => (
                   <div key={index} className="flex flex-col">
-                    <div
-                      className="text-heading-l cursor-pointer"
-                      tabIndex={0}
-                      role="button"
+                    <a
+                      className="text-heading-l"
+                      href={col.link}
                       aria-label={getSingleText(col.title, col.titleCN)}
-                      onClick={() => {
-                        handleClick(col.link);
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                          handleClick(col.link);
-                        }
-                      }}
                     >
                       {getSingleText(col.title, col.titleCN)}
-                    </div>
+                    </a>
                     <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
                     <div className="flex flex-col gap-[16px] text-body-m">
                       {col.subs.map((sub, index) => (
                         <div key={index}>
-                          <div
-                            className="flex flex-row gap-[8px] items-center cursor-pointer"
-                            tabIndex={0}
-                            role="button"
+                          <a
+                            className="flex flex-row gap-[8px] items-center"
                             aria-label={getSingleText(sub.label, sub.labelCN)}
-                            onClick={() => {
-                              handleClick(sub.link);
-                            }}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") {
-                                handleClick(sub.link);
-                              }
-                            }}
+                            href={sub.link}
                           >
                             <Icon
                               icon="weui:arrow-outlined"
@@ -628,7 +599,7 @@ export const Footer: React.FC = () => {
                             />
 
                             {getSingleText(sub.label, sub.labelCN)}
-                          </div>
+                          </a>
                           {sub.items && (
                             <div className="flex flex-col gap-[16px] pl-[16px]">
                               {sub.items.map((item, index) => {
@@ -638,21 +609,12 @@ export const Footer: React.FC = () => {
                                 );
                                 return (
                                   <li
-                                    className="cursor-pointer"
                                     tabIndex={0}
                                     role="menuitem"
                                     key={index}
                                     aria-label={display}
-                                    onClick={() => {
-                                      handleClick(item.link);
-                                    }}
-                                    onKeyDown={(e) => {
-                                      if (e.key === "Enter") {
-                                        handleClick(item.link);
-                                      }
-                                    }}
                                   >
-                                    {display}
+                                    <a href={item.link}>{display}</a>
                                   </li>
                                 );
                               })}
@@ -674,22 +636,15 @@ export const Footer: React.FC = () => {
                             <div className="flex flex-col gap-[16px] text-body-m">
                               {sec.subs.map((sub, index) => (
                                 <div key={index}>
-                                  <div
-                                    className="flex flex-row gap-[8px] items-center cursor-pointer h-[22px]"
+                                  <a
+                                    className="flex flex-row gap-[8px] items-center h-[22px]"
                                     tabIndex={0}
                                     role="button"
                                     aria-label={getSingleText(
                                       sub.label,
                                       sub.labelCN
                                     )}
-                                    onClick={() => {
-                                      handleClick(sub.link);
-                                    }}
-                                    onKeyDown={(e) => {
-                                      if (e.key === "Enter") {
-                                        handleClick(sub.link);
-                                      }
-                                    }}
+                                    href={sub.link}
                                   >
                                     <Icon
                                       icon="weui:arrow-outlined"
@@ -698,33 +653,26 @@ export const Footer: React.FC = () => {
                                     />
 
                                     {getSingleText(sub.label, sub.labelCN)}
-                                  </div>
+                                  </a>
                                   {sub.items && (
                                     <div className="flex flex-col gap-[16px] pl-[16px]">
                                       {sub.items.map((item, index) => (
                                         <li
-                                          className="cursor-pointer"
                                           tabIndex={0}
                                           role="menuitem"
                                           key={index}
                                           aria-disabled={!item.link}
-                                          onClick={() => {
-                                            handleClick(item.link);
-                                          }}
-                                          onKeyDown={(e) => {
-                                            if (e.key === "Enter") {
-                                              handleClick(item.link);
-                                            }
-                                          }}
                                           aria-label={getSingleText(
                                             item.label,
                                             item.labelCN
                                           )}
                                         >
-                                          {getSingleText(
-                                            item.label,
-                                            item.labelCN
-                                          )}
+                                          <a href={item.link}>
+                                            {getSingleText(
+                                              item.label,
+                                              item.labelCN
+                                            )}
+                                          </a>
                                         </li>
                                       ))}
                                     </div>
@@ -747,23 +695,14 @@ export const Footer: React.FC = () => {
               {commonData.slice(0, 3).map((item, index) => {
                 const display = getSingleText(item.label, item.labelCN);
                 return (
-                  <div
+                  <a
                     key={index}
-                    className="text-body-s cursor-pointer"
-                    tabIndex={0}
-                    role="button"
+                    className="text-body-s"
+                    href={item.link}
                     aria-label={display}
-                    onClick={() => {
-                      handleClick(item.link);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleClick(item.link);
-                      }
-                    }}
                   >
                     {display}
-                  </div>
+                  </a>
                 );
               })}
             </div>
@@ -772,23 +711,14 @@ export const Footer: React.FC = () => {
               {commonData.slice(3, 6).map((item, index) => {
                 const display = getSingleText(item.label, item.labelCN);
                 return (
-                  <div
+                  <a
                     key={index}
-                    className="text-body-s cursor-pointer"
-                    tabIndex={0}
-                    role="button"
+                    className="text-body-s"
                     aria-label={display}
-                    onClick={() => {
-                      handleClick(item.link);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleClick(item.link);
-                      }
-                    }}
+                    href={item.link}
                   >
                     {display}
-                  </div>
+                  </a>
                 );
               })}
             </div>

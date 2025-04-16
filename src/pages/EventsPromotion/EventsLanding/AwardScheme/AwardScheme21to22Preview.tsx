@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { award2122_multilingual as multilingual } from "./lang";
 import {
   normalButtonStyle,
@@ -45,7 +44,6 @@ const supportingOrg: Array<{
 export const AwardScheme21to22Preview: React.FC<{
   handleOpenAssessmentPanel: () => void;
 }> = ({ handleOpenAssessmentPanel }) => {
-  const navigate = useNavigate();
   const { isPC, language, processText, convertReactNode } = useSettings();
   const isEn = language === Language.EN;
   const page_text = isEn ? multilingual.en : multilingual.cn;
@@ -625,15 +623,6 @@ export const AwardScheme21to22Preview: React.FC<{
       <a
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
         href="/events-promotion/award-scheme2122"
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            navigate("/events-promotion/award-scheme2122");
-            window.scroll({
-              top: 100,
-              behavior: "smooth",
-            });
-          }
-        }}
         aria-label={processText(page_text.award_ceremony_list)}
       >
         <img

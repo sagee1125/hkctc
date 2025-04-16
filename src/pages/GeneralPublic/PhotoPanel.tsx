@@ -1,6 +1,5 @@
 import React from "react";
 import { useSettings } from "../../context";
-import { useNavigate } from "react-router-dom";
 import { navItemEnum } from "../../const";
 const multilingual = {
   en: {
@@ -41,8 +40,6 @@ export const PhotoPanel: React.FC = () => {
 
   const { about, profile_and_role, tc_sector_strengths, services_provided } =
     page_text;
-
-  const navigate = useNavigate();
 
   if (isPC)
     return (
