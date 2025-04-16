@@ -1,6 +1,5 @@
 import React from "react";
 import { Breadcrumb } from "../../components";
-import { useNavigate } from "react-router-dom";
 import { useSettings } from "../../context";
 
 const multilingual = {
@@ -19,7 +18,6 @@ const multilingual = {
 };
 
 export const NotFound: React.FC = () => {
-  const navigate = useNavigate();
   const { getPageText } = useSettings();
   const page_text = getPageText(multilingual);
   const { home, not_found, back_to_home, desc } = page_text;
@@ -57,7 +55,7 @@ export const NotFound: React.FC = () => {
           <button
             className="bg-[#233F55] w-[296px] p-[16px]"
             onClick={() => {
-              navigate("/");
+              window.open("/", "_self");
             }}
           >
             {back_to_home as string}

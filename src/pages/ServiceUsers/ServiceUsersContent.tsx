@@ -2,7 +2,6 @@ import React from "react";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { useSettings } from "../../context";
 import { navItemEnum } from "../../const";
-import { useNavigate } from "react-router-dom";
 
 const multilingual = {
   en: {
@@ -164,7 +163,6 @@ export const ServiceUsersContent: React.FC = () => {
       link: `/events-promotion?section=${navItemEnum.seminar_workshop}`,
     },
   ];
-  const navigate = useNavigate();
 
   return (
     <div
@@ -211,7 +209,7 @@ export const ServiceUsersContent: React.FC = () => {
                   <div className="text-body0m">
                     {getSingleText(description, descriptionCN)}
                   </div>
-                  <div className="text-highlight-m text-[#A7AAAD] text-start">
+                  <div className="text-highlight-m text-[#727376] text-start">
                     {continue_read as string}
                   </div>
                 </div>

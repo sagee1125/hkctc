@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition, Menu } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ExploreBar, getCurrentTitle } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
@@ -104,7 +104,6 @@ export const Navigator: React.FC = () => {
   const anchorRef = useRef(null); // mobile drop drown icon
 
   const navRef = useRef<HTMLDivElement | null>(null);
-  const navigate = useNavigate();
 
   const isHideExploreBar = hideExploreBar.some((path) =>
     currentPath.startsWith(path)
@@ -192,7 +191,7 @@ export const Navigator: React.FC = () => {
                         onClick={() => {
                           setSelectedExploreOption(item.title);
                           setOpenMobileDropDown(false);
-                          navigate(item.nav);
+                          window.open(item.nav, "_self");
                         }}
                         aria-label={getSingleText(item.title, item.titleCN)}
                         tabIndex={0}
@@ -266,7 +265,7 @@ export const Navigator: React.FC = () => {
                           const ifHideArrow: boolean = !items.length;
                           const displayTitle = getSingleText(title, titleCN);
                           const onClick = (): void => {
-                            if (navUrl) navigate(navUrl);
+                            if (navUrl) window.open(navUrl, "_self");
                             else {
                               setActiveIndex(ncIndex);
                               setActiveSubItem(
@@ -524,7 +523,7 @@ export const Navigator: React.FC = () => {
                                         if (navUrl) {
                                           setOpenMobileDropDown(false);
                                           setActiveIndex(null);
-                                          navigate(navUrl);
+                                          window.open(navUrl, "_self");
                                         }
                                       };
                                       return (
@@ -657,8 +656,9 @@ export const Navigator: React.FC = () => {
                                                                 false
                                                               );
                                                               if (navUrl)
-                                                                navigate(
-                                                                  navUrl
+                                                                window.open(
+                                                                  navUrl,
+                                                                  "_self"
                                                                 );
                                                             };
                                                           return (
@@ -789,8 +789,9 @@ export const Navigator: React.FC = () => {
                                                                         if (
                                                                           navUrl
                                                                         )
-                                                                          navigate(
-                                                                            navUrl
+                                                                          window.open(
+                                                                            navUrl,
+                                                                            "_self"
                                                                           );
                                                                       };
                                                                     return (
@@ -859,7 +860,10 @@ export const Navigator: React.FC = () => {
                                                         false
                                                       );
                                                       if (navUrl)
-                                                        navigate(navUrl);
+                                                        window.open(
+                                                          navUrl,
+                                                          "_self"
+                                                        );
                                                     };
                                                     return (
                                                       <div
@@ -942,7 +946,7 @@ export const Navigator: React.FC = () => {
                                         key={eoIndex}
                                         onClick={() => {
                                           setSelectedExploreOption(item.title);
-                                          navigate(item.nav);
+                                          window.open(item.nav, "_self");
                                         }}
                                         className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
                                           active
@@ -1066,7 +1070,7 @@ export const Navigator: React.FC = () => {
                     {subItems.map((sub, index) => {
                       const { subTitle, imgUrl, navUrl } = sub;
                       const onClick = (): void => {
-                        if (navUrl) navigate(navUrl);
+                        if (navUrl) window.open(navUrl, "_self");
                       };
                       return (
                         <div

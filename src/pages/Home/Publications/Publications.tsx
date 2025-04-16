@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
 import report from "./assets/report.png";
 import newsletter from "./assets/Newsletter.png";
 import publications from "./assets/publications.png";
@@ -75,7 +74,6 @@ export const Publications: React.FC = () => {
   const [prevActiveCategory, setPrevActiveCategory] = useState<Category>(
     Category.Events
   );
-  const navigate = useNavigate();
   const { isPC, getPageText, getSingleText } = useSettings();
 
   const page_text = getPageText(multilingual);
