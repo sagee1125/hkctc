@@ -202,7 +202,6 @@ export const EnvironmentalProtection: React.FC = () => {
                 const isActivated = index === activeBSectionButton;
                 return (
                   <button
-                    tabIndex={0}
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle

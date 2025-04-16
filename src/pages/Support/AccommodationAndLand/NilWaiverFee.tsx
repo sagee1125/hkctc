@@ -759,14 +759,16 @@ export const NilWaiverFee: React.FC = () => {
             const isActivated = activeButton === b;
             const label = getSingleText(faqMap[b].label, faqMap[b].labelCN);
             return (
-              // eslint-disable-next-line jsx-a11y/no-redundant-roles
               <button
                 key={i}
-                tabIndex={0}
-                role="button"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
                   setActiveButton(b);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setActiveButton(b);
+                  }
                 }}
               >
                 <p className="text-highlight-xs">

@@ -374,7 +374,6 @@ export const Publications: React.FC = () => {
     >
       {/* column 1,2 */}
       <div
-        tabIndex={0}
         className={`w-full transition-transform duration-700 pl-[24px] ${
           isVisible
             ? "translate-x-0 opacity-100"
@@ -401,6 +400,11 @@ export const Publications: React.FC = () => {
                       className="cursor-pointer flex flex-col items-center"
                       onClick={() => {
                         setActiveCategory(title);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          setActiveCategory(title);
+                        }
                       }}
                       aria-label={getSingleText(title, titleCN)}
                       tabIndex={0}
@@ -469,6 +473,7 @@ export const Publications: React.FC = () => {
                     {publicationCategory.map((cate, index) => {
                       const { title, titleCN } = cate;
                       const isActivated = title === activeCategory;
+                      const displayTitle = getSingleText(title, titleCN);
                       return (
                         <div
                           key={index}
@@ -476,7 +481,12 @@ export const Publications: React.FC = () => {
                           onClick={() => {
                             setActiveCategory(title);
                           }}
-                          aria-label={getSingleText(title, titleCN)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              setActiveCategory(title);
+                            }
+                          }}
+                          aria-label={displayTitle}
                           tabIndex={0}
                           role="button"
                         >
@@ -490,7 +500,7 @@ export const Publications: React.FC = () => {
                             }}
                             ref={(el) => (titleRefs.current[index] = el)}
                           >
-                            {getSingleText(title, titleCN)}
+                            {displayTitle}
                           </p>
                         </div>
                       );
@@ -535,19 +545,10 @@ export const Publications: React.FC = () => {
                     animate={animate}
                     direction={direction}
                   >
-                    <div
-                      className="flex flex-row h-[100px] gap-[24px] w-full cursor-pointer"
-                      tabIndex={0}
+                    <a
+                      className="flex flex-row h-[100px] gap-[24px] w-full"
                       role="button"
-                      onClick={() => {
-                        if (nav) {
-                          window.scroll({
-                            top: 0,
-                            behavior: "smooth",
-                          });
-                          navigate(nav);
-                        }
-                      }}
+                      href={nav}
                       aria-label={getSingleText(
                         prevActiveCategory.toUpperCase(),
                         traditionTitle
@@ -591,7 +592,7 @@ export const Publications: React.FC = () => {
                           {getSingleText(title, titleCN)}
                         </p>
                       </div>
-                    </div>
+                    </a>
                   </BannerSlide>
                 );
               })}
@@ -600,23 +601,9 @@ export const Publications: React.FC = () => {
                   isPC ? "" : "pr-[24px]"
                 }`}
               >
-                <p
-                  onClick={() => {
-                    if (seeMore) {
-                      window.scroll({
-                        top: 0,
-                        behavior: "smooth",
-                      });
-                      navigate(seeMore);
-                    }
-                  }}
-                  className="cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  aria-label={explore_more as string}
-                >
+                <a href={seeMore} aria-label={explore_more as string}>
                   {explore_more as string}
-                </p>
+                </a>
               </div>
             </Container>
           </div>
@@ -642,10 +629,9 @@ export const Publications: React.FC = () => {
           aria-label={stem_kit as string}
         >
           <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
-            <div
+            <a
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
-              role="button"
-              tabIndex={0}
+              href={`/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
                 backgroundSize: "cover",
@@ -658,11 +644,6 @@ export const Publications: React.FC = () => {
                 position: "relative",
                 cursor: "pointer",
                 overflow: "hidden",
-              }}
-              onClick={() => {
-                navigate(
-                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`
-                );
               }}
             >
               <div
@@ -711,12 +692,11 @@ export const Publications: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <div className={`w-full ${isPC ? "" : "max-w-full pr-[24px]"}`}>
-            <div
+            <a
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
-              tabIndex={0}
               aria-label={chemical_kit as string}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/Chemical.png)`,
@@ -731,12 +711,7 @@ export const Publications: React.FC = () => {
                 cursor: "pointer",
                 overflow: "hidden",
               }}
-              role="button"
-              onClick={() => {
-                navigate(
-                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`
-                );
-              }}
+              href={`/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`}
             >
               <div
                 style={{
@@ -784,7 +759,7 @@ export const Publications: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -792,7 +767,6 @@ export const Publications: React.FC = () => {
       {/* column 3 */}
       <div className={`px-[24px] w-full ${isPC ? "" : "mt-[24px] mb-[48px]"}`}>
         <div
-          tabIndex={0}
           className={`py-[24px] px-[30px] border-2 border-inherit w-full flex flex-col transition-transform duration-700 ${
             isVisible
               ? "translate-x-0 opacity-100"
@@ -804,18 +778,10 @@ export const Publications: React.FC = () => {
             {resourcesData.map((item, index) => {
               const { title, titleCN, icon, sideColor, bgImg, navTo } = item;
               return (
-                <div
+                <a
+                  href={navTo}
                   key={index}
-                  tabIndex={0}
-                  role="button"
                   className={`flex flex-row cursor-pointer items-center h-[80px] relative overflow-hidden group mt-[16px]`}
-                  onClick={() => {
-                    window.scroll({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                    navigate(navTo);
-                  }}
                   aria-label={getSingleText(title, titleCN)}
                 >
                   {/* Inner Background Div */}
@@ -843,7 +809,7 @@ export const Publications: React.FC = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>

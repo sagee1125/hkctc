@@ -212,6 +212,13 @@ export const CareerDevelopment: React.FC = () => {
     },
   ];
 
+  const handleNav = (link: string): void => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+    navigate(link);
+  };
   return (
     <div className="w-full">
       <SquareTitle title={title as string} />
@@ -235,11 +242,12 @@ export const CareerDevelopment: React.FC = () => {
               tabIndex={0}
               role="button"
               onClick={() => {
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                navigate(nav);
+                handleNav(nav);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleNav(nav);
+                }
               }}
               aria-label={displayTitle}
             >
@@ -356,11 +364,12 @@ export const CareerDevelopment: React.FC = () => {
               tabIndex={0}
               role="button"
               onClick={() => {
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                navigate(nav);
+                handleNav(nav);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleNav(nav);
+                }
               }}
               aria-label={displayTitle}
             >

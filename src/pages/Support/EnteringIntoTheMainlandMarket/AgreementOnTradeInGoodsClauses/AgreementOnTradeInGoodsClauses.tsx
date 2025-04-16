@@ -8,21 +8,19 @@ const multilingual = {
     title: "Agreement on Trade in Goods - Clauses",
     article_58: "Article 58 - Conformity Assessment Procedures",
     procedures: (
-      <ol className="text-justify">
+      <ol className="text-justify mb-[1em]">
         <li className="text-body-m">
           The two sides shall seek to facilitate the acceptance of the results
           of conformity assessment procedures conducted in the other side, with
           a view to increasing efficiency and ensuring cost effectiveness of
           conformity assessments.
         </li>
-        <br />
-        <li className="text-body-m">
+        <li className="text-body-m mb-[1em]">
           In the fields of electronic and electrical products, the two sides
           shall explore and promote mutual recognition of the certification
           results of originating electronic and electrical products between the
           Mainland and Hong Kong in order to facilitate trade.
         </li>
-        <br />
         <li className="text-body-m">
           The two sides agree to encourage their conformity assessment bodies to
           work more closely with a view to facilitating the mutual acceptance of

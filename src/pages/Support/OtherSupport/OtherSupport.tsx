@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
 import * as React from "react";
 import { SquareTitle } from "../../../components";
 import { Language, LanguageResources, useSettings } from "../../../context";

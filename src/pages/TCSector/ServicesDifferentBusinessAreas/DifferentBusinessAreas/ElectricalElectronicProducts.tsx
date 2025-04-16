@@ -180,7 +180,6 @@ export const ElectricalElectronicProducts: React.FC = () => {
               const isActivated = index === activeButton;
               return (
                 <button
-                  tabIndex={0}
                   key={index}
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {

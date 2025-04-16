@@ -3,7 +3,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EmailBox, SquareTitle, Link } from "../../components";
 import { Language, useSettings } from "../../context";
 import { WhatsNewConfiguration, WhatsNewConfiguration_cn } from "../../const";
-import { useNavigate } from "react-router-dom";
 
 const multilingual = {
   en: {
@@ -29,7 +28,6 @@ export const GeneralPublicContent: React.FC = () => {
   const { getPageText, isPC, language, processText } = useSettings();
   const isEn = language === Language.EN;
   const page_text = getPageText(multilingual);
-  const navigate = useNavigate();
 
   const {
     hkctc_newsletter,
@@ -78,17 +76,9 @@ export const GeneralPublicContent: React.FC = () => {
     >
       <div className="flex flex-col gap-[24px]">
         <span className="flex flex-row items-center">
-          <div
-            className="cursor-pointer"
-            tabIndex={0}
-            role="button"
-            aria-label={whats_new as string}
-            onClick={() => {
-              navigate("/whats-new");
-            }}
-          >
+          <a href="/whats-new" role="button" aria-label={whats_new as string}>
             <SquareTitle title={whats_new as string} />
-          </div>
+          </a>
           <ArrowForwardIosIcon
             sx={{
               marginLeft: "8px",
@@ -101,7 +91,8 @@ export const GeneralPublicContent: React.FC = () => {
           {whatsNewData.map((w, i) => {
             const { title } = w;
             return (
-              <div
+              <a
+                href={w.redirectTo}
                 className={`flex ${
                   isPC
                     ? "flex-row-reverse"
@@ -114,15 +105,10 @@ export const GeneralPublicContent: React.FC = () => {
                     isPC ? "ml-[24px]" : "mx-[24px]"
                   } gap-[16px]`}
                 >
-                  <div className={"text-heading-m"}>
-                    <Link
-                      linkColor="#203136"
-                      innerLink={w.redirectTo}
-                      outerLink={w.redirectTo}
-                    >
-                      {processText(title)}
-                    </Link>
+                  <div className={"text-heading-m underline text-[#203136]"}>
+                    {processText(title)}
                   </div>
+
                   <div className="flex flex-row items-center gap-[8px] text-body-s">
                     <img
                       src={
@@ -139,16 +125,11 @@ export const GeneralPublicContent: React.FC = () => {
                   className={`${
                     isPC ? "w-[278px] h-full" : "w-full h-auto"
                   } object-cover cursor-pointer`}
-                  tabIndex={0}
-                  role="button"
-                  onClick={() => {
-                    if (w.redirectTo) navigate(w.redirectTo);
-                  }}
                   src={`${process.env.PUBLIC_URL}/assets/whatsNew/${w.imagePath}`}
                   alt={w.title}
                   aria-label={"image - " + w.title}
                 />
-              </div>
+              </a>
             );
           })}
         </>
@@ -163,14 +144,10 @@ export const GeneralPublicContent: React.FC = () => {
             {materialsData.map((mat, index) => {
               const { title, imgUrl, link } = mat;
               return (
-                <div
+                <a
                   key={index}
                   className="flex flex-row items-start gap-[24px] cursor-pointer"
-                  onClick={() => {
-                    navigate(link);
-                  }}
-                  tabIndex={0}
-                  role="button"
+                  href={link}
                   aria-label={title}
                 >
                   <img
@@ -183,14 +160,12 @@ export const GeneralPublicContent: React.FC = () => {
                     aria-label={"image - " + title}
                   />
                   <p className="text-highlight-l">{title}</p>
-                </div>
+                </a>
               );
             })}
           </div>
           <div>
-            <div
-              role="button"
-              tabIndex={0}
+            <a
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",
@@ -202,9 +177,7 @@ export const GeneralPublicContent: React.FC = () => {
                 cursor: "pointer",
               }}
               aria-label="redirect to the seminar workshop in events promotion section"
-              onClick={() => {
-                navigate("/events-promotion?section=seminar_workshop");
-              }}
+              href={"/events-promotion?section=seminar_workshop"}
             >
               <div
                 style={{
@@ -224,15 +197,11 @@ export const GeneralPublicContent: React.FC = () => {
                   {seminar_workshop as string}
                 </p>
               </div>
-            </div>
+            </a>
           </div>
-          <div
+          <a
             className="cursor-pointer"
-            onClick={() => {
-              navigate("/events-promotion?section=comics");
-            }}
-            tabIndex={0}
-            role="button"
+            href="/events-promotion?section=comics"
             aria-label="redirect to the comics list in events promotion section"
           >
             <div
@@ -248,7 +217,7 @@ export const GeneralPublicContent: React.FC = () => {
                 height: "134px",
               }}
             />
-          </div>
+          </a>
           <hr />
           <EmailBox />
         </div>

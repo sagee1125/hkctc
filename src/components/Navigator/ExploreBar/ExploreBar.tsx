@@ -211,6 +211,14 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
                         setTestHover(true);
                       }
                     }}
+                    onKeyDown={(e) => {
+                      if (
+                        e.key === "Enter" &&
+                        index === exploreBarData.length - 1
+                      ) {
+                        setTestHover(true);
+                      }
+                    }}
                     onMouseLeave={() => {
                       if (index === exploreBarData.length - 1) {
                         setTestHover(false);

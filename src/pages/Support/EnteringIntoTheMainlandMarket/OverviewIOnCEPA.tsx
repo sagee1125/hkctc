@@ -829,24 +829,18 @@ export const OverviewIOnCEPA: React.FC = () => {
                   } w-[2px] bg-newPrimary absolute top-[17px]`}
                 />
               </div>
-              <div
+              <a
                 className={`text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
               p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
               mb-[16px] w-full cursor-pointer ${
                 index === 0 ? "bg-newPrimary text-white" : ""
               }`}
-                tabIndex={0}
-                role="button"
-                onClick={() => {
-                  navigate(
-                    `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}&serviceTab=${item.serviceTab}#1`
-                  );
-                }}
+                href={`/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}&serviceTab=${item.serviceTab}#1`}
                 aria-label={getSingleText(item.date, item.dateCN)}
               >
                 <p>{getSingleText(item.date, item.dateCN)}</p>
                 <div>{getSingleNode(item.event, item.eventCN)}</div>
-              </div>
+              </a>
             </div>
           ))}
         </div>
@@ -867,31 +861,24 @@ export const OverviewIOnCEPA: React.FC = () => {
                     } w-[2px] bg-newPrimary absolute top-[17px]`}
                   />
                 </div>
-                <div
+                <a
                   className="text-highlight-s grid grid-cols-[auto,auto] gap-[24px] 
               p-[16px] border-[1px] border-[#E0E0E0] justify-start content-center 
               mb-[16px] w-full cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  onClick={() => {
-                    navigate(
-                      `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`
-                    );
-                  }}
+                  href={`/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=${item.scroll_id}#1`}
                   aria-label={getSingleText(item.date, item.dateCN)}
                 >
                   <p>{getSingleText(item.date, item.dateCN)}</p>
                   <p className="underline text-newPrimary">
                     {getSingleText(item.event, item.eventCN)}
                   </p>
-                </div>
+                </a>
               </div>
             ))}
           </div>
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
-            tabIndex={0}
             className="text-highlight-m"
             onClick={() => {
               setTimelineCollapsed(!timelineCollapsed);
@@ -922,7 +909,6 @@ export const OverviewIOnCEPA: React.FC = () => {
 
             return (
               <button
-                tabIndex={0}
                 key={index}
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

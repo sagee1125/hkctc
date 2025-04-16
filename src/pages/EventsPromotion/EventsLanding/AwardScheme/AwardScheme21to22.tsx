@@ -129,6 +129,16 @@ export const AwardScheme21to22: React.FC = () => {
           : "text-heading-m text-[#767676]";
 
         const marginStyle = index === 0 ? "" : "-mt-[2px]";
+        const handleScrollId = (): void => {
+          const scrollElement = document.getElementById(id);
+          if (scrollElement) {
+            setLocateAnchor(index);
+            scrollElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        };
         return (
           <div
             className={classNames(
@@ -139,14 +149,10 @@ export const AwardScheme21to22: React.FC = () => {
             )}
             tabIndex={0}
             role="button"
-            onClick={() => {
-              const scrollElement = document.getElementById(id);
-              if (scrollElement) {
-                setLocateAnchor(index);
-                scrollElement.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
+            onClick={handleScrollId}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleScrollId();
               }
             }}
             aria-label={processText(title)}
@@ -161,8 +167,6 @@ export const AwardScheme21to22: React.FC = () => {
   const mobileSidebar = (
     <>
       <button
-        tabIndex={0}
-        role="button"
         className="!text-highlight-m text-white fixed bottom-[24px] right-[24px] z-50"
         style={{
           background: "#233F55",
@@ -199,6 +203,11 @@ export const AwardScheme21to22: React.FC = () => {
             className="w-full flex flex-row justify-between items-center pb-[24px] cursor-pointer"
             onClick={() => {
               setIsOpen(false);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setIsOpen(false);
+              }
             }}
             aria-label={processText(page_text.mobile_sidebar.content_list)}
             role="button"
@@ -237,6 +246,16 @@ export const AwardScheme21to22: React.FC = () => {
                 : "text-heading-m text-[#767676]";
 
               const marginStyle = index === 0 ? "" : "-mt-[2px]";
+              const handleScroll = (): void => {
+                const scrollElement = document.getElementById(id);
+                if (scrollElement) {
+                  setLocateAnchor(index);
+                  scrollElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              };
               return (
                 <div
                   className={classNames(
@@ -247,14 +266,10 @@ export const AwardScheme21to22: React.FC = () => {
                   )}
                   tabIndex={0}
                   role="button"
-                  onClick={() => {
-                    const scrollElement = document.getElementById(id);
-                    if (scrollElement) {
-                      setLocateAnchor(index);
-                      scrollElement.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                  onClick={handleScroll}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleScroll();
                     }
                   }}
                   aria-label={processText(title)}
@@ -311,8 +326,6 @@ export const AwardScheme21to22: React.FC = () => {
                   const isActivated = activeButtonTwo === i;
                   return (
                     <button
-                      tabIndex={0}
-                      role="button"
                       key={i}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle

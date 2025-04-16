@@ -12,6 +12,7 @@ import {
   WhatsNewConfiguration,
   hkctcNewsletterList,
   WhatsNewConfiguration_cn,
+  navItemEnum,
 } from "../../const";
 import { Language, useSettings } from "../../context";
 
@@ -68,21 +69,18 @@ export const WhatsNew: React.FC = () => {
                 <span className="text-grey ml-[8px]">{date}</span>
               </div>
             </div>
-            <img
-              className={`${
-                isPC
-                  ? "w-[278px] h-full border-2 border-inherit"
-                  : "w-full h-auto"
-              } object-cover cursor-pointer`}
-              tabIndex={0}
-              role="button"
-              aria-label={getSingleText(title, title)}
-              onClick={() => {
-                window.open(redirectTo, "_blank", "noopener");
-              }}
-              src={`${process.env.PUBLIC_URL}/assets/whatsNew/${imagePath}`}
-              alt={getSingleText(title, title)}
-            />
+            <a href={redirectTo} target={"_blank"} rel={"noopener noreferrer"}>
+              <img
+                className={`${
+                  isPC
+                    ? "w-[278px] h-full border-2 border-inherit"
+                    : "w-full h-auto"
+                } object-cover`}
+                aria-label={getSingleText(title, title)}
+                src={`${process.env.PUBLIC_URL}/assets/whatsNew/${imagePath}`}
+                alt={getSingleText(title, title)}
+              />
+            </a>
           </div>
         );
       })}
@@ -114,17 +112,13 @@ export const WhatsNew: React.FC = () => {
             </div>
           );
         })}
-        <div
-          className="text-links underline text-right w-full cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/events-promotion?section=hkctc_newsletter");
-          }}
+        <a
+          className="text-links underline text-right w-full"
+          href={`/events-promotion?section=${navItemEnum.hkctc_newsletter}`}
           aria-label={see_more as string}
         >
           {see_more as string}
-        </div>
+        </a>
       </div>
     </div>
   );

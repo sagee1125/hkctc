@@ -117,14 +117,12 @@ export const EducatorsStudentsContent: React.FC = () => {
         {educationData.map((item, index) => {
           const { title, imagePath, description, descriptionCN, link } = item;
           return (
-            <div
+            <a
               key={index}
+              href={link}
+              target={"_blank"}
+              rel={"noopener noreferrer"}
               className="flex flex-col justify-start group border-2 border-inherit h-auto cursor-pointer"
-              onClick={() => {
-                window.open(link, "_blank", "noopener");
-              }}
-              tabIndex={0}
-              role="button"
               aria-label={title as string}
             >
               <div className="relative flex justify-start items-center w-full h-[295px] overflow-hidden">
@@ -140,7 +138,6 @@ export const EducatorsStudentsContent: React.FC = () => {
               </div>
               <div className="flex flex-col justify-center py-[24px] px-[16px] gap-[24px]">
                 <div
-                  tabIndex={0}
                   className="text-heading-m text-center w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                 >
@@ -162,7 +159,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                   {continue_read as string}
                 </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
@@ -178,14 +175,12 @@ export const EducatorsStudentsContent: React.FC = () => {
             {careerData.map((item, index) => {
               const { title, imgUrl, link } = item;
               return (
-                <div
+                <a
                   key={index}
+                  href={link}
+                  target={"_blank"}
+                  rel={"noopener noreferrer"}
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
-                  onClick={() => {
-                    window.open(link, "_blank", "noopener");
-                  }}
-                  tabIndex={0}
-                  role="button"
                   aria-label={title}
                 >
                   <img
@@ -197,21 +192,13 @@ export const EducatorsStudentsContent: React.FC = () => {
                     alt={title}
                   />
                   <p className="text-highlight-l">{title}</p>
-                </div>
+                </a>
               );
             })}
           </div>
-          <div
+          <a
             className="py-[24px] cursor-pointer"
-            onClick={() => {
-              window.open(
-                "/events-promotion?section=comics",
-                "_blank",
-                "noopener"
-              );
-            }}
-            tabIndex={0}
-            role="button"
+            href={"/events-promotion?section=comics"}
             aria-label="redirect to comics list in events promotion section"
           >
             <div
@@ -226,7 +213,7 @@ export const EducatorsStudentsContent: React.FC = () => {
                 height: "134px",
               }}
             />
-          </div>
+          </a>
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 
 import { SquareTitle } from "../../../components";
-import { useNavigate } from "react-router-dom";
 import { useSettings } from "../../../context";
 
 export const displayBusinessAreas: Array<{
@@ -85,7 +84,6 @@ const multilingual = {
   },
 };
 export const ServicesDifferentBusinessAreas: React.FC = () => {
-  const navigate = useNavigate();
   const { isPC, getSingleText, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
 
@@ -101,26 +99,17 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
         <div className={`flex ${isPC ? "flex-wrap" : "flex-col"} gap-[24px]`}>
           {displayBusinessAreas.map((item, index) => {
             const { img, title, titleCN, nav } = item;
-            const onClick = (): void => {
-              const element = document.getElementById("breadcrumb");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
 
-              navigate(nav);
-            };
             const displayTitle = getSingleText(title, titleCN);
 
             return (
-              <div
+              <a
                 key={index}
                 className={`flex flex-col gap-[14px] ${
                   isPC ? "w-[270px]" : "w-full"
-                } group cursor-pointer`}
-                tabIndex={0}
-                role="button"
+                } group`}
                 aria-label={displayTitle}
-                onClick={onClick}
+                href={nav}
               >
                 <div className="w-full aspect-[260/202] overflow-hidden">
                   <img
@@ -131,7 +120,7 @@ export const ServicesDifferentBusinessAreas: React.FC = () => {
                   />
                 </div>
                 <p className="text-highlight-m">{displayTitle}</p>
-              </div>
+              </a>
             );
           })}
         </div>

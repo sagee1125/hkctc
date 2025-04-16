@@ -9,36 +9,32 @@ import LanguageSelect from "../languageSelection";
 export const HeaderSocialMedia: React.FC = () => {
   return (
     <>
-      <div
-        tabIndex={0}
-        role="button"
-        className="cursor-pointer"
-        aria-label={"open instagram"}
-        onClick={() => {
-          window.open("https://www.instagram.com/hkctcgovhk/");
-        }}
+      <a
+        href="https://www.instagram.com/hkctcgovhk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block cursor-pointer"
+        aria-label="Open Instagram (opens in new tab)"
       >
         <Icon
           aria-hidden={true}
           icon="mage:camera-2"
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />
-      </div>
-      <div
-        tabIndex={0}
-        role="button"
-        aria-label={"open facebook"}
-        className="cursor-pointer"
-        onClick={() => {
-          window.open("https://www.facebook.com/hkctcgovhk");
-        }}
+      </a>
+      <a
+        href="https://www.facebook.com/hkctcgovhk"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block cursor-pointer"
+        aria-label={"Open Facebook (opens in new tab)"}
       >
         <Icon
           icon="fa6-brands:facebook-f"
           aria-hidden={true}
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />
-      </div>
+      </a>
     </>
   );
 };
@@ -105,6 +101,11 @@ export const Header: React.FC = () => {
               aria-label={"go searching"}
               onClick={() => {
                 setOpenSearchInput(!openSearchInput);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setOpenSearchInput(!openSearchInput);
+                }
               }}
             >
               <Icon

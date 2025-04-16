@@ -841,7 +841,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
               {/* Previous Button */}
               <button
-                tabIndex={0}
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 0}
                 style={{
@@ -860,7 +859,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
 
               {Array.from({ length: maxPage + 1 }, (_, pageIndex) => (
                 <button
-                  tabIndex={0}
                   key={pageIndex}
                   onClick={() => setCurrentPage(pageIndex)}
                   style={

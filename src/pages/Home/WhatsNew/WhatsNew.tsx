@@ -116,29 +116,10 @@ export const WhatsNew: React.FC = () => {
             const isEven = currentTime % 2 === 0;
 
             return (
-              <div
+              <a
                 key={index}
-                tabIndex={0}
-                role="button"
+                href={redirectTo}
                 className={`flex flex-col group cursor-pointer justify-between min-w-[290px]`}
-                onClick={() => {
-                  if (redirectTo) {
-                    window.scroll({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                    navigate(redirectTo);
-                  }
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    if (redirectTo) {
-                      window.scroll({ top: 0, behavior: "smooth" });
-                      navigate(redirectTo);
-                    }
-                  }
-                }}
                 aria-labelledby={`button-label-${index}`}
               >
                 <div>
@@ -191,7 +172,7 @@ export const WhatsNew: React.FC = () => {
                   />
                   <div className="text-body-m text-grey">{date}</div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>

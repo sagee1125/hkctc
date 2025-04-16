@@ -90,6 +90,7 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
           {mediaType === MEDIA_TYPE.VIDEO && (
             <>
               {mediaDomain === "hkctc" ? (
+                // eslint-disable-next-line jsx-a11y/media-has-caption
                 <video
                   ref={videoRef}
                   className="w-full h-full pt-[24px] object-cover"
@@ -101,6 +102,13 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
                   aria-description={title}
                 >
                   <source src={pdfHyperlink} type="video/mp4" />
+                  <track
+                    kind="subtitles"
+                    srcLang="en"
+                    label="English"
+                    default
+                    src="data:text/vtt;base64,VElUTEUg" // empty track
+                  />
                 </video>
               ) : (
                 <iframe

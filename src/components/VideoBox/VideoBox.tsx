@@ -147,6 +147,11 @@ export const VideoBox: React.FC = () => {
             role="button"
             aria-label="previous video"
             onClick={() => handleSlide("prev")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSlide("prev");
+              }
+            }}
           >
             <Icon
               icon="icons8:left-squared"
@@ -165,6 +170,11 @@ export const VideoBox: React.FC = () => {
             role="button"
             aria-label="next video"
             onClick={() => handleSlide("next")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSlide("next");
+              }
+            }}
           >
             <Icon
               icon="icons8:right-squared"
@@ -227,7 +237,6 @@ export const VideoBox: React.FC = () => {
             right: 0,
             bottom: 0,
           }}
-          tabIndex={0}
           className="absolute inset-0 w-full h-full"
         >
           <div className="flex flex-col justify-between h-full">

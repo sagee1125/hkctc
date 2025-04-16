@@ -250,6 +250,11 @@ export const MediaTemplateWithDialog: React.FC<
         <div
           className={`grid grid-cols-2 h-[278px] cursor-pointer justify-start group border-[2px] border-inherit gap-[24px]`}
           onClick={handleOnClick}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleOnClick();
+            }
+          }}
           tabIndex={0}
           role="button"
           aria-label={"open " + mediaLink}
@@ -281,7 +286,6 @@ export const MediaTemplateWithDialog: React.FC<
                   {!!thumbnail ? (
                     <img
                       alt={title}
-                      tabIndex={0}
                       src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
                       style={{
                         objectFit: "cover",
@@ -322,6 +326,7 @@ export const MediaTemplateWithDialog: React.FC<
                 >
                   {/*  video, play when mouse enter */}
                   {mediaDomain === "hkctc" && (
+                    // eslint-disable-next-line jsx-a11y/media-has-caption
                     <video
                       ref={videoRef as React.RefObject<HTMLVideoElement>}
                       style={{
@@ -335,6 +340,13 @@ export const MediaTemplateWithDialog: React.FC<
                       }}
                     >
                       <source src={mediaLink} type="video/mp4" />
+                      <track
+                        kind="subtitles"
+                        srcLang="en"
+                        label="English"
+                        default
+                        src="data:text/vtt;base64,VElUTEUg" // empty track
+                      />
                     </video>
                   )}
 
@@ -379,7 +391,6 @@ export const MediaTemplateWithDialog: React.FC<
               className={`text-heading-${
                 isPC ? "m" : "xs"
               } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
-              tabIndex={0}
             >
               {title}
             </div>
@@ -428,6 +439,11 @@ export const MediaTemplateWithDialog: React.FC<
             isPC ? "overflow-hidden" : "object-cover aspect-[390/278]"
           } cursor-pointer`}
             onClick={handleOnClick}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleOnClick();
+              }
+            }}
             tabIndex={0}
             role="button"
             aria-label={"open " + mediaLink}
@@ -504,6 +520,7 @@ export const MediaTemplateWithDialog: React.FC<
                   >
                     {/*  video, play when mouse enter */}
                     {mediaDomain === "hkctc" && (
+                      // eslint-disable-next-line jsx-a11y/media-has-caption
                       <video
                         ref={videoRef as React.RefObject<HTMLVideoElement>}
                         style={{
@@ -592,6 +609,11 @@ export const MediaTemplateWithDialog: React.FC<
               direction === "column" ? "center" : "start"
             } `}
             onClick={handleOnClick}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleOnClick();
+              }
+            }}
             tabIndex={0}
             role="button"
             aria-label="view this file"

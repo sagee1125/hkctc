@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ExploreBar, getCurrentTitle } from "./ExploreBar";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NavigationBarConfiguration } from "../../const/";
-import { Language, useSettings } from "../../context";
+import { useSettings } from "../../context";
 import { HeaderSocialMedia } from "../Header";
 import { TextField } from "../TextField";
 import { useFormik } from "formik";
@@ -84,7 +84,7 @@ const multilingual = {
 };
 
 export const Navigator: React.FC = () => {
-  const { isPC, language, getPageText, getSingleText } = useSettings();
+  const { isPC, getPageText, getSingleText } = useSettings();
   const location = useLocation();
   const currentPath = location.pathname;
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // nav
@@ -245,22 +245,19 @@ export const Navigator: React.FC = () => {
                     justifyContent: !isPC ? "space-between" : "flex-start",
                   }}
                 >
-                  <div
+                  <a
+                    href="/"
                     className={`flex items-center cursor-pointer`}
                     role="button"
-                    onClick={() => {
-                      navigate("/");
-                    }}
-                    tabIndex={0}
                     aria-label="go to homepage"
                   >
                     <Logo
                       className={`${
                         isPC ? "h-[54px] w-[141px]" : ""
                       } aspect-[141/54]`}
-                      aria-hidden="true"
+                      aria-hidden="false"
                     />
-                  </div>
+                  </a>
                   {isPC ? (
                     <div className="pl-[32px]">
                       <div className="flex flex-row gap-[26px] h-full">
@@ -268,6 +265,16 @@ export const Navigator: React.FC = () => {
                           const { title, titleCN, items, navUrl } = nav;
                           const ifHideArrow: boolean = !items.length;
                           const displayTitle = getSingleText(title, titleCN);
+                          const onClick = (): void => {
+                            if (navUrl) navigate(navUrl);
+                            else {
+                              setActiveIndex(ncIndex);
+                              setActiveSubItem(
+                                NavigationBarConfiguration[ncIndex]?.items?.[0]
+                                  ?.name ?? ""
+                              );
+                            }
+                          };
                           return (
                             <div
                               key={ncIndex}
@@ -281,14 +288,10 @@ export const Navigator: React.FC = () => {
                                     ?.items?.[0]?.name ?? ""
                                 );
                               }}
-                              onClick={() => {
-                                if (navUrl) navigate(navUrl);
-                                else {
-                                  setActiveIndex(ncIndex);
-                                  setActiveSubItem(
-                                    NavigationBarConfiguration[ncIndex]
-                                      ?.items?.[0]?.name ?? ""
-                                  );
+                              onClick={onClick}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                  onClick();
                                 }
                               }}
                               aria-label={displayTitle}
@@ -333,6 +336,11 @@ export const Navigator: React.FC = () => {
                             aria-label={"go searching"}
                             onClick={() => {
                               setOpenSearchInput(!openSearchInput);
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                setOpenSearchInput(!openSearchInput);
+                              }
                             }}
                           >
                             <Icon
@@ -388,6 +396,17 @@ export const Navigator: React.FC = () => {
                                 e.preventDefault();
                                 setActiveIndex(null);
                                 setOpenMobileDropDown(!openMobileDropDown);
+                              }
+                        }
+                        onKeyDown={
+                          isTouchDevice
+                            ? undefined
+                            : (e) => {
+                                if (e.key === "Enter") {
+                                  e.preventDefault();
+                                  setActiveIndex(null);
+                                  setOpenMobileDropDown(!openMobileDropDown);
+                                }
                               }
                         }
                         onTouchEnd={
@@ -493,6 +512,21 @@ export const Navigator: React.FC = () => {
                                         title,
                                         titleCN
                                       );
+                                      const onClick = (): void => {
+                                        // means has subitems
+                                        if (!ifHideArrow) {
+                                          setActiveIndex(index);
+                                          setActiveSubItem(
+                                            NavigationBarConfiguration[index]
+                                              ?.items?.[0]?.name ?? ""
+                                          );
+                                        }
+                                        if (navUrl) {
+                                          setOpenMobileDropDown(false);
+                                          setActiveIndex(null);
+                                          navigate(navUrl);
+                                        }
+                                      };
                                       return (
                                         <div
                                           key={index}
@@ -500,20 +534,10 @@ export const Navigator: React.FC = () => {
                                           tabIndex={0}
                                           role="button"
                                           aria-label={displayTitle}
-                                          onClick={() => {
-                                            // means has subitems
-                                            if (!ifHideArrow) {
-                                              setActiveIndex(index);
-                                              setActiveSubItem(
-                                                NavigationBarConfiguration[
-                                                  index
-                                                ]?.items?.[0]?.name ?? ""
-                                              );
-                                            }
-                                            if (navUrl) {
-                                              setOpenMobileDropDown(false);
-                                              setActiveIndex(null);
-                                              navigate(navUrl);
+                                          onClick={onClick}
+                                          onKeyDown={(e) => {
+                                            if (e.key === "Enter") {
+                                              onClick();
                                             }
                                           }}
                                         >
@@ -549,6 +573,11 @@ export const Navigator: React.FC = () => {
                                     role="button"
                                     onClick={() => {
                                       setActiveIndex(null);
+                                    }}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter") {
+                                        setActiveIndex(null);
+                                      }
                                     }}
                                     aria-label={getSingleText(
                                       NavigationBarConfiguration[activeIndex]
@@ -622,17 +651,29 @@ export const Navigator: React.FC = () => {
                                                               subTitle,
                                                               sub.subTitleCN
                                                             );
+                                                          const onClick =
+                                                            (): void => {
+                                                              setOpenMobileDropDown(
+                                                                false
+                                                              );
+                                                              if (navUrl)
+                                                                navigate(
+                                                                  navUrl
+                                                                );
+                                                            };
                                                           return (
                                                             <div
                                                               key={index}
-                                                              onClick={() => {
-                                                                setOpenMobileDropDown(
-                                                                  false
-                                                                );
-                                                                if (navUrl)
-                                                                  navigate(
-                                                                    navUrl
-                                                                  );
+                                                              onClick={onClick}
+                                                              onKeyDown={(
+                                                                e
+                                                              ) => {
+                                                                if (
+                                                                  e.key ===
+                                                                  "Enter"
+                                                                ) {
+                                                                  onClick();
+                                                                }
                                                               }}
                                                               role="button"
                                                               tabIndex={0}
@@ -678,6 +719,16 @@ export const Navigator: React.FC = () => {
                                                               setActiveSubItem(
                                                                 sideName
                                                               );
+                                                            }}
+                                                            onKeyDown={(e) => {
+                                                              if (
+                                                                e.key ===
+                                                                "Enter"
+                                                              ) {
+                                                                setActiveSubItem(
+                                                                  sideName
+                                                                );
+                                                              }
                                                             }}
                                                           >
                                                             <p
@@ -727,6 +778,21 @@ export const Navigator: React.FC = () => {
                                                                         subTitle,
                                                                         sub.subTitleCN
                                                                       );
+                                                                    const onClick =
+                                                                      (): void => {
+                                                                        setOpenMobileDropDown(
+                                                                          false
+                                                                        );
+                                                                        setActiveIndex(
+                                                                          null
+                                                                        );
+                                                                        if (
+                                                                          navUrl
+                                                                        )
+                                                                          navigate(
+                                                                            navUrl
+                                                                          );
+                                                                      };
                                                                     return (
                                                                       <div
                                                                         key={
@@ -739,19 +805,18 @@ export const Navigator: React.FC = () => {
                                                                         aria-label={
                                                                           display
                                                                         }
-                                                                        onClick={() => {
-                                                                          setOpenMobileDropDown(
-                                                                            false
-                                                                          );
-                                                                          setActiveIndex(
-                                                                            null
-                                                                          );
+                                                                        onClick={
+                                                                          onClick
+                                                                        }
+                                                                        onKeyDown={(
+                                                                          e
+                                                                        ) => {
                                                                           if (
-                                                                            navUrl
-                                                                          )
-                                                                            navigate(
-                                                                              navUrl
-                                                                            );
+                                                                            e.key ===
+                                                                            "Enter"
+                                                                          ) {
+                                                                            onClick();
+                                                                          }
                                                                         }}
                                                                       >
                                                                         <div className="text-body-m">
@@ -789,15 +854,23 @@ export const Navigator: React.FC = () => {
                                                         subTitle,
                                                         sub.subTitleCN
                                                       );
+                                                    const onClc = (): void => {
+                                                      setOpenMobileDropDown(
+                                                        false
+                                                      );
+                                                      if (navUrl)
+                                                        navigate(navUrl);
+                                                    };
                                                     return (
                                                       <div
                                                         key={subItemsIndex}
-                                                        onClick={() => {
-                                                          setOpenMobileDropDown(
-                                                            false
-                                                          );
-                                                          if (navUrl)
-                                                            navigate(navUrl);
+                                                        onClick={onClc}
+                                                        onKeyDown={(e) => {
+                                                          if (
+                                                            e.key === "Enter"
+                                                          ) {
+                                                            onClc();
+                                                          }
                                                         }}
                                                         role="button"
                                                         tabIndex={0}
@@ -975,6 +1048,11 @@ export const Navigator: React.FC = () => {
                                     onClick={() => {
                                       setActiveSubItem(sideName);
                                     }}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter") {
+                                        setActiveSubItem(sideName);
+                                      }
+                                    }}
                                   >
                                     {display}
                                   </div>
@@ -987,6 +1065,9 @@ export const Navigator: React.FC = () => {
                     )}
                     {subItems.map((sub, index) => {
                       const { subTitle, imgUrl, navUrl } = sub;
+                      const onClick = (): void => {
+                        if (navUrl) navigate(navUrl);
+                      };
                       return (
                         <div
                           key={index}
@@ -997,8 +1078,11 @@ export const Navigator: React.FC = () => {
                           role="button"
                           aria-label={getSingleText(subTitle, sub.subTitleCN)}
                           aria-disabled={subTitle === "" || !navUrl}
-                          onClick={() => {
-                            if (navUrl) navigate(navUrl);
+                          onClick={onClick}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              onClick();
+                            }
                           }}
                         >
                           {imgUrl && (

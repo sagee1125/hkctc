@@ -134,7 +134,7 @@ export const ServiceUsersContent: React.FC = () => {
         "The testing and certification industry offers services covering a wide range of areas...",
       descriptionCN: "檢測和認證業為多個範疇提供服務，主要包括以下各項...",
       imagePath: "serviceUsers/service_1.png",
-      link: "/tc-sector?section=different_business_areas",
+      link: `/tc-sector?section=${navItemEnum.different_business_areas}`,
     },
     {
       title: exhibition_programme,
@@ -143,7 +143,7 @@ export const ServiceUsersContent: React.FC = () => {
       descriptionCN:
         "香港檢測和認證局在本港、內地及海外的主要貿易展覽會設置攤位，向全球的買家、供應商和貿易商推廣香港檢測認證服務的優勢。",
       imagePath: "industry/support_1.png",
-      link: "/support?section=exhibition_programme",
+      link: `/tc-sector?section=${navItemEnum.exhibition_programme}`,
     },
   ];
 
@@ -179,20 +179,12 @@ export const ServiceUsersContent: React.FC = () => {
           {industryData.map((item, index) => {
             const { title, imagePath, description, descriptionCN, link } = item;
             return (
-              <div
-                tabIndex={0}
-                role="button"
+              <a
                 key={index}
                 className={`grid grid-cols-${
                   isPC ? "2 h-[278px]" : "1"
                 } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
-                onClick={() => {
-                  window.scroll({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                  navigate(link);
-                }}
+                href={link}
                 aria-label={title as string}
               >
                 <div className="overflow-hidden">
@@ -211,7 +203,6 @@ export const ServiceUsersContent: React.FC = () => {
                   } gap-[24px]`}
                 >
                   <div
-                    tabIndex={0}
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                   >
@@ -224,7 +215,7 @@ export const ServiceUsersContent: React.FC = () => {
                     {continue_read as string}
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -242,13 +233,11 @@ export const ServiceUsersContent: React.FC = () => {
                 key={index}
                 className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="relative w-[130px] h-full cursor-pointer flex-shrink-0"
-                  onClick={() => {
-                    window.open(link, "_blank", "noopener");
-                  }}
+                <a
+                  href={link}
+                  className="relative w-[130px] h-full flex-shrink-0"
+                  target={"_blank"}
+                  rel={"noopener noreferrer"}
                   aria-label={getSingleText(title, titleCN)}
                 >
                   <img
@@ -264,11 +253,16 @@ export const ServiceUsersContent: React.FC = () => {
                     alt="Share"
                     aria-hidden="true"
                   />
-                </div>
+                </a>
                 <span className="!text-highlight-m h-full flex items-center">
-                  <Link outerLink={link} linkColor="black">
+                  <a
+                    className="underline"
+                    href={link}
+                    target={"_blank"}
+                    rel={"noopener noreferrer"}
+                  >
                     {getSingleText(title, titleCN)}
-                  </Link>
+                  </a>
                 </span>
               </div>
             );
@@ -290,18 +284,10 @@ export const ServiceUsersContent: React.FC = () => {
             {othersData.map((item, index) => {
               const { title, imgUrl, link } = item;
               return (
-                <div
+                <a
                   key={index}
-                  tabIndex={0}
-                  role="button"
-                  className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
-                  onClick={() => {
-                    window.scroll({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                    navigate(link);
-                  }}
+                  href={link}
+                  className="flex flex-row items-start mt-[24px] gap-[24px]"
                   aria-label={title}
                 >
                   <img
@@ -311,7 +297,7 @@ export const ServiceUsersContent: React.FC = () => {
                     aria-hidden="true"
                   />
                   <p className="text-highlight-l">{title}</p>
-                </div>
+                </a>
               );
             })}
           </div>
