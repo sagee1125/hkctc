@@ -66,6 +66,11 @@ export const AwardScheme21to22Preview: React.FC<{
             tabIndex={0}
             role="button"
             onClick={handleOpenAssessmentPanel}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleOpenAssessmentPanel();
+              }
+            }}
             aria-label={
               page_text.testing_profession_award_content.stagesGridTwo
                 .stage_2_assessment
@@ -100,6 +105,11 @@ export const AwardScheme21to22Preview: React.FC<{
             tabIndex={0}
             role="button"
             onClick={handleOpenAssessmentPanel}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleOpenAssessmentPanel();
+              }
+            }}
             aria-label={page_text.stagesGridOne.stage_2_assessment}
           >
             {page_text.stagesGridOne.stage_2_assessment}
@@ -467,8 +477,6 @@ export const AwardScheme21to22Preview: React.FC<{
           const isActivated = index === activeAwardOneButton;
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -503,8 +511,6 @@ export const AwardScheme21to22Preview: React.FC<{
           const isActivated = index === activeAwardTwoButton;
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -532,8 +538,6 @@ export const AwardScheme21to22Preview: React.FC<{
           const label = processText(btn);
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -618,16 +622,17 @@ export const AwardScheme21to22Preview: React.FC<{
       <div className="text-heading-l mb-[24px]">
         {processText(page_text.award_ceremony_list)}
       </div>
-      <div
+      <a
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          navigate("/events-promotion/award-scheme2122");
-          window.scroll({
-            top: 100,
-            behavior: "smooth",
-          });
+        href="/events-promotion/award-scheme2122"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            navigate("/events-promotion/award-scheme2122");
+            window.scroll({
+              top: 100,
+              behavior: "smooth",
+            });
+          }
         }}
         aria-label={processText(page_text.award_ceremony_list)}
       >
@@ -665,7 +670,7 @@ export const AwardScheme21to22Preview: React.FC<{
             </clipPath>
           </defs>
         </svg>
-      </div>
+      </a>
     </div>
   );
 };

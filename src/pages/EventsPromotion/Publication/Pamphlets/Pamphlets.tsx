@@ -63,10 +63,7 @@ export const Pamphlets: React.FC = () => {
               {(filterButtons as string[]).map((name, index) => {
                 const isActivated = activeButton === index;
                 return (
-                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -74,6 +71,12 @@ export const Pamphlets: React.FC = () => {
                     onClick={() => {
                       setActiveButton(index);
                       setCurrentPage(0);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveButton(index);
+                        setCurrentPage(0);
+                      }
                     }}
                   >
                     <p className="text-highlight-xs">{name}</p>

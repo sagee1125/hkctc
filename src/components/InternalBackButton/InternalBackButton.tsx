@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../context";
 
 type InternalBackButtonProps = {
@@ -9,10 +8,10 @@ type InternalBackButtonProps = {
 export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
   targetUrl,
 }) => {
-  const navigate = useNavigate();
   const { language } = useSettings();
   const isEn = language === Language.EN;
   const back = isEn ? "Back" : "返回";
+
   return (
     <div className="flex flex-row gap-[8px] items-center">
       <img
@@ -21,22 +20,13 @@ export const InternalBackButton: React.FC<InternalBackButtonProps> = ({
         alt={"arrow left"}
         aria-hidden="true"
       />
-      <p
+      <a
+        href={targetUrl}
         className="text-highlight-l cursor-pointer text-newPrimary"
-        tabIndex={0}
-        role="link"
-        onClick={() => {
-          window.scroll({
-            top: 0,
-            behavior: "smooth",
-          });
-
-          navigate(targetUrl);
-        }}
         aria-label={back}
       >
         {back}
-      </p>
+      </a>
     </div>
   );
 };

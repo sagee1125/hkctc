@@ -44,8 +44,6 @@ export const Link: React.FC<LinkProps> = (props: LinkProps) => {
       className={`cursor-pointer ${breakAll ? "break-all" : "text-justify"} ${
         underline && "underline underline-offset-4"
       } text-[${colorMapping[linkColor as LinkColor] ?? linkColor}]`}
-      tabIndex={0}
-      role="button"
       onClick={handleOpenOuterLink}
     >
       {children}

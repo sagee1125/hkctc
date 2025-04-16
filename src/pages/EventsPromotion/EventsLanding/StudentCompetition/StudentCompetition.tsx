@@ -144,17 +144,15 @@ export const StudentCompetition: React.FC = () => {
           const { imgUrl, maskIcon, title, titleCN, date, hyperLink } = item;
 
           return (
-            <div
+            <a
               key={index}
               className={`${
                 isPC ? "w-full h-[282px]" : "w-full h-auto"
               }  flex flex-col gap-[14px] cursor-pointer`}
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                window.open(hyperLink, "_blank", "noopener");
-              }}
+              href={hyperLink}
               aria-label={title}
+              target={"_blank"}
+              rel={"noopener noreferrer"}
             >
               <div
                 className={`flex-shrink-0 relative w-full ${
@@ -206,7 +204,7 @@ export const StudentCompetition: React.FC = () => {
                   <p className="text-body-s text-grey">{date}</p>
                 </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>

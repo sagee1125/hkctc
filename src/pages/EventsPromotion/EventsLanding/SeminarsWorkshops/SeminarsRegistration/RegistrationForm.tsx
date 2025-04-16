@@ -472,7 +472,6 @@ export const RegistrationForm: React.FC = () => {
                 aria-label="country"
                 required
                 role="option"
-                aria-required="true"
                 id="country-input"
                 FormHelperTextProps={{
                   id: "country-helper",

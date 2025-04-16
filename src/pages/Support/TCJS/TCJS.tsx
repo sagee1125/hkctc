@@ -427,7 +427,6 @@ export const TCJS: React.FC = () => {
           return (
             <button
               key={index}
-              tabIndex={0}
               aria-label={"a tab called " + btn}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
@@ -471,6 +470,25 @@ export const TCJS: React.FC = () => {
       <div className="w-full">
         {documentsList.map((item, index) => {
           const { title, maskIcon, imgUrl, pdfLink, docLink } = item;
+          const onClick = (): void => {
+            if (docLink) {
+              window.open(docLink, "_blank", "noopener");
+              return;
+            }
+
+            if (pdfLink) {
+              if (isPC) {
+                setActiveReport(index);
+                setIsPreviewOpen(true);
+              } else {
+                window.open(
+                  "https://www.hkctc.gov.hk" + pdfLink,
+                  "_blank",
+                  "noopener"
+                );
+              }
+            }
+          };
           return (
             <div
               key={index}
@@ -481,23 +499,10 @@ export const TCJS: React.FC = () => {
                 tabIndex={0}
                 role="button"
                 aria-label={"view detail about this document"}
-                onClick={() => {
-                  if (docLink) {
-                    window.open(docLink, "_blank", "noopener");
-                    return;
-                  }
-
-                  if (pdfLink) {
-                    if (isPC) {
-                      setActiveReport(index);
-                      setIsPreviewOpen(true);
-                    } else {
-                      window.open(
-                        "https://www.hkctc.gov.hk" + pdfLink,
-                        "_blank",
-                        "noopener"
-                      );
-                    }
+                onClick={onClick}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    onClick();
                   }
                 }}
                 style={{ flexShrink: 0 }}

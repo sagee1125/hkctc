@@ -458,6 +458,15 @@ export const Footer: React.FC = () => {
     },
   ];
 
+  const handleClick = (link?: string): void => {
+    if (link) {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+      navigate(link);
+    }
+  };
   return (
     <footer
       id="footer"
@@ -495,9 +504,16 @@ export const Footer: React.FC = () => {
           >
             <div
               role="button"
-              onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+              onClick={() => {
+                window.scroll({ top: 0, behavior: "smooth" });
+              }}
               aria-label="hkctc logo - scroll to top"
               tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  window.scroll({ top: 0, behavior: "smooth" });
+                }
+              }}
             >
               <Logo
                 aria-label="hkctc logo"
@@ -506,34 +522,33 @@ export const Footer: React.FC = () => {
                 aria-hidden="true"
               />
             </div>
-            <div
-              tabIndex={0}
-              role="button"
-              aria-label={"open instagram"}
-              onClick={() => {
-                window.open("https://www.instagram.com/hkctcgovhk/");
-              }}
+
+            <a
+              href="https://www.instagram.com/hkctcgovhk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block cursor-pointer"
+              aria-label="Open Instagram (opens in new tab)"
             >
               <Icon
                 aria-hidden="true"
                 icon="mage:camera-2"
-                className="h-[38px] w-[38px] text-white cursor-pointer"
+                className="h-[38px] w-[38px] text-white"
               />
-            </div>
-            <div
-              tabIndex={0}
-              aria-label={"open facebook"}
-              role="button"
-              onClick={() => {
-                window.open("https://www.facebook.com/hkctcgovhk");
-              }}
+            </a>
+            <a
+              href="https://www.facebook.com/hkctcgovhk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block cursor-pointer"
+              aria-label={"Open Facebook (opens in new tab)"}
             >
               <Icon
                 aria-hidden="true"
                 icon="fa6-brands:facebook-f"
                 className="h-[32px] w-[32px] text-white cursor-pointer"
               />
-            </div>
+            </a>
           </div>
         </div>
         {isPC ? (
@@ -545,6 +560,11 @@ export const Footer: React.FC = () => {
                 role="button"
                 onClick={() => {
                   setSitemapCollapsed(!sitemapCollapsed);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setSitemapCollapsed(!sitemapCollapsed);
+                  }
                 }}
                 aria-label={
                   sitemapCollapsed ? "open the sitemap" : "open the sitemap"
@@ -567,23 +587,22 @@ export const Footer: React.FC = () => {
               <div className="grid grid-cols-4 gap-[24px] px-[25px] py-[42px]">
                 {footerData.map((col, index) => (
                   <div key={index} className="flex flex-col">
-                    <p
+                    <div
                       className="text-heading-l cursor-pointer"
                       tabIndex={0}
                       role="button"
                       aria-label={getSingleText(col.title, col.titleCN)}
                       onClick={() => {
-                        if (col.link) {
-                          navigate(col.link);
-                          window.scroll({
-                            top: 0,
-                            behavior: "smooth",
-                          });
+                        handleClick(col.link);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleClick(col.link);
                         }
                       }}
                     >
                       {getSingleText(col.title, col.titleCN)}
-                    </p>
+                    </div>
                     <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
                     <div className="flex flex-col gap-[16px] text-body-m">
                       {col.subs.map((sub, index) => (
@@ -594,12 +613,11 @@ export const Footer: React.FC = () => {
                             role="button"
                             aria-label={getSingleText(sub.label, sub.labelCN)}
                             onClick={() => {
-                              if (sub.link) {
-                                navigate(sub.link);
-                                window.scroll({
-                                  top: 0,
-                                  behavior: "smooth",
-                                });
+                              handleClick(sub.link);
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                handleClick(sub.link);
                               }
                             }}
                           >
@@ -613,29 +631,31 @@ export const Footer: React.FC = () => {
                           </div>
                           {sub.items && (
                             <div className="flex flex-col gap-[16px] pl-[16px]">
-                              {sub.items.map((item, index) => (
-                                <li
-                                  className="cursor-pointer"
-                                  tabIndex={0}
-                                  role="menuitem"
-                                  key={index}
-                                  aria-label={getSingleText(
-                                    item.label,
-                                    item.labelCN
-                                  )}
-                                  onClick={() => {
-                                    if (item.link) {
-                                      navigate(item.link);
-                                      window.scroll({
-                                        top: 0,
-                                        behavior: "smooth",
-                                      });
-                                    }
-                                  }}
-                                >
-                                  {getSingleText(item.label, item.labelCN)}
-                                </li>
-                              ))}
+                              {sub.items.map((item, index) => {
+                                const display = getSingleText(
+                                  item.label,
+                                  item.labelCN
+                                );
+                                return (
+                                  <li
+                                    className="cursor-pointer"
+                                    tabIndex={0}
+                                    role="menuitem"
+                                    key={index}
+                                    aria-label={display}
+                                    onClick={() => {
+                                      handleClick(item.link);
+                                    }}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter") {
+                                        handleClick(item.link);
+                                      }
+                                    }}
+                                  >
+                                    {display}
+                                  </li>
+                                );
+                              })}
                             </div>
                           )}
                         </div>
@@ -663,12 +683,11 @@ export const Footer: React.FC = () => {
                                       sub.labelCN
                                     )}
                                     onClick={() => {
-                                      if (sub.link) {
-                                        navigate(sub.link);
-                                        window.scroll({
-                                          top: 0,
-                                          behavior: "smooth",
-                                        });
+                                      handleClick(sub.link);
+                                    }}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter") {
+                                        handleClick(sub.link);
                                       }
                                     }}
                                   >
@@ -690,12 +709,11 @@ export const Footer: React.FC = () => {
                                           key={index}
                                           aria-disabled={!item.link}
                                           onClick={() => {
-                                            if (item.link) {
-                                              window.scroll({
-                                                top: 0,
-                                                behavior: "smooth",
-                                              });
-                                              navigate(item.link);
+                                            handleClick(item.link);
+                                          }}
+                                          onKeyDown={(e) => {
+                                            if (e.key === "Enter") {
+                                              handleClick(item.link);
                                             }
                                           }}
                                           aria-label={getSingleText(
@@ -726,49 +744,53 @@ export const Footer: React.FC = () => {
         ) : (
           <div className="w-full flex flex-col items-center gap-[8px] py-[24px]">
             <div className="flex justify-center gap-4 text-white">
-              {commonData.slice(0, 3).map((item, index) => (
-                <p
-                  key={index}
-                  className="text-body-s cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  aria-label={getSingleText(item.label, item.labelCN)}
-                  onClick={() => {
-                    if (item.link) {
-                      window.scroll({
-                        top: 0,
-                        behavior: "smooth",
-                      });
-                      navigate(item.link);
-                    }
-                  }}
-                >
-                  {getSingleText(item.label, item.labelCN)}
-                </p>
-              ))}
+              {commonData.slice(0, 3).map((item, index) => {
+                const display = getSingleText(item.label, item.labelCN);
+                return (
+                  <div
+                    key={index}
+                    className="text-body-s cursor-pointer"
+                    tabIndex={0}
+                    role="button"
+                    aria-label={display}
+                    onClick={() => {
+                      handleClick(item.link);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleClick(item.link);
+                      }
+                    }}
+                  >
+                    {display}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="flex justify-center gap-4">
-              {commonData.slice(3, 6).map((item, index) => (
-                <p
-                  key={index}
-                  className="text-body-s cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                  aria-label={getSingleText(item.label, item.labelCN)}
-                  onClick={() => {
-                    if (item.link) {
-                      window.scroll({
-                        top: 0,
-                        behavior: "smooth",
-                      });
-                      navigate(item.link);
-                    }
-                  }}
-                >
-                  {getSingleText(item.label, item.labelCN)}
-                </p>
-              ))}
+              {commonData.slice(3, 6).map((item, index) => {
+                const display = getSingleText(item.label, item.labelCN);
+                return (
+                  <div
+                    key={index}
+                    className="text-body-s cursor-pointer"
+                    tabIndex={0}
+                    role="button"
+                    aria-label={display}
+                    onClick={() => {
+                      handleClick(item.link);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleClick(item.link);
+                      }
+                    }}
+                  >
+                    {display}
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -783,25 +805,22 @@ export const Footer: React.FC = () => {
           className="flex flex-row items-center justify-center gap-[12px] h-full"
         >
           {downsideLogos.map((logo, index) => (
-            <div
+            <a
+              href={logo.hyperlink}
               className={`cursor-pointer ${isPC ? logo.logoSize : ""}`}
               key={index}
-              onClick={() => {
-                window.open(logo.hyperlink);
-              }}
-              role="button"
-              tabIndex={0}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={"logo - " + logo.hyperlink}
             >
               <img
                 className="object-fit"
-                role="img"
-                tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
                 aria-label={"HKCTC logo"}
+                aria-hidden="false"
               />
-            </div>
+            </a>
           ))}
         </div>
       </div>

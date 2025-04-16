@@ -597,12 +597,15 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveAwardOneButton(index);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setActiveAwardOneButton(index);
+                }
               }}
             >
               {label}
@@ -633,12 +636,15 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveAwardTwoButton(index);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setActiveAwardTwoButton(index);
+                }
               }}
             >
               {label}
@@ -662,12 +668,15 @@ export const AwardScheme: React.FC = () => {
           const label = processText(btn);
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={index}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setQuestionCategory(index);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setQuestionCategory(index);
+                }
               }}
             >
               {label.length > 48 && !isPC ? label.slice(0, 48) + "..." : label}
@@ -757,17 +766,9 @@ export const AwardScheme: React.FC = () => {
       <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
         {processText(page_text.ceremony_list)}
       </p>
-      <div
+      <a
         className="flex flex-row items-center h-[90px] gap-[24px] cursor-pointer"
-        onClick={() => {
-          navigate("/events-promotion/award-scheme2324");
-          window.scroll({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-        tabIndex={0}
-        role="button"
+        href={"/events-promotion/award-scheme2324"}
         aria-label={processText(page_text.ceremony_list)}
       >
         <img
@@ -807,7 +808,7 @@ export const AwardScheme: React.FC = () => {
             </clipPath>
           </defs>
         </svg>
-      </div>
+      </a>
     </div>
   );
 };

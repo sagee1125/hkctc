@@ -124,10 +124,7 @@ export const SeminarsWorkshops: React.FC = () => {
               {Object.keys(topicArray).map((btn, index) => {
                 const isActivated = index === activeTopicButton;
                 return (
-                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -135,6 +132,12 @@ export const SeminarsWorkshops: React.FC = () => {
                     onClick={() => {
                       setActiveTopicButton(index);
                       setCurrentPage(0);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveTopicButton(index);
+                        setCurrentPage(0);
+                      }
                     }}
                   >
                     {getSingleText(btn, topicArray[btn])}
@@ -154,10 +157,7 @@ export const SeminarsWorkshops: React.FC = () => {
               {(yearArray as string[]).map((btn, index) => {
                 const isActivated = index === activeYearButton;
                 return (
-                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -165,6 +165,12 @@ export const SeminarsWorkshops: React.FC = () => {
                     onClick={() => {
                       setActiveYearButton(index);
                       setCurrentPage(0);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveYearButton(index);
+                        setCurrentPage(0);
+                      }
                     }}
                   >
                     {getSingleText(btn, btn)}
@@ -180,22 +186,12 @@ export const SeminarsWorkshops: React.FC = () => {
         {currentPageData.map((item) => {
           const { title, id, date, img } = item;
           return (
-            <div
+            <a
               key={id}
+              href={`/events-promotion?section=seminar_article#${id}`}
               className={`flex ${
                 isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                navigate(`/events-promotion?section=seminar_article#${id}`, {
-                  replace: false,
-                });
-              }}
               aria-label={getSingleText(title, title)}
             >
               <div className="flex flex-col w-full justify-center">
@@ -225,7 +221,7 @@ export const SeminarsWorkshops: React.FC = () => {
                   alt="Role1"
                 />
               )}
-            </div>
+            </a>
           );
         })}
       </div>

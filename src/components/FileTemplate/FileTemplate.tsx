@@ -48,6 +48,11 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           tabIndex={0}
           aria-label={"open modal"}
           onClick={() => setIsPreviewOpen(true)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setIsPreviewOpen(true);
+            }
+          }}
         >
           <img
             className="border-[1px] border-[#E0E0E0] w-full h-full object-cover"
@@ -71,6 +76,11 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
           role="button"
           tabIndex={0}
           onClick={() => setIsPreviewOpen(true)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setIsPreviewOpen(true);
+            }
+          }}
           aria-label="open modal"
         >
           {titleHyperlink ? (
@@ -85,9 +95,7 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
               {title}
             </a>
           ) : (
-            <p className="text-highlight-m" tabIndex={0}>
-              {title}
-            </p>
+            <p className="text-highlight-m">{title}</p>
           )}
 
           {date && (
@@ -110,6 +118,9 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
               tabIndex={0}
               className="absolute top-2 right-2 px-2"
               onClick={() => setIsPreviewOpen(false)}
+              onKeyDown={(e) => {
+                setIsPreviewOpen(false);
+              }}
               aria-label="close modal"
             >
               ✕
@@ -123,10 +134,14 @@ export const FileTemplate: React.FC<FileTemplateProps> = ({
             />
             <div className="absolute bottom-4 right-4 flex gap-2">
               <button
-                tabIndex={0}
                 className="bg-newPrimary text-white px-4 py-2"
                 onClick={handlePdfDownload}
                 aria-label="Download"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handlePdfDownload();
+                  }
+                }}
               >
                 Download
               </button>

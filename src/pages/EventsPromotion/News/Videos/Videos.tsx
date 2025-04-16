@@ -84,14 +84,17 @@ export const Videos: React.FC = () => {
                 const isActivated = activeButton === index;
                 return (
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
                     onClick={() => {
                       setActiveButton(index);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveButton(index);
+                      }
                     }}
                   >
                     <p className="text-highlight-xs">

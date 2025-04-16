@@ -315,8 +315,6 @@ export const FundingSchemes: React.FC = () => {
                   );
                   return (
                     <button
-                      tabIndex={0}
-                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -410,8 +408,6 @@ export const FundingSchemes: React.FC = () => {
                   );
                   return (
                     <button
-                      tabIndex={0}
-                      role="button"
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
