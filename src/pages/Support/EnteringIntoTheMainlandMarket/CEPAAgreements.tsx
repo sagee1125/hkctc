@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, SquareTitle } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
-import { useNavigate } from "react-router-dom";
 import { Language, useSettings } from "../../../context";
 
 export enum CEPAAgreements_ids {
@@ -44,7 +43,6 @@ const multilingual = {
 };
 
 export const CEPAAgreements: React.FC = () => {
-  const navigate = useNavigate();
   const { language, getPageText, getSingleNode, getSingleText, processLink } =
     useSettings();
 
@@ -345,21 +343,13 @@ export const CEPAAgreements: React.FC = () => {
             the China Compulsory Certification (“CCC”) market to Hong Kong. The
             new measure allows Hong Kong testing organisations to cooperate with
             designated Mainland certification bodies to undertake&nbsp;
-            <span
+            <a
               className="!text-highlight-m underline text-newPrimary cursor-pointer"
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                navigate("/support/CCC_testing");
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }}
+              href="/support/CCC_testing"
               aria-label="CCC testing"
             >
               CCC testing
-            </span>
+            </a>
             &nbsp;on all products that are processed or manufactured in the
             Mainland requiring CCC. The&nbsp;
             <a
@@ -382,21 +372,13 @@ export const CEPAAgreements: React.FC = () => {
         <>
           <p className="text-body-m">
             二○一八年十二月，內地透過換文修訂《服務貿易協議》，以進一步擴大中國強制性產品認證（"CCC"）市場的對港開放範圍。新措施允許香港的檢測機構與內地指定認證機構展開合作，承擔在內地加工或生產的CCC目錄內所有產品的{" "}
-            <span
-              className="!text-highlight-m underline text-newPrimary cursor-pointer"
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                navigate("/support/CCC_testing");
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }}
+            <a
+              className="!text-highlight-m underline text-newPrimary"
+              href="/support/CCC_testing"
               aria-label="CCC檢測"
             >
               CCC檢測
-            </span>
+            </a>
             工作。此措施已於二○一九年三月一日起實施，相關
             <a
               aria-label="實施指南"
@@ -446,21 +428,13 @@ export const CEPAAgreements: React.FC = () => {
   const X_to_CEPA = (
     <>
       <p className="text-body-m">
-        <span
-          className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#4");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+        <a
+          className="!text-newPrimary underline !text-highlight-m"
+          href="/support/agreement-clause#4"
           aria-label="Supplement X to CEPA"
         >
           Supplement X to CEPA
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and HKSAR in August 2013. It
         introduces, on a pilot basis, the expansion of the scope from food
         testing services for the purpose of certification that can be undertaken
@@ -512,21 +486,13 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         中國內地與香港特區於二○一三年八月簽署
-        <span
-          className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#4");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+        <a
+          className="!text-newPrimary underline !text-highlight-m"
+          href="/support/agreement-clause#4"
           aria-label="《CEPA補充協議十》"
         >
           《CEPA補充協議十》
-        </span>
+        </a>
         ，當中包括試行放寬香港檢測機構獲准承擔的以認證為目的的檢測服務範圍，至其他自願性產品認證領域。此外，在參與內地檢測和認證活動方面，給予香港服務提供者在內地設立的相關機構同等待遇。香港服務提供者僱用的合同服務提供者亦獲允許以自然人流動的方式，在內地提供相關服務。
       </p>
       <br />
@@ -561,56 +527,30 @@ export const CEPAAgreements: React.FC = () => {
   const VII_to_CEPA = (
     <>
       <p className="text-body-m">
-        <span
-          className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#7");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+        <a
+          href="/support/agreement-clause#7"
+          className="!text-newPrimary underline !text-highlight-m"
         >
           Supplement VII to CEPA
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and the HKSAR in May 2010. It
         includes liberalisation measures of the&nbsp;
-        <span
-          className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+        <a
+          className="!text-newPrimary underline !text-highlight-m"
+          href="/support/CCC_testing"
           aria-label="China Compulsory Certification (CCC) System"
         >
           China Compulsory Certification (CCC) System
-        </span>
+        </a>
         &nbsp;and arrangements to help testing organisations in Hong Kong to
         become recognised testing organisations under&nbsp;
-        <span
-          className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate(
-              "/support/international_multilateral_systems_on_mutual_recognition"
-            );
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+        <a
+          className="!text-highlight-m underline text-newPrimary"
+          href="/support/international_multilateral_systems_on_mutual_recognition"
           aria-label="international multilateral systems on mutual recognition"
         >
           international multilateral systems on mutual recognition
-        </span>
+        </a>
         &nbsp;of testing and certification that are open to national member
         bodies (such as the IECEE/CB system). On liberalising the CCC market,
       </p>
@@ -629,54 +569,28 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         中國內地與香港特區於二○一○年五月簽署
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#7");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#7"
         >
           《CEPA補充協議七》
-        </span>
+        </a>
         ，當中包括有關
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/CCC_testing"
           aria-label="中國強制性產品認證制度（CCC）"
         >
           中國強制性產品認證制度（CCC）
-        </span>
+        </a>
         的開放措施，以及協助香港檢測機構成為設有國家成員機構的認證檢測
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate(
-              "/support/international_multilateral_systems_on_mutual_recognition"
-            );
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/international_multilateral_systems_on_mutual_recognition"
           aria-label="國際多邊互認體系"
         >
           國際多邊互認體系
-        </span>
+        </a>
         （如IECEE/CB體系）所接受的檢測實驗室之安排。
         <br />
         <br />
@@ -688,41 +602,25 @@ export const CEPAAgreements: React.FC = () => {
   const VIII_to_CEPA = (
     <>
       <p className="text-body-m">
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#6");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#6"
           aria-label="Supplement VIII to CEPA"
         >
           Supplement VIII to CEPA
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and HKSAR in December 2011.
         Starting from April 2012, the measure allows, on the basis of Supplement
         VII to CEPA, testing organisations in Hong Kong to cooperate with
         designated Mainland certification bodies to undertake product testing
         for the&nbsp;
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/CCC_testing"
           aria-label="China Compulsory Certification (CCC) System"
         >
           China Compulsory Certification (CCC) System
-        </span>
+        </a>
         &nbsp;for all existing products processed in Hong Kong that require CCC.
       </p>
     </>
@@ -732,37 +630,21 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         中國內地與香港特區於二○一一年十二月簽署
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#6");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#6"
           aria-label="《CEPA補充協議八》"
         >
           《CEPA補充協議八》
-        </span>
+        </a>
         。由二○一二年四月起，在《CEPA補充協議七》的基礎上，允許香港檢測機構與內地指定認證機構展開合作，對現行所有需
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/CCC_testing"
           aria-label="中國強制性產品認證（CCC）"
         >
           中國強制性產品認證（CCC）
-        </span>
+        </a>
         的香港本地加工的產品進行檢測。
       </p>
     </>
@@ -770,21 +652,13 @@ export const CEPAAgreements: React.FC = () => {
   const IX_to_CEPA = (
     <>
       <p className="text-body-m">
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#5");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#5"
           aria-label="Supplement IX to CEPA"
         >
           Supplement IX to CEPA
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and HKSAR in June 2012. Starting
         from January 2013, the scope of testing services for supporting
         certification in the Mainland that can be undertaken by Hong Kong
@@ -816,21 +690,13 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         中國內地與香港特區於二○一二年六月簽署
-        <span
+        <a
           className="!text-newPrimary underline !text-highlight-m cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#5");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#5"
           aria-label="《CEPA補充協議九》"
         >
           《CEPA補充協議九》
-        </span>
+        </a>
         。由二○一三年一月起，在廣東省試點內將香港檢測機構獲准承擔，以認證為目的的檢測服務範圍，放寬至食品類別。
       </p>
       <br />
@@ -857,41 +723,25 @@ export const CEPAAgreements: React.FC = () => {
   const AgreementBetweenTheMainlandAndHK = (
     <>
       <p className="text-body-m">
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#3");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#3"
           aria-label="Guangdong Agreement"
         >
           The Agreement between the Mainland and Hong Kong on Achieving Basic
           Liberalisation of Trade in Services in Guangdong (Guangdong Agreement)
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and HKSAR in December 2014. It
         includes measures allowing testing organisations in Hong Kong to
         cooperate with designated Mainland organisations to undertake testing of
         products in the "audio and visual apparatus" category of the&nbsp;
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/CCC_testing"
           aria-label="China Compulsory Certification (CCC)"
         >
           China Compulsory Certification (CCC)
-        </span>
+        </a>
         &nbsp;system that are designed and prototyped in Hong Kong, as well as
         processed or manufactured in Guangdong Province.
       </p>
@@ -933,37 +783,21 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         於中國內地與香港特區於二○一四年十二月簽署
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#3");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#3"
           aria-label="《關於內地在廣東與香港基本實現服務貿易自由化的協議》（廣東協議）"
         >
           《關於內地在廣東與香港基本實現服務貿易自由化的協議》（廣東協議）
-        </span>
+        </a>
         ，當中包括允許香港檢測機構與內地指定機構開展合作，承擔在港設計定型且在廣東省加工或生產的音視頻設備類產品的
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/CCC_testing");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/CCC_testing"
           aria-label="中國強制性產品認證（CCC）"
         >
           中國強制性產品認證（CCC）
-        </span>
+        </a>
         檢測任務。在自願性認證領域，允許香港檢測機構對香港本地或內地生產或加工的產品進行檢測。
       </p>
       <br />
@@ -992,21 +826,13 @@ export const CEPAAgreements: React.FC = () => {
   const AgreementOnEconomic = (
     <>
       <p className="text-body-m">
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#2");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#2"
           aria-label="The Agreement on Economic and Technical Cooperation"
         >
           The Agreement on Economic and Technical Cooperation
-        </span>
+        </a>
         &nbsp;was signed between the Mainland and HKSAR in June 2017. New
         articles related to testing and certification include -
       </p>
@@ -1032,21 +858,13 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m">
         中國內地與香港特區於二○一七年六月簽署
-        <span
+        <a
           className="!text-highlight-m underline text-newPrimary cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause#2");
-            window.scroll({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
+          href="/support/agreement-clause#2"
           aria-label="《經濟技術合作協議》"
         >
           《經濟技術合作協議》
-        </span>
+        </a>
         ，當中與檢測認證相關的新條文包括–
       </p>
       <br />
@@ -1062,21 +880,13 @@ export const CEPAAgreements: React.FC = () => {
 
   const AgreementOnGoods = (
     <div className="text-body-m">
-      <span
+      <a
         className="!text-highlight-m underline text-newPrimary cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          navigate("/support/agreement-clause#1");
-          window.scroll({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
+        href="/support/agreement-clause#1"
         aria-label="The Agreement on Trade in Goods"
       >
         The Agreement on Trade in Goods
-      </span>
+      </a>
       &nbsp;was signed between the Mainland and HKSAR in December 2018. It
       contains several exploratory provisions on mutual recognition of testing
       and certification results between the two sides.
@@ -1086,21 +896,13 @@ export const CEPAAgreements: React.FC = () => {
   const AgreementOnGoods_CN = (
     <div className="text-body-m">
       內地與香港於二○一八年十二月簽署
-      <span
+      <a
         className="!text-highlight-m underline text-newPrimary cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          navigate("/support/agreement-clause#1");
-          window.scroll({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
+        href="/support/agreement-clause#1"
         aria-label="《貨物貿易協議》"
       >
         《貨物貿易協議》
-      </span>
+      </a>
       ，當中涵蓋若干有關雙方的檢測認證結果互認的探討性條文。
     </div>
   );
@@ -1109,17 +911,13 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m mt-[16px]">
         The&nbsp;
-        <span
+        <a
           className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause");
-          }}
+          href="/support/agreement-clause"
           aria-label="Agreement on Trade in Services"
         >
           Agreement on Trade in Services
-        </span>
+        </a>
         &nbsp;(“The Services Agreement”) was signed between the Mainland and
         HKSAR in November 2015.
         <br />
@@ -1158,17 +956,13 @@ export const CEPAAgreements: React.FC = () => {
     <>
       <p className="text-body-m mt-[16px]">
         中國內地與香港特區於二○一五年十一月簽署
-        <span
+        <a
           className="text-newPrimary text-linked-m underline cursor-pointer !text-linked-m"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate("/support/agreement-clause");
-          }}
+          href="/support/agreement-clause"
           aria-label="《服務貿易協議》"
         >
           《服務貿易協議》
-        </span>
+        </a>
         ，當中除新增了在中國（廣東）自由貿易試驗區內試行粵港澳認證及相關檢測業務互認制度，實行「一次認證、一次檢測、三地通行」的開放措施外，也涵蓋和歸納了CEPA各補充協議以及《廣東協議》內有關服務貿易開放、涉及檢測認證的承諾。
         <br />
       </p>

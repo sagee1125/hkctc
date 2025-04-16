@@ -358,12 +358,15 @@ export const ProgrammesCourses: React.FC = () => {
           const isActivated = activeButton === b;
           return (
             <button
-              tabIndex={0}
-              role="button"
               key={i}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveButton(b);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setActiveButton(b);
+                }
               }}
             >
               {getSingleText(degreeMap[b].tab, degreeMap[b].tabCN)}

@@ -619,9 +619,7 @@ export const ResourcesReportsContent: React.FC = () => {
               {Object.values(filterReportsButtonsMapping).map((name, index) => {
                 const isActivated = activeReport === index;
                 return (
-                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
-                    tabIndex={0}
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -665,9 +663,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 (name, index: number) => {
                   const isActivated = activePublication === index;
                   return (
-                    // eslint-disable-next-line jsx-a11y/no-redundant-roles
                     <button
-                      tabIndex={0}
                       key={index}
                       style={
                         isActivated ? activatedButtonStyle : normalButtonStyle
@@ -705,9 +701,7 @@ export const ResourcesReportsContent: React.FC = () => {
               {Object.keys(courseButtonMapping).map((name, index) => {
                 const isActivated = activeCoursesCategory === index;
                 return (
-                  // eslint-disable-next-line jsx-a11y/no-redundant-roles
                   <button
-                    tabIndex={0}
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -743,9 +737,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   {Object.keys(aboutTestingSector).map((name, index) => {
                     const isActivated = activeAboutSector === index;
                     return (
-                      // eslint-disable-next-line jsx-a11y/no-redundant-roles
                       <button
-                        tabIndex={0}
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -777,9 +769,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   {Object.keys(certificateSector).map((name, index) => {
                     const isActivated = activeCertificateSector === index;
                     return (
-                      // eslint-disable-next-line jsx-a11y/no-redundant-roles
                       <button
-                        tabIndex={0}
                         key={index}
                         style={
                           isActivated ? activatedButtonStyle : normalButtonStyle
@@ -875,6 +865,11 @@ export const ResourcesReportsContent: React.FC = () => {
         <div className="text-heading-l w-full">{filter as string}</div>
         <div
           onClick={handleClearFilter}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleClearFilter();
+            }
+          }}
           className="w-[50%] flex flex-row-reverse "
           tabIndex={0}
           role="button"
@@ -1002,13 +997,6 @@ export const ResourcesReportsContent: React.FC = () => {
                   },
                 }}
               />
-
-              <label
-                id="range-slider-label"
-                style={{ visibility: "hidden", position: "absolute" }}
-              >
-                Year range selection
-              </label>
             </Box>
             <p
               className={`text-body-m mb-[16px]`}
@@ -1122,6 +1110,11 @@ export const ResourcesReportsContent: React.FC = () => {
               onClick={() => {
                 handleChangeCategory(catEnum);
               }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleChangeCategory(catEnum);
+                }
+              }}
               aria-label={label}
             >
               <div className="text-heading-l">{label}</div>
@@ -1150,6 +1143,11 @@ export const ResourcesReportsContent: React.FC = () => {
             className="border-[1px] border-[#E0E0E0] flex flex-row py-[14px] px-[14px] items-center gap-[8px] cursor-pointer"
             onClick={() => {
               setMobileFilterOpen(true);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setMobileFilterOpen(true);
+              }
             }}
             aria-label={filter as string}
           >
@@ -1188,6 +1186,11 @@ export const ResourcesReportsContent: React.FC = () => {
                   style={{ background: isActivated ? "#233F55" : "white" }}
                   onClick={() => {
                     setLayoutButton(index);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      setLayoutButton(index);
+                    }
                   }}
                   aria-label="change layout"
                 >
@@ -1270,10 +1273,17 @@ export const ResourcesReportsContent: React.FC = () => {
           <div>{please_try as string}</div>
           <div
             onClick={handleClearFilter}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleClearFilter();
+              }
+            }}
             role="button"
+            tabIndex={0}
             aria-label="clear filter"
+            className="underline text-[#E00]"
           >
-            <Link>{clear_filters_apply as string}</Link>
+            {clear_filters_apply as string}
           </div>
         </div>
       )}

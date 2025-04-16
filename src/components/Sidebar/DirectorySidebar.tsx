@@ -45,6 +45,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
             ? "text-heading-s"
             : "text-body-m text-[#767676]";
           const marginStyle = index === 0 ? "" : "-mt-[2px]";
+          const onClick = (): void => {
+            if (disabled) return;
+            setActivatedItems(item.value);
+            setIsOpen(false);
+          };
           return (
             <div
               className={classNames(
@@ -57,10 +62,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               style={{
                 ...(disabled ? { cursor: "not-allowed" } : {}),
               }}
-              onClick={() => {
-                if (disabled) return;
-                setActivatedItems(item.value);
-                setIsOpen(false);
+              onClick={onClick}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  onClick();
+                }
               }}
               key={index}
               aria-label={getSingleText(item.label, item.labelCN)}
@@ -92,7 +98,6 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
       <>
         <button
           tabIndex={0}
-          role="button"
           className="!text-highlight-m text-white fixed bottom-[24px] right-[24px] z-50"
           style={{
             background: "#233F55",
@@ -130,6 +135,11 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
               className="w-full flex flex-row justify-between items-center pb-[24px] cursor-pointer"
               onClick={() => {
                 setIsOpen(false);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setIsOpen(false);
+                }
               }}
               tabIndex={0}
               role="button"

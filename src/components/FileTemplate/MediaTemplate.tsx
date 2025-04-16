@@ -18,16 +18,24 @@ export const MediaTemplate: React.FC<
 
   const componentMap: Record<"horizontal" | "vertical", React.ReactNode> = {
     horizontal: (
-      <div
+      <a
         className={`border-2 border-[#E0E0E0] w-full flex ${
           isPC || isTablet ? "flex-row h-[278px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
-        tabIndex={0}
-        role="button"
+        href={mediaLink}
+        target={mediaLink ? "_blank" : undefined}
+        rel={mediaLink ? "noopener noreferrer" : undefined}
         aria-label={"open " + mediaLink}
         aria-disabled={!mediaLink}
-        onClick={() => {
-          mediaLink && window.open(mediaLink, "_blank", "noopener");
+        onClick={(e) => {
+          if (!mediaLink) {
+            e.preventDefault();
+          }
+        }}
+        onKeyDown={(e) => {
+          if (!mediaLink && e.key === "Enter") {
+            e.preventDefault();
+          }
         }}
       >
         <div
@@ -55,7 +63,7 @@ export const MediaTemplate: React.FC<
         >
           <p className="text-heading-m">{title}</p>
           {date && (
-            <div className="flex flex-row gap-[8px] items-center" tabIndex={0}>
+            <div className="flex flex-row gap-[8px] items-center">
               <img
                 className="w-[16px] h-[16px]"
                 src={`${process.env.PUBLIC_URL}/assets/icons/calendar.svg`}
@@ -65,18 +73,26 @@ export const MediaTemplate: React.FC<
             </div>
           )}
         </div>
-      </div>
+      </a>
     ),
 
     vertical: (
-      <div
+      <a
         className={`w-full flex  flex-col h-auto gap-[24px] cursor-pointer`}
-        tabIndex={0}
-        role="button"
+        href={mediaLink || undefined}
+        target={mediaLink ? "_blank" : undefined}
+        rel={mediaLink ? "noopener noreferrer" : undefined}
         aria-label={"open " + mediaLink}
         aria-disabled={!mediaLink}
-        onClick={() => {
-          mediaLink && window.open(mediaLink, "_blank", "noopener");
+        onClick={(e) => {
+          if (!mediaLink) {
+            e.preventDefault();
+          }
+        }}
+        onKeyDown={(e) => {
+          if (!mediaLink && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+          }
         }}
       >
         <div
@@ -98,7 +114,7 @@ export const MediaTemplate: React.FC<
         </div>
 
         <p className="text-highlight-l">{title}</p>
-      </div>
+      </a>
     ),
   };
   return <>{componentMap[direction]}</>;

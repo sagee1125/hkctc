@@ -15,6 +15,25 @@ type BreadcrumbProps = {
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   const navigate = useNavigate();
 
+  const handleNavigation = (link?: string): void => {
+    if (!link) return;
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+    navigate(link);
+  };
+
+  const handleNavigateBread = (link?: string): void => {
+    if (!link) return;
+
+    const element = document.getElementById("breadcrumb");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+
+    navigate(link);
+  };
   return (
     <nav id="breadcrumb" aria-label="Breadcrumb" style={breadcrumbStyle}>
       <div className="flex flex-row space-x-[8px] text-black items-center">
@@ -34,11 +53,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                     role="button"
                     aria-label={"navigate to " + item.label}
                     onClick={() => {
-                      window.scroll({
-                        top: 0,
-                        behavior: "smooth",
-                      });
-                      navigate(`${item.href}`); // back to homepage
+                      handleNavigation(item.href);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleNavigation(item.href);
+                      }
                     }}
                   >
                     {item.label}
@@ -53,12 +73,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   role="button"
                   aria-label={"navigate to " + item.label}
                   onClick={() => {
-                    const element = document.getElementById("breadcrumb");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
+                    handleNavigateBread(item.href);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleNavigateBread(item.href);
                     }
-
-                    navigate(`${item.href}`);
                   }}
                 >
                   {item.label}

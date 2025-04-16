@@ -14,24 +14,28 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
 }) => {
   const navigate = useNavigate();
   const { isPC } = useSettings();
-
+  const handleClick = (): void => {
+    if (redirectTo) {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+      navigate(redirectTo);
+    }
+  };
   return (
     <div
       className={`flex flex-row gap-[12px] items-start ${
         redirectTo ? "cursor-pointer" : ""
       }`}
       tabIndex={0}
-      role="heading"
+      role="button"
       aria-label={`redirect to ${title}`}
-      aria-level={10}
       aria-disabled={!redirectTo}
-      onClick={() => {
-        if (redirectTo) {
-          window.scroll({
-            top: 0,
-            behavior: "smooth",
-          });
-          navigate(redirectTo);
+      onClick={handleClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleClick();
         }
       }}
     >
@@ -39,12 +43,7 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
         className={`mt-[8px] h-[15px] w-[15px] bg-newPrimary`}
         style={{ flexShrink: 0 }}
       />
-      <div
-        className={"text-heading-l"}
-        tabIndex={0}
-        role="heading"
-        aria-level={10}
-      >
+      <div className={"text-heading-l"} role="heading" aria-level={10}>
         {title}
       </div>
       {showArrowIcon && (

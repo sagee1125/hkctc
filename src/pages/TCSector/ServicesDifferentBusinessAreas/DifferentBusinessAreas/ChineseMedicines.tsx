@@ -43,27 +43,24 @@ export const ChineseMedicines: React.FC = () => {
         "Testing and certification of Chinese medicines can bring about many benefits to:",
       user: (
         <ol>
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">Users:</span>
             &nbsp;It can help users to identify genuine products, reduces the
             chance of buying fake, misprocessed (such as bleached), adulterated
             or contaminated products.
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">Manufacturers and Traders:</span>
             &nbsp;It can help enhance customer confidence and satisfaction,
             increase sales, and reduce the risk of costly recalls and lawsuits.
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">
               Chinese Medicine Practitioners:
             </span>
             &nbsp;It can ensure that prescriptions are filled with genuine and
             quality medicinal herbs.
           </li>
-          <br />
           <li>
             <span className="text-highlight-m">Hong Kong:</span>
             &nbsp;It can promote the further development of the testing and
@@ -103,22 +100,19 @@ export const ChineseMedicines: React.FC = () => {
       tc_chinese_medicine: "中藥測試和認證可帶來很多好處 :",
       user: (
         <ol>
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">對中藥使用者-</span>
             可讓他們辨別產品的真偽，減低他們購入一些造假、處理不當（例如漂染）、摻雜其他成份和受污染等產品的機會。
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">對中藥生產商及貿易商-</span>
             有助加強顧客的信心及滿意程度，增加產品的銷量，及減低產品因不達有關中藥規管的法例要求而須回收及招致訴訟。
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">對中醫師-</span>
             可確保他們使用的中藥是真的及具質量保證。
           </li>
-          <br />
-          <li>
+          <li className="mb-[1em]">
             <span className="text-highlight-m">對香港-</span>
             可促進檢測和認證業進一步的發展，以及鞏固香港作為一個中藥檢測和認證中心的地位。長遠而言，有助保持香港經濟的發展。
           </li>
@@ -367,7 +361,6 @@ export const ChineseMedicines: React.FC = () => {
               const isActivated = index === activeButton;
               return (
                 <button
-                  tabIndex={0}
                   key={index}
                   style={isActivated ? activatedButtonStyle : normalButtonStyle}
                   onClick={() => {

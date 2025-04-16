@@ -289,8 +289,6 @@ export const Advertorials: React.FC = () => {
                 const isActivated = activeAboutSector === index;
                 return (
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -299,6 +297,13 @@ export const Advertorials: React.FC = () => {
                       setActiveAboutSector(index);
                       setActiveCertificateSector(-1);
                       setCurrentPage(0);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveAboutSector(index);
+                        setActiveCertificateSector(-1);
+                        setCurrentPage(0);
+                      }
                     }}
                   >
                     <p className="text-highlight-xs">
@@ -324,8 +329,6 @@ export const Advertorials: React.FC = () => {
                 const isActivated = activeCertificateSector === index;
                 return (
                   <button
-                    tabIndex={0}
-                    role="button"
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
@@ -334,6 +337,13 @@ export const Advertorials: React.FC = () => {
                       setActiveCertificateSector(index);
                       setActiveAboutSector(-1);
                       setCurrentPage(0);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveCertificateSector(index);
+                        setActiveAboutSector(-1);
+                        setCurrentPage(0);
+                      }
                     }}
                   >
                     <p className="text-highlight-xs">

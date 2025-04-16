@@ -48,18 +48,14 @@ export const PhotoPanel: React.FC = () => {
     return (
       <div className={`w-full h-full grid grid-cols-2 gap-[24px] p-[24px]`}>
         <div className="grid grid-cols-2 gap-[24px]">
-          <div
-            className="col-span-2 cursor-pointer"
+          <a
+            className="col-span-2"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
               ...imgBox,
             }}
-            tabIndex={0}
             aria-label={about as string}
-            role="button"
-            onClick={() => {
-              navigate(`/about-us`);
-            }}
+            href="/about-us"
           >
             <div style={overlayStyle} role="none" />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -67,14 +63,9 @@ export const PhotoPanel: React.FC = () => {
                 {about as string}
               </p>
             </div>
-          </div>
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
-            }}
-            tabIndex={0}
-            role="button"
+          </a>
+          <a
+            href={`/tc-sector?section=${navItemEnum.profile_and_role}`}
             aria-label="redirect to profile & role in T&C sector section"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
@@ -87,20 +78,15 @@ export const PhotoPanel: React.FC = () => {
                 {profile_and_role as React.ReactNode}
               </div>
             </div>
-          </div>
+          </a>
 
-          <div
+          <a
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
               ...imgBox,
             }}
-            className="cursor-pointer"
-            tabIndex={0}
-            role="button"
             aria-label="redirect to T&C sector strengths in T&C sector section"
-            onClick={() => {
-              navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
-            }}
+            href={`/tc-sector?section=${navItemEnum.tc_sector_strengths}`}
           >
             <div style={overlayStyle} role="none" />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -108,21 +94,16 @@ export const PhotoPanel: React.FC = () => {
                 {tc_sector_strengths as React.ReactNode}
               </div>
             </div>
-          </div>
+          </a>
         </div>
-        <div
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
             minHeight: "537px",
             ...imgBox,
           }}
-          className="cursor-pointer"
-          tabIndex={0}
           aria-label="redirect to services provided in T&C sector section"
-          role="button"
-          onClick={() => {
-            navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
-          }}
+          href={`/tc-sector?section=${navItemEnum.services_provided}`}
         >
           <div style={overlayStyle} role="none" />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -130,17 +111,15 @@ export const PhotoPanel: React.FC = () => {
               {services_provided as React.ReactNode}
             </div>
           </div>
-        </div>
+        </a>
       </div>
     );
   else
     return (
       <div className={`w-full flex flex-col gap-[24px] p-[24px]`}>
         <div className="grid grid-cols-1 gap-[24px]">
-          <div
-            className="cursor-pointer"
-            tabIndex={0}
-            role="button"
+          <a
+            href="/about-us"
             aria-label="redirect to about us"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_1.png)`,
@@ -149,9 +128,6 @@ export const PhotoPanel: React.FC = () => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center top",
               position: "relative",
-            }}
-            onClick={() => {
-              navigate("/about-us");
             }}
           >
             <div
@@ -173,14 +149,9 @@ export const PhotoPanel: React.FC = () => {
                 {about as string}
               </p>
             </div>
-          </div>
-          <div
-            className="cursor-pointer"
-            tabIndex={0}
-            role="button"
-            onClick={() => {
-              navigate(`/tc-sector?section=${navItemEnum.profile_and_role}`);
-            }}
+          </a>
+          <a
+            href={`/tc-sector?section=${navItemEnum.profile_and_role}`}
             aria-label="redirect to profile & role in T&C sector section"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_2.png)`,
@@ -210,9 +181,9 @@ export const PhotoPanel: React.FC = () => {
                 {profile_and_role as string}
               </p>
             </div>
-          </div>
+          </a>
 
-          <div
+          <a
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/banner_3.png)`,
               backgroundSize: "cover",
@@ -222,12 +193,7 @@ export const PhotoPanel: React.FC = () => {
               position: "relative",
             }}
             aria-label="redirect to T&C sector strengths in T&C sector section"
-            className="cursor-pointer"
-            tabIndex={0}
-            role="button"
-            onClick={() => {
-              navigate(`/tc-sector?section=${navItemEnum.tc_sector_strengths}`);
-            }}
+            href={`/tc-sector?section=${navItemEnum.tc_sector_strengths}`}
           >
             <div
               role="none"
@@ -248,9 +214,9 @@ export const PhotoPanel: React.FC = () => {
                 {tc_sector_strengths as string}
               </p>
             </div>
-          </div>
+          </a>
         </div>
-        <div
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/services_provide.png)`,
             backgroundSize: "cover",
@@ -259,13 +225,8 @@ export const PhotoPanel: React.FC = () => {
             backgroundPosition: "center top",
             position: "relative",
           }}
-          className="cursor-pointer"
           aria-label="redirect to service provided in T&C sector section"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            navigate(`/tc-sector?section=${navItemEnum.services_provided}`);
-          }}
+          href={`/tc-sector?section=${navItemEnum.services_provided}`}
         >
           <div
             role="none"
@@ -286,7 +247,7 @@ export const PhotoPanel: React.FC = () => {
               {services_provided as string}
             </p>
           </div>
-        </div>
+        </a>
       </div>
     );
 };

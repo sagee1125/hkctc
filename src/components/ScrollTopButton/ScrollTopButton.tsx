@@ -47,6 +47,14 @@ export const ScrollTopButton: React.FC = () => {
             behavior: "smooth",
           });
         }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            window.scroll({
+              top: 0,
+              behavior: "smooth",
+            });
+          }
+        }}
         aria-label="scroll to top"
       >
         <svg

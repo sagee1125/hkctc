@@ -43,17 +43,13 @@ export const SummaryOfCEPA: React.FC = () => {
         respectively)
       </p>,
       <>
-        <p
+        <a
           className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#0");
-          }}
+          href="/support/agreement-clause#0"
           aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
-        </p>
+        </a>
         <br />
         <p className="text-body-m">Implementation Guides on -</p>
         <br />
@@ -134,7 +130,6 @@ export const SummaryOfCEPA: React.FC = () => {
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
-            tabIndex={0}
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);
@@ -153,33 +148,25 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Agreement on Trade in Goods</p>,
-      <p
-        className="text-body-m underline text-[#233F55] cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#1");
-        }}
+      <a
+        className="text-body-m underline text-[#233F55]"
+        href="/support/agreement-clause#1"
         aria-label="Article 58, 59, 68"
       >
         Article 58, 59, 68
-      </p>,
+      </a>,
     ],
     [
       <p className="text-body-m">
         Agreement on Economic and Technical Cooperation
       </p>,
-      <p
-        className="text-body-m underline text-[#233F55] cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#2");
-        }}
+      <a
+        className="text-body-m underline text-[#233F55]"
+        href="/support/agreement-clause#2"
         aria-label="Article 23(4), 23(6), 23(7), 23(8)"
       >
         Article 23(4), 23(6), 23(7), 23(8)
-      </p>,
+      </a>,
     ],
   ];
 
@@ -190,17 +177,13 @@ export const SummaryOfCEPA: React.FC = () => {
         <br /> （已分別於2019年11月及2024年10月進行修訂）
       </p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#0");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#0"
           aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
-        </p>
+        </a>
         <br />
         <p className="text-body-m">實施指南</p>
         <br />
@@ -272,7 +255,6 @@ export const SummaryOfCEPA: React.FC = () => {
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
           <button
-            tabIndex={0}
             className="text-highlight-s"
             onClick={() => {
               setExpanded(!expanded);
@@ -291,13 +273,9 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">《貨物貿易協議》</p>,
-      <p
-        className="text-body-m underline text-[#233F55] cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#1");
-        }}
+      <a
+        className="text-body-m underline text-[#233F55]"
+        href="/support/agreement-clause#1"
         aria-label="第五十八、五十九、六十八條"
       >
         第五十八條
@@ -305,17 +283,13 @@ export const SummaryOfCEPA: React.FC = () => {
         第五十九條
         <br />
         第六十八條
-      </p>,
+      </a>,
     ],
     [
       <p className="text-body-m">《經濟技術合作協議》</p>,
-      <p
-        className="text-body-m underline text-[#233F55] cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#2");
-        }}
+      <a
+        className="text-body-m underline text-[#233F55]"
+        href="/support/agreement-clause#2"
         aria-label="第二十三（四）條，第二十三（六）條，第二十三（七）條，第二十三（八）條"
       >
         第二十三（四）條
@@ -326,7 +300,7 @@ export const SummaryOfCEPA: React.FC = () => {
         <br />
         第二十三（八）條
         <br />
-      </p>,
+      </a>,
     ],
   ];
 
@@ -337,17 +311,13 @@ export const SummaryOfCEPA: React.FC = () => {
         Liberalisation of Trade in Services in Guangdong
       </p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#3");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#3"
           aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
-        </p>
+        </a>
         <br />
         <p>
           <a
@@ -371,18 +341,14 @@ export const SummaryOfCEPA: React.FC = () => {
     [
       <p className="text-body-m">Supplement X to CEPA</p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#4");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#4"
           aria-label="Liberalisation of Trade in Services and Trade and Investment Facilitation"
         >
           Liberalisation of Trade in Services and Trade and Investment
           Facilitation
-        </p>
+        </a>
         <br />
         <p className="text-body-m">Implementation Guides on -</p>
         <br />
@@ -423,17 +389,13 @@ export const SummaryOfCEPA: React.FC = () => {
     [
       <p className="text-body-m">Supplement IX to CEPA</p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#5");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#5"
           aria-label="Liberalisation of Trade in Services"
         >
           Liberalisation of Trade in Services
-        </p>
+        </a>
         <br />
         <p>
           <a
@@ -457,32 +419,24 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">Supplement VIII to CEPA</p>,
-      <p
-        className="text-[#233F55] text-body-m underline cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#6");
-        }}
+      <a
+        className="text-[#233F55] text-body-m underline"
+        href="/support/agreement-clause#6"
         aria-label="Liberalisation of Trade in Services"
       >
         Liberalisation of Trade in Services
-      </p>,
+      </a>,
     ],
     [
       <p className="text-body-m">Supplement VII to CEPA</p>,
-      <p
-        className="text-[#233F55] text-body-m underline cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#7");
-        }}
+      <a
+        className="text-[#233F55] text-body-m underline"
+        href="/support/agreement-clause#7"
         aria-label="Liberalisation of Trade in Services and Trade and Investment Facilitation"
       >
         Liberalisation of Trade in Services and Trade and Investment
         Facilitation
-      </p>,
+      </a>,
     ],
   ];
 
@@ -492,17 +446,13 @@ export const SummaryOfCEPA: React.FC = () => {
         《關於內地在廣東與香港基本實現服務貿易自由化的協議》
       </p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#3");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#3"
           aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
-        </p>
+        </a>
         <br />
         <p>
           <a
@@ -526,17 +476,13 @@ export const SummaryOfCEPA: React.FC = () => {
     [
       <p className="text-body-m">《CEPA補充協議十》</p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#4");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#4"
           aria-label="服務貿易開放措施和貿易投資便利化"
         >
           服務貿易開放措施和貿易投資便利化
-        </p>
+        </a>
         <br />
         <p className="text-body-m">實施指南</p>
         <br />
@@ -577,17 +523,13 @@ export const SummaryOfCEPA: React.FC = () => {
     [
       <p className="text-body-m">《CEPA補充協議九》</p>,
       <>
-        <p
-          className="text-[#233F55] text-body-m underline cursor-pointer"
-          tabIndex={0}
-          role="button"
-          onClick={() => {
-            window.open("/support/agreement-clause#5");
-          }}
+        <a
+          className="text-[#233F55] text-body-m underline"
+          href="/support/agreement-clause#5"
           aria-label="服務貿易開放措施"
         >
           服務貿易開放措施
-        </p>
+        </a>
         <br />
         <p>
           <a
@@ -613,31 +555,23 @@ export const SummaryOfCEPA: React.FC = () => {
     ],
     [
       <p className="text-body-m">《CEPA補充協議八》</p>,
-      <p
-        className="text-[#233F55] text-body-m underline cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#6");
-        }}
+      <a
+        className="text-[#233F55] text-body-m underline"
+        href="/support/agreement-clause#6"
         aria-label="服務貿易開放措施"
       >
         服務貿易開放措施
-      </p>,
+      </a>,
     ],
     [
       <p className="text-body-m">《CEPA補充協議七》</p>,
-      <p
-        className="text-[#233F55] text-body-m underline cursor-pointer"
-        tabIndex={0}
-        role="button"
-        onClick={() => {
-          window.open("/support/agreement-clause#7");
-        }}
+      <a
+        className="text-[#233F55] text-body-m underline"
+        href="/support/agreement-clause#7"
         aria-label="服務貿易開放措施和貿易投資便利化"
       >
         服務貿易開放措施和貿易投資便利化
-      </p>,
+      </a>,
     ],
   ];
 

@@ -149,8 +149,6 @@ export const Strength: React.FC = () => {
             return (
               <button
                 key={index}
-                tabIndex={0}
-                role="button"
                 className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {

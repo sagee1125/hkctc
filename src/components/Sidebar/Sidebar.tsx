@@ -45,6 +45,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   onClick={() => {
                     setActivatedItems(navItemEnum);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      setActivatedItems(navItemEnum);
+                    }
+                  }}
                   role="button"
                   tabIndex={0}
                   aria-label={getSingleText(subTitle, subTitleCN)}
@@ -209,7 +214,14 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
             <div key={index} className="flex flex-col gap-[24px] mb-[24px]">
               <div
                 className="flex flex-row justify-between items-center cursor-pointer"
-                onClick={() => toggleExpand(title)}
+                onClick={() => {
+                  toggleExpand(title);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    toggleExpand(title);
+                  }
+                }}
                 tabIndex={0}
                 role="button"
                 aria-label={getSingleText(title, titleCN)}
@@ -249,6 +261,11 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                         role="button"
                         onClick={() => {
                           setActivatedItems(navItemEnum);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            setActivatedItems(navItemEnum);
+                          }
                         }}
                         aria-label={getSingleText(subTitle, subTitleCN)}
                       >
@@ -329,6 +346,11 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                           className="flex flex-row justify-between items-center cursor-pointer px-[16px] py-[8px]"
                           onClick={() => {
                             setCurrentExpandMobile(expand ? "" : title);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              setCurrentExpandMobile(expand ? "" : title);
+                            }
                           }}
                           tabIndex={0}
                           role="button"

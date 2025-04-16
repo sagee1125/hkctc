@@ -48,7 +48,7 @@ export const Accordion: React.FC<AccordionProps> = ({
               margin: "0 !important",
             },
           }}
-          aria-labe={title}
+          aria-label={title}
         >
           {/* TODO tbc */}
           <div className={`!text-highlight-${isPC ? "m" : "m"} !pr-[24px]`}>
@@ -63,7 +63,7 @@ export const Accordion: React.FC<AccordionProps> = ({
           />
         </div>
         <AccordionDetails
-          aria-labe={"Details of " + title}
+          aria-label={"Details of " + title}
           sx={{
             padding: "16px 24px 24px 24px !important",
           }}

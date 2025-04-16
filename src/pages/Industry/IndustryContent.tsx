@@ -1,6 +1,7 @@
 import React from "react";
 import { EmailBox, SquareTitle } from "../../components";
 import { useSettings } from "../../context";
+import { navItemEnum } from "../../const";
 
 const multilingual = {
   en: {
@@ -57,7 +58,7 @@ export const IndustryContent: React.FC = () => {
       descriptionCN: `根據活化工業大廈（工廈）計劃，其中一項措施是放寛豁免書申請安排，以准許現有工廈用作若干用途。測試實驗所可受惠於此措施。`,
 
       imagePath: "industry/Accommodation_Land.png",
-      link: "/support?section=accommodation_and_land",
+      link: `/support?section=${navItemEnum.accommodation_and_land}`,
     },
     {
       title: funding_schemes,
@@ -66,7 +67,7 @@ export const IndustryContent: React.FC = () => {
       descriptionCN:
         "政府設立創新及科技基金，旨在提升本地經濟活動的增值力、生產力及競爭力。",
       imagePath: "generalPublic/whatsnew_4.png",
-      link: "/support?section=funding_schemes",
+      link: `/support?section=${navItemEnum.funding_schemes}`,
     },
     {
       title: entering_into_the_mainland_market,
@@ -75,7 +76,7 @@ export const IndustryContent: React.FC = () => {
       descriptionCN: `自簽署《內地與香港關於建立更緊密經貿關係的安排（CEPA）補充協議七》起，中國內地逐步向香港開放其檢測和認證市場。`,
 
       imagePath: "industry/Entering.png",
-      link: "/support?section=entering_into_the_mainland_market",
+      link: `/support?section=${navItemEnum.entering_into_the_mainland_market}`,
     },
     {
       title: exhibition_programme,
@@ -84,7 +85,7 @@ export const IndustryContent: React.FC = () => {
       descriptionCN:
         "香港檢測和認證局在本港、內地及海外的主要貿易展覽會設置攤位，向全球的買家、供應商和貿易商推廣香港檢測認證服務的優勢。",
       imagePath: "industry/support_1.png",
-      link: "/support?section=exhibition_programme",
+      link: `/support?section=${navItemEnum.exhibition_programme}`,
     },
   ];
 
@@ -97,17 +98,17 @@ export const IndustryContent: React.FC = () => {
     {
       title: corruption_prevention as string,
       imgUrl: "industry/Corruption.png",
-      link: "/events-promotion?section=corruption_prevention",
+      link: `/events-promotion?section=${navItemEnum.corruption_prevention}`,
     },
     {
       title: hkctc_newsletter as string,
       imgUrl: "generalPublic/material_2.png",
-      link: "/events-promotion?section=hkctc_newsletter",
+      link: `/events-promotion?section=${navItemEnum.hkctc_newsletter}`,
     },
     {
       title: hkctc_reports as string,
       imgUrl: "generalPublic/material_1.png",
-      link: "/events-promotion?section=hkctc_reports",
+      link: `/events-promotion?section=${navItemEnum.hkctc_reports}`,
     },
   ];
 
@@ -124,16 +125,12 @@ export const IndustryContent: React.FC = () => {
           {industryData.map((item, index) => {
             const { title, imagePath, description, descriptionCN, link } = item;
             return (
-              <div
+              <a
                 key={index}
-                tabIndex={0}
-                role="button"
+                href={link}
                 className={`grid grid-cols-${
                   isPC ? "2 h-[278px]" : "1"
-                } justify-start group border-2 border-inherit  mt-[24px] gap-[24px] cursor-pointer`}
-                onClick={() => {
-                  window.open(link);
-                }}
+                } justify-start group border-2 border-inherit  mt-[24px] gap-[24px]`}
                 aria-label={title as string}
               >
                 <div className="overflow-hidden">
@@ -151,7 +148,6 @@ export const IndustryContent: React.FC = () => {
                   } gap-[24px]`}
                 >
                   <div
-                    tabIndex={0}
                     className="text-heading-m text-start w-full 
                 group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out"
                   >
@@ -164,7 +160,7 @@ export const IndustryContent: React.FC = () => {
                     {continue_read as string}
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -180,14 +176,10 @@ export const IndustryContent: React.FC = () => {
             {publicationData.map((item, index) => {
               const { title, imgUrl, link } = item;
               return (
-                <div
+                <a
                   key={index}
-                  tabIndex={0}
-                  role="button"
-                  className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
-                  onClick={() => {
-                    window.open(link);
-                  }}
+                  href={link}
+                  className="flex flex-row items-start mt-[24px] gap-[24px]"
                   aria-label={title}
                 >
                   <img
@@ -196,18 +188,14 @@ export const IndustryContent: React.FC = () => {
                     alt={title}
                   />
                   <p className="text-highlight-l">{title}</p>
-                </div>
+                </a>
               );
             })}
           </div>
 
-          <div
+          <a
             className="pt-[24px] cursor-pointer"
-            tabIndex={0}
-            role="button"
-            onClick={() => {
-              window.open("/events-promotion?section=award_scheme");
-            }}
+            href={`/events-promotion?section=${navItemEnum.award_scheme}`}
             aria-label="redirect to award scheme in events promotion section"
           >
             <div
@@ -223,19 +211,13 @@ export const IndustryContent: React.FC = () => {
                 height: "134px",
               }}
             />
-          </div>
-          <div
+          </a>
+          <a
+            href={`/events-promotion?section=${navItemEnum.seminar_workshop}`}
             className="pt-[24px] pb-[32px] cursor-pointer"
-            tabIndex={0}
-            role="button"
-            onClick={() => {
-              window.open("/events-promotion?section=seminar_workshop");
-            }}
             aria-label="redirect to seminar workshop in events promotion section"
           >
             <div
-              role="button"
-              tabIndex={0}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generalPublic/workshop_1.png)`,
                 display: "flex",
@@ -265,7 +247,7 @@ export const IndustryContent: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </a>
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>

@@ -300,17 +300,13 @@ const CertificateService: React.FC = () => {
             this standard is the most popular management system certification in
             Hong Kong. There is high demand for other types of certification,
             e.g. ISO 14001 environmental management system certification,&nbsp;
-            <span
-              className="!text-highlight-s underline text-newPrimary cursor-pointer"
-              tabIndex={0}
-              role="button"
+            <a
+              href="/tc-sector/environmental_protection"
+              className="!text-highlight-s underline text-newPrimary"
               aria-label={"ISO 50001 energy management system certification"}
-              onClick={() => {
-                window.open("/tc-sector/environmental_protection");
-              }}
             >
               ISO 50001 energy management system certification
-            </span>
+            </a>
             &nbsp;and ISO 45001 occupational health and safety management
             systems certification.
           </div>
@@ -323,17 +319,13 @@ const CertificateService: React.FC = () => {
           ISO 9001是一份列明品質管理體系一般規定的國際標準。ISO
           9001認證是香港最受歡迎的管理體系認證。此外，其他類別認證的需求甚殷，例如ISO
           14001環境管理體系認證、
-          <span
-            className="!text-highlight-s underline text-newPrimary cursor-pointer"
-            tabIndex={0}
-            role="button"
-            onClick={() => {
-              window.open("/tc-sector/environmental_protection");
-            }}
+          <a
+            className="!text-highlight-s underline text-newPrimary"
+            href="/tc-sector/environmental_protection"
             aria-label="ISO 50001能源管理體系認證"
           >
             ISO 50001能源管理體系認證
-          </span>
+          </a>
           以及ISO 45001職業健康安全管理體系認證。
         </>
       ) as JSX.Element,

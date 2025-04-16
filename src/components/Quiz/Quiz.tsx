@@ -142,6 +142,11 @@ export const Quiz: React.FC = () => {
                             onClick={() => {
                               setCurrentAnswer(optionCharacter);
                             }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                setCurrentAnswer(optionCharacter);
+                              }
+                            }}
                             tabIndex={0}
                             role="button"
                             aria-label={
@@ -200,6 +205,16 @@ export const Quiz: React.FC = () => {
                           ? QuizStage.ANSWER_CORRECT
                           : QuizStage.ANSWER_WRONG
                       );
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        if (!currentAnswer) return;
+                        setQuizStage(
+                          currentAnswer === quizData.correctAnser
+                            ? QuizStage.ANSWER_CORRECT
+                            : QuizStage.ANSWER_WRONG
+                        );
+                      }
                     }}
                     aria-label="Quiz Result"
                   >
@@ -260,6 +275,11 @@ export const Quiz: React.FC = () => {
                           onClick={() => {
                             setExplanationPage(0);
                           }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              setExplanationPage(0);
+                            }
+                          }}
                           aria-label="previous page"
                           aria-disabled={explanationPage === 0}
                         >
@@ -295,6 +315,11 @@ export const Quiz: React.FC = () => {
                           tabIndex={0}
                           onClick={() => {
                             setExplanationPage(1);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              setExplanationPage(1);
+                            }
                           }}
                           aria-label="next page"
                           aria-disabled={explanationPage !== 0}
@@ -342,6 +367,13 @@ export const Quiz: React.FC = () => {
                           setCurrentAnswer(null);
                           setQuizStage(QuizStage.QUESTION_DISPLAY);
                         }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            setQuiz(Math.floor(Math.random() * 10));
+                            setCurrentAnswer(null);
+                            setQuizStage(QuizStage.QUESTION_DISPLAY);
+                          }
+                        }}
                       >
                         {next_question as string}
                       </div>
@@ -352,6 +384,12 @@ export const Quiz: React.FC = () => {
                         onClick={() => {
                           setCurrentAnswer(null);
                           setQuizStage(QuizStage.QUESTION_DISPLAY);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            setCurrentAnswer(null);
+                            setQuizStage(QuizStage.QUESTION_DISPLAY);
+                          }
                         }}
                         aria-label={try_again as string}
                       >
@@ -438,6 +476,13 @@ export const Quiz: React.FC = () => {
                         setCurrentAnswer(null);
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
                       }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          setQuiz(Math.floor(Math.random() * 10));
+                          setCurrentAnswer(null);
+                          setQuizStage(QuizStage.QUESTION_DISPLAY);
+                        }
+                      }}
                       aria-label={next_question as string}
                     >
                       {next_question as string}
@@ -447,6 +492,12 @@ export const Quiz: React.FC = () => {
                       onClick={() => {
                         setCurrentAnswer(null);
                         setQuizStage(QuizStage.QUESTION_DISPLAY);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          setCurrentAnswer(null);
+                          setQuizStage(QuizStage.QUESTION_DISPLAY);
+                        }
                       }}
                       aria-label={try_again as string}
                       tabIndex={0}

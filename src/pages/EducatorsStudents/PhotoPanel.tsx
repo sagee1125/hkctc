@@ -33,19 +33,14 @@ export const PhotoPanel: React.FC = () => {
   if (isPC)
     return (
       <div className="w-full h-full grid grid-cols-2 gap-[24px] p-[24px]">
-        <div
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
             minHeight: "537px",
             ...imgBox,
             cursor: "pointer",
           }}
-          role="button"
-          onClick={() => {
-            navigate(
-              `/career_and_education?section=${navItemEnum.learning_teaching_resources}`
-            );
-          }}
+          href={`/career_and_education?section=${navItemEnum.learning_teaching_resources}`}
         >
           <div style={overlayStyle} />
           <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -53,21 +48,16 @@ export const PhotoPanel: React.FC = () => {
               {learning_teaching_resources as string}
             </p>
           </div>
-        </div>
+        </a>
         <div className="grid grid-cols-2 gap-[24px]">
-          <div
+          <a
             className="col-span-2"
-            role="button"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
               ...imgBox,
               cursor: "pointer",
             }}
-            onClick={() => {
-              navigate(
-                `/events-promotion?section=${navItemEnum.student_competition}`
-              );
-            }}
+            href={`/events-promotion?section=${navItemEnum.student_competition}`}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -75,19 +65,14 @@ export const PhotoPanel: React.FC = () => {
                 {student_competition as string}
               </p>
             </div>
-          </div>
-          <div
+          </a>
+          <a
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
               ...imgBox,
               cursor: "pointer",
             }}
-            role="button"
-            onClick={() => {
-              navigate(
-                `/events-promotion?section=${navItemEnum.qualifications_framework}`
-              );
-            }}
+            href={`/events-promotion?section=${navItemEnum.qualifications_framework}`}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -95,19 +80,14 @@ export const PhotoPanel: React.FC = () => {
                 {qualifications_framework as string}
               </p>
             </div>
-          </div>
+          </a>
 
-          <div
+          <a
+            href={`/events-promotion?section=${navItemEnum.programmes_and_courses}`}
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
               ...imgBox,
               cursor: "pointer",
-            }}
-            role="button"
-            onClick={() => {
-              navigate(
-                `/events-promotion?section=${navItemEnum.programmes_and_courses}`
-              );
             }}
           >
             <div style={overlayStyle} />
@@ -116,14 +96,15 @@ export const PhotoPanel: React.FC = () => {
                 {programmes_and_courses as string}
               </p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     );
   else
     return (
       <div className={`w-full flex flex-col gap-[24px] p-[24px]`}>
-        <div
+        <a
+          href={`/events-promotion?section=${navItemEnum.learning_teaching_resources}`}
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_1.png)`,
             backgroundSize: "cover",
@@ -134,11 +115,6 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           role="button"
-          onClick={() => {
-            navigate(
-              `/events-promotion?section=${navItemEnum.learning_teaching_resources}`
-            );
-          }}
         >
           <div
             style={{
@@ -158,8 +134,8 @@ export const PhotoPanel: React.FC = () => {
               {learning_teaching_resources as string}
             </p>
           </div>
-        </div>
-        <div
+        </a>
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_2.png)`,
             backgroundSize: "cover",
@@ -170,11 +146,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           role="button"
-          onClick={() => {
-            navigate(
-              `/events-promotion?section=${navItemEnum.student_competition}`
-            );
-          }}
+          href={`/events-promotion?section=${navItemEnum.student_competition}`}
         >
           <div
             style={{
@@ -194,8 +166,8 @@ export const PhotoPanel: React.FC = () => {
               {student_competition as string}
             </p>
           </div>
-        </div>
-        <div
+        </a>
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_3.png)`,
             backgroundSize: "cover",
@@ -205,12 +177,7 @@ export const PhotoPanel: React.FC = () => {
             position: "relative",
             cursor: "pointer",
           }}
-          role="button"
-          onClick={() => {
-            navigate(
-              `/events-promotion?section=${navItemEnum.qualifications_framework}`
-            );
-          }}
+          href={`/events-promotion?section=${navItemEnum.qualifications_framework}`}
         >
           <div
             style={{
@@ -230,9 +197,9 @@ export const PhotoPanel: React.FC = () => {
               {qualifications_framework as string}
             </p>
           </div>
-        </div>
+        </a>
 
-        <div
+        <a
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
             backgroundSize: "cover",
@@ -243,11 +210,7 @@ export const PhotoPanel: React.FC = () => {
             cursor: "pointer",
           }}
           role="button"
-          onClick={() => {
-            navigate(
-              `/events-promotion?section=${navItemEnum.programmes_and_courses}`
-            );
-          }}
+          href={`/events-promotion?section=${navItemEnum.programmes_and_courses}`}
         >
           <div
             style={{
@@ -267,7 +230,7 @@ export const PhotoPanel: React.FC = () => {
               {programmes_and_courses as string}
             </p>
           </div>
-        </div>
+        </a>
       </div>
     );
 };

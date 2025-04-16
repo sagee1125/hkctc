@@ -263,14 +263,12 @@ export const LearningTeachingResources: React.FC = () => {
                       : down.tcLink) ?? down.link;
 
                   return (
-                    <div
+                    <a
                       key={index}
                       className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-                      onClick={() => {
-                        window.open(displayLink, "_blank", "noopener");
-                      }}
-                      tabIndex={0}
-                      role="button"
+                      href={displayLink}
+                      target={"_blank"}
+                      rel={"noopener noreferrer"}
                       aria-label={getSingleText(down.title, down.titleCN)}
                     >
                       <img
@@ -281,7 +279,7 @@ export const LearningTeachingResources: React.FC = () => {
                       <p className="text-highlight-l text-left">
                         {getSingleText(down.title, down.titleCN)}
                       </p>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
@@ -329,6 +327,11 @@ export const LearningTeachingResources: React.FC = () => {
                       onClick={() => {
                         setPlayVideoOneIndex(index);
                       }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          setPlayVideoOneIndex(index);
+                        }
+                      }}
                       aria-label={displayTitle}
                     >
                       <div className="w-[37px] text-center p-[10px]">{`0${
@@ -364,14 +367,12 @@ export const LearningTeachingResources: React.FC = () => {
                 }  py-[24px]`}
               >
                 {downloadDataTwo.map((down, index) => (
-                  <div
+                  <a
+                    href={down.link}
+                    target={"_blank"}
+                    rel={"noopener noreferrer"}
                     key={index}
                     className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-                    onClick={() => {
-                      window.open(down.link, "_blank", "noopener");
-                    }}
-                    tabIndex={0}
-                    role="button"
                     aria-label={getSingleText(down.title, down.titleCN)}
                   >
                     <img
@@ -382,7 +383,7 @@ export const LearningTeachingResources: React.FC = () => {
                     <p className="text-highlight-l text-left">
                       {getSingleText(down.title, down.titleCN)}
                     </p>
-                  </div>
+                  </a>
                 ))}
               </div>
 
@@ -416,6 +417,11 @@ export const LearningTeachingResources: React.FC = () => {
                       onClick={() => {
                         setPlayVideoTwoIndex(index);
                       }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          setPlayVideoTwoIndex(index);
+                        }
+                      }}
                       tabIndex={0}
                       role="button"
                       aria-label={displayTitle}
@@ -446,17 +452,11 @@ export const LearningTeachingResources: React.FC = () => {
         <Accordion
           title={passing as string}
           details={
-            <div
+            <a
+              href="https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf"
               className="cursor-pointer"
-              onClick={() => {
-                window.open(
-                  "https://www.hkctc.gov.hk/tc/doc/PassingThroughTheMaze.pdf",
-                  "_blank",
-                  "noopener"
-                );
-              }}
-              tabIndex={0}
-              role="button"
+              target={"_blank"}
+              rel={"noopener noreferrer"}
               aria-label={passing as string}
             >
               <p className="text-body-m mb-[24px]">{passing_intro as string}</p>
@@ -468,7 +468,7 @@ export const LearningTeachingResources: React.FC = () => {
               <p className="text-body-m mt-[24px] text-justify">
                 {bottom as React.ReactNode}
               </p>
-            </div>
+            </a>
           }
         />
       </div>

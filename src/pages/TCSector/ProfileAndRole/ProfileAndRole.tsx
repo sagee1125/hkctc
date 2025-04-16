@@ -395,7 +395,6 @@ export const ProfileAndRole: React.FC = () => {
             return (
               <button
                 key={index}
-                tabIndex={0}
                 className="whitespace-nowrap bg-newPrimary"
                 style={isActivated ? activatedButtonStyle : normalButtonStyle}
                 onClick={() => {
@@ -482,6 +481,18 @@ export const ProfileAndRole: React.FC = () => {
         <div className="w-full mb-[28px]">
           {listOfData.map((item, index) => {
             const { title, imagePath, date, link } = item;
+            const handleClick = (): void => {
+              if (isPC) {
+                setActiveReport(index);
+                setIsPreviewOpen(true);
+              } else {
+                window.open(
+                  "https://www.hkctc.gov.hk" + link,
+                  "_blank",
+                  "noopener"
+                );
+              }
+            };
             return (
               <div
                 key={index}
@@ -492,16 +503,10 @@ export const ProfileAndRole: React.FC = () => {
                   tabIndex={0}
                   role="button"
                   aria-label={title}
-                  onClick={() => {
-                    if (isPC) {
-                      setActiveReport(index);
-                      setIsPreviewOpen(true);
-                    } else {
-                      window.open(
-                        "https://www.hkctc.gov.hk" + link,
-                        "_blank",
-                        "noopener"
-                      );
+                  onClick={handleClick}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleClick();
                     }
                   }}
                   style={{ flexShrink: 0 }}
@@ -529,6 +534,12 @@ export const ProfileAndRole: React.FC = () => {
                     onClick={() => {
                       setActiveReport(index);
                       setIsPreviewOpen(true);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setActiveReport(index);
+                        setIsPreviewOpen(true);
+                      }
                     }}
                     aria-label={title}
                   >
