@@ -358,6 +358,7 @@ export const Quiz: React.FC = () => {
                         className="text-white w-full py-[12px] px-auto text-center cursor-pointer"
                         style={{
                           backgroundColor: quizData.theme,
+                          textShadow: "0px 0px 4.5px rgba(0, 0, 0, 0.90)",
                         }}
                         tabIndex={0}
                         role="button"
@@ -468,6 +469,7 @@ export const Quiz: React.FC = () => {
                       className="text-white w-full py-[12px] px-auto text-center cursor-pointer"
                       style={{
                         backgroundColor: quizData.theme,
+                        textShadow: "0px 0px 4.5px rgba(0, 0, 0, 0.90)",
                       }}
                       tabIndex={0}
                       role="button"
