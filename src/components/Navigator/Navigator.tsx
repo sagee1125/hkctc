@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, RefObject, useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Transition, Menu } from "@headlessui/react";
 import { ReactComponent as Logo } from "../../logo/hkctc_logo.svg";
@@ -116,6 +116,27 @@ export const Navigator: React.FC = () => {
       currentPath === "/") &&
     !isPC;
 
+  const containerRef: RefObject<HTMLDivElement> = useRef(null);
+
+  // 焦點追蹤邏輯
+  useEffect(() => {
+    const handleFocusChange = (e: FocusEvent) => {
+      const target = e.target as Node;
+
+      // 檢查焦點是否在 container 之外
+      if (!containerRef.current?.contains(target)) {
+        setActiveIndex(null);
+      }
+    };
+
+    // 使用 focusin 事件（支援冒泡）
+    document.addEventListener("focusin", handleFocusChange);
+
+    return () => {
+      document.removeEventListener("focusin", handleFocusChange);
+    };
+  }, []);
+
   useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
   }, [isPC]);
@@ -218,6 +239,8 @@ export const Navigator: React.FC = () => {
   return (
     <ClickAwayListener onClickAway={() => setOpenMobileDropDown(false)}>
       <div
+        ref={containerRef}
+        tabIndex={-1}
         onMouseLeave={() => {
           setActiveIndex(null);
         }}
@@ -632,6 +655,10 @@ export const Navigator: React.FC = () => {
                                                         fontSize: "14px",
                                                         fontWeight: 600,
                                                       }}
+                                                      aria-label={getSingleText(
+                                                        navItems[0].name,
+                                                        navItems[0].nameCN
+                                                      )}
                                                     >
                                                       {getSingleText(
                                                         navItems[0].name,
@@ -871,6 +898,7 @@ export const Navigator: React.FC = () => {
                                                           "_self"
                                                         );
                                                     };
+
                                                     return (
                                                       <div
                                                         key={subItemsIndex}
@@ -1089,16 +1117,20 @@ export const Navigator: React.FC = () => {
                           className={`flex flex-col gap-2 flex-[5] ${
                             subTitle === "" ? "" : "cursor-pointer"
                           }`}
-                          tabIndex={0}
+                          tabIndex={!navUrl ? undefined : 0}
                           role="button"
                           aria-label={getSingleText(subTitle, sub.subTitleCN)}
                           aria-disabled={subTitle === "" || !navUrl}
-                          onClick={onClick}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                              onClick();
-                            }
-                          }}
+                          onClick={!navUrl ? undefined : onClick}
+                          onKeyDown={
+                            !navUrl
+                              ? undefined
+                              : (e) => {
+                                  if (e.key === "Enter") {
+                                    onClick();
+                                  }
+                                }
+                          }
                         >
                           {imgUrl && (
                             <div className="flex justify-center items-center">

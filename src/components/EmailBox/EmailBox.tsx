@@ -143,7 +143,7 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
-            // style: { display: "none" },
+            style: !formik.values.name ? {} : { display: "none" },
           }}
         />
         <TextField
@@ -188,6 +188,7 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
+            style: !formik.values.email ? {} : { display: "none" },
           }}
         />
         <TextField
@@ -214,6 +215,7 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
+            style: !formik.values.msg ? {} : { display: "none" },
           }}
           FormHelperTextProps={{
             id: "msg-helper",
@@ -222,6 +224,7 @@ export const EmailBox: React.FC = () => {
             "aria-describedby": "msg-helper",
             "aria-invalid": formik.errors.msg ? "true" : "false",
             "aria-errormessage": formik.errors.msg ? "msg-helper" : undefined,
+            autoComplete: "message",
           }}
           sx={{
             color: "#666666",
