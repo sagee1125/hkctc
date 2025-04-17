@@ -3996,6 +3996,7 @@ export const seminarsAndWorkshopsList = [
   {
     title: "ICAC Anti-Corruption Workshop",
     date: "10 Feb 2025",
+    img: "icac.png",
     content: (
       <p>
         Professionalism, integrity, and credibility are the core values of Hong
@@ -7037,6 +7038,7 @@ export const seminarsAndWorkshopsList_CN = [
   {
     title: "廉政公署防貪工作坊",
     date: "2025年2月10日",
+    img: "icac.png",
     content: (
       <p>
         專業、誠信和信譽是香港檢測和認證業的核心價值，也是其競爭優勢和良好聲譽的基礎。這些特質為使用檢測和認證服務的人注入信心，是持續成功的關鍵。為了維護這種聲譽並推動進一步的發展，檢測認證機構和從業員必須秉持高水平的專業精神，保持誠信，並在業務和運作上採取良好的做法。
