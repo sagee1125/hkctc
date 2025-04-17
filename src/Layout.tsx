@@ -2,13 +2,12 @@ import React from "react";
 import {
   Footer,
   Header,
-  maxMobileContainer,
-  maxPCContainer,
   Navigator,
   ScrollTopButton,
   SkipLinks,
 } from "./components";
 import { useSettings } from "./context";
+import { usePageTitle } from "./components/hooks/usePageTitle";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -16,6 +15,7 @@ type LayoutProps = {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { isPC, fontClass } = useSettings();
+  usePageTitle();
 
   return (
     <div
