@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import {
   WhatsNewConfiguration,
@@ -23,6 +24,7 @@ const multilingual = {
 };
 
 export const WhatsNew: React.FC = () => {
+  const navigate = useNavigate();
   const { isPC, language, getPageText, getSingleText } = useSettings();
   const changingEffectOn = false;
   const page_text = getPageText(multilingual);
@@ -108,16 +110,46 @@ export const WhatsNew: React.FC = () => {
           }}
         >
           {firstFourWhatsNew.map((item, index) => {
-            const { title, imagePath, imagePathSwitch, date, redirectTo } =
-              item;
+            const {
+              title,
+              imagePath,
+              imagePathSwitch,
+              date,
+              redirectTo,
+              outerLink = false,
+            } = item;
 
             const isEven = currentTime % 2 === 0;
 
             return (
-              <a
+              <div
                 key={index}
-                href={redirectTo}
+                role="button"
+                tabIndex={0}
+                
                 className={`flex flex-col group cursor-pointer justify-between min-w-[290px]`}
+                onClick={() => {
+                  if (redirectTo) {
+                    if (outerLink) {
+                      window.open(redirectTo);
+                    } else {
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      navigate(redirectTo);
+                    }
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    if (redirectTo) {
+                      window.scroll({ top: 0, behavior: "smooth" });
+                      navigate(redirectTo);
+                    }
+                  }
+                }}
                 aria-labelledby={`button-label-${index}`}
               >
                 <div>
@@ -170,7 +202,7 @@ export const WhatsNew: React.FC = () => {
                   />
                   <div className="text-body-m text-grey">{date}</div>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>
