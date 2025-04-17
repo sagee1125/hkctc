@@ -201,7 +201,7 @@ export const ChineseMedicines: React.FC = () => {
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.buttonArray as React.ReactNode[]).map((btn, index) => {
+            {(page_text.buttonArray as string[]).map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -211,6 +211,7 @@ export const ChineseMedicines: React.FC = () => {
                   onClick={() => {
                     setActiveButton(index);
                   }}
+                  aria-label={btn}
                 >
                   {btn}
                 </button>
@@ -357,7 +358,7 @@ export const ChineseMedicines: React.FC = () => {
       content: (
         <div>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.buttonArray as React.ReactNode[]).map((btn, index) => {
+            {(page_text.buttonArray as string[]).map((btn, index) => {
               const isActivated = index === activeButton;
               return (
                 <button
@@ -366,6 +367,7 @@ export const ChineseMedicines: React.FC = () => {
                   onClick={() => {
                     setActiveButton(index);
                   }}
+                  aria-label={btn}
                 >
                   {btn}
                 </button>

@@ -258,6 +258,7 @@ export const AwardScheme23to24: React.FC = () => {
         onClick={() => {
           setIsOpen(true);
         }}
+        aria-label={processText(page_text.mobile_sidebar.content_list)}
       >
         {processText(page_text.mobile_sidebar.content_list)}
       </button>
@@ -381,6 +382,7 @@ export const AwardScheme23to24: React.FC = () => {
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
                 {tcAwardeesBtn.map((b, i) => {
                   const isActivated = activeButtonOne === i;
+                  const buttonText = processText(b);
                   return (
                     <button
                       key={i}
@@ -390,8 +392,9 @@ export const AwardScheme23to24: React.FC = () => {
                       onClick={() => {
                         setActiveButtonOne(i);
                       }}
+                      aria-label={buttonText}
                     >
-                      {processText(b)}
+                      {buttonText}
                     </button>
                   );
                 })}
@@ -411,6 +414,7 @@ export const AwardScheme23to24: React.FC = () => {
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
                 {tcProfessionBtn.map((b, i) => {
                   const isActivated = activeButtonTwo === i;
+                  const buttonTxt = processText(b);
                   return (
                     <button
                       key={i}
@@ -420,8 +424,9 @@ export const AwardScheme23to24: React.FC = () => {
                       onClick={() => {
                         setActiveButtonTwo(i);
                       }}
+                      aria-label={buttonTxt}
                     >
-                      {processText(b)}
+                      {buttonTxt}
                     </button>
                   );
                 })}

@@ -185,6 +185,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
                   onClick={() => {
                     setActiveButton(index);
                   }}
+                  aria-label={btn}
                 >
                   {btn}
                 </button>

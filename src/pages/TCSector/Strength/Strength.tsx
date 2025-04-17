@@ -154,6 +154,7 @@ export const Strength: React.FC = () => {
                 onClick={() => {
                   setActiveTopicButton(index);
                 }}
+                aria-label={title}
               >
                 <p className="text-highlight-xs">
                   {title.length > 52 ? title.slice(0, 52) + "..." : title}

@@ -521,6 +521,7 @@ export const ServiceProvided: React.FC = () => {
               onClick={() => {
                 setActiveButton(index);
               }}
+              aria-label={service.label as string}
             >
               <p className="text-highlight-xs">{service.label as string}</p>
             </button>

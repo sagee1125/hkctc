@@ -626,6 +626,7 @@ export const ResourcesReportsContent: React.FC = () => {
                       setActiveReport(index);
                       setCurrentPage(0);
                     }}
+                    aria-label={name}
                   >
                     <p className="text-highlight-xs">{name}</p>
                   </button>
@@ -660,6 +661,7 @@ export const ResourcesReportsContent: React.FC = () => {
               {Object.keys(filterPublicationButtonsMapping).map(
                 (name, index: number) => {
                   const isActivated = activePublication === index;
+                  const buttonText = filterPublicationButtonsMapping[name];
                   return (
                     <button
                       key={index}
@@ -670,10 +672,9 @@ export const ResourcesReportsContent: React.FC = () => {
                         setActivePublication(index);
                         setCurrentPage(0);
                       }}
+                      aria-label={buttonText}
                     >
-                      <p className="text-highlight-xs">
-                        {filterPublicationButtonsMapping[name]}
-                      </p>
+                      <p className="text-highlight-xs">{buttonText}</p>
                     </button>
                   );
                 }
@@ -698,20 +699,20 @@ export const ResourcesReportsContent: React.FC = () => {
             <div className="flex flex-row gap-[8px]">
               {Object.keys(courseButtonMapping).map((name, index) => {
                 const isActivated = activeCoursesCategory === index;
+                const buttonText = courseButtonMapping[name];
                 return (
                   <button
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
+                    aria-label={buttonText}
                     onClick={() => {
                       setActiveCoursesCategory(index);
                       setCurrentPage(0);
                     }}
                   >
-                    <p className="text-highlight-xs">
-                      {courseButtonMapping[name]}
-                    </p>
+                    <p className="text-highlight-xs">{buttonText}</p>
                   </button>
                 );
               })}
@@ -734,6 +735,10 @@ export const ResourcesReportsContent: React.FC = () => {
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(aboutTestingSector).map((name, index) => {
                     const isActivated = activeAboutSector === index;
+                    const buttonText = getSingleText(
+                      aboutTestingSector[name].label,
+                      aboutTestingSector[name].labelCN
+                    );
                     return (
                       <button
                         key={index}
@@ -745,12 +750,9 @@ export const ResourcesReportsContent: React.FC = () => {
                           setActiveCertificateSector(-1);
                           setCurrentPage(0);
                         }}
+                        aria-label={buttonText}
                       >
-                        <p className="text-highlight-xs">
-                          {isEn
-                            ? aboutTestingSector[name].label
-                            : aboutTestingSector[name].labelCN}
-                        </p>
+                        <p className="text-highlight-xs">{buttonText}</p>
                       </button>
                     );
                   })}
@@ -766,6 +768,10 @@ export const ResourcesReportsContent: React.FC = () => {
                 <div className="flex flex-row flex-wrap gap-[8px]">
                   {Object.keys(certificateSector).map((name, index) => {
                     const isActivated = activeCertificateSector === index;
+                    const buttonText = getSingleText(
+                      certificateSector[name].label,
+                      certificateSector[name].labelCN
+                    );
                     return (
                       <button
                         key={index}
@@ -777,12 +783,9 @@ export const ResourcesReportsContent: React.FC = () => {
                           setActiveAboutSector(-1);
                           setCurrentPage(0);
                         }}
+                        aria-label={buttonText}
                       >
-                        <p className="text-highlight-xs">
-                          {isEn
-                            ? certificateSector[name].label
-                            : certificateSector[name].labelCN}
-                        </p>
+                        <p className="text-highlight-xs">{buttonText}</p>
                       </button>
                     );
                   })}
@@ -1030,19 +1033,25 @@ export const ResourcesReportsContent: React.FC = () => {
                       <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {Object.keys(timeFilterMapping).map((item, index) => (
                           <Menu.Item key={index}>
-                            {({ active }) => (
-                              <button
-                                tabIndex={0}
-                                onClick={() => setSelectedItem(item)}
-                                className={`block w-full text-left px-4 py-3 text-sm ${
-                                  active
-                                    ? "bg-gray-100 text-gray-900"
-                                    : "text-gray-700"
-                                }`}
-                              >
-                                {processText(timeFilterMapping[item] ?? "")}
-                              </button>
-                            )}
+                            {({ active }) => {
+                              const buttonText = processText(
+                                timeFilterMapping[item] ?? ""
+                              );
+                              return (
+                                <button
+                                  tabIndex={0}
+                                  onClick={() => setSelectedItem(item)}
+                                  className={`block w-full text-left px-4 py-3 text-sm ${
+                                    active
+                                      ? "bg-gray-100 text-gray-900"
+                                      : "text-gray-700"
+                                  }`}
+                                  aria-label={buttonText}
+                                >
+                                  {buttonText}
+                                </button>
+                              );
+                            }}
                           </Menu.Item>
                         ))}
                       </Menu.Items>
@@ -1065,8 +1074,7 @@ export const ResourcesReportsContent: React.FC = () => {
             textTransform: "none",
             borderRadius: 0,
           }}
-          tabIndex={0}
-          role="button"
+          aria-label={apply as string}
           onClick={handleApplyFilter}
           variant="contained"
         >

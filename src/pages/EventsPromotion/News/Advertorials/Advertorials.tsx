@@ -287,6 +287,10 @@ export const Advertorials: React.FC = () => {
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(aboutTestingSector).map((name, index) => {
                 const isActivated = activeAboutSector === index;
+                const buttonText = getSingleText(
+                  aboutTestingSector[name].label,
+                  aboutTestingSector[name].labelCN
+                );
                 return (
                   <button
                     key={index}
@@ -305,13 +309,9 @@ export const Advertorials: React.FC = () => {
                         setCurrentPage(0);
                       }
                     }}
+                    aria-label={buttonText}
                   >
-                    <p className="text-highlight-xs">
-                      {getSingleText(
-                        aboutTestingSector[name].label,
-                        aboutTestingSector[name].labelCN
-                      )}
-                    </p>
+                    <p className="text-highlight-xs">{buttonText}</p>
                   </button>
                 );
               })}
@@ -327,6 +327,10 @@ export const Advertorials: React.FC = () => {
             <div className="flex flex-row flex-wrap gap-[8px]">
               {Object.keys(certificateSector).map((name, index) => {
                 const isActivated = activeCertificateSector === index;
+                const buttonText = getSingleText(
+                  certificateSector[name].label,
+                  certificateSector[name].labelCN
+                );
                 return (
                   <button
                     key={index}
@@ -345,13 +349,9 @@ export const Advertorials: React.FC = () => {
                         setCurrentPage(0);
                       }
                     }}
+                    aria-label={buttonText}
                   >
-                    <p className="text-highlight-xs">
-                      {getSingleText(
-                        certificateSector[name].label,
-                        certificateSector[name].labelCN
-                      )}
-                    </p>
+                    <p className="text-highlight-xs">{buttonText}</p>
                   </button>
                 );
               })}

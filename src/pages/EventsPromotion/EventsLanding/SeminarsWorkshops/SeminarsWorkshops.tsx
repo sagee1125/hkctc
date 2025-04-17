@@ -125,12 +125,15 @@ export const SeminarsWorkshops: React.FC = () => {
             <div className="flex flex-wrap gap-[8px]">
               {Object.keys(topicArray).map((btn, index) => {
                 const isActivated = index === activeTopicButton;
+                const buttonText = getSingleText(btn, topicArray[btn]);
+
                 return (
                   <button
                     key={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
+                    aria-label={buttonText}
                     onClick={() => {
                       setActiveTopicButton(index);
                       setCurrentPage(0);
@@ -142,7 +145,7 @@ export const SeminarsWorkshops: React.FC = () => {
                       }
                     }}
                   >
-                    {getSingleText(btn, topicArray[btn])}
+                    {buttonText}
                   </button>
                 );
               })}
@@ -158,9 +161,12 @@ export const SeminarsWorkshops: React.FC = () => {
             <div className="w-full flex flex-wrap gap-[8px]">
               {(yearArray as string[]).map((btn, index) => {
                 const isActivated = index === activeYearButton;
+                const buttonText = getSingleText(btn, btn);
+
                 return (
                   <button
                     key={index}
+                    aria-label={buttonText}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
@@ -175,7 +181,7 @@ export const SeminarsWorkshops: React.FC = () => {
                       }
                     }}
                   >
-                    {getSingleText(btn, btn)}
+                    {buttonText}
                   </button>
                 );
               })}
@@ -194,17 +200,6 @@ export const SeminarsWorkshops: React.FC = () => {
               className={`flex ${
                 isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                window.scroll({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                navigate(`/events-promotion?section=seminar_article#${index}`, {
-                  replace: false,
-                });
-              }}
               aria-label={getSingleText(title, title)}
             >
               <div className="flex flex-col w-full justify-center">

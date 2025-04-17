@@ -125,9 +125,18 @@ export const IndustryContent: React.FC = () => {
           {industryData.map((item, index) => {
             const { title, imagePath, description, descriptionCN, link } = item;
             return (
-              <a
+              <div
                 key={index}
-                href={link}
+                tabIndex={0}
+                role="button"
+                onClick={() => {
+                  window.open(link, "_self");
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    window.open(link, "_self");
+                  }
+                }}
                 className={`grid grid-cols-${
                   isPC ? "2 h-[278px]" : "1"
                 } justify-start group border-2 border-inherit  mt-[24px] gap-[24px]`}
@@ -160,7 +169,7 @@ export const IndustryContent: React.FC = () => {
                     {continue_read as string}
                   </div>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>
@@ -176,9 +185,18 @@ export const IndustryContent: React.FC = () => {
             {publicationData.map((item, index) => {
               const { title, imgUrl, link } = item;
               return (
-                <a
+                <div
                   key={index}
-                  href={link}
+                  tabIndex={0}
+                  role="button"
+                  onClick={() => {
+                    window.open(link, "_self");
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      window.open(link, "_self");
+                    }
+                  }}
                   className="flex flex-row items-start mt-[24px] gap-[24px]"
                   aria-label={title}
                 >
@@ -188,15 +206,30 @@ export const IndustryContent: React.FC = () => {
                     alt={title}
                   />
                   <p className="text-highlight-l">{title}</p>
-                </a>
+                </div>
               );
             })}
           </div>
 
-          <a
+          <div
             className="pt-[24px] cursor-pointer"
-            href={`/events-promotion?section=${navItemEnum.award_scheme}`}
             aria-label="redirect to award scheme in events promotion section"
+            tabIndex={0}
+            role="button"
+            onClick={() => {
+              window.open(
+                `/events-promotion?section=${navItemEnum.award_scheme}`,
+                "_self"
+              );
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                window.open(
+                  `/events-promotion?section=${navItemEnum.award_scheme}`,
+                  "_self"
+                );
+              }
+            }}
           >
             <div
               role="img"
@@ -211,9 +244,24 @@ export const IndustryContent: React.FC = () => {
                 height: "134px",
               }}
             />
-          </a>
-          <a
-            href={`/events-promotion?section=${navItemEnum.seminar_workshop}`}
+          </div>
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={() => {
+              window.open(
+                `/events-promotion?section=${navItemEnum.seminar_workshop}`,
+                "_self"
+              );
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                window.open(
+                  `/events-promotion?section=${navItemEnum.seminar_workshop}`,
+                  "_self"
+                );
+              }
+            }}
             className="pt-[24px] pb-[32px] cursor-pointer"
             aria-label="redirect to seminar workshop in events promotion section"
           >
@@ -247,7 +295,7 @@ export const IndustryContent: React.FC = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </div>
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>

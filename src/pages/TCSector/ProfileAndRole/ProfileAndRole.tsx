@@ -147,6 +147,7 @@ export const ProfileAndRole: React.FC = () => {
   const chartsArray = [
     {
       label: (tabs as string[])[0],
+
       charts: [
         {
           title: (
@@ -166,6 +167,12 @@ export const ProfileAndRole: React.FC = () => {
               }
             </p>
           ),
+
+          desc: `${(tabs as string[])[0]} - ${
+            (establishment_engaged_chart as LanguageResources)?.title as string
+          } ${
+            (establishment_engaged_chart as LanguageResources)?.years as string
+          }`,
           elementId: "institutions",
           xAxisData: [
             "2009",
@@ -191,6 +198,13 @@ export const ProfileAndRole: React.FC = () => {
           seriesItemColor: "#BD78FC",
         },
         {
+          desc: `${(tabs as string[])[0]} - ${
+            (number_of_persons_engaged_chart as LanguageResources)
+              ?.title as string
+          } ${
+            (number_of_persons_engaged_chart as LanguageResources)
+              ?.years as string
+          }`,
           title: (
             <p
               className={`text-heading-${
@@ -239,8 +253,13 @@ export const ProfileAndRole: React.FC = () => {
     },
     {
       label: (tabs as string[])[1],
+
       charts: [
         {
+          desc: `${(tabs as string[])[1]} - ${
+            (number_of_establishment_chart as LanguageResources)
+              ?.title as string
+          }`,
           title: (
             <p
               className={`text-heading-${
@@ -265,8 +284,13 @@ export const ProfileAndRole: React.FC = () => {
     },
     {
       label: (tabs as string[])[2],
+
       charts: [
         {
+          desc: `${(tabs as string[])[2]} - ${
+            (total_number_of_persons_engaged_chart as LanguageResources)
+              ?.title as string
+          }`,
           title: (
             <p
               className={`text-heading-${
@@ -291,8 +315,12 @@ export const ProfileAndRole: React.FC = () => {
     },
     {
       label: (tabs as string[])[3],
+
       charts: [
         {
+          desc: `${(tabs as string[])[3]} - ${
+            (business_receipts_chart as LanguageResources)?.title as string
+          }`,
           title: (
             <p
               className={`text-heading-${
@@ -314,8 +342,13 @@ export const ProfileAndRole: React.FC = () => {
     },
     {
       label: (tabs as string[])[4],
+
       charts: [
         {
+          desc: `${(tabs as string[])[4]} - ${
+            (industry_value_added_chart as LanguageResources)?.title as string
+          }`,
+
           title: (
             <p
               className={`text-heading-${
@@ -400,6 +433,7 @@ export const ProfileAndRole: React.FC = () => {
                 onClick={() => {
                   setActiveTopicButton(index);
                 }}
+                aria-label={chartInfo.label}
               >
                 <p className="text-highlight-xs">{chartInfo.label}</p>
               </button>

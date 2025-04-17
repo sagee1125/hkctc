@@ -185,21 +185,27 @@ export const Navigator: React.FC = () => {
               <Menu.Items className="absolute z-50 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none left-0">
                 {exploreOption.map((item, index) => (
                   <Menu.Item key={index}>
-                    {({ active }) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setSelectedExploreOption(item.title);
-                          setOpenMobileDropDown(false);
-                          window.open(item.nav, "_self");
-                        }}
-                        aria-label={getSingleText(item.title, item.titleCN)}
-                        tabIndex={0}
-                        className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
-                      >
-                        {getSingleText(item.title, item.titleCN)}
-                      </button>
-                    )}
+                    {({ active }) => {
+                      const buttonText = getSingleText(
+                        item.title,
+                        item.titleCN
+                      );
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setSelectedExploreOption(item.title);
+                            setOpenMobileDropDown(false);
+                            window.open(item.nav, "_self");
+                          }}
+                          aria-label={buttonText}
+                          tabIndex={0}
+                          className={`block w-full text-left text-body-m px-4 py-3 text-sm bg-newPrimary text-white`}
+                        >
+                          {buttonText}
+                        </button>
+                      );
+                    }}
                   </Menu.Item>
                 ))}
               </Menu.Items>
@@ -940,26 +946,31 @@ export const Navigator: React.FC = () => {
                               <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 {exploreOption.map((item, eoIndex) => (
                                   <Menu.Item key={eoIndex}>
-                                    {({ active }) => (
-                                      <button
-                                        tabIndex={0}
-                                        key={eoIndex}
-                                        onClick={() => {
-                                          setSelectedExploreOption(item.title);
-                                          window.open(item.nav, "_self");
-                                        }}
-                                        className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
-                                          active
-                                            ? "bg-newPrimary text-white"
-                                            : "text-gray-700"
-                                        }`}
-                                      >
-                                        {getSingleText(
-                                          item.title,
-                                          item.titleCN
-                                        )}
-                                      </button>
-                                    )}
+                                    {({ active }) => {
+                                      const buttonText = getSingleText(
+                                        item.title,
+                                        item.titleCN
+                                      );
+                                      return (
+                                        <button
+                                          key={eoIndex}
+                                          aria-label={buttonText}
+                                          onClick={() => {
+                                            setSelectedExploreOption(
+                                              item.title
+                                            );
+                                            window.open(item.nav, "_self");
+                                          }}
+                                          className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
+                                            active
+                                              ? "bg-newPrimary text-white"
+                                              : "text-gray-700"
+                                          }`}
+                                        >
+                                          {buttonText}
+                                        </button>
+                                      );
+                                    }}
                                   </Menu.Item>
                                 ))}
                               </Menu.Items>

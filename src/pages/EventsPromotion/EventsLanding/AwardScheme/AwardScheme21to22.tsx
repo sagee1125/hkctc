@@ -177,6 +177,7 @@ export const AwardScheme21to22: React.FC = () => {
           lineHeight: "28px",
           fontWeight: 600,
         }}
+        aria-label={processText(page_text.mobile_sidebar.content_list)}
         onClick={() => {
           setIsOpen(true);
         }}
@@ -324,6 +325,7 @@ export const AwardScheme21to22: React.FC = () => {
               <div className="flex flex-wrap gap-[8px] mb-[16px]">
                 {awardee_sub_group.map((b, i) => {
                   const isActivated = activeButtonTwo === i;
+                  const btnText = processText(b);
                   return (
                     <button
                       key={i}
@@ -333,8 +335,9 @@ export const AwardScheme21to22: React.FC = () => {
                       onClick={() => {
                         setActiveButtonTwo(i);
                       }}
+                      aria-label={btnText}
                     >
-                      {processText(b)}
+                      {btnText}
                     </button>
                   );
                 })}
