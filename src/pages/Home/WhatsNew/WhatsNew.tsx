@@ -126,6 +126,7 @@ export const WhatsNew: React.FC = () => {
                 key={index}
                 role="button"
                 tabIndex={0}
+                
                 className={`flex flex-col group cursor-pointer justify-between min-w-[290px]`}
                 onClick={() => {
                   if (redirectTo) {
