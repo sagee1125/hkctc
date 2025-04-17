@@ -18,7 +18,7 @@ export const HeaderSocialMedia: React.FC = () => {
       >
         <Icon
           aria-hidden={true}
-          icon="mage:camera-2"
+          icon="mdi:instagram"
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />
       </a>
@@ -31,6 +31,19 @@ export const HeaderSocialMedia: React.FC = () => {
       >
         <Icon
           icon="fa6-brands:facebook-f"
+          aria-hidden={true}
+          className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
+        />
+      </a>
+      <a
+        href="https://www.youtube.com/@HKCTC_channel"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block cursor-pointer"
+        aria-label={"Open Youtube (opens in new tab)"}
+      >
+        <Icon
+          icon="mdi:youtube"
           aria-hidden={true}
           className="h-[20px] w-[20px] text-[#333333] flex-shrink-0"
         />

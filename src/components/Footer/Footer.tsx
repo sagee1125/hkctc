@@ -166,7 +166,7 @@ export const Footer: React.FC = () => {
             {
               label: "Food",
               labelCN: "食品",
-              link: "/tc-sector/textiles_and_apparel",
+              link: "/tc-sector/food",
             },
             {
               label: "Chinese Medicines",
@@ -181,7 +181,7 @@ export const Footer: React.FC = () => {
             {
               label: "Information and Communications Technologies",
               labelCN: "資訊及通訊科技",
-              link: "/tc-sector/food",
+              link: "/tc-sector/information_and_communications_technologies",
             },
             {
               label: "Environmental Protection",
@@ -206,12 +206,12 @@ export const Footer: React.FC = () => {
         {
           label: "HKCTC Exhibition Programme",
           labelCN: "香港檢測和認證局展覽計劃",
-          link: `/tc-sector?section=${navItemEnum.exhibition_programme}`,
+          link: `/support?section=${navItemEnum.exhibition_programme}`,
         },
         {
           label: "Funding Schemes",
           labelCN: "資助計劃",
-          link: `/tc-sector?section=${navItemEnum.funding_schemes}`,
+          link: `/support?section=${navItemEnum.funding_schemes}`,
         },
         // {
         //   label:
@@ -222,52 +222,52 @@ export const Footer: React.FC = () => {
         {
           label: "Accommodation and Land",
           labelCN: "工作地方及土地",
-          link: `/tc-sector?section=${navItemEnum.accommodation_and_land}`,
+          link: `/support?section=${navItemEnum.accommodation_and_land}`,
           items: [
             {
               label:
                 "Relaxation of Waiver Application for Existing Industrial Buildings",
               labelCN: "放寬現有工業大廈地契豁免書申請",
-              link: `/tc-sector?section=${navItemEnum.accommodation_and_land}#0`,
+              link: `/support?section=${navItemEnum.accommodation_and_land}#0`,
             },
             {
               label: `"Nil Waiver Fee" for Testing Labs Operating in Industrial Buildings`,
               labelCN: "在工業大廈營運的測試實驗所「免繳豁免書費用」安排",
-              link: `/tc-sector?section=${navItemEnum.accommodation_and_land}#1`,
+              link: `/support?section=${navItemEnum.accommodation_and_land}#1`,
             },
           ],
         },
         {
           label: "Entering into the Mainland Market",
           labelCN: "進入內地市場",
-          link: `/tc-sector?section=${navItemEnum.entering_into_the_mainland_market}`,
+          link: `/support?section=${navItemEnum.entering_into_the_mainland_market}`,
           items: [
             {
               label: "Overview on CEPA",
               labelCN: "CEPA概覽",
-              link: `/tc-sector?section=${navItemEnum.entering_into_the_mainland_market}#0`,
+              link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#0`,
             },
             {
               label: `CEPA Agreements`,
               labelCN: "CEPA協議",
-              link: `/tc-sector?section=${navItemEnum.entering_into_the_mainland_market}#1`,
+              link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
             },
             {
               label: `Summary of CEPA Clauses Relating to Testing and Certification`,
               labelCN: "CEPA下檢測認證相關條文摘要",
-              link: `/tc-sector?section=${navItemEnum.entering_into_the_mainland_market}#2`,
+              link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
             },
             {
               label: `GBA Standard and Certification`,
               labelCN: "灣區標準及認證",
-              link: `/tc-sector?section=${navItemEnum.entering_into_the_mainland_market}#3`,
+              link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#3`,
             },
           ],
         },
         {
           label: "Other Support",
           labelCN: "其他支援",
-          link: `/tc-sector?section=${navItemEnum.other_support}`,
+          link: `/support?section=${navItemEnum.other_support}`,
         },
       ],
 
@@ -521,7 +521,7 @@ export const Footer: React.FC = () => {
             >
               <Icon
                 aria-hidden="true"
-                icon="mage:camera-2"
+                icon="mdi:instagram"
                 className="h-[38px] w-[38px] text-white"
               />
             </a>
@@ -535,6 +535,19 @@ export const Footer: React.FC = () => {
               <Icon
                 aria-hidden="true"
                 icon="fa6-brands:facebook-f"
+                className="h-[32px] w-[32px] text-white cursor-pointer"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@HKCTC_channel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block cursor-pointer"
+              aria-label={"Open Youtube (opens in new tab)"}
+            >
+              <Icon
+                icon="mdi:youtube"
+                aria-hidden={true}
                 className="h-[32px] w-[32px] text-white cursor-pointer"
               />
             </a>
@@ -628,9 +641,15 @@ export const Footer: React.FC = () => {
                       <div>
                         {(col.secSubs ?? []).map((sec, index) => (
                           <div key={index} className="mt-[42px] flex flex-col">
-                            <div className="text-heading-l">
+                            <a
+                              className="text-heading-l"
+                              tabIndex={0}
+                              role="button"
+                              href={sec.link}
+                              aria-label={getSingleText(sec.title, sec.titleCN)}
+                            >
                               {getSingleText(sec.title, sec.titleCN)}
-                            </div>
+                            </a>
                             <hr className="bg-white w-[77px] h-[4px] my-[16px]" />
 
                             <div className="flex flex-col gap-[16px] text-body-m">

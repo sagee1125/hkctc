@@ -31,7 +31,7 @@ export const VideoBox: React.FC = () => {
   const videoUrls = [
     "InnoCarnivalcut.mp4",
     "HKCTC_03_edit_016_sub_TC_ENG.mp4",
-    "HKCTC_02_edit_014_sub_TC_ENG.mp4",
+    // "HKCTC_02_edit_014_sub_TC_ENG.mp4", // move it in 17/04/2025
     "HKCTC_04_012_sub_TC_ENG.mp4",
     "HKCTC_ESG_edit_005_sub_TC_ENG.mp4",
   ];
