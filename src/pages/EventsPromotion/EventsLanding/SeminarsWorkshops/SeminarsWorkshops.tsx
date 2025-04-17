@@ -130,6 +130,7 @@ export const SeminarsWorkshops: React.FC = () => {
                 return (
                   <button
                     key={index}
+                    tabIndex={index}
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
