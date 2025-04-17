@@ -627,9 +627,8 @@ export const Publications: React.FC = () => {
           aria-label={stem_kit as string}
         >
           <div className={`w-full ${isPC ? "" : "pr-[24px]"}`}>
-            <a
+            <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
-              href={`/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`}
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/assets/publications/STEM.png)`,
                 backgroundSize: "cover",
@@ -642,6 +641,22 @@ export const Publications: React.FC = () => {
                 position: "relative",
                 cursor: "pointer",
                 overflow: "hidden",
+              }}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                window.open(
+                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`,
+                  "_self"
+                );
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  window.open(
+                    `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=STEM_Teaching_Kit`,
+                    "_self"
+                  );
+                }
               }}
             >
               <div
@@ -690,10 +705,10 @@ export const Publications: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
           <div className={`w-full ${isPC ? "" : "max-w-full pr-[24px]"}`}>
-            <a
+            <div
               className={`${isPC ? "h-auto" : "aspect-ratio-[1/1]"}`}
               aria-label={chemical_kit as string}
               style={{
@@ -709,7 +724,22 @@ export const Publications: React.FC = () => {
                 cursor: "pointer",
                 overflow: "hidden",
               }}
-              href={`/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                window.open(
+                  `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`,
+                  "_self"
+                );
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  window.open(
+                    `/career_and_education?section=${navItemEnum.learning_teaching_resources}&scroll_id=Teaching_Kit`,
+                    "_self"
+                  );
+                }
+              }}
             >
               <div
                 style={{
@@ -757,7 +787,7 @@ export const Publications: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
