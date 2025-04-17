@@ -848,6 +848,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   cursor: currentPage === 0 ? "not-allowed" : "pointer",
                   color: currentPage === 0 ? "#767676" : "black",
                 }}
+                aria-label="Previous Page"
               >
                 <Icon
                   icon="mingcute:arrow-left-fill"
@@ -866,6 +867,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                       ? activatedPagingButtonStyle
                       : normalPagingButtonStyle
                   }
+                  aria-label={`Jump to Page ${pageIndex + 1}`}
                 >
                   {pageIndex + 1}
                 </button>
@@ -881,6 +883,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   cursor: currentPage === maxPage ? "not-allowed" : "pointer",
                   color: currentPage === maxPage ? "#767676" : "black",
                 }}
+                aria-label="Next Page"
               >
                 <Icon
                   icon="mingcute:arrow-right-fill"

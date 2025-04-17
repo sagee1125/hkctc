@@ -34,18 +34,21 @@ export const SkipLinks: React.FC = () => {
         <button
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("main-content")}
+          aria-label={main_content as string}
         >
           {main_content as string}
         </button>
         <button
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("main-menu")}
+          aria-label={main_menu as string}
         >
           {main_menu as string}
         </button>
         <button
           className="focus:outline-none focus:ring focus:ring-black px-[44px] py-[11px] bg-newPrimary"
           onClick={() => focusSection("footer")}
+          aria-label={footer as string}
         >
           {footer as string}
         </button>

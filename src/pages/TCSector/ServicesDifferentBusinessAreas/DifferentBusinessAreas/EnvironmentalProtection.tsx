@@ -20,7 +20,6 @@ import {
   normalButtonStyle,
 } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
-import { t2s } from "chinese-s2t";
 
 const multilingual = {
   en: {
@@ -161,7 +160,8 @@ const cSectionMap_CN = [
   },
 ];
 export const EnvironmentalProtection: React.FC = () => {
-  const { isPC, language, getPageText, getSingleNode } = useSettings();
+  const { isPC, language, getPageText, getSingleNode, processText } =
+    useSettings();
   const page_text = getPageText(multilingual);
   const isSimpleCN = language === Language.ZH_CN;
   const cSectionMap =
@@ -197,24 +197,21 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.bSectionButtonArray as React.ReactNode[]).map(
-              (btn, index) => {
-                const isActivated = index === activeBSectionButton;
-                return (
-                  <button
-                    key={index}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActiveBSectionButton(index);
-                    }}
-                  >
-                    {btn}
-                  </button>
-                );
-              }
-            )}
+            {(page_text.bSectionButtonArray as string[]).map((btn, index) => {
+              const isActivated = index === activeBSectionButton;
+              return (
+                <button
+                  key={index}
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveBSectionButton(index);
+                  }}
+                  aria-label={btn}
+                >
+                  {btn}
+                </button>
+              );
+            })}
           </div>
           <div>
             {(page_text.bSectionMap as React.ReactNode[])[activeBSectionButton]}
@@ -227,25 +224,22 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.cSectionButtonArray as React.ReactNode[]).map(
-              (btn, index) => {
-                const isActivated = index === activeCSectionButton;
-                return (
-                  <button
-                    tabIndex={0}
-                    key={index}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActiveCSectionButton(index);
-                    }}
-                  >
-                    {btn}
-                  </button>
-                );
-              }
-            )}
+            {(page_text.cSectionButtonArray as string[]).map((btn, index) => {
+              const isActivated = index === activeCSectionButton;
+              return (
+                <button
+                  tabIndex={0}
+                  key={index}
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveCSectionButton(index);
+                  }}
+                  aria-label={btn}
+                >
+                  {btn}
+                </button>
+              );
+            })}
           </div>
           <div>
             {isSimpleCN
@@ -352,25 +346,22 @@ export const EnvironmentalProtection: React.FC = () => {
       content: (
         <>
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.bSectionButtonArray as React.ReactNode[]).map(
-              (btn, index) => {
-                const isActivated = index === activeBSectionButton;
-                return (
-                  <button
-                    key={index}
-                    tabIndex={0}
-                    style={
-                      isActivated ? activatedButtonStyle : normalButtonStyle
-                    }
-                    onClick={() => {
-                      setActiveBSectionButton(index);
-                    }}
-                  >
-                    {btn}
-                  </button>
-                );
-              }
-            )}
+            {(page_text.bSectionButtonArray as string[]).map((btn, index) => {
+              const isActivated = index === activeBSectionButton;
+              return (
+                <button
+                  key={index}
+                  tabIndex={0}
+                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
+                  onClick={() => {
+                    setActiveBSectionButton(index);
+                  }}
+                  aria-label={btn}
+                >
+                  {btn}
+                </button>
+              );
+            })}
           </div>
           <div>
             {(page_text.bSectionMap as React.ReactNode[])[activeBSectionButton]}
@@ -385,6 +376,7 @@ export const EnvironmentalProtection: React.FC = () => {
           <div className="flex flex-wrap gap-[8px] mb-[16px]">
             {(page_text.cSectionButtonArray as string[]).map((btn, index) => {
               const isActivated = index === activeCSectionButton;
+              const textButton = processText(btn);
               return (
                 <button
                   key={index}
@@ -393,8 +385,9 @@ export const EnvironmentalProtection: React.FC = () => {
                   onClick={() => {
                     setActiveCSectionButton(index);
                   }}
+                  aria-label={textButton}
                 >
-                  {isSimpleCN ? t2s(btn) : btn}
+                  {textButton}
                 </button>
               );
             })}
@@ -854,7 +847,7 @@ export const EnvironmentalProtection: React.FC = () => {
         {environmentalData.map((item, index) => (
           <Accordion
             key={index}
-            title={isSimpleCN ? t2s(item.title) : item.title}
+            title={processText(item.title)}
             defaultExpanded={false}
             details={
               <div className="text-body-m">
@@ -881,7 +874,7 @@ export const EnvironmentalProtection: React.FC = () => {
         {EnMsData.map((item, index) => (
           <Accordion
             key={index}
-            title={isSimpleCN ? t2s(item.title) : item.title}
+            title={processText(item.title)}
             defaultExpanded={false}
             details={
               <div className="text-body-m">

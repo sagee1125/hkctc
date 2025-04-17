@@ -1018,6 +1018,7 @@ export const CEPAAgreements: React.FC = () => {
                         onClick={() => {
                           setAgreementType(btn);
                         }}
+                        aria-label={displayLabel}
                       >
                         <p className="text-highlight-xs">{displayLabel}</p>
                       </button>

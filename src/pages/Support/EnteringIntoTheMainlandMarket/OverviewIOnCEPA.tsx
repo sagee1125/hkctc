@@ -881,6 +881,9 @@ export const OverviewIOnCEPA: React.FC = () => {
             onClick={() => {
               setTimelineCollapsed(!timelineCollapsed);
             }}
+            aria-label={
+              timelineCollapsed ? (show_all as string) : (hide as string)
+            }
           >
             {timelineCollapsed ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
@@ -912,6 +915,7 @@ export const OverviewIOnCEPA: React.FC = () => {
                 onClick={() => {
                   setActiveFAQType(btn);
                 }}
+                aria-label={label}
               >
                 <p className="text-highlight-xs">
                   {label.length > 48 && !isPC

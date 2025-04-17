@@ -356,9 +356,14 @@ export const ProgrammesCourses: React.FC = () => {
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {buttonArr.map((b, i) => {
           const isActivated = activeButton === b;
+          const buttonText = getSingleText(
+            degreeMap[b].tab,
+            degreeMap[b].tabCN
+          );
           return (
             <button
               key={i}
+              aria-label={buttonText}
               style={isActivated ? activatedButtonStyle : normalButtonStyle}
               onClick={() => {
                 setActiveButton(b);
@@ -369,7 +374,7 @@ export const ProgrammesCourses: React.FC = () => {
                 }
               }}
             >
-              {getSingleText(degreeMap[b].tab, degreeMap[b].tabCN)}
+              {buttonText}
             </button>
           );
         })}

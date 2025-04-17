@@ -51,7 +51,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
           cursor: currentPage === 0 ? "not-allowed" : "pointer",
           color: currentPage === 0 ? "#767676" : "black",
         }}
-        aria-label="Previous Button"
+        aria-label="Previous Page"
       >
         <Icon
           icon="mingcute:arrow-left-fill"
@@ -87,7 +87,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
           cursor: currentPage === maxPage ? "not-allowed" : "pointer",
           color: currentPage === maxPage ? "#767676" : "black",
         }}
-        aria-label="Next Button"
+        aria-label="Next Page"
       >
         <Icon
           icon="mingcute:arrow-right-fill"

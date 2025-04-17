@@ -605,6 +605,7 @@ export const AwardScheme: React.FC = () => {
                   setActiveAwardOneButton(index);
                 }
               }}
+              aria-label={label}
             >
               {label}
             </button>
@@ -644,6 +645,7 @@ export const AwardScheme: React.FC = () => {
                   setActiveAwardTwoButton(index);
                 }
               }}
+              aria-label={label}
             >
               {label}
             </button>
@@ -676,6 +678,7 @@ export const AwardScheme: React.FC = () => {
                   setQuestionCategory(index);
                 }
               }}
+              aria-label={label}
             >
               {label.length > 48 && !isPC ? label.slice(0, 48) + "..." : label}
             </button>
