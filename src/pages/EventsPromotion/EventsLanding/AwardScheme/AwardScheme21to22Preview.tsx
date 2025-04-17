@@ -473,6 +473,7 @@ export const AwardScheme21to22Preview: React.FC<{
       <div className="flex flex-wrap gap-[8px] my-[24px] text-justify">
         {awardOneBtn.map((btn, index) => {
           const isActivated = index === activeAwardOneButton;
+          const buttonText = processText(btn);
           return (
             <button
               key={index}
@@ -480,8 +481,9 @@ export const AwardScheme21to22Preview: React.FC<{
               onClick={() => {
                 setActiveAwardOneButton(index);
               }}
+              aria-label={buttonText}
             >
-              {processText(btn)}
+              {buttonText}
             </button>
           );
         })}
@@ -507,6 +509,7 @@ export const AwardScheme21to22Preview: React.FC<{
       <div className="flex flex-wrap gap-[8px] my-[24px]">
         {awardOneBtn.map((btn, index) => {
           const isActivated = index === activeAwardTwoButton;
+          const buttonText = processText(btn);
           return (
             <button
               key={index}
@@ -514,8 +517,9 @@ export const AwardScheme21to22Preview: React.FC<{
               onClick={() => {
                 setActiveAwardTwoButton(index);
               }}
+              aria-label={buttonText}
             >
-              {processText(btn)}
+              {buttonText}
             </button>
           );
         })}
@@ -541,6 +545,7 @@ export const AwardScheme21to22Preview: React.FC<{
               onClick={() => {
                 setQuestionCategory(index);
               }}
+              aria-label={label}
             >
               {label.length > 48 && !isPC ? label.slice(0, 48) + "..." : label}
             </button>

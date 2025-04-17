@@ -116,7 +116,7 @@ export const EmailBox: React.FC = () => {
           InputProps={{
             sx: {
               "&::placeholder": {
-                color: "#666666", // 自定義 placeholder 顏色
+                color: "#666666",
               },
             },
           }}
@@ -143,7 +143,7 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
-            style: { display: "none" },
+            // style: { display: "none" },
           }}
         />
         <TextField
@@ -188,7 +188,6 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
-            style: { display: "none" },
           }}
         />
         <TextField
@@ -215,7 +214,6 @@ export const EmailBox: React.FC = () => {
           }}
           InputLabelProps={{
             shrink: false,
-            style: { display: "none" },
           }}
           FormHelperTextProps={{
             id: "msg-helper",

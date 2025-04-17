@@ -113,22 +113,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                     return (
                       <Menu.Item key={index}>
-                        {({ active }) => (
-                          <button
-                            tabIndex={0}
-                            aria-label={getSingleText(subTitle, subTitleCN)}
-                            onClick={() => {
-                              setActivatedItems(navItemEnum);
-                            }}
-                            className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
-                              active || navItemEnum === activatedItems
-                                ? "bg-[#F7F7F5] text-black"
-                                : "text-gray-700"
-                            }`}
-                          >
-                            {getSingleText(subTitle, subTitleCN)}
-                          </button>
-                        )}
+                        {({ active }) => {
+                          const buttonText = getSingleText(
+                            subTitle,
+                            subTitleCN
+                          );
+                          return (
+                            <button
+                              tabIndex={0}
+                              aria-label={buttonText}
+                              onClick={() => {
+                                setActivatedItems(navItemEnum);
+                              }}
+                              className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
+                                active || navItemEnum === activatedItems
+                                  ? "bg-[#F7F7F5] text-black"
+                                  : "text-gray-700"
+                              }`}
+                            >
+                              {buttonText}
+                            </button>
+                          );
+                        }}
                       </Menu.Item>
                     );
                   })}
@@ -373,6 +379,10 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                               subTitleCN,
                               enum: navItemEnum,
                             } = i;
+                            const buttonText = getSingleText(
+                              subTitle,
+                              subTitleCN
+                            );
                             return (
                               <Menu.Item key={innerIndex}>
                                 {({ active }) => (
@@ -386,8 +396,9 @@ export const MultipleSidebars: React.FC<MultipleSidebarsProps> = (
                                         ? "bg-[#F7F7F5] text-black"
                                         : "text-gray-700"
                                     }`}
+                                    aria-label={buttonText}
                                   >
-                                    {getSingleText(subTitle, subTitleCN)}
+                                    {buttonText}
                                   </button>
                                 )}
                               </Menu.Item>

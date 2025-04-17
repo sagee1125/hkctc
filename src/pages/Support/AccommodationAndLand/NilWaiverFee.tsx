@@ -770,6 +770,7 @@ export const NilWaiverFee: React.FC = () => {
                     setActiveButton(b);
                   }
                 }}
+                aria-label={label}
               >
                 <p className="text-highlight-xs">
                   {label.length > 44 && !isPC

@@ -111,7 +111,7 @@ export const DirectorySidebar: React.FC<DirectorySidebarProps> = ({
           onClick={() => {
             setIsOpen(true);
           }}
-          aria-label="Open content list"
+          aria-label="Open Content List"
         >
           {content_list}
         </button>

@@ -4,6 +4,7 @@ import type { ChartProps } from "./types";
 import { useSettings } from "../../context";
 
 type AreaChartProps = ChartProps & {
+  desc: string;
   xAxisData: string[] | number[];
   yAxisStartValue?: number;
   seriesData: number[];
@@ -20,6 +21,7 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
     seriesData,
     seriesBackgroundColor = "#D9B6F6",
     seriesItemColor = "#BD78FC",
+    desc,
   } = props;
   const { isPC } = useSettings();
 
@@ -142,6 +144,8 @@ export const AreaChart: React.FC<AreaChartProps> = (props: AreaChartProps) => {
       >
         <div
           id={elementId}
+          role="img"
+          aria-label={desc}
           style={{
             width: "100%",
             minHeight: isPC ? "500px" : "240px",

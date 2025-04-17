@@ -324,6 +324,7 @@ export const FundingSchemes: React.FC = () => {
                       onClick={() => {
                         setActiveITFButton(btn);
                       }}
+                      aria-label={label}
                     >
                       <p className="text-highlight-xs">
                         {label.length > 38 && !isPC
@@ -418,6 +419,7 @@ export const FundingSchemes: React.FC = () => {
                       onClick={() => {
                         setActiveTIDFunding(btn);
                       }}
+                      aria-label={label}
                     >
                       <p className="text-highlight-xs">
                         {label.length > 38 && !isPC

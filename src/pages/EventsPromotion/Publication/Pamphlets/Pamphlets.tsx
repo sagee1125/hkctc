@@ -78,6 +78,7 @@ export const Pamphlets: React.FC = () => {
                         setCurrentPage(0);
                       }
                     }}
+                    aria-label={name}
                   >
                     <p className="text-highlight-xs">{name}</p>
                   </button>

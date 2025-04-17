@@ -57,6 +57,7 @@ export const NotFound: React.FC = () => {
             onClick={() => {
               window.open("/", "_self");
             }}
+            aria-label={back_to_home as string}
           >
             {back_to_home as string}
           </button>

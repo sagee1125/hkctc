@@ -82,6 +82,7 @@ export const Videos: React.FC = () => {
             <div className="flex flex-wrap gap-[8px]">
               {Object.keys(filterButtons).map((name, index) => {
                 const isActivated = activeButton === index;
+                const buttonText = getSingleText(name, filterButtons[name]);
                 return (
                   <button
                     key={index}
@@ -96,10 +97,9 @@ export const Videos: React.FC = () => {
                         setActiveButton(index);
                       }
                     }}
+                    aria-label={buttonText}
                   >
-                    <p className="text-highlight-xs">
-                      {getSingleText(name, filterButtons[name])}
-                    </p>
+                    <p className="text-highlight-xs">{buttonText}</p>
                   </button>
                 );
               })}

@@ -134,6 +134,7 @@ export const SummaryOfCEPA: React.FC = () => {
             onClick={() => {
               setExpanded(!expanded);
             }}
+            aria-label={!expanded ? (show_all as string) : (hide as string)}
           >
             {!expanded ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
@@ -259,6 +260,7 @@ export const SummaryOfCEPA: React.FC = () => {
             onClick={() => {
               setExpanded(!expanded);
             }}
+            aria-label={!expanded ? (show_all as string) : (hide as string)}
           >
             {!expanded ? (show_all as string) : (hide as string)}
             <ExpandMoreIcon
