@@ -176,7 +176,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
       {!isMobileView && (
         <div className="bg-newPrimary h-[50px] flex flex-row px-[32px] items-center justify-center text-white">
           <div
-            className="flex flex-row pr-[32px] items-center text-white"
+            className="flex flex-row px-[32px] items-center text-white"
             style={isPC ? maxPCContainer : maxMobileContainer}
           >
             <p className="text-highlight-s">{explore_as as string}</p>

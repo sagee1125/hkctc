@@ -169,8 +169,9 @@ export const AboutHKCTC: React.FC = () => {
       <p className="text-heading-m mt-[22px] mb-[8px]">{secretary as string}</p>
       <p className="text-body-m">{secretary_manager as string}</p>
 
+      <hr className="mt-[24px]" />
       <div className="mt-[22px] flex flex-col gap-[24px]">
-        <p className="text-heading-m">{about_logo as string}</p>
+        <p className="text-heading-l">{about_logo as string}</p>
         <img
           className="w-full"
           src={`${process.env.PUBLIC_URL}/assets/about/transition.gif`}

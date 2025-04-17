@@ -3,7 +3,7 @@ export const seminarsData = [
     title: "ICAC Anti-Corruption Workshop",
     date: "10 Feb 2025",
     year: 2025,
-    tag: "Environmental protection",
+    tag: "Integrity &Professional Development",
     id: "64",
     img: "s_11.png",
   },
