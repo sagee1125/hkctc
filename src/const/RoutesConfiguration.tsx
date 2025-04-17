@@ -1,7 +1,7 @@
 /**
  * This is a simple routing configuration for your React project.
  * Each route is defined with a `path`, `element` (the React component to render),
- * and an optional `description`. This allows easy maintenance and addition of new pages.
+ * and an optional `title`. This allows easy maintenance and addition of new pages.
  *
  * ### How to Add a New Route for a New Page:
  *
@@ -23,7 +23,7 @@
  *    - In the `routesConfiguration` array, add a new object for your page.
  *    - Set the `path` to the URL path where you want this page to be accessed.
  *    - Set the `element` to the component you just created.
- *    - Optionally, add a `description` for better clarity.
+ *    - Optionally, add a `title` for better clarity.
  *    ```tsx
  *    import NewPageName from "../pages/NewPageName";
  *
@@ -32,7 +32,7 @@
  *      {
  *        path: "/new-page-name", // The URL path for the new page
  *        element: <NewPageName />, // The component to render when this route is matched
- *        description: "About New Page", // Optional description for clarity
+ *        title: "About New Page", // Optional title for clarity
  *      },
  *    ];
  *    ```
@@ -92,122 +92,134 @@ import { SeminarsRegistration } from "../pages/EventsPromotion/EventsLanding/Sem
 export type RouteConfig = {
   path: string;
   element: React.ReactNode;
-  description?: string;
+  title?: string;
 };
 
 export const routesConfiguration: RouteConfig[] = [
-  { path: "/", element: <Home />, description: "Homepage" },
-  { path: "/hkctc", element: <Home />, description: "Homepage" },
-  { path: "/general-public", element: <GeneralPublic />, description: "" },
+  { path: "/", element: <Home />, title: "Homepage" },
+  { path: "/hkctc", element: <Home />, title: "Homepage" },
+  {
+    path: "/general-public",
+    element: <GeneralPublic />,
+    title: "General Public",
+  },
   {
     path: "/educators-students",
     element: <EducatorsStudents />,
-    description: "",
+    title: "Educators & Students",
   },
-  { path: "/industry", element: <Industry />, description: "" },
-  { path: "/service-users", element: <ServiceUsers />, description: "" },
-  { path: "/about-us", element: <AboutUs />, description: "" },
-  { path: "/about-the-site", element: <AboutSite />, description: "" },
+  {
+    path: "/industry",
+    element: <Industry />,
+    title: "T&C Bodies & Practitioners",
+  },
+  {
+    path: "/service-users",
+    element: <ServiceUsers />,
+    title: "T&C Service Users",
+  },
+  { path: "/about-us", element: <AboutUs />, title: "About HKCTC" },
+  { path: "/about-the-site", element: <AboutSite />, title: "About the Site" },
 
-  { path: "/support", element: <Support />, description: "" },
+  { path: "/support", element: <Support />, title: "Support" },
   {
     path: "/support/agreement-clause",
     element: <AgreementClause />,
-    description: "",
+    title: "Clauses",
   },
   {
     path: "/support/CCC_testing",
     element: <CCCTesting />,
-    description: "China Compulsory Certification (CCC) Testing",
+    title: "China Compulsory Certification (CCC) Testing",
   },
   {
     path: "/support/international_multilateral_systems_on_mutual_recognition",
     element: <InternationalMultilateralSystems />,
-    description: "International Multilateral Systems on Mutual Recognition",
+    title: "International Multilateral Systems on Mutual Recognition",
   },
   {
     path: "/career_and_education",
     element: <CareerEducation />,
-    description: "Career & Education",
+    title: "Career & Education",
   },
   {
     path: "/events-promotion",
     element: <EventsPromotion />,
-    description: "",
+    title: "Events & Promotions",
   },
   {
     path: "/events-promotion/award-scheme2324",
     element: <AwardScheme23to24 />,
-    description: "",
+    title: "List of Awardees/ Award Ceremony 2023-2024",
   },
   {
     path: "/events-promotion/award-scheme2122",
     element: <AwardScheme21to22 />,
-    description: "",
+    title: "List of Awardees/ Award Ceremony 2021-2022",
   },
   {
     path: "/events-promotion/seminars-registration",
     element: <SeminarsRegistration />,
-    description: "",
+    title: "Register for New Seminars",
   },
-  { path: "/tc-sector", element: <TCSector />, description: "" },
+  { path: "/tc-sector", element: <TCSector />, title: "About T&C Industry" },
 
   {
     path: "/tc-sector/toys_and_children_products",
     element: <ToysChildrenProducts />,
-    description: `Toys and Children's Products`,
+    title: `Toys and Children's Products`,
   },
 
   {
     path: "/tc-sector/textiles_and_apparel",
     element: <TextilesAndApparel />,
-    description: `Textiles and Apparel`,
+    title: `Textiles and Apparel`,
   },
 
   {
     path: "/tc-sector/electrical_and_electronic_products",
     element: <ElectricalElectronicProducts />,
-    description: `Electrical and Electronic Products`,
+    title: `Electrical and Electronic Products`,
   },
   {
     path: "/tc-sector/construction_materials_and_buildings",
     element: <ConstructionMaterialsBuildings />,
-    description: `Construction Materials and Buildings`,
+    title: `Construction Materials and Buildings`,
   },
   {
     path: "/tc-sector/medical_testing",
     element: <MedicalTesting />,
-    description: `Medical Testing`,
+    title: `Medical Testing`,
   },
   {
     path: "/tc-sector/chinese_medicines",
     element: <ChineseMedicines />,
-    description: `Chinese Medicines`,
+    title: `Chinese Medicines`,
   },
   {
     path: "/tc-sector/jewellery",
     element: <Jewellery />,
-    description: `Jewellery`,
+    title: `Jewellery`,
   },
   {
     path: "/tc-sector/food",
     element: <Food />,
-    description: `Food`,
+    title: `Food`,
   },
   {
     path: "/tc-sector/environmental_protection",
     element: <EnvironmentalProtection />,
-    description: `Environmental Protection`,
+    title: `Environmental Protection`,
   },
   {
     path: "/tc-sector/information_and_communications_technologies",
     element: <InformationAndCommunicationsTechnologies />,
-    description: "Information and Communications Technologies",
+    title: "Information and Communications Technologies",
   },
-  { path: "/whats-new", element: <WhatsNew />, description: "" },
+  { path: "/whats-new", element: <WhatsNew />, title: "What’s New" },
   {
     path: "/resources-reports",
     element: <ResourcesReports />,
-    description: "",
+    title: "Resources",
   },
 ];
