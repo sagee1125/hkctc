@@ -183,6 +183,12 @@ export const Jewellery: React.FC = () => {
     />
   );
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/ODofaE4w6Sc",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/8Bd-7uIs2ig",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/8Bd-7uIs2ig",
+  };
+
   const content = (
     <>
       <SquareTitle title={page_text.title as string} />
@@ -192,7 +198,7 @@ export const Jewellery: React.FC = () => {
           title={page_text.mediaTitle as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/JewelleryVideo.png"
           iconPath={"VIDEO.png"}
-          mediaLink="https://www.youtube.com/embed/ODofaE4w6Sc"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div

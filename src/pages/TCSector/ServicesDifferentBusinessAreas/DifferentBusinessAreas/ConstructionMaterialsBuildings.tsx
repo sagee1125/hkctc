@@ -132,8 +132,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "A product certification scheme stipulates a set of rules and procedures for suppliers of specific products to comply with.",
         "A third party certification body will conduct rigorous evaluation on the product manufacturer in accordance with the specifications, and may issue a certificate to confirm that a product of a given supplier satisfies the requirements set out in the specified certification scheme.",
       ],
-      benefits_of:
-        "Benefits of Product Certification for Construction Materials",
+      benefits_of: "Product Certification for Construction Materials",
       whats_benefits_of_pc: "What are the Benefits of Product Certification?",
       whats_benefits_of_pc_detail: [
         "Promoting product quality through upstream control",
@@ -386,7 +385,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "產品認證計劃為特定產品的供應商，訂立一系列確保產品符合質量要求的規則及程序合指定認證計劃的要求。",
         "第三方認證機構會根據規定進行嚴格評審，在確定供應商的產品達到認證計劃的要求後，對該供應商的產品發出認證證書。",
       ],
-      benefits_of: "樓宇及建築材料產品認證",
+      benefits_of: "建築材料產品認證",
       whats_benefits_of_pc: "產品認證的好處",
       whats_benefits_of_pc_detail: [
         "產品認證過程會透過上游監控提升產品質素。",
@@ -1037,6 +1036,12 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     />
   );
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/06_ec-i3gCo",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/mlbHPZQuJJU",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/mlbHPZQuJJU",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle} />
@@ -1045,7 +1050,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           iconPath="VIDEO.png"
           title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ConstructionVideo.png"
-          mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div className="text-heading-l mb-[24px]">
