@@ -13,14 +13,20 @@ const multilingual = {
   },
 };
 export const GSP: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
+
+  const linkMapping: Record<Language, string> = {
+    [Language.EN]: "https://www.itf.gov.hk/l-eng/GSP.asp",
+    [Language.ZH_TW]: "https://www.itf.gov.hk/l-tc/GSP.asp",
+    [Language.ZH_CN]: "https://www.itf.gov.hk/l-sc/GSP.asp",
+  };
 
   const { title, GSP_support } = page_text;
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px]">
       <div className="text-heading-m ">
-        <Link outerLink="https://www.itf.gov.hk/l-eng/GSP.asp" linkColor="#000">
+        <Link outerLink={linkMapping[language]} linkColor="#000">
           {title as string}
         </Link>
       </div>

@@ -101,18 +101,18 @@ export const LearningTeachingResources: React.FC = () => {
       titleCN: "下載教師指引",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Teachers_Guide_Eng.pdf",
       tcLink:
-        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Teachers_Guide_Chi.pdf",
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Teachers_Guide_Chi.pdf",
       scLink:
-        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Teachers_Guide_Chi.pdf",
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Teachers_Guide_Chi.pdf",
     },
     {
       title: "Download Student Laboratory Manual",
       titleCN: "下載學生實驗手冊",
       link: "https://www.hkctc.gov.hk/en/doc/STEM_Teaching_Kit_Student_Manual_Eng.pdf",
       tcLink:
-        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Student_Manual_Chi.pdf",
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Student_Manual_Chi.pdf",
       scLink:
-        "https://www.hkctc.gov.hk/tc/doc/STEM_Teaching_Kit_Student_Manual_Chi.pdf",
+        "https://www.hkctc.gov.hk/tc/doc/Teaching_Kit_Student_Manual_Chi.pdf",
     },
   ];
   const downloadDataTwo = [
