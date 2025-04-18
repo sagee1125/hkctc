@@ -7,15 +7,15 @@ import {
   SkipLinks,
 } from "./components";
 import { useSettings } from "./context";
-import { usePageTitle } from "./components/hooks/usePageTitle";
+import { usePageTitle } from "./hooks/usePageTitle";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { isPC, fontClass } = useSettings();
-  usePageTitle();
+  const { isPC, language, fontClass } = useSettings();
+  usePageTitle(language);
 
   return (
     <div
