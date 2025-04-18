@@ -822,6 +822,12 @@ export const EnvironmentalProtection: React.FC = () => {
     />
   );
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/5ncIXAbe9mI",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/OXaj7f9-ZOk",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/OXaj7f9-ZOk",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle} />
@@ -830,7 +836,7 @@ export const EnvironmentalProtection: React.FC = () => {
         <MediaTemplate
           title={page_text.mediaTitle as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/environmental_protection_pdf.png"
-          mediaLink="https://www.youtube.com/embed/5ncIXAbe9mI"
+          mediaLink={youtubeTemplateLink[language]}
           iconPath="VIDEO.png"
         />
       </div>

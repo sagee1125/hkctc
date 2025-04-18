@@ -39,6 +39,13 @@ export const Food: React.FC = () => {
   const page_text =
     language === Language.EN ? multilingual.en : multilingual.cn;
   const isSimpleCN = language === Language.ZH_CN;
+
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/oGRho-M6kEg",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/9A7eCQoTkv0",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/9A7eCQoTkv0",
+  };
+
   const photo = [
     {
       title: "Food Testing and Certification",
@@ -58,7 +65,7 @@ export const Food: React.FC = () => {
       title: "Hong Kong's Testing and Certification for Food",
       img: "food_3",
       titleCN: "香港的食品檢測和認證服務",
-      link: "https://www.youtube.com/embed/oGRho-M6kEg",
+      link: youtubeTemplateLink[language],
       icon: "VIDEO.png",
     },
   ];

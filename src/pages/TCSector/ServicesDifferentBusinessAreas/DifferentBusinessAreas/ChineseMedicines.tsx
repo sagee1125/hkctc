@@ -458,6 +458,12 @@ export const ChineseMedicines: React.FC = () => {
     />
   );
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/WRYVmv0SzrQ",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/Qwe6CfNIsHM",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/Qwe6CfNIsHM",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle as string} />
@@ -467,7 +473,7 @@ export const ChineseMedicines: React.FC = () => {
           title={page_text.mediaTitle as string}
           iconPath={"VIDEO.png"}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ChineseMedicinesVideo.png"
-          mediaLink="https://www.youtube.com/embed/WRYVmv0SzrQ"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div className="w-full flex flex-row gap-[24px]">

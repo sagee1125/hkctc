@@ -204,6 +204,12 @@ export const TextilesAndApparel: React.FC = () => {
     [Language.ZH_CN]: "/sc/doc/textile_booklet_low_res_schi.pdf",
   };
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/JL54Sx8IFF0",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/DdtgboN0aVk",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/DdtgboN0aVk",
+  };
+
   const servicesForTextile: Array<{
     title: string;
     content: React.ReactNode;
@@ -255,7 +261,7 @@ export const TextilesAndApparel: React.FC = () => {
           iconPath="VIDEO.png"
           title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/Textiles_Garment.png"
-          mediaLink="https://www.youtube.com/embed/JL54Sx8IFF0"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div className="w-full flex flex-row gap-[24px]">

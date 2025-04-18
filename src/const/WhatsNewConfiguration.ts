@@ -45,7 +45,7 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     date: "10 Feb 2025",
     imagePath: "icac.png",
     imagePathSwitch: "icac.png",
-    redirectTo: `/events-promotion?section=seminar_article#64`,
+    redirectTo: `/events-promotion?section=seminar_article#0`,
   },
   {
     title: 'Twelfth "HKCTC Newsletter" has been issued',
@@ -102,7 +102,7 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
     date: "2025年2月10日",
     imagePath: "icac.png",
     imagePathSwitch: "icac.png",
-    redirectTo: `/events-promotion?section=seminar_article#64`,
+    redirectTo: `/events-promotion?section=seminar_article#0`,
   },
   {
     title: "第十二期《香港檢測和認證局通訊》已經出版",
