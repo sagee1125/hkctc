@@ -167,7 +167,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           construction materials testing services are available at&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -535,7 +535,11 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           獲香港認可處認可的樓宇及建築材料測試實驗所名單，請瀏覽
           <a
             aria-label="香港認可處網頁"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href={
+              language === Language.ZH_TW
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"

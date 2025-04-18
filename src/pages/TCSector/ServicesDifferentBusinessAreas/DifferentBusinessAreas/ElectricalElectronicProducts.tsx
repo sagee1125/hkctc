@@ -70,7 +70,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
           and Electronic Products are available att&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
