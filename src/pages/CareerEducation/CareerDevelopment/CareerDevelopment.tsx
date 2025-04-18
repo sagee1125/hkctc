@@ -1,7 +1,7 @@
 import React from "react";
 import { SquareTitle, MediaTemplateWithDialog } from "../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../const";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
 
 const multilingual = {
   en: {
@@ -46,7 +46,7 @@ const multilingual = {
   },
 };
 export const CareerDevelopment: React.FC = () => {
-  const { isPC, getPageText, getSingleText } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
@@ -114,17 +114,8 @@ export const CareerDevelopment: React.FC = () => {
     link: string;
   }> = [
     {
-      title: "Testing and Certification Create Your Future",
-      titleCN: "檢測認證創未來",
-      imgUrl: "TestingPdf.png",
-      iconPath: "PDF.png",
-      mediaType: MEDIA_TYPE.PDF,
-      mediaDomain: "hkctc",
-      link: "/en/doc/brochure_e.pdf",
-    },
-    {
-      title: "認識檢測和認證業 (Chinese Version Only)",
-      titleCN: "認識檢測和認證業 (Chinese Version Only)",
+      title: "認識檢測和認證業",
+      titleCN: "認識檢測和認證業",
       imgUrl: "TestingPdf_Chinese.png",
       iconPath: "PDF.png",
       mediaType: MEDIA_TYPE.PDF,
@@ -132,17 +123,20 @@ export const CareerDevelopment: React.FC = () => {
       link: "/tc/doc/brochure_b.pdf",
     },
     {
-      title: "檢測認證青雲路 (Chinese Version Only)",
-      titleCN: "檢測認證青雲路 (Chinese Version Only)",
+      title: "Testing and Certification Create Your Future",
+      titleCN: "檢測認證青雲路",
       imgUrl: "QYL.png",
       iconPath: "PDF.png",
       mediaType: MEDIA_TYPE.PDF,
       mediaDomain: "hkctc",
-      link: "/tc/doc/brochure_c.pdf",
+      link:
+        language === Language.EN
+          ? "/en/doc/brochure_e.pdf"
+          : "/tc/doc/brochure_c.pdf",
     },
     {
-      title: "檢測認證工作透視 (Chinese Version Only)",
-      titleCN: "檢測認證工作透視 (Chinese Version Only)",
+      title: "檢測認證工作透視",
+      titleCN: "檢測認證工作透視",
       imgUrl: "toushi.png",
       iconPath: "PDF.png",
       mediaType: MEDIA_TYPE.PDF,
@@ -339,7 +333,11 @@ export const CareerDevelopment: React.FC = () => {
       <div>
         <img
           className="w-full h-full object-cover"
-          src={`${process.env.PUBLIC_URL}/assets/careerEducation/career_path_en.png`}
+          src={`${process.env.PUBLIC_URL}/assets/careerEducation/${
+            language === Language.EN
+              ? "career_path_en.png"
+              : "career_path_cn.png"
+          }`}
           alt={"career"}
           aria-hidden="true"
         />

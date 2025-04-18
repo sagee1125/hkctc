@@ -149,7 +149,9 @@ export const AboutHKCTC: React.FC = () => {
           <p className="text-highlight-l mt-[8px]">{prof_WWT as string}</p>
         </div>
         <div>
-          <p className="text-heading-m mb-[8px]">{members as string}</p>
+          <p className="text-heading-m mb-[8px]">
+            {non_official_members as string}
+          </p>
           {(member_names as string[]).map((name, index) => (
             <p key={index} className="text-body-m">
               {name}
@@ -157,9 +159,7 @@ export const AboutHKCTC: React.FC = () => {
           ))}
         </div>
       </div>
-      <p className="text-heading-m mt-[22px] mb-[8px]">
-        {non_official_members as string}
-      </p>
+      <p className="text-heading-m mt-[22px] mb-[8px]">{members as string}</p>
       {(non_official_member_name as string[]).map((name, index) => (
         <p key={index} className="text-body-m">
           {name}

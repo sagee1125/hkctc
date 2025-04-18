@@ -22,18 +22,24 @@ const multilingual = {
 };
 
 export const ITSP: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { language, getPageText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const { title, ITSP_supports, pp, platform_projects, sp, seed_projects } =
     page_text;
+
+  const linkMapping: Record<Language, string> = {
+    [Language.EN]: "https://www.itf.gov.hk/l-eng/ITSP.asp",
+    [Language.ZH_TW]:
+      "https://www.itf.gov.hk/tc/funding-programmes/supporting-research/itsp/itsp-platform-seed/index.html",
+    [Language.ZH_CN]:
+      "https://www.itf.gov.hk/sc/funding-programmes/supporting-research/itsp/itsp-platform-seed/index.html",
+  };
+
   return (
     <div className="bg-[#F7F7F5] px-[42px] py-[36px] text-justify">
       <div className="text-heading-m text-justify">
-        <Link
-          outerLink="https://www.itf.gov.hk/l-eng/ITSP.asp"
-          linkColor="#000"
-        >
+        <Link outerLink={linkMapping[language]} linkColor="#000">
           {title as string}
         </Link>
       </div>

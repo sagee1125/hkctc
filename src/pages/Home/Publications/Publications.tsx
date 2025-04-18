@@ -289,6 +289,13 @@ export const Publications: React.FC = () => {
       titleCN: "CEPA",
       items: [
         {
+          title:
+            "Summary of CEPA Clauses Relating to Testing and Certification",
+          titleCN: "CEPA下檢測認證相關條文摘要",
+          imgPath: "images/agreement_small.png",
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
+        },
+        {
           title: "Agreement on Trade in Services",
           titleCN: "《服務貿易協議》",
           imgPath: "images/agreement_small.png",
@@ -301,17 +308,10 @@ export const Publications: React.FC = () => {
           nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
         {
-          title:
-            "Summary of CEPA Clauses Relating to Testing and Certification",
-          titleCN: "CEPA下檢測認證相關條文摘要",
-          imgPath: "images/agreement_small.png",
-          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
-        },
-        {
-          title: "GBA Standard and Certification",
-          titleCN: "灣區標準及認證",
+          title: "Agreement on Economic and Technical Cooperation",
+          titleCN: "《經濟技術合作協議》",
           imgPath: "images/GBA_small.png",
-          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#3`,
+          nav: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
         },
       ],
       seeMore: `/support?section=${navItemEnum.entering_into_the_mainland_market}#0`,
