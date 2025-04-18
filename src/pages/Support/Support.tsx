@@ -66,7 +66,7 @@ export const directorySidebarItemsMap: Partial<
       content: <SummaryOfCEPA />,
     },
     GBA: {
-      label: "GBA Standard and Certification",
+      label: "GBA Standards and GBA Certification",
       labelCN: "灣區標準及灣區認證",
       content: <GBA />,
     },
