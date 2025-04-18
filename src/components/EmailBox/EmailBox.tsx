@@ -130,6 +130,8 @@ export const EmailBox: React.FC = () => {
             "aria-describedby": "name-helper",
             "aria-invalid": formik.errors.name ? "true" : "false",
             "aria-errormessage": formik.errors.name ? "name-helper" : undefined,
+            autoComplete: "name",
+            "aria-label": "Name input",
           }}
           sx={{
             ".MuiOutlinedInput-notchedOutline": {
@@ -175,6 +177,8 @@ export const EmailBox: React.FC = () => {
             "aria-errormessage": formik.errors.email
               ? "email-helper"
               : undefined,
+            autoComplete: "email",
+            "aria-label": "Email input",
           }}
           sx={{
             color: "#666666",
@@ -222,9 +226,10 @@ export const EmailBox: React.FC = () => {
           }}
           inputProps={{
             "aria-describedby": "msg-helper",
+            autoComplete: "off",
+            "aria-label": "Message input",
             "aria-invalid": formik.errors.msg ? "true" : "false",
             "aria-errormessage": formik.errors.msg ? "msg-helper" : undefined,
-            autoComplete: "message",
           }}
           sx={{
             color: "#666666",

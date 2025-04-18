@@ -92,134 +92,178 @@ import { SeminarsRegistration } from "../pages/EventsPromotion/EventsLanding/Sem
 export type RouteConfig = {
   path: string;
   element: React.ReactNode;
-  title?: string;
+  title: string;
+  titleCN?: string; // Tradition Chinese
 };
 
 export const routesConfiguration: RouteConfig[] = [
-  { path: "/", element: <Home />, title: "Homepage" },
-  { path: "/hkctc", element: <Home />, title: "Homepage" },
+  { path: "/", element: <Home />, title: "Homepage", titleCN: "主頁" },
+  { path: "/hkctc", element: <Home />, title: "Homepage", titleCN: "主頁" },
   {
     path: "/general-public",
     element: <GeneralPublic />,
     title: "General Public",
+    titleCN: "公眾人士",
   },
   {
     path: "/educators-students",
     element: <EducatorsStudents />,
     title: "Educators & Students",
+    titleCN: "老師與學生",
   },
   {
     path: "/industry",
     element: <Industry />,
     title: "T&C Bodies & Practitioners",
+    titleCN: "檢測認證機構及從業員",
   },
   {
     path: "/service-users",
     element: <ServiceUsers />,
     title: "T&C Service Users",
+    titleCN: "檢測認證服務使用者",
   },
-  { path: "/about-us", element: <AboutUs />, title: "About HKCTC" },
-  { path: "/about-the-site", element: <AboutSite />, title: "About the Site" },
+  {
+    path: "/about-us",
+    element: <AboutUs />,
+    title: "About HKCTC",
+    titleCN: "關於我們",
+  },
+  {
+    path: "/about-the-site",
+    element: <AboutSite />,
+    title: "About the Site",
+    titleCN: "關於本網站",
+  },
 
-  { path: "/support", element: <Support />, title: "Support" },
+  { path: "/support", element: <Support />, title: "Support", titleCN: "支援" },
   {
     path: "/support/agreement-clause",
     element: <AgreementClause />,
     title: "Clauses",
+    titleCN: "有關條文",
   },
   {
     path: "/support/CCC_testing",
     element: <CCCTesting />,
     title: "China Compulsory Certification (CCC) Testing",
+    titleCN: "中國強制性產品認證制度（CCC）檢測",
   },
   {
     path: "/support/international_multilateral_systems_on_mutual_recognition",
     element: <InternationalMultilateralSystems />,
     title: "International Multilateral Systems on Mutual Recognition",
+    titleCN: "國際多邊互認體系",
   },
   {
     path: "/career_and_education",
     element: <CareerEducation />,
     title: "Career & Education",
+    titleCN: "職業與教育",
   },
   {
     path: "/events-promotion",
     element: <EventsPromotion />,
     title: "Events & Promotions",
+    titleCN: "活動與宣傳",
   },
   {
     path: "/events-promotion/award-scheme2324",
     element: <AwardScheme23to24 />,
     title: "List of Awardees/ Award Ceremony 2023-2024",
+    titleCN: "2023-2024年度得獎名單/ 頒獎典禮",
   },
   {
     path: "/events-promotion/award-scheme2122",
     element: <AwardScheme21to22 />,
     title: "List of Awardees/ Award Ceremony 2021-2022",
+    titleCN: "2021-2022年度得獎名單/ 頒獎典禮",
   },
   {
     path: "/events-promotion/seminars-registration",
     element: <SeminarsRegistration />,
     title: "Register for New Seminars",
+    titleCN: "注冊參加研討會",
   },
-  { path: "/tc-sector", element: <TCSector />, title: "About T&C Industry" },
+  {
+    path: "/tc-sector",
+    element: <TCSector />,
+    title: "About T&C Industry",
+    titleCN: "關於檢測認證業",
+  },
 
   {
     path: "/tc-sector/toys_and_children_products",
     element: <ToysChildrenProducts />,
-    title: `Toys and Children's Products`,
+    title: `About T&C Industry - Toys and Children's Products`,
+    titleCN: `關於檢測認證業 - 玩具及兒童產品`,
   },
 
   {
     path: "/tc-sector/textiles_and_apparel",
     element: <TextilesAndApparel />,
-    title: `Textiles and Apparel`,
+    title: `About T&C Industry - Textiles and Apparel`,
+    titleCN: `關於檢測認證業 - 紡織與成衣`,
   },
 
   {
     path: "/tc-sector/electrical_and_electronic_products",
     element: <ElectricalElectronicProducts />,
-    title: `Electrical and Electronic Products`,
+    title: `About T&C Industry - Electrical and Electronic Products`,
+    titleCN: `關於檢測認證業 - 電氣及電子產品`,
   },
   {
     path: "/tc-sector/construction_materials_and_buildings",
     element: <ConstructionMaterialsBuildings />,
-    title: `Construction Materials and Buildings`,
+    title: `About T&C Industry - Construction Materials and Buildings`,
+    titleCN: `關於檢測認證業 - 樓宇及建築材料`,
   },
   {
     path: "/tc-sector/medical_testing",
     element: <MedicalTesting />,
-    title: `Medical Testing`,
+    title: `About T&C Industry - Medical Testing`,
+    titleCN: `關於檢測認證業 - 醫務化驗`,
   },
   {
     path: "/tc-sector/chinese_medicines",
     element: <ChineseMedicines />,
-    title: `Chinese Medicines`,
+    title: `About T&C Industry - Chinese Medicines`,
+    titleCN: `關於檢測認證業 - 中藥`,
   },
   {
     path: "/tc-sector/jewellery",
     element: <Jewellery />,
-    title: `Jewellery`,
+    title: `About T&C Industry - Jewellery`,
+    titleCN: `關於檢測認證業 - 珠寶`,
   },
   {
     path: "/tc-sector/food",
     element: <Food />,
-    title: `Food`,
+    title: `About T&C Industry - Food`,
+    titleCN: `關於檢測認證業 - 食品`,
   },
   {
     path: "/tc-sector/environmental_protection",
     element: <EnvironmentalProtection />,
-    title: `Environmental Protection`,
+    title: `About T&C Industry - Environmental Protection`,
+    titleCN: `關於檢測認證業 - 環保`,
   },
   {
     path: "/tc-sector/information_and_communications_technologies",
     element: <InformationAndCommunicationsTechnologies />,
-    title: "Information and Communications Technologies",
+    title: "About T&C Industry - Information and Communications Technologies",
+    titleCN: `關於檢測認證業 - 資訊及通訊科技`,
   },
-  { path: "/whats-new", element: <WhatsNew />, title: "What’s New" },
+  {
+    path: "/whats-new",
+    element: <WhatsNew />,
+    title: "What’s New",
+    titleCN: `最新消息`,
+  },
   {
     path: "/resources-reports",
     element: <ResourcesReports />,
     title: "Resources",
+    titleCN: `資源`,
   },
 ];
