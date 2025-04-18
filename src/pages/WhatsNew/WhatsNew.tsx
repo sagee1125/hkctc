@@ -86,55 +86,18 @@ export const WhatsNew: React.FC = () => {
       })}
     </div>
   );
-  const rightContent = (
-    <div>
-      <div className="border-2 border-inherit p-[24px] flex flex-col">
-        <p className="text-heading-l" role="heading" aria-level={10}>
-          {hkctc_newsletter as string}
-        </p>
-        {hkctcNewsletterList.slice(0, 6).map((item, index) => {
-          const { title, titleCN = "", date = "", mediaType, link } = item;
-          const isPDF = mediaType === MEDIA_TYPE.PDF;
-          const maskIcon = isPDF ? "PDF.png" : "VIDEO.png";
-          return (
-            <div
-              key={index}
-              className={`w-full h-auto object-cover flex flex-row gap-[14px] mt-[24px]`}
-            >
-              <MediaTemplateWithDialog
-                title={getSingleText(title, titleCN)}
-                maskIcon={maskIcon}
-                date={date}
-                mediaLink={link}
-                mediaType={mediaType}
-                direction="row"
-              />
-            </div>
-          );
-        })}
-        <a
-          className="text-links underline text-right w-full"
-          href={`/events-promotion?section=${navItemEnum.hkctc_newsletter}`}
-          aria-label={see_more as string}
-        >
-          {see_more as string}
-        </a>
-      </div>
-    </div>
-  );
+
   return (
     <div style={fullContainer}>
       <div style={isPC ? maxPCContainer : maxMobileContainer}>
         {isPC ? (
           <div className="w-full px-[24px] mt-[48px] mb-[24px] grid grid-cols-[2fr,1fr] gap-[24px]">
             {leftContent}
-            {rightContent}
           </div>
         ) : (
           <div className="w-full px-[24px] flex flex-col gap-[24px]">
             <hr className="mb-[24px]" />
             {leftContent}
-            {rightContent}
           </div>
         )}
       </div>

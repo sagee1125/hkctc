@@ -52,22 +52,11 @@ const rowsEN = [
   },
 ];
 
-const sCLinks = [
-  "https://www.itf.gov.hk/l-sc/ESS.asp",
-  "https://www.itf.gov.hk/l-sc/ITSP.asp",
-  "https://www.itf.gov.hk/l-sc/PRP.asp",
-
-  "https://www.itf.gov.hk/l-sc/crs.asp",
-
-  "https://www.itf.gov.hk/l-sc/GSP.asp",
-
-  "https://www.itf.gov.hk/sc/funding-programmes/nurturing-talent/nittp/index.html",
-];
-
 const rowsCN = [
   {
     schemeName: "BUD 專項基金（企業支援計劃）",
     schemeNameHyperLink: "https://www.itf.gov.hk/l-tc/ESS.asp",
+    scLink: "https://www.itf.gov.hk/l-sc/ESS.asp",
     objective: "支援品牌發展、升級轉型及市場拓展",
     targetAudience: "中小企業",
     fundingAmount: "視乎計劃（例如：「BUD 申請易」最高 HK$100,000）",
@@ -75,7 +64,8 @@ const rowsCN = [
   {
     schemeName: "工商機構支援基金",
     schemeNameHyperLink:
-      "https://www.smefund.tid.gov.hk/english/tsf/tsf_objective.html",
+      "https://www.smefund.tid.gov.hk/tc_chi/tsf/tsf_objective.html",
+    scLink: "https://www.smefund.tid.gov.hk/sc_chi/tsf/tsf_objective.html",
     objective: "透過專案提升中小企業的競爭力",
     targetAudience: "非牟利機構",
     fundingAmount: "最高 HK$500 萬或項目成本的 90%",
@@ -83,7 +73,8 @@ const rowsCN = [
   {
     schemeName: "中小企業市場推廣基金",
     schemeNameHyperLink:
-      "https://www.smefund.tid.gov.hk/english/emf/emf_objective.html",
+      "https://www.smefund.tid.gov.hk/tc_chi/emf/emf_objective.html",
+    scLink: "https://www.smefund.tid.gov.hk/sc_chi/emf/emf_objective.html",
     objective: "支援出口推廣活動",
     targetAudience: "中小企業",
     fundingAmount: "每次最高 HK$100,000，累計上限 HK$400,000",
@@ -91,7 +82,8 @@ const rowsCN = [
   {
     schemeName: "中小企業信貸保證計劃",
     schemeNameHyperLink:
-      "https://www.smefund.tid.gov.hk/english/sgs/sgs_introduction.html",
+      "https://www.smefund.tid.gov.hk/tc_chi/sgs/sgs_introduction.html",
+    scLink: "https://www.smefund.tid.gov.hk/tc_chi/sgs/sgs_introduction.html",
     objective: "提供貸款擔保以支援設備投資及營運資金",
     targetAudience: "中小企業",
     fundingAmount: "最高 HK$600 萬",
@@ -110,7 +102,7 @@ export const ITF: React.FC = () => {
           const { schemeNameHyperLink, ...rest } = r;
           return {
             ...rest,
-            schemeNameHyperLink: sCLinks[i],
+            schemeNameHyperLink: r.scLink,
           };
         });
 

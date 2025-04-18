@@ -26,14 +26,6 @@ const rowsEN = [
     targetAudience: "SMEs",
     fundingAmount: `Up to HK$100,000 per grant; cumulative HK$400,000`,
   },
-  {
-    schemeName: "SME Loan Guarantee Scheme",
-    schemeNameHyperLink:
-      "https://www.smefund.tid.gov.hk/english/sgs/sgs_introduction.html",
-    objective: "Secure loans for installations, equipment, and working capital",
-    targetAudience: "SMEs",
-    fundingAmount: `Up to HK$6 million`,
-  },
 ];
 
 const rowsCN = [
