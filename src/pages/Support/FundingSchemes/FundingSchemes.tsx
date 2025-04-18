@@ -169,8 +169,8 @@ export const FundingSchemes: React.FC = () => {
       TCJS: {
         title: "Testing and Certification Industry Job Creation Scheme (TCJS)",
         the_innovation_and_technology_commission:
-          "The Innovation and Technology Commission (ITC) launched the Testing and Certification Industry Job Creation Scheme (the Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August 2022.",
-        the_scheme_was: `The Scheme was the first job creation scheme dedicated to the testing and certification (T&C) industry. It aimed to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong’s T&C talent pool.`,
+          "The Innovation and Technology Commission launched the Testing and Certification Industry Job Creation Scheme (the Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August 2022.",
+        the_scheme_was: `The Scheme was the first job creation scheme dedicated to the T&C industry. It aimed to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong's T&C talent pool.`,
         each_local: `Each local private T&C organisation with valid accreditation status given by the Hong Kong Accreditation Service could apply for a monthly subsidy for up to five eligible job positions.`,
         for_each_approve: (
           <p className="text-body-m flex-grow min-w-0">
@@ -182,7 +182,7 @@ export const FundingSchemes: React.FC = () => {
             of the position, whichever is lower, for 12 months.
           </p>
         ),
-        the_application: `The application period closed on 31 July 2023. 54 organisations have participated and collectively created over170 job positions. The total funding involved exceeded HK$16 million. The Scheme has been successfully completed, with all subsidies disbursed by 31 August 2024.`,
+        the_application: `The application period closed on 31 July 2023. 54 organisations have participated and collectively created over 170 job positions. The total funding involved exceeded HK$16 million. The Scheme has been successfully completed, with all subsidies disbursed by 31 August 2024.`,
       },
     },
     cn: {
@@ -260,11 +260,11 @@ export const FundingSchemes: React.FC = () => {
       TCJS: {
         title: "檢測和認證業創造職位計劃",
         the_innovation_and_technology_commission:
-          "創新科技署（創科署）於8月24日推出了「檢測和認證業創造職位計劃」，是首個香港特別行政區政府專為檢測認證業而設的創造職位計劃。",
+          "創新科技署（創科署）於2022年8月24日推出了「檢測和認證業創造職位計劃」，是首個香港特別行政區政府專為檢測認證業而設的創造職位計劃。",
         the_scheme_was:
           "計劃旨在鼓勵私營檢測和認證機構創造更多就業機會，吸引人才加入檢測和認證行業，以加強香港的檢測認證人才庫。",
         each_local:
-          "每間獲香港認可處發出有效認可資格的私營T&C機構，可為最多五個合資格職位申請每月資助。",
+          "每間獲香港認可處發出有效認可資格的私營檢測認證機構，可為最多五個合資格職位申請每月資助。",
         for_each_approve: (
           <p className="text-body-m flex-grow min-w-0">
             申請僱主可就每個獲批職位獲得
@@ -276,7 +276,7 @@ export const FundingSchemes: React.FC = () => {
         ),
 
         the_application:
-          "申請期已於2023年7月31日結束，共有54間機構參與，合共創造超過170個職位。計劃總資助額超過港幣1,600萬元，並已於2024年8月31日成功完成，所有補助已發放。",
+          "申請期已於2023年7月31日結束，共有54間機構參與，合共創造超過170個職位。計劃涉及的總資助額超過港幣1,600萬元。所有資助款項已於2024年8月31日或之前發放，計劃已成功完結。",
       },
     },
   };

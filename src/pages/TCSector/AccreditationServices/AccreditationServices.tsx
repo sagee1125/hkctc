@@ -32,6 +32,8 @@ const multilingual = {
         .
       </>
     ),
+    establishments: "Accredited Establishments",
+    establishments_content: `Accredited laboratories, inspection bodies and certification bodies need to undergo rigorous on-site assessments before they are recognised to be competent in performing the conformity assessment activities listed in their respective scopes of accreditation. Users of conformity assessment services may identify and select the services provided by accredited bodies to support their business.`,
   },
   cn: {
     accreditation_services: "認可服務",
@@ -60,6 +62,8 @@ const multilingual = {
       </>
     ),
     HKAS: `香港認可處網頁`,
+    establishments: "獲認可機構",
+    establishments_content: `實驗所、檢驗機構及認證機構須通過嚴格的現場評審，方能獲得認可資格，視爲有能力進行其認可服務範圍內的合格評定活動。使用者可物色和挑選由認可機構提供的服務，以支援其業務。`,
   },
 };
 export const AccreditationServices: React.FC = () => {
@@ -71,6 +75,8 @@ export const AccreditationServices: React.FC = () => {
     accreditation_def,
     accreditation_is_open,
     this_full_list,
+    establishments,
+    establishments_content,
   } = page_text;
 
   const thisFullListMapping: Record<Language, any> = {
@@ -115,31 +121,55 @@ export const AccreditationServices: React.FC = () => {
         <p className="text-body-m mt-[24px] text-justify">
           {accreditation_is_open as string}
         </p>
-
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, titleCN, imagePath, link } = item;
-            const displayTitle = getSingleText(title, titleCN);
+            const { title, titleCN, imagePath, link, explain, explainCN } =
+              item;
             return (
               <div
                 key={index}
-                className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center"
+                className="flex flex-row h-[90px] mt-[24px] gap-[24px]"
               >
-                <MediaTemplateWithDialog
-                  title={displayTitle}
-                  imagePath={imagePath}
-                  mediaLink={link}
-                  direction="row"
-                  date={""}
-                  mediaType={MEDIA_TYPE.NEW_PAGE}
-                />
+                <a
+                  href={link}
+                  className="relative w-[130px] h-full flex-shrink-0"
+                  target={"_blank"}
+                  rel={"noopener noreferrer"}
+                  aria-label={getSingleText(title, titleCN)}
+                >
+                  <img
+                    className="border-2 border-inherit w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    src={`${process.env.PUBLIC_URL}/assets/${imagePath}`}
+                    alt={getSingleText(title, titleCN)}
+                    aria-hidden="true"
+                  />
+                  {/* Icon */}
+                  <img
+                    className="absolute bottom-[4px] right-[4px] w-[32px] h-[32px]"
+                    src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                    alt="Share"
+                    aria-hidden="true"
+                  />
+                </a>
+                <span className="!text-highlight-m h-full flex items-center">
+                  <a href={link} target={"_blank"} rel={"noopener noreferrer"}>
+                    <span className="underline">
+                      {getSingleText(title, titleCN)}
+                    </span>
+                    {getSingleText(explain, explainCN)}
+                  </a>
+                </span>
               </div>
             );
           })}
         </div>
-
         <p className="text-italic-s mt-[24px] text-justify">
           {thisFullListMapping[language] as React.ReactNode}
+        </p>
+        <hr className="my-[24px]" />
+        <p className="text-heading-m">{establishments as string}</p>
+        <p className="text-body-m mt-[24px] text-justify">
+          {establishments_content as string}
         </p>
       </div>
     </div>
