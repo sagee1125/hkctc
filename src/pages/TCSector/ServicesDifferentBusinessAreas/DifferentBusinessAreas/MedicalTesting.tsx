@@ -117,7 +117,7 @@ export const MedicalTesting: React.FC = () => {
             aria-label="香港認可處網頁"
             href={
               language === Language.ZH_TW
-                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
                 : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
             }
             target="_blank"

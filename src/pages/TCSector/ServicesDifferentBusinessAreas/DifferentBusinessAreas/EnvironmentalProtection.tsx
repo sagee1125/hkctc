@@ -874,6 +874,7 @@ export const EnvironmentalProtection: React.FC = () => {
       <FileTemplate
         title={page_text.iso_energy as string}
         imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"
+        pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO50001.pdf"
       />
 
       <div className="w-full flex flex-col gap-[24px] my-[24px]">
