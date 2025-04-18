@@ -258,7 +258,7 @@ export const Footer: React.FC = () => {
               link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#2`,
             },
             {
-              label: `GBA Standard and Certification`,
+              label: `GBA Standards and GBA Certification`,
               labelCN: "灣區標準及灣區認證",
               link: `/support?section=${navItemEnum.entering_into_the_mainland_market}#3`,
             },

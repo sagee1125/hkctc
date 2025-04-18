@@ -121,11 +121,26 @@ export const SummaryOfCEPA: React.FC = () => {
             </p>
             <ul>
               <li className="text-body-m mt-[1em]">
-                Further liberalisation measures on CCC factory inspection and
-                selection of post-certification test samples
+                <a
+                  aria-label="Further liberalisation measures on CCC factory inspection and selection of post-certification test samples"
+                  href={
+                    "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  Further liberalisation measures on CCC factory inspection and
+                  selection of post-certification test samples
+                </a>
               </li>
             </ul>
-            <p className="text-body-m italic">(To be promulgated)</p>
+            <p
+              className="text-body-m italic mt-[24px]"
+              style={{ fontSize: "14px" }}
+            >
+              (promulgated in Feb 2020)
+            </p>
           </>
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
@@ -248,10 +263,25 @@ export const SummaryOfCEPA: React.FC = () => {
             </p>
             <ul>
               <li className="text-body-m mt-[1em]">
-                關於CCC產品工廠檢查及獲證後選取測試樣本的進一步開放措施
+                <a
+                  aria-label="關於CCC產品工廠檢查及獲證後選取測試樣本的進一步開放措施"
+                  href={processLink(
+                    "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#00E]"
+                >
+                  關於CCC產品工廠檢查及獲證後選取測試樣本的進一步開放措施
+                </a>
               </li>
             </ul>
-            <p className="text-body-m italic">（待公佈）</p>
+            <p
+              className="text-body-m italic mt-[24px]"
+              style={{ fontSize: "14px" }}
+            >
+              （2025年2月公布）
+            </p>
           </>
         </Collapse>
         <div className="w-full flex justify-center text-newPrimary mt-[16px]">
