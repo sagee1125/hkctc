@@ -118,7 +118,7 @@ export const NavigationBarConfiguration: NavData[] = [
     titleCN: "關於我們",
     showSidebar: false,
     items: [],
-    navUrl: "about-us",
+    navUrl: "/about-us",
   },
   {
     title: "About T&C Industry",
@@ -453,21 +453,21 @@ export const NavigationBarConfiguration: NavData[] = [
             subTitle: "Press Releases",
             subTitleCN: "新聞公報",
             imgUrl: "Press_Releases.png",
-            navUrl: `events-promotion?section=${navItemEnum.press_releases}`,
+            navUrl: `/events-promotion?section=${navItemEnum.press_releases}`,
           },
           {
             enum: navItemEnum.advertorials,
             subTitle: "Advertorials",
             subTitleCN: "特約專輯",
             imgUrl: "Advertorials.png",
-            navUrl: `events-promotion?section=${navItemEnum.advertorials}`,
+            navUrl: `/events-promotion?section=${navItemEnum.advertorials}`,
           },
           {
             enum: navItemEnum.videos,
             subTitle: "Videos",
             subTitleCN: "短片",
             imgUrl: "video.png",
-            navUrl: `events-promotion?section=${navItemEnum.videos}`,
+            navUrl: `/events-promotion?section=${navItemEnum.videos}`,
           },
           {
             enum: "",
@@ -492,6 +492,6 @@ export const NavigationBarConfiguration: NavData[] = [
     titleCN: "最新消息",
     showSidebar: false,
     items: [],
-    navUrl: "whats-new",
+    navUrl: "/whats-new",
   },
 ];

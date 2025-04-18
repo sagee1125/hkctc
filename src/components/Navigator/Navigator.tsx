@@ -120,6 +120,7 @@ export const Navigator: React.FC = () => {
 
   // 焦點追蹤邏輯
   useEffect(() => {
+    if (!isPC) return;
     const handleFocusChange = (e: FocusEvent) => {
       const target = e.target as Node;
 
@@ -135,7 +136,7 @@ export const Navigator: React.FC = () => {
     return () => {
       document.removeEventListener("focusin", handleFocusChange);
     };
-  }, []);
+  }, [isPC]);
 
   useEffect(() => {
     if (isPC) setOpenMobileDropDown(false);
@@ -493,6 +494,7 @@ export const Navigator: React.FC = () => {
                         )}
                       </div>
 
+                      {/* this is mobile version dropdown */}
                       <Popper
                         open={openMobileDropDown}
                         anchorEl={anchorRef.current}
@@ -881,22 +883,30 @@ export const Navigator: React.FC = () => {
                                                   (sub, subItemsIndex) => {
                                                     const { subTitle, navUrl } =
                                                       sub;
-
+                                                    console.log(
+                                                      "subTitle",
+                                                      subTitle
+                                                    );
                                                     if (!subTitle) return null;
                                                     const display =
                                                       getSingleText(
                                                         subTitle,
                                                         sub.subTitleCN
                                                       );
+
                                                     const onClc = (): void => {
-                                                      setOpenMobileDropDown(
-                                                        false
+                                                      console.log(
+                                                        "navUrl",
+                                                        navUrl
                                                       );
                                                       if (navUrl)
                                                         window.open(
                                                           navUrl,
                                                           "_self"
                                                         );
+                                                      setOpenMobileDropDown(
+                                                        false
+                                                      );
                                                     };
 
                                                     return (
