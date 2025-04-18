@@ -71,10 +71,15 @@ export const accreditationService: Array<{
   link: string;
   tcLink?: string;
   scLink?: string;
+  explain: string;
+  explainCN: string;
 }> = [
   {
     title: "Hong Kong Laboratory Accreditation Scheme (HOKLAS)",
     titleCN: "香港實驗所認可計劃",
+    explain:
+      " - for laboratories, reference material producers and proficiency testing providers",
+    explainCN: " - 適用於實驗所、標準物質生產者和能力驗證提供者",
     imagePath: "serviceUsers/HOKLAS_1.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HOKLAS_Accredited_Organisation.pdf",
     tcLink:
@@ -85,6 +90,9 @@ export const accreditationService: Array<{
   {
     title: "Hong Kong Certification Body Accreditation Scheme (HKCAS)",
     titleCN: "香港認證機構認可計劃",
+    explain:
+      " - for certification bodies, and greenhouse gas validation and verification bodies",
+    explainCN: " - 適用於認證機構及溫室氣體審定和核查機構",
     imagePath: "serviceUsers/HOKLAS_2.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HKCAS_Accredited_Organisation.pdf",
     tcLink:
@@ -95,6 +103,8 @@ export const accreditationService: Array<{
   {
     title: "Hong Kong Inspection Body Accreditation Scheme (HKIAS)",
     titleCN: "香港檢驗機構認可計劃",
+    explain: "- for inspection bodies",
+    explainCN: " - 適用於檢驗機構",
     imagePath: "serviceUsers/HOKLAS_3.png",
     link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/Scope_of_HKIAS_Accredited_Organisation.pdf",
     tcLink: "",
@@ -225,7 +235,8 @@ export const ServiceUsersContent: React.FC = () => {
         </p>
         <div className="w-full">
           {accreditationService.map((item, index) => {
-            const { title, titleCN, imagePath, link } = item;
+            const { title, titleCN, imagePath, link, explain, explainCN } =
+              item;
             return (
               <div
                 key={index}
@@ -253,13 +264,11 @@ export const ServiceUsersContent: React.FC = () => {
                   />
                 </a>
                 <span className="!text-highlight-m h-full flex items-center">
-                  <a
-                    className="underline"
-                    href={link}
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                  >
-                    {getSingleText(title, titleCN)}
+                  <a href={link} target={"_blank"} rel={"noopener noreferrer"}>
+                    <span className="underline">
+                      {getSingleText(title, titleCN)}
+                    </span>
+                    {getSingleText(explain, explainCN)}
                   </a>
                 </span>
               </div>
