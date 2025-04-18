@@ -20,16 +20,20 @@ export const SquareTitle: React.FC<SquareTitleProps> = ({
       className={`flex flex-row gap-[12px] items-start ${
         redirectTo ? "cursor-pointer" : ""
       }`}
-      tabIndex={0}
-      role="button"
-      aria-label={`redirect to ${title}`}
+      tabIndex={!redirectTo ? undefined : 0}
+      role={!redirectTo ? undefined : "button"}
+      aria-label={!redirectTo ? undefined : `redirect to ${title}`}
       aria-disabled={!redirectTo}
-      onClick={handleClick}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          handleClick();
-        }
-      }}
+      onClick={!redirectTo ? undefined : handleClick}
+      onKeyDown={
+        !redirectTo
+          ? undefined
+          : (e) => {
+              if (e.key === "Enter") {
+                handleClick();
+              }
+            }
+      }
     >
       <div
         className={`mt-[8px] h-[15px] w-[15px] bg-newPrimary`}

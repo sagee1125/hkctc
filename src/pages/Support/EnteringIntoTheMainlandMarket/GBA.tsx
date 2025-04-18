@@ -7,7 +7,7 @@ const multilingual = {
     guangdong_hk: `Guangdong-Hong Kong-Macao Greater Bay Area (GBA) Standards`,
     intro: [
       `With a view to improving product and service quality, as well as promoting the interconnectivity and integrated development of the Guangdong, Hong Kong and Macao, the governments of the three places signed a Memorandum of Understanding on jointly promoting the development of GBA Standards on April 24, 2023, and promulgated the first batch of a total of 110 GBA Standards`,
-      `To date, a total of 215 GBA Standards have been developed and promulgated, covering items in the fields of food quality and safety, Cantonese cuisine, prepared dishes, transportation, mechanical and electrical products, as well as medical care, nursing care, education, e-sports and environmental, social and governance, etc.`,
+      `To date, a total of 235 GBA Standards have been developed and promulgated, covering items in the fields of food quality and safety, Cantonese cuisine, prepared dishes, transportation, mechanical and electrical products, as well as medical care, nursing care, education, e-sports and environmental, social and governance, etc.`,
       `The trades are welcome to adopt GBA Standards on a voluntary basis.`,
     ],
     information_about_GBA_Standards: "Information about GBA Standards",
@@ -70,17 +70,17 @@ const multilingual = {
     ),
   },
   cn: {
-    guangdong_hk: `灣區標準及灣區認證`,
+    guangdong_hk: `灣區標準`,
     intro: [
       `為提升產品和服務質量，促進三地互聯互通和融合發展，深化香港與內地和澳門之間的經貿交流和合作，粵、港、澳三地政府於二○二三年四月二十四日簽署關於共同促進「灣區標準」發展的合作備忘錄，並公布首批「灣區標準」（合共110項）`,
-      `現時，已制定及公布的「灣區標準」共有215項，涵蓋食品質量和安全、粵菜、預製菜、交通、機電產品，以至醫療、護理、教育、電競及環境、社會和管治等領域。`,
-      `工貿署歡迎業界自願採用大灣區標準。`,
+      `現時，已制定及公布的「灣區標準」共有235項，涵蓋食品質量和安全、粵菜、預製菜、交通、機電產品，以至醫療、護理、教育、電競及環境、社會和管治等領域。`,
+      `歡迎業界以自願形式採用「灣區標準」`,
     ],
     information_about_GBA_Standards: "「灣區標準」資訊",
 
     information_about_GBA_found: (
       <>
-        關於灣區認證的相關資訊可以在&nbsp;
+        灣區標準的相關資訊可以在&nbsp;
         <a
           aria-label="「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）"
           href="https://www.gbsrc.org.cn/"
@@ -90,14 +90,28 @@ const multilingual = {
         >
           「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）
         </a>
-        查閱，該平台由（灣區標準研究中心）管理。`
+        查閱，該平台由「粵港澳大灣區標準化研究中心」（「灣區標準研究中心」）管理。
       </>
     ),
 
     the_TID: `工業貿易署（工貿署）負責協調香港特別行政區政府（特區政府）有關政策局／部門參與「灣區標準」的工作，並與廣東省及澳門有關當局保持密切聯繫。`,
 
-    formulation_GBA_standards: `制訂「灣區標準」`,
-    GBA_standardisation: `灣區標準研究中心正計劃在今年稍後就制定新一輪的「灣區標準」發布指引，向三地業界徵集申請。有興趣的團體和企業需按照指引列出的具體要求，透過灣區標準平台提交申請，供灣區標準研究中心進行評審。`,
+    formulation_GBA_standards: `制定「灣區標準」`,
+    GBA_standardisation: (
+      <>
+        「灣區標準研究中心」全年接受制定「灣區標準」的申請。我們歡迎粵、港、澳三地的行業協會、企業或團體按照
+        <a
+          aria-label="《「灣區標準」申請指引》"
+          href={`https://www.gbsrc.org.cn/news/newsDetail?id=337`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          《「灣區標準」申請指引》
+        </a>
+        列出的具體要求，共同起草「灣區標準」及向「灣區標準研究中心」提出申請。
+      </>
+    ),
     GBA_certification: `灣區認證`,
     with_the_support: `在廣東省市場監督管理局的督導和廣東省、香港和澳門三地政府的支持下，三地的認證機構在2022年9月聯合成立了「粵港澳大灣區認證聯盟」（聯盟），負責推進以市場驅動、供業界自願採用的「灣區認證」計劃。聯盟在2023年9月註冊了一個實體，即「粵港澳大灣區認證促進中心」，代表聯盟處理有關「灣區認證」的事宜。`,
     the_first_batch: `「灣區認證」首批項目已於2023年12月19日在深圳舉行的典禮上公布，其中包括15個產品或服務的認證計劃，涵蓋建築材料、電器、衣物、食品、物業管理服務和安老服務等。`,
@@ -106,7 +120,7 @@ const multilingual = {
         灣區認證的相關資訊可以在
         <a
           aria-label="「灣區認證公共服務平台」"
-          href={` https://gbacpc.org.cn/bayareacertification/index`}
+          href={`https://gbacpc.org.cn/bayareacertification/index`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
