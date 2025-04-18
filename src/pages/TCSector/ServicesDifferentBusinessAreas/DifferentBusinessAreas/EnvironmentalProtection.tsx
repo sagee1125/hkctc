@@ -311,7 +311,7 @@ export const EnvironmentalProtection: React.FC = () => {
             please visit&nbsp;
             <a
               aria-label="HKAS's website  – opens in a new tab"
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html#t_services"
+              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -796,7 +796,7 @@ export const EnvironmentalProtection: React.FC = () => {
             the&nbsp;
             <a
               aria-label="HKAS's website  – opens in a new tab"
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"

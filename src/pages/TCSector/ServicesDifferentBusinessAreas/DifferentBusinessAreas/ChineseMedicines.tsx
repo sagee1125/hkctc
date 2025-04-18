@@ -79,7 +79,7 @@ export const ChineseMedicines: React.FC = () => {
           Medicines are available at&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -126,8 +126,8 @@ export const ChineseMedicines: React.FC = () => {
             aria-label="瀏覽香港認可處網頁"
             href={
               language === Language.ZH_TW
-                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
-                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
             }
             target="_blank"
             rel="noopener noreferrer"
