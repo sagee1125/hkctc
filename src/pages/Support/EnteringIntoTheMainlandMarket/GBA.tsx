@@ -36,7 +36,7 @@ const multilingual = {
         issuing&nbsp;
         <a
           aria-label="Commercial Information Circulars"
-          href="ttps://www.tid.gov.hk/english/trade_relations/mainland/cic_gbastandards.html"
+          href="https://www.tid.gov.hk/en/tradecircular/detail.html?categoryId=35"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
@@ -70,7 +70,7 @@ const multilingual = {
     ),
   },
   cn: {
-    guangdong_hk: `灣區標準及認證`,
+    guangdong_hk: `灣區標準及灣區認證`,
     intro: [
       `為提升產品和服務質量，促進三地互聯互通和融合發展，深化香港與內地和澳門之間的經貿交流和合作，粵、港、澳三地政府於二○二三年四月二十四日簽署關於共同促進「灣區標準」發展的合作備忘錄，並公布首批「灣區標準」（合共110項）`,
       `現時，已制定及公布的「灣區標準」共有215項，涵蓋食品質量和安全、粵菜、預製菜、交通、機電產品，以至醫療、護理、教育、電競及環境、社會和管治等領域。`,
@@ -99,21 +99,21 @@ const multilingual = {
     formulation_GBA_standards: `制訂「灣區標準」`,
     GBA_standardisation: `灣區標準研究中心正計劃在今年稍後就制定新一輪的「灣區標準」發布指引，向三地業界徵集申請。有興趣的團體和企業需按照指引列出的具體要求，透過灣區標準平台提交申請，供灣區標準研究中心進行評審。`,
     GBA_certification: `灣區認證`,
-    with_the_support: `在廣東省市場監督管理局的督導和廣東省、香港和澳門三地政府的支持下，三地的認證機構在2022年9月聯合成立了「粵港澳大灣區認證聯盟」（聯盟），負責推進以市場驅動、供業界自願採用的「灣區認證」計劃。`,
+    with_the_support: `在廣東省市場監督管理局的督導和廣東省、香港和澳門三地政府的支持下，三地的認證機構在2022年9月聯合成立了「粵港澳大灣區認證聯盟」（聯盟），負責推進以市場驅動、供業界自願採用的「灣區認證」計劃。聯盟在2023年9月註冊了一個實體，即「粵港澳大灣區認證促進中心」，代表聯盟處理有關「灣區認證」的事宜。`,
     the_first_batch: `「灣區認證」首批項目已於2023年12月19日在深圳舉行的典禮上公布，其中包括15個產品或服務的認證計劃，涵蓋建築材料、電器、衣物、食品、物業管理服務和安老服務等。`,
     information_about_GBA_certification: (
       <>
-        關於灣區認證的相關資訊可以在
+        灣區認證的相關資訊可以在
         <a
-          aria-label="「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）"
-          href={`https://gbacpc.org.cn/bayareacertification/index`}
+          aria-label="「灣區認證公共服務平台」"
+          href={` https://gbacpc.org.cn/bayareacertification/index`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
         >
-          「粵港澳大灣區標準信息公共服務平台」（灣區標準平台）
+          「灣區認證公共服務平台」
         </a>
-        查閱。有意參與大灣區認證計畫的企業可聯絡粵港澳大灣區認證促進中心。
+        查閱。有意參與「灣區認證」的企業可聯絡粵港澳大灣區認證促進中心。
       </>
     ),
   },
