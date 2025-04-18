@@ -225,6 +225,12 @@ export const ElectricalElectronicProducts: React.FC = () => {
     [Language.ZH_CN]: "/sc/doc/EEP_booklet_sc.pdf",
   };
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/P270J9iaZ0s",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/yMKQPVsduVc",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/yMKQPVsduVc",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle} />
@@ -233,7 +239,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
           iconPath="VIDEO.png"
           title={file as string}
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ElectricalElectronicProducts_Video.png"
-          mediaLink="https://www.youtube.com/embed/06_ec-i3gCo"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div className="w-full flex flex-row gap-[24px]">

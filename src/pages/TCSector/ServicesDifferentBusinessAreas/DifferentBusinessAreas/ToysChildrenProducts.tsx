@@ -197,6 +197,12 @@ export const ToysChildrenProducts: React.FC = () => {
     [Language.ZH_CN]: "/sc/doc/toys_booklet_sc.pdf",
   };
 
+  const youtubeTemplateLink: Record<Language, string> = {
+    [Language.EN]: "https://www.youtube.com/embed/fKkwNRX0i6c",
+    [Language.ZH_TW]: "https://www.youtube.com/embed/t7D3SdfyshI",
+    [Language.ZH_CN]: "https://www.youtube.com/embed/t7D3SdfyshI",
+  };
+
   const content = (
     <>
       <SquareTitle title={businessAreaTitle} />
@@ -206,7 +212,7 @@ export const ToysChildrenProducts: React.FC = () => {
           title={file as string}
           iconPath="VIDEO.png"
           imagePath="/assets/tcSector/servicesDifferentBusinessAreas/ToysAndChildren_Video.png"
-          mediaLink="https://www.youtube.com/embed/fKkwNRX0i6c"
+          mediaLink={youtubeTemplateLink[language]}
         />
       </div>
       <div className="w-full flex flex-row gap-[24px]">
