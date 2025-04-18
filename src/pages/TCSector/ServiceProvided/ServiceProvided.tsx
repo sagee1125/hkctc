@@ -180,6 +180,99 @@ const TestingService: React.FC = () => {
         等提供支援，以應付本地需求。
       </>
     ),
+    [Language.ZH_CN]: (
+      <>
+        测试活动为不同业务范畴如
+        <Link innerLink="/tc-sector/medical_testing" linkColor="ink">
+          医务化验
+        </Link>
+        、
+        <Link
+          innerLink="/tc-sector/construction_materials_and_buildings"
+          linkColor="ink"
+        >
+          建筑材料
+        </Link>
+        、
+        <Link innerLink="/tc-sector/food" linkColor="ink">
+          食品
+        </Link>
+        、
+        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+          中药
+        </Link>
+        、
+        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+          珠宝
+        </Link>
+        等提供支持，以应付本地需求。
+      </>
+    ),
+  };
+
+  // CONTENT_3
+  const contentMapping_2: Record<string, React.ReactNode> = {
+    [Language.EN]: (
+      <>
+        On external demand, testing activities are mostly related to testing of
+        consumer products for export, e.g.
+        <Link innerLink="/tc-sector/textiles_and_apparel" linkColor="ink">
+          textiles, clothing and footwear,
+        </Link>{" "}
+        <></>
+        <Link innerLink="/tc-sector/toys_and_children_products" linkColor="ink">
+          toys and games
+        </Link>
+        ,{" "}
+        <Link
+          innerLink="/tc-sector/electrical_and_electronic_products"
+          linkColor="ink"
+        >
+          electrical and electronic
+        </Link>{" "}
+        products, etc.
+      </>
+    ),
+    [Language.ZH_TW]: (
+      <>
+        在境外需求方面，測試活動大多與出口產品有關，如
+        <Link innerLink="/tc-sector/textiles_and_apparel" linkColor="ink">
+          紡織品、衣服及鞋履
+        </Link>
+        、
+        <Link innerLink="/tc-sector/toys_and_children_products" linkColor="ink">
+          玩具和遊戲
+        </Link>
+        、
+        <Link
+          innerLink="/tc-sector/electrical_and_electronic_products"
+          linkColor="ink"
+        >
+          電氣及電子產品
+        </Link>
+        等。
+      </>
+    ),
+    [Language.ZH_CN]: (
+      <>
+        在境外需求方面，测试活动大多与出口产品有关，如
+        <Link innerLink="/tc-sector/textiles_and_apparel" linkColor="ink">
+          纺织品、衣服及鞋履
+        </Link>
+        、
+        <Link innerLink="/tc-sector/toys_and_children_products" linkColor="ink">
+          玩具和游戏
+        </Link>
+        、
+        <Link
+          innerLink="/tc-sector/electrical_and_electronic_products"
+          linkColor="ink"
+        >
+          电气及电子产品
+        </Link>
+        等。
+      </>
+    ),
   };
 
   return (
@@ -206,7 +299,7 @@ const TestingService: React.FC = () => {
       )}
 
       <div>{contentMapping[language] as string}</div>
-      <div>{(pageText.TESTING as LanguageResources)?.CONTENT_3 as string}</div>
+      <div>{contentMapping_2[language] as string}</div>
     </div>
   );
 };
@@ -331,55 +424,36 @@ const CertificateService: React.FC = () => {
       ) as JSX.Element,
     },
     {
-      title: `(ii) Product certification, e.g. certification of a supplier's competence in producing a mobile phone to regulatory requirements`,
+      title: `(ii) Product certification, e.g. certification of a type of mobile phone to a specific certification scheme based on the regulatory requirements of the importing country`,
       titleCN:
         "(ii)產品認證，例如確保供應商提供符合法例要求的流動電話的產品認證",
       content: (
         <div className="!text-body-m">
           Product certification can improve stakeholders' confidence in the
-          products supplied by a certified supplier. It can bring benefits to
-          manufacturers (better business opportunities), regulatory authorities
-          (less monitoring effort) and end-users (more reliable products).
-          Product certification schemes adopted by accredited certification
-          bodies in Hong Kong are related to construction materials, consumer
-          products and food.
-        </div>
-      ),
-      contentCN:
-        "產品認證可提高各界對獲認證供應商提供有關產品的信心。製造商可增加商機，監管機構可減少監管，用家可享用更可靠的產品，三方均有好處。香港的獲認可認證機構所採用的產品認證計劃主要與建築材料、消費品和食品有關。",
-    },
-
-    {
-      title: `(iii) Balidation and verification, e.g. validation and/or verification of greenhouse gas assertions to ISO 14064-1, ISO 14064-2 or ISO/TS 14067`,
-      titleCN:
-        "(iii)審定及核查，例如符合ISO 14064-1, ISO 14064-2 or ISO/TS 14067要求的溫室氣體聲明書審定及/或核查",
-      content: (
-        <div className="flex flex-col gap-[24px]">
-          <div>
-            To tackle climate changes, many organisations around the world are
-            implementing various initiatives to limit greenhouse gas (GHG)
-            concentrations in the atmospheres. These initiatives rely on the
-            quantification, monitoring, reporting, validation and verification
-            of GHG emissions and/or removals.
-          </div>
-          <div>
-            To enhance the consistency, credibility and transparency of GHG
-            quantification, monitoring and reporting, organisations may validate
-            and verify their GHG assertions based on ISO 14064-1 (organisation
-            level), ISO 14064-2 (project level) or ISO/TS 14067 (product level).
-          </div>
+          certified products. It can bring benefits to manufacturers (better
+          business opportunities), regulatory authorities (less monitoring
+          effort) and end-users (more reliable products). Product certification
+          schemes adopted by accredited certification bodies in Hong Kong are
+          related to{" "}
+          <Link
+            innerLink="/tc-sector/construction_materials_and_buildings"
+            linkColor="ink"
+          >
+            construction materials
+          </Link>
+          , consumer products and food.
         </div>
       ),
       contentCN: (
-        <div className="flex flex-col gap-[24px]">
-          <div>
-            為了應對氣候變化，全球多個機構正在推行各項措施，控制大氣中溫室氣體的含量。這些措施有賴對溫室氣體的排放及/或移除進行量化、監察、報告、審定和核查。
-          </div>
-          <div>
-            為了增強在溫室氣體量化、監察、報告方面的一致性、可信度和透明度，各機構可以按照ISO
-            14064-1（機構層面）、ISO 14064-2（項目層面）或ISO/TS
-            14067（產品層面）對溫室氣體量聲明書進行審定和核查。
-          </div>
+        <div className="!text-body-m">
+          產品認證可提高各界對獲認證供應商提供有關產品的信心。製造商可增加商機，監管機構可減少監管，用家可享用更可靠的產品，三方均有好處。香港的獲認可認證機構所採用的產品認證計劃主要與
+          <Link
+            innerLink="/tc-sector/construction_materials_and_buildings"
+            linkColor="ink"
+          >
+            建築材料
+          </Link>
+          、消費品和食品有關。
         </div>
       ),
     },
@@ -445,9 +519,9 @@ export const ServiceProvided: React.FC = () => {
     ],
     [
       "Certification",
-      "Management System; Products; Greenhouse Gas Assertions",
+      "Management System; Products",
       "In general longer term (e.g. one-year)",
-      "Certificate; Greenhouse gas validation and verification report",
+      "Certificate",
     ],
   ];
 

@@ -60,7 +60,7 @@ export const MedicalTesting: React.FC = () => {
           Testing are available at&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -117,8 +117,8 @@ export const MedicalTesting: React.FC = () => {
             aria-label="香港認可處網頁"
             href={
               language === Language.ZH_TW
-                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/index.html"
-                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/index.html"
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -509,7 +509,7 @@ export const MedicalTesting: React.FC = () => {
           from the above “List of Medical Laboratories Accredited under HOKLAS”,
           or from the&nbsp;
           <a               aria-label="link"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-links"
@@ -526,7 +526,7 @@ export const MedicalTesting: React.FC = () => {
           accreditation of medical laboratories by clicking the respective
           HOKLAS Registration No. in the table below, or visit the&nbsp;
           <a               aria-label="link"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-links"

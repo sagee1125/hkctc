@@ -3,7 +3,11 @@ import { Icon } from "@iconify/react";
 import { SquareTitle, AreaChart, MediaDialog } from "../../../components";
 import { activatedButtonStyle, normalButtonStyle } from "../../../components";
 import { MEDIA_TYPE } from "../../../const";
-import { type LanguageResources, useSettings } from "../../../context";
+import {
+  Language,
+  type LanguageResources,
+  useSettings,
+} from "../../../context";
 
 const multilingual = {
   en: {
@@ -120,7 +124,7 @@ export const ProfileAndRole: React.FC = () => {
   const [activeTopicButton, setActiveTopicButton] = useState<number>(0);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(0);
-  const { getPageText, isPC } = useSettings();
+  const { getPageText, isPC, language } = useSettings();
   const page_text = getPageText(multilingual);
 
   const {
@@ -381,16 +385,19 @@ export const ProfileAndRole: React.FC = () => {
     imagePath: string;
     date?: string;
     link: string;
+    tcLink: String;
   }> = [
     {
       title: (data as string[])[0],
       imagePath: "Statistics.png",
       link: "/en/doc/HKCTC_StatPresentation_English.pdf",
+      tcLink: "/tc/doc/HKCTC_StatPresentation_Chinese.pdf",
     },
     {
       title: (data as string[])[1],
       imagePath: "KeyData.png",
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
+      tcLink: "/tc/doc/Statistics_2009to2022_chi.pdf",
     },
   ];
 
@@ -603,7 +610,11 @@ export const ProfileAndRole: React.FC = () => {
           mediaType={MEDIA_TYPE.PDF}
           setIsPreviewOpen={setIsPreviewOpen}
           title={currentReport.title}
-          link={currentReport.link}
+          link={
+            language === Language.EN
+              ? currentReport.link
+              : (currentReport.tcLink as string)
+          }
         />
       )}
     </div>
