@@ -24,23 +24,21 @@ export const Jewellery: React.FC = () => {
   const multilingual = {
     en: {
       title: "Jewellery",
-      mediaTitle:
-        "Hong Kong's Testing Services for Fei Cui (Jadeite Jade) and Diamond",
+      mediaTitle: "Hong Kong's Testing Services for Fei Cui and Diamond",
       file_title_1: "Testing of Fei Cui and Diamond in Hong Kong",
       file_title_2: "Diamond Testing Services in Hong Kong",
-      testing_fei_cui:
-        "Testing Services for Fei Cui (Jadeite Jade) and Diamond",
-      Authentication_fei_cui: `Authentication of natural Fei Cui (Jadeite Jade) and diamond is
+      testing_fei_cui: "Testing Services for Fei Cui and Diamond",
+      Authentication_fei_cui: `Testing of Fei Cui and diamond is
             carried out by Hong Kong laboratories using scientific methods.`,
       internationally_renowned: `There are internationally renowned gemstone laboratories and local
             laboratories in Hong Kong providing professional gemstone
-            identification services.`,
+            testing services.`,
       hk_Accreditation: `Hong Kong Accreditation Service (HKAS) assesses the technical
             competence and quality system of laboratories according to the
             International Standard, ISO/IEC 17025, and provides accreditation to
             competent laboratories.`,
       Accredited_laboratories: `Accredited laboratories may issue endorsed test reports bearing HKAS
-            accreditation symbol for Fei Cui (Jadeite Jade) and diamond after
+            accreditation symbol for Fei Cui and diamond after
             test.`,
       acc_1: {
         title: "Trade Descriptions Order",
@@ -58,18 +56,18 @@ export const Jewellery: React.FC = () => {
       },
 
       Laboratories_Accredited:
-        "Laboratories Accredited by HKAS Providing Testing Services on Jewellery",
+        "Laboratories Accredited by HKAS Providing Testing Services on Gemstone",
       hk_accredited_lab: (
         <p className="text-body-m">
           Accredited laboratories in Hong Kong adopt the&nbsp;
           <a
-            aria-label="Standard Methods for Testing Fei Cui (Jadeite Jade) for Hong Kong - opens in a new tab"
+            aria-label="Standard Methods for Testing Fei Cui for Hong Kong - opens in a new tab"
             href="http://www.gahk.org/en/gemtest.asp"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            Standard Methods for Testing Fei Cui (Jadeite Jade) for Hong Kong
+            Standard Methods for Testing Fei Cui for Hong Kong
           </a>
           &nbsp;and&nbsp;
           <a
@@ -85,8 +83,8 @@ export const Jewellery: React.FC = () => {
           identification purpose.
           <br />
           <br />
-          The laboratories providing accredited testing services on Jewellery
-          are available at&nbsp;
+          The laboratories providing accredited testing services on Gemstone are
+          available at&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
             href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
@@ -103,14 +101,14 @@ export const Jewellery: React.FC = () => {
     },
     cn: {
       title: "珠寶",
-      mediaTitle: "香港硬玉質翡翠及鑽石測試服務",
+      mediaTitle: "香港翡翠及鑽石測試服務",
       file_title_1: "香港翡翠及鑽石測試",
       file_title_2: "香港的鑽石測試服務",
-      testing_fei_cui: "硬玉質翡翠與鑽石測試服務",
-      Authentication_fei_cui: `香港實驗所利用科學方法對天然硬玉質翡翠與鑽石進行鑑定。`,
+      testing_fei_cui: "翡翠與鑽石測試服務",
+      Authentication_fei_cui: `香港實驗所利用科學方法對翡翠與鑽石進行鑑定。`,
       internationally_renowned: `香港有著名的國際寶石鑑定所和本地實驗所，提供專業的寶石鑑定服務。`,
       hk_Accreditation: `香港認可處會按照國際標準ISO/IEC 17025評核實驗所的技術能力及品質管理體系，並給合資格的實驗所發出認可資格。`,
-      Accredited_laboratories: `獲認可的實驗所可以對經測試的硬玉質翡翠與鑽石發出有HKAS認可標認的測試報告。`,
+      Accredited_laboratories: `獲認可的實驗所可以對經測試的翡翠與鑽石發出有HKAS認可標認的測試報告。`,
       acc_1: {
         title: "商品說明令",
         content: `按照香港法例《商品說明（提供關於天然翡翠的資料）令》及《商品說明（提供關於鑽石的資料）令》的規定，零售商在售賣天然翡翠或鑽石製品時，須向買家發出發票或收據，告知法令規定的資料包括該製品的說明等。`,
@@ -126,7 +124,7 @@ export const Jewellery: React.FC = () => {
         <>
           香港的認可實驗所按香港寶石學協會出版的
           <a
-            aria-label="《香港標準硬玉質翡翠測試方法》"
+            aria-label="《香港翡翠測試方法》"
             href={
               language === Language.ZH_TW
                 ? "http://www.gahk.org/tc/gemtest.asp"
@@ -136,11 +134,11 @@ export const Jewellery: React.FC = () => {
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            《香港標準硬玉質翡翠測試方法》
+            《香港翡翠測試方法》
           </a>
           及
           <a
-            aria-label="《香港標準鑽石測試方法》"
+            aria-label="《香港標準測試方法》"
             href={
               language === Language.ZH_TW
                 ? "http://www.gahk.org/tc/gemtest.asp"
@@ -150,12 +148,12 @@ export const Jewellery: React.FC = () => {
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            《香港標準鑽石測試方法》
+            《香港標準測試方法》
           </a>
           進行鑑定。
           <br />
           <br />
-          獲香港認可處認可的珠寶測試實驗所的名單，請瀏覽
+          獲香港認可處認可的寶石測試實驗所的名單，請瀏覽
           <a
             aria-label="香港認可處網頁"
             href={

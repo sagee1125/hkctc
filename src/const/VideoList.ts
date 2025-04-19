@@ -78,8 +78,8 @@ export const videoList: VideoListData[] = [
     category: [VIDEO_TYPE.TC_SERVICES],
   },
   {
-    title: "Fei Cui (Jadeite Jade) and Diamond",
-    titleCN: "硬玉質翡翠及鑽石",
+    title: "Fei Cui and Diamond",
+    titleCN: "翡翠及鑽石",
     link: "https://www.youtube.com/embed/ODofaE4w6Sc",
     domain: "youtube",
     category: [VIDEO_TYPE.TC_SERVICES],
