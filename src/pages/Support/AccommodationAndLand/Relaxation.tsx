@@ -78,7 +78,13 @@ export const Relaxation: React.FC = () => {
       title: "放寬現有工業大廈地契豁免書申請",
       according_to: `根據活化工業大廈（工廈）計劃，其中一項措施是放寛豁免書申請安排，以准許現有工廈用作若干用途。測試實驗所可受惠於此措施。`,
       background: "背景",
-      as_per_the: `按已訂立的地契，大部分現有工廈限於用作工業用途。工廈業主如欲將有關處所作所屬法定圖則上的經常准許1之非工業用途，在現行土地行政安排下，該業主（或獲授權人士）本應先向地政總署申請短期豁免書，以豁免該處所的地契限制。`,
+      as_per_the: (
+        <>
+          按已訂立的地契，大部分現有工廈限於用作工業用途。工廈業主如欲將有關處所作所屬法定圖則上的經常准許
+          <sup>1</sup>
+          之非工業用途，在現行土地行政安排下，該業主（或獲授權人士）本應先向地政總署申請短期豁免書，以豁免該處所的地契限制。
+        </>
+      ),
       note: (
         <>
           <span>
@@ -212,14 +218,14 @@ export const Relaxation: React.FC = () => {
       <div className="mb-[24px]">
         <SquareTitle title={title as string} />
       </div>
-      <p className="mt-[24px] text-body-m text-justify">
+      <div className="mt-[24px] text-body-m text-justify">
         {according_to as React.ReactNode}
-      </p>
+      </div>
       <hr className="my-[24px] text-[#E0E0E0]" />
       <div className="text-heading-l">{background as React.ReactNode}</div>
-      <p className="text-body-m mt-[24px] text-justify">
+      <div className="text-body-m mt-[24px] text-justify">
         {as_per_the as React.ReactNode}
-      </p>
+      </div>
       <br />
       <p className="text-body-m text-justify">{note as React.ReactNode}</p>
       <hr className="my-[24px] text-[#E0E0E0]" />

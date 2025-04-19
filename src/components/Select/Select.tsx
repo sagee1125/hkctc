@@ -4,27 +4,18 @@ import MenuItem from "@mui/material/MenuItem";
 
 export type SelectOption = {
   value: string | number;
-  label?: string | number;
+  label?: string;
   disabled?: boolean;
-  children?: SelectOption[];
 };
 
 export type CustomSelectProps = TextFieldProps & {
   options: SelectOption[];
-  isGroup?: boolean;
-  clearable?: boolean;
-};
-
-export const EmptySelection: SelectOption = {
-  value: "",
-  label: "-------Select-------",
 };
 
 export const Select: React.FunctionComponent<CustomSelectProps> = (
   props: CustomSelectProps
 ) => {
-  const { clearable = false, options, ...rest } = props;
-  const selectOptions = [...(clearable ? [EmptySelection] : []), ...options];
+  const { options, ...rest } = props;
   return (
     <TextField
       {...rest}
@@ -40,10 +31,22 @@ export const Select: React.FunctionComponent<CustomSelectProps> = (
               overflowX: "hidden",
               maxHeight: 200, // Set the maximum height for the menu
               overflowY: "auto", // Enable vertical scrolling
+              "& ul": {
+                listStyle: "none !important",
+                padding: "0 !important",
+                margin: "0 !important",
+                minWidth: "100% !important",
+              },
             },
           },
           sx: {
             zIndex: 1400,
+            "& .MuiMenuItem-root": {
+              paddingLeft: "16px !important",
+              "&::before": {
+                content: '""none" !important"',
+              },
+            },
           },
         },
       }}
@@ -54,12 +57,19 @@ export const Select: React.FunctionComponent<CustomSelectProps> = (
         },
       }}
     >
-      {selectOptions.map((option) => {
+      {options.map((option) => {
         return (
           <MenuItem
             key={option.value}
             value={option.value}
+            aria-label={option.label}
             disabled={option?.disabled === true}
+            sx={{
+              "&::before": {
+                content: '""none" !important"',
+                display: "none !important",
+              },
+            }}
           >
             {option.label}
           </MenuItem>
