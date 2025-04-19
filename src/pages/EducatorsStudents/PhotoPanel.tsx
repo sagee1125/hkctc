@@ -70,7 +70,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
               cursor: "pointer",
             }}
-            href={`/events-promotion?section=${navItemEnum.qualifications_framework}`}
+            href={`/career_and_education?section=${navItemEnum.programmes_and_courses}`}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">
@@ -81,7 +81,7 @@ export const PhotoPanel: React.FC = () => {
           </a>
 
           <a
-            href={`/events-promotion?section=${navItemEnum.programmes_and_courses}`}
+            href={`/career_and_education?section=${navItemEnum.programmes_and_courses}`}
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/banner_4.png)`,
               ...imgBox,

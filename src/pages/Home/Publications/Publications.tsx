@@ -228,27 +228,27 @@ export const Publications: React.FC = () => {
           title: "T&C Manpower Development Award Scheme 2023-2024",
           titleCN: `2023-24年度檢測認證人力發展嘉許計劃`,
           imgPath: "images/Manpower_Development.png",
-          nav: "/events-promotion/award-scheme2324",
+          nav: `/events-promotion?section=${navItemEnum.award_scheme}`,
         },
         {
           title:
             "Seminar on Environmental, Social and Governance (ESG) and Sustainability",
           titleCN: "環境、社會和管治及可持續發展研討會",
           imgPath: "images/Seminar_ESG.png",
-          nav: `/events-promotion?section=${navItemEnum.seminar_article}#0`,
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#1`,
         },
         {
           title:
             "Seminar on Construction Testing: Towards Digitalisation and ...",
           titleCN: "建築測試研討會：建築測試邁向數碼化及自動化",
           imgPath: "images/Seminar_Construction.png",
-          nav: `/events-promotion?section=${navItemEnum.seminar_article}#1`,
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#2`,
         },
         {
           title: "Metrology Symposium 2023",
           titleCN: "計量學研討會 2023",
           imgPath: "images/Metrology_Symposium.png",
-          nav: `/events-promotion?section=${navItemEnum.seminar_article}#2`,
+          nav: `/events-promotion?section=${navItemEnum.seminar_article}#3`,
         },
       ],
       seeMore: `/events-promotion?section=${navItemEnum.award_scheme}`,
@@ -325,7 +325,7 @@ export const Publications: React.FC = () => {
           title: "T&C Manpower Development Award Scheme 2023-2024",
           titleCN: "2023-24年度檢測認證人力發展嘉許計劃",
           imgPath: "images/Manpower_Development.png",
-          nav: "/events-promotion/award-scheme2324",
+          nav: `/events-promotion?section=${navItemEnum.award_scheme}&year=2324`,
         },
         {
           title: `"Digi-Science" Video Production Competition for Hong Kong Secondary Schools`,
@@ -337,7 +337,7 @@ export const Publications: React.FC = () => {
           title: "T&C Manpower Development Award Scheme 2021-2022",
           titleCN: "2021-22年度檢測認證人力發展嘉許計劃",
           imgPath: "images/Manpower_Development.png",
-          nav: "/events-promotion/award-scheme2122",
+          nav: `/events-promotion?section=${navItemEnum.award_scheme}&year=2122`,
         },
         {
           title: "Hong Kong Youth Science and Technology Competition",
