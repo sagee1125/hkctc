@@ -86,7 +86,7 @@ const multilingual = {
   cn: {
     home: "主頁",
     support: "支援 - 進入內地市場",
-    CCC: "中國強制性產品認證制度（CCC）檢測",
+    CCC: "中國強制性產品認證（CCC）檢測",
     CEPA: "CEPA協議",
     list_of: "現行需要CCC認證的產品包括：",
     since:
