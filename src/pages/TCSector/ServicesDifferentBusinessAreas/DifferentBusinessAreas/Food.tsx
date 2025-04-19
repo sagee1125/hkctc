@@ -66,7 +66,7 @@ export const Food: React.FC = () => {
       img: "food_3",
       titleCN: "香港的食品檢測和認證服務",
       link: youtubeTemplateLink[language],
-      icon: "VIDEO.png",
+      icon: "",
     },
   ];
 
@@ -466,6 +466,7 @@ export const Food: React.FC = () => {
                 title={getSingleText(item.title, item.titleCN)}
                 direction={isPC || isTablet ? "vertical" : "horizontal"}
                 iconPath={item.icon}
+                hideIcon={!item.icon}
                 imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
                 mediaLink={displayLink}
               />

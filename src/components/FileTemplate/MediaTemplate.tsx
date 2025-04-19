@@ -5,9 +5,11 @@ import { useSettings } from "../../context";
 export const MediaTemplate: React.FC<
   FileTemplateProps & {
     mediaLink?: string;
+    hideIcon?: boolean;
   }
 > = ({
   title,
+  hideIcon = false,
   imagePath,
   iconPath = "PDF.png",
   date,
@@ -49,11 +51,13 @@ export const MediaTemplate: React.FC<
             alt={title}
           />
           {/* Icon */}
-          <img
-            className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
-            src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
-            alt={"file icon"}
-          />
+          {!hideIcon && (
+            <img
+              className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+              src={`${process.env.PUBLIC_URL}/assets/icons/${iconPath}`}
+              alt={"file icon"}
+            />
+          )}
         </div>
 
         <div
