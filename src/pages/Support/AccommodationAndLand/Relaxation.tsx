@@ -169,11 +169,11 @@ export const Relaxation: React.FC = () => {
       mediaType: MEDIA_TYPE.PDF,
       mediaDomain: "devb",
       mediaLink:
-        "https://www.devb.gov.hk/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
+        "/filemanager/en/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
       tcMediaLink:
-        "https://www.devb.gov.hk/filemanager/tc/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
+        "/filemanager/tc/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf",
       scMediaLink:
-        "https://www.devb.gov.hk/filemanager/tc/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf	",
+        "/filemanager/tc/Content_3/Relaxation_of_the_Waiver_Application_in_Existing_IB.pdf	",
     },
     {
       title:

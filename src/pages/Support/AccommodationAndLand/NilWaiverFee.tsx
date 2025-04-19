@@ -5,6 +5,7 @@ import {
   normalButtonStyle,
   activatedButtonStyle,
   MediaTemplateWithDialog,
+  Link,
 } from "../../../components";
 import { Language, LanguageResources, useSettings } from "../../../context";
 import { MEDIA_TYPE } from "../../../const";
@@ -568,7 +569,19 @@ export const NilWaiverFee: React.FC = () => {
       for_enquiries_on_application: `For enquiries on application procedures, please contact the respective District Lands Office for which contact information can be found at `,
       faq: {
         title: "Frequently Asked Questions",
-        below_are: `Below are some questions and answers for general reference only and these would not prejudice LandsD in exercising its authority and powers according to the Government land lease and the relevant Practice Note (No. 1/ 2016). If you have any doubts about the land lease conditions or land use zoning, you are encouraged to seek professional advice.`,
+        below_are: (
+          <>
+            Below are some questions and answers for general reference only and
+            these would not prejudice LandsD in exercising its authority and
+            powers according to the Government land lease and the relevant&nbsp;
+            <Link outerLink="https://www.landsd.gov.hk/en/resources/practice-notes/lao.html">
+              Practice Note
+            </Link>
+            &nbsp; (No. 1/ 2016). If you have any doubts about the land lease
+            conditions or land use zoning, you are encouraged to seek
+            professional advice.
+          </>
+        ),
       },
       disclaimer: `Disclaimer`,
       disclaimer_content: `The information is provided by the Government for general reference only. The Government is not liable for any damages whatsoever arising out of the use of the information. The information shall not prejudice the Government in formulation of the implementation details and the Lands Department in exercising its authority and powers according to the Government land lease. The information shall not constitute any representation on the part of the Government or give rise to any expectation whatsoever and shall not be relied on as such. Each application for waiver will be considered on its own merits having regard to all factors and circumstances, which the Government at its absolute discretion considers applicable. The Government's right to add to, amend or delete the whole or any part of the information is hereby reserved.`,
@@ -641,7 +654,21 @@ export const NilWaiverFee: React.FC = () => {
       for_enquiries_on_application: `有關申請程序的查詢，請聯絡相關的分區地政處，聯絡資料可瀏覽以下網頁：`,
       faq: {
         title: "常見問題",
-        below_are: `以下答問資料僅供一般參考，並不妨礙地政總署根據政府土地契約行使其權限和權力，以及相關的作業備考（編號1/2016）。如對土地契約條件或土地用途地帶有疑問，應徵詢專業意見。`,
+        below_are: (
+          <>
+            以下答問資料僅供一般參考，並不妨礙地政總署根據政府土地契約行使其權限和權力，以及相關的
+            <Link
+              outerLink={
+                language === Language.ZH_TW
+                  ? "https://www.landsd.gov.hk/en/resources/practice-notes/lao.html"
+                  : "https://www.landsd.gov.hk/sc/resources/practice-notes/lao.html"
+              }
+            >
+              作業備考
+            </Link>
+            （編號1/2016）。如對土地契約條件或土地用途地帶有疑問，應徵詢專業意見。
+          </>
+        ),
       },
       disclaimer: `免責聲明`,
       disclaimer_content: `政府所提供的資料只供一般參考之用。政府無須對使用資料而引致的任何損害負上責任。資料並不妨礙政府制訂實施細則，以及地政總署根據政府土地契約行使其權限和權力。資料絕不構成由政府作出的任何陳述，也絕不應引起任何其他期望，故亦不得作為政府作出任何陳述或引起任何期望的根據。政府會按照每宗短期豁免書申請的個別情況，經考慮各種因素和情況後予以獨立考慮，而政府對各種因素和情況的適用與否有絕對酌情權。政府亦保留對資料的全部或部分內容作出增補、修訂或刪減的權利。`,
@@ -691,12 +718,11 @@ export const NilWaiverFee: React.FC = () => {
         )}
       </ul>
       <p className="text-body-m mb-[24px]">
-        {(summary as LanguageResources).background_information as string}
-      </p>
-      <p className="text-body-m mb-[24px]">
         {(summary as LanguageResources).note as string}
       </p>
-
+      <p className="text-body-m mb-[24px]">
+        {(summary as LanguageResources).background_information as string}
+      </p>
       <div className="flex flex-row h-[90px] mt-[24px] gap-[24px] items-center">
         <MediaTemplateWithDialog
           title={
@@ -705,7 +731,7 @@ export const NilWaiverFee: React.FC = () => {
           mediaLink={
             language === Language.EN
               ? "/en/doc/itc-hkctc-17-7-1c-e.pdf"
-              : "https://www.hkctc.gov.hk/tc/doc/itc-hkctc-17-7-1c-c.pdf"
+              : "/tc/doc/itc-hkctc-17-7-1c-c.pdf"
           }
           direction="row"
           maskIcon={"PDF.png"}

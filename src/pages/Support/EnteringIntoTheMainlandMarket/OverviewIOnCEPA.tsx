@@ -62,7 +62,7 @@ const Agreement: React.FC = () => {
     },
     {
       question:
-        "Regarding the part on CCC factory inspector in the Implementation Guide promulgated in May 2020, if that factory inspector, who is from a Hong Kong certification body, later works for another certification body, does he/she need to re-submit an application to China Certification and Accreditation Association (“CCAA”) and/or retake related training and examinations in accordance with the procedures set out in the Implementation Guide?",
+        "Regarding the part on CCC factory inspector in the Implementation Guide promulgated in Feb 2025, if that factory inspector, who is from a Hong Kong certification body, later works for another certification body, does he/she need to re-submit an application to China Certification and Accreditation Association (“CCAA”) and/or retake related training and examinations in accordance with the procedures set out in the Implementation Guide?",
       answer: (
         <>
           <p>
@@ -253,6 +253,7 @@ const EnterpriseRun: React.FC = () => {
               .
             </li>
           </ul>
+          <br />
           <p>Enquiries should be addressed to CNCA -</p>
           <br />
           <p>Electrical and Electronic Products</p>
@@ -342,13 +343,13 @@ const EnterpriseRun: React.FC = () => {
             detailed CCC requirements and implementation needs. Such designated
             plans would be announced on CNCA's&nbsp;
             <a
-              aria-label="website and WeChat official"
+              aria-label="website"
               href="https://www.cnca.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              website and WeChat official
+              website
             </a>
             &nbsp; account (WeChat ID: cnca_2015).
           </p>
@@ -505,17 +506,17 @@ const EnterpriseRun: React.FC = () => {
           </p>
           <br />
           <p>
-            相關申請制度、條件和程序，已載於國家市場監督管理總局（市場監管總局）的網頁，詳見市場監管總局的
+            相關申請制度、條件和程序，已載於
             <a
-              aria-label="《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》"
+              aria-label="《強制性產品認證機構和實驗室管理辦法》"
               className="underline text-[#00E]"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.samr.gov.cn/fw/wsbs/rzrkjyjc/rzjgzd/"
+              href="https://www.gov.cn/zhengce/2022-10/08/content_5723509.htm"
             >
-              《從事強制性認證以及相關活動的認證機構、檢查機構及實驗室指定》
+              《強制性產品認證機構和實驗室管理辦法》
             </a>
-            網頁。申請者亦可參考認監委的
+            。申請者亦可參考認監委的
             <a
               aria-label="「強制性產品認證專欄」"
               href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/index.html"

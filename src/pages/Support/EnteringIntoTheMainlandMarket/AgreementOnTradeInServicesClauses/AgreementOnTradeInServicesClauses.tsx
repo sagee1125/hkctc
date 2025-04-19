@@ -81,27 +81,27 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
         <>
           (See&nbsp;
           <a
-            aria-label="Implementation Guide promulgated in May 2020"
-            href={processLink(
+            aria-label="Implementation Guide promulgated in Feb 2025"
+            href={
               "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            )}
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
             Implementation Guide
           </a>
-          &nbsp;promulgated in May 2020)
+          &nbsp;promulgated in Feb 2025)
         </>
       ),
       implementationCN: (
         <>
-          （見2020年5月頒布的
+          （見2025年2月頒布的
           <a
-            aria-label="2020年5月頒布的實施指南"
-            href={processLink(
-              "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            )}
+            aria-label="2025年2月頒布的實施指南"
+            href={
+              " https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -121,27 +121,27 @@ export const AgreementOnTradeInServicesClauses: React.FC = () => {
         <>
           (See&nbsp;
           <a
-            aria-label="Implementation Guide promulgated in May 2020"
-            href={processLink(
+            aria-label="Implementation Guide promulgated in Feb 2025"
+            href={
               "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            )}
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
             Implementation Guide
           </a>
-          &nbsp;promulgated in May 2020)
+          &nbsp;promulgated in Feb 2025)
         </>
       ),
       implementationCN: (
         <>
-          （見2020年5月頒布的
+          （見2025年2月頒布的
           <a
-            aria-label="2020年5月頒布的實施指南"
-            href={processLink(
-              "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
-            )}
+            aria-label="2025年2月頒布的實施指南"
+            href={
+              " https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
