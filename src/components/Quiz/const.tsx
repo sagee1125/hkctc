@@ -39,7 +39,13 @@ export const quizInteractionMap: Record<QUIZ, QuizData> = {
     },
     correctAnser: "B",
     explanation: [
-      `SI prefixes are defined by the International System of Units (SI). Megahertz (MHz) is equal to 1 x 106 Hz (one million hertz), while gigahertz (GHz) is equal to 1 x 109 Hz (one billion hertz). The unit of GHz is therefore 1,000 times larger than the unit of MHz.`,
+      <>
+        SI prefixes are defined by the International System of Units (SI).
+        Megahertz (MHz) is equal to 1 x 10<sup>6</sup> Hz (one million hertz),
+        while gigahertz (GHz) is equal to 1 x 10<sup>9</sup> Hz (one billion
+        hertz). The unit of GHz is therefore 1,000 times larger than the unit of
+        MHz.
+      </>,
     ],
   },
   [QUIZ.ELECTROMAGNETIC_FILED]: {
@@ -120,10 +126,10 @@ export const quizInteractionMap: Record<QUIZ, QuizData> = {
     explanation: [
       <p>
         Weight is the force applied by gravity on an object. On Earth, the
-        acceleration due to gravity is approximately 9.8 m s-2, therefore a 1 kg
-        mass weighs about 9.8 N. On the Moon, the acceleration due to gravity is
-        approximately 1.6 m s-2, resulting in a weight of about 1.6 N for the
-        same 1 kg mass.
+        acceleration due to gravity is approximately 9.8 m s<sup>-2</sup>,
+        therefore a 1 kg mass weighs about 9.8 N. On the Moon, the acceleration
+        due to gravity is approximately 1.6 m s<sup>-2</sup>, resulting in a
+        weight of about 1.6 N for the same 1 kg mass.
         <br />
         <br />
         On the Moon, you would weigh about one-sixth of what you do on Earth due
@@ -150,8 +156,9 @@ export const quizInteractionMap: Record<QUIZ, QuizData> = {
     explanation: [
       <p>
         The kilogram is the base unit of mass in International System of Units
-        (SI) and defined by fixing the numerical value of the Planck constant h
-        to 6.62607015 x 10-34 m2 kg s-1.
+        (SI) and defined by fixing the numerical value of the Planck constant{" "}
+        <p className="italic">h</p>
+        to 6.62607015 x 10<sup>-34</sup> m<sup>2</sup> kg s<sup>-1</sup>.
         <br />
         The international prototype of the kilogram (IPK) with the weight of 1
         kg is a piece of platinum-iridium alloy kept in BIPM in Paris. Copies of
@@ -209,7 +216,11 @@ export const quizInteractionCNMap: Record<QUIZ, QuizData> = {
     },
     correctAnser: "B",
     explanation: [
-      `國際單位制 (SI) 定義了SI 詞頭，兆赫 (MHz) 等於 1 x 106 Hz（一百萬赫），而吉赫 (GHz) 等於 1 x 109 Hz（十億赫），因此，GHz 單位比 MHz 單位大了 1,000 倍。 `,
+      <>
+        國際單位制 (SI) 定義了SI 詞頭，兆赫 (MHz) 等於 1 x 10<sup>6</sup>{" "}
+        Hz（一百萬赫），而吉赫 (GHz) 等於 1 x 10<sup>9</sup>{" "}
+        Hz（十億赫），因此，GHz 單位比 MHz 單位大了 1,000 倍。
+      </>,
     ],
   },
   [QUIZ.ELECTROMAGNETIC_FILED]: {
@@ -311,8 +322,9 @@ export const quizInteractionCNMap: Record<QUIZ, QuizData> = {
     correctAnser: "A",
     explanation: [
       <p>
-        國際單位制的質量單位為千克，它是以普朗克常數(h)來定義。其數值為
-        6.62607015 x 10-34 kg m2 s-1。
+        國際單位制的質量單位為千克，它是以普朗克常數(
+        <span className="italic">h</span>)來定義。其數值為 6.62607015 x 10
+        <sup>-34</sup> kg m<sup>2</sup> s<sup>-1</sup>。
         <br />
         國際千克原型(IPK)由鉑銥合金製成，並保存在位於巴黎的國際度量衡局(BIPM)中。IPK的複製本被分配給《米制公約》的簽署成員作為其經濟體的質量標準。香港於1993年獲得了千克原器第75號複製本。
       </p>,

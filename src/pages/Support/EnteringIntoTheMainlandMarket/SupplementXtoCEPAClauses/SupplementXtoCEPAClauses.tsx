@@ -53,9 +53,9 @@ const multilingual = {
     measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議十》主體文件）：`,
     trade_and_Investment: `三、貿易投資便利化`,
     two_sides_agreed: `（一）雙方同意進一步加強商品檢驗檢疫、食品安全、質量標準領域的合作，並據此將《安排》附件6第五條第（二）款第4項認證認可及標準化管理增加以下內容：`,
-    promote_Guangdong: `"(1)推動粵港第三方檢測和認證服務的檢測認證結果互認。`,
-    accordance_with_specific: `(2)按照具體認證的要求，推動粵港自願認證的認證檢測結果互認。`,
-    with_regard_to: `(3)對於推動強制性產品認證（CCC認證）檢測認證結果互認問題，遵照《中華人民共和國認證認可條例》、《安排》［CEPA］等國家相關法律法規、條約的相關規定執行。＂`,
+    promote_Guangdong: `(1) 推動粵港第三方檢測和認證服務的檢測認證結果互認。`,
+    accordance_with_specific: `(2) 按照具體認證的要求，推動粵港自願認證的認證檢測結果互認。`,
+    with_regard_to: `(3) 對於推動強制性產品認證（CCC認證）檢測認證結果互認問題，遵照《中華人民共和國認證認可條例》、《安排》［CEPA］等國家相關法律法規、條約的相關規定執行。`,
   },
 };
 
@@ -248,7 +248,7 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <p className="text-body-m  text-justify">
         {two_sides_agreed as React.ReactNode}
         <br />
-
+        <br />
         {promote_Guangdong as React.ReactNode}
 
         <br />

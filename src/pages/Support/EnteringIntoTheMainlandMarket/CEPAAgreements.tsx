@@ -107,9 +107,9 @@ export const CEPAAgreements: React.FC = () => {
             Administration for Market Regulation will promulgate the&nbsp;
             <a
               aria-label="implementation guide"
-              href={processLink(
-                "https://www.hkctc.gov.hk/tc/doc/202502_CEPA_TradeinServices_ImplementationGuide_tc.pdf"
-              )}
+              href={
+                "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -144,7 +144,7 @@ export const CEPAAgreements: React.FC = () => {
                 獲證後於工廠選取CCC測試樣本
               </span>
               ，範圍從現時在內地全境內的CCC產品生產廠，
-              <span className="text-newPrimary text-body-m">
+              <span className="text-newPrimary !text-highlight-m">
                 擴展至任何地區（包括中國內地以外）的CCC產品生產廠
               </span>
               。
@@ -260,23 +260,39 @@ export const CEPAAgreements: React.FC = () => {
           <br />
           <ul>
             <li className="text-body-m mb-[1em]">
-              On the scope of testing of CCC products that can be undertaken by
-              qualified Hong Kong testing organisations in collaboration with
-              designated Mainland organisations: To expand from products
-              processed or manufactured in the Mainland or processed in Hong
-              Kong to products processed or manufactured in any place (including
-              places outside China).
+              On the scope of testing of&nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                CCC products
+              </span>
+              &nbsp; that can be undertaken by qualified Hong Kong testing
+              organisations in collaboration with designated Mainland
+              organisations: To expand from products processed or manufactured
+              in the Mainland or processed in Hong Kong to products processed or
+              &nbsp;
+              <span className="text-newPrimary !text-highlight-m">
+                manufactured in any place (including places outside China)
+              </span>
+              .
             </li>
             <li className="text-body-m">
-              On the geographical coverage of CCC factory inspection that can be
-              undertaken by qualified certification bodies in Hong Kong in
-              collaboration with designated Mainland organisations: To expand
-              from manufacturers located in the China (Guangdong) Pilot Free
-              Trade Zone to manufacturers in the whole Mainland; and to add a
-              new task that can be undertaken by qualified certification bodies
-              in Hong Kong, i.e. the selection of post-certification test
-              samples at factories manufacturing CCC products in the whole
-              Mainland.
+              On the geographical coverage of{" "}
+              <span className="text-newPrimary !text-highlight-m">
+                CCC factory
+              </span>{" "}
+              inspection that can be undertaken by qualified certification
+              bodies in Hong Kong in collaboration with designated Mainland
+              organisations: To expand from manufacturers located in the China
+              (Guangdong) Pilot Free Trade Zone to{" "}
+              <span className="text-newPrimary !text-highlight-m">
+                manufacturers in the whole Mainland
+              </span>
+              ; and to add a{" "}
+              <span className="text-newPrimary !text-highlight-m">
+                new task
+              </span>{" "}
+              that can be undertaken by qualified certification bodies in Hong
+              Kong, i.e. the selection of post-certification test samples at
+              factories manufacturing CCC products in the whole Mainland.
             </li>
           </ul>
           <br />
@@ -307,10 +323,30 @@ export const CEPAAgreements: React.FC = () => {
           <br />
           <ul>
             <li className="text-body-m mb-[1em]">
-              符合條件的香港檢測機構可與內地指定機構開展合作進行CCC產品檢測，範圍從現時在內地加工或生產、或在香港加工的CCC產品，擴展至在任何地區（包括中國以外）加工或生產的CCC產品。
+              符合條件的香港檢測機構可與內地指定機構開展合作進行
+              <span className="text-newPrimary !text-highlight-m">
+                CCC產品檢測
+              </span>
+              ，範圍從現時在內地加工或生產、或在香港加工的CCC產品，
+              <span className="text-newPrimary !text-highlight-m">
+                擴展至在任何地區（包括中國以外）加工或生產的CCC產品
+              </span>
+              。
             </li>
             <li className="text-body-m">
-              符合條件的香港認證機構可與內地指定機構開展合作進行CCC工廠檢查，範圍從現時在中國（廣東）自由貿易試驗區內的CCC產品生產廠，擴展至內地全境內的CCC產品生產廠。符合條件的香港認證機構也可承擔新增任務，即內地全境內獲證後於工廠選取測試樣本。
+              符合條件的香港認證機構可與內地指定機構開展合作進行
+              <span className="text-newPrimary !text-highlight-m">
+                CCC工廠檢查
+              </span>
+              ，範圍從現時在中國（廣東）自由貿易試驗區內的CCC產品生產廠，
+              <span className="text-newPrimary !text-highlight-m">
+                擴展至內地全境內的CCC產品生產廠
+              </span>
+              。符合條件的香港認證機構也可承擔
+              <span className="text-newPrimary !text-highlight-m">
+                新增任務
+              </span>
+              ，即內地全境內獲證後於工廠選取測試樣本。
             </li>
           </ul>
           <br />
@@ -454,15 +490,27 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated two Implementation Guides (
         <a
-          aria-label="measure on the movement of natural persons, other measures"
-          href={processLink(
-            "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
-          )}
+          aria-label="measure on the movement of natural persons"
+          href={
+            "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_en.pdf"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E] text-[16px]"
         >
-          measure on the movement of natural persons, other measures
+          measure on the movement of natural persons
+        </a>
+        ,&nbsp;
+        <a
+          aria-label="other measures"
+          href={
+            "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E] text-[16px]"
+        >
+          other measures
         </a>
         ), which provide further details for the implementation of these
         liberalisation measures. A list of Mainland certification bodies and
@@ -499,15 +547,27 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         內地已制訂實施指南（
         <a
-          aria-label="關於自然人流動的措施，其他措施"
-          href={processLink(
-            "https://www.hkctc.gov.hk/en/doc/CEPA_X_Implementation_details_natural_en.pdf"
-          )}
+          aria-label="關於自然人流動的措施"
+          href={
+            "https://www.hkctc.gov.hk/tc/doc/CEPA_X_Implementation_details_natural_tc.pdf"
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E] text-[16px]"
         >
-          關於自然人流動的措施，其他措施
+          關於自然人流動的措施
+        </a>
+        ，
+        <a
+          aria-label="其他措施"
+          href={
+            "https://www.hkctc.gov.hk/tc/doc/CEPA_X_Implementation_details_tc.pdf"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-[#00E] text-[16px]"
+        >
+          其他措施
         </a>
         ），為以上開放措施的實施提供更多資訊。認監委亦已發布內地認證機構及其有關自願性產品認證的服務範圍的
         <a
@@ -669,15 +729,15 @@ export const CEPAAgreements: React.FC = () => {
       <p className="text-body-m">
         The Mainland has formulated an&nbsp;
         <a
-          aria-label="measure on the movement of natural persons, other measures"
-          href={processLink(
+          aria-label="Implementation guide"
+          href={
             "https://www.hkctc.gov.hk/en/doc/CEPA_IX_Implementation_Guide_Eng.pdf"
-          )}
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-[#00E]"
         >
-          measure on the movement of natural persons, other measures
+          Implementation guide
         </a>
         &nbsp;for this liberalisation measure. The Guide covers, among others,
         the applicable food-related certification schemes and the procedures for
