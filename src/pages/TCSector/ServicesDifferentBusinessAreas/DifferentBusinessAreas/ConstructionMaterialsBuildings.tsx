@@ -270,7 +270,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           <a
             aria-label="contact list of relevant manufacturers or suppliers"
             className="underline text-links"
-            href="https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_EngW3C.pdf"
+            href={`https://www.housingauthority.gov.hk/en/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20250331)_EngW3C.pdf`}
             target="_blank"
             rel="noopener noreferrer"
           >
