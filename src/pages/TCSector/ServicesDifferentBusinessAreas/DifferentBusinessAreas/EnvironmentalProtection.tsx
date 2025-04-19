@@ -41,9 +41,9 @@ const multilingual = {
     ],
 
     bSectionMap: [
-      "ISO 14064-1 details the principles and requirements for designing, developing, managing and reporting an organisation-level GHG inventory. A GHG inventory refers to an organisation's physical units and processes that release and remove GHG into/from the atmosphere, and its GHG emissions and removals.",
-      `ISO 14064-2 focuses on projects that aim to reduce GHG emissions and/or increase GHG removals ("GHG projects"). The standard includes principles and requirements for determining project baseline scenarios and for monitoring, quantifying and reporting project performance relative to the baseline scenarios.`,
-      "ISO/TS 14067 specifies principles, requirements and guidelines for the quantification and communication of the carbon footprint of a product (CFP). CFP refers to the sum of GHG emissions and removals involved in the life cycle of a product.",
+      "ISO 14064-1 specifies principles and requirements at the organization level for the quantification and reporting of GHG emissions and removals.  It includes requirements for the design, development, management, reporting and verification of an organization's GHG inventory.",
+      "ISO 14064-2 specifies principles and requirements, and provides guidance at the project level for the quantification, monitoring and reporting of activities intended to cause GHG emission reductions or removal enhancements.  It includes requirements for planning a GHG project, identifying and selecting GHG sources, sinks and reservoirs relevant to the project and baseline scenario, monitoring, quantifying, documenting and reporting GHG project performance and managing data quality.",
+      "ISO 14067 specifies principles, requirements and guidelines for the quantification and reporting of the carbon footprint of a product, in a manner consistent with International Standards on life cycle assessment (LCA) (ISO 14040 and ISO 14044).",
     ],
 
     bSectionButtonArray: [
@@ -178,13 +178,16 @@ export const EnvironmentalProtection: React.FC = () => {
       title: "What is Greenhouse Gas (GHG)?",
       content: (
         <p>
-          GHG refers to the gaseous constituents of the atmosphere, both natural
-          and anthropogenic, that absorb and emit infra-red radiation. To tackle
-          climate change, many places around the world are implementing various
-          initiatives to limit GHG concentrations in the atmosphere. These
-          initiatives rely on the&nbsp;
+          GHG refers to gaseous constituent of the atmosphere, both natural and
+          anthropogenic, that absorbs and emits radiation at specific
+          wavelengths within the spectrum of infrared radiation emitted by the
+          Earth’s surface, the atmosphere and clouds.  To tackle climate change,
+          international, regional, national and local initiatives are being
+          developed and implemented by public and private sectors to mitigate
+          GHG concentrations in the Earth’s atmosphere.  These initiatives rely
+          on the&nbsp;
           <span className="!text-highlight-m">
-            quantification, monitoring, reporting, validation and verification
+            quantification, monitoring, reporting, validating and verification
             of GHG emissions and/or removals
           </span>
           .
@@ -222,50 +225,17 @@ export const EnvironmentalProtection: React.FC = () => {
     {
       title: "What is GHG Validation & Verification?",
       content: (
-        <>
-          <div className="flex flex-wrap gap-[8px] mb-[16px]">
-            {(page_text.cSectionButtonArray as string[]).map((btn, index) => {
-              const isActivated = index === activeCSectionButton;
-              return (
-                <button
-                  tabIndex={0}
-                  key={index}
-                  style={isActivated ? activatedButtonStyle : normalButtonStyle}
-                  onClick={() => {
-                    setActiveCSectionButton(index);
-                  }}
-                  aria-label={btn}
-                >
-                  {btn}
-                </button>
-              );
-            })}
-          </div>
-          <div>
-            {isSimpleCN
-              ? getSingleNode(
-                  cSectionMap[activeCSectionButton].component,
-                  cSectionMap[activeCSectionButton].component
-                )
-              : cSectionMap[activeCSectionButton].component}
-          </div>
-          <div
-            className={`overflow-hidden ${
-              isPC ? "w-[500px]" : "w-full"
-            } mt-[16px]`}
-          >
-            <img
-              className="w-full h-auto object-contain"
-              src={
-                process.env.PUBLIC_URL +
-                "/assets/tcSector/servicesDifferentBusinessAreas/" +
-                cSectionMap[activeCSectionButton].imgUrl
-              }
-              alt={cSectionMap[activeCSectionButton].imgUrl}
-              aria-hidden="true"
-            />
-          </div>
-        </>
+        <div>
+          Validation refers to process for evaluating the reasonableness of the
+          assumptions, limitations and methods that support a GHG statement
+          (e.g. GHG project) about the future activities.
+          <br />
+          <br />
+          Verification refers to process for evaluating a statement of
+          historical data and information (e.g. organizational GHG statement) to
+          determine if the statement is materially correct and conforms to
+          criteria (e.g. ISO 14064-1).
+        </div>
       ),
     },
 

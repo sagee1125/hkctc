@@ -44,14 +44,13 @@ export const ToysChildrenProducts: React.FC = () => {
         `Flammability testing`,
         `Mechanical testing such as load stresses like torsion, traction and compression`,
         `Physical testing such as presence of sharp points or hard edges`,
-        `Performance testing such as durability and resistance to wear and tear`,
       ],
       examples_of:
         "Examples of toy inspection services are factory inspections of the manufacturing processes and pre-shipment inspections at the factory to determine whether the batch of toy products complies with the buyer's specifications.",
       laboratories:
         "Laboratories Accredited by HKAS Providing Testing Services on Toys and Children's Products",
       product_certification:
-        "Product certification is required for toys, e.g. China Compulsory Certification (CCC) System.",
+        "Product certification is required for toys in some countries, e.g. China Compulsory Certification (CCC) System.",
       bottom: (
         <>
           The laboratories providing accredited testing services on Toys and
@@ -91,7 +90,6 @@ export const ToysChildrenProducts: React.FC = () => {
         `燃燒性測試`,
         `機械測試，如扭力、牽引和壓縮等載壓測試`,
         `物理測試，如是否有尖角或硬邊`,
-        `性能測試，如耐用性和抗磨性測試`,
       ],
       laboratories: "獲香港認可處認可的玩具及兒童產品測試實驗所",
       product_certification:
