@@ -195,6 +195,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.title
                     ? "title-helper"
                     : undefined,
+                  autoComplete: "title",
+                  "aria-label": "title input",
                 }}
                 value={registrationFormik.values.title}
                 onChange={registrationFormik.handleChange}
@@ -230,6 +232,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.firstName
                     ? "firstName-helper"
                     : undefined,
+                  autoComplete: "firstName",
+                  "aria-label": "firstName input",
                 }}
                 value={registrationFormik.values.firstName}
                 onChange={registrationFormik.handleChange}
@@ -265,6 +269,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.lastName
                     ? "lastName-helper"
                     : undefined,
+                  autoComplete: "lastName",
+                  "aria-label": "lastName input",
                 }}
                 value={registrationFormik.values.lastName}
                 onChange={registrationFormik.handleChange}
@@ -302,6 +308,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.email
                     ? "email-helper"
                     : undefined,
+                  autoComplete: "email",
+                  "aria-label": "email input",
                 }}
                 value={registrationFormik.values.email}
                 onChange={registrationFormik.handleChange}
@@ -337,6 +345,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.verifyEmail
                     ? "verifyEmail-helper"
                     : undefined,
+                  autoComplete: "off",
+                  "aria-label": "verifyEmail input",
                 }}
                 value={registrationFormik.values.verifyEmail}
                 onChange={registrationFormik.handleChange}
@@ -374,6 +384,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.position
                     ? "position-helper"
                     : undefined,
+                  autoComplete: "position",
+                  "aria-label": "position input",
                 }}
                 value={registrationFormik.values.position}
                 onChange={registrationFormik.handleChange}
@@ -409,6 +421,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.organization
                     ? "organization-helper"
                     : undefined,
+                  autoComplete: "organization",
+                  "aria-label": "organization input",
                 }}
                 value={registrationFormik.values.organization}
                 onChange={registrationFormik.handleChange}
@@ -446,6 +460,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.telephoneNumber
                     ? "telephoneNumber-helper"
                     : undefined,
+                  autoComplete: "telephoneNumber",
+                  "aria-label": "telephoneNumber input",
                 }}
                 value={registrationFormik.values.telephoneNumber}
                 onChange={registrationFormik.handleChange}
@@ -481,6 +497,8 @@ export const RegistrationForm: React.FC = () => {
                   "aria-errormessage": registrationFormik.errors.country
                     ? "country-helper"
                     : undefined,
+                  autoComplete: "country",
+                  "aria-label": "Country input",
                 }}
                 options={countryList}
                 value={registrationFormik.values.country}
@@ -519,6 +537,8 @@ export const RegistrationForm: React.FC = () => {
                       .attendanceCertificate
                       ? "attendanceCertificate-helper"
                       : undefined,
+                    autoComplete: "attendanceCertificate",
+                    "aria-label": "AttendanceCertificate input",
                   }}
                   value={registrationFormik.values.attendanceCertificate}
                   options={[]}
@@ -559,6 +579,8 @@ export const RegistrationForm: React.FC = () => {
                       .fullNameAttendanceCertificate
                       ? "fullNameAttendanceCertificate-helper"
                       : undefined,
+                    autoComplete: "fullNameAttendanceCertificate",
+                    "aria-label": "Full Name Attendance Certificate input",
                   }}
                   value={
                     registrationFormik.values.fullNameAttendanceCertificate
@@ -592,7 +614,7 @@ export const RegistrationForm: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-[16px]">
-          <p className="text-highlight-m">
+          <p className="text-highlight-m" id="industryLabel">
             Type of Industry {processText("行業")}
           </p>
           <RadioGroup
@@ -600,6 +622,9 @@ export const RegistrationForm: React.FC = () => {
             value={registrationFormik.values.industry}
             aria-label="industry"
             onChange={handleChangeIndustry}
+            role="radiogroup"
+            aria-labelledby="industryLabel"
+            tabIndex={0}
             sx={{
               display: "flex",
               flexDirection: "row",
@@ -613,8 +638,12 @@ export const RegistrationForm: React.FC = () => {
                     tabIndex={0}
                     role="radio"
                     value={item.value}
+                    aria-checked={
+                      registrationFormik.values.industry === item.value
+                    }
+                    aria-labelledby={`${item.label as string}Label`}
                     label={
-                      <span role="button" tabIndex={0}>
+                      <span id={`${item.label as string}Label`}>
                         {processText(item.label as string)}
                       </span>
                     }
@@ -640,6 +669,8 @@ export const RegistrationForm: React.FC = () => {
                             .otherIndustry
                             ? "otherIndustry-helper"
                             : undefined,
+                          autoComplete: "off",
+                          "aria-label": "Other Industry input",
                         }}
                         value={registrationFormik.values.otherIndustry}
                         onChange={registrationFormik.handleChange}
@@ -663,7 +694,7 @@ export const RegistrationForm: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-[16px]">
-          <p className="text-highlight-m">
+          <p className="text-highlight-m" id="aboutSeminarLabel">
             How did you know about this Seminar? (Can choose more than one)
             <br />
             {processText("您如何知道這次研討會? (可以選擇多個)")}
@@ -676,7 +707,11 @@ export const RegistrationForm: React.FC = () => {
                     name="aboutSeminar"
                     tabIndex={0}
                     role="checkbox"
-                    aria-label="aboutSeminar"
+                    aria-label="About Seminar"
+                    aria-labelledby="aboutSeminarLabel"
+                    aria-checked={registrationFormik.values.aboutSeminar.includes(
+                      item.value as string
+                    )}
                     value={registrationFormik.values.aboutSeminar.includes(
                       item.value as string
                     )}
@@ -704,6 +739,8 @@ export const RegistrationForm: React.FC = () => {
                             .otherIndustry
                             ? "otherIndustry-helper"
                             : undefined,
+                          autoComplete: "off",
+                          "aria-label": "Other Industry input",
                         }}
                         value={registrationFormik.values.otherAboutSeminar}
                         onChange={registrationFormik.handleChange}
@@ -727,7 +764,7 @@ export const RegistrationForm: React.FC = () => {
         </div>
 
         <div>
-          <p className="text-highlight-m">
+          <p className="text-highlight-m" id="receiveInfoAgreementLabel">
             *I agree to receive information from HKCTC, for example, news of
             seminar activities, e-newsletter, etc. <br />*
             {processText(
@@ -737,6 +774,7 @@ export const RegistrationForm: React.FC = () => {
           <RadioGroup
             name="receiveInfoAgreement"
             aria-label="receiveInfoAgreement"
+            aria-labelledby="receiveInfoAgreementLabel"
             value={registrationFormik.values.receiveInfoAgreement}
             onChange={handleChangeAgreement}
             sx={{
@@ -747,27 +785,51 @@ export const RegistrationForm: React.FC = () => {
           >
             <Radio
               value={true}
-              label={"Agree 同意"}
+              label={<span id="agreeLabel">Agree 同意</span>}
               tabIndex={0}
               role="radio"
+              aria-labelledby="agreeLabel"
+              aria-checked={
+                registrationFormik.values.receiveInfoAgreement === true
+              }
               onChange={registrationFormik.handleChange}
               checked={registrationFormik.values.receiveInfoAgreement === true}
               error={
                 registrationFormik.touched.receiveInfoAgreement &&
                 Boolean(registrationFormik.errors.receiveInfoAgreement)
               }
+              inputProps={{
+                autoComplete: "off",
+                "aria-label": "Agree Tick",
+                "aria-describedby": "receiveInfoAgreementError",
+                "aria-invalid": Boolean(
+                  registrationFormik.errors.receiveInfoAgreement
+                ),
+              }}
             />
             <Radio
               value={false}
-              label={"Disagree 不同意"}
+              label={<span id="disagreeLabel">Disagree 不同意"</span>}
               tabIndex={0}
               role="radio"
+              aria-checked={
+                registrationFormik.values.receiveInfoAgreement === false
+              }
+              aria-labelledby="disagreeLabel"
               onChange={registrationFormik.handleChange}
               checked={registrationFormik.values.receiveInfoAgreement === false}
               error={
                 registrationFormik.touched.receiveInfoAgreement &&
                 Boolean(registrationFormik.errors.receiveInfoAgreement)
               }
+              inputProps={{
+                autoComplete: "off",
+                "aria-label": "Disagree Tick",
+                "aria-describedby": "receiveInfoAgreementError", // 共用同一個錯誤提示
+                "aria-invalid": Boolean(
+                  registrationFormik.errors.receiveInfoAgreement
+                ),
+              }}
             />
           </RadioGroup>
         </div>
