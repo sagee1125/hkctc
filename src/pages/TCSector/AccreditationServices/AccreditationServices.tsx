@@ -168,9 +168,9 @@ export const AccreditationServices: React.FC = () => {
         </p>
         <hr className="my-[24px]" />
         <p className="text-heading-m">{establishments as string}</p>
-        <p className="text-body-m mt-[24px] text-justify">
+        <div className="text-body-l mt-[24px] text-justify">
           {establishments_content as string}
-        </p>
+        </div>
       </div>
     </div>
   );

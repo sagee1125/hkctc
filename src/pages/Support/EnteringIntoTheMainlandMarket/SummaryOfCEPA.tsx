@@ -139,7 +139,7 @@ export const SummaryOfCEPA: React.FC = () => {
               className="text-body-m italic mt-[24px]"
               style={{ fontSize: "14px" }}
             >
-              (promulgated in Feb 2020)
+              (promulgated in Feb 2025)
             </p>
           </>
         </Collapse>

@@ -840,6 +840,46 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         <>
           <p>{the_following_prod as React.ReactNode}</p>
           <div>
+            <div style={{ overflowX: "auto" }} className="mt-[12px]">
+              <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E] min-w-[900px]">
+                {(table_headers as React.ReactNode[]).map((head, index) => (
+                  <p key={index}>{head}</p>
+                ))}
+              </div>
+              <hr
+                style={{
+                  width: "100%",
+                  height: "3px",
+                  backgroundColor: "black",
+                }}
+              />
+              <div className="!text-[#2F2F2F]">
+                {/* Map over the sliced data */}
+                {currentPageData.map((_, index) => (
+                  <div
+                    key={startIndex + index} // Key should be unique and based on the actual index in the full array
+                    className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] min-w-[900px]"
+                    style={{
+                      borderBottom: "1px dashed #C8CFD6",
+                    }}
+                  >
+                    <p className="text-body-s !text-left">
+                      {tableRowsData[0][startIndex + index]}
+                    </p>
+                    <p className="text-body-s !text-left">
+                      {tableRowsData[1][startIndex + index]}
+                    </p>
+                    <div className="text-linked-s !text-left">
+                      {tableRowsData[2][startIndex + index]}
+                    </div>
+                    <div className="text-linked-s !text-left">
+                      {tableRowsData[3][startIndex + index]}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Pagination Controls */}
             <div className="flex justify-center gap-[9px] my-[24px] !text-highlight-l">
               {/* Previous Button */}
@@ -896,45 +936,6 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
                   tabIndex={0}
                 />
               </button>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <div className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] !text-body-s !text-[#7E7E7E] min-w-[900px]">
-                {(table_headers as React.ReactNode[]).map((head, index) => (
-                  <p key={index}>{head}</p>
-                ))}
-              </div>
-              <hr
-                style={{
-                  width: "100%",
-                  height: "3px",
-                  backgroundColor: "black",
-                }}
-              />
-              <div className="!text-[#2F2F2F]">
-                {/* Map over the sliced data */}
-                {currentPageData.map((_, index) => (
-                  <div
-                    key={startIndex + index} // Key should be unique and based on the actual index in the full array
-                    className="grid grid-cols-[2fr,3fr,3fr,4fr] gap-[24px] py-[16px] px-[10px] min-w-[900px]"
-                    style={{
-                      borderBottom: "1px dashed #C8CFD6",
-                    }}
-                  >
-                    <p className="text-body-s !text-left">
-                      {tableRowsData[0][startIndex + index]}
-                    </p>
-                    <p className="text-body-s !text-left">
-                      {tableRowsData[1][startIndex + index]}
-                    </p>
-                    <div className="text-linked-s !text-left">
-                      {tableRowsData[2][startIndex + index]}
-                    </div>
-                    <div className="text-linked-s !text-left">
-                      {tableRowsData[3][startIndex + index]}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </>

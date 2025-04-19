@@ -879,12 +879,17 @@ export const ResourcesReportsContent: React.FC = () => {
         </div>
       </div>
       <div className="bg-[#EEEEEA] mt-[16px] pt-[22px] px-[24px]">
-        <p className="text-highlight-l mb-[16px]">{media_type as string}</p>
+        <p className="text-highlight-l mb-[16px]" id="mediaTypeLabel">
+          {media_type as string}
+        </p>
 
         <RadioGroup
+          name="mediaType"
           value={selectedMediaType}
           onChange={setSelectedMediaType}
           aria-label="Media type"
+          aria-labelledby="mediaTypeLabel"
+          tabIndex={0}
           className="flex flex-row gap-4"
         >
           {Object.keys(mediaTypeMapping).map((type, index) => (
