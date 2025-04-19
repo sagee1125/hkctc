@@ -134,6 +134,9 @@ const multilingual = {
 
     please_download: (
       <div>
+        為求最佳的閱讀效果，我們建議你啟動瀏覽器的JavaScript及cookies。若你關閉JavaScript及cookies，你或不能使用本網站的某些特別功能，例如字型大小按鈕。
+        <br />
+        <br />
         請下載最新版本的
         <a
           aria-label="下載 Acrobat Reader"

@@ -244,6 +244,7 @@ export const LearningTeachingResources: React.FC = () => {
       <div id="STEM_Teaching_Kit" className="mb-[24px]">
         <Accordion
           title={STEM_Teaching_Kit as string}
+          defaultExpanded={scrollId === "STEM_Teaching_Kit"}
           details={
             <div>
               <p className="text-body-m">
@@ -358,6 +359,7 @@ export const LearningTeachingResources: React.FC = () => {
       <div id="Teaching_Kit" className="mb-[24px]">
         <Accordion
           title={teaching_kit as string}
+          defaultExpanded={scrollId === "Teaching_Kit"}
           details={
             <div>
               <p className="text-body-m">{teaching_kit_intro as string}</p>
