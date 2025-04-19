@@ -627,8 +627,11 @@ export const ResourcesReportsContent: React.FC = () => {
                       setCurrentPage(0);
                     }}
                     aria-label={name}
+                    aria-labelledby={`button-${name}`}
                   >
-                    <p className="text-highlight-xs">{name}</p>
+                    <p className="text-highlight-xs" id={`button-${name}`}>
+                      {name}
+                    </p>
                   </button>
                 );
               })}
@@ -672,9 +675,15 @@ export const ResourcesReportsContent: React.FC = () => {
                         setActivePublication(index);
                         setCurrentPage(0);
                       }}
+                      aria-labelledby={`button-${buttonText}`}
                       aria-label={buttonText}
                     >
-                      <p className="text-highlight-xs">{buttonText}</p>
+                      <p
+                        className="text-highlight-xs"
+                        id={`button-${buttonText}`}
+                      >
+                        {buttonText}
+                      </p>
                     </button>
                   );
                 }
@@ -706,13 +715,19 @@ export const ResourcesReportsContent: React.FC = () => {
                     style={
                       isActivated ? activatedButtonStyle : normalButtonStyle
                     }
+                    aria-labelledby={`button-${buttonText}`}
                     aria-label={buttonText}
                     onClick={() => {
                       setActiveCoursesCategory(index);
                       setCurrentPage(0);
                     }}
                   >
-                    <p className="text-highlight-xs">{buttonText}</p>
+                    <p
+                      className="text-highlight-xs"
+                      id={`button-${buttonText}`}
+                    >
+                      {buttonText}
+                    </p>
                   </button>
                 );
               })}
@@ -750,9 +765,15 @@ export const ResourcesReportsContent: React.FC = () => {
                           setActiveCertificateSector(-1);
                           setCurrentPage(0);
                         }}
+                        aria-labelledby={`button-${buttonText}`}
                         aria-label={buttonText}
                       >
-                        <p className="text-highlight-xs">{buttonText}</p>
+                        <p
+                          className="text-highlight-xs"
+                          id={`button-${buttonText}`}
+                        >
+                          {buttonText}
+                        </p>
                       </button>
                     );
                   })}
@@ -783,9 +804,15 @@ export const ResourcesReportsContent: React.FC = () => {
                           setActiveAboutSector(-1);
                           setCurrentPage(0);
                         }}
+                        aria-labelledby={`button-${buttonText}`}
                         aria-label={buttonText}
                       >
-                        <p className="text-highlight-xs">{buttonText}</p>
+                        <p
+                          className="text-highlight-xs"
+                          id={`button-${buttonText}`}
+                        >
+                          {buttonText}
+                        </p>
                       </button>
                     );
                   })}
@@ -888,14 +915,20 @@ export const ResourcesReportsContent: React.FC = () => {
           value={selectedMediaType}
           onChange={setSelectedMediaType}
           aria-label="Media type"
-          aria-labelledby="mediaTypeLabel"
           tabIndex={0}
+          aria-labelledby="mediaTypeLabel"
           className="flex flex-row gap-4"
         >
           {Object.keys(mediaTypeMapping).map((type, index) => (
-            <div key={index} className="flex items-center gap-[8px]">
+            <div
+              key={index}
+              className="flex items-center gap-[8px]"
+              role="none"
+            >
               <Radio
                 value={type}
+                aria-label={type}
+                aria-labelledby={`label-${type}`}
                 className={`group flex h-[24px] w-[24px] items-center justify-center rounded-full border transition-all ${
                   selectedMediaType === type
                     ? "bg-newPrimary"
@@ -903,6 +936,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 }`}
               >
                 <CheckIcon
+                  aria-hidden="true"
                   className={`size-4 transition ${
                     selectedMediaType === type
                       ? "fill-white opacity-100"
@@ -910,7 +944,7 @@ export const ResourcesReportsContent: React.FC = () => {
                   }`}
                 />
               </Radio>
-              <p className="text-body-m">
+              <p className="text-body-m" id={`label-${type}`}>
                 {mediaTypeMapping[type as MEDIA_TYPE]}
               </p>
             </div>
@@ -927,6 +961,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 checked={needRangeValue}
                 value={needRangeValue}
                 label=""
+                aria-label="turn on/off the year filter"
                 sx={{
                   marginRight: "0 !important",
                   ".MuiButtonBase-root": {
@@ -934,8 +969,6 @@ export const ResourcesReportsContent: React.FC = () => {
                     padding: 0,
                   },
                 }}
-                tabIndex={0}
-                role="checkbox"
                 onClick={() => {
                   setNeedRangeValue(!needRangeValue);
                 }}
@@ -951,7 +984,7 @@ export const ResourcesReportsContent: React.FC = () => {
                 valueLabelDisplay="on"
                 tabIndex={needRangeValue ? 0 : -1}
                 getAriaValueText={rangValuetext}
-                aria-labelledby="range-slider-label"
+                aria-label="Select year range"
                 componentsProps={{
                   thumb: {
                     "aria-label": "Select year range",
@@ -1051,9 +1084,12 @@ export const ResourcesReportsContent: React.FC = () => {
                                       ? "bg-gray-100 text-gray-900"
                                       : "text-gray-700"
                                   }`}
+                                  aria-labelledby={`button-${buttonText}`}
                                   aria-label={buttonText}
                                 >
-                                  {buttonText}
+                                  <p id={`button-${buttonText}`}>
+                                    {buttonText}
+                                  </p>
                                 </button>
                               );
                             }}
