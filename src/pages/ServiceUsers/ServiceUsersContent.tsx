@@ -152,7 +152,7 @@ export const ServiceUsersContent: React.FC = () => {
       descriptionCN:
         "香港檢測和認證局在本港、內地及海外的主要貿易展覽會設置攤位，向全球的買家、供應商和貿易商推廣香港檢測認證服務的優勢。",
       imagePath: "industry/support_1.png",
-      link: `/tc-sector?section=${navItemEnum.exhibition_programme}`,
+      link: `/support?section=${navItemEnum.exhibition_programme}`,
     },
   ];
 
