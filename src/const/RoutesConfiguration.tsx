@@ -147,7 +147,7 @@ export const routesConfiguration: RouteConfig[] = [
     path: "/support/CCC_testing",
     element: <CCCTesting />,
     title: "China Compulsory Certification (CCC) Testing",
-    titleCN: "中國強制性產品認證制度（CCC）檢測",
+    titleCN: "中國強制性產品認證（CCC）檢測",
   },
   {
     path: "/support/international_multilateral_systems_on_mutual_recognition",
