@@ -26,7 +26,7 @@ export const MedicalTesting: React.FC = () => {
       title: "Medical Testing",
       file: "What You Need to Know about Medical Testing",
       benefits_of: "Benefit of Medical Testing & Certification",
-      reliable_test: `Reliable test results are crucial for proper diagnosis and treatment. The technical competence of a laboratory depends on a number of factors including equipment, sampling procedure and qualifications of chemists. Each aspect of them could affect the accuracy of test results.`,
+      reliable_test: `Reliable test results are crucial for proper diagnosis and treatment. The technical competence of a laboratory depends on a number of factors including equipment, examination methods and competence of personnel. Each aspect of them could affect the accuracy of test results.`,
       accreditation_is: (
         <>
           Accreditation is the third-party recognition to affirm a medical
@@ -44,7 +44,7 @@ export const MedicalTesting: React.FC = () => {
             Hong Kong Laboratory Accreditation Scheme (HOKLAS)
           </a>
           . It is a voluntary scheme open to participation from any medical
-          laboratories.
+          laboratories in Hong Kong.
         </>
       ),
 
@@ -84,7 +84,7 @@ export const MedicalTesting: React.FC = () => {
       file: "選擇醫務化驗須知",
       benefits_of: "醫務化驗和認證帶來的好處",
       reliable_test:
-        "可靠的化驗結果對作出適當診斷與治療十分重要。化驗所的技術能力取決於多項條件，包括設備、樣本處理程序和化驗員的資歷水平，每個環節均有機會影響化驗報告的準確性。",
+        "可靠的化驗結果對作出適當診斷與治療十分重要。化驗所的技術能力取決於多項條件，包括設備、測試方法和人員的能力，每個環節均有機會影響化驗報告的準確性。",
 
       accreditation_is: (
         <>
