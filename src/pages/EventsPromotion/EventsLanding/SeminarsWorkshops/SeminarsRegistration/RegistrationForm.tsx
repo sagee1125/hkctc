@@ -705,8 +705,6 @@ export const RegistrationForm: React.FC = () => {
                 <div className="flex flex-row">
                   <Checkbox
                     name="aboutSeminar"
-                    tabIndex={0}
-                    role="checkbox"
                     aria-label="About Seminar"
                     aria-labelledby="aboutSeminarLabel"
                     aria-checked={registrationFormik.values.aboutSeminar.includes(
