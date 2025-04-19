@@ -52,17 +52,17 @@ export const EducatorsStudentsContent: React.FC = () => {
     {
       title: career_fairs as string,
       imgUrl: "Career_Talks.png",
-      link: "/career_and_education?section=career_opportunities",
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
     },
     {
       title: laboratory_visits as string,
       imgUrl: "Career_Laboratory.png",
-      link: "/career_and_education?section=career_opportunities",
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
     },
     {
       title: summer_internship as string,
       imgUrl: "Career_Internships.png",
-      link: "/career_and_education?section=career_opportunities",
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
     },
   ];
 
@@ -120,8 +120,6 @@ export const EducatorsStudentsContent: React.FC = () => {
             <a
               key={index}
               href={link}
-              target={"_blank"}
-              rel={"noopener noreferrer"}
               className="flex flex-col justify-start group border-2 border-inherit h-auto cursor-pointer"
               aria-label={title as string}
             >
@@ -178,8 +176,6 @@ export const EducatorsStudentsContent: React.FC = () => {
                 <a
                   key={index}
                   href={link}
-                  target={"_blank"}
-                  rel={"noopener noreferrer"}
                   className="flex flex-row items-start mt-[24px] gap-[24px] cursor-pointer"
                   aria-label={title}
                 >
@@ -196,24 +192,25 @@ export const EducatorsStudentsContent: React.FC = () => {
               );
             })}
           </div>
-          <a
-            className="py-[24px] cursor-pointer"
-            href={"/events-promotion?section=comics"}
-            aria-label="redirect to comics list in events promotion section"
-          >
-            <div
-              aria-label="img"
-              style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Career_Charlie.png)`,
-                display: "flex",
-                backgroundSize: "100% auto",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center top",
-                position: "relative",
-                height: "134px",
-              }}
-            />
-          </a>
+          <div className="mt-[24px]">
+            <a
+              href={`/events-promotion?section=${navItemEnum.comics}`}
+              aria-label="redirect to comics list in events promotion section"
+            >
+              <div
+                aria-label="img"
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/assets/educatorsStudents/Career_Charlie.png)`,
+                  display: "flex",
+                  backgroundSize: "100% auto",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center top",
+                  position: "relative",
+                  height: "134px",
+                }}
+              />
+            </a>
+          </div>
           <hr className="pb-[24px]" />
           <EmailBox />
         </div>
