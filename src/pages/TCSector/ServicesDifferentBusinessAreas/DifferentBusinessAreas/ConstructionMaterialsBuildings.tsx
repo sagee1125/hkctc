@@ -46,7 +46,7 @@ const certificationBodiesMap: Record<CertificationBodies, HyperlinkData> = {
   [CertificationBodies.Fugro]: {
     label: "Fugro Certification Services Ltd.",
     labelCN: "輝固認證服務有限公司",
-    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB009.pdf",
+    link: "https://www.itc.gov.hk/en/quality/hkas/doc/scopes/CB010.pdf",
   },
   [CertificationBodies.HongKongQuality]: {
     label: "Hong Kong Quality Assurance Agency",
