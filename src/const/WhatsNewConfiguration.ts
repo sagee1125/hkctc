@@ -60,7 +60,7 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     date: "9 Oct 2024",
     imagePath: "whatsnew_1.png",
     imagePathSwitch: "Trade_Show_1.png",
-    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
+    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=agreement_on_trade_in_services#1`,
   },
   {
     title:
@@ -92,7 +92,7 @@ export const WhatsNewConfiguration: WhatsNewData[] = [
     title: "“The BUD Fund - Easy BUD” has been launched",
     date: "16 Jun 2023",
     imagePath: "whatsnew_6.png",
-    redirectTo: "/support?section=funding_schemes",
+    redirectTo: "/support?section=funding_schemes&scroll_id=TID&funding_id=BUD",
   },
 ];
 
@@ -116,7 +116,7 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
     date: "2024年10月9日",
     imagePath: "whatsnew_1.png",
     imagePathSwitch: "Trade_Show_1.png",
-    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}#1`,
+    redirectTo: `/support?section=${navItemEnum.entering_into_the_mainland_market}&scroll_id=agreement_on_trade_in_services#1`,
   },
   {
     title: "2023-2024年度香港檢測和認證局報告已經上載",
@@ -146,6 +146,6 @@ export const WhatsNewConfiguration_cn: WhatsNewData[] = [
     title: "「BUD專項基金」——申請易經已推出",
     date: "2023年6月16日",
     imagePath: "whatsnew_6.png",
-    redirectTo: "/support?section=funding_schemes&scroll_id=BUD",
+    redirectTo: "/support?section=funding_schemes&scroll_id=TID&funding_id=BUD",
   },
 ];

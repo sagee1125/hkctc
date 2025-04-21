@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FileTemplate, SquareTitle } from "../../../components";
 import { useSettings } from "../../../context";
 
@@ -54,6 +54,17 @@ const multilingual = {
 export const CareerOpportunities: React.FC = () => {
   const { getPageText } = useSettings();
   const page_text = getPageText(multilingual);
+
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
+
   const {
     title,
     intro,
@@ -69,6 +80,7 @@ export const CareerOpportunities: React.FC = () => {
     summer_internship,
     internship,
   } = page_text;
+
   return (
     <div className="w-full">
       <SquareTitle title={title as string} />
@@ -80,7 +92,12 @@ export const CareerOpportunities: React.FC = () => {
       </div>
 
       <hr className="my-[24px] text-[#E0E0E0]" />
-      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+      <p
+        className="text-heading-l mb-[24px]"
+        role="heading"
+        aria-level={10}
+        id="career_visits"
+      >
         {career_visits as string}
       </p>
 
@@ -140,7 +157,12 @@ export const CareerOpportunities: React.FC = () => {
 
       <hr className="my-[24px] text-[#E0E0E0]" />
 
-      <p className="text-heading-l mb-[24px]" role="heading" aria-level={10}>
+      <p
+        className="text-heading-l mb-[24px]"
+        role="heading"
+        aria-level={10}
+        id="summer_internship"
+      >
         {summer_internship as string}
       </p>
       <p className="text-body-m text-justify">

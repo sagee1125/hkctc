@@ -183,7 +183,7 @@ export const routesConfiguration: RouteConfig[] = [
     path: "/events-promotion/seminars-registration",
     element: <SeminarsRegistration />,
     title: "Register for New Seminars",
-    titleCN: "注冊參加研討會",
+    titleCN: "註冊參加研討會",
   },
   {
     path: "/tc-sector",

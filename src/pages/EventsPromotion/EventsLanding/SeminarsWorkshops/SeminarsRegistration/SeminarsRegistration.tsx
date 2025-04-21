@@ -62,7 +62,7 @@ export const SeminarsRegistration: React.FC = () => {
     {
       label: "Register for New Seminars",
       value: "Register for New Seminars",
-      labelCN: "注冊參加研討會",
+      labelCN: "註冊參加研討會",
     },
   ];
   const sidebarContentMapping: Record<string, React.ReactNode> = {

@@ -15,7 +15,7 @@ import { Radio } from "../../../../../components/Radio/Radio";
 import { Checkbox } from "../../../../../components/Checkbox/Checkbox";
 import { Select } from "../../../../../components/Select/Select";
 import { handleReadySubmit } from "../../../../../utils";
-import { useSettings } from "../../../../../context";
+import { Language, useSettings } from "../../../../../context";
 
 type RegistrationFormData = {
   title: string;
@@ -64,7 +64,7 @@ export const RegistrationForm: React.FC = () => {
     },
   ];
 
-  const { processText } = useSettings();
+  const { language, processText } = useSettings();
 
   const registrationFormik = useFormik<RegistrationFormData>({
     initialValues: {
@@ -140,7 +140,9 @@ export const RegistrationForm: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-[24px]">
       <div>
-        <p className="text-highlight-s text-[#666666]">Join New Seminar</p>
+        <p className="text-highlight-s text-[#666666]">
+          {language === Language.EN ? "Join New Seminar" : "註冊參加研討會"}
+        </p>
         <p className="text-heading-l" aria-level={10} role="heading">
           XXX Seminar - Registration
         </p>
@@ -896,7 +898,7 @@ export const RegistrationForm: React.FC = () => {
               lineHeight: "22px",
             }}
           >
-            Submit
+            {language === Language.EN ? "Submit" : "提交"}
           </Button>
         </div>
       </form>

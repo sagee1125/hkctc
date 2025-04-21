@@ -577,7 +577,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "實地量度室內空氣質素參數（例如空氣流動速度、一氧化碳、揮發性有機化合物等）",
         "評核室內空氣質素是否符合指標",
       ],
-      testing_and_inspection_title: "樓宇及建築材料認可測試及檢驗服務",
+      testing_and_inspection_title: "樓宇及建築材料的測試及檢驗服務",
       testing_and_inspection: "香港的樓宇及建築材料認可測試及檢驗服務",
       col_one: [
         "混凝土",

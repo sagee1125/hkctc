@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   type BusinessAreaTitle,
   DifferentBusinessAreasDirectorySidebar,
@@ -763,7 +763,7 @@ export const EnvironmentalProtection: React.FC = () => {
             the&nbsp;
             <a
               aria-label="HKAS's website  – opens in a new tab"
-              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
+              href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hkcas.html"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-[#00E]"
@@ -794,6 +794,16 @@ export const EnvironmentalProtection: React.FC = () => {
     [Language.ZH_TW]: "https://www.youtube.com/embed/OXaj7f9-ZOk",
     [Language.ZH_CN]: "https://www.youtube.com/embed/OXaj7f9-ZOk",
   };
+
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
 
   const content = (
     <>
@@ -827,7 +837,7 @@ export const EnvironmentalProtection: React.FC = () => {
 
       <hr className="my-[24px]" />
 
-      <div className="text-heading-l mb-[24px]">
+      <div className="text-heading-l mb-[24px]" id="iso_energy">
         {page_text.iso_energy as React.ReactNode[]}
       </div>
       <FileTemplate

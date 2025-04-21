@@ -52,17 +52,17 @@ export const EducatorsStudentsContent: React.FC = () => {
     {
       title: career_fairs as string,
       imgUrl: "Career_Talks.png",
-      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}&scroll_id=career_visits`,
     },
     {
       title: laboratory_visits as string,
       imgUrl: "Career_Laboratory.png",
-      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}&scroll_id=career_visits`,
     },
     {
       title: summer_internship as string,
       imgUrl: "Career_Internships.png",
-      link: `/career_and_education?section=${navItemEnum.career_opportunities}`,
+      link: `/career_and_education?section=${navItemEnum.career_opportunities}&scroll_id=summer_internship`,
     },
   ];
 

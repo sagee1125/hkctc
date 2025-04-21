@@ -174,7 +174,7 @@ const TestingService: React.FC = () => {
           中藥
         </Link>
         、
-        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+        <Link innerLink="/tc-sector/jewellery" linkColor="ink">
           珠寶
         </Link>
         等提供支援，以應付本地需求。
@@ -202,7 +202,7 @@ const TestingService: React.FC = () => {
           中药
         </Link>
         、
-        <Link innerLink="/tc-sector/chinese_medicines" linkColor="ink">
+        <Link innerLink="/tc-sector/jewellery" linkColor="ink">
           珠宝
         </Link>
         等提供支持，以应付本地需求。
@@ -414,7 +414,7 @@ const CertificateService: React.FC = () => {
           14001環境管理體系認證、
           <a
             className="!text-highlight-s underline text-newPrimary"
-            href="/tc-sector/environmental_protection"
+            href="/tc-sector/environmental_protection?scroll_id=iso_energy"
             aria-label="ISO 50001能源管理體系認證"
           >
             ISO 50001能源管理體系認證
@@ -566,15 +566,13 @@ export const ServiceProvided: React.FC = () => {
         管理體系
         <br />
         產品
-        <br />
-        溫室氣體聲明書
       </>,
       <>
         一般屬較長期
         <br />
         （例如一年）
       </>,
-      "認證證書；溫室氣體審定和核查報告",
+      "認證證書",
     ],
   ];
   return (
