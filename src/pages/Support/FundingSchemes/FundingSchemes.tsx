@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ITF, TID } from "./SchemesSummary";
 import {
   // TVP,
@@ -20,7 +20,7 @@ import { Language, LanguageResources, useSettings } from "../../../context";
 
 const tidMap: Record<
   string,
-  { label: string; labelCN: string; content: React.ReactNode }
+  { label: string; id?: string; labelCN: string; content: React.ReactNode }
 > = {
   Summary: {
     label: `Summary`,
@@ -289,18 +289,34 @@ export const FundingSchemes: React.FC = () => {
     Object.keys(ITFMap)[0]
   );
 
+  // All scroll Id: ITF, PASS, TID, TCJS
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
-  const tidMapKeys = Object.keys(tidMap);
-  const [activeTIDFunding, setActiveTIDFunding] = useState<string>(
-    scrollId === "BUD" ? tidMapKeys[1] : tidMapKeys[0]
+  const fundingId = new URLSearchParams(window.location.search).get(
+    "funding_id"
   );
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
+
+  const tidMapKeys = Object.keys(tidMap);
+
+  // All funding id: Summary, BUD, TSF, SMEExportMarketingFund, SMELoanGuaranteeScheme
+  const [activeTIDFunding, setActiveTIDFunding] = useState<string>(
+    fundingId ?? tidMapKeys[0]
+  );
+
   return (
     <div className="w-full">
       <SquareTitle title={funding_schemes as string} />
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id="ITF">
         <Accordion
           title={(ITF as LanguageResources).title as string}
+          defaultExpanded={scrollId === "ITF"}
           details={
             <div className="text-body-m !text-justify w-full">
               <p>{(ITF as LanguageResources).ITF_aims_to as string}</p>
@@ -341,9 +357,10 @@ export const FundingSchemes: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id="PASS">
         <Accordion
           title={(PASS as LanguageResources).title as string}
+          defaultExpanded={scrollId === "PASS"}
           details={
             <div>
               {
@@ -390,10 +407,10 @@ export const FundingSchemes: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id="TID">
         <Accordion
           title={(TID as LanguageResources).title as string}
-          defaultExpanded={scrollId === "BUD"}
+          defaultExpanded={scrollId === "TID"}
           details={
             <div>
               <p className="text-body-m my-[16px]">
@@ -438,9 +455,10 @@ export const FundingSchemes: React.FC = () => {
         />
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[24px]" id="TCJS">
         <Accordion
           title={(TCJS as LanguageResources).title as string}
+          defaultExpanded={scrollId === "TCJS"}
           details={
             <div>
               <p className="!text-body-m">
