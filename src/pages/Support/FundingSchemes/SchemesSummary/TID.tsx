@@ -33,7 +33,7 @@ const rowsCN = [
     schemeName: "BUD 專項基金（企業支援計劃）",
     schemeNameHyperLink: "https://www.bud.hkpc.org/",
     objective: "支援品牌發展、升級轉型及市場拓展",
-    targetAudience: "中小企業（SMEs）",
+    targetAudience: "中小企業",
     fundingAmount: `視乎計劃（例如：「BUD 申請易」最高 HK$100,000）`,
   },
   {
@@ -49,7 +49,7 @@ const rowsCN = [
     schemeNameHyperLink:
       "https://www.smefund.tid.gov.hk/tc_chi/emf/emf_objective.html",
     objective: "支援出口推廣活動",
-    targetAudience: "中小企業（SMEs）",
+    targetAudience: "中小企業",
     fundingAmount: `每次最高 HK$100,000，累計上限 HK$400,000`,
   },
   {
@@ -57,7 +57,7 @@ const rowsCN = [
     schemeNameHyperLink:
       "https://www.smefund.tid.gov.hk/tc_chi/sgs/sgs_objective.html",
     objective: "提供貸款擔保以支援設備投資及營運資金",
-    targetAudience: "中小企業（SMEs）",
+    targetAudience: "中小企業",
     fundingAmount: `最高 HK$600 萬`,
   },
 ];

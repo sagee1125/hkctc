@@ -389,13 +389,13 @@ export const ProfileAndRole: React.FC = () => {
   }> = [
     {
       title: (data as string[])[0],
-      imagePath: "Statistics.png",
+      imagePath: "Statistics_2.png",
       link: "/en/doc/HKCTC_StatPresentation_English.pdf",
       tcLink: "/tc/doc/HKCTC_StatPresentation_Chinese.pdf",
     },
     {
       title: (data as string[])[1],
-      imagePath: "KeyData.png",
+      imagePath: "KeyData_2.png",
       link: "/en/doc/Statistics_2009to2022_eng.pdf",
       tcLink: "/tc/doc/Statistics_2009to2022_chi.pdf",
     },
