@@ -22,7 +22,7 @@ export const MediaTemplate: React.FC<
     horizontal: (
       <a
         className={`border-2 border-[#E0E0E0] w-full flex ${
-          isPC || isTablet ? "flex-row h-[278px]" : "flex-col"
+          isPC || isTablet ? "flex-row h-[280px]" : "flex-col"
         } gap-[24px] cursor-pointer`}
         href={mediaLink}
         target={mediaLink ? "_blank" : undefined}
@@ -42,11 +42,14 @@ export const MediaTemplate: React.FC<
       >
         <div
           className={`flex-shrink-0 relative ${
-            isPC || isTablet ? "h-[280px] w-[390px]" : "h-full w-auto"
+            isPC || isTablet ? "h-[276px] w-[390px]" : "h-full w-auto"
           }`}
         >
           <img
             className="w-full h-full object-cover"
+            style={{
+              overflow: "hidden",
+            }}
             src={process.env.PUBLIC_URL + imagePath}
             alt={title}
           />

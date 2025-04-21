@@ -122,9 +122,9 @@ export const Jewellery: React.FC = () => {
       Laboratories_Accredited: "獲香港認可處認可的寶石測試實驗所",
       hk_accredited_lab: (
         <>
-          香港的認可實驗所按香港寶石學協會出版的
+          香港的認可實驗所按香港寶石學協會有限公司出版的
           <a
-            aria-label="《香港翡翠測試方法》"
+            aria-label="《香港翡翠標準測試方法》"
             href={
               language === Language.ZH_TW
                 ? "http://www.gahk.org/tc/gemtest.asp"
@@ -134,11 +134,11 @@ export const Jewellery: React.FC = () => {
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            《香港翡翠測試方法》
+            《香港翡翠標準測試方法》
           </a>
           及
           <a
-            aria-label="《香港標準測試方法》"
+            aria-label="《香港鑽石標準測試方法》"
             href={
               language === Language.ZH_TW
                 ? "http://www.gahk.org/tc/gemtest.asp"
@@ -148,7 +148,7 @@ export const Jewellery: React.FC = () => {
             rel="noopener noreferrer"
             className="underline text-[#00E]"
           >
-            《香港標準測試方法》
+            《香港鑽石標準測試方法》
           </a>
           進行鑑定。
           <br />
@@ -167,7 +167,7 @@ export const Jewellery: React.FC = () => {
           >
             香港認可處網頁
           </a>
-          。（請於「服務」下，選擇測試類別「物理及機械測試」，以搜尋有關實驗所。）
+          。（請於「服務」下，選擇測試類別「物理及機械測試」及測試範圍「寶石測試」，以搜尋有關實驗所。）
         </>
       ),
     },
