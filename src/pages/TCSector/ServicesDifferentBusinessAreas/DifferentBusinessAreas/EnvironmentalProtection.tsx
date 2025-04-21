@@ -4,7 +4,7 @@ import {
   DifferentBusinessAreasDirectorySidebar,
   handleReturnDifferentBusinessAreasBreadcrumb,
 } from "./utils";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import {
   Accordion,
   BannerPhotoBox,
@@ -12,6 +12,7 @@ import {
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
+  MediaTemplateWithDialog,
   SquareTitle,
   activatedButtonStyle,
   fullContainer,
@@ -801,7 +802,11 @@ export const EnvironmentalProtection: React.FC = () => {
     const element = document.getElementById(scrollId as string);
 
     if (scrollId && element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   }, [scrollId]);
 
@@ -840,12 +845,18 @@ export const EnvironmentalProtection: React.FC = () => {
       <div className="text-heading-l mb-[24px]" id="iso_energy">
         {page_text.iso_energy as React.ReactNode[]}
       </div>
-      <FileTemplate
-        title={page_text.iso_energy as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001.png"
-        pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO50001.pdf"
-      />
 
+      <div className="w-full flex flex-row gap-[24px]">
+        <MediaTemplateWithDialog
+          title={page_text.iso_energy as string}
+          mediaLink={"/en/doc/2017_ITC_Leaflet_ISO50001.pdf"}
+          mediaDomain={"hkctc"}
+          direction={"row"}
+          date=""
+          mediaType={MEDIA_TYPE.PDF}
+          fontSize="text-highlight-m"
+        />
+      </div>
       <div className="w-full flex flex-col gap-[24px] my-[24px]">
         {EnMsData.map((item, index) => (
           <Accordion
