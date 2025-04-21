@@ -51,6 +51,30 @@ ol {
   unicode-bidi: isolate;
 }
 
+
+.bl {
+  counter-reset: section;  
+  list-style: none !important;
+  padding-left: 0 !important;
+   margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+
+.bl li {
+  position: relative; 
+  padding-left: 30px;  
+  margin-bottom: 8px;  
+}
+
+.bl li::before {
+  counter-increment: section;
+  content: "(" counter(section) ")";
+  position: absolute;
+  left: 0;  
+  font-weight: normal; 
+ }
+
 li {
   display: list-item !important;
   text-align: -webkit-match-parent;

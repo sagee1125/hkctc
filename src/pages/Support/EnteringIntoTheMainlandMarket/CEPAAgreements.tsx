@@ -103,10 +103,11 @@ export const CEPAAgreements: React.FC = () => {
           </ul>
           <br />
           <p className="text-body-m">
-            The above measures will come into effect on 1 March 2025. The State
-            Administration for Market Regulation will promulgate the&nbsp;
+            The above measures come into effect on 1 March 2025. Detailed
+            arrangements on the implementation of the above measures have been
+            set out in the&nbsp;
             <a
-              aria-label="implementation guide"
+              aria-label="Implementation Guide"
               href={
                 "https://www.hkctc.gov.hk/en/doc/202502_CEPA_TradeinServices_ImplementationGuide_en.pdf"
               }
@@ -114,9 +115,9 @@ export const CEPAAgreements: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              implementation guide
+              Implementation Guide
             </a>
-            &nbsp;in due course.
+            &nbsp;promulgated by CNCA.
           </p>
         </>
       ),
