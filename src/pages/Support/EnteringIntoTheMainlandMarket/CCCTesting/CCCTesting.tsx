@@ -50,7 +50,7 @@ export const CCCTesting: React.FC = () => {
           relevant accreditation from HKAS could be viewed at&nbsp;
           <a
             aria-label="HKAS's website  – opens in a new tab"
-            href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/index.html"
+            href="https://www.itc.gov.hk/en/quality/hkas/accreditation/ccc.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"

@@ -26,18 +26,18 @@ const multilingual = {
         standardisation. Accordingly, the following is added to Article 5.2.4 of
         Annex 6 to "CEPA" - Certification, accreditation and standardisation
         Management:`,
-    promote_Guangdong: ` "(1) promote Guangdong and Hong Kong mutual recognition of testing and
+    promote_Guangdong: ` promote Guangdong and Hong Kong mutual recognition of testing and
         certification results in respect of third-party testing and
         certification services;`,
-    accordance_with_specific: `(2) in accordance with specific certification requirements, promote
+    accordance_with_specific: `in accordance with specific certification requirements, promote
         Guangdong and Hong Kong mutual recognition of testing and certification
         results in respect of voluntary certification;`,
-    with_regard_to: `(3) with regard to promoting mutual recognition of testing and
+    with_regard_to: `with regard to promoting mutual recognition of testing and
         certification results under the China Compulsory Certification (CCC)
         System, the two sides agree to observe the relevant requirements of the
         related national laws, rules, regulations and treaties, including the
         Regulations on Certification and Accreditation of the People's Republic
-        of China and CEPA."`,
+        of China and CEPA.`,
   },
   cn: {
     title: "《CEPA補充協議十》 – 有關條文",
@@ -53,9 +53,9 @@ const multilingual = {
     measures_in_Facilitating: `貿易投資便利化的措施（節錄自《CEPA補充協議十》主體文件）：`,
     trade_and_Investment: `三、貿易投資便利化`,
     two_sides_agreed: `（一）雙方同意進一步加強商品檢驗檢疫、食品安全、質量標準領域的合作，並據此將《安排》附件6第五條第（二）款第4項認證認可及標準化管理增加以下內容：`,
-    promote_Guangdong: `(1) 推動粵港第三方檢測和認證服務的檢測認證結果互認。`,
-    accordance_with_specific: `(2) 按照具體認證的要求，推動粵港自願認證的認證檢測結果互認。`,
-    with_regard_to: `(3) 對於推動強制性產品認證（CCC認證）檢測認證結果互認問題，遵照《中華人民共和國認證認可條例》、《安排》［CEPA］等國家相關法律法規、條約的相關規定執行。`,
+    promote_Guangdong: `推動粵港第三方檢測和認證服務的檢測認證結果互認。`,
+    accordance_with_specific: `按照具體認證的要求，推動粵港自願認證的認證檢測結果互認。`,
+    with_regard_to: `對於推動強制性產品認證（CCC認證）檢測認證結果互認問題，遵照《中華人民共和國認證認可條例》、《安排》［CEPA］等國家相關法律法規、條約的相關規定執行。`,
   },
 };
 
@@ -188,8 +188,10 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
     </p>,
   ];
 
-  const specificCommitments =
-    language === Language.EN ? specificCommitments_EN : specificCommitments_CN;
+  const isEn = language === Language.EN;
+  const specificCommitments = isEn
+    ? specificCommitments_EN
+    : specificCommitments_CN;
 
   const {
     title,
@@ -245,20 +247,23 @@ export const SupplementXtoCEPAClauses: React.FC = () => {
       <div className="text-heading-m mb-[24px]">
         {trade_and_Investment as React.ReactNode}
       </div>
-      <p className="text-body-m  text-justify">
+      <div className="text-body-m  text-justify">
         {two_sides_agreed as React.ReactNode}
-        <br />
-        <br />
-        {promote_Guangdong as React.ReactNode}
-
-        <br />
-        <br />
-        {accordance_with_specific as React.ReactNode}
-
-        <br />
-        <br />
-        {with_regard_to as React.ReactNode}
-      </p>
+      </div>
+      {/* defined in App.css */}
+      <ol className="bl text-body-m  text-justify">
+        <li className="mb-[1em]">
+          {isEn && '"'}
+          {promote_Guangdong as React.ReactNode}
+        </li>
+        <li className="mb-[1em]">
+          {accordance_with_specific as React.ReactNode}
+        </li>
+        <li>
+          {with_regard_to as React.ReactNode}
+          {isEn && '"'}
+        </li>
+      </ol>
       <hr className="my-[24px]" />
       <InternalBackButton
         targetUrl={`/support?section=${navItemEnum.entering_into_the_mainland_market}#2`}
