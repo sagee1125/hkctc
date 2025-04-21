@@ -119,7 +119,8 @@ const schemeOwnerCol: HyperlinkData[] = [
 
 const itemsPerPage = 9;
 export const ConstructionMaterialsBuildings: React.FC = () => {
-  const { isPC, language, getPageText, getSingleText } = useSettings();
+  const { isPC, language, getPageText, getSingleText, processLink } =
+    useSettings();
   const [currentPage, setCurrentPage] = useState(0);
 
   const multilingual = {
@@ -144,7 +145,27 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       laboratory_and_on_site: "Laboratory and on-site testing services",
       local_prod:
         "Local Product Certification Schemes for Construction Materialst",
-      the_following_prod: `The following product certification schemes are available in Hong Kong (as at 30 September 2022):`,
+      the_following_prod: (
+        <>
+          The following product certification schemes are available in Hong Kong
+          (as at 30 September 2022).
+          <br />
+          <br />
+          Please visit&nbsp;
+          <a
+            aria-label="HKAS's website  – opens in a new tab"
+            href={processLink(
+              "https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            HKAS's website
+          </a>
+          &nbsp;for latest information.
+        </>
+      ),
       table_headers: [
         "Product",
         "Name of Scheme",
@@ -157,7 +178,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "Inspection on production of construction materials (e.g., waterworks and paint)",
         "Indoor air quality measurement and inspection",
       ],
-      indoor_air: "Indoor Air Quality Measurement and Inspection",
+      indoor_air: "Inspection of construction products and welds",
 
       laboratories:
         "Laboratories Accredited by HKAS Providing Testing Services on Construction Materials",
@@ -177,32 +198,13 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           .
         </>
       ),
-      to_improve_indoor_air:
-        "To improve indoor air quality (IAQ) and promote public awareness, a voluntary IAQ Certification Scheme is launched by the Environmental Protection Department. IAQ inspection bodies provide the following measurement and inspection services for the IAQ Certification Scheme:",
-      to_improve_indoor_air_ways: [
-        "Walk-through inspection of premises/buildings",
-        "On-site measurements of IAQ parameters (e.g., air movement, carbon monoxide and volatile organic compounds)",
-        "IAQ compliance assessment",
-      ],
+      to_improve_indoor_air_ways:
+        "The construction products subject to inspection includes a wide variety of buildings, highways and waterworks products. The process may involve generic inspection methods and/or conducting specific types of product inspection (e.g. pre‐production, during and after production, preshipment, etc.) according to specific inspection methods or standards. Welding inspection includes inspection of welding procedures and weld quality.",
       testing_and_inspection_title:
         "Testing and Inspection Services for Construction Materials and Buildings",
       testing_and_inspection:
         "Testing and Inspection Services for Construction Materials and Buildings",
-      more_info: (
-        <>
-          More information is available on the&nbsp;
-          <a
-            aria-label="visit the website"
-            href="https://www.iaq.gov.hk/en/home/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            website
-          </a>
-          .
-        </>
-      ),
+      more_info: <></>,
       col_one: [
         "Concrete",
         "Fire Doors and Partition Walls",
@@ -304,6 +306,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "Chemical analysis of construction materials (e.g., concrete, cement, aggregate and steel)",
         "Calibration of construction materials testing equipment and other equipment",
         "On-site building diagnostic testing",
+        "Acoustic testing",
+        "Underground Utility Survey",
       ],
       building_diagnostic: "Building Diagnostic Testing",
       use_of_prod_BEAM:
@@ -509,7 +513,28 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "每隔三年進行重新評估，屆時亦會抽取樣本進行審核測試",
       ],
       local_prod: "本地的建築材料認證計劃",
-      the_following_prod: `下列是香港本地建築材料產品認證計劃的詳情（截至2022年9月30日）：（部份計劃可能只有英文版本）`,
+      the_following_prod: (
+        <>
+          下列是香港本地建築材料產品認證計劃的詳情（截至2022年9月30日）：（部份計劃可能只有英文版本）
+          <br />
+          <br />
+          請瀏覽
+          <a
+            aria-label="HKAS's website - opens in a new tab"
+            href={
+              language === Language.ZH_CN
+                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            香港認可處網頁
+          </a>
+          以獲取最新資訊。
+        </>
+      ),
       table_headers: [
         "產品",
         "計劃名稱",
@@ -526,9 +551,11 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "建築材料（如混凝土、水泥、骨料及鋼材等）化學分析",
         "建築材料測試儀器及其他儀器的校正",
         "實地樓宇診斷測試",
+        "聲學測試",
+        "地下管線檢測",
       ],
       building_diagnostic: "樓宇診斷測試",
-      indoor_air: "室內空氣質素檢驗",
+      indoor_air: "建築產品和焊接檢驗",
       laboratories: "獲香港認可處認可的樓宇及建築材料測試實驗所",
       bottom: (
         <>
@@ -549,34 +576,15 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           。
         </>
       ),
-      more_info: (
-        <>
-          如需更多資料，請瀏覽
-          <a
-            aria-label="網站"
-            href="https://www.iaq.gov.hk/en/home/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-[#00E]"
-          >
-            網站
-          </a>
-          。
-        </>
-      ),
+
       inspection_services: "檢驗服務",
       inspection_services_desc: [
         "建築工程焊接程序評核",
         "建築材料（如水務設施及塗料）生產程序檢驗",
         "室內空氣質素量度和檢驗",
       ],
-      to_improve_indoor_air: `為改善室內空氣質素，以及加強公眾對這方面的關注，環境保護署推出自願參與的「室內空氣質素檢定計劃」。室內空氣質素檢驗機構會就計劃提供下列測量及檢驗服務:`,
-
-      to_improve_indoor_air_ways: [
-        "實地視察處所/樓宇",
-        "實地量度室內空氣質素參數（例如空氣流動速度、一氧化碳、揮發性有機化合物等）",
-        "評核室內空氣質素是否符合指標",
-      ],
+      to_improve_indoor_air_ways:
+        "接受檢驗的建築產品包括多種建築物、公路和水務產品。過程可能涉及利用通用檢驗方法及/或根據特定檢驗方法或標準進行特定類型的產品檢驗（例如生產前、生產期間和生產後的檢驗，以及付運前檢驗等）。焊接檢驗包括對焊接程序和焊接質素的檢驗。",
       testing_and_inspection_title: "樓宇及建築材料的測試及檢驗服務",
       testing_and_inspection: "香港的樓宇及建築材料認可測試及檢驗服務",
       col_one: [
@@ -644,9 +652,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     inspection_services,
     inspection_services_desc,
     indoor_air,
-    to_improve_indoor_air,
     to_improve_indoor_air_ways,
-    more_info,
     testing_and_inspection_title,
     testing_and_inspection,
     col_one,
@@ -1019,17 +1025,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       contentTitle: indoor_air as string,
       content: (
         <div className="text-justify">
-          <p>{to_improve_indoor_air as string}</p>
-          <br />
-          <ul>
-            {(to_improve_indoor_air_ways as React.ReactNode[]).map(
-              (item, index) => (
-                <li key={index}>{item}</li>
-              )
-            )}
-          </ul>
-          <br />
-          <p>{more_info as React.ReactNode}</p>
+          {to_improve_indoor_air_ways as React.ReactNode[]}
         </div>
       ),
     },
