@@ -24,6 +24,7 @@ export type MediaTemplateWithDialogProps = {
   direction?: "column" | "row" | "full";
   titleUnderline?: boolean;
   thumbnail?: string;
+  fontSize?: "text-highlight-m";
 };
 export const handleGetPDFUrl = (
   domain: ProxyDomain,
@@ -59,6 +60,7 @@ export const MediaTemplateWithDialog: React.FC<
   direction = "column",
   titleUnderline = false,
   thumbnail = "",
+  fontSize,
 }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const { isPC, pdfjsLib } = useSettings();
@@ -410,8 +412,12 @@ export const MediaTemplateWithDialog: React.FC<
           </div>
           <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
             <div
-              className={`text-heading-${
-                isPC ? "m" : "xs"
+              className={`${
+                fontSize
+                  ? fontSize
+                  : isPC
+                  ? "text-heading-m"
+                  : "text-heading-xs"
               } text-start w-full group-hover:text-darkNavy group-hover:underline transition-all duration-300 ease-in-out`}
             >
               {title}
@@ -652,9 +658,13 @@ export const MediaTemplateWithDialog: React.FC<
               } h-full w-full`}
             >
               <div
-                className={`text-highlight-${isPC ? "l" : "xs"} ${
-                  titleUnderline ? "underline" : ""
-                }`}
+                className={`${
+                  fontSize
+                    ? fontSize
+                    : isPC
+                    ? "text-highlight-l"
+                    : "text-highlight-xs"
+                } ${titleUnderline ? "underline" : ""}`}
               >
                 {title}
               </div>

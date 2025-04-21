@@ -10,12 +10,13 @@ import {
   FileTemplate,
   InternalBackButton,
   MediaTemplate,
+  MediaTemplateWithDialog,
   SquareTitle,
   fullContainer,
   maxMobileContainer,
   maxPCContainer,
 } from "../../../../components";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { Language, LanguageResources, useSettings } from "../../../../context";
 
 export const Jewellery: React.FC = () => {
@@ -199,22 +200,38 @@ export const Jewellery: React.FC = () => {
           mediaLink={youtubeTemplateLink[language]}
         />
       </div>
+
       <div
         className={`grid grid-cols-${
           isPC ? "2" : "1"
-        } w-full gap-[24px] mb-[24px]`}
+        } w-full gap-[24px] mb-[24px] items-start`}
       >
-        <FileTemplate
-          title={page_text.file_title_1 as string}
-          imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui.png"
-          pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
-        />
-        <FileTemplate
-          title={page_text.file_title_2 as string}
-          imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF.png"
-          pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
-        />
+        <div className="w-full flex flex-row gap-[24px]">
+          <MediaTemplateWithDialog
+            title={page_text.file_title_1 as string}
+            mediaLink={
+              "/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
+            }
+            mediaDomain={"hkctc"}
+            direction={"row"}
+            date=""
+            mediaType={MEDIA_TYPE.PDF}
+            fontSize="text-highlight-m"
+          />
+        </div>
+        <div className="w-full flex flex-row gap-[24px]">
+          <MediaTemplateWithDialog
+            title={page_text.file_title_2 as string}
+            mediaLink={"/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"}
+            mediaDomain={"hkctc"}
+            direction={"row"}
+            date=""
+            mediaType={MEDIA_TYPE.PDF}
+            fontSize="text-highlight-m"
+          />
+        </div>
       </div>
+
       <div className="text-heading-l">
         {page_text.testing_fei_cui as React.ReactNode}
       </div>
