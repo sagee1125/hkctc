@@ -167,7 +167,7 @@ export const AccreditationServices: React.FC = () => {
           {thisFullListMapping[language] as React.ReactNode}
         </p>
         <hr className="my-[24px]" />
-        <p className="text-heading-m">{establishments as string}</p>
+        <p className="text-heading-l">{establishments as string}</p>
         <div className="text-body-l mt-[24px] text-justify">
           {establishments_content as string}
         </div>
