@@ -59,7 +59,7 @@ export const MedicalTesting: React.FC = () => {
           The laboratories providing accredited testing services on Medical
           Testing are available at&nbsp;
           <a
-            aria-label="HKAS's website  – opens in a new tab"
+            aria-label="HKAS's website - opens in a new tab"
             href="https://www.itc.gov.hk/en/quality/hkas/conformity_assessment_bodies/hoklas.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export const MedicalTesting: React.FC = () => {
             href={
               language === Language.ZH_TW
                 ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
-                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html#t_services"
             }
             target="_blank"
             rel="noopener noreferrer"
