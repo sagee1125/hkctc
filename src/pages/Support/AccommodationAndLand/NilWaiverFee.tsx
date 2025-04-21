@@ -442,7 +442,7 @@ const eligibilityQuesCN = [
       "我們正計劃在香港設立一所新的測試實驗所，但從未在香港經營該業務，這樣我們會否受惠於此措施？",
     answer: (
       <>
-        會，惟你們須首先為擬設立的測試實驗所物色樓宇，並查看土地契約和法定圖則上所屬土地用途地帶的限制，以核實有關樓宇是否屬於新措施所涵蓋的工業大廈。如樓宇業主有意在此措施下申請豁免書以容許作測試實驗所用途，可由本人或其獲授權代表向地政總署提出申請。另請參閱上文問I.1的答覆。
+        會，惟你們須首先為擬設立的測試實驗所物色樓宇，並查看土地契約和法定圖則上所屬土地用途地帶的限制，以核實有關樓宇是否屬於新措施所涵蓋的工業大廈。如樓宇業主有意在此措施下申請豁免書以容許作測試實驗所用途，可由本人或其獲授權代表向地政總署提出申請。另請參閱上文問1的答覆。
       </>
     ),
   },
@@ -596,8 +596,8 @@ export const NilWaiverFee: React.FC = () => {
             aria-label="作業備考編號1/2016"
             href={
               language === Language.ZH_TW
-                ? "https://www.landsd.gov.hk/tc/legco/lpn.htm"
-                : "https://www.landsd.gov.hk/sc/legco/lpn.htm"
+                ? "https://www.landsd.gov.hk/tc/resources/practice-notes/lao.html"
+                : "https://www.landsd.gov.hk/sc/resources/practice-notes/lao.html"
             }
             target="_blank"
             rel="noopener noreferrer"
