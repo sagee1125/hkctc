@@ -70,7 +70,7 @@ export const PhotoPanel: React.FC = () => {
               ...imgBox,
               cursor: "pointer",
             }}
-            href={`/career_and_education?section=${navItemEnum.programmes_and_courses}`}
+            href={`/career_and_education?section=qualifications_framework`}
           >
             <div style={overlayStyle} />
             <div className="flex items-end w-full h-full pl-[24px] pb-[34px]">

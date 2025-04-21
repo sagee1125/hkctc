@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SquareTitle, Link } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
 
@@ -41,6 +41,16 @@ const multilingual = {
 export const StudentCompetition: React.FC = () => {
   const { getPageText, isPC, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
+
+  const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
+
+  useEffect(() => {
+    const element = document.getElementById(scrollId as string);
+
+    if (scrollId && element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollId]);
 
   const {
     title,
@@ -134,6 +144,7 @@ export const StudentCompetition: React.FC = () => {
       <div className="text-heading-l">{awardees_list as string}</div>
 
       <div
+        id="awardees_list"
         className={`w-full ${
           isPC
             ? "grid grid-cols-3 gap-x-[24px] gap-y-[24px]"
@@ -213,6 +224,7 @@ export const StudentCompetition: React.FC = () => {
 
       <div className="text-heading-l">{hk_youth_science as string}</div>
       <div
+        id="hk_youth_science"
         className={`w-full grid grid-cols-${
           isPC ? "2 gap-x-[24px]" : "1 gap-[24px]"
         }`}

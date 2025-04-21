@@ -710,6 +710,7 @@ export const CEPAAgreements: React.FC = () => {
       </p>
     </>
   );
+  
   const IX_to_CEPA = (
     <>
       <p className="text-body-m">
@@ -747,6 +748,7 @@ export const CEPAAgreements: React.FC = () => {
       </p>
     </>
   );
+
   const IX_to_CEPA_CN = (
     <>
       <p className="text-body-m">
@@ -1045,6 +1047,8 @@ export const CEPAAgreements: React.FC = () => {
       </p>
     </>
   );
+
+
   return (
     <div className="w-full">
       <SquareTitle title={title as string} />
