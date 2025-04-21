@@ -532,14 +532,7 @@ export const NilWaiverFee: React.FC = () => {
       ),
       summary: {
         title: `Summary`,
-        content: [
-          `The Government introduces this policy measure effective as from 1 February 2016 to facilitate the operation of testing and calibration laboratories (hereunder referred to as "testing laboratories") in industrial building. The Government hopes that this measure would offer testing laboratories more choices of suitable space in the market.`,
-          `The leases of industrial buildings1 usually contain user restrictions. The uses permitted under such leases are typically specified as "industrial and/or godown purposes". However, testing laboratories not involving a primary manufacturing use are not considered as industrial use in the context of land leases.`,
-          `The owner (or his/her agent) intending to use part(s) of or an entire industrial building can apply to LandsD for a waiver of the user condition of the land lease to allow testing laboratory use for the lifetime of the existing industrial building, or until the expiry or termination of the current land lease, whichever is the earlier.`,
-          `For an approved application to LandsD for a waiver under this measure, the Government will exempt the waiver fee otherwise be chargeable for issuing waivers to allow use as a testing laboratory. However, applicants would need to pay an administrative fee as and when demanded by LandsD.`,
-          `Applications would only be accepted if the premises concerned are located in an industrial building where testing laboratory use is permitted under the current land use zoning of the site on the statutory plan, or is subject to a valid planning permission granted by the Town Planning Board (TPB), or is considered as an existing use under the provisions of the statutory plan.`,
-          `Innovation and Technology Commission (ITC) will advise LandsD whether or not the use as stated in an application is an eligible testing laboratory use.`,
-        ],
+
         background_information: `For background information, please refer to the Legislative Council Brief:`,
         note: `Note 1: An industrial building refers to a building lawfully erected on a lot which, under the lease conditions, shall not be used for any purpose other than for industrial and/or godown purposes. Industrial buildings do not include special factories such as those located in storage premises in container terminals and flatted factories built by the Hong Kong Housing Authority, or lots for special industries such as cargo handling uses, ship building and repairing, oil storage and refining and production of associated chemical by-product, manufacture of polystyrene plastics, manufacture and storage of chlorine, hydrogen and textile chemicals, etc.`,
         legislative_council_brief: `Legislative Council Brief`,
@@ -550,6 +543,7 @@ export const NilWaiverFee: React.FC = () => {
           </>
         ),
       },
+
       enquiries: `Enquiries`,
       for_enquiries_on_whether: (
         <>
@@ -591,7 +585,7 @@ export const NilWaiverFee: React.FC = () => {
 
       the_measure_is: (
         <>
-          施在2016年2月1日起生效。申請程序的詳情於地政總署
+          措施在2016年2月1日起生效。申請程序的詳情於地政總署
           <a
             aria-label="作業備考編號1/2016"
             href={
@@ -610,14 +604,7 @@ export const NilWaiverFee: React.FC = () => {
       ),
       summary: {
         title: `概要`,
-        content: [
-          `政府於2016年2月1日起實施這項措施，以協助測試及校正實驗所（下稱「測試實驗所」）於工業大廈營運。政府希望藉此為測試實驗所於市場提供更多可選擇的合適地方。`,
-          `工業大廈1的土地契約一般載有用途限制，有關契約容許的用途通常指定為「工業及／或倉庫」用途。然而，沒有涉及主要製造用途的測試實驗所，在一般工業契約下，不被視作工業用途。`,
-          `全幢或部份工業大廈的業主（或其代理人）可向地政總署申請豁免土地契約下用途條件的限制，以容許在現有工業大廈的整段使用期內或直至現行土地契約期屆滿或終止為止(以較早的日期為準)，作測試實驗所用途。`,
-          `如在這措施下向地政總署申請豁免書獲批核，政府將免收在一般情況下發出豁免書以容許作測試實驗所用途所須徵收的豁免書費用。然而，申請人須按地政總署的要求繳付行政費用。`,
-          `申請只會在以下情況下獲得接納：有關樓宇位於工業大廈內而測試實驗所用途為有關用地現時在法定圖則上的所屬土地用途地帶所准許的，或獲得城市規劃委員會（下稱「城規會」）批給有效的規劃許可，或在法定圖則的規定下被視為現有用途。`,
-          `創新科技署會就申請書中列明的用途是否合資格的測試實驗所用途向地政總署提供意見。`,
-        ],
+
         background_information: `有關措施的背景資料，請參閱立法會參考資料摘要:`,
         note: (
           <>
@@ -637,6 +624,7 @@ export const NilWaiverFee: React.FC = () => {
           </>
         ),
       },
+
       enquiries: `查詢`,
       for_enquiries_on_whether: (
         <>
@@ -695,6 +683,33 @@ export const NilWaiverFee: React.FC = () => {
     [Language.ZH_CN]: "https://www.landsd.gov.hk/sc/about/enquiries.htm",
   };
 
+  const summary_content_tc = [
+    `政府於2016年2月1日起實施這項措施，以協助測試及校正實驗所（下稱「測試實驗所」）於工業大廈營運。政府希望藉此為測試實驗所於市場提供更多可選擇的合適地方。`,
+    <>
+      工業大廈<sup>1</sup>
+      的土地契約一般載有用途限制，有關契約容許的用途通常指定為「工業及／或倉庫」用途。然而，沒有涉及主要製造用途的測試實驗所，在一般工業契約下，不被視作工業用途。
+    </>,
+    `全幢或部份工業大廈的業主（或其代理人）可向地政總署申請豁免土地契約下用途條件的限制，以容許在現有工業大廈的整段使用期內或直至現行土地契約期屆滿或終止為止(以較早的日期為準)，作測試實驗所用途。`,
+    `如在這措施下向地政總署申請豁免書獲批核，政府將免收在一般情況下發出豁免書以容許作測試實驗所用途所須徵收的豁免書費用。然而，申請人須按地政總署的要求繳付行政費用。`,
+    `申請只會在以下情況下獲得接納：有關樓宇位於工業大廈內而測試實驗所用途為有關用地現時在法定圖則上的所屬土地用途地帶所准許的，或獲得城市規劃委員會（下稱「城規會」）批給有效的規劃許可，或在法定圖則的規定下被視為現有用途。`,
+    `創新科技署會就申請書中列明的用途是否合資格的測試實驗所用途向地政總署提供意見。`,
+  ];
+  const summary_content_en = [
+    `The Government introduces this policy measure effective as from 1 February 2016 to facilitate the operation of testing and calibration laboratories (hereunder referred to as "testing laboratories") in industrial building. The Government hopes that this measure would offer testing laboratories more choices of suitable space in the market.`,
+    <>
+      The leases of industrial buildings<sup>1</sup> usually contain user
+      restrictions. The uses permitted under such leases are typically specified
+      as "industrial and/or godown purposes". However, testing laboratories not
+      involving a primary manufacturing use are not considered as industrial use
+      in the context of land leases.
+    </>,
+    `The owner (or his/her agent) intending to use part(s) of or an entire industrial building can apply to LandsD for a waiver of the user condition of the land lease to allow testing laboratory use for the lifetime of the existing industrial building, or until the expiry or termination of the current land lease, whichever is the earlier.`,
+    `For an approved application to LandsD for a waiver under this measure, the Government will exempt the waiver fee otherwise be chargeable for issuing waivers to allow use as a testing laboratory. However, applicants would need to pay an administrative fee as and when demanded by LandsD.`,
+    `Applications would only be accepted if the premises concerned are located in an industrial building where testing laboratory use is permitted under the current land use zoning of the site on the statutory plan, or is subject to a valid planning permission granted by the Town Planning Board (TPB), or is considered as an existing use under the provisions of the statutory plan.`,
+    `Innovation and Technology Commission (ITC) will advise LandsD whether or not the use as stated in an application is an eligible testing laboratory use.`,
+  ];
+  const summary_content =
+    language === Language.EN ? summary_content_en : summary_content_tc;
   return (
     <div className="w-full text-justify">
       <div className="mb-[24px]">
@@ -708,14 +723,12 @@ export const NilWaiverFee: React.FC = () => {
         {(summary as LanguageResources).title as React.ReactNode}
       </div>
       <ul className="text-body-m mt-[24px]">
-        {((summary as LanguageResources).content as React.ReactNode[]).map(
-          (c, index) => (
-            <React.Fragment key={index}>
-              <li>{c}</li>
-              <br />
-            </React.Fragment>
-          )
-        )}
+        {summary_content.map((c, index) => (
+          <React.Fragment key={index}>
+            <li>{getSingleNode(c, c)}</li>
+            <br />
+          </React.Fragment>
+        ))}
       </ul>
       <p className="text-body-m mb-[24px]">
         {(summary as LanguageResources).note as string}
