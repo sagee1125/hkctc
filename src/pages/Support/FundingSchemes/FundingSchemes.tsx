@@ -43,11 +43,11 @@ const tidMap: Record<
     labelCN: `中小企業市場推廣基金`,
     content: <SMEExportMarketingFund />,
   },
-  SMELoanGuaranteeScheme: {
-    label: "SME Loan Guarantee Scheme",
-    labelCN: `中小企業信貸保證基金`,
-    content: <SMELoanGuaranteeScheme />,
-  },
+  // SMELoanGuaranteeScheme: {
+  //   label: "SME Loan Guarantee Scheme",
+  //   labelCN: `中小企業信貸保證基金`,
+  //   content: <SMELoanGuaranteeScheme />,
+  // },
 };
 
 const ITFMap: Record<

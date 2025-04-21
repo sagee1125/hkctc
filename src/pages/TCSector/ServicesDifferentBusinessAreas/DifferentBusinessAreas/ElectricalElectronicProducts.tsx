@@ -219,8 +219,7 @@ export const ElectricalElectronicProducts: React.FC = () => {
   );
 
   const fileTemplateLink: Record<Language, string> = {
-    [Language.EN]:
-      "/en/doc/HKCTC_Leaflet_construction_product_certification.pdf",
+    [Language.EN]: "/en/doc/EEP_booklet_eng.pdf",
     [Language.ZH_TW]: "/tc/doc/EEP_booklet_tc.pdf",
     [Language.ZH_CN]: "/sc/doc/EEP_booklet_sc.pdf",
   };

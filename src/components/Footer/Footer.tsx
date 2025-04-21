@@ -430,7 +430,7 @@ export const Footer: React.FC = () => {
   const downsideLogos = [
     {
       logoSize: "h-[31px] w-[88px]",
-      img: "w3c_logo.png",
+      img: "w3c_logo_2.png",
       hyperlink: "https://www.w3.org/WAI/WCAG2AA-Conformance",
     },
     {
