@@ -3,7 +3,7 @@ import {
   handleReturnDifferentBusinessAreasBreadcrumb,
   DifferentBusinessAreasDirectorySidebar,
 } from "./utils";
-import { navItemEnum } from "../../../../const";
+import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import {
   Accordion,
   BannerPhotoBox,
@@ -11,6 +11,7 @@ import {
   InternalBackButton,
   Link,
   MediaTemplate,
+  MediaTemplateWithDialog,
   SquareTitle,
   fullContainer,
   maxMobileContainer,
@@ -21,54 +22,25 @@ import { Language, useSettings } from "../../../../context";
 const multilingual = {
   en: {
     title: "Food",
+    mediaTitle: "Hong Kong's Testing and Certification for Food",
   },
   cn: {
     title: "食品",
+    mediaTitle: "香港的食品檢測和認證服務",
   },
 };
 
 export const Food: React.FC = () => {
-  const {
-    isPC,
-    isTablet,
-    language,
-    processText,
-    getSingleText,
-    getSingleNode,
-  } = useSettings();
-  const page_text =
-    language === Language.EN ? multilingual.en : multilingual.cn;
-  const isSimpleCN = language === Language.ZH_CN;
+  const { isPC, language, processText, getSingleNode } = useSettings();
+  const isEn = language === Language.EN;
+  const isSc = language === Language.ZH_CN;
+  const page_text = isEn ? multilingual.en : multilingual.cn;
 
   const youtubeTemplateLink: Record<Language, string> = {
     [Language.EN]: "https://www.youtube.com/embed/oGRho-M6kEg",
     [Language.ZH_TW]: "https://www.youtube.com/embed/9A7eCQoTkv0",
     [Language.ZH_CN]: "https://www.youtube.com/embed/9A7eCQoTkv0",
   };
-
-  const photo = [
-    {
-      title: "Food Testing and Certification",
-      titleCN: "食品檢測和認證",
-      img: "food_1",
-      link: "https://www.hkctc.gov.hk/en/doc/Food_Pamphlet_2018.pdf",
-    },
-    {
-      title: "Food",
-      titleCN: "食品",
-      img: "food_2",
-      link: "https://www.hkctc.gov.hk/en/doc/food_booklet_eng.pdf",
-      tcLink: "https://www.hkctc.gov.hk/tc/doc/food_booklet_tc.pdf",
-      scLink: "https://www.hkctc.gov.hk/sc/doc/food_booklet_sc.pdf",
-    },
-    {
-      title: "Hong Kong's Testing and Certification for Food",
-      img: "food_3",
-      titleCN: "香港的食品檢測和認證服務",
-      link: youtubeTemplateLink[language],
-      icon: "",
-    },
-  ];
 
   const tableRowsDataEN = [
     [
@@ -444,45 +416,41 @@ export const Food: React.FC = () => {
     />
   );
 
+  const fileTemplateLink: Record<Language, string> = {
+    [Language.EN]: "/en/doc/food_booklet_eng.pdf",
+    [Language.ZH_TW]: "/tc/doc/food_booklet_tc.pdf",
+    [Language.ZH_CN]: "/sc/doc/food_booklet_sc.pdf",
+  };
   const content = (
     <>
       <SquareTitle title={page_text.title} />
-
-      <div
-        className={`my-[24px] ${
-          isPC || isTablet ? "grid grid-cols-" + photo.length : "flex flex-wrap"
-        } gap-[24px]`}
-      >
-        {photo.map((item, index) => {
-          const displayLink =
-            (language === Language.EN
-              ? item.link
-              : language === Language.ZH_TW
-              ? item.tcLink
-              : item.scLink) ?? item.link;
-          return (
-            <div key={index} className="w-full">
-              <MediaTemplate
-                title={getSingleText(item.title, item.titleCN)}
-                direction={isPC || isTablet ? "vertical" : "horizontal"}
-                iconPath={item.icon}
-                hideIcon={!item.icon}
-                imagePath={`/assets/tcSector/servicesDifferentBusinessAreas/${item.img}.png`}
-                mediaLink={displayLink}
-              />
-            </div>
-          );
-        })}
+      <div className="my-[24px]">
+        <MediaTemplate
+          title={page_text.mediaTitle as string}
+          imagePath="/assets/tcSector/servicesDifferentBusinessAreas/food_3.png"
+          mediaLink={youtubeTemplateLink[language]}
+          iconPath="VIDEO.png"
+        />
+      </div>
+      <div className="w-full flex flex-row gap-[24px]">
+        <MediaTemplateWithDialog
+          title={page_text.title as string}
+          mediaLink={fileTemplateLink[language]}
+          mediaDomain={"hkctc"}
+          direction={"row"}
+          date=""
+          mediaType={MEDIA_TYPE.PDF}
+        />
       </div>
 
-      <div className="w-full flex flex-col gap-[24px] mb-[24px]">
+      <div className="w-full flex flex-col gap-[24px] my-[24px]">
         {data.map((item, index) => (
           <Accordion
             key={index}
             title={processText(item.title)}
             details={
               <div className="text-body-m">
-                {isSimpleCN
+                {isSc
                   ? getSingleNode(item.content, item.content)
                   : item.content}
               </div>
