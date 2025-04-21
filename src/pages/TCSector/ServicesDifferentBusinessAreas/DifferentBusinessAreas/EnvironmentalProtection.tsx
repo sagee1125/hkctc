@@ -26,8 +26,6 @@ const multilingual = {
     title: "Environmental Protection",
     mediaTitle:
       "Hong Kong's Testing and Certification Services on the Environmental Protection Front",
-    greenhouse:
-      "Greenhouse Gas (GHG) Quantification, Validation and Verification",
 
     iso_energy: "ISO 50001 Energy Management System Certification",
 
@@ -61,7 +59,6 @@ const multilingual = {
   cn: {
     title: "環保",
     mediaTitle: "香港在環保方面的檢測和認證服務",
-    greenhouse: "溫室氣體量化、審定和核查",
 
     iso_energy: "ISO 50001能源管理體系認證",
 
@@ -810,14 +807,6 @@ export const EnvironmentalProtection: React.FC = () => {
           iconPath="VIDEO.png"
         />
       </div>
-      <div className="text-heading-l mb-[24px]">
-        {page_text.greenhouse as React.ReactNode[]}
-      </div>
-      <FileTemplate
-        title={page_text.greenhouse as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/Greenhouse.png"
-        pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO14064.pdf"
-      />
 
       <div className="w-full flex flex-col gap-[24px] my-[24px]">
         {environmentalData.map((item, index) => (
