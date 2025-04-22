@@ -883,10 +883,6 @@ export const Navigator: React.FC = () => {
                                                   (sub, subItemsIndex) => {
                                                     const { subTitle, navUrl } =
                                                       sub;
-                                                    console.log(
-                                                      "subTitle",
-                                                      subTitle
-                                                    );
                                                     if (!subTitle) return null;
                                                     const display =
                                                       getSingleText(
@@ -895,10 +891,6 @@ export const Navigator: React.FC = () => {
                                                       );
 
                                                     const onClc = (): void => {
-                                                      console.log(
-                                                        "navUrl",
-                                                        navUrl
-                                                      );
                                                       if (navUrl)
                                                         window.open(
                                                           navUrl,

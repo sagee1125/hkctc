@@ -377,25 +377,29 @@ export const LearningTeachingResources: React.FC = () => {
                   isPC ? "3 gap-[24px]" : "1"
                 }  py-[24px]`}
               >
-                {downloadDataTwo.map((down, index) => (
-                  <a
-                    href={down.link}
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    key={index}
-                    className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
-                    aria-label={getSingleText(down.title, down.titleCN)}
-                  >
-                    <img
-                      className="w-[64px] h-[64px]"
-                      src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                      alt={getSingleText(down.title, down.titleCN)}
-                    />
-                    <p className="text-highlight-l text-left">
-                      {getSingleText(down.title, down.titleCN)}
-                    </p>
-                  </a>
-                ))}
+                {downloadDataTwo.map((down, index) => {
+                  const link =
+                    language === Language.EN ? down.link : down.tcLink;
+                  return (
+                    <a
+                      href={link}
+                      target={"_blank"}
+                      rel={"noopener noreferrer"}
+                      key={index}
+                      className="flex flex-row items-center gap-[10px] py-[22px] px-[11px] cursor-pointer"
+                      aria-label={getSingleText(down.title, down.titleCN)}
+                    >
+                      <img
+                        className="w-[64px] h-[64px]"
+                        src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                        alt={getSingleText(down.title, down.titleCN)}
+                      />
+                      <p className="text-highlight-l text-left">
+                        {getSingleText(down.title, down.titleCN)}
+                      </p>
+                    </a>
+                  );
+                })}
               </div>
 
               <div key={videoDataTwo[playVideoTwoIndex].thumbnail}>
