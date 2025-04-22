@@ -88,15 +88,20 @@ export const LearningTeachingResources: React.FC = () => {
   } = page_text;
 
   useEffect(() => {
-    const element = document.getElementById(scrollId as string);
+    if (!scrollId) return;
 
-    if (scrollId && element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    }
+    const timeout = setTimeout(() => {
+      const element = document.getElementById(scrollId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
+    }, 350);
+
+    return () => clearTimeout(timeout);
   }, [scrollId]);
 
   const downloadDataOne = [
