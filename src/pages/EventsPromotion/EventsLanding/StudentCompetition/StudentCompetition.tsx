@@ -39,9 +39,9 @@ const multilingual = {
 };
 
 export const StudentCompetition: React.FC = () => {
-  const { getPageText, isPC, getSingleText } = useSettings();
+  const { language, getPageText, isPC, getSingleText } = useSettings();
   const page_text = getPageText(multilingual);
-
+  const isEn = language === Language.EN;
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
 
   useEffect(() => {
@@ -67,6 +67,7 @@ export const StudentCompetition: React.FC = () => {
     hkngca_website,
   } = page_text;
 
+  // TC only
   const awardeesList = [
     {
       title: "Testing Science - Sustainability in Daily Life",
@@ -74,10 +75,10 @@ export const StudentCompetition: React.FC = () => {
       date: "2023-24",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_1.png",
-      hyperLink:
+      enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
-      tcHyperLink: "",
-      scHyperLink: "",
+      tcHyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2524&Pid=14&Version=0&Cid=85&Charset=big5_hkscs",
     },
     {
       title: "Food Testing in Daily Life",
@@ -85,7 +86,9 @@ export const StudentCompetition: React.FC = () => {
       date: "2022-23",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_2.png",
-      hyperLink:
+      enHyperLink:
+        "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+      tcHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2377&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
     },
     {
@@ -94,8 +97,10 @@ export const StudentCompetition: React.FC = () => {
       date: "2021-22",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
-      hyperLink:
+      enHyperLink:
         "https://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+      tcHyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2284&Pid=14&Version=0&Cid=85&Charset=big5_hkscs",
     },
     {
       title: "Testing Science in Daily Life - Healthcare and Hygiene",
@@ -103,8 +108,10 @@ export const StudentCompetition: React.FC = () => {
       date: "2020-21",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_4.png",
-      hyperLink:
+      enHyperLink:
         "https://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+      tcHyperLink:
+        "http://hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=2137&Pid=14&Version=0&Cid=85",
     },
     {
       titleCN: "檢測科學 - 綠色生活",
@@ -112,8 +119,10 @@ export const StudentCompetition: React.FC = () => {
       title: "Testing Science for Green Living",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_5.png",
-      hyperLink:
+      enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=iso-8859-1",
+      tcHyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1825&Pid=14&Version=0&Cid=85&Charset=big5_hkscs",
     },
     {
       titleCN: "檢測科學 - 改善生活質素",
@@ -121,8 +130,10 @@ export const StudentCompetition: React.FC = () => {
       date: "2017-18",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_6.png",
-      hyperLink:
+      enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
+      tcHyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=big5_hkscs",
     },
     {
       title: "Scientific Testing in Everyday Life",
@@ -130,8 +141,10 @@ export const StudentCompetition: React.FC = () => {
       date: "2016-2017",
       maskIcon: "PRESS.png",
       imgUrl: "awardees_3.png",
-      hyperLink:
+      enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
+      tcHyperLink:
+        "http://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=big5_hkscs",
     },
   ];
   return (
@@ -155,7 +168,15 @@ export const StudentCompetition: React.FC = () => {
         } `}
       >
         {awardeesList.map((item, index) => {
-          const { imgUrl, maskIcon, title, titleCN, date, hyperLink } = item;
+          const {
+            imgUrl,
+            maskIcon,
+            title,
+            titleCN,
+            date,
+            enHyperLink,
+            tcHyperLink,
+          } = item;
 
           return (
             <a
@@ -163,7 +184,7 @@ export const StudentCompetition: React.FC = () => {
               className={`${
                 isPC ? "w-full h-[282px]" : "w-full h-auto"
               }  flex flex-col gap-[14px] cursor-pointer`}
-              href={hyperLink}
+              href={isEn ? enHyperLink : tcHyperLink}
               aria-label={title}
               target={"_blank"}
               rel={"noopener noreferrer"}
