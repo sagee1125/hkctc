@@ -1,6 +1,15 @@
 import React, { useEffect } from "react";
 import { FileTemplate, SquareTitle } from "../../../components";
-import { useSettings } from "../../../context";
+import { Language, useSettings } from "../../../context";
+import {
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 const multilingual = {
   en: {
@@ -21,9 +30,14 @@ const multilingual = {
       "Schools which are interested in arranging a career talk/ laboratory visits can complete the application form below and fax/ email it to us. We will then contact you for arrangements.",
     application_form: "Application Form",
     summer_internship: "Summer Internship",
+    summer_internship_sub: (
+      <>
+        Internship Opportunities for Students<sup>(NOTE)</sup>
+      </>
+    ),
     internship: [
-      "Internship programme provides a good channel for students to understand more about the testing and certification industry and its career opportunities.",
-      "Since 2011, HKCTC has coordinated internship opportunities from accredited testing, inspection and certification bodies in Hong Kong and forwarded them to local universities and VTC.",
+      "The following information on internship opportunities provided by certain accredited testing, inspection and certification bodies are open to university and/or Vocational Training Council students for Summer 2025. Qualified students interested in the internships should apply for the position in accordance with the instructions therein.",
+      "(Note: The information will be updated periodically and made available online throughout Summer 2025.)",
     ],
   },
   cn: {
@@ -44,15 +58,20 @@ const multilingual = {
       "有興趣安排職業講座/實驗所參觀活動的學校可以填妥申請表格並傳真至本局。我們會稍後聯絡學校以作安排。",
     application_form: "申請表格",
     summer_internship: "暑期實習",
+    summer_internship_sub: (
+      <>
+        學生暑期實習機會<sup>（註）</sup>
+      </>
+    ),
     internship: [
-      "實習計劃提供理想途徑，讓學生加深了解有關檢測認證業及其事業發展機會。",
-      "自2011年起，香港檢測和認證局都會邀請本港的認可檢測認證機構提供實習機會，並把有關實習空缺資料轉交本地大學及職業訓練局。",
+      "以下資料為部份認可檢測認證機構於2025年暑期提供予大學及/或職業訓練局學生的實習機會。符合要求又有意申請實習機會的學生須按有關資料內指定方法遞交申請。",
+      "註：實習機會資料會在2025年暑期在本網頁提供，及不時更新，資料只有英文版本。）",
     ],
   },
 };
 
 export const CareerOpportunities: React.FC = () => {
-  const { getPageText } = useSettings();
+  const { getPageText, language, getSingleText, processText } = useSettings();
   const page_text = getPageText(multilingual);
 
   const scrollId = new URLSearchParams(window.location.search).get("scroll_id");
@@ -82,8 +101,104 @@ export const CareerOpportunities: React.FC = () => {
     school_which,
     application_form,
     summer_internship,
+    summer_internship_sub,
     internship,
   } = page_text;
+
+  const tableHeads =
+    language === Language.EN
+      ? [
+          "Company",
+          "Job Title",
+          "Major/Programme/Field of Study",
+          "Year of Study",
+          "Details and Application Method",
+        ]
+      : [
+          "公司",
+          "職位名稱",
+          "主修 / 就讀課程 / 學習範疇",
+          "就讀年級",
+          "詳情及報名方法",
+        ];
+
+  // English version only
+  const rows = [
+    {
+      company: "Intertek Testing Services Hong Kong Limited",
+      jobTitle: "Internship Trainee",
+      majorStudy: "Science field of study",
+      year: "1 - 4",
+      link: "/en/doc/2025_Offer-Intertek.pdf", // https://www.hkctc.gov.hk
+    },
+    {
+      company: "Wilson Curtain Wall Consultant (HK) Ltd.",
+      jobTitle: "Assistant Engineer",
+      majorStudy: "Mechanical Engineering",
+      year: "1 - 3",
+      link: "/en/doc/2025_Offer-Wilson_Curtain_Wall.pdf",
+    },
+    {
+      company: "TÜV Rheinland Hong Kong Limited",
+      jobTitle: "Interns (Chemical Laboratory)",
+      majorStudy: "Science field of study",
+      year: "1 - 3",
+      link: "/en/doc/2025_Offer-TUV.pdf",
+    },
+
+    {
+      company: "QIMA Testing (HK) Limited",
+      jobTitle: "Lab Testing Intern (Chem)",
+      majorStudy:
+        "Material Science, Product Testing, Chemistry or related subjects",
+      year: "1 - 4",
+      link: "/en/doc/2025_Offer-QIMA.pdf",
+    },
+    {
+      company: "",
+      jobTitle: "Lab Testing Intern (CS/PM)",
+      majorStudy:
+        "Scientific discipline (Science, Engineering, Testing Science and Certification or another technical discipline)",
+
+      year: "1 - 4",
+      link: "",
+    },
+    {
+      company: "",
+      jobTitle: "Lab Testing Intern (Phy)",
+      majorStudy: "Physics or Engineering",
+
+      year: "1 - 4",
+      link: "",
+    },
+    {
+      company: "",
+      jobTitle: "Lab Testing Intern (Ops-SC)",
+      majorStudy: "Testing Science and Certification or related subjects",
+
+      year: "1 - 4",
+      link: "",
+    },
+
+    {
+      company: "Lux Environmental Service Co. Ltd. - Lux Laboratory",
+      jobTitle: "Assistant Inspector",
+      majorStudy:
+        "Environmental Engineering, Environmental Science, or a related field",
+
+      year: "1 - 4",
+      link: "/en/doc/2025_Offer-Lux_Lab_Internship.pdf",
+    },
+    {
+      company: "",
+      jobTitle: "Assistant Technical Officer ",
+      majorStudy:
+        "Environmental Engineering, Environmental Science, or a related field",
+
+      year: "1 - 4",
+      link: "",
+    },
+  ];
 
   return (
     <div className="w-full">
@@ -169,12 +284,128 @@ export const CareerOpportunities: React.FC = () => {
       >
         {summer_internship as string}
       </p>
+      <div
+        style={{ fontSize: "16px", fontWeight: 700, lineHeight: "32px" }}
+        className="my-[24px]"
+      >
+        {summer_internship_sub as React.ReactNode}
+      </div>
       <p className="text-body-m text-justify">
         {(internship as string[])[0]}
         <br />
         <br />
         {(internship as string[])[1]}
       </p>
+
+      <TableContainer
+        component={"div"}
+        style={{
+          border: "1px solid #E0E0E0",
+          padding: "24px",
+          marginTop: "24px",
+        }}
+      >
+        <Table sx={{ minWidth: 650, minHeight: 400 }}>
+          <TableHead>
+            <TableRow
+              sx={{
+                "& th": {
+                  borderBottom: "2px solid black",
+                },
+              }}
+            >
+              {tableHeads.map((h, index) => (
+                <TableCell key={index}>
+                  <p aria-label={h} className="!text-body-s text-[#7E7E7E]">
+                    {processText(h)}
+                  </p>
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row, index) => {
+              const { company, jobTitle, majorStudy, year, link } = row;
+              return (
+                <TableRow
+                  key={index}
+                  sx={{
+                    "& td": {
+                      borderBottom:
+                        index < rows.length - 1 && rows[index + 1].company
+                          ? "1px dashed #C8CFD9"
+                          : 0,
+                    },
+                    "&:last-child td": {
+                      borderBottom: 0,
+                    },
+                    minHeight: 200,
+                  }}
+                >
+                  <TableCell
+                    sx={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <p aria-label={company} className="!text-body-s">
+                      {company}
+                    </p>
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <div aria-label={jobTitle} className="!text-body-s ">
+                      {jobTitle}
+                    </div>
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <div aria-label={majorStudy} className="!text-body-s ">
+                      {majorStudy}
+                    </div>
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <div
+                      aria-label={year}
+                      className="!text-body-s flex flex-col gap-[32px]"
+                    >
+                      {year}
+                    </div>
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <a
+                      href={"https://www.hkctc.gov.hk" + link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Details and Application Method of ${company} (opens in new tab)`}
+                      className="flex !h-full justify-start items-start"
+                    >
+                      <img
+                        className=" w-[32px] h-[32px]"
+                        src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                        alt={"file icon"}
+                      />
+                    </a>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };
