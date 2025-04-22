@@ -74,7 +74,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
               isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        window.open("general-public", "_self");
+        window.open("/general-public", "_self");
       },
     },
     {
@@ -98,7 +98,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
               isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        window.open("educators-students", "_self");
+        window.open("/educators-students", "_self");
       },
     },
     {
@@ -122,7 +122,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
               isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        window.open("service-users", "_self");
+        window.open("/service-users", "_self");
       },
     },
     {
@@ -163,7 +163,7 @@ export const ExploreBar: React.FC<ExploreBarProps> = ({
               isClicked ? "text-[#FFFFFF]" : ""
             }`,
       onClick: () => {
-        window.open("industry", "_self");
+        window.open("/industry", "_self");
       },
     },
   ];
