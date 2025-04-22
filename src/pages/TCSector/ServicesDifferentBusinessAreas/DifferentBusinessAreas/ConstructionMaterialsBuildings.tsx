@@ -523,8 +523,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             aria-label="HKAS's website - opens in a new tab"
             href={
               language === Language.ZH_CN
-                ? "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
-                : "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                ? "https://www.itc.gov.hk/gb/quality/hkas/conformity_assessment_bodies/hoklas.html"
+                : "https://www.itc.gov.hk/ch/quality/hkas/conformity_assessment_bodies/hoklas.html"
             }
             target="_blank"
             rel="noopener noreferrer"
