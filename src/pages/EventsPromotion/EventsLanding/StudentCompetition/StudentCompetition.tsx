@@ -129,7 +129,7 @@ export const StudentCompetition: React.FC = () => {
       title: "Testing Science for Improving the Quality of Life",
       date: "2017-18",
       maskIcon: "PRESS.png",
-      imgUrl: "awardees_6.png",
+      imgUrl: "ImprovingQualityLife.png",
       enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1895&Pid=14&Version=0&Cid=87&Charset=iso-8859-1",
       tcHyperLink:
@@ -140,7 +140,7 @@ export const StudentCompetition: React.FC = () => {
       titleCN: "日常的科學測試",
       date: "2016-2017",
       maskIcon: "PRESS.png",
-      imgUrl: "awardees_3.png",
+      imgUrl: "ScientificTestingEverydayLife.png",
       enHyperLink:
         "https://www.hkasme.org/Common/Reader/News/ShowNews.jsp?Nid=1706&Pid=11&Version=0&Cid=66&Charset=iso-8859-1",
       tcHyperLink:
