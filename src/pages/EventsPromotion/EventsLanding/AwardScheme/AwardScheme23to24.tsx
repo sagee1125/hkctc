@@ -166,6 +166,15 @@ export const AwardScheme23to24: React.FC = () => {
   const [activeButtonOne, setActiveButtonOne] = useState<number>(0);
   const [activeButtonTwo, setActiveButtonTwo] = useState<number>(0);
 
+  const mediaLinkMap: Record<Language, string> = {
+    [Language.EN]:
+      "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+    [Language.ZH_CN]:
+      "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202312/04/P2023120400309.htm?fontSize=1",
+    [Language.ZH_TW]:
+      "https://www.info.gov.hk/gia/general/202312/04/P2023120400309.htm",
+  };
+
   const mediaData: MediaTemplateWithDialogProps[] = [
     {
       title: page_text.media_data.title,
@@ -173,8 +182,7 @@ export const AwardScheme23to24: React.FC = () => {
       date: page_text.media_data.date,
       imagePath: "press_realease_1.png",
       mediaType: MEDIA_TYPE.NEW_PAGE,
-      mediaLink:
-        "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+      mediaLink: mediaLinkMap[language],
     },
   ];
 
