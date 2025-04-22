@@ -298,7 +298,11 @@ export const FundingSchemes: React.FC = () => {
     const element = document.getElementById(scrollId as string);
 
     if (scrollId && element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   }, [scrollId]);
 

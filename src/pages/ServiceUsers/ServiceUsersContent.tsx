@@ -55,7 +55,7 @@ export const ServiceUsersContent: React.FC = () => {
   const { getPageText, isPC, getSingleText, language } = useSettings();
   const multilingual = {
     en: {
-      tc_sector_strengths: "Strengths of Hong Kong's T&C Industry",
+      tc_sector_strengths: "Services Provided by T&C Industry",
       exhibition_programme: "HKCTC Exhibition Programme",
       different_business_areas: "Services for Different Business Areas",
       accreditation_services: "Accreditation Services",
@@ -84,7 +84,7 @@ export const ServiceUsersContent: React.FC = () => {
       ),
     },
     cn: {
-      tc_sector_strengths: "香港檢測認證業的優勢",
+      tc_sector_strengths: "檢測認證業提供的服務",
       different_business_areas: "為不同業務範疇提供的服務",
       exhibition_programme: "香港檢測和認證局展覽計劃",
       accreditation_services: "認可服務",
