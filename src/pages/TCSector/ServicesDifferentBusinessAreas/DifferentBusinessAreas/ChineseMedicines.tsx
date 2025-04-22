@@ -180,7 +180,7 @@ export const ChineseMedicines: React.FC = () => {
           Many types of Chinese medicines can now be tested against the&nbsp;
           <a
             aria-label="Hong Kong Chinese Materia Medica Standards (HKCMMS)"
-            href="https://www.cmd.gov.hk/html/eng/GCMTI/hkcmms/volumes.html"
+            href="https://www.cmro.gov.hk/html/eng/useful_information/hkcmms/volumes.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#00E]"
@@ -296,7 +296,7 @@ export const ChineseMedicines: React.FC = () => {
     content: React.ReactNode;
   }> = [
     {
-      title: "中藥材測試",
+      title: "中成藥測試",
       content: (
         <p>
           根據《中醫藥條例》（香港法例第549章），自2003年起中成藥在註冊時須進行重金屬及有毒元素含量、農藥殘留量及微生物限度等安全性測試，以證明符合有關的安全要求。詳情請瀏覽
@@ -326,8 +326,8 @@ export const ChineseMedicines: React.FC = () => {
             aria-label="《香港中藥材標準》"
             href={
               language === Language.ZH_TW
-                ? "http://www.cmd.gov.hk/html/b5/GCMTI/hkcmms/volumes.html"
-                : "http://www.cmd.gov.hk/html/gb/GCMTI/hkcmms/volumes.html"
+                ? "https://www.cmro.gov.hk/html/b5/useful_information/hkcmms/volumes.html"
+                : "https://www.cmro.gov.hk/html/gb/useful_information/hkcmms/volumes.html"
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -340,8 +340,8 @@ export const ChineseMedicines: React.FC = () => {
             aria-label="《香港中藥材標準》"
             href={
               language === Language.ZH_TW
-                ? "http://www.cmd.gov.hk/html/b5/GCMTI/hkcmms/volumes.html"
-                : "http://www.cmd.gov.hk/html/gb/GCMTI/hkcmms/volumes.html"
+                ? "https://www.cmro.gov.hk/html/b5/useful_information/hkcmms/volumes.html"
+                : "https://www.cmro.gov.hk/html/gb/useful_information/hkcmms/volumes.html"
             }
             target="_blank"
             rel="noopener noreferrer"
