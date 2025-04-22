@@ -763,7 +763,7 @@ export const Footer: React.FC = () => {
               aria-label={"logo - " + logo.hyperlink}
             >
               <img
-                className="object-fit"
+                className={`object-fit ${isPC ? "" : "max-w-[60px]"}`}
                 src={`${process.env.PUBLIC_URL}/assets/footer/${logo.img}`}
                 alt={logo.img}
                 aria-label={"HKCTC logo"}

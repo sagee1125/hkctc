@@ -394,7 +394,7 @@ const CertificateService: React.FC = () => {
             Hong Kong. There is high demand for other types of certification,
             e.g. ISO 14001 environmental management system certification,&nbsp;
             <a
-              href="/tc-sector/environmental_protection"
+              href="/tc-sector/environmental_protection?scroll_id=iso_energy"
               className="!text-highlight-s underline text-newPrimary"
               aria-label={"ISO 50001 energy management system certification"}
             >

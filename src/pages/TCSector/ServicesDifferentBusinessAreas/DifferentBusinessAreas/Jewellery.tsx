@@ -207,27 +207,17 @@ export const Jewellery: React.FC = () => {
         } w-full gap-[24px] mb-[24px] items-start`}
       >
         <div className="w-full flex flex-row gap-[24px]">
-          <MediaTemplateWithDialog
+          <FileTemplate
             title={page_text.file_title_1 as string}
-            mediaLink={
-              "/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
-            }
-            mediaDomain={"hkctc"}
-            direction={"row"}
-            date=""
-            mediaType={MEDIA_TYPE.PDF}
-            fontSize="text-highlight-m"
+            imagePath="assets/tcSector/servicesDifferentBusinessAreas/Testing_FeiCui_2.png"
+            pdfHyperlink="/en/doc/Testing_of_Fei_Cui_and_Diamond_in_Hong_Kong.pdf"
           />
         </div>
         <div className="w-full flex flex-row gap-[24px]">
-          <MediaTemplateWithDialog
+          <FileTemplate
             title={page_text.file_title_2 as string}
-            mediaLink={"/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"}
-            mediaDomain={"hkctc"}
-            direction={"row"}
-            date=""
-            mediaType={MEDIA_TYPE.PDF}
-            fontSize="text-highlight-m"
+            imagePath="assets/tcSector/servicesDifferentBusinessAreas/DiamondPDF_2.png"
+            pdfHyperlink="/en/doc/HKCTC_Diamond_Testing_Services_in_HK.pdf"
           />
         </div>
       </div>

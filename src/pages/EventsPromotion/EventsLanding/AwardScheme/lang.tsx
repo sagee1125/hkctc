@@ -1360,7 +1360,7 @@ export const award2122_multilingual = {
         },
         {
           color: "energeticOrange",
-          title: "Area D",
+          title: "範疇 D",
           content: "與檢測認證從業員溝通（Communication）",
         },
       ],

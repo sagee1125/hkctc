@@ -834,7 +834,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
           </ul>
           <FileTemplate
             title={(whats_benefits_of_pc_detail as string[])[4]}
-            imagePath="assets/tcSector/servicesDifferentBusinessAreas/FeatureArticlePDF.png"
+            imagePath="assets/tcSector/servicesDifferentBusinessAreas/FeatureArticlePDF_2.png"
             pdfHyperlink="/en/doc/hkctc_newsletter_issue2.pdf"
           />
         </>
@@ -1059,7 +1059,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       </div>
       <FileTemplate
         title={prod_cert as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF.png"
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF_2.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_construction_product_certification.pdf"
       />
 
@@ -1081,7 +1081,7 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
 
       <FileTemplate
         title={testing_and_inspection as string}
-        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF_testing.png"
+        imagePath="assets/tcSector/servicesDifferentBusinessAreas/ConstructionPDF_testing_2.png"
         pdfHyperlink="/en/doc/HKCTC_Leaflet_Building_inspection.pdf"
       />
 

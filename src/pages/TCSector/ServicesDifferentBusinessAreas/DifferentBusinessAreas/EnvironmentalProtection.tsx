@@ -847,14 +847,10 @@ export const EnvironmentalProtection: React.FC = () => {
       </div>
 
       <div className="w-full flex flex-row gap-[24px]">
-        <MediaTemplateWithDialog
+        <FileTemplate
           title={page_text.iso_energy as string}
-          mediaLink={"/en/doc/2017_ITC_Leaflet_ISO50001.pdf"}
-          mediaDomain={"hkctc"}
-          direction={"row"}
-          date=""
-          mediaType={MEDIA_TYPE.PDF}
-          fontSize="text-highlight-m"
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/ISO50001_2.png"
+          pdfHyperlink="/en/doc/2017_ITC_Leaflet_ISO50001.pdf"
         />
       </div>
       <div className="w-full flex flex-col gap-[24px] my-[24px]">

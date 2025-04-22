@@ -16,6 +16,7 @@ import {
   maxPCContainer,
   maxMobileContainer,
   MediaTemplateWithDialog,
+  FileTemplate,
 } from "../../../../components";
 import { MEDIA_TYPE, navItemEnum } from "../../../../const";
 import { Language, useSettings } from "../../../../context";
@@ -477,13 +478,10 @@ export const ChineseMedicines: React.FC = () => {
         />
       </div>
       <div className="w-full flex flex-row gap-[24px]">
-        <MediaTemplateWithDialog
+        <FileTemplate
           title={page_text.fileTitle as string}
-          mediaLink={"/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"}
-          mediaDomain={"hkctc"}
-          direction={"row"}
-          date=""
-          mediaType={MEDIA_TYPE.PDF}
+          imagePath="assets/tcSector/servicesDifferentBusinessAreas/cm_testing.png"
+          pdfHyperlink="/en/doc/Chinese_Medicines_Pamphlet_2018.pdf"
         />
       </div>
 
