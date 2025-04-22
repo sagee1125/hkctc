@@ -270,7 +270,7 @@ export const ProgrammesCourses: React.FC = () => {
             href={
               language === Language.ZH_TW
                 ? "https://www.cspe.edu.hk/tc/sssdp/participating-institutions/#year=2020/21"
-                : "https://www.cspe.edu.hk/tc/sssdp/participating-institutions/#year=2020/21"
+                : "https://www.cspe.edu.hk/sc/sssdp/participating-institutions/#year=2020/21"
             }
             target="_blank"
             rel="noopener noreferrer"
