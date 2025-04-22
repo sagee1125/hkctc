@@ -27,6 +27,14 @@ export const AwardScheme21to22: React.FC = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const mediaLinkMap: Record<Language, string> = {
+    [Language.EN]:
+      "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+    [Language.ZH_CN]:
+      "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202112/22/P2021122200209.htm?fontSize=1",
+    [Language.ZH_TW]:
+      "https://www.info.gov.hk/gia/general/202112/22/P2021122200209.htm?fontSize=1",
+  };
   const mediaData: MediaTemplateWithDialogProps[] = [
     {
       title: processText(page_text.mediaData.title),
@@ -34,8 +42,7 @@ export const AwardScheme21to22: React.FC = () => {
       date: page_text.mediaData.date,
       imagePath: "press_release.png",
       mediaType: MEDIA_TYPE.NEW_PAGE,
-      mediaLink:
-        "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+      mediaLink: mediaLinkMap[language],
     },
   ];
 
