@@ -55,22 +55,22 @@ export const exploreOption: Array<{
   {
     title: "General Public",
     titleCN: "公眾人士",
-    nav: "general-public",
+    nav: "/general-public",
   },
   {
     title: "Educators & Students",
     titleCN: "老師與學生",
-    nav: "educators-students",
+    nav: "/educators-students",
   },
   {
     title: "T&C Bodies & Practitioners",
     titleCN: "檢測認證機構及從業員",
-    nav: "industry",
+    nav: "/industry",
   },
   {
     title: "T&C Service Users",
     titleCN: "檢測認證服務使用者",
-    nav: "service-users",
+    nav: "/service-users",
   },
 ];
 

@@ -446,7 +446,11 @@ export const CEPAAgreements: React.FC = () => {
     const element = document.getElementById(scrollId as string);
 
     if (scrollId && element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   }, [scrollId]);
 
@@ -710,7 +714,7 @@ export const CEPAAgreements: React.FC = () => {
       </p>
     </>
   );
-  
+
   const IX_to_CEPA = (
     <>
       <p className="text-body-m">
@@ -1047,7 +1051,6 @@ export const CEPAAgreements: React.FC = () => {
       </p>
     </>
   );
-
 
   return (
     <div className="w-full">
