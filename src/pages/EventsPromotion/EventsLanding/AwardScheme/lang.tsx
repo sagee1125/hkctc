@@ -68,7 +68,7 @@ export const award2324_multilingual = {
             as appropriate on their websites and promotional materials (Please
             refer to the Guidelines on the Use of the Logos under the Testing
             and Certification Manpower Development Corporate Award at Annex of
-            the`,
+            the `,
       guidance_note: "Guidance Notes",
       invite_attend:
         "Invited to attend the presentation ceremony and publicity events.",
@@ -372,9 +372,9 @@ export const award2324_multilingual = {
       awardee_be: "得獎機構將會-",
       presented_with_trophy: "得獎機構將會；",
       permit_use_logo: `獲准在其網站和宣傳品上使用按其所取得金獎或鉑金獎的標誌(請參閱載於`,
-      guidance_note: `"申請指南"的附件上的機構獎標誌使用指引）`,
+      guidance_note: `"申請指南"`,
       invite_attend: "獲邀參加頒獎典禮及宣傳活動。",
-      bracket: ");",
+      bracket: "的附件上的機構獎標誌使用指引）;",
       applicant_be: "申請機構必須符合以下條件-",
       accredited_by_hk: `獲香港認可處或其他與香港認可處訂立相互承認安排的認可機構認可；以及`,
       located_in_hk: `設於香港並在本地提供檢測和認證服務。`,
@@ -1047,7 +1047,7 @@ export const award2122_multilingual = {
             refer to the Guidelines on the Use of the Logos under the Testing
             and Certification Manpower Development Corporate Award at Annex of
             the`,
-      guild_note: "Guidance Notes",
+      guild_note: " Guidance Notes",
       bracket: ");",
       invite_attend_presentation:
         " Invited to attend the presentation ceremony and publicity events.",

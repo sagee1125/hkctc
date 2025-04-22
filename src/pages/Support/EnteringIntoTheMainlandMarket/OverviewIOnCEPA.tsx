@@ -229,7 +229,7 @@ const EnterpriseRun: React.FC = () => {
             <li>
               <a
                 aria-label="《國家認監委關於進一步深化汽車強制性產品認證改革的公告》"
-                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
+                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
@@ -242,7 +242,7 @@ const EnterpriseRun: React.FC = () => {
             <li>
               <a
                 aria-label="《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》"
-                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
+                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
@@ -438,7 +438,7 @@ const EnterpriseRun: React.FC = () => {
             <li>
               <a
                 aria-label="認監委2017年第1號公告—《國家認監委關於進一步深化汽車強制性產品認證改革的公告》"
-                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
+                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"
@@ -450,7 +450,7 @@ const EnterpriseRun: React.FC = () => {
             <li>
               <a
                 aria-label="認監委2017年第28號公告—《國家認監委關於進一步擴大強制性產品認證實驗室日常指定實施範圍的公告》"
-                href="https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/tzgg/art/2017/art_6aaa2ee81e2946208af05ef0dcce5ca6.html"
+                href="https://www.cnca.gov.cn/zwxx/gg/2017/art/2023/art_246e083a811b481ba1f24f3770944aab.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#00E]"

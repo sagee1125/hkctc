@@ -130,13 +130,17 @@ export const AwardScheme21to22Preview: React.FC<{
             {page_text.testing_manpower_award_content.present_with_trophy}
           </li>
           <li className="mb-[1em]">
-            {page_text.testing_manpower_award_content.permit_use_logo}&nbsp;
+            {page_text.testing_manpower_award_content.permit_use_logo}
             <a
               aria-label={page_text.testing_manpower_award_content.guild_note}
               className="underline text-[#00E]"
               target="_blank"
               rel="noreferrer"
-              href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+              href={
+                isEn
+                  ? "https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+                  : "https://www.hkctc.gov.hk/tc/event/mpaward/GuidanceNotes_Chi.pdf"
+              }
             >
               {page_text.testing_manpower_award_content.guild_note}
             </a>

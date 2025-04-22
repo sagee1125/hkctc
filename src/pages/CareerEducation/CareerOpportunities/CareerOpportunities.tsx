@@ -386,19 +386,21 @@ export const CareerOpportunities: React.FC = () => {
                       verticalAlign: "top",
                     }}
                   >
-                    <a
-                      href={"https://www.hkctc.gov.hk" + link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Details and Application Method of ${company} (opens in new tab)`}
-                      className="flex !h-full justify-start items-start"
-                    >
-                      <img
-                        className=" w-[32px] h-[32px]"
-                        src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
-                        alt={"file icon"}
-                      />
-                    </a>
+                    {link && (
+                      <a
+                        href={"https://www.hkctc.gov.hk" + link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Details and Application Method of ${company} (opens in new tab)`}
+                        className="flex !h-full justify-start items-start"
+                      >
+                        <img
+                          className=" w-[32px] h-[32px]"
+                          src={`${process.env.PUBLIC_URL}/assets/icons/PDF.png`}
+                          alt={"file icon"}
+                        />
+                      </a>
+                    )}
                   </TableCell>
                 </TableRow>
               );

@@ -150,16 +150,20 @@ export const AwardScheme: React.FC = () => {
         <p>{processText(page_text.awardMap_one.awardee_be)}</p>
         <br />
         <ul>
-          <li>{processText(page_text.awardMap_one.presented_with_trophy)}</li>{" "}
+          <li>{processText(page_text.awardMap_one.presented_with_trophy)}</li>
           <br />
           <li>
-            {processText(page_text.awardMap_one.permit_use_logo)}&nbsp;
+            {processText(page_text.awardMap_one.permit_use_logo)}
             <a
               aria-label={processText(page_text.awardMap_one.guidance_note)}
               className="underline text-[#00E]"
               target="_blank"
               rel="noreferrer"
-              href="https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+              href={
+                isEn
+                  ? "https://www.hkctc.gov.hk/en/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_ENG.pdf"
+                  : "https://www.hkctc.gov.hk/tc/event/mpaward/doc/mpaward-2023-24-Guidance-Notes_CHI.pdf"
+              }
             >
               {processText(page_text.awardMap_one.guidance_note)}
             </a>
