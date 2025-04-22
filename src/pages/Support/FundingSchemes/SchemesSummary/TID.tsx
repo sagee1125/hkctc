@@ -52,14 +52,14 @@ const rowsCN = [
     targetAudience: "中小企業",
     fundingAmount: `每次最高 HK$100,000，累計上限 HK$400,000`,
   },
-  {
-    schemeName: "中小企業信貸保證計劃",
-    schemeNameHyperLink:
-      "https://www.smefund.tid.gov.hk/tc_chi/sgs/sgs_objective.html",
-    objective: "提供貸款擔保以支援設備投資及營運資金",
-    targetAudience: "中小企業",
-    fundingAmount: `最高 HK$600 萬`,
-  },
+  // {
+  //   schemeName: "中小企業信貸保證計劃",
+  //   schemeNameHyperLink:
+  //     "https://www.smefund.tid.gov.hk/tc_chi/sgs/sgs_objective.html",
+  //   objective: "提供貸款擔保以支援設備投資及營運資金",
+  //   targetAudience: "中小企業",
+  //   fundingAmount: `最高 HK$600 萬`,
+  // },
 ];
 
 const sCLinks = [
