@@ -194,10 +194,14 @@ export const SeminarsWorkshops: React.FC = () => {
       <div className="flex flex-col gap-[24px]">
         {currentPageData.map((item, index) => {
           const { title, date, img } = item;
+          const pageIndex = seminarsProcessData.findIndex(
+            (v) => v.title === title
+          );
+
           return (
             <a
               key={index}
-              href={`/events-promotion?section=seminar_article#${index}`}
+              href={`/events-promotion?section=seminar_article#${pageIndex}`}
               className={`flex ${
                 isPC ? "flex-row-reverse" : "flex-col-reverse"
               } w-full cursor-pointer gap-[24px] items-center`}

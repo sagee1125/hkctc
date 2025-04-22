@@ -318,10 +318,14 @@ export const Food: React.FC = () => {
             </li>
           </ul>
           <br />
-          <Link outerLink="https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/">
-            Food Hygiene Standard Certification System for Catering Industry
-            (FHSCS)*
-          </Link>
+          <ul>
+            <li>
+              <Link outerLink="https://www.polyu.edu.hk/abct/research/research-centres/food-safety-and-technology-research-centre/fhscs/">
+                Food Hygiene Standard Certification System for Catering Industry
+                (FHSCS)*
+              </Link>
+            </li>
+          </ul>
           <br />
           <ul>
             <li>Organic Food Certification</li>
