@@ -178,6 +178,32 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "Inspection on production of construction materials (e.g., waterworks and paint)",
         "Indoor air quality measurement and inspection",
       ],
+
+      indoor_air_quality: "Indoor Air Quality Measurement and Inspection",
+      to_improve_indoor_air_quality:
+        "To improve indoor air quality (IAQ) and promote public awareness, a voluntary IAQ Certification Scheme is launched by the Environmental Protection Department. IAQ inspection bodies provide the following measurement and inspection services for the IAQ Certification Scheme:",
+      to_improve_indoor_air_quality_ways: [
+        "Walk-through inspection of premises/buildings",
+        "On-site measurements of IAQ parameters (e.g., air movement, carbon monoxide and volatile organic compounds)",
+        "IAQ compliance assessment",
+      ],
+
+      more_info_air_quality: (
+        <>
+          More information is available on the&nbsp;
+          <a
+            aria-label="visit the website"
+            href="https://www.iaq.gov.hk/en/home/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            website
+          </a>
+          .
+        </>
+      ),
+
       indoor_air: "Inspection of construction products and welds",
 
       laboratories:
@@ -626,6 +652,29 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
         "Product Conformity Certification Scheme for Paint Products",
       ],
       NA: "暫時未有認證機構獲得認可",
+      indoor_air_quality: "室內空氣質素檢驗",
+      to_improve_indoor_air_quality: `為改善室內空氣質素，以及加強公眾對這方面的關注，環境保護署推出自願參與的「室內空氣質素檢定計劃」。室內空氣質素檢驗機構會就計劃提供下列測量及檢驗服務:`,
+      to_improve_indoor_air_quality_ways: [
+        "實地視察處所/樓宇",
+        "實地量度室內空氣質素參數（例如空氣流動速度、一氧化碳、揮發性有機化合物等）",
+        "評核室內空氣質素是否符合指標",
+      ],
+
+      more_info_air_quality: (
+        <>
+          如需更多資料，請瀏覽
+          <a
+            aria-label="網站"
+            href="https://www.iaq.gov.hk/en/home/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-[#00E]"
+          >
+            網站
+          </a>
+          。
+        </>
+      ),
     },
   };
 
@@ -642,6 +691,10 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     whats_benefits_of_pc_detail,
     local_prod,
     the_following_prod,
+    indoor_air_quality,
+    to_improve_indoor_air_quality,
+    to_improve_indoor_air_quality_ways,
+    more_info_air_quality,
     building_diagnostic,
     to_facilitate,
     to_facilitate_ways,
@@ -1003,6 +1056,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     description: string[];
     contentTitle: string;
     content: React.ReactNode;
+    contentTitle_2?: string;
+    content_2?: React.ReactNode;
   }> = [
     {
       title: laboratory_and_on_site as string,
@@ -1022,8 +1077,24 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
     {
       title: inspection_services as string,
       description: inspection_services_desc as string[],
-      contentTitle: indoor_air as string,
+      contentTitle: indoor_air_quality as string,
       content: (
+        <div className="text-justify">
+          <p>{to_improve_indoor_air_quality as string}</p>
+          <br />
+          <ul>
+            {(
+              (to_improve_indoor_air_quality_ways ?? []) as React.ReactNode[]
+            ).map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+          <br />
+          <p>{more_info_air_quality as React.ReactNode}</p>
+        </div>
+      ),
+      contentTitle_2: indoor_air as string,
+      content_2: (
         <div className="text-justify">
           {to_improve_indoor_air_ways as React.ReactNode[]}
         </div>
@@ -1086,32 +1157,45 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
       />
 
       <div className="w-full flex flex-col gap-[24px] mt-[24px]">
-        {testingData.map((item, index) => (
-          <Accordion
-            key={index}
-            title={item.title}
-            defaultExpanded={false}
-            details={
-              <div>
-                <div className="!text-body-m">{item.descriptionTitle}</div>
-                <div className="!text-body-m flex flex-col gap-[12px]">
-                  {[...item.description].map((desc, index) => (
-                    <div key={index}>
-                      <ul>
-                        <li>{desc}</li>
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+        {testingData.map((item, index) => {
+          return (
+            <Accordion
+              key={index}
+              title={item.title}
+              defaultExpanded={false}
+              details={
+                <div>
+                  <div className="!text-body-m">{item.descriptionTitle}</div>
+                  <div className="!text-body-m flex flex-col gap-[12px]">
+                    {[...item.description].map((desc, index) => (
+                      <div key={index}>
+                        <ul>
+                          <li>{desc}</li>
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
 
-                <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
-                  <div className="text-heading-m">{item.contentTitle}</div>
-                  <div className="text-body-m mt-[16px]">{item.content}</div>
+                  <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
+                    <div className="text-heading-m">{item.contentTitle}</div>
+                    <div className="text-body-m mt-[16px]">{item.content}</div>
+                  </div>
+
+                  {item.contentTitle_2 && item.content_2 && (
+                    <div className="w-full bg-[#F7F7F5] py-[36px] px-[42px] mt-[16px]">
+                      <div className="text-heading-m">
+                        {item.contentTitle_2}
+                      </div>
+                      <div className="text-body-m mt-[16px]">
+                        {item.content_2}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            }
-          />
-        ))}
+              }
+            />
+          );
+        })}
       </div>
 
       <div className="text-heading-l my-[24px]">
