@@ -13,24 +13,24 @@ export const PressReleases: React.FC = () => {
       titleCN: "政府公布香港檢測和認證局成員任命",
       link: "https://www.info.gov.hk/gia/general/202312/29/P2023122900309.htm",
       tcLink:
-        "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm",
+        "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       scLink:
-        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202312/29/P2023122900307.htm",
+        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       date: "29 Dec 2023",
     },
     {
-      titleCN: "政府公布香港檢測和認證局成員任命",
+      titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」公布得獎結果",
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 announces award results",
       link: "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
       tcLink:
-        "https://www.info.gov.hk/gia/general/202312/04/P2023120400309.htm",
+        "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       scLink:
-        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/202312/04/P2023120400309.htm",
+        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       date: "4 Dec 2023",
     },
     {
-      titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」公布得獎結果",
+      titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」現接受申請",
 
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 opens for applications",
@@ -42,25 +42,25 @@ export const PressReleases: React.FC = () => {
       date: "2 May 2023",
     },
     {
-      titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」現接受申請",
+      titleCN: "政府公布香港檢測和認證局成員任命",
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
       link: "https://www.info.gov.hk/gia/general/202112/28/P2021122800493.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202112/28/P2021122800492.htm",
       scLink:
-        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202112/28/P2021122800492.htm?fontSize=1",
+        "hhttps://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/202112/28/P2021122800492.htm",
       date: "28 Dec 2021",
     },
     {
-      titleCN: "政府公布香港檢測和認證局成員任命",
+      titleCN: "「2021-22年度檢測認證人力發展嘉許計劃」公佈得獎結果",
       title:
         "Testing and Certification Manpower Development Award Scheme 2021-22 announces award results",
       link: "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202112/22/P2021122200209.htm",
       scLink:
-        "https://sc.isd.gov.hk/TuniS//www.info.gov.hk/gia/general/202112/22/P2021122200209.htm?fontSize=1",
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/202112/22/P2021122200209.htm",
       date: "22 Dec 2021",
     },
     {
@@ -71,7 +71,7 @@ export const PressReleases: React.FC = () => {
       tcLink:
         "https://www.info.gov.hk/gia/general/201912/20/P2019122000269.htm",
       scLink:
-        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/201912/20/P2019122000269.htm?fontSize=1",
+        "https://sc.isd.gov.hk/TuniS/www.info.gov.hk/gia/general/201912/20/P2019122000269.htm",
       date: "20 Dec 2019",
     },
     {
@@ -103,7 +103,7 @@ export const PressReleases: React.FC = () => {
       link: "https://www.info.gov.hk/gia/general/201601/25/P201601250593.htm",
       tcLink: "https://www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
       scLink:
-        "https://sc.isd.gov.hk/gb/www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
+        " https://sc.isd.gov.hk/gb/www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
       date: "21 Jan 2016",
     },
   ];
