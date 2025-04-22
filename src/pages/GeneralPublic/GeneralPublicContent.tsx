@@ -71,7 +71,7 @@ export const GeneralPublicContent: React.FC = () => {
     <div
       className={`w-full ${
         isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col-reverse"
-      } gap-[24px] pb-[48px]`}
+      } gap-[24px]`}
       style={{ marginTop: "24px", paddingLeft: "24px", paddingRight: "24px" }}
     >
       <div className="flex flex-col gap-[24px]">

@@ -116,7 +116,7 @@ export const IndustryContent: React.FC = () => {
     <div
       className={`w-full ${
         isPC ? "grid grid-cols-[2fr,1fr]" : "flex flex-col"
-      } py-[48px] px-[24px] gap-[24px]`}
+      } pt-[48px] px-[24px] gap-[24px]`}
     >
       <div>
         <SquareTitle title={our_support as string} />

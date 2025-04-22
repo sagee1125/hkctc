@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Footer,
-  Header,
-  Navigator,
-  ScrollTopButton,
-  SkipLinks,
-} from "./components";
+import { Header, Navigator, ScrollTopButton, SkipLinks } from "./components";
 import { useSettings } from "./context";
 import { usePageTitle } from "./hooks/usePageTitle";
-
+import { Footer } from "./components/Footer/Footer";
 type LayoutProps = {
   children: React.ReactNode;
 };

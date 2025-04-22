@@ -82,6 +82,8 @@ export const ServiceUsersContent: React.FC = () => {
           </a>
         </>
       ),
+      establishments: "Accredited Establishments",
+      establishments_content: `Accredited laboratories, inspection bodies and certification bodies need to undergo rigorous on-site assessments before they are recognised to be competent in performing the conformity assessment activities listed in their respective scopes of accreditation. Users of conformity assessment services may identify and select the services provided by accredited bodies to support their business.`,
     },
     cn: {
       tc_sector_strengths: "檢測認證業提供的服務",
@@ -115,6 +117,8 @@ export const ServiceUsersContent: React.FC = () => {
           。
         </>
       ),
+      establishments: "獲認可機構",
+      establishments_content: `實驗所、檢驗機構及認證機構須通過嚴格的現場評審，方能獲得認可資格，視爲有能力進行其認可服務範圍內的合格評定活動。使用者可物色和挑選由認可機構提供的服務，以支援其業務。`,
     },
   };
   const page_text = getPageText(multilingual);
@@ -130,6 +134,8 @@ export const ServiceUsersContent: React.FC = () => {
     seminar_workshop,
     full_list,
     our_support,
+    establishments,
+    establishments_content,
   } = page_text;
   const industryData = [
     {
@@ -181,7 +187,7 @@ export const ServiceUsersContent: React.FC = () => {
     <div
       className={`w-full grid grid-cols-${
         isPC ? "[2fr,1fr]" : "1"
-      } py-[48px] px-[24px] gap-[24px]`}
+      } px-[24px] gap-[24px]`}
     >
       <div>
         <SquareTitle title={our_support as string} />
@@ -282,6 +288,12 @@ export const ServiceUsersContent: React.FC = () => {
         <p className="text-italic-s italic mt-[24px] text-justify">
           {full_list as string}
         </p>
+
+        <hr className="my-[24px]" />
+        <p className="text-heading-l">{establishments as string}</p>
+        <div className="text-body-m mt-[24px] text-justify">
+          {establishments_content as string}
+        </div>
       </div>
       {/* Others & Enquires */}
       <div className="flex flex-col">
