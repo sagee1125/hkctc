@@ -61,10 +61,10 @@ export const AboutHKCTC: React.FC = () => {
       ],
       heading:
         "香港檢測和認證局於2009年9月成立，就行業的整體發展策略向政府提供意見。成員包括業界從業員，以及商界、專業團體、相關公營機構和政府部門的代表。",
-      membership: "官方成員",
+      membership: "成員",
       chairman: "主席",
       prof_WWT: "黃永德教授",
-      members: "成員",
+      members: "官方成員",
       member_names: [
         "蔡少芳女士",
         "樊兆中先生",
