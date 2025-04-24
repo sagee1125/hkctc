@@ -277,7 +277,9 @@ export const ServiceUsersContent: React.FC = () => {
                     <span className="underline">
                       {getSingleText(title, titleCN)}
                     </span>
-                    {getSingleText(explain, explainCN)}
+                    {getSingleText(explain, explainCN).length > 28 && !isPC
+                      ? getSingleText(explain, explainCN).slice(0, 28) + "..."
+                      : getSingleText(explain, explainCN)}
                   </a>
                 </span>
               </div>
