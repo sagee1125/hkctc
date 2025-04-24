@@ -29,11 +29,11 @@ export const VideoBox: React.FC = () => {
   const progressRef = useRef<number>();
 
   const videoUrls = [
-    "InnoCarnivalcut.mp4",
-    "HKCTC_03_edit_016_sub_TC_ENG.mp4",
+    "InnoCarnivalcut_light.mp4",
+    "HKCTC_03_edit_016_sub_TC_ENG_light.mp4",
     // "HKCTC_02_edit_014_sub_TC_ENG.mp4", // move it in 17/04/2025
-    "HKCTC_04_012_sub_TC_ENG.mp4",
-    "HKCTC_ESG_edit_005_sub_TC_ENG.mp4",
+    "HKCTC_04_012_sub_TC_ENG_light.mp4",
+    "HKCTC_ESG_edit_005_sub_TC_ENG_light.mp4",
   ];
 
   // 初始化 ref 数组
@@ -45,12 +45,14 @@ export const VideoBox: React.FC = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % videoUrls.length);
   };
 
-  const resetVideo = (index: number) => {
-    const video = videoRefs.current[index];
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
+  const waitUntilReady = (video: HTMLVideoElement) => {
+    return new Promise<void>((resolve) => {
+      if (video.readyState >= 3) {
+        resolve();
+      } else {
+        video.addEventListener("canplay", () => resolve(), { once: true });
+      }
+    });
   };
 
   const setupCurrentVideo = () => {
@@ -63,7 +65,10 @@ export const VideoBox: React.FC = () => {
 
     const startPlayback = async () => {
       try {
-        await currentVideo.play();
+        await waitUntilReady(currentVideo); // 等待視頻準備好
+        setTimeout(() => {
+          currentVideo.play(); // 在稍後的時候播放視頻
+        }, 500); // 延遲500ms進行播放
 
         // 严格5秒切换（即使视频未播放完）
         timerRef.current = setTimeout(() => {
@@ -220,6 +225,7 @@ export const VideoBox: React.FC = () => {
               aria-label={welcome as string}
               muted
               playsInline
+              autoPlay
               loop={false}
               preload="auto"
               style={videoStyle}
