@@ -187,7 +187,7 @@ export const ServiceUsersContent: React.FC = () => {
     <div
       className={`w-full grid grid-cols-${
         isPC ? "[2fr,1fr]" : "1"
-      } px-[24px] gap-[24px]`}
+      } px-[24px] gap-[24px] pt-[48px]`}
     >
       <div>
         <SquareTitle title={our_support as string} />
