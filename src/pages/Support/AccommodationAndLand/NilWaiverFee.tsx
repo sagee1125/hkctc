@@ -136,7 +136,7 @@ const eligibilityQues = [
         covered under the measure. If the owner of the premises would like to
         apply for a waiver under the measure to allow use as a testing
         laboratory, he/she, or his/her authorised representative can apply to
-        LandsD. Please also refer to reply to QI.1 above.
+        LandsD. Please also refer to reply to Q1 above.
       </>
     ),
   },

@@ -94,7 +94,21 @@ const multilingual = {
       </>
     ),
 
-    the_TID: `工業貿易署（工貿署）負責協調香港特別行政區政府（特區政府）有關政策局／部門參與「灣區標準」的工作，並與廣東省及澳門有關當局保持密切聯繫。`,
+    the_TID: (
+      <>
+        工業貿易署（工貿署）負責協調香港特別行政區政府（特區政府）有關政策局／部門參與「灣區標準」的工作，工貿署亦發佈
+        <a
+          aria-label="商業資料"
+          href={`https://www.tid.gov.hk/tc/tradecircular/detail.html?categoryId=35`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00E] underline"
+        >
+          商業資料
+        </a>
+        通告通知業界有關「灣區標準」的資訊。
+      </>
+    ),
 
     formulation_GBA_standards: `制定「灣區標準」`,
     GBA_standardisation: (
@@ -114,7 +128,7 @@ const multilingual = {
     ),
     GBA_certification: `灣區認證`,
     with_the_support: `在廣東省市場監督管理局的督導和廣東省、香港和澳門三地政府的支持下，三地的認證機構在2022年9月聯合成立了「粵港澳大灣區認證聯盟」（聯盟），負責推進以市場驅動、供業界自願採用的「灣區認證」計劃。聯盟在2023年9月註冊了一個實體，即「粵港澳大灣區認證促進中心」，代表聯盟處理有關「灣區認證」的事宜。`,
-    the_first_batch: `「灣區認證」首批項目已於2023年12月19日在深圳舉行的典禮上公布，其中包括15個產品或服務的認證計劃，涵蓋建築材料、電器、衣物、食品、物業管理服務和安老服務等。`,
+    the_first_batch: `「灣區認證」首批15個項目已於2023年12月19日在深圳舉行的典禮上公布。目前粵港澳三地認證機構已研發超過50個「灣區認證」項目，簽發超過100張「灣區認證」證書，涵蓋食品、建築材料、電器等不同領域的產品。`,
     information_about_GBA_certification: (
       <>
         灣區認證的相關資訊可以在
@@ -168,7 +182,7 @@ export const GBA: React.FC = () => {
         <br />
         <p>{information_about_GBA_found as React.ReactNode}</p>
         <br />
-        <p>{the_TID as string}</p>
+        <div>{the_TID as React.ReactNode}</div>
 
         <br />
 

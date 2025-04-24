@@ -92,6 +92,7 @@ export const Navigator: React.FC = () => {
   const [selectedExploreOption, setSelectedExploreOption] = useState<
     string | null
   >(getCurrentTitle(currentPath));
+  const [openExploreBar, setOpenExploreBar] = useState<boolean>(false);
 
   const currentOption = getSingleText(
     selectedExploreOption === null ? "" : selectedExploreOption,
@@ -946,68 +947,66 @@ export const Navigator: React.FC = () => {
                 {isHideExploreBar && isPC && (
                   <div className="flex flex-row items-center gap-[8px] pr-[24px]">
                     <div className="min-w-[200px]">
-                      <Menu
-                        as="div"
+                      <div
                         className="relative inline-block text-left w-full"
+                        tabIndex={0}
+                        role="button"
+                        aria-label={"open explore dropdown selection"}
+                        onMouseEnter={() => setOpenExploreBar(true)}
+                        onMouseLeave={() => setOpenExploreBar(false)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            setOpenExploreBar(true);
+                          }
+                        }}
                       >
-                        {({ open }) => (
-                          <>
-                            <Menu.Button className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
-                              <p className="!text-body-s">
-                                {selectedExploreOption ??
-                                  (explore_as as string)}
-                              </p>
-                              <ChevronDownIcon
-                                className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${
-                                  open ? "rotate-180" : "rotate-0"
-                                }`}
-                                aria-label="icon"
-                              />
-                            </Menu.Button>
-                            <Transition
-                              as={Fragment}
-                              enter="transition ease-out duration-100"
-                              enterFrom="transform opacity-0 scale-95"
-                              enterTo="transform opacity-100 scale-100"
-                              leave="transition ease-in duration-75"
-                              leaveFrom="transform opacity-100 scale-100"
-                              leaveTo="transform opacity-0 scale-95"
-                            >
-                              <Menu.Items className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                {exploreOption.map((item, eoIndex) => (
-                                  <Menu.Item key={eoIndex}>
-                                    {({ active }) => {
-                                      const buttonText = getSingleText(
-                                        item.title,
-                                        item.titleCN
-                                      );
-                                      return (
-                                        <button
-                                          key={eoIndex}
-                                          aria-label={buttonText}
-                                          onClick={() => {
-                                            setSelectedExploreOption(
-                                              item.title
-                                            );
-                                            window.open(item.nav, "_self");
-                                          }}
-                                          className={`block w-full text-left text-body-m px-4 py-3 text-sm ${
-                                            active
-                                              ? "bg-newPrimary text-white"
-                                              : "text-gray-700"
-                                          }`}
-                                        >
-                                          {buttonText}
-                                        </button>
-                                      );
+                        <div className="inline-flex w-full justify-between items-center border border-gray-300 py-[8px] px-[16px] bg-newPrimary text-body-m text-white">
+                          <p className="!text-body-s">
+                            {selectedExploreOption ?? (explore_as as string)}
+                          </p>
+                          <ChevronDownIcon
+                            className={`h-5 w-5 text-[#666666] text-white transform transition-transform ${
+                              openExploreBar ? "rotate-180" : "rotate-0"
+                            }`}
+                            aria-label="icon"
+                          />
+                        </div>
+                        <Transition
+                          as={Fragment}
+                          show={openExploreBar}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <div className="absolute z-10 mt-2 w-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            {exploreOption.map((item, eoIndex) => {
+                              const buttonText = getSingleText(
+                                item.title,
+                                item.titleCN
+                              );
+
+                              return (
+                                <div key={eoIndex} className="group">
+                                  <button
+                                    key={eoIndex}
+                                    aria-label={buttonText}
+                                    onClick={() => {
+                                      setSelectedExploreOption(item.title);
+                                      window.open(item.nav, "_self");
                                     }}
-                                  </Menu.Item>
-                                ))}
-                              </Menu.Items>
-                            </Transition>
-                          </>
-                        )}
-                      </Menu>
+                                    className="block w-full text-left text-body-m px-4 py-3 text-sm text-gray-700 group-hover:bg-newPrimary group-hover:text-white hover:bg-newPrimary hover:text-white"
+                                  >
+                                    {buttonText}
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </Transition>
+                      </div>
                     </div>
                   </div>
                 )}
