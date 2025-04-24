@@ -5,7 +5,7 @@ import { MEDIA_TYPE } from "../../../const";
 import { Language, LanguageResources, useSettings } from "../../../context";
 
 export const AccreditationServices: React.FC = () => {
-  const { language, getPageText, getSingleText } = useSettings();
+  const { isPC, language, getPageText, getSingleText } = useSettings();
   const multilingual = {
     en: {
       accreditation_services: "Accreditation Services",
@@ -199,7 +199,9 @@ export const AccreditationServices: React.FC = () => {
                     <span className="underline">
                       {getSingleText(title, titleCN)}
                     </span>
-                    {getSingleText(explain, explainCN)}
+                    {getSingleText(explain, explainCN).length > 48 && !isPC
+                      ? getSingleText(explain, explainCN).slice(0, 48) + "..."
+                      : getSingleText(explain, explainCN)}
                   </a>
                 </span>
               </div>
