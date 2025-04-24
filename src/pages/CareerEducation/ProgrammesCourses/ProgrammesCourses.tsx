@@ -124,9 +124,9 @@ const degreeMap: Record<
             programmeCN: "食品測試科學（榮譽）理學士",
             url: "https://admissions.hkmu.edu.hk/ug/st/food-testing-science/",
             tcUrl:
-              "https://admissions.hkmu.edu.hk/sc/ug/st/food-testing-science/",
-            scUrl:
               "https://admissions.hkmu.edu.hk/tc/ug/st/food-testing-science/",
+            scUrl:
+              "https://admissions.hkmu.edu.hk/sc/ug/st/food-testing-science/",
           },
           {
             programme: "BSc (Hons) in Testing Science and Certification",
