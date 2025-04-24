@@ -60,7 +60,7 @@ export const MediaTemplateWithDialog: React.FC<
     const fetchAndRenderPdf = async () => {
       // const pdfUrl = handleGetPDFUrl(mediaDomain, mediaLink);
       // const pdfUrl = mediaLink;
-      const pdfUrl = `${process.env.PUBLIC_URL}/assets${mediaLink}`;
+      const pdfUrl = `${process.env.PUBLIC_URL}${mediaLink}`;
 
       setLoading(true);
       try {

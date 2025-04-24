@@ -75,7 +75,9 @@ export const MediaDialog: React.FC<MediaDialogProps> = ({
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[48px] bg-black bg-opacity-70">
       <div
         className={`bg-[#D4D4D4] p-4 ${
-          isPC ? "w-[70vw] h-[90vh]" : "w-[80%] aspect-[384/240]"
+          isPC
+            ? "w-[70vw] h-[90vh]"
+            : "max-w-[80%] min-w-[384px] aspect-[384/240]"
         } relative `}
       >
         <button
