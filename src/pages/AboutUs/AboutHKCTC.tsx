@@ -18,7 +18,7 @@ export const AboutHKCTC: React.FC = () => {
       membership: "Membership",
       chairman: "Chairman",
       prof_WWT: "Professor WONG Wing-tak",
-      members: "Members",
+      members: "Official Members",
       member_names: [
         "Ms Bess CHOI Siu-fong",
         "Mr Martin FAN",
@@ -37,7 +37,7 @@ export const AboutHKCTC: React.FC = () => {
         "Ms Gilly WONG Fung-han",
         "Mr Wilson WONG Wing-wa",
       ],
-      non_official_members: "Non-Official Members",
+      non_official_members: "Members",
       non_official_member_name: [
         "Executive Director of Hong Kong Productivity Council or representative",
         "Executive Director of Hong Kong Trade Development Council or representative",
@@ -46,7 +46,8 @@ export const AboutHKCTC: React.FC = () => {
         "Commissioner for Innovation and Technology or representative",
       ],
       secretary: "Secretary",
-      secretary_manager: "Senior Manager (Testing and Certification)",
+      secretary_manager:
+        "Assistant Commissioner for Innovation and Technology (Quality Services)",
       about_logo: "About HKCTC Logo",
       inspired_by: `Inspired by the unified precision of a microscope, which is a combination of meticulous accuracy of scientific enquiry and the harmony represented by circles, the new HKCTC logo encapsulates the essence of the inclusivity and collaboration; innovation and quality; unifying force and scientific rigour.  This new logo is a cornerstone of HKCTC’s brand evolution, visually expressing our tagline - Catalysing Excellence.`,
     },
@@ -60,7 +61,7 @@ export const AboutHKCTC: React.FC = () => {
       ],
       heading:
         "香港檢測和認證局於2009年9月成立，就行業的整體發展策略向政府提供意見。成員包括業界從業員，以及商界、專業團體、相關公營機構和政府部門的代表。",
-      membership: "成員",
+      membership: "官方成員",
       chairman: "主席",
       prof_WWT: "黃永德教授",
       members: "成員",
@@ -82,7 +83,7 @@ export const AboutHKCTC: React.FC = () => {
         "黃鳳嫺女士",
         "黃永華先生",
       ],
-      non_official_members: "非官方成員",
+      non_official_members: "成員",
       non_official_member_name: [
         "香港生產力促進局總裁或代表",
         "香港貿易發展局總裁或代表",
@@ -91,7 +92,7 @@ export const AboutHKCTC: React.FC = () => {
         "創新科技署署長或代表",
       ],
       secretary: "秘書",
-      secretary_manager: "高級經理（檢測和認證）",
+      secretary_manager: "創新科技署助理署長（品質事務）",
       about_logo: "關於香港檢測和認證局的標誌",
       inspired_by:
         "香港檢測和認證局的全新標誌設計靈感源於顯微鏡所體現的統一精準概念，它融合了科學研究的嚴謹精確以及圓形所代表的和諧。新標誌充分展現了包容與協作、創新與品量、凝聚力與科學嚴謹的精髓，是香港檢測和認證局品牌發展歷程中的基石，以視覺形式詮釋了我們的標語：匯創卓越。",

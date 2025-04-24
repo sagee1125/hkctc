@@ -485,8 +485,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             aria-label="綠建環評"
             href={
               language === Language.ZH_TW
-                ? "https://www.housingauthority.gov.hk/tc/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_ChiW3C.pdf"
-                : "https://www.housingauthority.gov.hk/sc/common/pdf/business-partnerships/resources/construction-product-certification/ManufacturersOrSuppliers-ProductCertStatus(20220930)_SimpChiW3C.pdf"
+                ? "https://www.hkgbc.org.hk/tch/beam-plus/introduction/"
+                : "https://www.hkgbc.org.hk/tch/beam-plus/introduction/"
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -504,8 +504,8 @@ export const ConstructionMaterialsBuildings: React.FC = () => {
             aria-label="計劃的網站"
             href={
               language === Language.ZH_TW
-                ? "https://www.hkgbc.org.hk/chi/NB_Intro.aspx"
-                : "https://www.hkgbc.org.hk/chi/NB_Intro.aspx"
+                ? "https://www.hkgbc.org.hk/tch/beam-plus/beam-plus-new-buildings/"
+                : "https://www.hkgbc.org.hk/tch/beam-plus/beam-plus-new-buildings/"
             }
             target="_blank"
             rel="noopener noreferrer"
