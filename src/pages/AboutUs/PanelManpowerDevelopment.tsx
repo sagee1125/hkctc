@@ -37,6 +37,8 @@ export const PanelManpowerDevelopment: React.FC = () => {
         "Executive Director of Vocational Training Council or representative",
         "Assistant Commissioner for Innovation and Technology (Quality Services)",
       ],
+      secretary: "Secretary",
+      secretary_manager: "Senior Manager (Testing and Certification)",
     },
     cn: {
       terms_of_ref: "職權範圍",
@@ -71,6 +73,8 @@ export const PanelManpowerDevelopment: React.FC = () => {
         "職業訓練局執行幹事或其代表",
         "創新科技署助理署長（品質事務）",
       ],
+      secretary: "秘書",
+      secretary_manager: "高級經理（檢測和認證）",
     },
   };
   const page_text = getPageText(multilingual);
@@ -85,6 +89,8 @@ export const PanelManpowerDevelopment: React.FC = () => {
     dr_WNM,
     official_members,
     official_member_name,
+    secretary,
+    secretary_manager,
   } = page_text;
 
   return (
@@ -129,6 +135,8 @@ export const PanelManpowerDevelopment: React.FC = () => {
           <p key={index}>{m}</p>
         ))}
       </div>
+      <p className="text-heading-m mt-[22px] mb-[8px]">{secretary as string}</p>
+      <p className="text-body-m">{secretary_manager as string}</p>
     </div>
   );
 };
