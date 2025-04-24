@@ -54,7 +54,7 @@ const Agreement: React.FC = () => {
               rel="noopener noreferrer"
               className="underline text-[#00E]"
             >
-              HKAS’s website.
+              HKAS's website.
             </a>
           </p>
         </>
@@ -351,7 +351,7 @@ const EnterpriseRun: React.FC = () => {
             >
               website
             </a>
-            &nbsp; account (WeChat ID: cnca_2015).
+            &nbsp;and WeChat official account (WeChat ID: cnca_2015).
           </p>
           <br />
           <p>

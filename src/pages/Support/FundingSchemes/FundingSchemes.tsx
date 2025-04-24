@@ -170,7 +170,7 @@ export const FundingSchemes: React.FC = () => {
         title: "Testing and Certification Industry Job Creation Scheme (TCJS)",
         the_innovation_and_technology_commission:
           "The Innovation and Technology Commission launched the Testing and Certification Industry Job Creation Scheme (the Scheme) under the Anti-Epidemic Fund (AEF) 6.0 on 24 August 2022.",
-        the_scheme_was: `The Scheme was the first job creation scheme dedicated to the T&C industry. It aimed to encourage private testing and certification (T&C) organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong's T&C talent pool.`,
+        the_scheme_was: `The Scheme was the first job creation scheme dedicated to the Testing and Certification(T&C) industry. It aimed to encourage private T&C organisations to create more job opportunities, and attract people to join the T&C industry, so as to enrich Hong Kong's T&C talent pool.`,
         each_local: `Each local private T&C organisation with valid accreditation status given by the Hong Kong Accreditation Service could apply for a monthly subsidy for up to five eligible job positions.`,
         for_each_approve: (
           <p className="text-body-m flex-grow min-w-0">

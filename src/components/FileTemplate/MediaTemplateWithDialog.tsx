@@ -176,12 +176,13 @@ export const MediaTemplateWithDialog: React.FC<
       }
       setLoading(false);
     };
-
-    if (mediaType === MEDIA_TYPE.PDF && !thumbnail) {
-      fetchAndRenderPdf();
-    } else if (mediaType === MEDIA_TYPE.VIDEO) {
-      if (mediaDomain === "hkctc") fetchVideoPoster();
-      if (mediaDomain === "youtube") fetchYouTubePoster();
+    if (!thumbnail) {
+      if (mediaType === MEDIA_TYPE.PDF) {
+        fetchAndRenderPdf();
+      } else if (mediaType === MEDIA_TYPE.VIDEO) {
+        if (mediaDomain === "hkctc") fetchVideoPoster();
+        if (mediaDomain === "youtube") fetchYouTubePoster();
+      }
     }
 
     return () => {
@@ -352,18 +353,32 @@ export const MediaTemplateWithDialog: React.FC<
                     </video>
                   )}
 
-                  <img
-                    ref={imageRef}
-                    alt={title}
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                      zIndex: 0,
-                      opacity: isIMGLoaded ? 1 : 0,
-                    }}
-                    onLoad={handleImageLoad}
-                  />
+                  {!!thumbnail ? (
+                    <img
+                      alt={title}
+                      src={`${process.env.PUBLIC_URL}/assets/${thumbnail}`}
+                      style={{
+                        objectFit: "contain",
+                        minWidth: "100%",
+                        minHeight: "100%",
+                        zIndex: 2,
+                        aspectRatio: "auto",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      ref={imageRef}
+                      alt={title}
+                      style={{
+                        objectFit: "fill",
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                        opacity: isIMGLoaded ? 1 : 0,
+                      }}
+                      onLoad={handleImageLoad}
+                    />
+                  )}
                 </div>
               )}
 
@@ -387,6 +402,16 @@ export const MediaTemplateWithDialog: React.FC<
                 </>
               )}
             </>
+
+            {/* Icon */}
+            <img
+              className="absolute bottom-[10px] right-[6px] w-[32px] h-[32px]"
+              src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
+              alt={title}
+              style={{
+                zIndex: 10,
+              }}
+            />
           </div>
           <div className="flex flex-col justify-center py-[24px] pr-[24px] gap-[12px]">
             <div
@@ -605,7 +630,7 @@ export const MediaTemplateWithDialog: React.FC<
                 src={`${process.env.PUBLIC_URL}/assets/icons/${maskIcon}`}
                 alt={title}
                 style={{
-                  zIndex: 3,
+                  zIndex: 10,
                 }}
               />
             </div>

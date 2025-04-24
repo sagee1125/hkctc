@@ -261,29 +261,29 @@ export const CEPAAgreements: React.FC = () => {
           <br />
           <ul>
             <li className="text-body-m mb-[1em]">
-              On the scope of testing of&nbsp;
+              On the scope of&nbsp;
               <span className="text-newPrimary !text-highlight-m">
-                CCC products
+                testing of CCC products
               </span>
-              &nbsp; that can be undertaken by qualified Hong Kong testing
+              &nbsp;that can be undertaken by qualified Hong Kong testing
               organisations in collaboration with designated Mainland
               organisations: To expand from products processed or manufactured
-              in the Mainland or processed in Hong Kong to products processed or
-              &nbsp;
+              in the Mainland or processed in Hong Kong to products&nbsp;
               <span className="text-newPrimary !text-highlight-m">
-                manufactured in any place (including places outside China)
+                processed or manufactured in any place (including places outside
+                China)
               </span>
               .
             </li>
             <li className="text-body-m">
-              On the geographical coverage of{" "}
+              On the geographical coverage of&nbsp;
               <span className="text-newPrimary !text-highlight-m">
-                CCC factory
-              </span>{" "}
-              inspection that can be undertaken by qualified certification
-              bodies in Hong Kong in collaboration with designated Mainland
-              organisations: To expand from manufacturers located in the China
-              (Guangdong) Pilot Free Trade Zone to{" "}
+                CCC factory inspection
+              </span>
+              &nbsp;that can be undertaken by qualified certification bodies in
+              Hong Kong in collaboration with designated Mainland organisations:
+              To expand from manufacturers located in the China (Guangdong)
+              Pilot Free Trade Zone to{" "}
               <span className="text-newPrimary !text-highlight-m">
                 manufacturers in the whole Mainland
               </span>
