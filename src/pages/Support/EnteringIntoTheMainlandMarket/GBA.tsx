@@ -98,15 +98,15 @@ const multilingual = {
       <>
         工業貿易署（工貿署）負責協調香港特別行政區政府（特區政府）有關政策局／部門參與「灣區標準」的工作，工貿署亦發佈
         <a
-          aria-label="商業資料"
+          aria-label="商業資料通告"
           href={`https://www.tid.gov.hk/tc/tradecircular/detail.html?categoryId=35`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00E] underline"
         >
-          商業資料
+          商業資料通告
         </a>
-        通告通知業界有關「灣區標準」的資訊。
+        通知業界有關「灣區標準」的資訊。
       </>
     ),
 
