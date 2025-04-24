@@ -1,8 +1,7 @@
 import React from "react";
-import { SquareTitle, Link } from "../../../../components";
+import { SquareTitle } from "../../../../components";
 import { Language, useSettings } from "../../../../context";
 import { formatDateToChinese } from "../Advertorials";
-import { LANGUAGE } from "../../../../const";
 
 export const PressReleases: React.FC = () => {
   const { getSingleText, language } = useSettings();
