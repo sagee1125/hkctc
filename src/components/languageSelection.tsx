@@ -31,18 +31,21 @@ const LanguageSelect: React.FC = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setAnchorEl(null);
   };
 
   const handleLanguageChange = (lan: Language) => (): void => {
     handleChangeLang(lan);
+    setAnchorEl(null);
   };
+
   const currentOptions = languageOptions.find(
     (lan, index) => lan.value === language
   )?.label;
+
   return (
-    <div>
+    <div tabIndex={-1} onMouseLeave={handleClose} role="button">
       <Button
         tabIndex={0}
         aria-label="switch language"
@@ -51,6 +54,7 @@ const LanguageSelect: React.FC = () => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        onMouseEnter={handleClick}
         variant="text"
         sx={{
           minWidth: "auto",
@@ -58,12 +62,17 @@ const LanguageSelect: React.FC = () => {
       >
         <p className={isPC ? "text-body-m" : "text-body-l"}>{currentOptions}</p>
       </Button>
+
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         tabIndex={0}
         onClose={handleClose}
+        onMouseLeave={handleClose}
+        MenuListProps={{
+          onMouseLeave: handleClose,
+        }}
         slotProps={{
           paper: {
             elevation: 0,
