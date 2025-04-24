@@ -1,17 +1,19 @@
 import React from "react";
 import { SquareTitle, Link } from "../../../../components";
-import { useSettings } from "../../../../context";
+import { Language, useSettings } from "../../../../context";
 import { formatDateToChinese } from "../Advertorials";
+import { LANGUAGE } from "../../../../const";
 
 export const PressReleases: React.FC = () => {
-  const { getSingleText } = useSettings();
+  const { getSingleText, language } = useSettings();
 
   const publicationsInfo = [
     {
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
       titleCN: "政府公布香港檢測和認證局成員任命",
-      link: "https://www.info.gov.hk/gia/general/202312/29/P2023122900309.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/202312/29/P2023122900309.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       scLink:
@@ -22,7 +24,8 @@ export const PressReleases: React.FC = () => {
       titleCN: "「2023-24年度檢測認證人力發展嘉許計劃」公布得獎結果",
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 announces award results",
-      link: "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/202312/04/P2023120400310.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202312/29/P2023122900307.htm?fontSize=1",
       scLink:
@@ -34,7 +37,8 @@ export const PressReleases: React.FC = () => {
 
       title:
         "Testing and Certification Manpower Development Award Scheme 2023-24 opens for applications",
-      link: "https://www.info.gov.hk/gia/general/202305/02/P2023042700373.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/202305/02/P2023042700373.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202305/02/P2023042700370.htm",
       scLink:
@@ -45,7 +49,8 @@ export const PressReleases: React.FC = () => {
       titleCN: "政府公布香港檢測和認證局成員任命",
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
-      link: "https://www.info.gov.hk/gia/general/202112/28/P2021122800493.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/202112/28/P2021122800493.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202112/28/P2021122800492.htm",
       scLink:
@@ -56,7 +61,8 @@ export const PressReleases: React.FC = () => {
       titleCN: "「2021-22年度檢測認證人力發展嘉許計劃」公佈得獎結果",
       title:
         "Testing and Certification Manpower Development Award Scheme 2021-22 announces award results",
-      link: "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/202112/22/P2021122200211.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/202112/22/P2021122200209.htm",
       scLink:
@@ -67,7 +73,8 @@ export const PressReleases: React.FC = () => {
       titleCN: "政府公布香港檢測和認證局成員任命",
       title:
         "Appointments to Hong Kong Council for Testing and Certification announced",
-      link: "https://www.info.gov.hk/gia/general/201912/20/P2019122000275.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/201912/20/P2019122000275.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/201912/20/P2019122000269.htm",
       scLink:
@@ -77,7 +84,8 @@ export const PressReleases: React.FC = () => {
     {
       titleCN: "政府公布香港檢測和認證局成員任命",
       title: "Appointments to Hong Kong Council for Testing and Certification",
-      link: "https://www.info.gov.hk/gia/general/201712/20/P2017122000348.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/201712/20/P2017122000348.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/201712/20/P2017122000343.htm",
       scLink:
@@ -88,7 +96,8 @@ export const PressReleases: React.FC = () => {
       titleCN: "《服務貿易協議》有關檢測和認證的新措施實施詳情",
       title:
         "Implementation details of new measure under CEPA Agreement on Trade in Services on testing and certification announced",
-      link: "https://www.info.gov.hk/gia/general/201709/21/P2017092100377.htm",
+      enLink:
+        "https://www.info.gov.hk/gia/general/201709/21/P2017092100377.htm",
       tcLink:
         "https://www.info.gov.hk/gia/general/201709/21/P2017092100371.htm",
       scLink:
@@ -100,7 +109,7 @@ export const PressReleases: React.FC = () => {
 
       title:
         "Government announces implementation arrangements for measure to facilitate operation of testing laboratories in industrial buildings",
-      link: "https://www.info.gov.hk/gia/general/201601/25/P201601250593.htm",
+      enLink: "https://www.info.gov.hk/gia/general/201601/25/P201601250593.htm",
       tcLink: "https://www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
       scLink:
         " https://sc.isd.gov.hk/gb/www.info.gov.hk/gia/general/201601/25/P201601250596.htm",
@@ -112,14 +121,24 @@ export const PressReleases: React.FC = () => {
     <div className="flex flex-col gap-[24px]">
       <SquareTitle title={getSingleText("Press Releases", "新聞公報")} />
       {publicationsInfo.map((item, i) => {
-        const { title, titleCN, link, date } = item;
+        const { title, titleCN, enLink, scLink, tcLink, date } = item;
+        const link =
+          language === Language.EN
+            ? enLink
+            : language === Language.ZH_CN
+            ? scLink
+            : tcLink;
         return (
           <div key={i} className="flex flex-col">
-            <div className="text-heading-m underline-offset-4 mb-[16px]">
-              <Link outerLink={link} linkColor="#203136">
-                {getSingleText(title, titleCN)}
-              </Link>
-            </div>
+            <a
+              className="text-heading-m !underline !underline-offset-4 mb-[16px] !text-[#203136]"
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={getSingleText(title, titleCN)}
+            >
+              {getSingleText(title, titleCN)}
+            </a>
             <div className="flex flex-row items-center">
               <img
                 className="w-[16px] h-[16px] mr-[8px]"
