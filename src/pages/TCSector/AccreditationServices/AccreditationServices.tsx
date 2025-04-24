@@ -1,7 +1,6 @@
 import React from "react";
 import { SquareTitle, Link } from "../../../components";
 import { accreditationService } from "../../ServiceUsers";
-import { MEDIA_TYPE } from "../../../const";
 import { Language, LanguageResources, useSettings } from "../../../context";
 
 export const AccreditationServices: React.FC = () => {
@@ -199,8 +198,8 @@ export const AccreditationServices: React.FC = () => {
                     <span className="underline">
                       {getSingleText(title, titleCN)}
                     </span>
-                    {getSingleText(explain, explainCN).length > 48 && !isPC
-                      ? getSingleText(explain, explainCN).slice(0, 48) + "..."
+                    {getSingleText(explain, explainCN).length > 28 && !isPC
+                      ? getSingleText(explain, explainCN).slice(0, 28) + "..."
                       : getSingleText(explain, explainCN)}
                   </a>
                 </span>
